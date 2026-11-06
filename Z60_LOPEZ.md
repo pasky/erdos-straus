@@ -1,4 +1,4 @@
-# Z60_LOPEZ — López's single line U_II: the two branches are not complementary (positively coupled, exchangeable); no link law; a sharper sign-free sub-target U₇ (verdict: narrowed + sharper target; no mechanism)
+# Z60_LOPEZ — López's single line U_II: no complementarity found between the branches (exchangeable in law, deep tails positively dependent); no p-independent link law; a sharper sign-free sub-target U₇ (verdict: narrowed + sharper target; no mechanism)
 
 **ES is OPEN; López's Conjecture 1, CONJECTURE U_II, (MS-U) and the new CONJECTURE U₇ are open.** Lane LOPEZ of wave z60
 (`z52bbriefs/z60_lanes.md` §LOPEZ; rules `z58_lanes.md` "Common rules" + falsifier table; `z53_depth.md` with z53 → z60).
@@ -16,17 +16,18 @@ HJ_DEEP's formal words with middle letter y).
 1. **Lemma L (PROVED; forms mostly prior).** U_II(n) ≥ 1 ⟺ some f ≡ 3 (mod 4) with (n/f) = −1 has (−n mod f) | f + 1
    ("Jacobi form") ⟺ n has a word with 4 | x, 4 | y or 4 | z. The L_T profile of CONV2 is exactly the Jacobi completion:
    among the words with 4 | xy, the U_II words are precisely those with (n/f) = −1, the rest (x ≡ y ≡ 2 mod 4) have
-   (n/f) = +1. The two López branches are the two 2-adic halves r | m_f (B) and 4 | r (A) of the one target set
-   Div⁺(f+1) = {r | f+1 : (r/f) = 1}. (Word form and the sign ⟺ slice dictionary are DK Thm 4.5 / HJ_DEEP Prop 2.1.)
-2. **Joint structure at hard primes (EVIDENCE, 6 354 932 primes p ≡ 1 (24) ≤ 10⁹, three coordinates).** The branches
-   are **not** complementary where it matters: in the deep tails (99–99.9 % quantiles) their least witnesses are
-   *positively* dependent, before and after stratifying by local data and by a truncated L(1, χ_p)-score (co-failure
-   1.3–5× the conditional-independence prediction after stratification, up to 16× raw). In the bulk (≈ 94 % quantile)
+   (n/f) = +1. The two López branches are the two 2-adic halves r | m_f (B) and 4 | r (A, together with the residue 1
+   = 4m_f mod f) of the one residue set Div⁺(f+1) = {r mod f : r | f+1, (r/f) = 1}. (Word form and the sign ⟺ slice dictionary are DK Thm 4.5 / HJ_DEEP Prop 2.1.)
+2. **Joint structure at hard primes (EVIDENCE, 6 354 932 primes p ≡ 1 (24) ≤ 10⁹, three coordinates).** No
+   complementarity was found where it matters: in the deep tails (99–99.9 % quantiles) their least witnesses are
+   *positively* dependent, before and after stratifying by local data and by a weighted χ_p-score (co-failure
+   1.2–5.9× the conditional-independence prediction after stratification, up to 16× raw). In the bulk (≈ 94 % quantile)
    there is a mild, statistically clear *negative* dependence after stratification (ratio 0.81–0.95), consistent with
-   nearby shifted integers competing for the same small prime factors. The common driver of the tails is χ_p on small primes (both branches
-   need a χ_p = −1 prime factor in the witness, PROVED). In the f-coordinate the two branches are even **exchangeable in
-   law** (Prop E, PROVED): inversion x ↦ x⁻¹ swaps the branches at every modulus. The rarity of joint failure is a
-   product of two small probabilities, not a link. All 45 primes of the three top-15 hardness lists are in 𝔐.
+   nearby shifted integers competing for the same small prime factors (hypothesis). A plausible common driver of the tails is χ_p on small primes (both branches
+   need a χ_p = −1 prime factor in the witness, PROVED; that it *causes* the dependence is a hypothesis). In the f-coordinate the two branches are even **exchangeable in
+   law** (Prop E, PROVED; the residue identity is López's own remark): inversion x ↦ x⁻¹ swaps the branches at every
+   modulus. No additional pointwise link was found; the rarity of joint failure looks like two small probabilities
+   multiplied, times a tail dependence factor > 1. All 45 primes of the three top-15 hardness lists are in 𝔐.
 3. **No link law (Prop D).** For every X there are infinitely many primes p ≡ 1 (mod 840) at which *both* branches fail
    at every witness modulus f ≤ X (PROVED, Dirichlet), and — CONDITIONAL on Dickson's conjecture — at every shift index
    y ≤ X and every middle letter T ≤ X. Hence no law "A fails up to X ⟹ B fires by g(X)" with g independent of p holds
@@ -35,14 +36,14 @@ HJ_DEEP's formal words with middle letter y).
    (−n mod f) dividing f + 1* ⟺ n has a word with 8 | xy ⟺ some n + x has a divisor ≡ −1 (mod lcm(8, x)) ⟺ some gn + 1
    has a divisor ≡ −1 (mod lcm(8, g)). Sign-free (no Jacobi condition, no branch split), T1 automatic, (★) ⊂ U₇ ⊂ U_II on
    n ≡ 1 (4), U₇ holds on n ≡ 3 (4). **Its only odd non-square zeros ≤ 10¹⁰ are 105, 1465, 3865, 4545, 10305, 12145,
-   39361, 67425** (all composite, all ≡ 1 (8), each divisible by 5 or 7); **no prime zero ≤ 10¹⁰; no zero at all among the
-   7.07·10⁹ non-square n ∈ 𝔐 ∩ (10¹⁰, 10¹²]**. On n ≡ 1 (4), U₇ = (★) ∪ (Type A with cd even): the Type A branch is needed
+   39361, 67425** (all composite, all ≡ 1 (8), each divisible by 5 or 7); **no odd prime zero ≤ 10¹⁰; no zero among the
+   7 071 222 859 non-square n ∈ 𝔐 ∩ (10¹⁰, 10¹²]** (hence no non-square zero in 𝔐 up to 10¹²). On n ≡ 1 (4), U₇ = (★) ∪ (Type A with cd even): the Type A branch is needed
    only in its f ≡ 7 (mod 8) half (the other half leaves the prime 9601 and 42 zeros ≤ 10⁷).
-5. **Census.** U_II at 𝔐-primes ≤ 10¹² holds by inheritance ((★) ⊂ U_II; TRYO, LADDER, MSPLUS censuses) — not recomputed;
+5. **Census.** U_II at 𝔐-primes (indeed at all non-square n ∈ 𝔐) ≤ 10¹² holds by inheritance ((★) ⊂ U_II; TRYO, LADDER, MSPLUS censuses) — not recomputed;
    U₇ (stronger) recomputed on all 𝔐 inputs ≤ 10¹² (one engine + checks).
 
-No pointwise mechanism; B2 unchanged. **Verdict: narrowed (link laws dead in the stated scopes; complementarity refuted as
-a mechanism, EVIDENCE) + sharper target (U₇).** Not a HOT LEAD.
+No pointwise mechanism; B2 unchanged. **Verdict: narrowed (p-independent first-witness link laws dead in the stated
+scopes; no complementarity found in the deep-tail data, EVIDENCE) + sharper target (U₇).** Not a HOT LEAD.
 
 ## 0. Mandatory falsifier table (committed at checkpoint 1 in `2922557e`; final form)
 
@@ -50,10 +51,10 @@ Objects: (i) the lane's *idea*, a link law between the branches; (ii) the target
 
 | screen | link law (idea) | U₇ (target) | label |
 |---|---|---|---|
-| **F1 odd squares** | both branches fail at every f, y, T at n = m², so any link law must use non-squareness; Prop D's constructed primes are "squares at every modulus ≤ X" (p ≡ 1 mod lcm) and kill every p-independent law | U₇(m²) = 0: every divisor r of f+1 is a Jacobi residue mod f ≡ 7 (8), while −m² is a non-residue (Lemma 7(ii)). Non-squareness enters at the first step — and that is all the target says; the existence of the witness is the open part | PROVED |
-| **F2 numerator 8** | U⁽⁸⁾ (547 zeros n ≡ 1 (4) ≤ 10⁸, 45 primes, last 3 869 153; Z59_CONV2) — a law valid verbatim for K = 8 is false below these thresholds | **U⁽⁸⁾ ⊂ U₇** (Lemma 7(iv)): at f ≡ 7 (8), U⁽⁸⁾ uses only the targets r \| (f+1)/8 or 8 \| r; U₇ adds the divisors r of f+1 with v₂((f+1)/8) < v₂(r) < 3. An argument for U₇ must use these extra targets (else it proves U⁽⁸⁾, false at 547 n ≤ 10⁸). Also the two branch halves of U₇ fail at 14 resp. 17 primes ≤ 10⁸ (§4.2) | PROVED + CERTIFIED |
+| **F1 odd squares** | both branches fail at every f, y, T at n = m², so any link law must use non-squareness; Prop D's constructed primes are "squares at every modulus ≤ X" (p ≡ 1 mod lcm) and kill every p-independent *first-witness* law (unconditionally in f; under Dickson in a, T). Squares alone do not exclude prime-only laws | U₇(m²) = 0: every divisor r of f+1 is a Jacobi residue mod f ≡ 7 (8), while −m² is a non-residue for f coprime to m (coprimality is forced by a hit; Lemma 7(ii)). Non-squareness enters at the first step — and that is all the target says; the existence of the witness is the open part | PROVED |
+| **F2 numerator 8** | U⁽⁸⁾ (547 zeros n ≡ 1 (4) ≤ 10⁸, 45 primes, last 3 869 153; Z59_CONV2) — a law valid verbatim for K = 8 is false below these thresholds | **U⁽⁸⁾ ⊂ U₇** (Lemma 7(iv)): at f ≡ 7 (8), U⁽⁸⁾ uses only the targets r \| (f+1)/8 or 8 \| r; U₇ adds the divisors r of f+1 with v₂((f+1)/8) < v₂(r) < 3. An argument for U₇ must use these extra targets (else it proves U⁽⁸⁾, false at 547 n ≤ 10⁸). Also the two branch halves of U₇ fail at 14 resp. 12 primes ≤ 10⁸ (§4.2) | PROVED + CERTIFIED |
 | **F3 composites** | 105, 4545 (U_II-zeros) have both branches failing totally | U₇-zeros = {105, 1465, 3865, 4545, 10305, 12145, 39361, 67425} ≤ 10¹⁰: composite, divisible by 5 or 7 (U₇'s complete moduli are 7 and 15, Lemma 7(v)). A proof of CONJECTURE U₇ must fail at these 8 | CERTIFIED |
-| **F4 known zeros** | B fails totally at the 14 (★)-zero primes, A at 193, 2521, 66529: no one-sided law; Prop D | U₇ ≥ 1 at all 14 (★)-zero primes (rescued by Type A with cd even; census), at 193, 2521, 66529 and the 24 𝔊*-zeros with R ≥ 1 and the 12 R₈-zero primes (R ≥ 12) — by (★) ⊂ U₇ on n ≡ 1 (4); no prime zero ≤ 10¹⁰ | PROVED + CERTIFIED |
+| **F4 known zeros** | B fails totally at the 14 (★)-zero primes, A at 193, 2521, 66529: no one-sided law; Prop D | U₇ ≥ 1 at all 14 (★)-zero primes (rescued by Type A with cd even; census), at 193, 2521, 66529 and the 24 𝔊*-zeros with R ≥ 1 and the 12 R₈-zero primes (R ≥ 12) — by (★) ⊂ U₇ on n ≡ 1 (4); no odd prime zero ≤ 10¹⁰ (all listed prime controls rescued; the composite exceptions are F3) | PROVED + CERTIFIED |
 
 ## 1. Statements attacked
 
@@ -98,15 +99,19 @@ Moreover **(dichotomy)**: for every word with 4 | xy, put f = xy − 1 (≡ 3 mo
 CERTIFIED cross-check: (iii), (P), (J), (X) agree for all odd n ≤ 801; (P), (J) give exactly the non-square zeros
 {105, 4545} among odd n ≤ 6000 (`scripts/z60_lopez_forms.py`).
 
-*Reading.* In (J), branch B is r | m_f and branch A is 4 | r (r = 4a, a | m_f); their union is all Jacobi-+1 divisors
-of f + 1 (F-a, F-b): every divisor of f+1 if f ≡ 7 (8); all but those with v₂(r) = 1 if f ≡ 3 (8). So the L_T profile is
+*Reading.* In (J), branch B is r | m_f and branch A is r = 4a (a | m_f), read mod f — so A's residues are
+{1} ∪ {r < f : r | f+1, 4 | r}, since 4m_f ≡ 1; their union is the residue image of the Jacobi-+1 divisors of f + 1
+(F-a, F-b): every divisor of f+1 if f ≡ 7 (8); all but those with v₂(r) = 1 if f ≡ 3 (8). So the L_T profile is
 not an accident of two coordinate lines: it is the **largest family of words with 4 | xy on which T1 is automatic**; the
 complementary words (x ≡ y ≡ 2 mod 4) are exactly the (n/f) = +1 ones and do occur at squares (1 = 2·2·1 − 2 − 1).
 *Prior art.* (X) and the sign ⟺ slice correspondence are DK Thm 4.5 (`DEDEKIND_ES.md`, five slices, letters ≥ 2, cell
-enumeration) and HJ_DEEP Prop 2.1–2.2; the sign-free (J) without the Jacobi filter is LORENZINI_W (F3); (P) re-indexes
-CONV2 Lemma 1(iv). New here: the direct Jacobi proof covering letters = 1, the statement of (J) with its Jacobi filter as
-"the U_II target set is Div⁺(f+1)", and the per-f size count: |D_f| = |4D_f| = τ(m_f); the union has τ(4m_f)
-(f ≡ 7 (8): ratio (v+3)/(v+1), v = v₂(m_f) ≥ 1, disjoint iff v = 1) or 2τ(m_f) (f ≡ 3 (8), disjoint).
+enumeration) and HJ_DEEP Prop 2.1–2.2; LORENZINI_W (F3) is the sign-free interior-word precursor of (J) (letters ≥ 2,
+2 ≤ ρ ≤ (f+1)/2, n + ρ ≥ 2f); (P) re-indexes CONV2 Lemma 1(iv); D_f⁻¹ = 4D_f is CONV2 Lemma 1(vi) and López's own
+remark (source lines 441–447: the Type −n and Type −4d divisor sets "are mutual inverses"). New here: the direct Jacobi
+proof covering letters = 1 and the statement of (J) with its Jacobi filter ("the U_II residue set is Div⁺(f+1)").
+Residue counts (PROVED; checked for all f ≡ 3 (4) ≤ 2000 by the reviewer): |D_f| = |4D_f| = τ(m_f), 1 ∈ D_f ∩ 4D_f
+always (never disjoint); |D_f ∪ 4D_f| = τ(4m_f) − 1 if f ≡ 7 (8), = 2τ(m_f) − 1 if f ≡ 3 (8) (the integers 1 and f + 1
+give the same residue).
 
 ## 3. Joint structure of the two branches at hard primes
 
@@ -125,17 +130,25 @@ subgroup), and also the class 1 mod 24. By the prime number theorem in arithmeti
 X = 15, 35, 95, 311 (primes ≡ 1 (24) ≤ 10⁹). In the a- and T-coordinates the indices are not preserved (a ↦ m_f/a), and
 the marginals differ.
 *Scope.* (b) is a fixed-X distributional statement over primes; at a single p it relates p to a different residue p⁻¹,
-not to p itself (no existence content, like LIT Prop I).
+not to p itself (no existence content). *Prior.* (a) is López's remark / CONV2 Lemma 1(vi); (b) is the branch-swapping
+specialisation of the fixed-modulus frequency argument of Z58_LIT Prop I's corollary.
 
 **Coupling lemma (PROVED; prior: Z57_BFII Cor 2.4, WITNESS Lemma 1.1).** For a prime p ≡ 1 (4), every witness f of
 either branch has (p/f) = −1, hence (f/p) = −1 and a prime factor ℓ | f with χ_p(ℓ) = −1. So both f_A(p), f_B(p) ≥ n′_p
-(least odd prime non-residue). This is a *positive* coupling: one quadratic datum delays both branches.
+(least odd prime non-residue). One quadratic datum thus delays both branches. (A shared lower bound does not by itself
+imply positive covariance; that it drives the observed tail dependence is a hypothesis.)
 
 ### 3.2 Data (EVIDENCE; CERTIFIED counts)
 
 Engine `scripts/z60_lopez_joint.c`: for each prime p it computes, per branch, the least index in three coordinates —
 a (outer letter / shift: B: p + a, A: p + 4a, divisor ≡ −1 mod 4a), f (witness modulus) and T (middle letter: B: C with
-4Cp + 1, A: c with cp + 1) — by full factorisation (trial division + Pollard ρ, Miller–Rabin bases ≤ 37) or bitmaps.
+4Cp + 1, A: c with cp + 1) — by full factorisation (trial division + Pollard ρ, Miller–Rabin bases ≤ 37) or residue bitmaps (A: 4a reduced mod f).
+Raw output (≈ 149 MB, not archived) has sha256 in `joint1e9_input.sha256`; the aggregate outputs are archived:
+`joint1e9_stats_raw.txt` (marginals, maxima, raw ratios), `joint1e9_stats_strat.txt` + per-stratum sufficient
+statistics `joint1e9_strata_suffstats.txt.gz` (N_s, A_s, B_s, AB_s), `joint1e9_stats_lscore.txt` (bin edges, per-bin
+tails), `joint1e9_hardest.txt`, `joint1e9_hist_aB_aA.txt`. Reviewer checks: histogram reproduces the raw a-ratios; all
+45 hard primes recomputed exactly; a fresh run on primes ≤ 2·10⁷ shows the same qualitative pattern (bulk deficit, tail
+excess). The exact 10⁹ numbers are one run of one engine.
 Run: all 6 354 932 primes p ≡ 1 (24) ≤ 10⁹, bounds a ≤ 3000, f ≤ 20 000, T ≤ 3000. Sanity: a_B = ∞ exactly at the 14
 (★)-zero primes, a_A = ∞ exactly at 193, 2521, 66529 (matching the screens and B1_LINE).
 
@@ -148,7 +161,7 @@ Run: all 6 354 932 primes p ≡ 1 (24) ≤ 10⁹, bounds a ≤ 3000, f ≤ 20 00
 *Tail dependence* (`z60_lopez_jointstats.py`, `z60_lopez_strat.py`, `z60_lopez_lscore.py`): pooled ratio
 obs/exp of {both indices > X}, exp = Σ_strata N_s P_s(A > X) P_s(B > X) (conditional independence):
 
-| coordinate, X (≈ quantile of B) | none | n′_p strata (20) | p mod 5·7·11·13 (2880) | + χ_p on 17…31 (92 160) | L-score deciles ×20 | score × p mod 35 |
+| coordinate, X (≈ quantile of B) | none | n′_p strata (20) | p mod 5·7·11·13 (2880) | + χ_p on 17…31 (92 160) | χ_p-score, 20 quantile bins | score × p mod 35 |
 |---|---|---|---|---|---|---|
 | a, X = 3 (94 %) | 1.45 | 0.81 | 0.94 | 0.90 | 0.92 | 0.94 |
 | a, X = 6 (99.2 %) | 4.03 | 1.31 | 1.66 | 1.43 | 1.52 | 1.34 |
@@ -160,20 +173,25 @@ obs/exp of {both indices > X}, exp = Σ_strata N_s P_s(A > X) P_s(B > X) (condit
 | T, X = 21 (99.9 %) | 14.8 | 4.82 | 5.88 | 4.08 | 5.04 | 4.95 |
 | T, X = 3 (94 %) | 1.47 | 0.82 | 0.95 | 0.92 | 0.93 | 0.95 |
 
-L-score s(p) = Σ_{3 ≤ ℓ ≤ 200} χ_p(ℓ) log ℓ / ℓ (20 quantile bins). Across bins both marginal tails grow by a factor
+χ_p-score s(p) = Σ_{3 ≤ ℓ ≤ 200} χ_p(ℓ) log ℓ / ℓ (a weighted character score — the first-prime-term approximation to
+−L′/L(1, χ_p), not an estimate of log L(1, χ_p)); 20 quantile bins. n′_p strata: least odd prime non-residue ≤ 97
+(catch-all > 97 is empty in this run). Across bins both marginal tails grow by a factor
 ≈ 30–80 from the lowest to the highest score bin, and co-failures concentrate in the top bins (none in the lowest four or
 five bins at the 99 % level). Counts at the deepest X are small (59–107 joint events; T: 10), so those ratios are rough.
 *Reading (EVIDENCE/Assessment).* (1) In the deep tails (99 % and 99.9 % rows) the two branches are positively dependent,
 unconditionally and within every stratification tried. (1′) At the bulk threshold (a, X = 3; T, X = 3: ratios 0.82–0.95
-after stratification, ≈ 3·10⁴ joint events, so a real effect) joint failure is mildly *rarer* than conditional
+after stratification, ≈ 3·10⁴ joint events, so a real effect; minimum 0.81) joint failure is mildly *rarer* than conditional
 independence predicts — a weak complementarity, plausibly the sieve repulsion of nearby shifted integers (a prime
-ℓ ≥ 17 divides at most one of p + a, p + a′ for |a − a′| < ℓ; privacy lemma). It is a bulk effect of size ≲ 20 % and
-reverses in the tails, where the zeros live. (2) Most of the raw
-dependence is the quadratic character χ_p on small primes (the coupling lemma's mechanism), the residual 1.3–5× is
-further χ_p/local structure we did not model. (3) Hence "the branches almost never fail together" is the product of two
-small failure probabilities — the union roughly doubles the target set at each f (§2) — **deflated**, not enhanced, by
-their dependence. There is no anti-correlation for a link law to explain.
-*Hardest primes* (`data/z60/lopez/joint1e9_hardest.txt`): all 90 entries of the six top-15 lists are in 𝔐. Examples
+ℓ ≥ 17 divides at most one of p + a, p + a′ for |a − a′| < ℓ; privacy lemma — a hypothesis, not tested). It is a bulk
+effect of size ≲ 20 % and reverses in the tails, where the zeros live. Positive *pooled* ratios do not imply positive
+dependence in every stratum. (2) Most of the raw
+dependence is absorbed by stratifying on χ_p on small primes and local data; the residual 1.2–5.9× is unexplained
+(hypothesis: further χ_p / local structure). (3) Hence "the branches almost never fail together" looks like the product
+of two small failure probabilities — the union roughly doubles the residue set at each f (§2) — multiplied by a tail
+dependence factor > 1. In the tested deep-tail events there is no anti-correlation for a link law to explain; this is
+evidence about these thresholds and strata, not a theorem excluding a pointwise mechanism.
+*Hardest primes* (`data/z60/lopez/joint1e9_hardest.txt`): all 45 primes of the three top-15 lists are in 𝔐 (the
+"p in 𝔐" lists duplicate them). Examples
 (p: a_B, a_A | f_B, f_A | C_B, c_A): 2 164 801: 37, 44 | 2135, 879 | 6, 5; 9 744 001: 39, 36 | 3431, > 20 000 | 8, 42;
 740 856 601: 6, 7 | 14 447, 14 503 | 3, 11; 5 886 169: 10, 1 | 4679, 331 | 72, 50. No visible deterministic relation
 between the two branches' witnesses. The joint histogram of (a_B, a_A) is in `joint1e9_hist_aB_aA.txt`.
@@ -203,9 +221,12 @@ with e | k+1, ≡ e (mod L_k); likewise for Q_k. A divisor e ≤ k + 1 with e �
 branch indices (B at a fails mod L_a ⊇ mod 4a; A at a is p + 4a mod 4a = L_{4a}). ∎
 *Prior.* The method is CONV2's fixed-menu argument (f) and the Dickson constructions of WITNESS Prop 3.1 / DISPROOF_AVENUES
 §3 Prop 3.1 (= CONVO Thm 7.7) for (★) and full Type II; the U_II statement in three coordinates is the routine
-transfer. *Escape hatches.* Laws with g depending on p: but a law "A fails ≤ X ⟹ B fires ≤ g(X, p)" for all X is
-equivalent to a bound on the U_II index min(A, B) itself, i.e. to U_II with a size bound — no reduction. Laws that are
-not "first-witness" laws (e.g. counting arguments) are not touched.
+transfer. *Escape hatches (not excluded).* p-dependent or adaptive laws, and arguments that are not first-witness
+implications (counting, joint-failure exclusions). Note that one-sided laws "A fails at all indices ≤ X ⟹ B fires by
+g(X, p)" required for every X are refuted by the F4 data for every g, unless restricted to p beyond the known one-branch
+zeros: at p = 5569 (in 𝔐) B never fires while A first fires at a = 2, so X = 1 is a counterexample. The natural
+surviving form is two-sided — a joint-failure exclusion "min(index_A, index_B) ≤ g(p)" — which is U_II with a size
+bound, not a reduction of it.
 
 ### 4.2 Which part of the A branch matters: U₇
 
@@ -214,7 +235,8 @@ not "first-witness" laws (e.g. counting arguments) are not touched.
   divisor ≡ −1 (mod lcm(8, g)).
 * (ii) U₇(n) ⟹ U_II(n) (8 | xy ⟹ 4 | x or 4 | y). Every U₇ witness has (n/f) = −1; hence **U₇(m²) = 0** for odd m.
 * (iii) U₇(n) for every n ≡ 3 (mod 4) (f = 2n + 1, r = n + 1).
-* (iv) For n ≡ 1 (mod 4): every (★) word is a U₇ word, so **(★) ⊂ U₇ ⊂ U_II**, and U₇ = (★) ∪ (Type A words with cd even);
+* (iv) For n ≡ 1 (mod 4): every (★) word is a U₇ word, so **(★) ⊂ U₇ ⊂ U_II** (as existence predicates), and
+  U₇(n) ⟺ (★)(n) or n has a Type A word with cd even;
   also U⁽⁸⁾ ⊂ U₇.
 * (v) f = 7 and f = 15 are complete: U₇(n) whenever gcd(n, 7) = 1 and (n/7) = −1, or gcd(n, 15) = 1 and (n/15) = −1.
 
@@ -232,24 +254,25 @@ is a U₇ word iff 8 | 4dc, i.e. cd even. U_II words not of these shapes do not 
 non-residues. f = 15: r ∈ {1, 2, 4, 8}, n ≡ 14, 13, 11, 7 (mod 15), exactly the units with (n/15) = −1. ∎
 
 **CONJECTURE U₇.** Every odd non-square n ∉ Z₇ := {105, 1465, 3865, 4545, 10305, 12145, 39361, 67425} satisfies U₇(n).
-At primes: every prime has U₇ (no prime zero ≤ 10¹⁰). (MS-U₇) (U₇(p) for 𝔐-primes p > 10¹⁷) sits between: (MS) ⟹ (MS-U₇) ⟹ (MS-U) ⟹ (MS-II), because (★) ⊂ U₇ ⊂ U_II on
+At primes: every odd prime has U₇ (no odd prime zero ≤ 10¹⁰; p = 2 is outside the odd domain). (MS-U₇) (U₇(p) for 𝔐-primes p > 10¹⁷) sits between: (MS) ⟹ (MS-U₇) ⟹ (MS-U) ⟹ (MS-II), because (★) ⊂ U₇ ⊂ U_II on
 n ≡ 1 (4) (implications only; strictness as statements is not claimed).
 What it offers is cleanliness, not a proof: one divisor condition "(−n mod f) | f + 1, f ≡ −1 (mod 8)" with no Jacobi
 filter, no branch split, no parity bookkeeping; T1 is automatic. Assessment: as a target it isolates the tied divisor
-event (B2) in its plainest form; it is not easier.
+event (B2) in its plainest form; no easier proof route was demonstrated.
 
 **Data (CERTIFIED; `scripts/z60_lopez_u7.c`, bitmap f ≤ 20 000 + exact fallback over all f ≤ 2n + 1).**
 
 | run | result | file |
 |---|---|---|
-| U₇, all odd n ≤ 10⁸ | zeros exactly Z₇ (8, all composite); 4999 odd squares skipped (T1) | `u7_all_1e8.txt.gz` |
+| U₇, all odd n ≤ 10⁸ | zeros exactly Z₇ (8, all composite); 4999 odd squares skipped (T1); 4976 LATE certificates | `u7_all_1e8.txt.gz` |
 | U₇, n ≡ 1 (4), (10⁸, 10¹⁰] (4 chunks) | no zero (2.475·10⁹ n; n ≡ 3 (4) by Lemma 7(iii)) | `u7_mod1_chunk{0..3}.txt.gz` |
 | U₇, n ∈ 𝔐, (10¹⁰, 10¹²] (4 chunks) | no zero among the 7 071 428 573 n ∈ 𝔐 (of which 205 714 odd squares, skipped as T1 zeros; both counts match the expected totals) | `u7_M_1e10_1e12_chunk{0..3}.txt.gz` |
 | halves at primes p ≡ 1 (4) ≤ 10⁸: B-targets at f ≡ 7 (8) | 14 prime zeros = the 14 (★)-zero primes (as Lemma 7(iv) predicts) | `u7half_tgt1_primes_1e8.txt` |
-| A-targets at f ≡ 7 (8) | 17 prime zeros (5, 13, …, 225 289, 2 654 401) | `u7half_tgt2_primes_1e8.txt` |
+| A-targets at f ≡ 7 (8) (residues {1} ∪ {4 \| r \| f+1}) | 12 prime zeros: 5, 53, 193, 673, 1489, 2521, 20 641, 21 841, 28 921, 66 529, 225 289, 2 654 401 (review fix: a first run omitted the residue 1 and reported 17) | `u7half_tgt2_primes_1e8.txt` |
 | (★) ∪ (A with f ≡ 3 (8)), n ≡ 1 (4) ≤ 10⁷ | 42 non-square zeros (one prime, 9601); primes ≤ 10⁸: only 9601 | (rerun command §7) |
 | other restrictions, all odd n ≤ 10⁶ | f ≡ 3 (8): 381 zeros (13 primes); f ≡ 15 (16): 443 (29); f ≡ 7 (16): 164 (7) | — |
 
+*Exact fallback is complete:* if f > n then r = f − n and r | f + 1 give r | n + 1, so f ≤ 2n + 1.
 *Checks* (`scripts/z60_lopez_u7check.py`): independent word enumeration (numpy slices over all (x, y) with 8 | xy) for
 all odd n ≤ 10⁶ gives exactly Z₇ and no odd square with a word; all 342 375 LATE certificates (n, f) in the archived files
 re-verified (f ≡ 7 (8), r | f + 1); 3000 random n ≡ 1 (4) in [10⁸, 10¹⁰] and 2000 random n ∈ 𝔐 in [10¹⁰, 10¹²] re-decided
@@ -258,7 +281,7 @@ not duplicated.
 
 *Reading.* On n ≡ 1 (4) the two U_II branches are better described as "(★)" and "the f ≡ 7 (mod 8) half of Type A
 (cd even)": this half alone rescues every (★)-zero, leaving 8 composite zeros; the other half (f ≡ 3 mod 8) leaves 9601.
-Within U₇, the B- and A-target halves fail at 14 and 17 primes ≤ 10⁸, the union at none — the same "two small
+Within U₇, the B- and A-target halves fail at 14 and 12 primes ≤ 10⁸, the union at none — the same "two small
 probabilities" picture as §3 (Assessment; no dependence measurement was made for U₇'s halves).
 
 ## 5. Census
@@ -273,26 +296,29 @@ probabilities" picture as §3 (Assessment; no dependence measurement was made fo
 
 **Verdict: narrowed + sharper target; no mechanism; B2 unchanged. Not a HOT LEAD.**
 * *Narrowed* (scoped). (a) No p-independent first-witness link law between the branches: PROVED in the witness-modulus
-  coordinate, CONDITIONAL on Dickson in the shift and middle-letter coordinates (Prop D). (b) The branches are exchangeable
-  in law in the f-coordinate (Prop E, PROVED) and positively coupled through χ_p (PROVED lower bound n′_p for both; EVIDENCE
-  for deep-tail dependence after stratification, §3.2). So "complementarity" is not a mechanism to be found where zeros
-  live: in the deep tails the dependence has the opposite sign; the only complementarity seen is a ≲ 20 % bulk effect.
+  coordinate, CONDITIONAL on Dickson in the shift and middle-letter coordinates (Prop D); one-sided laws for all X are
+  refuted by F4 data. (b) The branches are exchangeable in law in the f-coordinate (Prop E, PROVED; residue identity
+  prior) and share the lower bound n′_p (PROVED); deep-tail positive dependence after stratification is EVIDENCE (§3.2). So no complementarity mechanism was found where zeros
+  live: no additional pointwise link was found, and the tested deep-tail events show positive pooled dependence; the only
+  complementarity seen is a ≲ 20 % bulk effect.
 * *Sharper target.* CONJECTURE U₇ (Lemma 7): sign-free single divisor condition, (★) ⊂ U₇ ⊂ U_II on n ≡ 1 (4); only 8
-  composite zeros ≤ 10¹⁰; none on 𝔐 ≤ 10¹².
+  composite zeros ≤ 10¹⁰; no non-square zero in 𝔐 ≤ 10¹².
 * *Not achieved.* Any pointwise lemma for U_II, U₇, (MS-U) or (MS).
 
-**Falsifier table, final.** F1: T1 is automatic for U₇ and kills every p-independent link law (Prop D's primes are locally
-squares). F2: U⁽⁸⁾ ⊂ U₇; a U₇ proof must use the targets outside U⁽⁸⁾. F3: Z₇ (8 composites, each divisible by 5 or 7).
-F4: all known zeros rescued by U₇; neither branch alone suffices.
+**Falsifier table, final.** F1: T1 is automatic for U₇; Prop D's primes (locally squares) kill every p-independent
+first-witness link law (unconditionally in f, under Dickson in a, T). F2: U⁽⁸⁾ ⊂ U₇; a U₇ proof must use the targets
+outside U⁽⁸⁾. F3: Z₇ (8 composites, each divisible by 5 or 7). F4: all listed prime controls rescued by U₇; neither
+branch alone suffices.
 
 **Proposed FRONTIER text** (for the integrator; FRONTIER not edited here).
 * §2.4 / ladder: "(MS) ⟹ (MS-U₇) ⟹ (MS-U) ⟹ (MS-II), where U₇(n): some f ≡ −1 (mod 8) has (−n mod f) | f + 1
   (⟺ a word xyz − x − z = n with 8 | xy ⟺ some n + x has a divisor ≡ −1 mod lcm(8, x)); on n ≡ 1 (4), U₇ = (★) ∪ (Type A with
-  cd even). Non-square zeros ≤ 10¹⁰: 105, 1465, 3865, 4545, 10305, 12145, 39361, 67425; none on 𝔐 ≤ 10¹² (`Z60_LOPEZ.md`
+  cd even). Odd non-square zeros ≤ 10¹⁰: 105, 1465, 3865, 4545, 10305, 12145, 39361, 67425; no non-square zero in 𝔐 ≤ 10¹² (`Z60_LOPEZ.md`
   §4.2, CERTIFIED, one engine)."
-* §6: "(z60) López's two branches: no first-witness link law (Prop D: unconditional in the witness modulus, Dickson in shift /
-  middle-letter coordinates); inversion makes them exchangeable in law (witness-modulus coordinate); deep tails positively dependent even after
-  χ_p / local stratification, only a ≲ 20 % bulk complementarity (EVIDENCE). Complementarity is not a mechanism."
+* §6: "(z60) López's two branches: no p-independent first-witness link law (Prop D: unconditional in the witness modulus,
+  Dickson in shift / middle-letter coordinates); inversion makes them exchangeable in law (witness-modulus coordinate); no
+  additional pointwise link found; tested deep-tail events positively dependent even after χ_p / local stratification,
+  only a ≲ 20 % bulk complementarity (EVIDENCE)."
 * §7 item 19: "the U-line target can be replaced by the sign-free U₇ (Lemma 7); its witness is any divisor r of f+1."
 
 **Bottom line.** The brief asked why López's two branches almost never fail together and whether one branch's failure
@@ -303,19 +329,21 @@ both (a weak negative dependence appears only in the bulk). Joint failure is
 rare because it needs two unlikely events, and the dependence makes it *less* rare than independence would. A
 p-independent link law is impossible (unconditionally for witness moduli, under Dickson for the other coordinates). The
 useful by-product is a cleaner target: U₇ — "some f ≡ −1 (mod 8) has (−n mod f) dividing f + 1" — contains (★) on
-n ≡ 1 (4), has T1 built in, and fails only at eight composites ≤ 10¹⁰ and nowhere on 𝔐 ≤ 10¹². The wall is still B2.
+n ≡ 1 (4), has T1 built in, and fails at no odd non-square except eight composites ≤ 10¹⁰, and at no non-square in 𝔐
+≤ 10¹². The wall is still B2.
 
 ## 7. Reproduction
 
-Every command under `ulimit -v 4000000` (stats: 6000000) and `timeout ≤ 1800`.
+Every command was run under `ulimit -v 4000000`, `timeout ≤ 1800`, ≤ 4 concurrent processes (prefix omitted; for the
+parallel loops use `set -o pipefail` and check each exit status — all archived chunk footers are present).
 ```
-python3 scripts/z60_lopez_forms.py 801
+uv run python scripts/z60_lopez_forms.py 801
 gcc -O2 -o /tmp/z60j scripts/z60_lopez_joint.c -lm
 for k in 0 1 2 3; do /tmp/z60j $((k*250000000+1)) $(((k+1)*250000000+1)) 0 3000 20000 3000 > /tmp/j1e9_$k.txt & done; wait
-cat /tmp/j1e9_?.txt > /tmp/j1e9.txt            # 6 354 932 lines (not archived: ~190 MB)
-uv run --with numpy python scripts/z60_lopez_jointstats.py /tmp/j1e9.txt
-uv run --with numpy python scripts/z60_lopez_strat.py /tmp/j1e9.txt
-uv run --with numpy python scripts/z60_lopez_lscore.py /tmp/j1e9.txt 200 20
+cat /tmp/j1e9_?.txt > /tmp/j1e9.txt; sha256sum /tmp/j1e9.txt      # = data/z60/lopez/joint1e9_input.sha256
+uv run --with numpy python scripts/z60_lopez_jointstats.py /tmp/j1e9.txt > data/z60/lopez/joint1e9_stats_raw.txt
+Z60_DUMP=data/z60/lopez/joint1e9_strata_suffstats.txt.gz uv run --with numpy python scripts/z60_lopez_strat.py /tmp/j1e9.txt > data/z60/lopez/joint1e9_stats_strat.txt
+uv run --with numpy python scripts/z60_lopez_lscore.py /tmp/j1e9.txt 200 20 > data/z60/lopez/joint1e9_stats_lscore.txt
 uv run --with numpy python scripts/z60_lopez_hard.py /tmp/j1e9.txt data/z60/lopez/joint1e9
 gcc -O2 -o /tmp/z60u7 scripts/z60_lopez_u7.c -lm
 Z60_LATE=1 /tmp/z60u7 7 1 100000000 20000 0 0 | gzip > data/z60/lopez/u7_all_1e8.txt.gz
@@ -323,11 +351,29 @@ B=100000000; for k in 0 1 2 3; do Z60_LATE=1 /tmp/z60u7 7 $((B+k*2475000000)) $(
 B=10000000000; W=247500000000; for k in 0 1 2 3; do Z60_LATE=1 /tmp/z60u7 7 $((B+k*W)) $((B+(k+1)*W)) 20000 0 8 | gzip > data/z60/lopez/u7_M_1e10_1e12_chunk$k.txt.gz & done; wait
 for t in 1 2; do Z60_TGT=$t /tmp/z60u7 7 1 100000000 20000 1 1 > data/z60/lopez/u7half_tgt${t}_primes_1e8.txt; done
 Z60_TGT=3 Z60_FMOD=0 /tmp/z60u7 0 1 10000000 20000 0 1;  Z60_TGT=3 Z60_FMOD=0 /tmp/z60u7 0 1 100000000 20000 1 1
-Z60_FMOD=8 Z60_FRES=3 /tmp/z60u7 3 1 1000000 4000 0 0   # likewise FMOD=16 FRES=15 / 7
-uv run --with numpy python scripts/z60_lopez_u7check.py 1000000 3000 100000000 10000000000 data/z60/lopez/*.gz
+Z60_FMOD=8 Z60_FRES=3 /tmp/z60u7 3 1 1000000 4000 0 0   # likewise Z60_FMOD=16 Z60_FRES=15 / 7 with CLS 7
+uv run --with numpy python scripts/z60_lopez_u7check.py 1000000 3000 100000000 10000000000 data/z60/lopez/u7_all_1e8.txt.gz data/z60/lopez/u7_mod1_chunk*.gz
 Z60_MORD=1 uv run --with numpy python scripts/z60_lopez_u7check.py 1000 2000 10000000000 1000000000000 data/z60/lopez/u7_M_*.gz
 ```
 
 ## 8. Review record
 
-TODO (hostile internal review).
+**Hostile internal review** (deep-mode subagent; `data/z60/lopez/review_hostile.md`): 1 BLOCKER, 5 SERIOUS, 4 MINOR. It
+verified Lemma L (all implications, letters = 1, f = 3), Prop E, Prop D (both parts, the factors of 4 in the index
+bounds), Lemma 7 (i)–(v); all 342 375 LATE certificates; the census arithmetic (7 071 428 573 inputs, 205 714 squares,
+7 071 222 859 non-squares); the variant counts (42 / 9601; 381, 443, 164); the raw a-ratios from the archived histogram;
+all 45 hard primes recomputed; an independent word enumeration to 2·10⁵ (Z₇ exactly, no square hit); a fresh joint run
+≤ 2·10⁷ with the same qualitative pattern. Fixes applied:
+
+| # | finding | fix |
+|---|---|---|
+| 1 (BLOCKER) | A-half decider (TGT = 2) omitted the residue 1 = 4m_f mod f; 17 prime zeros reported, true 12 | `u7.c` fixed; A-half rerun (12 zeros, matching the reviewer); text corrected; full U₇, TGT = 3 and the joint engine were unaffected |
+| 2 | per-f union counts / disjointness false (1 ∈ D_f ∩ 4D_f; 1 ≡ f + 1) | counts corrected to τ(4m_f) − 1 and 2τ(m_f) − 1; Div⁺ defined as a residue set |
+| 3 | "nowhere on 𝔐", "every prime" lacked non-square / odd qualifiers | qualifiers added throughout |
+| 4 | claimed equivalence of p-dependent link laws with a U_II size bound false | removed; one-sided laws refuted by F4 (p = 5569, X = 1); escape hatches listed as not excluded |
+| 5 | "no mechanism" / coupling-causes-dependence overclaimed from pooled data | rephrased as "no additional pointwise link found; tested deep-tail events positively dependent"; causal readings labelled hypotheses |
+| 6 | 10⁹ statistics lacked an audit trail | archived aggregate outputs, per-stratum sufficient statistics and the raw-file sha256; all stats rerun under the 4 GB cap (identical numbers) |
+| 7 | falsifier shorthand lost scope; "all known zeros rescued" contradicts F3 | F1/F4 rows and §6 restatement rescoped |
+| 8 | score called an L-value estimate; "deciles"; ratio ranges; n′_p truncation | renamed weighted χ_p-score (≈ −L′/L(1,χ_p) first terms), 20 quantile bins, ranges 1.2–5.9 / min 0.81; catch-all > 97 empty |
+| 9 | prior art for inversion / LORENZINI F3 | Prop E(a) credited to López's remark and CONV2 Lemma 1(vi), E(b) to Z58_LIT; F3 called the interior precursor |
+| 10 | fallback completeness bound, reproduction hygiene, stale comment | bound added (§4.2 and the C source); reproduction block updated; comment fixed |

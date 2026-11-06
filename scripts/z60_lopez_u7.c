@@ -7,7 +7,8 @@
 // Bitmap lookup for f <= FMAX, exact fallback over all f <= 2n+1 for the rest.
 // Env overrides: Z60_FMOD/Z60_FRES (restrict f ≡ FRES mod FMOD; FMOD=0 means f ≡ 3 mod 4 all), Z60_TGT (0 U_II targets, 1 branch B, 2 branch A, 3 = B at all f plus A only at f ≡ 3 mod 8; use with FMOD=0).
 // Usage: u7 CLS lo hi FMAX [primes_only] [mod4 (0 = all odd, 1, 3; 8 = n mod 840 in Mordell classes)]
-// (without primes_only the P/C tag is meaningless: the prime sieve is skipped and every n is tagged P)
+// (without primes_only the prime sieve is skipped; ZERO lines are tagged P/C by trial division)
+// Completeness of the exact fallback: if f > n then r = f - n and r | f+1 give r | n+1, so f <= 2n+1; f <= n is trivial.
 // Output: ZERO n P|C|S  lines and a summary.
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,7 +21,7 @@ static int jac(u64 a,u64 n){ a%=n; int t=1; while(a){ while(!(a&1)){ a>>=1; u64 
 static long FMOD=8, FRES=7; static int TGT=0; // env Z60_FMOD, Z60_FRES, Z60_TGT override CLS
 static int classok(u64 f){ if(FMOD) return (long)(f%FMOD)==FRES%FMOD; int c=f&7; if(CLS==7) return c==7; if(CLS==3) return c==3; return c==3||c==7; }
 // target type: 0 = r | f+1 (Jacobi filter at f ≡ 3 mod 8) = U_II targets; 1 = r | (f+1)/4 (branch B); 2 = 4 | r, r | f+1 (branch A)
-static int tgt(u64 f,u64 r){ if(r==0||r>=f) return 0; if((f+1)%r) return 0; if(TGT==1) return ((f+1)/4)%r==0; if(TGT==2) return (r&3)==0;
+static int tgt(u64 f,u64 r){ if(r==0||r>=f) return 0; if((f+1)%r) return 0; if(TGT==1) return ((f+1)/4)%r==0; if(TGT==2) return r==1 || (r&3)==0;  /* A targets = 4 D_f mod f: 4 m_f ≡ 1 gives residue 1 (review fix) */
   if(TGT==3){ if((f&7)==7) return ((f+1)/4)%r==0; return ((f+1)/4)%r==0 || (r&3)==0; } /* (★) everywhere + branch A only at f ≡ 3 (8) (cd odd) */
   if((f&7)==3 && (r&3)==2) return 0; return 1; }
 static int hit(u64 n,u64 f){ u64 r=(f-n%f)%f; return tgt(f,r); }

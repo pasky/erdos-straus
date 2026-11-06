@@ -1,0 +1,16 @@
+least-odd-prime-nonresidue catch-all (n'_p > 97, coded 101): 0 primes
+== coordinate a
+  [none] (1 strata) X=1: obs 1034409 exp 1103001.5 ratio 0.938 | X=3: obs 37335 exp 25760.5 ratio 1.449 | X=6: obs 2346 exp 582.5 ratio 4.028 | X=13: obs 107 exp 6.8 ratio 15.810
+  [n_p] (20 strata) X=1: obs 1034409 exp 1130855.6 ratio 0.915 | X=3: obs 37335 exp 45942.4 ratio 0.813 | X=6: obs 2346 exp 1796.6 ratio 1.306 | X=13: obs 107 exp 39.2 ratio 2.730
+  [p mod 5,7,11,13 exact] (2880 strata) X=1: obs 1034409 exp 1044879.5 ratio 0.990 | X=3: obs 37335 exp 39911.2 ratio 0.935 | X=6: obs 2346 exp 1416.9 ratio 1.656 | X=13: obs 107 exp 33.7 ratio 3.178
+  [exact mod 5..13 + QR 17..31] (92160 strata) X=1: obs 1034409 exp 1051747.0 ratio 0.984 | X=3: obs 37335 exp 41293.8 ratio 0.904 | X=6: obs 2346 exp 1642.3 ratio 1.429 | X=13: obs 107 exp 46.3 ratio 2.313
+== coordinate f
+  [none] (1 strata) X=15: obs 1110816 exp 1015883.1 ratio 1.093 | X=95: obs 118806 exp 61715.4 ratio 1.925 | X=783: obs 2262 exp 633.6 ratio 3.570 | X=4031: obs 59 exp 6.6 ratio 8.970
+  [n_p] (20 strata) X=15: obs 1110816 exp 1417880.1 ratio 0.783 | X=95: obs 118806 exp 101459.3 ratio 1.171 | X=783: obs 2262 exp 1205.6 ratio 1.876 | X=4031: obs 59 exp 14.3 ratio 4.138
+  [p mod 5,7,11,13 exact] (2880 strata) X=15: obs 1110816 exp 1110816.0 ratio 1.000 | X=95: obs 118806 exp 79767.6 ratio 1.489 | X=783: obs 2262 exp 886.7 ratio 2.551 | X=4031: obs 59 exp 10.7 ratio 5.534
+  [exact mod 5..13 + QR 17..31] (92160 strata) X=15: obs 1110816 exp 1110816.0 ratio 1.000 | X=95: obs 118806 exp 89752.0 ratio 1.324 | X=783: obs 2262 exp 1026.1 ratio 2.204 | X=4031: obs 59 exp 13.6 ratio 4.343
+== coordinate T
+  [none] (1 strata) X=1: obs 1002942 exp 1068100.4 ratio 0.939 | X=3: obs 31644 exp 21563.3 ratio 1.467 | X=8: obs 1048 exp 185.8 ratio 5.641 | X=21: obs 10 exp 0.7 ratio 14.784
+  [n_p] (20 strata) X=1: obs 1002942 exp 1095171.0 ratio 0.916 | X=3: obs 31644 exp 38490.7 ratio 0.822 | X=8: obs 1048 exp 473.2 ratio 2.215 | X=21: obs 10 exp 2.1 ratio 4.820
+  [p mod 5,7,11,13 exact] (2880 strata) X=1: obs 1002942 exp 1012540.5 ratio 0.991 | X=3: obs 31644 exp 33351.8 ratio 0.949 | X=8: obs 1048 exp 402.6 ratio 2.603 | X=21: obs 10 exp 1.7 ratio 5.877
+  [exact mod 5..13 + QR 17..31] (92160 strata) X=1: obs 1002942 exp 1019275.4 ratio 0.984 | X=3: obs 31644 exp 34517.2 ratio 0.917 | X=8: obs 1048 exp 482.9 ratio 2.170 | X=21: obs 10 exp 2.5 ratio 4.078

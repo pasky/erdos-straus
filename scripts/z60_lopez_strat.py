@@ -22,6 +22,11 @@ strata = {
  'exact mod 5..13 + QR 17..31': ((p % 5) * 10000 + (p % 7) * 1000 + (p % 11) * 20 + (p % 13)) * 64
       + res_cache[17] * 1 + res_cache[19] * 2 + res_cache[23] * 4 + res_cache[29] * 8 + res_cache[31] * 16,
 }
+print("least-odd-prime-nonresidue catch-all (n'_p > 97, coded 101):", int((npq == 101).sum()), "primes")
+import os, gzip
+DUMP = os.environ.get('Z60_DUMP')   # if set: write per-stratum sufficient statistics N_s, A_s, B_s, AB_s (gz)
+dump = gzip.open(DUMP, 'wt') if DUMP else None
+if dump: dump.write("# coord stratification X stratum_key N_s A_s(A>X) B_s(B>X) AB_s(both>X)  [only strata with A_s+B_s>0]\n")
 for col, nm in ((1, 'a'), (3, 'f'), (5, 'T')):
     B = X[:, col]; A = X[:, col + 1]
     xs = sorted(set(int(np.quantile(B, q)) for q in (0.5, 0.9, 0.99, 0.999)))
@@ -34,4 +39,8 @@ for col, nm in ((1, 'a'), (3, 'f'), (5, 'T')):
             Ns = np.bincount(inv); Sa = np.bincount(inv, a); Sb = np.bincount(inv, b); Sab = np.bincount(inv, a * b)
             exp = (Sa * Sb / Ns).sum(); obs = Sab.sum()
             out.append(f"X={x}: obs {int(obs)} exp {exp:.1f} ratio {obs/exp if exp else float('nan'):.3f}")
+            if dump:
+                for k in np.nonzero(Sa + Sb)[0]:
+                    dump.write(f"{nm} {sn.replace(' ','_')} {x} {keys[k]} {Ns[k]} {int(Sa[k])} {int(Sb[k])} {int(Sab[k])}\n")
         print(f"  [{sn}] ({len(keys)} strata) " + " | ".join(out))
+if dump: dump.close()

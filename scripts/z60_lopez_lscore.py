@@ -1,6 +1,6 @@
 """z60 LOPEZ: is the tail co-failure of the two branches explained by the quadratic character chi_p?
 Score s(p) = sum_{l <= Y prime odd} chi_p(l) log(l)/l   (chi_p(l) = (p/l) = (l/p) for p ≡ 1 mod 4),
-a truncated log L(1,chi_p)-type statistic.  Strata: quantile bins of s(p) (optionally x exact p mod 5,7).
+a weighted character score (first-prime-term approximation to -L'/L(1,chi_p); NOT an estimate of log L(1,chi_p)).  Strata: quantile bins of s(p) (optionally x exact p mod 5,7).
 Prints pooled observed/expected co-failure ratios and the marginal tail rates per score bin.
 Usage: python z60_lopez_lscore.py file Y nbins [inM]"""
 import sys, numpy as np
@@ -17,7 +17,7 @@ for l in ps:
     s += tab[r] * np.log(l) / l
 edges = np.quantile(s, np.linspace(0, 1, nb + 1)); edges[-1] += 1
 bins = np.digitize(s, edges[1:-1])
-print("N", len(p), "Y", Y, "bins", nb)
+print("N", len(p), "Y", Y, "bins", nb, "bin edges", np.round(edges, 4).tolist())
 for col, nm in ((1, 'a'), (3, 'f'), (5, 'T')):
     B = X[:, col]; A = X[:, col + 1]
     xs = sorted(set(int(np.quantile(B, q)) for q in (0.9, 0.99, 0.999)))
