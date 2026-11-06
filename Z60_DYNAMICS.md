@@ -37,6 +37,10 @@ strictly stronger than R(p) ≥ 1 only by the boundary solutions u = 1 or B = 1 
 
 **(D-eq)** Question: is there an equidistribution statement for O_p — or for another p-dependent orbit (Hecke points of
 level p, closed horocycles of length ≍ p, Farey points x/p) — at a *single* p, strong enough to force (D-hit)?
+The weakest *equidistribution-shaped* statement that would suffice is
+**(EQ-T)** |R°(p) − (p−1)μ(T_p)| ≤ (1 − η)(p−1)μ(T_p) for all primes p ≡ 1 (4), p > p₀ (some fixed η > 0):
+a single-target discrepancy bound at the polylog scale. It is false at the 14 (★)-zero primes (there R° = 0), so p₀ ≥
+8 813 281; the C-even analogue fails at 10¹⁰ (F2). (EQ-T) is H⁻_BM-type (FRONTIER §2.4) in orbit language (Assessment).
 *Why not already closed:* FRONTIER B3 (scale constraint) and BRAINSTORM `bsA_hecke_cusp_excursions.md` record the
 heuristic "rate p^{−1/2} misses measure p^{−1}"; STRONG_APPROX_ES §10 phrases the needed horocycle statement. None
 had an exact orbit encoding, a proof that the missing exponent is intrinsic (not technological), a margin theorem for
