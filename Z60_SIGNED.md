@@ -1,7 +1,7 @@
-# Z60_SIGNED — signed and multi-eigensystem automorphic proxies (checkpoint 1)
+# Z60_SIGNED — signed and multi-eigensystem automorphic proxies: in half-integral weight the signed form of T1 is as strong as the support form (any mixture of nebentypus, any odd rank); exponential objects are square-blind; for several eigensystems cancellation is never the obstruction — what remains is (MS) itself plus a non-degeneracy of twisted central values. Verdict: narrowed, no HOT LEAD
 
 Status: z60 lane SIGNED (brief `z52bbriefs/z60_lanes.md` §SIGNED; common rules `z52bbriefs/z58_lanes.md`,
-`z52bbriefs/z53_depth.md`). Internal, not yet reviewed. **ES is OPEN; nothing here proves or disproves ES, (★), (MS),
+`z52bbriefs/z53_depth.md`). Internal; internally reviewed (§10). **ES is OPEN; nothing here proves or disproves ES, (★), (MS),
 (MS⁺) or CONV-II.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment.
 Scripts `scripts/z60_signed_*`, data `data/z60/signed/`.
 
@@ -12,7 +12,7 @@ classes; 𝒞₁(2N) = {n ≥ 1 : n ∈ ℤ_q^{×2} for every prime q | 2N}. A r
 * **effective on a prime set 𝒫** if g(p) ≠ 0 (support) resp. g(p) > 0 (signed) for all sufficiently large p ∈ 𝒫.
 Validity at odd squares (T1: R(m²) = 0) gives **(T1⁰)** g(m²) = 0 (support) resp. **(T1⁻)** g(m²) ≤ 0 (signed).
 
-## 0. MANDATORY FALSIFIER TABLE (checkpoint version; final version in §7)
+## 0. MANDATORY FALSIFIER TABLE (committed at checkpoint 1; final version, with the computed screens, in §7.3)
 
 Mechanism examined: positivity at 𝔐-primes of a fixed-level automorphic proxy that is *signed* (minorant form) or a
 *sum of several eigensystems* (cancellation), in half-integral weight (ternary/odd-rank theta class, any mixture of
@@ -23,7 +23,7 @@ nebentypus characters), plus exponentially growing (weakly holomorphic / Rademac
 | **F1 odd squares** | This is the whole content of §2–§3. The signed form only gives the *inequality* g(m²) ≤ 0, which in integral weight does **not** force anything (AUTOMORPH Prop B1: 5σ₂ − (2n²+3)τ is ≤ 0 at all odd squares, = p² − 1 > 0 at all primes). **Theorem S1/S2 (PROVED rel. cited inputs):** in half-integral weight the inequality at prime squares (S1) resp. at good squarefree-index squares (S2, mixed nebentypus) is as strong as the equality: either the genus main term is *negative* on 𝒞₁ (then g(p) < 0 at every large prime of 𝒞₁, so the proxy is never positive there) or it vanishes on 𝒞₁ together with every t = 1 unary series and every Shimura component's anchor a(1), so on squarefree 𝒞₁ only Gauss-exceptional eigensystems survive (as in WALDS W1). Non-squareness is used at the t = 1 Shimura orbit (anchor) and at the genus density of m². |
 | **F2 C-even (R₈)** | All negative statements (S1, S2, S4) are line-blind: they apply verbatim to R₈-minorants (R₈(m²) = 0), so nothing false is proved. The positive statement (Prop S5, reduction of effectiveness to a linear non-degeneracy) is an *equivalence* and applies to R₈ too; there it correctly requires R₈(p) ≥ 1 beyond the threshold on 𝒞₁, so any R₈-version must start above the 4 in-𝔐 R₈-zeros (largest 10 868 474 401). |
 | **F3 composites** | Not used by S1/S2 (identities at squares + analytic bounds at primes). Squarefree composite zeros in 𝒞₁ enter the validity space exactly like prime zeros (S5: Z contains them). Mixed-nebentypus certificates (§5) use all known R-zero rows, composites included. |
-| **F4 known zeros** | Nothing is proved positive. §5 computes, at levels with several Gauss-exceptional lines (mixed ψ), whether some *combination* vanishes at every known in-class R-zero ≤ B (a valid mixed proxy up to B) — the multi-eigensystem version of WALDS §5.3. |
+| **F4 known zeros** | Nothing is proved positive. §6.1: at L = 168, 240, 280 every valid *mixed-ψ* proxy vanishes on 𝒞₁ ∩ [1, B] (CERTIFIED, all R-zero rows). §6.3: the two L = 420 lines vanishing at 5569, 9601 are not prime-valid (102001, 712321, 1724209, 5212561, 8813281). |
 
 ## 1. Precise statements attacked
 
