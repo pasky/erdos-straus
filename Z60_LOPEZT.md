@@ -191,3 +191,27 @@ So S(p) has two *cheap* sub-families where the modulus is a itself (a ≡ 0, 3 m
 
 **Status of the pointwise statement: NOT PROVED. No hot lead.** Everything above is PROVED/CERTIFIED as labelled; nothing conditional
 is claimed, because every conditional form I could formulate was either equivalent to (P*) itself or an almost-all statement.
+
+## §4 Falsifiers re-stated against the final content, and verdict
+
+(F1) odd squares. The only step in this memo that uses anything about p beyond "odd" is Lemma 0.5/1.1(i): every witness modulus g
+satisfies (p/g) = −1. No argument here produces such a g for all p; the proposed proof skeleton (P*) is exactly the statement that such a
+g always exists. A proof must supply a prime factor q of some p + a or ap + 1 with (p/q) = −1 — the step that fails at n = m².
+(F2) numerator 8. The 8-analogue is (P*₈): g ≡ 7 (8), a | (g+1)/8 (Lemma 1.1(iii); certified: exactly the 45 primes of the brief). Any
+argument for (P*) that only uses the main term Σ_g τ((g+1)/4)/g would apply to (P*₈) with half the constant and is therefore wrong below
+3 869 153; a proof must use g ≡ 3 (mod 8) or a with v₂(a) = v₂((g+1)/4) witnesses.
+(F3) 105 and 4545. S(105) and S(4545) fail; 105 has an off-axis Type II witness (a, m, g) = (3, 2, 71), 4545 none. So "S holds for all
+non-squares" is false and "S ⟸ Type II" is false; the primality of p is used in this memo only in the classification Lemmas 0.3/0.4/2.1/2.2
+(it never enters an existence argument for S).
+(F4) single-branch zeros. B4 alone fails at 193, 2521, 66529; BN alone at the 14 primes of `star_prime_zeros.txt` (both lists reproduced
+≤ 2·10⁵). In (U5) they are p ∉ R_g^{−1} ∀g resp. p ∉ R_g ∀g; the inversion symmetry (Lemma 1.1) shows the two branches are on equal
+footing, and the record list in `leastg_1e8.txt` shows both branches supplying the least witness in the worst cases.
+
+**Verdict.** NOT PROVED; no HOT LEAD. Delivered (all PROVED unless marked): the exact identities for both branches (B4's was not
+obvious: 4/p = 1/(Y'(gk−1)) + 1/(pY'k) + 1/(pY'k(gk−1))), the complete Type I/II divisor-form classifications, the placement of S as the
+two axes {a = 1} ∪ {m = 1} of the Type II lattice "mp + a has a divisor ≡ −1 (mod 4am)", the witness-modulus form (U5) with the
+B4 = BN^{−1} symmetry, the forms (U6)/(U7), the no-finite-covering lemma and the Linnik lower bound g*(p) ≫ log p (Prop 3.1),
+the certified 8-analogue, and the g*(p) statistics to 10⁸ (CERTIFIED). What is missing is precisely a pointwise handle on the
+factorization of individual shifted numbers p + a, ap + 1 in residue classes tied to a — the same wall as ES itself.
+
+Files: `scripts/z60_lopezt_{branches,u5,u7,leastg}.c`, `scripts/z60_lopezt_{identsearch,typecheck}.py`, `data/z60/lopezt/`.
