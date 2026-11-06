@@ -1,6 +1,3 @@
 PARI stack size set to 1500000000 bytes, maximum size set to 1500000256
-p=5569 chi21: cond=1094165488080 rootno=1 ellrank=[2,2] analytic rank 2 (L^(r)/r! = 78.2759637732389)  (8s)
-p=5569 chi105: cond=5470827440400 rootno=1 ellrank=[2,2] analytic rank 2 (L^(r)/r! = 524.104886546863)  (17s)
-p=9601 chi21: cond=3252082211280 rootno=1 ellrank=[2,2] analytic rank 2 (L^(r)/r! = 276.848907645899)  (14s)
-p=9601 chi105: cond=16260411056400 rootno=1 ellrank=[2,2] analytic rank 2 (L^(r)/r! = 145.291759175439)  (30s)
-p=83449 chi21: cond=245680592003280 rootno=1 ellrank=[2,2] analytic rank 2 (L^(r)/r! = 81.0657345880963)  (172s)
+p=83449 chi21: cond=245680592003280 rootno=1 ellrank=[0,2] analytic rank 2 (L^(r)/r! = 81.0657345880963)  (186s)
+p=83449 chi105: cond=1228402960016400 rootno=1 ellrank=[0,2] analytic rank 2 (L^(r)/r! = 454.502469471943)  (400s)

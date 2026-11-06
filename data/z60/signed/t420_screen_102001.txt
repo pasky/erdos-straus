@@ -1,0 +1,2 @@
+p=102001 chi21: cond=367060317155280 rootno=1 ellrank=[0,0] analytic rank 0 (L^(r)/r! = 0.379908466069321)  (211s)
+p=102001 chi105: cond=1835301585776400 rootno=1 ellrank=[0,2] analytic rank 2 (L^(r)/r! = 193.552492399754)  (461s)

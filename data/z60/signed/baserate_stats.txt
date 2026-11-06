@@ -1,0 +1,8 @@
+('chi105', 1) {'n': 120, 'lo2': 29, 'hi0': 52} rate(lo>=2) 0.242 rate(hi=0) 0.433
+('chi105', 2) {'n': 120, 'lo2': 21, 'hi0': 52} rate(lo>=2) 0.175 rate(hi=0) 0.433
+('chi105', 3) {'n': 120, 'lo2': 16, 'hi0': 36} rate(lo>=2) 0.133 rate(hi=0) 0.300
+('chi21', 1) {'n': 120, 'lo2': 29, 'hi0': 65} rate(lo>=2) 0.242 rate(hi=0) 0.542
+('chi21', 2) {'n': 120, 'lo2': 20, 'hi0': 62} rate(lo>=2) 0.167 rate(hi=0) 0.517
+('chi21', 3) {'n': 120, 'lo2': 14, 'hi0': 56} rate(lo>=2) 0.117 rate(hi=0) 0.467
+chi21: rank>=2 proven at 4/7 zeros, expected 1.22, P(>= 4) = 0.0194;  Selmer-rank 0 at 3/7, expected 3.57, P(<= 3) = 0.4791
+chi105: rank>=2 proven at 2/7 zeros, expected 1.27, P(>= 2) = 0.3739;  Selmer-rank 0 at 3/7, expected 2.77, P(<= 3) = 0.7208
