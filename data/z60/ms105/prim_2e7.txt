@@ -1,0 +1,8 @@
+INHERIT_ONLY 8569 R=2
+INHERIT_ONLY 20689 R=2
+INHERIT_ONLY 115489 R=2
+INHERIT_ONLY 174841 R=2
+INHERIT_ONLY 4264249 R=4
+INHERIT_ONLY 10865569 R=2
+prime count 635169 zeros 14 inherit_only 0 meanR 41.000 mean_imprimitive 0.0000
+composite count 1649523 zeros 23 inherit_only 6 meanR 39.826 mean_imprimitive 0.6679
