@@ -1,12 +1,16 @@
 n = 7254 primes p = 1 (4) in [1000033, 1199993]
 mean L(1,chi_-4p) = 1.2371
-R                mean   32.258  spearman(X, L) = +0.426 (p=0.0e+00)  mean|L<=Q1 =  27.744  mean|L>=Q3 =  40.109  ratio 1.446
-Sq_u             mean    6.646  spearman(X, L) = +0.729 (p=0.0e+00)  mean|L<=Q1 =   2.985  mean|L>=Q3 =  11.542  ratio 3.867
-Sq_C             mean    7.123  spearman(X, L) = +0.723 (p=0.0e+00)  mean|L<=Q1 =   2.601  mean|L>=Q3 =  13.265  ratio 5.100
-S1               mean   42.972  spearman(X, L) = +0.875 (p=0.0e+00)  mean|L<=Q1 =  18.204  mean|L>=Q3 =  72.730  ratio 3.995
-R - Sq_u - Sq_C  mean   18.488  spearman(X, L) = -0.354 (p=1.2e-213)  mean|L<=Q1 =  22.158  mean|L>=Q3 =  15.302  ratio 0.691
+R                          mean   32.258  spearman(X, L) = +0.426 (p=0.0e+00)  mean|L<=Q1 =  27.744  mean|L>=Q3 =  40.109  ratio 1.446
+Sq_u                       mean    6.646  spearman(X, L) = +0.729 (p=0.0e+00)  mean|L<=Q1 =   2.985  mean|L>=Q3 =  11.542  ratio 3.867
+Sq_C                       mean    7.123  spearman(X, L) = +0.723 (p=0.0e+00)  mean|L<=Q1 =   2.601  mean|L>=Q3 =  13.265  ratio 5.100
+Sq_u and Sq_C              mean    1.214  spearman(X, L) = +0.839 (p=0.0e+00)  mean|L<=Q1 =   0.061  mean|L>=Q3 =   2.917  ratio 47.676
+S1                         mean   42.972  spearman(X, L) = +0.875 (p=0.0e+00)  mean|L<=Q1 =  18.204  mean|L>=Q3 =  72.730  ratio 3.995
+R - Sq_C (t0>1, C-dec.)    mean   25.135  spearman(X, L) = +0.053 (p=5.9e-06)  mean|L<=Q1 =  25.143  mean|L>=Q3 =  26.845  ratio 1.068
+R - Sq_u (t0>1, u-dec.)    mean   25.611  spearman(X, L) = +0.178 (p=8.9e-53)  mean|L<=Q1 =  24.759  mean|L>=Q3 =  28.567  ratio 1.154
+R - (Sq_u u Sq_C)          mean   19.702  spearman(X, L) = -0.210 (p=3.6e-73)  mean|L<=Q1 =  22.219  mean|L>=Q3 =  18.219  ratio 0.820
 elasticity d log R / d log L = +0.321  (on X>0, 7253 primes)
 elasticity d log S1 / d log L = +1.226  (on X>0, 7249 primes)
 elasticity d log Sq_C / d log L = +1.073  (on X>0, 6361 primes)
 elasticity d log Sq_u / d log L = +1.095  (on X>0, 6937 primes)
-zeros file data/z60/rayclass/s1_prime_zeros_le3e6.txt: 133 primes; L at zeros: mean 0.5656 median 0.5234; fraction with L < 0.5: 0.421 (control fraction 0.038); max 1.168
+elasticity d log R - Sq_C / d log L = +0.055  (on X>0, 7253 primes)
+zeros file data/z60/rayclass/s1_prime_zeros_le1e7.txt: 133 primes; L at zeros: mean 0.5656 median 0.5234; fraction with L < 0.5: 0.421 (control fraction 0.038); max 1.168
