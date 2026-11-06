@@ -6,6 +6,8 @@ U_7(n): exists f ≡ 7 (mod 8) with r = (-n mod f) dividing f+1  <=>  n = xyz - 
 Usage: python z60_lopez_u7check.py N S lo hi files..."""
 import sys, gzip, math, random
 import numpy as np
+import os
+MORD = os.environ.get('Z60_MORD') == '1'   # sample n mod 840 in Mordell classes
 N = int(sys.argv[1]); S = int(sys.argv[2]); lo = int(sys.argv[3]); hi = int(sys.argv[4])
 hit = np.zeros(N + 1, dtype=np.uint8)
 x = 1
@@ -39,8 +41,11 @@ print("(2) LATE certificates checked", cnt, "bad", bad)
 random.seed(60)
 mism = 0
 for _ in range(S):
-    n = random.randrange(lo, hi) | 1
-    if n % 4 == 3: n += 2
+    if MORD:
+        n = random.randrange(lo // 840, hi // 840) * 840 + random.choice([1, 121, 169, 289, 361, 529])
+    else:
+        n = random.randrange(lo, hi) | 1
+        if n % 4 == 3: n += 2
     if math.isqrt(n) ** 2 == n: continue
     f = 7
     while True:
