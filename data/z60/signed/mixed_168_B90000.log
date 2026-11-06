@@ -1,0 +1,9 @@
+PARI stack size set to 2500000000 bytes, maximum size set to 2500001792
+Traceback (most recent call last):
+  File "/home/pasky/projects/math/erdos-straus-claude-agent-worktree-0042/scripts/z60_signed_mixed.py", line 62, in <module>
+    blocks.append((D, d, pari.mfcoefs(mf, B)))
+                         ^^^^^^^^^^^^^^^^^^^
+  File "cypari2/auto_instance.pxi", line 22990, in cypari2.pari_instance.Pari_auto.mfcoefs
+  File "cypari2/handle_error.pyx", line 211, in cypari2.handle_error._pari_err_handle
+cypari2.handle_error.PariError: the PARI stack overflows (current size: 2500000000; maximum size: 2500001792)
+You can use pari.allocatemem() to change the stack size and try again
