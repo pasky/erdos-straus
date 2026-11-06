@@ -140,6 +140,10 @@ special case.) **Computation (CERTIFIED, `scripts/z60_rayclass_genus.py`):** GV_
 At the 285 screen composites GV_C holds at 9–38 levels C ≤ 100, at the 12 R₈-zero primes at 16–38 even levels C ≤ 200; the
 event holds at none of these levels (consistent with the screens). So no argument that only certifies the class-visible
 layer, at any level and in any order, can reach the event: it would "prove" (★) at all 14 zeros.
+*Caveat (as in WINDMILL_REDUCTION 10.3, R164 repair).* Prop 3.1 concerns the class map as a function on *all* ideals. On
+the divisor hypercube of a fixed β the class map is injective (WR Computation 10.2), so the *labelled* hypercube of classes
+determines the factorisation and hence the event. A mechanism that uses this labelling is using the factorisation of
+4Cp + 1 itself (B2), not class-group structure.
 
 ## 4. Across fields: more information, no more relations
 
@@ -173,8 +177,8 @@ every finite abelian extension E/K with conductor 𝔣 prime to (β), Artin reci
 Frob_E(𝔮_i) follows from 𝔮_i | β beyond those of the abelian subextensions. (PROVED: the displayed relation. Assessment:
 "no other relation". This is not a theorem about every proof; it is the observation that CFT supplies only
 multiplicative, i.e. total-product, constraints.) The event asks for a **sub**-product with norm ≡ −1 (mod M). A relation
-among total products constrains sub-products only through zero-sum/Davenport combinatorics (CLASS_FORCING §4). Those need
-more prime factors than 4Cp + 1 has in the hard cases. So Prop 4.1's extra information is about *individual* prime factors,
+among total products constrains sub-products only through zero-sum/Davenport combinatorics (CLASS_FORCING §4, where the
+number of forced factors needed is quantified; Assessment: out of reach for the typical ω(4Cp + 1) ≈ log log p). So Prop 4.1's extra information is about *individual* prime factors,
 whose Frobenius data are not linked to p by any relation, while Prop 4.2's p-linked relations are total products. The
 cross-field route therefore lands on B2 again: one needs the residues of the actual prime factors of the specific integer.
 
@@ -182,7 +186,7 @@ cross-field route therefore lands on B2 again: one needs the residues of the act
 
 **Proposition 5.1 (class-number size is T1-blind; PROVED).** For odd m ≥ 3 and C ≥ 1 let O_m = ℤ[2m√−C], the order of
 discriminant −16Cm² containing 1 + 2m√−C (the square analogue of ℤ[2√(−Cp)], discriminant −16Cp). Then
-h(O_m) ≥ f·φ(f)/(3f) ≥ c·m/log log m with f ≥ 2m its conductor. Hence any criterion "h(−16Cn) ≥ g(n) ⟹ (★) at level C" with
+h(O_m) ≥ φ(f)/3 ≥ c·m/log log m, where f ≥ 2m is its conductor. Hence any criterion "h(−16Cn) ≥ g(n) ⟹ (★) at level C" with
 g(n) ≤ c√n/log log n is false at every odd square. Siegel's bound h(−16Cp) ≫_ε (Cp)^{1/2−ε} is weaker than what squares
 satisfy unconditionally.
 *Proof.* Cox Thm 7.24: h(O) = h(O_K)·f/[O_K^×: O^×]·∏_{ℓ|f}(1 − (d_K/ℓ)/ℓ) ≥ f·∏_{ℓ|f}(1 − 1/ℓ)/3 = φ(f)/3, and
@@ -195,8 +199,8 @@ gcd(f, t₀p) = 1.
 (b) One field (fixed t₀): #{s mod f : f | 1 + 4t₀ps²} = ρ_f := #{x mod f : x² ≡ −t₀p}, and
 Σ_{f odd, (f, t₀p)=1} ρ_f f^{−σ} = ∏_{ℓ ∤ 2t₀p} (1 + χ(ℓ)ℓ^{−σ})/(1 − ℓ^{−σ}) = ζ(σ)L(σ, χ)/ζ(2σ) × (Euler factors at ℓ | 2t₀p),
 χ = χ_{−4t₀p}.
-So along a single-field ray the density of divisor-candidates is governed by L(1, χ_{−4t₀p}) = π·h/√(t₀p) (up to the
-2-adic normalisation). Along the varying-field family each f meets exactly one level class. Since C ↦ (t₀, s), C = t₀s²,
+So along a single-field ray the density of divisor-candidates is governed by L(1, χ_{−4t₀p}) = π·h(−4t₀p)/(2√(t₀p))
+(Dirichlet's formula for discriminant −4t₀p, w = 2), up to the Euler factors at 2 and t₀p. Along the varying-field family each f meets exactly one level class. Since C ↦ (t₀, s), C = t₀s²,
 is a bijection, (a) is the sum over t₀ of the single-field counts (b): the varying-field count averages the twisted
 densities ρ_f(−t₀p) over the twists t₀.
 *Proof.* (a) 4p is invertible mod f. (b) 1 + 4t₀ps² ≡ 0 ⟺ (2t₀ps)² ≡ −t₀p (multiply by t₀p, a unit), a bijection s ↔ x. The
