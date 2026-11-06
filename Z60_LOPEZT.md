@@ -122,5 +122,62 @@ d' = (a+b)/m is a solution. ∎   (Both lemmas checked against brute-force enume
 Summary of the landscape (for prime p ≡ 1 mod 4):
   ES(p) ⟺ [∃ a, m: mp + a has a divisor ≡ −1 (4am)]  ∨  [∃ a, w, m: 4aw | mp + 1, m | 4a²w + 1];
   S(p)  ⟺ [∃ a: p + a has a divisor ≡ −1 (4a)]  ∨  [∃ m: mp + 1 has a divisor ≡ −1 (4m)].
-All three divisor conditions force (p/g) = −1 for the witness modulus (Type I: (−1/m)(4a²w/m)… the same reciprocity computation),
-so every family is empty at odd squares; the step "p is not a square" is used nowhere else.
+All three divisor conditions are empty at odd squares n = s². Type II: (n/g) = −1 as in Lemma 0.5 (g ≡ −1 mod 4am ⇒ (am/g) = 1, and
+m n ≡ −a mod g ⇒ (m/g)(n/g) = (−1/g)(a/g) = −(a/g), so (n/g) = −(am/g) = −1). Type I: m | 4a²w + 1 gives (w/m) = (−1/m) = −1 (m ≡ 3 mod 4);
+but for every odd prime q | w, m s² ≡ −1 (mod q) gives (m/q) = (−1/q), and reciprocity (m ≡ 3 mod 4) gives (q/m) = (m/q)(−1/q) = 1; if w is
+even then 8 | m s² + 1 forces m ≡ 7 (mod 8), (2/m) = 1. Hence (w/m) = 1, contradiction. The step "p is not a square" is used nowhere else.
+
+## §3 The pointwise statement: what a proof must do, and where every route I tried stops
+
+### 3.1 Symmetric form and the least-witness problem
+(U6) (PROVED; identities below). S(p) ⟺ ∃ a, b ≥ 1 with ab | p + a + b such that 4 divides a, b, or k := (p+a+b)/(ab).
+  Proof. With p = kab − a − b, for every (a, b, k): 4/p = 4/(kab) + 4/(pkb) + 4/(pka)  and  4/p = 4/(a(bk−1)) + 4/(pak) + 4/(pak(bk−1))
+  (check: 4/(pak) + 4/(pak(bk−1)) = 4b/(pa(bk−1)), plus 4/(a(bk−1)) gives 4(p+b)/(pa(bk−1)) = 4/p). The first is three unit fractions
+  iff 4 | k (BN), the second iff 4 | a (B4 with Y = a), and a ↔ b gives 4 | b. Conversely BN = (4 | k), B4 = (4 | a) by (U2). ∎
+  (Without the "4 |" clause the condition is vacuous: k = 1 gives p + 1 = (a−1)(b−1) for any factorization. The 4 is the 4 of 4/p.)
+
+Least witness. Let g*(p) := min{g ≡ 3 (4) : p^{±1} mod g ∈ R_g} (U5). CERTIFIED (`scripts/z60_lopezt_leastg.c`,
+`data/z60/lopezt/leastg_1e8.txt`): over the 719 781 primes p ≡ 1 (24) below 10⁸, g* ≤ 10487 (attained at p = 9 658 489; no new record
+in [10⁷, 10⁸]); g* = 7 for 50.06 %, g* ≤ 23 for 90.1 %, g* > 1000 for 172 primes, g* > 3000 for 12. So the pointwise statement is a
+Linnik-type problem ("least modulus g with p^{±1} ∈ R_g") whose worst cases are far above log p.
+
+Proposition 3.1 (PROVED). For every M there are infinitely many primes p ≡ 1 (24) with g*(p) > M, and the least of them satisfies
+log p ≤ (5 + o(1))·M (Xylouris' Linnik constant 5). Hence g*(p) ≥ (1/5 − o(1))·log p for infinitely many p ≡ 1 (24).
+Proof. Take p ≡ 1 (mod L), L := lcm(24, {g ≡ 3 (4), g ≤ M}) ≤ 24·lcm(1..M) = e^{M(1+o(1))}. For every g ≤ M, p ≡ 1 is a square mod g,
+while R_g ∪ R_g^{−1} ⊂ {x : (x/g) = −1} (Lemma 1.1(i)); so no witness g ≤ M. Dirichlet gives infinitely many such p, Linnik the size. ∎
+Remark. Any witness g has a prime factor q with (p/q) = −1, so g*(p) ≥ n_p := least prime q with (p/q) = −1; the Graham–Ringrose
+primes (n_p ≫ log p·log log log p) give a slightly better lower bound for infinitely many p (not checked that their construction
+respects p ≡ 1 mod 24 — EVIDENCE level). Under GRH, n_p ≪ (log p)², but that is only a lower bound for g*, not an upper bound.
+
+### 3.2 Constructive routes (all blocked, PROVED where stated)
+(C1) Finite covering by congruences on p: impossible by Lemma 1.2, even inside p ≡ 1 (24), even using all Type I/II families (all
+     residue sets are non-residue sets; p ≡ 1 mod L defeats every modulus ≤ M).
+(C2) "Explicit g as a function of p", g = 4cp + r (c ≥ 1): BN needs a ≡ −p (mod g) with a ≤ (g+1)/4 < g − p: impossible. B4 needs
+     a = (jg − 1)/p with j ≡ r^{−1} (mod p), a | (g+1)/4; then j(4cp + r + 1) ≡ 1 + j (mod 4cj + s) with s = (jr − 1)/p, so 4cj + s | j + 1,
+     impossible for c ≥ 1. (Witness moduli satisfy g ≤ 2p + 1 in any case, Lemma 1.1(ii).) So any witness is a *divisor* of one of the
+     numbers p + a, ap + 1, i.e. is built from their prime factors, and primes > z dividing them are invisible to p mod (anything ≤ z).
+(C3) A single prime witness q: hit ⟺ p mod q ∈ S_q with |S_q| ≤ 2τ((q+1)/4) ≪ q^ε, versus (q−1)/2 non-residue classes. Knowing a prime q
+     with (p/q) = −1 (even the least one) therefore gives nothing: p mod q must land in a q^{ε}-sized set.
+(C4) Composite witnesses g = q₁q₂…: the same t must work for all q_i (t | (g+1)/4, tp ≡ −1 mod each q_i); choosing q₂ to fix the second
+     condition means q₂ | tp + 1 — i.e. we must again *factor* tp + 1. Circular.
+(C5) Additive flexibility (Type I: ab | (mp+1)/4 with m | a + b) does not escape (C1): sub-products of residues lying in a proper
+     subgroup H ∌ −1 never sum to 0 mod m when −1 ∉ H (m ≡ 3 mod 4), the same non-residue wall.
+
+### 3.3 Counting routes (why pointwise positivity does not come out)
+N(p) = Σ_{g ≡ 3 (4)} 1[p^{±1} mod g ∈ R_g]. Swapping to "small divisors" does not help: for a fixed g the only candidate a is
+a = (−p mod g), and the event a | (g+1)/4 is a single 0/1 event of "probability" τ((g+1)/4)/g. In the classical short-interval divisor
+sum Σ_{n ∈ (p, p+A]} τ(n) every d ≤ A contributes ≥ 1 *pointwise* because the class condition is independent of the shift; here the class
+is −1 mod 4(n − p), so the one candidate shift is pinned by g and nothing is forced. Expected count Σ_{g ≤ X} 2τ((g+1)/4)/g ≍ (log X)²/4
+(the 8-analogue: (log X)²/8 — this constant-factor-2 gap is the entire content of (F2) at the level of main terms). A sieve upper bound for
+the exceptional primes has unbounded dimension (Σ_g 2τ((g+1)/4)/g → ∞) and error terms ≫ X/(log X)^B, so it can bound the exceptional
+set by X/(log X)^A for every A ("almost all", not pointwise) and no further.
+
+### 3.4 What exactly would suffice (the reduced analytic statement)
+(P*) For every large prime p ≡ 1 (24) there is g ≡ 3 (mod 4), g ≤ 2p + 1, with  (−p mod g) | (g+1)/4  or  (−p·4^{−1} mod g) | (g+1)/4.
+Equivalently (U1/U3/U4/U5/U6). I found no route to (P*) that is not equivalent to controlling the factorization of an individual
+number of the form p + a or ap + 1 beyond its small prime factors. The 8-analogue (P*₈) has the identical shape with (g+1)/8, g ≡ 7 (8),
+and is false 45 times below 4·10⁶; a proof of (P*) must therefore use witnesses with g ≡ 3 (mod 8), or with a ∤ (g+1)/8 — i.e. the
+2-adic slack between "4" and "8" — at least below 3 869 153, and cannot be a pure main-term argument.
+
+**Status of the pointwise statement: NOT PROVED. No hot lead.** Everything above is PROVED/CERTIFIED as labelled; nothing conditional
+is claimed, because every conditional form I could formulate was either equivalent to (P*) itself or an almost-all statement.
