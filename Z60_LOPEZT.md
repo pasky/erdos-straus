@@ -179,5 +179,15 @@ number of the form p + a or ap + 1 beyond its small prime factors. The 8-analogu
 and is false 45 times below 4·10⁶; a proof of (P*) must therefore use witnesses with g ≡ 3 (mod 8), or with a ∤ (g+1)/8 — i.e. the
 2-adic slack between "4" and "8" — at least below 3 869 153, and cannot be a pure main-term argument.
 
+### 3.5 (U7): the four residue classes of a (PROVED; `scripts/z60_lopezt_u7.c` agrees with (U5) on all n ≡ 1 (4), n ≤ 2·10⁴)
+Write p + a = d·b with d ≡ −1 (mod a) (U6 with k = (d+1)/a). Reducing the three 4-conditions mod 4 (p ≡ 1 mod 4):
+  a ≡ 0 (4): hit ⟺ p + a has a divisor ≡ −1 (mod a)            [any d; b ≡ d ≡ 3 mod 4 automatically]
+  a ≡ 1 (4): hit ⟺ (p + a)/2 has a divisor ≡ −1 (mod 4a)       [p + a ≡ 2 mod 4 kills 4 | b; need 4a | d + 1]
+  a ≡ 2 (4): hit ⟺ p + a has a divisor ≡ −1 (mod 4a)           [p + a odd; need 4a | d + 1]
+  a ≡ 3 (4): hit ⟺ (p + a)/4 has a divisor ≡ −1 (mod a)        [p + a ≡ 0 mod 4: 4a | d + 1 ⇒ 4 | b, so "4 | b" is the whole condition]
+So S(p) has two *cheap* sub-families where the modulus is a itself (a ≡ 0, 3 mod 4) and two with modulus 4a. For p ≡ 1 (24), a = 3:
+(p+3)/4 = 6j+1 needs a prime factor ≡ 2 (3); a = 4: p + 4 needs a prime factor ≡ 3 (4); a = 7: (p+7)/4 needs a divisor ≡ 6 (7).
+(The a ≡ 3 case subsumes, for d even, B4-witnesses with Y = b, so the two branches are interleaved already at a = 3.)
+
 **Status of the pointwise statement: NOT PROVED. No hot lead.** Everything above is PROVED/CERTIFIED as labelled; nothing conditional
 is claimed, because every conditional form I could formulate was either equivalent to (P*) itself or an almost-all statement.
