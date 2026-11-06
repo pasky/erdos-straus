@@ -96,3 +96,31 @@ p ≤ L^{C} = e^{O(M)}, i.e. infinitely many primes p ≡ 1 (24) whose every wit
 quadratic residue modulo every prime ≤ z, every witness g has a prime factor q > z with (p/q) = −1. ∎
 Consequence: no argument that exhibits a witness from finitely many congruence conditions on p can prove S(p); the witness must be
 built from a prime factor of some tp + 1 / 4tp + 1 that is not determined by p modulo any fixed modulus.
+
+## §2 Where S sits inside ES: the (a, m)-lattice of Type II, and Type I (PROVED)
+
+Lemma 2.1 (Type II, two-parameter divisor form). For p prime, 4/p has a Type II solution ⟺
+  **∃ a, m ≥ 1 (WLOG gcd(a, m) = 1): mp + a has a divisor g ≡ −1 (mod 4am).**
+Proof. (⇐) g = 4amd' − 1, b := (mp + a)/g. Then mp = 4abmd' − a − b, so m | a + b; with c := (a+b)/m, p = 4abd' − c and
+  1/(abd') + 1/(p·ad'm) + 1/(p·bd'm) = (pm + a + b)/(p·abd'm) = (p + c)/(p·abd') = 4/p.
+(⇒) Lemma 0.3 gives p = 4abd' − (a+b)/m, i.e. mp + a = b(4amd' − 1). If d = gcd(a, m) > 1 then gcd(g, d) = 1 and g | (m/d)p + a/d
+with g ≡ −1 (mod 4(a/d)(m/d)), so (a/d, m/d) also works. ∎
+**S(p) is exactly the union of the two axes**: m = 1 (BN: p + a has a divisor ≡ −1 mod 4a) and a = 1 (B4: mp + 1 has a divisor ≡ −1
+mod 4m). In the (U5) language, for a modulus g ≡ 3 (4) with Q = (g+1)/4 the full Type II residue set is
+R^{II}_g = { −a·m^{−1} mod g : am | Q } (ratios of divisors of Q, negated); S uses only {−a} ∪ {−m^{−1}}.
+Off-axis witnesses are genuinely new: n = 105 has the Type II witness (a, m, g) = (3, 2, 71) (213 = 3·71, 71 ≡ −1 mod 24) although
+S(105) fails; n = 4545 has no Type II witness at all (exhaustive: m < 2n suffices since g | n + 4a²k forces m ≤ a + n, a ≤ n/4 + 1).
+So there is no algebraic map from off-axis Type II witnesses to axis witnesses (F3 is consistent with this: 105 is rescued by Type II
+off-axis, 4545 only by non-Type-II solutions, which for composite n exist outside the prime classification).
+
+Lemma 2.2 (Type I divisor form). For p prime, 4/p has a Type I solution ⟺ **∃ a, w, m ≥ 1: 4aw | mp + 1 and m | 4a²w + 1.**
+Proof. (⇒) Lemma 0.4: mp + 1 = 4abw and a + b = d'm; then 4a²w + 1 = 4aw(a + b) − mp ≡ 0 (mod m). (⇐) b := (mp+1)/(4aw);
+gcd(m, 4aw) = 1 from m | 4a²w + 1, and 4aw(a + b) = 4a²w + mp + 1 ≡ 0 (mod m), so m | a + b; then x = wd'a, y = wd'b, z = pabw with
+d' = (a+b)/m is a solution. ∎   (Both lemmas checked against brute-force enumeration of all solutions for every n ≡ 1 (4), n < 700:
+`scripts/z60_lopezt_typecheck.py`, 0 mismatches on primes; on composites the ⇐ directions hold as identities.)
+
+Summary of the landscape (for prime p ≡ 1 mod 4):
+  ES(p) ⟺ [∃ a, m: mp + a has a divisor ≡ −1 (4am)]  ∨  [∃ a, w, m: 4aw | mp + 1, m | 4a²w + 1];
+  S(p)  ⟺ [∃ a: p + a has a divisor ≡ −1 (4a)]  ∨  [∃ m: mp + 1 has a divisor ≡ −1 (4m)].
+All three divisor conditions force (p/g) = −1 for the witness modulus (Type I: (−1/m)(4a²w/m)… the same reciprocity computation),
+so every family is empty at odd squares; the step "p is not a square" is used nowhere else.
