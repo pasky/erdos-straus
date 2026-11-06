@@ -355,8 +355,7 @@ n ≤ B, with R(n) = 0 (LOGIC census list, squares and composites included).
 
 **CERTIFIED:** at L ∈ {168, 240, 280}, every valid mixed-nebentypus *support* proxy g ∈ V vanishes on
 𝒞₁(L/2) ∩ [1, B]. (Signed minorants: not covered — their validity domain is a cone, §5; no sign certificate computed.)
-The no-zero-row ranks at L = 168 are in `data/z60/signed/mixed_168_nozero.txt` (B = 4000 there; the B = 40 000 value 3
-was a console run, re-run in that file if completed).
+The no-zero-row ranks at L = 168 (16 at B = 4000, 3 at B = 40 000) are in `data/z60/signed/mixed_168_nozero.txt`.
 **Finite-size caveat (EVIDENCE):** without zero rows the mixed T1-kernel restricted to 𝒞₁ is *larger* than the sum of the
 per-ψ kernels (3, 9, 6 vs 1) — at these B the number of odd squares (100, 87, 87) is far below dim V, so many cross-ψ
 cancellations at squares survive. Theorem S2(a) says they disappear when *all* odd squares are imposed; the finite
@@ -378,14 +377,18 @@ statistic); R(n) by enumeration; n_p := least prime non-residue of n.
 | (420, χ₂₁), E₂₁₀ ⊗ χ_{−84} | 108 | 14/37, 6/36, 3/35 | 0.49 | −0.08 | 0.11 | 43/42 | **0, 0** |
 | (420, χ₁₀₅), E₁₀₅ ⊗ χ_{−420} | 108 | 18/37, 11/36, 7/35 | 0.43 | 0.06 | 0.11 | 40/32 | **0, 0** |
 
-(ρ_S = Spearman rank correlation over the 𝒞₁-primes; the squarefree-composite rows behave the same, see the files.)
+(ρ_S = Spearman rank correlation over the 𝒞₁-primes; the squarefree-composite rows behave the same, see the files.
+After internal review R11 the local factor at good ℓ | n is set to 1 (ramified twist); this changes only composite
+rows — the prime rows and every number in the table are unchanged; driver `scripts/z60_signed_pseudosq_runs.sh` →
+`data/z60/signed/pseudosq_summary.txt`. The interpretation of w as a central value inherits WALDS's line ↔ eigensystem
+identification, EVIDENCE. Restricted to 𝔐-primes the sign counts are 30/42, 43/45, 40/40, 43/42, 40/32 (reviewer).)
 Readings (EVIDENCE, finite range): (a) the Waldspurger dictionary is visible numerically — w tracks the partial Euler
 product (ρ ≈ 0.43–0.58) and vanishing concentrates in the low-P_Y tercile; (b) **w is uncorrelated with R**
 (|ρ_S(R, w)| ≤ 0.13 on all five lines), although R itself correlates with pseudo-squareness (ρ_S(R, n_p) down to −0.63);
 the twisted central value weights the small primes by a_ℓ(G), a G-specific pattern, while R depends on the residue
 pattern of n in a G-independent way. So the natural heuristic "both vanish at pseudo-squares, hence validity is
-approximately automatic" is not supported; (c) signs are balanced at every line (signed single-line proxies are not
-eventually positive in the computed range).
+approximately automatic" is not supported (small rank correlation in a finite range — not a proof of independence);
+(c) both signs occur at primes for every line in the tested range (which does not refute eventual constancy).
 
 ### 6.3 The L = 420 coincidence and *prime-only* validity (CERTIFIED ranks / EVIDENCE L-values)
 WALDS §5.3 noted that both L = 420 survivors vanish at the (★)-zero primes 5569 and 9601. A line that vanished at *every*
@@ -540,9 +543,11 @@ All runs: `ulimit -v 4000000`, `timeout` ≤ 1800, ≤ 2 concurrent compute proc
 * `bash scripts/z60_signed_mixed_runs.sh` → `data/z60/signed/mixed_runs.txt` (§6.1). Single runs:
   `scripts/z60_signed_mixed.py 168 4000 0 4 0` (excess 16, console), `… 168 40000 0 4 0` (excess 3, console);
   `… 168 90000 0 4 0` overflowed the PARI stack (`mixed_168_B90000.log`).
-* `scripts/z60_signed_pseudosq.py L D 40000 "[a-invariants]" D′ 200 data/z60/signed/pseudosq_L_D.txt` for
-  (168,168,E₈₄,−168), (420,21,E₂₁₀,−84), (420,105,E₁₀₅,−420), (280,56,E₇₀,−56), (560,280,E₅₆,−280) (§6.2; summary lines
-  are console output reproduced in §6.2).
+* `bash scripts/z60_signed_pseudosq_runs.sh > data/z60/signed/pseudosq_summary.txt` (runs
+  `scripts/z60_signed_pseudosq.py L D 40000 "[a-invariants]" D′ 200 data/z60/signed/pseudosq_L_D.txt` for
+  (168,168,E₈₄,−168), (280,56,E₇₀,−56), (560,280,E₅₆,−280), (420,21,E₂₁₀,−84), (420,105,E₁₀₅,−420); §6.2).
+* `python3 scripts/z60_signed_rank5_check.py 20000 > data/z60/signed/rank5_check.txt` (§4.1 counterexample check).
+* L = 168 no-zero-row runs: `scripts/z60_signed_mixed.py 168 {4000,40000} 0 4 0` → `mixed_168_nozero.txt`.
 * `scripts/z60_signed_t420.py 2e15` (first run, killed after 83449: `t420_screen_run1.txt`), `… 2e15 83449,…`
   (`t420_screen.txt`, killed during an analytic-rank computation), `… 2e15 102001` (`t420_screen_102001.txt`);
   `scripts/z60_signed_zeros_rank.py <9 zeros> 3` → `zeros_rank_420.txt`.
@@ -551,4 +556,25 @@ All runs: `ulimit -v 4000000`, `timeout` ≤ 1800, ≤ 2 concurrent compute proc
   `python3 scripts/z60_signed_baserate_stats.py` → `baserate_stats.txt` (§6.3).
 
 ## 10. Review log
-(pending)
+* **Internal hostile review** (deep-mode subagent; `data/z60/signed/internal_review.md`): 1 FATAL, 7 MAJOR, 5 MINOR. It
+  re-derived S1 (all steps, incl. the s → 1⁺ Rankin–Selberg sign argument and Remark (1)), S2 for quadratic ψ in weight
+  3/2 (Lemma 3.1, distinctness, Steps 1–5), single-ψ S3, Lemma S4 and the support version of S5 — all pass; re-ran the
+  rank screen at 102001, 712321, 8813281 and the base-rate statistics (reproduced); recomputed the §6.2 table from the
+  saved rows (all numbers reproduce); verified Duke 1988 Thm 5 (normalisation a(n) = (4πn)^{κ/2}ρ(n), eq. (2.5)) and the
+  Sarnak note independently. Repairs:
+  * FATAL R1 (mixed-ψ S3 false): S3 restricted to one nebentypus; the reviewer's rank-5 counterexample added to §4.1 with
+    a numerical check (`rank5_check.txt`); mixed higher-weight signed proxies listed as an open escape; title, §0, §7
+    corrected. The support version for mixtures in higher weight is kept (Dedekind step needs only distinctness).
+  * R2 (cosets): §4.2 now states only the class-by-class conclusion and the termwise-recipe exclusion, both CONDITIONAL
+    on (SWc); the reviewer's −θ_{5ℤ³+(1,0,0)} example recorded.
+  * R3 (signed validity is a cone): §5 "Signed version" rewritten; §6.1 no longer claims transfer to signed proxies.
+  * R4 (S5 scope / dictionary): V and Λ made explicit; Consequence 3 now CONDITIONAL on W1′'s hypotheses, phrased for
+    signed square-root coefficient vectors; §7.5 uses the coefficient-vector criterion.
+  * R5 (MS⁺ / circularity overreach): Consequence 1 is the prime target only; Consequence 4 rewritten ("no validity
+    mechanism is supplied"; validity need not be circular); §7 wording adjusted.
+  * R6 (S4′): explicit hypothesis (Dom); fallback claim deleted (case unresolved).
+  * R7 (qualifications): numerical / BSD-dependent / identification caveats propagated to §0, §6.3, §7.
+  * R8 (pari's ellrank upper bound ≠ Selmer rank): renamed and explained; base fractions 53 %/34 %/22 % corrected.
+  * R9–R13: S2 Remark (1) weakened; S5 wording (level raise, free coordinates, infinitely many squares, W = 0 condition);
+    PY statistic fixed at ramified ℓ (prime rows unchanged) and rerun; falsifier inventory with full counts and "three of
+    five lines"; P₀ ≥; L = 168 logs saved; §8 item references fixed.

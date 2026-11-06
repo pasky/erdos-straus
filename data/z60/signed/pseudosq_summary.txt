@@ -1,0 +1,45 @@
+== L=168 D=168 G=[0,-1,0,-36,-72] D'=-168
+[primes] n=238; vanishing rate of s by PY tercile (low/mid/high): 31/80 / 19/79 / 7/79
+  Spearman(w, PY) = 0.584;  Spearman(R, PY) = 0.123;  Spearman(R, w) = 0.008;  Spearman(R, n_p) = -0.292
+  R-zeros in this set: [(5569, 1, 0.369), (9601, -1, 1.066)]  (n, s(n), PY)
+  vanishing rate of s at R-zeros: 0/2; overall 57/238
+[all squarefree] n=637; vanishing rate of s by PY tercile (low/mid/high): 90/213 / 48/212 / 22/212
+  Spearman(w, PY) = 0.579;  Spearman(R, PY) = 0.125;  Spearman(R, w) = 0.027;  Spearman(R, n_p) = -0.346
+  R-zeros in this set: [(1345, 0, 0.759), (1465, -1, 0.702), (1969, 0, 0.446), (2305, 0, 0.693), (2641, -1, 0.754), (3865, 0, 0.852), (5161, 1, 0.519), (5569, 1, 0.369), (9601, -1, 1.066), (15145, 0, 0.247), (18001, 1, 0.141), (23881, -1, 0.482)]  (n, s(n), PY)
+  vanishing rate of s at R-zeros: 5/12; overall 160/637
+== L=280 D=56 G=[0,0,0,37,-138] D'=-56
+[primes] n=238; vanishing rate of s by PY tercile (low/mid/high): 32/80 / 14/79 / 13/79
+  Spearman(w, PY) = 0.508;  Spearman(R, PY) = -0.209;  Spearman(R, w) = -0.122;  Spearman(R, n_p) = -0.629
+  R-zeros in this set: [(5569, 1, 1.027), (9601, -1, 0.75)]  (n, s(n), PY)
+  vanishing rate of s at R-zeros: 0/2; overall 59/238
+[all squarefree] n=713; vanishing rate of s by PY tercile (low/mid/high): 91/238 / 43/238 / 33/237
+  Spearman(w, PY) = 0.539;  Spearman(R, PY) = -0.151;  Spearman(R, w) = -0.079;  Spearman(R, n_p) = -0.676
+  R-zeros in this set: [(249, -1, 1.505), (1761, -1, 0.687), (1969, 1, 0.924), (2641, 2, 1.807), (3369, -1, 0.462), (5161, 0, 0.253), (5569, 1, 1.027), (9601, -1, 0.75), (15369, 0, 1.049), (18001, 0, 0.172), (23881, -4, 2.498)]  (n, s(n), PY)
+  vanishing rate of s at R-zeros: 3/11; overall 167/713
+== L=560 D=280 G=[0,-1,0,-40,-84] D'=-280
+[primes] n=238; vanishing rate of s by PY tercile (low/mid/high): 24/80 / 23/79 / 7/79
+  Spearman(w, PY) = 0.490;  Spearman(R, PY) = 0.384;  Spearman(R, w) = 0.125;  Spearman(R, n_p) = -0.629
+  R-zeros in this set: [(5569, 1, 0.338), (9601, 1, 0.43)]  (n, s(n), PY)
+  vanishing rate of s at R-zeros: 0/2; overall 54/238
+[all squarefree] n=713; vanishing rate of s by PY tercile (low/mid/high): 68/238 / 57/238 / 34/237
+  Spearman(w, PY) = 0.422;  Spearman(R, PY) = 0.252;  Spearman(R, w) = 0.021;  Spearman(R, n_p) = -0.676
+  R-zeros in this set: [(249, -1, 0.724), (1761, 1, 0.957), (1969, -1, 0.277), (2641, 0, 0.781), (3369, 3, 2.091), (5161, -2, 0.421), (5569, 1, 0.338), (9601, 1, 0.43), (15369, -4, 1.498), (18001, -4, 1.003), (23881, -4, 1.756)]  (n, s(n), PY)
+  vanishing rate of s at R-zeros: 1/11; overall 159/713
+== L=420 D=21 G=[0,-1,0,-56,-84] D'=-84
+[primes] n=108; vanishing rate of s by PY tercile (low/mid/high): 14/37 / 6/36 / 3/35
+  Spearman(w, PY) = 0.487;  Spearman(R, PY) = -0.032;  Spearman(R, w) = -0.079;  Spearman(R, n_p) = 0.112
+  R-zeros in this set: [(5569, 0, 0.318), (9601, 0, 1.238)]  (n, s(n), PY)
+  vanishing rate of s at R-zeros: 2/2; overall 23/108
+[all squarefree] n=240; vanishing rate of s by PY tercile (low/mid/high): 30/81 / 13/80 / 9/79
+  Spearman(w, PY) = 0.463;  Spearman(R, PY) = 0.000;  Spearman(R, w) = 0.015;  Spearman(R, n_p) = -0.061
+  R-zeros in this set: [(1969, -2, 3.698), (2641, 0, 0.608), (5161, 1, 1.178), (5569, 0, 0.318), (9601, 0, 1.238), (18001, -1, 0.515), (23881, -1, 1.183)]  (n, s(n), PY)
+  vanishing rate of s at R-zeros: 3/7; overall 52/240
+== L=420 D=105 G=[0,1,0,-120,-432] D'=-420
+[primes] n=108; vanishing rate of s by PY tercile (low/mid/high): 18/37 / 11/36 / 7/35
+  Spearman(w, PY) = 0.426;  Spearman(R, PY) = -0.099;  Spearman(R, w) = 0.061;  Spearman(R, n_p) = 0.112
+  R-zeros in this set: [(5569, 0, 3.485), (9601, 0, 0.211)]  (n, s(n), PY)
+  vanishing rate of s at R-zeros: 2/2; overall 36/108
+[all squarefree] n=240; vanishing rate of s by PY tercile (low/mid/high): 42/81 / 20/80 / 15/79
+  Spearman(w, PY) = 0.455;  Spearman(R, PY) = 0.007;  Spearman(R, w) = 0.048;  Spearman(R, n_p) = -0.061
+  R-zeros in this set: [(1969, 0, 3.54), (2641, 1, 1.207), (5161, 1, 0.34), (5569, 0, 3.485), (9601, 0, 0.211), (18001, 1, 0.508), (23881, 1, 0.445)]  (n, s(n), PY)
+  vanishing rate of s at R-zeros: 3/7; overall 77/240
