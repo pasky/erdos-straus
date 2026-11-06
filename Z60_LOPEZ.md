@@ -1,12 +1,14 @@
-# Z60_LOPEZ — López's single line U_II: no complementarity found between the branches (exchangeable in law, deep tails positively dependent); no p-independent link law; a sharper sign-free sub-target U₇ (verdict: narrowed + sharper target; no mechanism)
+# Z60_LOPEZ — López's single line U_II: no complementarity in the tested deep-tail events, only a weak bulk complementarity (branches exchangeable in law at fixed X); no p-independent link law; a sharper sign-free sub-target U₇ (verdict: narrowed + sharper target; no mechanism)
 
 **ES is OPEN; López's Conjecture 1, CONJECTURE U_II, (MS-U) and the new CONJECTURE U₇ are open.** Lane LOPEZ of wave z60
 (`z52bbriefs/z60_lanes.md` §LOPEZ; rules `z58_lanes.md` "Common rules" + falsifier table; `z53_depth.md` with z53 → z60).
 Scripts `scripts/z60_lopez_*`, data `data/z60/lopez/` (≈ 2.5 MB). Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE /
 CONJECTURE / Assessment. Internal results are internally reviewed only (§8).
 
-Notation (`Z59_SUMMARY.md`, `Z59_CONV2.md`). n odd ≥ 1. **Branch B** = (★) = c = 1 line = López Type B; **branch A** =
-a = 1 (∪ b = 1) line = López Type A; U_II(n) ≥ 1 ⟺ A or B has a solution at n. 𝔐 = {1, 121, 169, 289, 361, 529} ⊂
+Notation (`Z59_SUMMARY.md`, `Z59_CONV2.md`). n odd ≥ 1. **Branch B** = (★) = c = 1 line (= López Type B at primes); **branch A** =
+the a = 1 (∪ b = 1) congruence/word line, equivalent to López Type A **at primes** (López's Definition 3 also admits
+inherited composite Type A solutions, e.g. 4/25 = 1/10 + 1/25 + 1/50 with (d, u, v) = (5, 2, 5), while the A-line has
+no hit at 25; all statements here concern the A-line); U_II(n) ≥ 1 ⟺ A or B has a solution at n. 𝔐 = {1, 121, 169, 289, 361, 529} ⊂
 (ℤ/840)^× (= the squares of (ℤ/840)^×). For f ≡ 3 (mod 4): m_f = (f+1)/4, D_f = {a mod f : a | m_f}. χ_p(ℓ) = (ℓ/p).
 A *word* of n is (x, y, z) ∈ ℕ³ (letters ≥ 1 allowed) with xyz − x − z = n (Lorenzini's critical polynomial of A₃;
 HJ_DEEP's formal words with middle letter y).
@@ -52,7 +54,7 @@ Objects: (i) the lane's *idea*, a link law between the branches; (ii) the target
 | screen | link law (idea) | U₇ (target) | label |
 |---|---|---|---|
 | **F1 odd squares** | both branches fail at every f, y, T at n = m², so any link law must use non-squareness; Prop D's constructed primes are "squares at every modulus ≤ X" (p ≡ 1 mod lcm) and kill every p-independent *first-witness* law (unconditionally in f; under Dickson in a, T). Squares alone do not exclude prime-only laws | U₇(m²) = 0: every divisor r of f+1 is a Jacobi residue mod f ≡ 7 (8), while −m² is a non-residue for f coprime to m (coprimality is forced by a hit; Lemma 7(ii)). Non-squareness enters at the first step — and that is all the target says; the existence of the witness is the open part | PROVED |
-| **F2 numerator 8** | U⁽⁸⁾ (547 zeros n ≡ 1 (4) ≤ 10⁸, 45 primes, last 3 869 153; Z59_CONV2) — a law valid verbatim for K = 8 is false below these thresholds | **U⁽⁸⁾ ⊂ U₇** (Lemma 7(iv)): at f ≡ 7 (8), U⁽⁸⁾ uses only the targets r \| (f+1)/8 or 8 \| r; U₇ adds the divisors r of f+1 with v₂((f+1)/8) < v₂(r) < 3. An argument for U₇ must use these extra targets (else it proves U⁽⁸⁾, false at 547 n ≤ 10⁸). Also the two branch halves of U₇ fail at 14 resp. 12 primes ≤ 10⁸ (§4.2) | PROVED + CERTIFIED |
+| **F2 numerator 8** | U⁽⁸⁾ (547 zeros n ≡ 1 (4) ≤ 10⁸, 45 primes, last 3 869 153; Z59_CONV2) — a law valid verbatim for K = 8 is false below these thresholds | **Mandatory control:** all 12 certified C-even R₈-zero primes in [10¹⁰, 1.1·10¹⁰] (`r8_zeros_1e10.txt`) are rescued by U₇ (R ≥ 12 there and (★) ⊂ U₇; directly re-witnessed by the cross-model review). R₈ is the C-even B-subline, not the two-branch U⁽⁸⁾. Additional screen: **U⁽⁸⁾ ⊂ U₇** (Lemma 7(iv)): at f ≡ 7 (8), U⁽⁸⁾ uses only the targets r \| (f+1)/8 or 8 \| r; U₇ adds the divisors r of f+1 with v₂((f+1)/8) < v₂(r) < 3. An argument for U₇ must use these extra targets (else it proves U⁽⁸⁾, false at 547 n ≤ 10⁸). Also the two branch halves of U₇ fail at 14 resp. 12 primes ≤ 10⁸ (§4.2) | PROVED + CERTIFIED |
 | **F3 composites** | 105, 4545 (U_II-zeros) have both branches failing totally | U₇-zeros = {105, 1465, 3865, 4545, 10305, 12145, 39361, 67425} ≤ 10¹⁰: composite, divisible by 5 or 7 (U₇'s complete moduli are 7 and 15, Lemma 7(v)). A proof of CONJECTURE U₇ must fail at these 8 | CERTIFIED |
 | **F4 known zeros** | B fails totally at the 14 (★)-zero primes, A at 193, 2521, 66529: no one-sided law; Prop D | U₇ ≥ 1 at all 14 (★)-zero primes (rescued by Type A with cd even; census), at 193, 2521, 66529 and the 24 𝔊*-zeros with R ≥ 1 and the 12 R₈-zero primes (R ≥ 12) — by (★) ⊂ U₇ on n ≡ 1 (4); no odd prime zero ≤ 10¹⁰ (all listed prime controls rescued; the composite exceptions are F3) | PROVED + CERTIFIED |
 
@@ -324,12 +326,14 @@ branch alone suffices.
 * §7 item 19: "the U-line target can be replaced by the sign-free U₇ (Lemma 7); its witness is any divisor r of f+1."
 
 **Bottom line.** The brief asked why López's two branches almost never fail together and whether one branch's failure
-forces the other's success. They do not interact the way a link would: on each modulus the branches are the two 2-adic
-halves of one target set (the Jacobi-positive divisors of f + 1), inversion swaps them exactly, and on primes their least
-witnesses are positively dependent in the deep tails — a large n′_p or a χ_p that is +1 on many small primes delays
-both (a weak negative dependence appears only in the bulk). Joint failure is
-rare because it needs two unlikely events, and the dependence makes it *less* rare than independence would. A
-p-independent link law is impossible (unconditionally for witness moduli, under Dickson for the other coordinates). The
+forces the other's success. No such link was found. PROVED: on each modulus the branches are the two 2-adic halves of
+one target set (the Jacobi-positive divisors of f + 1), and inversion swaps them exactly (exchangeability in law for
+each fixed X, in the limit). EVIDENCE (pooled exceedances, primes ≡ 1 (24) ≤ 10⁹): their least witnesses are positively
+dependent in the tested deep-tail events, with a weak negative dependence in the bulk; Assessment: a large n′_p or a χ_p
+that is +1 on many small primes plausibly delays both, and joint failure looks rare because it needs two unlikely
+events, the tail dependence making it less rare than independence would predict. A p-independent first-witness link law
+is impossible (unconditionally for witness moduli, under Dickson for the other coordinates); adaptive or p-dependent
+mechanisms are not excluded. The
 useful by-product is a cleaner target: U₇ — "some f ≡ −1 (mod 8) has (−n mod f) dividing f + 1" — contains (★) on
 n ≡ 1 (4), has T1 built in, and fails at no odd non-square except eight composites ≤ 10¹⁰, and at no non-square in 𝔐
 ≤ 10¹². The wall is still B2.
@@ -380,3 +384,11 @@ all 45 hard primes recomputed; an independent word enumeration to 2·10⁵ (Z₇
 | 8 | score called an L-value estimate; "deciles"; ratio ranges; n′_p truncation | renamed weighted χ_p-score (≈ −L′/L(1,χ_p) first terms), 20 quantile bins, ranges 1.2–5.9 / min 0.81; catch-all > 97 empty |
 | 9 | prior art for inversion / LORENZINI F3 | Prop E(a) credited to López's remark and CONV2 Lemma 1(vi), E(b) to Z58_LIT; F3 called the interior precursor |
 | 10 | fallback completeness bound, reproduction hygiene, stale comment | bound added (§4.2 and the C source); reproduction block updated; comment fixed |
+
+**Cross-model review** (`data/z60/xreview/REVIEW_LOPEZ.md`, ACCEPT-WITH-FIXES; core proofs, census and statistics
+independently reproduced). Fixes applied: (1) "branch A = López Type A" qualified as the A-line, equivalent to Type A at
+primes only (López's Definition 3 admits inherited composite Type A solutions; 4/25 example); (2) title and bottom line
+rescoped: no complementarity *in the tested deep-tail events*, weak bulk complementarity, exchangeability only at fixed X
+in the limit, dependence as EVIDENCE, causal readings as Assessment, adaptive/p-dependent mechanisms not excluded;
+(3) the F2 row now names the actual mandatory control (all 12 R₈-zero primes rescued by U₇), with U⁽⁸⁾ as an additional
+screen.
