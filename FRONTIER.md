@@ -344,35 +344,46 @@ cross-model review, all ACCEPT-WITH-FIXES with the fixes applied and not re-revi
 (MS⁺₁₀₅), U_II, (MS-U), CONV-II remain open; no HOT LEAD; B2 did not move.** New data and one sharper target:
 * **CONJECTURE U₇** (`Z60_LOPEZ.md` §4.2, Lemma 7). U₇(n): some f ≡ 7 (mod 8) has (−n mod f) | f + 1 ⟺ n has a word
   with 8 | xy ⟺ some gn + 1 has a divisor ≡ −1 (mod lcm(8, g)) (PROVED equivalences). Sign-free (no Jacobi filter, no branch
-  split); U₇(m²) = 0 for odd m; U₇ holds on every n ≡ 3 (4); on n ≡ 1 (4), (★) ⊂ U₇ ⊂ U_II and U₇ = (★) ∪ (Type A with cd
-  even); U⁽⁸⁾ ⊂ U₇. CONJECTURE: every odd non-square n ∉ Z₇ := {105, 1465, 3865, 4545, 10305, 12145, 39361, 67425} has
-  U₇(n). CERTIFIED (`scripts/z60_lopez_u7.c`): zeros among odd n ≤ 10⁸ exactly Z₇; no zero among n ≡ 1 (4) in (10⁸, 10¹⁰];
+  split); U₇(m²) = 0 for odd m; U₇ holds on every n ≡ 3 (4); on n ≡ 1 (4), (★) ⊂ U₇ ⊂ U_II and U₇ = (★) ∪ (A-line words
+  with cd even) (the A-line agrees with López Type A at primes, not at arbitrary composites); U⁽⁸⁾ ⊂ U₇. CONJECTURE: every odd non-square n ∉ Z₇ := {105, 1465, 3865, 4545, 10305, 12145, 39361, 67425} has
+  U₇(n). CERTIFIED (`scripts/z60_lopez_u7.c`): the odd non-square U₇-zeros ≤ 10¹⁰ are exactly Z₇ — among odd non-squares
+  n ≤ 10⁸ the zeros are exactly Z₇ (the 4999 odd squares are zeros by T1, skipped), and there is no non-square zero with
+  n ≡ 1 (4) in (10⁸, 10¹⁰];
   no zero among the 7 071 222 859 non-square n ∈ 𝔐 ∩ (10¹⁰, 10¹²]. Independent word enumeration ≤ 10⁶, LATE-certificate and
   random-input checks; above 10⁶ one engine. (MS) ⟹ (MS-U₇) ⟹ (MS-U) ⟹ (MS-II) are implications; strictness is not claimed,
-  and "sharper" does not mean easier (U₇ has 8 zeros, U_II 2). The f ≡ 3 (8) half of Type A alone would leave the prime
-  9601 and 42 zeros ≤ 10⁷.
+  and "sharper" does not mean easier (U₇ has 8 zeros, U_II 2). The union (★) ∪ (A-line with f ≡ 3 (8)) leaves 42
+  non-square zeros with n ≡ 1 (4), n ≤ 10⁷, including the sole prime 9601.
 * **López branches at hard primes** (`Z60_LOPEZ.md` §3; counts CERTIFIED, reading EVIDENCE, one engine). On all 6 354 932
   primes p ≡ 1 (24) ≤ 10⁹ the two U_II branches' least witnesses are *positively* dependent in the deep tails (99–99.9 %;
-  1.2–5.9× conditional independence after stratification, up to 16× raw; 59–107 joint events) and weakly negatively
-  dependent in the bulk (≈ 94 %: 0.81–0.95). In the modulus coordinate the branches are exchangeable in law for each fixed X
-  (Prop E, PROVED; not same-prime rescue). Causal readings are hypotheses.
+  1.2–5.9× conditional independence after stratification, up to 16× raw; 59–107 joint events at the deepest a/f thresholds,
+  only 10 in the T-coordinate, so the extreme-tail ratios are rough) and weakly negatively dependent in the bulk (≈ 94 %:
+  0.81–0.95). In the modulus coordinate, for each fixed X, the truncated branch vectors are exchangeable in the *limiting* prime
+  distribution over 𝔐-primes or p ≡ 1 (24) (Prop E, PROVED; not exact finite-sample symmetry, independence, uniformity in
+  growing X, or same-prime rescue). Pooled ratios do not imply positive dependence in every stratum; causal readings are
+  hypotheses.
 * **Least López witness** (`Z60_LOPEZT.md` §3.1; CERTIFIED). Over the 719 781 primes p ≡ 1 (24) < 10⁸ the least witness
   modulus g* of the union is ≤ 10487 (at p = 9 658 489); g* = 7 for 50.06 %; g* ≥ (1/5 − o(1)) log p infinitely often (PROVED).
 * **Near-square threat to (MS⁺₁₀₅)** (`Z60_MS105.md` §2; CERTIFIED first-hit searches, one engine per run, bounded replays
   by the cross-review). Every non-square n = s·m² ≡ 1 (4), gcd(n, 105) = 1, s·m² < 2⁶⁴ with squarefree kernel s ≤ 10⁵ has
-  R(n) ≥ 1 except the 16 known zeros < 10⁶ (67 872 056 404 inputs). No UNK in high-m windows (n to ≈ 10³⁷, 3 876 571 898
-  inputs), near squares m² + c (UNK only at 15 known zeros ≤ 1.26·10⁷), all 52 Lehmer pseudosquares ≤ 4.24·10²⁴ (zeros only
-  2641, 18 001) or locally-square inputs to ≈ 4·10³⁵. **(MS⁺₁₀₅) is not refuted.** EVIDENCE: maximal square-mimicry only
-  lowers mean hit counts (≈ 30 % pseudosquares, ≈ 11–17 % locally square). The same R₈ kernel census leaves 281 UNK above
-  10¹⁰ (to 1.84·10¹⁹; not certified zeros).
+  R(n) ≥ 1 except the 16 known zeros < 10⁶ (67 872 056 404 inputs, 11 061 kernels). High-m windows on the 106 admissible
+  kernels s ≤ 1000 contain 3 876 571 898 inputs to n ≈ 10³⁷, with no UNK. Near squares m² + c, c ∈ ±{8, 16, …, 200}, odd
+  m ≤ 10⁹, restricted to positive non-squares coprime to 105, have UNK only at 15 known zeros ≤ 1.26·10⁷. Among all 52 Lehmer
+  pseudosquares ≤ 4.24·10²⁴ only 2641 and 18 001 are zeros. The sampled locally-square inputs to ≈ 4·10³⁵ have no UNK.
+  Windows and samples are not interval completeness to the largest n quoted; ≈ 8.3·10¹⁰ counts input occurrences.
+  **(MS⁺₁₀₅) is not refuted.** EVIDENCE: maximal square-mimicry only lowers mean hit counts (≈ 30 % pseudosquares,
+  ≈ 11–17 % locally square). The R₈ control covers the 106 admissible kernels s ≤ 1000 and 6 086 436 506 inputs (not the
+  expanded kernel-≤ 10⁵ domain); it leaves 281 UNK above 10¹⁰, up to 1.84·10¹⁹ (no C-even witness d ≤ 10⁸; not certified
+  zeros). R has no UNK above 10⁶ on this domain, or on its larger census.
 * **Cover of (MS⁺₁₀₅)-type classes** (`Z60_MS105T.md` Thm 4.1; CERTIFIED, independently reproduced). Every n ≡ 1 (4),
   gcd(n, 105) = 1, n ≥ 1 441 440, outside 6275 of the 164 736 such classes mod 1 441 440 has R(n) ≥ 1 (3024 of the 6275
-  uncovered classes are square classes). Zeros ≤ 3·10⁷: 361 non-squares, 38 coprime to 105 (14 primes, 24 composites).
+  uncovered classes are square classes). For n ≡ 1 (4), n ≤ 3·10⁷: 361 non-square R-zeros and 2739 odd squares;
+  38 non-square zeros are coprime to 105 (14 primes, 24 composites).
   Fixed covers cannot finish (§3 z60).
 * **Single-field family S₁** (`Z60_RAYCLASS.md` §6; CERTIFIED, one engine). S₁(n) = #{(a, b, c) : 4abc = a + b + nc} (Type II
-  with d = 1) has 160 prime zeros p ≡ 1 (4) ≤ 10⁷ (25 in 𝔐), although it rescues all 14 (★)-zero primes; EVIDENCE: S₁(p)
-  tracks L(1, χ₋₄ₚ) (Spearman 0.875 on 7 254 primes p ≡ 1 (4) in [10⁶, 1.2·10⁶]); all of R 0.426, and the part of R at
-  levels C that are not squares (t₀ > 1) only 0.053 (small but statistically non-zero; "uncorrelated" is descriptive).
+  with d = 1) has 160 prime zeros p ≡ 1 (4) ≤ 10⁷ (25 in 𝔐), although it rescues all 14 (★)-zero primes — this refutes all-prime
+  positivity of S₁ only; eventual S₁ positivity remains open. EVIDENCE (7 254 primes p ≡ 1 (4) in [10⁶, 1.2·10⁶]): the Spearman
+  correlation of S₁ with L(1, χ₋₄ₚ) is 0.875; the part of R at levels C that are not squares (t₀ > 1) has correlation 0.053
+  (p-value ≈ 5.9·10⁻⁶: small but non-zero; "uncorrelated" is descriptive), while all of R has correlation 0.426.
 
 ## 3. The barrier map, as theorems with exact hypotheses
 
@@ -748,6 +759,10 @@ specified classes, none a necessity theorem for every proof, none proves or refu
 the z58/z59 blocks: theorems about specified classes, none a necessity theorem for every proof, none proves or refutes (MS).
 * **Signed and multi-eigensystem automorphic proxies** (`Z60_SIGNED.md` §§2–5; PROVED rel. Siegel, Duke, Waldspurger 1981,
   Rankin–Selberg etc. as cited). A *signed minorant* is valid if g(n) > 0 ⟹ R(n) ≥ 1; T1 then gives only g(m²) ≤ 0.
+  Scope: fixed-level theta-class proxies (finite real combinations of positive-lattice theta series plus cusp forms); there
+  signed T1 forces either eventual negativity at all 𝒞₁-primes (a valid but useless minorant; the genus part need not vanish)
+  or the support-form structure, with only Gauss-exceptional components on squarefree 𝒞₁. Non-genus Eisenstein / general
+  polynomial-growth objects are not classified.
   * Thm S1 (weight 3/2, ternary-theta class, one quadratic ψ): if g(ℓ²) ≤ 0 at all large primes ℓ, then E(1) ≤ 0; E(1) < 0
     makes g(p) < 0 at every sufficiently large p ∈ 𝒞₁(2N) (ineffective); E(1) = 0 forces the genus part to vanish on 𝒞₁ and
     all Shimura anchors to vanish, so on squarefree t ∈ 𝒞₁, t > 1, only components with L(½, φ ⊗ ψχ₋₄) = 0 survive (recovers
@@ -755,19 +770,25 @@ the z58/z59 blocks: theorems about specified classes, none a necessity theorem f
     squarefree m including composite m. Prop S3: weight ≥ 5/2, one ψ (mixed-ψ *support* extension also PROVED).
   * **Mixed ψ in weight ≥ 5/2, signed: the extension is FALSE** (PROVED counterexample at level 8, rank 5, A₁ = θ₁/10,
     A₂ = θ₂/8, g = A₂ − (3/2)A₁: g(m²) < 0 for every odd m, g(p) > 0 for every prime p ≡ 17 (24); off 𝔐, negative at all 53
-    𝔐-primes ≤ 20 000; not shown valid). Non-quadratic nebentypus: Assessment only.
-  * Cosets: CONDITIONAL on (SWc), class by class only. Lemma S4 / Cor S4′ (S4′ CONDITIONAL on (Dom)): if g(n) = F(n)(1 + o(1))
+    𝔐-primes ≤ 20 000; not shown valid, nor positive at all large 𝔐-primes). Non-quadratic nebentypus: Assessment only.
+  * Cosets: genus conclusions CONDITIONAL on (SWc), for one underlying genus / determinant class, class by class only; no
+    global or cusp dichotomy is proved; the termwise-recipe exclusion is also conditional on (SWc). Lemma S4 / Cor S4′ (S4′ CONDITIONAL on (Dom)): if g(n) = F(n)(1 + o(1))
     on n ≡ 1 (M) with F eventually non-zero of constant sign (S4′: an explicit dominant periodic term), and g(m²) ≤ 0 for large
     odd m, then g(p) < 0 at all large primes p ≡ 1 (M) — such exponential objects are square-blind.
   * Prop S5 (PROVED, elementary; support form): for a fixed finite-dimensional real space V, a valid support proxy effective
     at every large p ∈ 𝒞₁ exists iff S(p) ∉ W = span{S(z) : z ∈ 𝒞₁, R(z) = 0} for those p; generic real coefficients then
     avoid all prime cancellations. So **cancellation is not the obstruction**; what is missing is the non-degeneracy plus an
-    independent validity mechanism (none known). The L-value reading ((𝒟_N): some exceptional G_φ with
-    L(½, G_φ ⊗ χ_p) ≠ 0) is CONDITIONAL on the W1′ dictionary and the full line span. Genericity does not transfer to rational
+    independent validity mechanism (none known). Under W1′'s non-zero-L-anchor / (H2) hypotheses, with Λ the full
+    span of the exceptional lines **and W = 0**, S(p) ∉ W becomes (𝒟_N): for every prime p ∈ 𝒞₁ above the stated threshold
+    there exists an exceptional G_φ (possibly depending on p) with L(½, G_φ ⊗ χ_p) ≠ 0. In general the criterion is a linear
+    condition on signed square roots of central values, not their mere non-vanishing; validity still needs an independent
+    mechanism. Genericity does not transfer to rational
     coefficients or to the signed cone (common-K joint sign feasibility, unresolved).
   * CERTIFIED: at L = 168, 240, 280 every valid mixed-ψ support proxy vanishes on 𝒞₁ ∩ [1, B] (B = 40 000 / 30 000 / 30 000).
-  * Not excluded: integral-weight signed proxies (AUTOMORPH B1); mixed-ψ signed in weight ≥ 5/2; off-𝒞₁ primes; varying
-    level (needs a level prime q with (p/q) = −1, q ≥ n_p: B2); non-quadratic characters; coset cusp parts; general mock /
+  * Not excluded: integral-weight signed proxies (AUTOMORPH B1); mixed-ψ signed in weight ≥ 5/2; off-𝒞₁ primes; varying /
+    adaptive levels (open; for the termwise recipe-lattice / off-𝒞₁ strategy, reaching a hard prime outside the level's
+    square class requires an odd level prime q with (p/q) = −1, hence q ≥ n_p — not a necessity theorem for arbitrary signed
+    or multi-eigensystem proxies); non-quadratic characters; coset cusp parts; general mock /
     Rademacher objects where (Dom) fails; level sums; FJ / indefinite lifts (reductions only, Assessment).
 * **No p-independent link law between the U_II branches** (`Z60_LOPEZ.md` Prop D). For every X there are infinitely many
   primes p ≡ 1 (mod 840) at which both branches fail at every witness modulus f ≤ X (PROVED, Dirichlet); in the shift and
@@ -776,41 +797,52 @@ the z58/z59 blocks: theorems about specified classes, none a necessity theorem f
   branch has a prime factor ℓ with (ℓ/p) = −1.
 * **Fixed witness menus and covers, again** (`Z60_LOPEZT.md` Lemma 1.2; `Z60_MS105T.md` Prop 3.1, Thm 3.2, Cor 3.3, Cor 3.4;
   PROVED, D-part prior: `Z55_HCF` Thm 3.1 / Cor 3.2–3.3). For every fixed M infinitely many primes p ≡ 1 (4), gcd(p, 105) = 1
-  (resp. p ≡ 1 (24)) lie in no good class modulo divisors of M (resp. have no witness g ≤ M); a profinite point with x_q = r,
-  q > 3r + 1, x_ℓ = 1 otherwise, lies in no good class (∀ M ∃^∞ p — not one prime avoiding every M, not a zero). For every B
+  (resp. p ≡ 1 (24)) lie in no good class modulo divisors of M (resp. have no witness g ≤ M); for an odd prime q and a
+  positive integer r with q ∤ r and q > 3r + 1, the profinite point x_q = r, x_ℓ = 1 for every prime ℓ ≠ q lies in no good class (∀ M ∃^∞ p — not one prime avoiding every M, not a zero). For every B
   infinitely many such primes have every solution with uk, kC, uC > B (not an existence statement). Growing / size-controlled
   searches are not excluded.
 * **Polynomial zero families** (`Z60_MS105.md` Thm 3; PROVED rel. Hilbert irreducibility (Serre, Cohen) and Chebotarev). For
   f ∈ ℤ[t] non-constant with positive leading coefficient: if f = g², g ∈ ℚ[t], then R(f(t)) = 0 whenever g(t) is an odd
   integer; otherwise {t : R(f(t)) = 0} has natural density 0. No positive-density zero family along a non-square univariate
   polynomial; not finiteness, not sporadic zeros, univariate only (compositions can create squares). Holds for R₈ unless f or
-  2f is a square. Twisted T1 (Lemma 1, PROVED): for n = s·m² every solution has s ∤ uC, s ∤ BC. Prop 4: coprime d-form hits
-  a, b give a hit ab only if (a/d)(b/d) = −1 (necessary, not sufficient); unconditional scaling ascent fails (12 538 801).
+  2f is a square. Twisted T1 (Lemma 1, PROVED): for n = s·m² every solution has s ∤ uC, s ∤ BC. Prop 4: for d ≡ 3 (4), if a and
+  b are both d-form hits at the same d, ab is not a hit there; more generally, for gcd(ab, d) = 1, a product hit requires
+  (a/d)(b/d) = −1 (necessary, not sufficient; no obstruction to all conditional gluing / descent); unconditional scaling ascent fails (12 538 801).
 * **Ray-class / class-number information in one field** (`Z60_RAYCLASS.md`; PROVED). Lemma 1: (★), the a = 1 line and full
-  Type II are ideal-divisor events of β_r = 1 + r√(−t₀n) with norm ≡ −1 modulo t₀r², 4t₀r², 2t₀r (orders containing β).
-  Cor 2.1: for n = s·m², no (★) hit at levels C with s | C (for primes this kills only C ≥ n). Prop 3.1 (standard CFT): the
-  event is class-determined in some order only if C ∈ {1, 2, 3, 6} (and even then not necessarily); otherwise ring classes see
-  only a "visible layer" GV_C, and Prop 3.2: every odd non-square has a level with GV_C, including all known zeros. Prop 5.1:
+  Type II are ideal-divisor events of β_r = 1 + r√(−t₀n) with norm ≡ −1 modulo t₀r², 4t₀r², 2t₀r (orders containing β_r; for (★) at
+  C = t₀s², r = 2s, the norm modulus is 4C = t₀r²).
+  Cor 2.1: for n = s·m², no (★) hit at levels C with s | C (for primes this kills only C ≥ n). Prop 3.1 (standard CFT): for
+  prime n = p with p ∤ 4C, the indicator [N𝔞 ≡ −1 (mod 4C)] on all ideals coprime to the modulus and conductor can be
+  class-determined in some order only if C ∈ {1, 2, 3, 6} (and even then not necessarily); the residue information is at most
+  the real-character shadow, a "visible layer" GV_C (additional information on the particular divisor set of a fixed β is
+  not excluded), and Prop 3.2: every odd non-square has a level with GV_C, including all known zeros. Prop 5.1:
   class numbers are T1-blind (squares have large ring class numbers); Siegel is ineffective. Prop 4.1: data of two orders in
-  two fields *can* carry a quartic character (group theory PROVED), but CFT relations on β's factors are total-product
-  relations (Prop 4.2). Not excluded: non-CFT relations between individual factors across levels (E1), twist averaging
+  two fields *can* carry information beyond the per-field quadratic shadow (group theory PROVED; the particular quartic
+  cyclotomic identification is sample-certified only; no (★)-internal configuration was constructed). Prop 4.2 proves Artin
+  total-product identities for abelian extensions whose conductor is coprime to (β); on the odd-r a = 1 branch with even Nβ
+  the odd-part formula is an elementary norm identity, not Art((β)). No additional forcing relation was found (Assessment);
+  this is not a theorem excluding other relations among individual factors. Not excluded: non-CFT relations between individual factors across levels (E1), twist averaging
   (E2), cross-field characters as sieve input (E3); not a blanket no-go for class-group or single-field methods.
 * **Single long orbit** (`Z60_DYNAMICS.md` §§2–5). PROVED: R(n) = R°(n) + #{u = 1 or B = 1}, R° = hits of one p-dependent
-  Kloosterman / marked Hecke-point orbit (Lemma 1″: minus continued fractions of n/A of length 3, [[c, m, s]], 4 | m) in a
+  Kloosterman / marked Hecke-point orbit (Lemma 1″: for odd n ≥ 5, A with 1 ≤ A < n, gcd(A, n) = 1 and minus continued fraction of n/A of length
+  exactly 3, [[c, m, s]], 4 | m) in a
   target T_n of ≤ n(1 + log n)² points; the shell index is the tied modulus. Prop 3 / Cor 3: a Fourier-ℓ¹ (Weil-completion)
   minorant certificate needs |T| > 2p^{5/2}/(p − 1 + 2√p), so none exists for p ≥ 10⁴ (missing exponent ½ up to logs, in
   that norm only). Prop 4′: on Γ\ℍ every hit point is equivalent to a non-hit point — no surface minorant at any rate.
-  CONDITIONAL (Γ\G rate p^{−1/2+θ}, θ = 7/64, Sobolev norm, compact support): margin/rate ≤ p^{−1/6−θ+o(1)} (exponent −53/192),
-  so a big orbit hole is necessary. Not excluded: target-specific cancellation, other norms, orbit holes, Γ\G certificates
-  with tiny margin, the QNR half-orbit (Prop 6: Σ χ_n(x)1_T = −R°(n)). Not "dynamics impossible".
+  CONDITIONAL on a Γ\G rate ε ≍ p^{−1/2+θ+o(1)}, θ = 7/64, with an L²-Sobolev norm S ≥ c_K‖·‖∞ on a **fixed compact K**,
+  and a certificate supported in K, normalised by max_hits f = 1: the relative margin (∫f − εS(f))/(εS(f)) is
+  ≤ p^{−1/6−θ+o(1)}/c_K (exponent −53/192); the resulting orbit-hole condition is necessary, not an impossibility theorem.
+  Not excluded: target-specific cancellation, other norms, orbit holes, Γ\G certificates with tiny margin, the QNR
+  half-orbit (for n ≡ 1 (4), Prop 6: Σ_x χ_n(x)1_T(x, x̄) = −R°(n)). Not "dynamics impossible".
 * **Hecke trace formula on Γ(4C)** (`Z60_TRACE.md`). Lemma 1 (PROVED): Γ = Qγ − I, Q = 4C, maps (★) at level C to positive
-  split points of the Hecke set {det = 4Cn + 1, ≡ −I (mod Q)}; ES_k(C, m²) = 0 for odd m. Thm 2 (exact elliptic + hyperbolic +
+  split or repeated-root points (repeated roots only at even n) of the Hecke set {det = 4Cn + 1, ≡ −I (mod Q)}; ES_k(C, m²) = 0 for odd m. Thm 2 (exact elliptic + hyperbolic +
   scalar trace identity; odd weight isolates ES from the trivial points): CERTIFIED on a sparse finite list, **CONDITIONAL
   on the local Lemma 3** in general (Lemma 3 CERTIFIED on 21 044 cases, not proved; Cohen–Strömberg via secondary
-  quotation). From Thm 2: a worst-case Deligne certificate fires only if the average normalised eigenvalue exceeds
-  1 − 6/((k − 1)Q − 6) (Cor 4.3; only (k, Q) = (3, 4) lacks a ρ-free constraint); it never fired at C = 2 (n ≤ 3000) or C = 3
-  (n ≤ 600) — finite evidence; a level-uniform absolute square-root bound is refuted by a family at n ≡ 5 (8) (outside the
-  Mordell-hard domain). Not excluded: sharper single-N bounds at Mordell-hard primes, one-sided estimates, other C-ranges.
+  quotation). For odd k ≥ 3, conditional on Thm 2 / Lemma 3, the worst-case Deligne certificate B = D fires only if
+  the average normalised eigenvalue exceeds 1 − 6/((k − 1)Q − 6) (Cor 4.3; only (k, Q) = (3, 4) lacks a ρ-free constraint); at
+  k = 3 it never fired at C = 2 (n ≤ 3000) or C = 3 (n ≤ 600) — finite evidence, not universal non-firing. A level-uniform
+  absolute square-root bound (fixed odd k ≥ 3, all levels, all n) is refuted, CONDITIONAL on Thm 2, by a family at n ≡ 5 (8)
+  (outside the Mordell-hard domain). Not excluded: sharper single-N bounds at Mordell-hard primes, one-sided estimates, other C-ranges.
 
 ## 4. What a proof would need — a five-minute screening checklist
 
@@ -840,11 +872,14 @@ has passed all lines.
    ρ-system, with odd m, ρ ≡ 3 (4) and gcd(m, ρ) = 1, all prime factors of (m² + ρ)/4 lie in ker λ_ρ — non-coprime
    squares are excluded instead by `Z59_CONVO.md` Lemma 2.1 (e.g. m = ρ = 11: (121 + 11)/4 = 33 has λ₁₁(11) = 0); for
    (★), every admissible (d, k) has (−k/d) = −1 (`Z59_MSPF.md` Lemma 1.3).
-   *(z60.)* **Signed T1.** A one-sided (minorant) proxy only gets g(m²) ≤ 0 from T1. In weight 3/2 (one or any mixture of
-   quadratic ψ) and weight ≥ 5/2 with one ψ this inequality is as strong as equality (`Z60_SIGNED.md` S1–S3, §3 z60); it is
-   **not** in integral weight (AUTOMORPH B1) or for mixed ψ in weight ≥ 5/2 (explicit counterexample, positive at p ≡ 17 (24)).
-   So for a signed proxy, name which of these classes it is in. Further T1 locations (z60, PROVED): the hits of the DYNAMICS
-   orbit lie in the χ_n = −1 coset, empty iff n is a square (`Z60_DYNAMICS.md` Lemma 2); the RAYCLASS square-class field
+   *(z60.)* **Signed T1.** A one-sided (minorant) proxy only gets g(m²) ≤ 0 from T1. For fixed-level theta-class proxies (finite
+   real combinations of positive-lattice theta series plus cusp forms), in weight 3/2 with one or finitely many quadratic ψ
+   and weight ≥ 5/2 with one ψ, signed T1 forces either eventual negativity at all 𝒞₁-primes, or the support-form structure,
+   with only Gauss-exceptional components remaining on squarefree 𝒞₁ (`Z60_SIGNED.md` S1–S3, §3 z60). This fails in integral
+   weight (AUTOMORPH B1) and for mixed ψ in weight ≥ 5/2 (explicit counterexample, proved positive at every p ≡ 17 (24));
+   non-genus Eisenstein / general polynomial-growth objects are not classified. So for a signed proxy, name which of these
+   classes it is in. Further T1 locations (z60, PROVED): for n ≡ 1 (4), the hits of the DYNAMICS orbit lie in the
+   χ_n = −1 coset, which is empty iff n is a square (`Z60_DYNAMICS.md` Lemma 2); the RAYCLASS square-class field
    kills every level C with s | C for n = s·m² (`Z60_RAYCLASS.md` Cor 2.1); twisted T1 s ∤ uC, s ∤ BC (`Z60_MS105.md` Lemma 1);
    every witness of either López branch at p ≡ 1 (4) has a prime factor ℓ with (ℓ/p) = −1 (`Z60_LOPEZ.md`). Square-mimicking
    composites coprime to 105 (kernels ≤ 10⁵, pseudosquares, locally-square n) were *not* zeros above 29 210 401 in the tested inputs (§2 z60).
@@ -889,11 +924,17 @@ has passed all lines.
    census requires P ≥ 9 744 001 (C-odd), P ≥ 9 831 889 (prime d), and P ≥ 9 965 881 for C-even (strengthened above to
    P₈ ≥ 23 296 553 281). None of these data refutes eventual positivity.
    *(z60.)* U⁽⁸⁾ ⊂ U₇ (`Z60_LOPEZ.md` Lemma 7(iv)): at f ≡ 7 (8) an argument for U₇ must use the targets r | f + 1 with
-   v₂((f + 1)/8) < v₂(r) < 3, else it proves U⁽⁸⁾ (547 zeros n ≡ 1 (4) ≤ 10⁸). For the López union at numerator 8 (S₈: 45 prime
-   zeros ≡ 1 (4) ≤ 10⁸, last 3 869 153), a proof of the P*-form must use g ≡ 3 (8) or a non-liftable divisor (`Z60_LOPEZT.md`
-   §1, §3.4; p = 83449). The R₈ analogue of the MS105 kernel census leaves 281 inputs above 10¹⁰ with no C-even witness
-   d ≤ 10⁸ (to 1.84·10¹⁹; not certified zeros) where R has none above 10⁶ (`Z60_MS105.md` §2.6). Parity-blind orbit
-   (DYNAMICS) and trace (TRACE, per-C identity) certificates transfer verbatim to R₈ and are screened out there.
+   v₂((f + 1)/8) < v₂(r) < 3, else it proves U⁽⁸⁾ (547 non-square zeros n ≡ 1 (4) ≤ 10⁸) — this binds the full CONJECTURE U₇ at its in-domain U⁽⁸⁾
+   failures; the finite screen alone imposes no such requirement on (MS-U₇), which starts above 10¹⁷. For the López union at
+   numerator 8 (S₈: 45 zero primes p ≡ 1 (4) ≤ 10⁸, last 3 869 153; 61 over all odd primes): at an S₈-zero prime included in
+   a theorem's range, an S₄/P* witness must use g ≡ 3 (8) or a non-liftable U5 divisor (on B4 the shift divisor is odd)
+   (`Z60_LOPEZT.md` §1, §3.4; p = 83449); an eventual claim may instead exclude these finite failures by its threshold. The
+   R₈ control of `Z60_MS105.md` §2.6 covers the 106 admissible kernels s ≤ 1000 (6 086 436 506 inputs, not the expanded
+   kernel-≤ 10⁵ domain); it leaves 281 inputs above 10¹⁰ with no C-even witness d ≤ 10⁸ (to 1.84·10¹⁹; not certified
+   zeros), while R has no UNK above 10⁶ on this domain or its larger census. A transported C-even positivity claim is refuted
+   only if its asserted range contains a certified R₈ zero. The examined orbit completion bounds (DYNAMICS) also fail for the
+   C-even target; the per-C trace identity (TRACE) alone does not imply that an existential all-C argument transports to
+   even C. Eventual C-even positivity remains open.
 3. **It must not be numerator-uniform in its laws** — no k-uniform transport, square law or recombination law (all refuted
    on k/n models, (J)86, (J)88).
 4. **It must break the tied modulus (B2, PARITY_AUDIT Remark 3.1).** Identify the modulus of the class condition. If it is
@@ -901,9 +942,11 @@ has passed all lines.
    which theorem controls divisors of *one* integer in a moving class with error below a (log p)² main term. No such theorem
    is known. A fixed finite menu of slices fails infinitely often (CONDITIONAL on H, (I)8), as do fixed root sets and
    bounded windows (CONDITIONAL on Dickson, (J)106, (J)83).
-   *(z60.)* Three new exact encodings put the tie in new clothes, not away: an ideal divisor of 1 + r√(−t₀n) with norm
-   ≡ −1 modulo the level (`Z60_RAYCLASS.md` Lemma 1); the shell index c of the orbit, a divisor ≡ −1 (mod c) (`Z60_DYNAMICS.md`
-   Lemma 1′); positive split points of the Hecke set ≡ −I (mod 4C) (`Z60_TRACE.md` Lemma 1). Fixed covers / witness menus fail
+   *(z60.)* Three new exact encodings put the tie in new clothes, not away: an ideal divisor of β_r = 1 + r√(−t₀n), in an
+   order containing β_r, with norm ≡ −1 (mod 4C = t₀r²) for (★) at C = t₀s², r = 2s (`Z60_RAYCLASS.md` Lemma 1); the shell
+   index c of the orbit: a shell hit requires 4 | c and d | cn + 1 with d ≡ −1 (mod c), d ≤ n − 1 and (cn + 1)/d ≤ n − 1
+   (`Z60_DYNAMICS.md` Lemma 1′); positive split or repeated-root points (repeated roots only at even n) of the Hecke set
+   ≡ −I (mod 4C) (`Z60_TRACE.md` Lemma 1). Fixed covers / witness menus fail
    again (`Z60_MS105T.md` Prop 3.1, `Z60_LOPEZT.md` Lemma 1.2; prior Z55_HCF); MS105T's missing input is a pointwise lower bound
    for divisors of n + k or 4Cn + 1 in progressions whose modulus grows with the shift (Assessment).
 5. **p must stay fixed throughout (B6/T7).** List every averaged variable in every cited estimate. Averages over p, over the
@@ -921,10 +964,15 @@ has passed all lines.
 9. **Class, not parity.** If the forcing comes from reciprocity, Chebotarev, Rédei or higher residue symbols, it delivers
    only the quadratic layer of the divisor class (CLASS_FORCING Thm 2.1, TWO_POWER_LADDER Thms 3.1–3.2). ES needs the class:
    the BM-allowed half contains φ(4u)/2 residue classes mod 4u, and ES needs the single class −1 among them.
-   *(z60.)* Ring classes of one imaginary quadratic order decide the event only for C ∈ {1, 2, 3, 6}; otherwise they see a
-   "visible layer" GV_C that holds at some level for every odd non-square, including all known zeros (`Z60_RAYCLASS.md` Props
-   3.1–3.2; e.g. at 64–90 levels C ≤ 300 at each (★)-zero prime). Cross-field data can carry quartic information (Prop 4.1),
-   but no forcing relation on individual factors is known.
+   *(z60.)* For prime n = p with p ∤ 4C, the indicator [N𝔞 ≡ −1 (mod 4C)] on all ideals coprime to the modulus and conductor
+   can be class-determined in some order only if C ∈ {1, 2, 3, 6}, and even then not necessarily; the residue information is
+   at most the real-character shadow GV_C, which holds at some level for every odd non-square, including all known zeros
+   (`Z60_RAYCLASS.md` Props 3.1–3.2; e.g. at 64–90 levels C ≤ 300 at each (★)-zero prime). This does not exclude additional
+   information on the particular divisor set of a fixed β. The barriers above (total products, forced progressions) are
+   scoped forcing statements, not a universal restriction on all information in joint class data: cross-field class data can
+   carry information beyond the per-field quadratic shadow (Prop 4.1, group theory PROVED). The particular quartic cyclotomic
+   identification is sample-certified only; no (★)-internal configuration was constructed and no forcing relation on
+   individual factors was found.
 10. **No pooling of large primes across shifts** (privacy, SS8 Lemma 2.3): a collision across jp + 1 or p + 4d involves only
     primes ≤ the shift range, i.e. congruence data.
 11. **No signed detour by reflection** ((J)52, (J)89 Lemma 4.1, Cor 4.2): signed Type I slices have the wrong Legendre
@@ -977,11 +1025,14 @@ has passed all lines.
     * Keep (★)- and 𝔊*-zeros apart: the 14 (★)-zero primes are among the 38 𝔊*-zeros; the other 24 have R > 0 (11 of
       the 20 in 𝔐). A 𝔊*-zero obstructs only the subfamily.
     *(z60; CERTIFIED unless marked.)*
-    * A U₇ argument (§2 z60) must fail at the eight composites of Z₇ = {105, 1465, 3865, 4545, 10305, 12145, 39361, 67425} (all
-      ≡ 1 (8), divisible by 5 or 7) and rescues all 14 (★)-zero primes only through Type A with cd even; of the 285 (★)-composites
-      exactly these 8 are U₇-zeros (cross-review count). Its two branch halves fail at 14 resp. 12 primes ≤ 10⁸.
-    * A single-field (d = 1) argument must survive the 160 prime zeros ≤ 10⁷ of S₁ (25 in 𝔐, largest 8 841 673), although S₁
-      rescues all 14 (★)-zero primes; S₁ = 0 at the 𝔊*-zeros 37 and 1621 (`Z60_RAYCLASS.md`).
+    * A U₇ argument (§2 z60) whose domain includes composites must fail at the eight composites of Z₇ = {105, 1465, 3865, 4545,
+      10305, 12145, 39361, 67425} (all ≡ 1 (8), divisible by 5 or 7); U₇ rescues all 14 (★)-zero primes only through A-line
+      words with cd even; of the 285 (★)-composites exactly these 8 are U₇-zeros (cross-review count). U₇'s B- and A-target
+      halves have respectively 14 and 12 zero primes p ≡ 1 (4), p ≤ 10⁸.
+    * An all-prime positivity claim for the specific d = 1 family S₁ is refuted by its 160 zero primes p ≡ 1 (4), p ≤ 10⁷ (25 in
+      𝔐, largest 8 841 673), although S₁ rescues all 14 (★)-zero primes; S₁ = 0 at the 𝔊*-zeros 37 and 1621
+      (`Z60_RAYCLASS.md`). Eventual S₁ positivity and other single-field methods remain open; any threshold must respect the
+      zeros in its domain.
     * Bounded-witness-coordinate arguments: for every B infinitely many primes p ≡ 1 (4), gcd(p, 105) = 1 have every solution with
       uk, kC, uC > B (PROVED, `Z60_MS105T.md` Cor 3.4; one coordinate may stay small). The MS105T cover leaves 6275 of 164 736
       classes mod 1 441 440; all 2280 R-zeros in [1 441 440, 3·10⁷] of the
@@ -1488,9 +1539,11 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
   (Assessment: failed attempts, *not* barriers). MSPF's (★) attempts stop at "some n + k has a divisor ≡ −1 (mod 4k)".
   CONVO's full Type II attempts stop at the ratio criterion: for some j ≥ 0, (p + 3)/4 + j has positive divisors a, b with
   ab dividing it and a + b ≡ 0 (mod 4j + 3). These are related tied-divisor problems, not the same positivity statement.
-* (z60) Signed minorants in weight 3/2 (one or mixed quadratic ψ) and weight ≥ 5/2 (one ψ) as an escape from T1 →
-  `Z60_SIGNED.md` S1–S3 (PROVED rel. cited inputs; §3 z60): only Gauss-exceptional components survive on squarefree 𝒞₁, or the
-  proxy is eventually negative there. Mixed ψ in weight ≥ 5/2 is *not* closed (counterexample, off 𝔐); multi-eigensystem
+* (z60) Fixed-level theta-class signed minorants (finite real combinations of positive-lattice theta series plus cusp
+  forms) in weight 3/2 (one or finitely many quadratic ψ) and weight ≥ 5/2 (one ψ) as an escape from T1 → `Z60_SIGNED.md`
+  S1–S3 (PROVED rel. cited inputs; §3 z60): either the proxy is eventually negative at all 𝒞₁-primes, or only
+  Gauss-exceptional components survive on squarefree 𝒞₁. Non-genus Eisenstein / general polynomial-growth objects are not
+  classified. Mixed ψ in weight ≥ 5/2 is *not* closed (counterexample, off 𝔐); multi-eigensystem
   support proxies are not dead (S5: cancellation is avoidable; missing are non-degeneracy and a validity mechanism).
 * (z60) A p-independent "branch A fails up to X ⟹ branch B fires by g(X)" law for U_II → `Z60_LOPEZ.md` Prop D (PROVED in
   the modulus coordinate, CONDITIONAL on Dickson in the shift / middle-letter coordinates). Adaptive links not excluded.
@@ -1500,7 +1553,9 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * (z60) Positive-density algebraic zero families along non-square univariate polynomials (as a disproof route for
   (MS⁺₁₀₅)) → `Z60_MS105.md` Thm 3 (PROVED: density 0). Density-zero and sporadic zero families remain possible.
 * (z60) Ring-class / class-number / small-prime-splitting information in one field ℚ(√(−Cp)) → `Z60_RAYCLASS.md` Props
-  3.1–3.2, 5.1 (PROVED; only the visible layer GV_C, which every non-square has). Not all class-group methods.
+  3.1–3.2, 5.1 (PROVED; for p ∤ 4C, on all ideals coprime to modulus and conductor, ring classes give only the visible
+  layer GV_C, which every non-square has). Not all class-group methods; information on the divisor set of a fixed β and
+  cross-field data are not excluded.
 * (z60) Weil-completion (Fourier-ℓ¹) or modular-surface minorants for the single-orbit encoding → `Z60_DYNAMICS.md` Prop 3 /
   Cor 3, Prop 4′ (PROVED); rate-based margins CONDITIONAL-constrained (Prop 4). Target-specific cancellation not excluded.
 * (z60) Worst-case Deligne certificates in the Γ(4C) trace identity → `Z60_TRACE.md` Cor 4.3 (necessary alignment
@@ -2437,24 +2492,30 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
       12145, 39361, 67425} has some f ≡ 7 (mod 8) with (−n mod f) | f + 1. CERTIFIED to 10¹⁰ (all odd n) and on 𝔐 to 10¹² (one
       engine above 10⁶). *Why:* sign-free and branch-free (one congruence class of moduli, divisor targets of f + 1), T1
       automatic; on n ≡ 1 (4) it sits between (★) and U_II, so (MS) ⟹ (MS-U₇) ⟹ (MS-U) ⟹ (MS-II). It asks for more than U_II
-      (8 zeros vs 2); that it is easier is not claimed. Constraints: U⁽⁸⁾ ⊂ U₇ (use the targets with v₂((f+1)/8) < v₂(r) < 3);
-      the eight composite zeros; no p-independent branch link (Prop D); adaptive links / counting not excluded.
+      (8 zeros vs 2); that it is easier is not claimed. Constraints on the full CONJECTURE U₇ (not on (MS-U₇), which starts above
+      10¹⁷): U⁽⁸⁾ ⊂ U₇ (at its in-domain U⁽⁸⁾ failures use the targets with v₂((f+1)/8) < v₂(r) < 3); the eight
+      composite zeros; no p-independent branch link (Prop D); adaptive links / counting not excluded.
     * **(MS⁺₁₀₅) survives the near-square threat** (`Z60_MS105.md`, `Z60_MS105T.md`; CONJECTURE). Open: finiteness of zeros in
       any family, density-zero non-algebraic families, sporadic zeros. Missing input (Assessment): pointwise lower bounds for
-      divisors of n + k or 4Cn + 1 in progressions whose modulus grows with the shift; a proof must use C odd somewhere (R₈
-      control). Depth-bounded strengthenings of non-squareness only fix where the witness search starts.
+      divisors of n + k or 4Cn + 1 in progressions whose modulus grows with the shift; a proof must use C odd somewhere (the
+      certified in-𝔐 R₈ zeros near 10¹⁰ are coprime to 105 and above 29 210 401, hence in the domain). Depth-bounded strengthenings of non-squareness only fix where the witness search starts.
     * **Automorphic** (`Z60_SIGNED.md` §§5, 7): an independent validity mechanism for sums of Gauss-exceptional Shimura
       components (structural weighted certificate; termwise lattice / coset recipes excluded on 𝒞₁, cosets CONDITIONAL);
-      pointwise non-degeneracy S(p) ∉ W (with full line span: (𝒟_N), some exceptional G_φ with L(½, G_φ ⊗ χ_p) ≠ 0 at every
-      large p ∈ 𝒞₁); whether a mixed-ψ signed proxy in weight ≥ 5/2 can be positive at all large 𝔐-primes; objects where (Dom)
-      fails; non-quadratic nebentypus; varying level (B2 / n_p wall). The "≥ 5 independent rational lines" CKRS summability
+      pointwise non-degeneracy S(p) ∉ W (under W1′'s non-zero-L-anchor / (H2) hypotheses, with Λ the full span of the
+      exceptional lines **and W = 0**, this is (𝒟_N): for every prime p ∈ 𝒞₁ above the threshold there exists an exceptional
+      G_φ, possibly depending on p, with L(½, G_φ ⊗ χ_p) ≠ 0; in general a linear condition on signed square roots of central
+      values); whether a mixed-ψ signed proxy in weight ≥ 5/2 can be positive at all large 𝔐-primes; objects where (Dom)
+      fails; non-quadratic nebentypus; varying / adaptive levels (open; the q ≥ n_p requirement is only for the termwise
+      recipe-lattice / off-𝒞₁ strategy, not a necessity theorem for arbitrary signed or multi-eigensystem proxies). The "≥ 5 independent rational lines" CKRS summability
       argument is heuristic.
     * **Encodings from RAYCLASS / DYNAMICS / TRACE** (none supplies positivity): (E1) a non-CFT relation linking individual
       prime factors of 1 + r√(−t₀p) across levels C (shared primes q | C − C′), twist averaging via the Prop 5.2 box identity,
-      cross-field quartic characters as sieve input; target-specific cancellation on the QNR half-orbit and orbit holes;
-      single-N trace bounds sharper than Deligne with slack ≪ (ε∞/2)·ES at Mordell-hard primes. **Prove `Z60_TRACE.md`
+      cross-field characters as sieve input (Prop 4.1's quartic identification sample-certified only); target-specific
+      cancellation on the QNR half-orbit (n ≡ 1 (4)) and orbit holes;
+      single-N trace bounds (odd k) sharper than Deligne with slack ≪ (ε∞/2)·ES at Mordell-hard primes. **Prove `Z60_TRACE.md`
       Lemma 3** (local f-sum / embedding identity; CERTIFIED on 21 044 cases) to make the Γ(4C) trace identity a theorem.
-    * **López union, P* form** (`Z60_LOPEZT.md` §3.4): witnesses g ≡ 3 (8) or non-liftable divisors are forced by S₈; least
+    * **López union, P* form** (`Z60_LOPEZT.md` §3.4): at an S₈-zero prime inside a theorem's range, S₄/P* witnesses
+      must use g ≡ 3 (8) or a non-liftable U5 divisor (an eventual claim may exclude these finite failures by its threshold); least
       witness g* ≥ (1/5 − o(1)) log p infinitely often (PROVED), ≤ 10487 for p ≡ 1 (24) < 10⁸ (CERTIFIED).
 
 ## 8. Pointers into the repository
