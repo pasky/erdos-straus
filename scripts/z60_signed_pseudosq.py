@@ -51,9 +51,13 @@ aphi = {l: int(pari.ellap(E, l)) for l in primesY}
 
 
 def PY(n):
+    # local factor of G (x) chi_n at a good prime l: (1 - a_l(G) chi_n(l)/l + chi_n(l)^2/l)^{-1}; = 1 if l | n (ramified twist)
     pr = 1.0
     for l in primesY:
-        a = aphi[l] * int(pari.kronecker(DP, l)) * int(pari.kronecker(n, l))
+        c = int(pari.kronecker(n, l))
+        if c == 0:
+            continue
+        a = aphi[l] * int(pari.kronecker(DP, l)) * c
         pr /= (1 - a / l + 1 / l)
     return pr
 

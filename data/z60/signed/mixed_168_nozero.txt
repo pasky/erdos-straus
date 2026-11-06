@@ -1,0 +1,1 @@
+L=168 N=42 space=4 l0=0 zrows=0 B=4000 #psi=8 dimV=176 #rows=32 (#zero rows=0) dimK=151  rank(K on C1, 72 idx) = 16;  sum of per-psi ranks = 1  per-psi(D:dim,dimK,rankC1) = 1:22,15,0 8:22,18,0 12:22,18,0 21:22,12,0 24:22,17,0 28:22,16,0 56:22,16,0 168:22,13,1  time 8s

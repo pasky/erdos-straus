@@ -1,0 +1,3 @@
+max g(m^2)/m^3 over odd m <= 141: -0.1311 (at m=135); any g(m^2) >= 0: False
+primes = 17 mod 24 <= X: 289  with g(p) <= 0: []  min g(p)/p^1.5 = 0.0536
+Mordell primes <= X: 53  with g(p) > 0: 0
