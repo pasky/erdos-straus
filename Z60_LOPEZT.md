@@ -31,12 +31,14 @@ gcd(4dab−a−b, ab) = 1, ab | x, x = ab x', and x'(4dab − a − b) = p d. If
 4dab − a − b = mp and then d = x' m (as x'·mp = pd); substituting, 4x'mab − (a+b) = mp ⇒ p = 4x'ab − (a+b)/m, with d' := x'. ∎
   * BN ⟺ Type II with m = 1 (a = y, b = g, d' = k).
   * B4 ⟺ Type II with a = 1 (c = g, b = gk − 1, m = k, d' = Y').
-So S(p) is a strict sub-family of "4/p has a Type II solution", hence of ES itself; nothing here is easier than ES for large primes.
+So S(p) is the sub-family {m = 1} ∪ {a = 1} of the Type II parameter family (§2), hence S(p) ⇒ Type II(p) ⇒ ES(p); nothing here is easier
+than ES for large primes. (Whether the existence statements differ *on primes* is open: no prime ≤ 10¹⁰ separates them.)
 
 Lemma 0.4 (complete Type I parametrization; p prime). Solutions 4/p = 1/x + 1/y + 1/(pz') with p ∤ xy are exactly
   m p = 4abw − 1, a + b = d' m,   x = w d' a, y = w d' b, z' = abw.
 Equivalently ∃ a, w, c with c | 4a²w + 1 and 4aw | p + c; equivalently ∃ m ≡ 3 (mod 4): (mp+1)/4 = a·b·w with m | a + b.
-(Proof as in 0.3; the gcd step uses gcd(ab, a+b) = 1 and p ∤ ab.)
+(Proof as in 0.3; the gcd step uses gcd(ab, a+b) = 1 and p ∤ ab; the "m ≡ 3 (4)" form assumes p ≡ 1 (mod 4). In the (⇐) direction
+the solution is genuinely Type I: p ∤ abw since p ∤ 4abw − 1, and d' = p(a+b)/(4abw − 1) < p, so p ∤ wd'a, wd'b.)
 For p ≡ 1 (4), every ES solution is Type I or Type II (p divides 1 or 2 of x, y, z; not 0 since 4xyz = p(xy+yz+zx); not 3 since 4 ≤ 3 fails).
 
 **Unified forms of S(p)** (PROVED, by Lemmas 0.1–0.2 and their converses):
@@ -50,13 +52,13 @@ This is the brief's "T-form" (L_T = T for 4 | T is the BN case with t = T/4; L_T
 
 ### §0.2 The four falsifiers — what any proof must respect
 
-**(F1) odd squares n = m².** Lemma 0.5 (PROVED). If D | tn + 1 or D | 4tn + 1 with D ≡ −1 (mod 4t), then the Jacobi symbol (n/D) = −1.
+**(F1) odd squares n = m².** Lemma 0.5 (PROVED; n any odd integer coprime to D). If D | tn + 1 or D | 4tn + 1 with D ≡ −1 (mod 4t), then the Jacobi symbol (n/D) = −1.
 Proof: D ≡ 3 (mod 4) so (−1/D) = −1, and tn ≡ −1 (resp. 4tn ≡ −1) mod D gives (t/D)(n/D) = −1. Claim (t/D) = +1: write
 t = 2^s t₀, t₀ odd. If s ≥ 1 then 8 | 4t | D+1, so (2/D) = 1. For t₀: D ≡ −1 (mod t₀) gives (D/t₀) = (−1/t₀) = (−1)^{(t₀−1)/2},
 and reciprocity with (D−1)/2 odd gives (t₀/D) = (D/t₀)(−1)^{(t₀−1)/2} = +1. ∎
 Hence for n = m² (gcd(m, D) = 1 automatically) no witness exists. **Any proof must produce a D with (p/D) = −1**: the step
 that uses non-squareness is the one that supplies a prime q | D with (p/q) = −1. For p ≡ 1 (mod 24) that is a quadratic residue
-modulo every prime below z, every witness D must contain a prime q > z — no finite covering system can work on this class.
+modulo every prime ≤ z, every witness D must contain a prime q > z — no finite covering system can work on this class.
 
 **(F2) numerator-8 analogue.** The same derivation for 8/p gives Type II: p = 8abd' − (a+b)/m; the two branches become
   ∃ t: 8tp + 1 or tp + 1 has a divisor ≡ −1 (mod 8t)   (equivalently p = 8tab − a − b or p = 8tab − 8a − b).
@@ -75,9 +77,10 @@ must have threshold > 8 813 281 (BN) or > 66 529 (B4), with a stated reason.
 
 ## §1 The witness-modulus form (U5) and the inversion symmetry of the two branches (PROVED)
 
-Fix a witness modulus g ≡ 3 (mod 4), g ∤ p. Let Q := (g+1)/4 and R_g := { −a mod g : a | Q } ⊂ (ℤ/g)^× (all distinct, since a ≤ Q < g).
+Fix a witness modulus g ≡ 3 (mod 4) with gcd(g, p) = 1 (automatic for actual witnesses, which divide p + a or ap + 1 with a < g). Let Q := (g+1)/4 and R_g := { −a mod g : a | Q } ⊂ (ℤ/g)^× (all distinct, since a ≤ Q < g).
 
-Lemma 1.1. (BN with this g) ⟺ p mod g ∈ R_g.   (B4 with this g) ⟺ p^{−1} mod g ∈ R_g.   Hence
+Lemma 1.1. Here "BN" means the modulus-4a condition for *any* a (Lemma 0.1 needs no restriction on a; for 4 | a it is stronger than B4).
+(BN with this g) ⟺ p mod g ∈ R_g.   (B4 with this g) ⟺ p^{−1} mod g ∈ R_g.   Hence
   **(U5)  S(p) ⟺ ∃ g ≡ 3 (mod 4) with p^{±1} mod g ∈ R_g = −Div((g+1)/4).**
 Proof. BN: g | p + a with g ≡ −1 (mod 4a) ⟺ a | Q and p ≡ −a (mod g). B4 (U3 form, t = Q/a): g | tp + 1 ⟺ tp ≡ −1 ⟺
 p ≡ −t^{−1} ≡ −4a (mod g) (as 4ta = g + 1 ≡ 1) ⟺ p^{−1} ≡ −(4a)^{−1} ≡ −t (mod g), and t | Q. ∎
@@ -85,8 +88,8 @@ Remarks. (i) R_g ⊂ {QNR mod g}: (−a/g) = −(a/g) = −1 by Lemma 0.5's argu
 (ii) The g-range: BN witnesses have g ≤ (4p+1)/3, B4 witnesses g ≤ 2p + 1 (t = 1: g | p + 1; t ≥ 2: g(1 − 1/t) ≤ p + 1/t).
 (iii) The numerator-8 analogue is literally: ∃ g ≡ 7 (mod 8) with p^{±1} mod g ∈ −Div((g+1)/8). Since Div((g+1)/8) ⊂ Div((g+1)/4),
 S₈ ⟹ S₄. `scripts/z60_lopezt_u5.c` (which implements (U5) directly) reproduces: S₄ zeros ≤ 6·10⁴ among odd non-squares = {105, 4545},
-no prime zeros ≤ 2·10⁵; S₈ prime zeros ≤ 4·10⁶: exactly 45, last 3 869 153 (`data/z60/lopezt/s8_zeros_le4e6.txt`) — matching the brief,
-which certifies the derivation of the 8-analogue.
+no prime zeros ≤ 2·10⁵; S₈ prime zeros ≤ 4·10⁶: exactly 45, last 3 869 153 (`data/z60/lopezt/s8_zeros_le4e6.txt`) — matching the brief's
+figures (the equivalence itself is the algebra above; the computation is a consistency check against the brief's independent count).
 **Sharpened (F2):** every S₄-witness that is not an S₈-witness has either g ≡ 3 (mod 8), or g ≡ 7 (mod 8) with v₂(a) = v₂((g+1)/4)
 (a the divisor used). A proof of S₄ must produce such witnesses for (at least) the 45 primes in the file, or carry a threshold > 3 869 153.
 
@@ -94,8 +97,8 @@ Lemma 1.2 (no finite covering, even inside p ≡ 1 (24)). For any M, let L = lcm
 witness with g ≤ M: for such p, p ≡ 1 is a square mod g, but R_g consists of non-residues. By Linnik there are such primes with
 p ≤ L^{C} = e^{O(M)}, i.e. infinitely many primes p ≡ 1 (24) whose every witness has g ≥ c·log p. More generally, if p is a
 quadratic residue modulo every prime ≤ z, every witness g has a prime factor q > z with (p/q) = −1. ∎
-Consequence: no argument that exhibits a witness from finitely many congruence conditions on p can prove S(p); the witness must be
-built from a prime factor of some tp + 1 / 4tp + 1 that is not determined by p modulo any fixed modulus.
+Consequence: no argument whose witness moduli stay bounded (g ≤ M for a fixed M) can prove S(p); the same holds verbatim for the
+Type I/II families of §2, whose residue sets are also non-residue sets. Witness moduli must grow with p.
 
 ## §2 Where S sits inside ES: the (a, m)-lattice of Type II, and Type I (PROVED)
 
@@ -136,7 +139,7 @@ even then 8 | m s² + 1 forces m ≡ 7 (mod 8), (2/m) = 1. Hence (w/m) = 1, cont
   iff 4 | k (BN), the second iff 4 | a (B4 with Y = a), and a ↔ b gives 4 | b. Conversely BN = (4 | k), B4 = (4 | a) by (U2). ∎
   (Without the "4 |" clause the condition is vacuous: k = 1 gives p + 1 = (a−1)(b−1) for any factorization. The 4 is the 4 of 4/p.)
 
-Least witness. Let g*(p) := min{g ≡ 3 (4) : p^{±1} mod g ∈ R_g} (U5). CERTIFIED (`scripts/z60_lopezt_leastg.c`,
+Least witness. Let g*(p) := min{g ≡ 3 (4) : p^{±1} mod g ∈ R_g} (U5), with min ∅ = +∞ (finiteness for all p is the open statement). CERTIFIED (`scripts/z60_lopezt_leastg.c`,
 `data/z60/lopezt/leastg_1e8.txt`): over the 719 781 primes p ≡ 1 (24) below 10⁸, g* ≤ 10487 (attained at p = 9 658 489; no new record
 in [10⁷, 10⁸]); g* = 7 for 50.06 %, g* ≤ 23 for 90.1 %, g* > 1000 for 172 primes, g* > 3000 for 12. So the pointwise statement is a
 Linnik-type problem ("least modulus g with p^{±1} ∈ R_g") whose worst cases are far above log p.
@@ -152,10 +155,11 @@ respects p ≡ 1 mod 24 — EVIDENCE level). Under GRH, n_p ≪ (log p)², but t
 ### 3.2 Constructive routes (all blocked, PROVED where stated)
 (C1) Finite covering by congruences on p: impossible by Lemma 1.2, even inside p ≡ 1 (24), even using all Type I/II families (all
      residue sets are non-residue sets; p ≡ 1 mod L defeats every modulus ≤ M).
-(C2) "Explicit g as a function of p", g = 4cp + r (c ≥ 1): BN needs a ≡ −p (mod g) with a ≤ (g+1)/4 < g − p: impossible. B4 needs
-     a = (jg − 1)/p with j ≡ r^{−1} (mod p), a | (g+1)/4; then j(4cp + r + 1) ≡ 1 + j (mod 4cj + s) with s = (jr − 1)/p, so 4cj + s | j + 1,
-     impossible for c ≥ 1. (Witness moduli satisfy g ≤ 2p + 1 in any case, Lemma 1.1(ii).) So any witness is a *divisor* of one of the
-     numbers p + a, ap + 1, i.e. is built from their prime factors, and primes > z dividing them are invisible to p mod (anything ≤ z).
+(C2) "Explicit g as a function of p" (g > p). Witnesses satisfy g ≤ 2p + 1 (Lemma 1.1(ii)). For p ≡ 1 (mod 8) the witnesses with g > p
+     are exactly the BN ones g = p + a with a | p + 1 and (p+1)/a ≡ 3 (mod 4) (a B4 witness g > p would be g = (tp+1)/(t−1) with
+     4(t−1) | p + 1, impossible as p + 1 ≡ 2 mod 8; a BN witness g > p has p + a = g, i.e. 4a | p + a + 1). So witnesses above p exist iff
+     (p+1)/2 has a prime factor ≡ 3 (mod 4) — the t = 1 covering condition — and otherwise every witness is a proper divisor of some
+     p + a or ap + 1 with g ≤ p. (Checked for all primes p ≡ 1 (8), p < 6000.) Hence "g as a formula in p" is just the a = 1 case.
 (C3) A single prime witness q: hit ⟺ p mod q ∈ S_q with |S_q| ≤ 2τ((q+1)/4) ≪ q^ε, versus (q−1)/2 non-residue classes. Knowing a prime q
      with (p/q) = −1 (even the least one) therefore gives nothing: p mod q must land in a q^{ε}-sized set.
 (C4) Composite witnesses g = q₁q₂…: the same t must work for all q_i (t | (g+1)/4, tp ≡ −1 mod each q_i); choosing q₂ to fix the second
@@ -167,10 +171,11 @@ respects p ≡ 1 mod 24 — EVIDENCE level). Under GRH, n_p ≪ (log p)², but t
 N(p) = Σ_{g ≡ 3 (4)} 1[p^{±1} mod g ∈ R_g]. Swapping to "small divisors" does not help: for a fixed g the only candidate a is
 a = (−p mod g), and the event a | (g+1)/4 is a single 0/1 event of "probability" τ((g+1)/4)/g. In the classical short-interval divisor
 sum Σ_{n ∈ (p, p+A]} τ(n) every d ≤ A contributes ≥ 1 *pointwise* because the class condition is independent of the shift; here the class
-is −1 mod 4(n − p), so the one candidate shift is pinned by g and nothing is forced. Expected count Σ_{g ≤ X} 2τ((g+1)/4)/g ≍ (log X)²/4
-(the 8-analogue: (log X)²/8 — this constant-factor-2 gap is the entire content of (F2) at the level of main terms). A sieve upper bound for
-the exceptional primes has unbounded dimension (Σ_g 2τ((g+1)/4)/g → ∞) and error terms ≫ X/(log X)^B, so it can bound the exceptional
-set by X/(log X)^A for every A ("almost all", not pointwise) and no further.
+is −1 mod 4(n − p), so the one candidate shift is pinned by g and nothing is forced. HEURISTIC model (not a theorem): treating the events as independent with
+probability |R_g ∪ R_g^{−1}|/φ(g) ≤ 2τ((g+1)/4)/g gives an expected count ≤ Σ_{g ≤ X} 2τ((g+1)/4)/g ∼ (log X)²/4, and ∼ (log X)²/8 for
+the 8-analogue; conditioning on p ≡ 1 (24) and the branch overlap change the constants, so only the factor-2 *shape* of (F2) is meaningful
+here. I did not prove any almost-all statement in this memo and claim none: a sieve for the exceptional primes would have unbounded
+dimension and would at best give an almost-all bound, which the brief excludes anyway.
 
 ### 3.4 What exactly would suffice (the reduced analytic statement)
 (P*) For every large prime p ≡ 1 (24) there is g ≡ 3 (mod 4), g ≤ 2p + 1, with  (−p mod g) | (g+1)/4  or  (−p·4^{−1} mod g) | (g+1)/4.
@@ -189,20 +194,23 @@ So S(p) has two *cheap* sub-families where the modulus is a itself (a ≡ 0, 3 m
 (p+3)/4 = 6j+1 needs a prime factor ≡ 2 (3); a = 4: p + 4 needs a prime factor ≡ 3 (4); a = 7: (p+7)/4 needs a divisor ≡ 6 (7).
 (The a ≡ 3 case subsumes, for d even, B4-witnesses with Y = b, so the two branches are interleaved already at a = 3.)
 
-**Status of the pointwise statement: NOT PROVED. No hot lead.** Everything above is PROVED/CERTIFIED as labelled; nothing conditional
-is claimed, because every conditional form I could formulate was either equivalent to (P*) itself or an almost-all statement.
+**Status of the pointwise statement: NOT PROVED. No hot lead.** Items are labelled PROVED / CERTIFIED / HEURISTIC individually above;
+nothing conditional is claimed, because every conditional form I could formulate was either equivalent to (P*) itself or an almost-all
+statement (which I also do not claim to have proved).
 
 ## §4 Falsifiers re-stated against the final content, and verdict
 
-(F1) odd squares. The only step in this memo that uses anything about p beyond "odd" is Lemma 0.5/1.1(i): every witness modulus g
-satisfies (p/g) = −1. No argument here produces such a g for all p; the proposed proof skeleton (P*) is exactly the statement that such a
-g always exists. A proof must supply a prime factor q of some p + a or ap + 1 with (p/q) = −1 — the step that fails at n = m².
+(F1) odd squares. Assumptions used, by place: primality of p only in the classification Lemmas 0.3/0.4/2.1/2.2 (never in an existence
+argument for S); p ≡ 1 (mod 4) in the "m ≡ 3 (4)" form of Type I and in the mod-4 case analysis of (U7); the obstruction Lemma 0.5/1.1(i)
+holds for every odd n: every witness modulus g has (n/g) = −1, so S(m²) is empty. No argument in this memo produces a divisor witness
+(g with p^{±1} mod g ∈ R_g, which is far more than (p/g) = −1, cf. (C3)) for all p; (P*) *is* that statement. Any proof must supply a
+prime factor q of some p + a or ap + 1 with (p/q) = −1 inside such a witness — the step with no analogue at n = m².
 (F2) numerator 8. The 8-analogue is (P*₈): g ≡ 7 (8), a | (g+1)/8 (Lemma 1.1(iii); certified: exactly the 45 primes of the brief). Any
 argument for (P*) that only uses the main term Σ_g τ((g+1)/4)/g would apply to (P*₈) with half the constant and is therefore wrong below
 3 869 153; a proof must use g ≡ 3 (mod 8) or a with v₂(a) = v₂((g+1)/4) witnesses.
 (F3) 105 and 4545. S(105) and S(4545) fail; 105 has an off-axis Type II witness (a, m, g) = (3, 2, 71), 4545 none. So "S holds for all
-non-squares" is false and "S ⟸ Type II" is false; the primality of p is used in this memo only in the classification Lemmas 0.3/0.4/2.1/2.2
-(it never enters an existence argument for S).
+non-squares" is false and "S ⟸ Type II" is false for general odd n (for primes it is open: no prime ≤ 10¹⁰ separates them, and 105 shows
+there is no *universal* algebraic conversion of off-axis witnesses into axis witnesses; a conversion using primality is not excluded).
 (F4) single-branch zeros. B4 alone fails at 193, 2521, 66529; BN alone at the 14 primes of `star_prime_zeros.txt` (both lists reproduced
 ≤ 2·10⁵). In (U5) they are p ∉ R_g^{−1} ∀g resp. p ∉ R_g ∀g; the inversion symmetry (Lemma 1.1) shows the two branches are on equal
 footing, and the record list in `leastg_1e8.txt` shows both branches supplying the least witness in the worst cases.
