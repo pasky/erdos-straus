@@ -23,7 +23,7 @@ shape B2 needs was found (answer (b) in the sense that matters), stated as a gap
      (arXiv:1412.7373, V) show that the monic polynomials of degree ∼ C log_q n contain one.
 
    Structural comparators — (T) Zagier's windmill and Thue/Minkowski; (R) Zsigmondy and r₂(p) = 8 — are what the brief
-   calls "algebraic" and are not counted as passes. Over ℤ, (M2) at polylog windows is available only under GRH.
+   calls "algebraic" and are not counted as passes. Over ℤ, the (M2) rows found reach polylog windows only under GRH.
 2. **None of these transfers to B2.** Each fails at a named screen (§3, §4).
    * **(Sv) Jacobsthal-type sieve.** The sifting classes are fixed per prime ℓ | m. B2's good events have moduli tied
      to the candidate (FRONTIER B2). A sieve driven by local densities is also T1-blind: at a square in the same
