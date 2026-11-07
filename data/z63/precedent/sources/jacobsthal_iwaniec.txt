@@ -1,0 +1,8 @@
+SOURCE: F. Costello, P. Watts, "A short note on Jacobsthal's function", arXiv:1306.1064v1 (5 Jun 2013), Introduction, p.1.
+URL: https://arxiv.org/pdf/1306.1064  (accessed 2026-11-07, pdftotext; read by the lane author). Status: V2 for Iwaniec.
+"Jacobsthal's function g(n) represents the smallest number Q such that every sequence of Q consecutive integers contains
+an integer coprime to n. ... Taking k to represent ω(n), the number of distinct prime factors of n, Iwaniec's proof [1]
+that g(n) ≤ X (k log k)^2 for some unknown constant X gives the best asymptotic upper bound on g(n)."
+"[1] Iwaniec, H.: On the problem of Jacobsthal. Demonstratio Mathematica 11(1), 225–231 (1978)"
+(Primary Iwaniec 1978 not opened.) Raised by the hostile reviewer (z63); repo mentions: BRAINSTORM/z52b_free_fable.md:363,
+BRAINSTORM/z52b_free_opus.md:379.

@@ -3,10 +3,9 @@
 
 For each (★)-zero prime p (data/z58/screens/star_prime_zeros.txt) compute
   * n_p  = least prime ell with (ell/p) = -1, and
-  * R(p) recomputed by brute force (direct d-form: R(p) = #{(C, d) : d | 4Cp+1, d = -1 mod 4C}),
-    feasible for p <= 10^6 (C ranges up to (p+1)/2... see bound below); larger p are only quoted.
-Also the same for a control sample: the first 2000 primes p = 1 (24) (R(p) > 0 expected) and odd squares.
-
+  * R(p) recomputed by brute force (d-form: R(p) = #{(C, d) : d | 4Cp+1, d > 1, d = -1 mod 4C}) for p <= 10^4 only;
+    larger zeros are printed as "cert" (inherited certificate, FRONTIER §2.1), NOT recomputed here.
+Controls: odd squares 25, 49, 121, 169 (T1 predicts R = 0) and the primes 13, 73, 433 (R > 0 expected).
 Bound used: a (★) solution (u, B, C) of 4uBC - u - B = n has C <= (n+2)/4 (u = B = 1 gives 4C - 2 = n),
 so C ranges over 1..(n+2)//4 and d = 4uC - 1 over divisors of 4Cn+1 with d = -1 mod 4C, d > 1, and the
 cofactor (4Cn+1)/d is then automatically = -1 mod 4C as well.
