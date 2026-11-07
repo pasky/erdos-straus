@@ -22,3 +22,14 @@ odd squares valid: [9]
   Z7 n=12145 nE=1079 tokens=6274 own-exit=2886 sink-routed=2093 stranded=390 forced=631 (502 primes)
   Z7 n=39361 nE=1559 tokens=21191 own-exit=4532 sink-routed=10341 stranded=1823 forced=1869 (1376 primes)
   Z7 n=67425 nE=9796 tokens=41284 own-exit=29239 sink-routed=7294 stranded=883 forced=2379 (2066 primes)
+foreign screen: primes 13..20000: 2257; forced primes all carried by hit columns at 4: [13, 19, 31, 71]
+  max nF/nsink sample: [(19991, 622, 598, 24), (19993, 823, 814, 12), (19997, 1010, 988, 20)]
+  n=169 sinks=3 forced_primes=15 uncovered=11 top=[79, 83, 101, 149]
+  n=289 sinks=4 forced_primes=18 uncovered=15 top=[139, 157, 173, 269]
+  n=361 sinks=5 forced_primes=27 uncovered=20 top=[197, 229, 277, 293]
+  n=529 sinks=5 forced_primes=38 uncovered=31 top=[349, 397, 461, 509]
+  n=105 sinks=14 forced_primes=7 uncovered=2 top=[31, 43]
+  n=409 sinks=3 forced_primes=30 uncovered=26 top=[277, 293, 373, 389]
+  n=2521 sinks=1 forced_primes=125 uncovered=125 top=[2341, 2357, 2389, 2437]
+  n=9601 sinks=2 forced_primes=384 uncovered=380 top=[9341, 9421, 9437, 9533]
+  n=102001 sinks=5 forced_primes=3228 uncovered=3224 top=[101789, 101837, 101869, 101917]

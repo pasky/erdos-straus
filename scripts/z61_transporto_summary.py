@@ -30,3 +30,23 @@ for s in ("SQ", "Z7"):
 txt = "\n".join(out) + "\n"
 open(os.path.join(ROOT, "data/z61/transporto/r1_summary.txt"), "w").write(txt)
 print(txt)
+
+# foreign-flux screen (scripts/z61_transporto_foreign.py)
+fp = os.path.join(ROOT, "data/z61/transporto/foreign.jsonl")
+if os.path.exists(fp):
+    F = {}
+    for l in open(fp):
+        r = json.loads(l)
+        F[r["n"]] = r
+    def isprime(n):
+        return n > 1 and all(n % q for q in range(2, int(n ** 0.5) + 1))
+    Pn = sorted(n for n in F if isprime(n) and n <= 20000)
+    cov = [n for n in Pn if F[n]["nUncovered"] == 0]
+    lines = [f"foreign screen: primes 13..20000: {len(Pn)}; forced primes all carried by hit columns at {len(cov)}: {cov}",
+             "  max nF/nsink sample: " + str([(n, F[n]['nF'], F[n]['nUncovered'], F[n]['nsink']) for n in Pn[-3:]])]
+    for n in (169, 289, 361, 529, 105, 409, 2521, 9601, 102001):
+        r = F[n]
+        lines.append(f"  n={n} sinks={r['nsink']} forced_primes={r['nF']} uncovered={r['nUncovered']} top={r['uncovered_top'][-4:]}")
+    t2 = "\n".join(lines) + "\n"
+    open(os.path.join(ROOT, "data/z61/transporto/r1_summary.txt"), "a").write(t2)
+    print(t2)
