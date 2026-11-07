@@ -1,0 +1,2 @@
+# uv run --with cypari2 python scripts/z62_inverse_bruteforce_check.py
+bad 0
