@@ -1,0 +1,9 @@
+# 1181 train primes, 1031 test primes, 168 signed counts, 24 classes mod 840
+# distinct per-word patterns 56; per-word identity dim 126; prime-level nullspace dim 126
+# non-trivial excess dimension: 0
+# 1181 train primes, 1031 test primes, 168 signed counts, 384 classes mod 13440
+# distinct per-word patterns 56; per-word identity dim 126; prime-level nullspace dim 129
+# non-trivial excess dimension: 3
+  relation held-out exact on 1029/1031; support size 0: []
+  relation held-out exact on 1027/1031; support size 0: []
+  relation held-out exact on 1028/1031; support size 0: []

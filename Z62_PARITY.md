@@ -4,7 +4,7 @@
 CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Internal results, internally reviewed only.
 Scripts `scripts/z62_parity_*`, data `data/z62/parity/`. Brief: `z52bbriefs/z62_lanes.md` §PARITY.
 
-*Status: CHECKPOINT 1 (skeleton; pre-registered kill test in §3).*
+*Status: final (internal hostile review pending). Verdict: **narrowed** — no HOT LEAD.*
 
 Notation as in FRONTIER §2 / `Z60_SUMMARY.md`: R(n) = #{(u,B,C) ∈ ℕ³ : 4uBC − u − B = n} ((★)); 𝔐 = {1, 121, 169, 289,
 361, 529} ⊂ (ℤ/840)^×; U₇(n): some f ≡ 7 (8) with (−n mod f) | f + 1; Z₇ = the eight composite U₇-zeros; "hard primes" =
@@ -150,5 +150,85 @@ The parity mechanism forces *a* divisor, never its class: B2 in river coordinate
 "never" = Assessment). 287/385 primes get a forced certificate at some C ≤ 30 — a lottery with one ticket per C, sparser
 than (★) itself (377/385 have some (★) certificate with C ≤ 30).
 
+### 4.3 Escape hatch H2 — signed (ℤ-valued) indices with quadratic-character signs: no relation (EVIDENCE)
+
+`python3 scripts/z62_parity_signed.py 200000 100000 {840, 13440}` → `data/z62/parity/h2_signed_2e5.txt` (also 6·10⁴:
+`h2_signed_6e4.txt`). Per word, 10 base signs — the Jacobi symbols (z/p) for z ∈ {t, u, v, u+v, A = tu−1, A* = tv−1,
+tuv} and (−1)^t, (−1)^u, (−1)^v — their 45 products and 1; signed counts S_w(p) over STAR, U7, ALLX (168 columns). A
+*rational* linear relation Σ c_w S_w(p) = g(p mod M) on the 1 181 training primes p ≡ 1 (24) ≤ 10⁵ (nullspace mod
+2⁶¹ − 1) was sought, modulo per-word identities (56 distinct per-word sign patterns; identity space dim 126).
+**Result: prime-level nullspace = per-word identity space exactly (dim 126) for M = 840; excess 0.** For M = 13 440
+(384 classes) the 3 excess vectors are supported only on class indicators of classes with no training prime (trivial).
+So no ℚ-combination of these 42 independent signed counts equals a function of p mod 840 or mod 13 440 — this extends
+the board's fable check (six single signs on U₇ words, constancy only) to the full ℚ-span with class functions.
+
+### 4.4 Escape hatch H3 (cheap form) — non-local graph-degree weights: no relation (EVIDENCE)
+
+Lemma P0(b)/(d) allows weights depending on *other* words. Cheapest instance: w(c) = number of other words sharing a
+datum with c (same u, v, t, u+v, A, uv, tu), neighbours taken in all of X(p) or in the family.
+`python3 scripts/z62_parity_nonlocal.py 200000` → `data/z62/parity/h3_nonlocal_2e5.tsv`; analysis with
+`z62_parity_gf2.py … 100000 840`. **All 36 nullspace directions are trivial**: 34 columns are identically even
+(handshake within a pool, or fibres closed under the family, e.g. a t-fibre with 4 | t is entirely (★)), and 2 are the
+coincidence A = tu − 1. No combination involving a non-trivial column is a function of p mod 840.
+
+### 4.5 What the kills leave open (Assessment, with the PROVED parts marked)
+
+* By Theorem R every word (certificate or not) is *entirely* described by local data: its matrix is conjugate to the
+  fixed word S(t)S(σ) and it sits at the fixed position (1, u) of the topograph of Q_{t,σ} (Q_{t,σ}(1,u) = −p ⟺ the word
+  equation). So a non-local weight can only come from **relations between different words** (Lemma P0 (b)–(d)), i.e.
+  from a graph/complex on X(p) or a superset. The cheap relations (shared letters/fibres, §4.4) carry nothing; the
+  refactor/handshake graphs of WINDMILL §3.4 carried nothing.
+* An exact index must be supported on U₇ / full Type II / full ES (Lemma P1), and its easy side must be a quadratic-
+  character (Jacobi-type) quantity in p to pass F1. All Jacobi-signed counts of words tested are free of relations
+  with class functions (§4.3).
+* **Precise missing lemma (ML-P).** *A finite set S_p ⊇ U₇-words(p), computable from p, with an involution τ that is
+  not an equation symmetry (not in the order-4 group of WINDMILL Prop 2 on any Zariski-dense piece) and not a
+  finite affine menu ((J)2), whose fixed set lies in U₇-words ∪ K_p with |K_p| mod 2 computable, together with a second
+  involution σ on S_p whose fixed set is a factorisation of p (so |Fix σ| is computable at primes).* Equivalently
+  (Lemma P0): a weight on U₇ words, not a function of the word alone, with computable odd total. Nothing in this lane
+  constructs it, and every structure tried (topograph of the certificate form, Legendre's principal cycle, Jacobi signs,
+  fibre degrees) is either local by Theorem R or class-blind (KT2).
+
 ## 5. Verdict
-(to be filled)
+
+**Narrowed.** No HOT LEAD; no new forcing mechanism. B2 did not move.
+* **Dead (CERTIFIED/EVIDENCE in stated ranges, by pre-registered kill tests):** the main line (topograph/river weights
+  of certificate forms, KT1) and Legendre's parity-forced divisor of 4Cp + 1 (KT2, z = −0.04 vs the random-divisor
+  baseline).
+* **Proved (scoped):** Lemma P0 (any finite parity/index/Morse/Stokes/Lefschetz mechanism = a deterministic weighted
+  certificate count), Lemma P1 (exact indices must avoid families with prime zeros), **Theorem R / Cor. R′: the
+  certificate matrix [[4Cu−1, p],[4C, 4CB−1]] is SL₂(ℤ)-conjugate to S(4C)S(u+B); hence every SL₂(ℤ)-conjugacy
+  invariant (river, class, closed modular geodesic, Rademacher/linking numbers, cycle data, SL₂(ℤ) orbital integrals)
+  of a certificate is a fixed function of (C, u+B), independent of p** (the same for every word of X(n) and every U₇ word).
+* **Survives:** (ML-P) — involutions/complexes using relations between different words that are neither equation
+  symmetries nor finite affine menus; Γ(N)-level (not SL₂(ℤ)) conjugacy data; easy sides with thresholds.
+
+### Falsifier table (re-stated for the final state)
+| screen | KT1 / Cor R′ weights | KT2 Legendre divisor | H2 Jacobi-signed indices | (ML-P) |
+|---|---|---|---|---|
+| F1 squares | weights are local; at m² no (★)/U₇ words, W = 0 | forced divisor exists at m² as well (class-blind) | signs all +1 on squares' words (DEDEKIND 8.1); no relation found anyway | must have easy side = 0 at m² (Jacobi-type) |
+| F2 C-even | (C, u+B)-local weights cannot separate C odd/even except by the fixed feature C mod 2 | — | includes (−1)^t | support must include C odd |
+| F3 composites | local; nothing prime-specific | — | — | prime-only identity or divisor-type easy side |
+| F4 zeros | an exact (★)-supported index is impossible (Lemma P1) | at the 14 zeros no C works (they are (★)-zeros) | — | support U₇ / Type II / full ES |
+
+### FRONTIER §4 hard screens for the best idea (Theorem R reading of (★))
+T1 squares: passes vacuously (it is an identity, not a mechanism). 8/131: an identity in t; t = 8C gives the R₈ line,
+equally local. Tied modulus: Theorem R *removes* the tie from the conjugacy class (the class is that of the fixed word
+(4C, u+B)) and puts it entirely into the position datum Q_{4C,σ}(1, u) = −p — the tie is the statement "−p is a value
+of the fixed form on its first row". Fixed p: pointwise, but no forcing.
+
+### Proposed FRONTIER §7 / §6 text (do not edit FRONTIER here)
+*§6 dead end (z62 PARITY).* Topograph / river / closed-geodesic weights of certificates → every SL₂(ℤ)-conjugacy
+invariant of the (★) matrix is a fixed function of (C, u+B) (`Z62_PARITY.md` Theorem R: [[4Cu−1, p],[4C, 4CB−1]] ~
+S(4C)S(u+B)); river weights give no parity law (KT1, primes ≤ 2·10⁵), Legendre's parity-forced divisor of 4Cp + 1 is
+class-blind (KT2, z = −0.04), Jacobi-signed word counts satisfy no ℚ-relation with class functions mod 840 / 13 440
+(H2), fibre-degree weights are handshake-trivial (H3). Open: (ML-P).
+
+### Bottom line
+Every parity/index argument is a deterministic weighted count of certificates (Lemma P0), and the natural geometric
+source of weights — the topograph/river of the certificate — turns out to be *p-free*: the certificate matrix is
+conjugate to the length-two Hirzebruch–Jung word (4C, u+B) (Theorem R), so all such weights are fixed features, which
+the repository already found sterile. Legendre's classical parity-forced divisor of 4Cp + 1 lands in the (★) class
+exactly at the random-divisor rate, and Jacobi-signed and fibre-degree indices satisfy no relation with p's residue
+class. What a parity proof would still need is an involution built from relations *between* different words that is
+neither an equation symmetry nor a finite affine menu (ML-P); no candidate is known.
