@@ -21,15 +21,17 @@ primes p ≡ 1 (24) (and p mod 840 ∈ 𝔐 where stated).
 
 ## 1. The framework and its necessary condition
 
-**Lemma P0 (index necessity; PROVED, elementary — generalises WINDMILL Lemma 1 and `BRAINSTORM/invol_topological.md`
-Lemma T to the cochain/Stokes form).** Let K be a finite cell complex (built from p), Cert ⊂ cells(K) a set of
+**Lemma P0 (index necessity; PROVED, elementary — essentially WINDMILL Lemma 1 and `BRAINSTORM/invol_topological.md`
+Lemma T (which already covers Sperner/Tucker/mod-2 degree/Smith/Lefschetz–Hopf); the Morse (c) and Stokes (d) forms are
+only spelled out here).** Let K be a finite cell complex (built from p), Cert ⊂ cells(K) a set of
 "certificate cells", each mapped to an ES certificate by Φ. Any of the following yields an integer (or F₂) weight
 w: {certificates} → ℤ with Σ_c w(c) = I(p), where I(p) is the quantity the argument evaluates:
 (a) two involutions σ, τ on a finite set S with Fix τ ⊂ Φ⁻¹(certificates) ∪ K_p (Zagier / Heath-Brown): I = |Fix σ| − |K_p| (mod 2);
 (b) a graph of max degree 2 (PPA / handshake) whose odd-degree vertices are a known set ∪ certificates: I = #known (mod 2);
 (c) a Morse matching on K whose critical cells are certificates ∪ known cells: I = χ(K) − χ_known (over ℤ, signed by dimension);
-(d) Stokes: an acyclic K, a cochain ω with δω supported on Cert, and a cycle z with ⟨ω, z⟩ = I ≠ 0: for every filling
-∂c = z, Σ_{e ∈ Cert} c(e)δω(e) = I (the weights c(e)δω(e) depend on the filling only through δω-cohomologous data);
+(d) Stokes: an acyclic K, a 1-cochain ω with δω supported on certificate 2-cells, and a 1-cycle z with ⟨ω, z⟩ = I ≠ 0:
+for every 2-chain c with ∂c = z, Σ_{e ∈ Cert} c(e)δω(e) = I (individual weights depend on the filling, the total does
+not: two fillings differ by a 2-cycle ∂b, and ⟨δω, ∂b⟩ = ⟨δδω, b⟩ = 0);
 (e) Lefschetz–Hopf for a cellular self-map with fixed cells ⊂ Cert ∪ known: I = L(f) − (known).
 *Proof.* (a) |S| ≡ |Fix σ| ≡ |Fix τ|. (b) handshake. (c) the Morse complex has the same Euler characteristic.
 (d) I = ⟨ω, ∂c⟩ = ⟨δω, c⟩ and δω vanishes off Cert. (e) Hopf trace formula. ∎
@@ -48,6 +50,14 @@ its *easy side* (I(p) = 0 for the small zeros, I(p) ≠ 0 eventually — unusual
 
 * **(PAR)** Find (K_p, Cert, w-source) as in Lemma P0 with I(p) ≠ 0 for all primes p ∈ 𝔐 (beyond a stated threshold)
   and I(m²) = 0 for odd squares, with a proof of the evaluation of I. Open; this lane tests concrete new objects.
+* **Prior parity work in the repo (read before computing; attribution).** WINDMILL (Lemma 1, §3 ≈ 7 000 weights),
+  WINDMILL_REDUCTION (O164: Zagier = dihedral symmetry of Conway rivers (§1); Legendre/SQUFOF midpoints carry no ES bias
+  (§3); X-certificates as ambiguous forms of discriminant T² − 4 (§5.2); T + 2 = tτ (§8); infinite-menu windmills on the
+  modular hyperbola (§9); congruence sub-counts of E(p) parity-random (§6)), INVOLUTION_ES/ES2 ((J)2), Z52D_PARITY,
+  PARITY_FIXED_P, DEDEKIND_ES (HJ dictionary, Jacobi sign = mod-4 class), BRAINSTORM `invol_*`, `y2_parity_involution`,
+  `s3_words_parity`, `bsB_zolotarev_transpose`, `z52b_pass1_H05` (Z1665: word topographs, disc depends only on c(u+B)),
+  board astra-2 / fable-2. *I located WINDMILL_REDUCTION §3/§5.2 and Z1665 only after KT1/KT2 had run (my initial
+  `git grep` listing was truncated); Observation A below is theirs, and KT2 is a replication on the (★) slice.*
 * **Why not already closed.** Closed: finite-menu affine involutions on X(p) ((J)2 Thm 6.1, CONDITIONAL on BH); finite
   affine group menus (Z52D_PARITY Thms C, D); fixed-feature weight dictionaries (WINDMILL §3, invol_windmill_signature
   E1–E3, board astra-3 LP certificates); cheap signs on U₇ words (board, fable). Not closed: weights coming from
@@ -56,7 +66,7 @@ its *easy side* (I(p) = 0 for the small zeros, I(p) ≠ 0 eventually — unusual
 
 ## 3. Main line and PRE-REGISTERED kill test (checkpoint 1)
 
-**Observation A (PROVED, one line; checked numerically in §4).** For (u,B,C) a (★) triple, the matrix
+**Observation A (PROVED, one line; = WINDMILL_REDUCTION §5.2 and Z1665, rediscovered).** For (u,B,C) a (★) triple, the matrix
 γ = [[4Cu−1, p],[4C, 4CB−1]] ∈ SL₂(ℤ) is an automorph (U = 1) of the binary form F = [4C, 4C(B−u), −p], which is
 **ambiguous** (first coefficient divides the middle one), primitive, of discriminant Δ = t² − 4, t = tr γ = 4C(u+B) − 2
 (Δ = 16C²(B−u)² + 16Cp = 16C(C(u+B)² − (u+B)) because 4CuB − u − B = p). So (★) certificates are ambiguous forms of
@@ -117,6 +127,11 @@ certificate* carries no non-local information; any topograph route must use a di
 
 ### 4.1′ Theorem R (sharp form of Lemma R; PROVED) — the modular geodesic of a certificate is the length-2 word (t, u+v)
 
+*Novelty relative to WINDMILL_REDUCTION §5.2/§8 and Z1665:* those record that the discriminant is (t(u+v) − 2)² − 4 and
+that T + 2 = tτ, and assess that "spark C reduces to the e/t-slice problem". Theorem R upgrades this to the *class*:
+the whole SL₂(ℤ)-conjugacy class (hence river) is that of one fixed word, so the reduction is a theorem for every
+conjugacy invariant.
+
 **Theorem R.** Let n ≥ 1 and (t, u, v) ∈ ℕ³ with tuv − u − v = n, σ := u + v, tσ ≥ 5. Then
 γ_w := [[tu − 1, n],[t, tv − 1]] ∈ SL₂(ℤ) is SL₂(ℤ)-conjugate to S(t)S(σ) = [[tσ − 1, −t],[σ, −1]]
 (S(b) := [[b, −1],[1, 0]], the Hirzebruch–Jung letter). In particular the (★) matrix of (u, B, C) is conjugate to
@@ -141,6 +156,10 @@ topograph), conjugacy in Γ(N) / Γ₁(N) for N depending on the certificate (th
 relations *between* different certificates.
 
 ### 4.2 KT2 — Legendre's parity-forced divisor of N_C = 4Cp + 1: **DEAD (per pre-registration)**
+
+*Replication:* WINDMILL_REDUCTION §3 already found the Legendre/SQUFOF midpoint to be a certificate only at the random
+rate on a Type I slice (N = tp + 1, t odd: 2.2 % of midpoints vs 14.6 % for any divisor pair) and on the e-slice; the
+run below is the (★) slice t = 4C with an explicit per-(p, C) random-divisor baseline.
 
 `python3 scripts/z62_parity_legendre.py 30000 30` → `data/z62/parity/kt2_legendre_3e4_C30.txt` (385 primes p ≡ 1 (24)
 ≤ 3·10⁴, C ≤ 30). The principal cycle of discriminant N_C is reflection-symmetric; its second centre is an ambiguous form
@@ -206,7 +225,7 @@ coincidence A = tu − 1. No combination involving a non-trivial column is a fun
 ### Falsifier table (re-stated for the final state)
 | screen | KT1 / Cor R′ weights | KT2 Legendre divisor | H2 Jacobi-signed indices | (ML-P) |
 |---|---|---|---|---|
-| F1 squares | weights are local; at m² no (★)/U₇ words, W = 0 | forced divisor exists at m² as well (class-blind) | signs all +1 on squares' words (DEDEKIND 8.1); no relation found anyway | must have easy side = 0 at m² (Jacobi-type) |
+| F1 squares | weights are local; at m² no (★)/U₇ words, W = 0 | forced divisor exists at m² as well (class-blind) | Jacobi signs (z/m²) ∈ {0, +1}; at m² the families STAR/U7 are empty; no relation found anyway | must have easy side = 0 at m² (Jacobi-type) |
 | F2 C-even | (C, u+B)-local weights cannot separate C odd/even except by the fixed feature C mod 2 | — | includes (−1)^t | support must include C odd |
 | F3 composites | local; nothing prime-specific | — | — | prime-only identity or divisor-type easy side |
 | F4 zeros | an exact (★)-supported index is impossible (Lemma P1) | at the 14 zeros no C works (they are (★)-zeros) | — | support U₇ / Type II / full ES |
