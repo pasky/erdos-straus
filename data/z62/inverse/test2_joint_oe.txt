@@ -1,0 +1,44 @@
+# z62 INVERSE test 2 (pre-registered escape hatch): u-slice joint failure O/E, primes p = 1 (24) in [1e6, 1.2e7]
+# gcc -O2 -o /tmp/z62_joint scripts/z62_inverse_joint.c; /tmp/z62_joint 1000000 12000000 64 > /tmp/z62_joint.txt
+## python3 scripts/z62_inverse_joint_oe2.py /tmp/z62_joint.txt 840 11,13
+MOD=840 extra=[11, 13] U=  4 used=88565 cells=96 O=4280 E=4763.62 O/E=0.90
+MOD=840 extra=[11, 13] U=  8 used=88565 cells=96 O=764 E=1070.70 O/E=0.71
+MOD=840 extra=[11, 13] U= 16 used=88565 cells=96 O=148 E=201.87 O/E=0.73
+MOD=840 extra=[11, 13] U= 32 used=88565 cells=96 O=41 E=27.63 O/E=1.48
+MOD=840 extra=[11, 13] U= 64 used=88565 cells=96 O=13 E=4.08 O/E=3.19
+## python3 scripts/z62_inverse_joint_oe2.py /tmp/z62_joint.txt 5040 11,13
+MOD=5040 extra=[11, 13] U=  4 used=88565 cells=576 O=4280 E=4747.89 O/E=0.90
+MOD=5040 extra=[11, 13] U=  8 used=88565 cells=576 O=764 E=1079.44 O/E=0.71
+MOD=5040 extra=[11, 13] U= 16 used=88565 cells=576 O=148 E=206.18 O/E=0.72
+MOD=5040 extra=[11, 13] U= 32 used=88565 cells=576 O=41 E=29.39 O/E=1.39
+MOD=5040 extra=[11, 13] U= 64 used=88565 cells=576 O=13 E=4.33 O/E=3.00
+## python3 scripts/z62_inverse_joint_oe2.py /tmp/z62_joint.txt 5040 11,13,17
+MOD=5040 extra=[11, 13, 17] U=  4 used=88565 cells=1152 O=4280 E=4749.77 O/E=0.90
+MOD=5040 extra=[11, 13, 17] U=  8 used=88565 cells=1152 O=764 E=1085.29 O/E=0.70
+MOD=5040 extra=[11, 13, 17] U= 16 used=88565 cells=1152 O=148 E=208.96 O/E=0.71
+MOD=5040 extra=[11, 13, 17] U= 32 used=88565 cells=1152 O=41 E=31.03 O/E=1.32
+MOD=5040 extra=[11, 13, 17] U= 64 used=88565 cells=1152 O=13 E=4.73 O/E=2.75
+## python3 scripts/z62_inverse_joint_oe2.py /tmp/z62_joint.txt 55440 
+MOD=55440 extra=[] U=  4 used=88565 cells=1440 O=4280 E=4463.33 O/E=0.96
+MOD=55440 extra=[] U=  8 used=88565 cells=1440 O=764 E=928.43 O/E=0.82
+MOD=55440 extra=[] U= 16 used=88565 cells=1440 O=148 E=193.44 O/E=0.77
+MOD=55440 extra=[] U= 32 used=88565 cells=1440 O=41 E=26.67 O/E=1.54
+MOD=55440 extra=[] U= 64 used=88565 cells=1440 O=13 E=3.94 O/E=3.30
+## pretentiousness bins: uv run --with sympy python scripts/z62_inverse_joint_pret.py /tmp/z62_joint.txt Y nbins
+Y=61 bins=4 U=16: O=148 E=184.09 O/E=0.80; by D2-bin (low D2 = pretentious) 0:132/156.4 1:8/19.8 2:8/5.7 3:0/2.3
+Y=61 bins=4 U=32: O=41 E=24.06 O/E=1.70; by D2-bin (low D2 = pretentious) 0:37/21.8 1:1/1.8 2:3/0.4 3:0/0.1
+Y=61 bins=4 U=64: O=13 E=3.30 O/E=3.94; by D2-bin (low D2 = pretentious) 0:11/3.1 1:0/0.2 2:2/0.0 3:0/0.0
+Y=3000 bins=10 U=16: O=148 E=208.66 O/E=0.71; by D2-bin (low D2 = pretentious) 0:101/131.9 1:26/39.4 2:9/15.7 3:1/8.5 4:3/4.7 5:4/3.4 6:4/2.0 7:0/1.4 8:0/1.0 9:0/0.6
+Y=3000 bins=10 U=32: O=41 E=30.40 O/E=1.35; by D2-bin (low D2 = pretentious) 0:28/22.2 1:7/4.9 2:3/1.6 3:0/0.8 4:0/0.4 5:1/0.3 6:2/0.1 7:0/0.1 8:0/0.0 9:0/0.0
+Y=3000 bins=10 U=64: O=13 E=4.63 O/E=2.81; by D2-bin (low D2 = pretentious) 0:9/3.6 1:1/0.6 2:1/0.2 3:0/0.1 4:0/0.0 5:0/0.0 6:2/0.0 7:0/0.0 8:0/0.0 9:0/0.0
+## pairwise: python3 scripts/z62_inverse_pairs.py /tmp/z62_joint.txt 5040 16
+most repelling: (1,3) 0.984 [21934/22292] (1,4) 0.984 [26931/27355] (3,4) 0.986 [30704/31141] (3,5) 0.987 [18165/18406] (5,6) 0.988 [22046/22312] (5,13) 0.988 [27114/27432] (1,5) 0.991 [16079/16232] (2,5) 0.991 [16800/16954] (3,12) 0.991 [36843/37174] (4,5) 0.991 [21903/22097] (2,8) 0.993 [19136/19280] (4,14) 0.993 [34578/34820]
+most attracting: (7,8) 1.014 [42799/42216] (7,16) 1.014 [60705/59844] (13,15) 1.015 [58010/57156] (10,13) 1.017 [61159/60138] (2,15) 1.017 [26310/25869] (8,15) 1.036 [47567/45918] (1,11) 1.044 [27302/26142] (4,11) 1.048 [39497/37689] (3,14) 1.052 [29147/27716] (11,12) 1.054 [46288/43906] (1,12) 1.062 [34448/32447] (2,13) 1.089 [28230/25911]
+## fresh window (1.2e7,1e8]: /tmp/z62_joint 12000000 100000000 64; python3 scripts/z62_inverse_joint_oe2.py F 840 11,13
+MOD=840 extra=[11, 13] U=  4 used=621484 cells=96 O=23655 E=25958.28 O/E=0.91
+MOD=840 extra=[11, 13] U=  8 used=621484 cells=96 O=3588 E=4765.99 O/E=0.75
+MOD=840 extra=[11, 13] U= 16 used=621484 cells=96 O=458 E=684.91 O/E=0.67
+MOD=840 extra=[11, 13] U= 32 used=621484 cells=96 O=47 E=65.39 O/E=0.72
+MOD=840 extra=[11, 13] U= 64 used=621484 cells=96 O=11 E=6.65 O/E=1.65
+/tmp/z62_joint.txt [(1021441, 2, 1), (1134241, 0, 241), (1724209, 0, 529), (1726201, 0, 1), (2369929, 4, 289), (2786809, 4, 529), (3292969, 2, 169), (3812257, 6, 337), (4160641, 2, 121), (4620841, 4, 1), (5212561, 0, 361), (6416329, 2, 409), (8813281, 0, 1)]
+/tmp/z62_joint_1e8.txt [(19071769, 2, 409), (21746761, 10, 1), (24203089, 10, 169), (25415329, 6, 289), (36485401, 4, 1), (42691489, 6, 169), (42733681, 6, 361), (51732409, 4, 169), (53325721, 8, 1), (72690361, 4, 121), (98943049, 8, 289)]

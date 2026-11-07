@@ -1,0 +1,28 @@
+# z62 INVERSE test 3: private-layer coupling, independence model given visible slice signature (coarse), z = 100, U <= 64
+# gcc -O2 -o /tmp/z62_priv scripts/z62_inverse_private.c; /tmp/z62_priv LO HI 64 100 > F; python3 scripts/z62_inverse_private_oe.py F [MOD]
+## window [1e6, 1.2e7]
+primes=88565 MOD=1 signatures=4003
+U=8: O=764 E=793.12 O/E=0.96
+U=16: O=148 E=136.37 O/E=1.09
+U=32: O=41 E=22.22 O/E=1.85
+U=48: O=18 E=7.95 O/E=2.26
+U=64: O=13 E=4.46 O/E=2.92
+primes=88565 MOD=840 signatures=46881
+U=8: O=764 E=796.54 O/E=0.96
+U=16: O=148 E=134.64 O/E=1.10
+U=32: O=41 E=22.50 O/E=1.82
+U=48: O=18 E=7.80 O/E=2.31
+U=64: O=13 E=4.30 O/E=3.02
+## fresh window (1.2e7, 1e8]
+primes=621484 MOD=1 signatures=5385
+U=8: O=3588 E=3736.09 O/E=0.96
+U=16: O=458 E=494.69 O/E=0.93
+U=32: O=47 E=59.59 O/E=0.79
+U=48: O=21 E=19.04 O/E=1.10
+U=64: O=11 E=9.17 O/E=1.20
+primes=621484 MOD=840 signatures=74209
+U=8: O=3588 E=3644.03 O/E=0.98
+U=16: O=458 E=456.63 O/E=1.00
+U=32: O=47 E=53.13 O/E=0.88
+U=48: O=21 E=16.34 O/E=1.29
+U=64: O=11 E=7.60 O/E=1.45

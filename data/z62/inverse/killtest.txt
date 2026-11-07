@@ -1,0 +1,28 @@
+# z62 INVERSE pre-registered kill test (fresh near-zeros n vs controls c) and exploratory comparisons
+## python3 scripts/z62_inverse_killtest.py data/z62/inverse/fresh_slices_U256.txt n c
+u [17-64] st|f n 0.592 c 0.603 d -0.011 (se 0.038) | B|f 0.458 0.434 d +0.024 (se 0.049) | within 0.05: True
+u [65-256] st|f n 0.616 c 0.590 d +0.026 (se 0.024) | B|f 0.398 0.350 d +0.048 (se 0.035) | within 0.05: True
+C [17-64] st|f n 0.703 c 0.734 d -0.031 (se 0.028) | B|f 0.521 0.521 d -0.000 (se 0.036) | within 0.05: True
+C [65-256] st|f n 0.736 c 0.729 d +0.007 (se 0.013) | B|f 0.492 0.498 d -0.006 (se 0.020) | within 0.05: True
+KILL criterion met (all within 0.05): True
+## exploratory: python3 scripts/z62_inverse_killtest.py data/z62/inverse/slices_U256.txt Z c
+u [17-64] st|f Z 0.628 c 0.632 d -0.004 (se 0.013) | B|f 0.458 0.442 d +0.016 (se 0.023) | within 0.05: True
+u [65-256] st|f Z 0.655 c 0.638 d +0.017 (se 0.011) | B|f 0.405 0.365 d +0.039 (se 0.016) | within 0.05: True
+C [17-64] st|f Z 0.735 c 0.754 d -0.019 (se 0.018) | B|f 0.537 0.528 d +0.009 (se 0.018) | within 0.05: True
+C [65-256] st|f Z 0.774 c 0.751 d +0.023 (se 0.006) | B|f 0.533 0.500 d +0.033 (se 0.011) | within 0.05: True
+KILL criterion met (all within 0.05): True
+## exploratory: python3 scripts/z62_inverse_killtest.py data/z62/inverse/slices_U256.txt n c
+u [17-64] st|f n 0.628 c 0.632 d -0.004 (se 0.008) | B|f 0.471 0.442 d +0.029 (se 0.014) | within 0.05: True
+u [65-256] st|f n 0.636 c 0.638 d -0.002 (se 0.004) | B|f 0.400 0.365 d +0.034 (se 0.008) | within 0.05: True
+C [17-64] st|f n 0.735 c 0.754 d -0.019 (se 0.006) | B|f 0.528 0.528 d +0.000 (se 0.009) | within 0.05: True
+C [65-256] st|f n 0.752 c 0.751 d +0.001 (se 0.004) | B|f 0.516 0.500 d +0.016 (se 0.007) | within 0.05: True
+KILL criterion met (all within 0.05): True
+## exploratory: python3 scripts/z62_inverse_killtest.py data/z62/inverse/slices_U256.txt K c
+u [17-64] st|f K 0.688 c 0.632 d +0.057 (se 0.006) | B|f 0.397 0.442 d -0.045 (se 0.008) | within 0.05: False
+u [65-256] st|f K 0.724 c 0.638 d +0.086 (se 0.004) | B|f 0.368 0.365 d +0.003 (se 0.005) | within 0.05: False
+C [17-64] st|f K 0.807 c 0.754 d +0.053 (se 0.004) | B|f 0.540 0.528 d +0.012 (se 0.007) | within 0.05: False
+C [65-256] st|f K 0.821 c 0.751 d +0.070 (se 0.003) | B|f 0.523 0.500 d +0.023 (se 0.005) | within 0.05: False
+KILL criterion met (all within 0.05): False
+## Lemma 2 / Cor 3 consistency
+slices checked {('u', 1): 1255, ('C', 1): 1255, ('u', 2): 1255, ('C', 2): 1255, ('u', 3): 1255, ('C', 3): 1255, ('u', 6): 1255, ('C', 6): 1255}
+violations {}
