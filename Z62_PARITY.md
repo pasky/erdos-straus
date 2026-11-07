@@ -121,16 +121,14 @@ certificate* carries no non-local information; any topograph route must use a di
 γ_w := [[tu − 1, n],[t, tv − 1]] ∈ SL₂(ℤ) is SL₂(ℤ)-conjugate to S(t)S(σ) = [[tσ − 1, −t],[σ, −1]]
 (S(b) := [[b, −1],[1, 0]], the Hirzebruch–Jung letter). In particular the (★) matrix of (u, B, C) is conjugate to
 S(4C)S(u+B), and the U₇ matrix of a word (r, x, y) to S(x)S(r+y).
-*Proof.* γ_w is the U = 1 automorph [[(T−b)/2, −c],[a, (T+b)/2]] (T = tσ − 2) of F_w = [t, t(v−u), −n], and S(t)S(σ) is
-the U = 1 automorph of Q := [σ, −tσ, t]; both forms are primitive of discriminant T² − 4 (gcd(t, n) | gcd(t, u+v) and
-gcd(t,σ,·) = 1 is not needed: primitivity of Q follows from gcd(σ, t, tσ) = gcd(σ, t) and of F from gcd(t, n) — if
-g = gcd(t, σ) > 1 both forms have content 1 since their constant/leading coefficients σ resp. −n are prime to … ; see
-the remark below). Proper equivalences carry U = 1 automorphs to U = 1 automorphs by conjugation, so it suffices that
-F_w ~ Q properly. Lemma R gives F_w ~ G = [t, tε, σ − t(σ² − ε)/4] via x ↦ x − ky; and Q∘(x, y ↦ y, −x) = [t, tσ, σ]
-followed by x ↦ x − ((σ−ε)/2)y is G as well (the same computation with m := σ). ∎
-*Remark (primitivity).* The conjugacy statement does not need primitivity: if F_w ~ Q as forms (equality after a proper
-substitution g), then γ_Q = g γ_{F_w} g⁻¹ directly by the formula for the U = 1 automorph. CERTIFIED cross-check: the
-reduced cycles of F_w and Q coincide for all 15 208 words of primes p ≡ 1 (24) < 3·10⁴ and of 121, 225, 105, 1465, 4545.
+*Proof.* For any binary form f = [a, b, c] of discriminant T² − 4 put γ_f := [[(T−b)/2, −c],[a, (T+b)/2]] ∈ SL₂(ℤ)
+(its U = 1 automorph). For g ∈ SL₂(ℤ), γ_{f∘g} = g⁻¹ γ_f g (standard; also checked on 2 000 random (f, g)). Here
+T = tσ − 2, γ_w = γ_{F_w} with F_w = [t, t(v−u), −n], and S(t)S(σ) = γ_Q with Q = [σ, −tσ, t]; so it suffices that
+F_w and Q are properly equivalent. Lemma R gives F_w ∘ (x ↦ x − ky) = G := [t, tε, σ − t(σ² − ε)/4], and
+Q ∘ ((x, y) ↦ (y, −x)) = [t, tσ, σ], which the same substitution with k = (σ − ε)/2 (the Lemma R computation with
+m := σ, n replaced by 0·… i.e. c′ = t(k² − σk) + σ = σ − t(σ² − ε)/4) also carries to G. ∎
+CERTIFIED cross-check: the reduced cycles of F_w and Q coincide for all 15 208 words of primes p ≡ 1 (24) < 3·10⁴ and
+of 121, 225, 105, 1465, 4545.
 
 **Corollary R′ (scoped no-go; PROVED).** Every SL₂(ℤ)-conjugacy invariant of the certificate matrix — trace, the
 proper class and the whole river/topograph of its form, the closed modular geodesic and its length, the Rademacher
