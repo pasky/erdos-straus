@@ -2,6 +2,7 @@
 # and case-(i) solutions by t for t <= TMAX (via divisor pairs of w=(pt+1)/4, t|a+b, a<=b).
 import sys, random
 from sympy import divisors, isprime, factorint
+from math import gcd
 ZEROS=[409,577,5569,9601,23929,83449,102001,329617,712321,1134241,1724209,1726201,5212561,8813281]
 MM=6; TMAX=int(sys.argv[1]) if len(sys.argv)>1 else 63
 def Rm(p):
@@ -27,7 +28,7 @@ def R1(p,TMAX):
         c=0
         for i,a in enumerate(dv):
             for b in dv[i:]:
-                if (a+b)%t==0: c+=1
+                if (a+b)%t==0 and gcd(a,b)==1: c+=1   # normalized (Thm 3.2): coprime (a,b) <-> distinct solution
         cnt[t]=c
     return cnt
 if __name__=="__main__":

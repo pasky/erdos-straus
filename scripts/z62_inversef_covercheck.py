@@ -50,7 +50,7 @@ def has_sol(p,c,D,fam):
     return False
 import sys
 DMAX=int(sys.argv[1]) if len(sys.argv)>1 else 400
-cl=[x for x in classes(9240) if x[1]<=DMAX and gcd(x[0],x[1])==1]
+cl=[x for x in classes(9240) if x[1]<=DMAX and gcd(x[0],x[1])==1 and x[2] in ('A','B','C',"A'","B'")]  # F1/F3 validated separately by z62_inversef_f1f3.py
 bad=0
 for c,D,fam in sorted(cl):
     p=c+D*((8*D*D)//D+1)
@@ -61,3 +61,4 @@ for c,D,fam in sorted(cl):
             n+=1
         p+=D
 print("classes checked:",len(cl),"failures:",bad)
+sys.exit(1 if bad else 0)
