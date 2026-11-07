@@ -115,6 +115,33 @@ Every river weight is therefore a fixed function w(C, u + B) of the certificate 
 coordinates, which is exactly what WINDMILL §3 / board astra-3 already found sterile. The river of a form *attached to a
 certificate* carries no non-local information; any topograph route must use a discriminant attached to p alone.
 
+### 4.1′ Theorem R (sharp form of Lemma R; PROVED) — the modular geodesic of a certificate is the length-2 word (t, u+v)
+
+**Theorem R.** Let n ≥ 1 and (t, u, v) ∈ ℕ³ with tuv − u − v = n, σ := u + v, tσ ≥ 5. Then
+γ_w := [[tu − 1, n],[t, tv − 1]] ∈ SL₂(ℤ) is SL₂(ℤ)-conjugate to S(t)S(σ) = [[tσ − 1, −t],[σ, −1]]
+(S(b) := [[b, −1],[1, 0]], the Hirzebruch–Jung letter). In particular the (★) matrix of (u, B, C) is conjugate to
+S(4C)S(u+B), and the U₇ matrix of a word (r, x, y) to S(x)S(r+y).
+*Proof.* γ_w is the U = 1 automorph [[(T−b)/2, −c],[a, (T+b)/2]] (T = tσ − 2) of F_w = [t, t(v−u), −n], and S(t)S(σ) is
+the U = 1 automorph of Q := [σ, −tσ, t]; both forms are primitive of discriminant T² − 4 (gcd(t, n) | gcd(t, u+v) and
+gcd(t,σ,·) = 1 is not needed: primitivity of Q follows from gcd(σ, t, tσ) = gcd(σ, t) and of F from gcd(t, n) — if
+g = gcd(t, σ) > 1 both forms have content 1 since their constant/leading coefficients σ resp. −n are prime to … ; see
+the remark below). Proper equivalences carry U = 1 automorphs to U = 1 automorphs by conjugation, so it suffices that
+F_w ~ Q properly. Lemma R gives F_w ~ G = [t, tε, σ − t(σ² − ε)/4] via x ↦ x − ky; and Q∘(x, y ↦ y, −x) = [t, tσ, σ]
+followed by x ↦ x − ((σ−ε)/2)y is G as well (the same computation with m := σ). ∎
+*Remark (primitivity).* The conjugacy statement does not need primitivity: if F_w ~ Q as forms (equality after a proper
+substitution g), then γ_Q = g γ_{F_w} g⁻¹ directly by the formula for the U = 1 automorph. CERTIFIED cross-check: the
+reduced cycles of F_w and Q coincide for all 15 208 words of primes p ≡ 1 (24) < 3·10⁴ and of 121, 225, 105, 1465, 4545.
+
+**Corollary R′ (scoped no-go; PROVED).** Every SL₂(ℤ)-conjugacy invariant of the certificate matrix — trace, the
+proper class and the whole river/topograph of its form, the closed modular geodesic and its length, the Rademacher
+function / linking number with the trefoil (Ghys), cycle lengths, ambiguous centres, orbital integrals for SL₂(ℤ) —
+is a fixed function of (t, u+v) = (4C, u+B), independent of p. Weights built from them are fixed-feature dictionaries
+in (C, u+B) coordinates; the only p-dependence is *which* pairs (C, u+B) occur, i.e. (★) itself:
+p = tuv − u − v ⟺ Q_{t,σ}(1, u) = −p, the value of the fixed form Q_{t,σ} at the vector (1, u) on the row of the
+region of value t. **Not covered:** the conjugating element itself (the position of the certificate in the fixed
+topograph), conjugacy in Γ(N) / Γ₁(N) for N depending on the certificate (the TRACE lane's Γ(4C) structure), and
+relations *between* different certificates.
+
 ### 4.2 KT2 — Legendre's parity-forced divisor of N_C = 4Cp + 1: **DEAD (per pre-registration)**
 
 `python3 scripts/z62_parity_legendre.py 30000 30` → `data/z62/parity/kt2_legendre_3e4_C30.txt` (385 primes p ≡ 1 (24)
