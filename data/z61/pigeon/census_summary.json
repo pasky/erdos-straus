@@ -1,0 +1,203 @@
+{
+  "limit": 2000000,
+  "initial_cutoff": 400,
+  "count": 18507,
+  "ph_at_star": 18217,
+  "hard": [
+    {
+      "p": 87481,
+      "rho_star": 63,
+      "rho_ph": null,
+      "occupancy_at_star": 8,
+      "phi_at_star": 36,
+      "ph_at_star": false
+    },
+    {
+      "p": 118801,
+      "rho_star": 59,
+      "rho_ph": 63,
+      "occupancy_at_star": 16,
+      "phi_at_star": 58,
+      "ph_at_star": false
+    },
+    {
+      "p": 386401,
+      "rho_star": 55,
+      "rho_ph": null,
+      "occupancy_at_star": 15,
+      "phi_at_star": 40,
+      "ph_at_star": false
+    },
+    {
+      "p": 496609,
+      "rho_star": 51,
+      "rho_ph": 63,
+      "occupancy_at_star": 8,
+      "phi_at_star": 32,
+      "ph_at_star": false
+    },
+    {
+      "p": 529489,
+      "rho_star": 51,
+      "rho_ph": 95,
+      "occupancy_at_star": 16,
+      "phi_at_star": 32,
+      "ph_at_star": false
+    },
+    {
+      "p": 532249,
+      "rho_star": 55,
+      "rho_ph": null,
+      "occupancy_at_star": 20,
+      "phi_at_star": 40,
+      "ph_at_star": false
+    },
+    {
+      "p": 806521,
+      "rho_star": 59,
+      "rho_ph": null,
+      "occupancy_at_star": 12,
+      "phi_at_star": 58,
+      "ph_at_star": false
+    },
+    {
+      "p": 1430641,
+      "rho_star": 71,
+      "rho_ph": 159,
+      "occupancy_at_star": 18,
+      "phi_at_star": 70,
+      "ph_at_star": false
+    },
+    {
+      "p": 1450849,
+      "rho_star": 59,
+      "rho_ph": null,
+      "occupancy_at_star": 12,
+      "phi_at_star": 58,
+      "ph_at_star": false
+    }
+  ],
+  "no_ph_below_cutoff_extended_completely": [
+    {
+      "p": 18481,
+      "rho_star": 19,
+      "rho_ph": null,
+      "complete_bound": 6161
+    },
+    {
+      "p": 67369,
+      "rho_star": 35,
+      "rho_ph": null,
+      "complete_bound": 22457
+    },
+    {
+      "p": 87481,
+      "rho_star": 63,
+      "rho_ph": null,
+      "complete_bound": 29161
+    },
+    {
+      "p": 94441,
+      "rho_star": 31,
+      "rho_ph": null,
+      "complete_bound": 31481
+    },
+    {
+      "p": 386401,
+      "rho_star": 55,
+      "rho_ph": null,
+      "complete_bound": 128801
+    },
+    {
+      "p": 427249,
+      "rho_star": 19,
+      "rho_ph": null,
+      "complete_bound": 142417
+    },
+    {
+      "p": 474049,
+      "rho_star": 23,
+      "rho_ph": null,
+      "complete_bound": 158017
+    },
+    {
+      "p": 532249,
+      "rho_star": 55,
+      "rho_ph": null,
+      "complete_bound": 177417
+    },
+    {
+      "p": 546841,
+      "rho_star": 19,
+      "rho_ph": null,
+      "complete_bound": 182281
+    },
+    {
+      "p": 670849,
+      "rho_star": 39,
+      "rho_ph": null,
+      "complete_bound": 223617
+    },
+    {
+      "p": 806521,
+      "rho_star": 59,
+      "rho_ph": null,
+      "complete_bound": 268841
+    },
+    {
+      "p": 878089,
+      "rho_star": 31,
+      "rho_ph": null,
+      "complete_bound": 292697
+    },
+    {
+      "p": 944329,
+      "rho_star": 47,
+      "rho_ph": null,
+      "complete_bound": 314777
+    },
+    {
+      "p": 1282009,
+      "rho_star": 35,
+      "rho_ph": null,
+      "complete_bound": 427337
+    },
+    {
+      "p": 1299601,
+      "rho_star": 27,
+      "rho_ph": null,
+      "complete_bound": 433201
+    },
+    {
+      "p": 1450849,
+      "rho_star": 59,
+      "rho_ph": null,
+      "complete_bound": 483617
+    },
+    {
+      "p": 1915201,
+      "rho_star": 47,
+      "rho_ph": null,
+      "complete_bound": 638401
+    }
+  ],
+  "no_ph_anywhere": [
+    18481,
+    67369,
+    87481,
+    94441,
+    386401,
+    427249,
+    474049,
+    532249,
+    546841,
+    670849,
+    806521,
+    878089,
+    944329,
+    1282009,
+    1299601,
+    1450849,
+    1915201
+  ]
+}
