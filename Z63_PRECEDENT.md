@@ -6,7 +6,9 @@ Source excerpts (verbatim where quoted, URL, theorem numbers; access dates as re
 `data/z63/precedent/sources/*.txt`. Script: `scripts/z63_precedent_qnr_zeros.py` → `data/z63/precedent/qnr_zeros.txt`.
 
 **Verdict: narrowed** — literature lane; no HOT LEAD. Literal precedents exist (answer (a) in the literal reading), in
-five mechanism classes found by this survey; none transfers to B2, each failing at a named screen. No example of the
+three mechanism classes found by this survey (Sv, S, M2-W; the (T)/(R) rows are structural comparators, not literal
+passes). No transfer to B2 was demonstrated; §3–§4 record the obstructions to the particular transfers considered
+(these are not barrier theorems, except Lemma 1 for input-blind squeezes). No example of the
 shape B2 needs was found (answer (b) in the sense that matters), stated as a gap in §3.5.
 
 ## 0. Bottom line
@@ -18,24 +20,37 @@ shape B2 needs was found (answer (b) in the sense that matters), stated as a gap
      Costello–Watts arXiv:1306.1064). Every prescribed interval of that length contains an integer coprime to a
      prescribed m. This was raised by the hostile reviewer, not found by my own search.
    * **(S) size/valuation squeeze.** AKS Lemma 4.3 (V); the least prime not dividing n (V).
-   * **(M2-W) RH-strength character sums at one fixed modulus, made unconditional by Weil in 𝔽_q[t].** Shoup (1992) and
-     Shparlinski (1990) give poly(n)-size sets containing a primitive element of 𝔽_{qⁿ} for small q. Bhowmick–Lê
-     (arXiv:1412.7373, V) show that the monic polynomials of degree ∼ C log_q n contain one.
+   * **(M2-W) RH-strength character sums at one fixed modulus, made unconditional by Weil in 𝔽_q[t].** Shoup (Math.
+     Comp. 58 (1992), Thm 1, read by the cross-model reviewer): for f irreducible of degree n over 𝔽_p and
+     r = ω(pⁿ − 1), p^ℓ > c r⁴(log r + 1)⁴ n² guarantees a monic irreducible θ of degree ℓ primitive modulo f. So for
+     p = n^{O(1)} the low-degree set is polylog in pⁿ, with no hypothesis. Shparlinski (1990) gives an (np)^{O(1)} set
+     that need not consist of low-degree polynomials (V2, via Shoup p. 3 and Bhowmick–Lê). Bhowmick–Lê
+     (arXiv:1412.7373, V) restate the low-degree existence and add density results, which carry parameter conditions.
 
    Structural comparators — (T) Zagier's windmill and Thue/Minkowski; (R) Zsigmondy and r₂(p) = 8 — are what the brief
    calls "algebraic" and are not counted as passes. Over ℤ, the (M2) rows found reach polylog windows only under GRH.
-2. **None of these transfers to B2.** Each fails at a named screen (§3, §4).
-   * **(Sv) Jacobsthal-type sieve.** The sifting classes are fixed per prime ℓ | m. B2's good events have moduli tied
-     to the candidate (FRONTIER B2). A sieve driven by local densities is also T1-blind: at a square in the same
-     residue classes the local data agree and R = 0. That is the closed "low-conductor universality" item (z53 brief).
+2. **No transfer to B2 was demonstrated.** The bullets below are obstructions to the particular transfers considered
+   (§3, §4). Only Lemma 1 is a theorem.
+   * **(Sv) Jacobsthal-type sieve.** The sifting classes are fixed per prime ℓ | m, while B2's good events have moduli
+     tied to the candidate (FRONTIER B2). That blocks the black-box application, not every reformulation. A sieve
+     whose main term is blind to the quadratic character of p would predict positivity at squares too, where R = 0.
+     So any such sieve needs a square-sensitive input somewhere. Square-sensitive main terms (e.g. M_BM) are not
+     excluded, and the closed "low-conductor universality" item covers only its specified smoothed blocks (Assessment).
    * **(S) squeezes.** No input-blind squeeze can work, because odd squares fail in every window (Lemma 1, PROVED, a
      direct consequence of T1).
    * **(M2) under GRH.** It supplies a small non-residue. Under GRH, "small non-residue ⟹ witness for large p" is
-     equivalent to ES (z52 row 11), so the M2 step adds no forcing. Finite check (CERTIFIED): all 14 (★)-zero primes
-     ≤ 10¹⁰ have n_p ≤ 23. That refutes only the threshold-free implication, not an eventual one.
+     equivalent to eventual (★) positivity on the same prime class (z52 row 11). That is not ES itself, since ES need
+     not go through (★). So the M2 step adds no forcing of its own. Finite checks (CERTIFIED computation; zero status
+     inherited):
+     * all 14 (★)-zero primes ≤ 10¹⁰ have n_p ≤ 23;
+     * the 12 R₈ zeros have n_p ≤ 29;
+     * the 38 𝔊* zeros have n_p ≤ 29;
+     * each of the 285 composite R-zeros has a prime ℓ ≤ 41 with (ℓ/n) = −1.
+     These refute only threshold-free implications, each for its own subfamily (§4).
    * **(M2-W) Weil in 𝔽_q[t].** RH is a theorem there, yet the T1-compatible analogue MS_q has no positivity argument
      with a q-independent degree threshold. A positive proportion of irreducibles of each fixed even degree fail for
-     large q (`Z58_FFIELD.md` Cor 3.2, PROVED relative to Chebotarev). At fixed q it is open.
+     large q (`Z58_FFIELD.md` Cor 3.2, PROVED relative to Chebotarev). This does **not** exclude A4's own regime
+     (fixed q, degree → ∞), where MS_q remains open: that regime is unscreened, not screened out.
 3. **No example of B2's shape was found** (Assessment; a statement about the results reviewed, not a theorem). No
    result reviewed, unconditional or under GRH, proves a pointwise **hit** of a target whose per-trial density decays
    like a power, with a modulus that moves with the trial, at polylog expected count. Calibrations in that
@@ -43,7 +58,7 @@ shape B2 needs was found (answer (b) in the sense that matters), stated as a gap
    * Least prime ≡ a (mod q) ≤ q(log q)^A. Heath-Brown's conjecture is open; GRH gives (φ(q) log q)² (LLS Cor 1.2, V);
      Kandhil–Languasco–Moree (KLM) arXiv:2607.14515 Remark 2 says their GRH + pair-correlation method "does not bring
      us closer" (V).
-   * An explicit additive basis with r(n) ≤ polylog is open. The best explicit result is n^{c/log log n} (Jain–Pham–
+   * An explicit additive basis with r(n) ≤ polylog is open. The best explicit result found is n^{c/log log n} (Jain–Pham–
      Sawhney–Zakharov (JPSZ) arXiv:2405.08650 Thm 1.1, V). Erdős's random set does reach r ≍ log n, but only for a
      *chosen* set.
 4. **The gap** (§3.5). A theorem of B2's shape would assert, for every large prime p, a divisor of a specified integer
@@ -106,10 +121,10 @@ hit polarity, moving modulus, divisors of a specified integer.
 
 | # | statement (source, theorem no.) | ver. | count | mechanism | transfer to B2 |
 |---|---|---|---|---|---|
-| A1 | **Jacobsthal (Iwaniec 1978).** g(n) ≤ X(k log k)², k = ω(n), where g(n) is "the smallest number Q such that every sequence of Q consecutive integers contains an integer coprime to n". Source: Costello–Watts arXiv:1306.1064 Intro, citing Iwaniec, Demonstratio Math. 11 (1978) 225–231 | ✔V2 | L·φ(m)/m with L ≍ (ω log ω)², i.e. ≍ ω² log ω: polylog in m (inferred) | **Sv**: lower-bound sieve; escape event (avoid 0 mod ℓ, ℓ \| m); fixed sifting classes; prescribed interval | **Fails** at the tied modulus and at T1 (§3.4 b): B2's good set in the candidate variable is not the complement of fixed classes, and sieve main terms are local, hence equal at squares |
+| A1 | **Jacobsthal (Iwaniec 1978).** g(n) ≤ X(k log k)², k = ω(n), where g(n) is "the smallest number Q such that every sequence of Q consecutive integers contains an integer coprime to n". Source: Costello–Watts arXiv:1306.1064 Intro, citing Iwaniec, Demonstratio Math. 11 (1978) 225–231 | ✔V2 | L·φ(m)/m with L ≍ (k log k)²: for k ≥ 2, k² log k ≪ L·φ(m)/m ≤ L ≍ k² log² k. The lower scale occurs for primorial-type m; if all prime factors exceed k², then φ(m)/m → 1. Either way it is polylog in m (inferred) | **Sv**: lower-bound sieve; escape event (avoid 0 mod ℓ, ℓ \| m); fixed sifting classes; prescribed interval | no transfer demonstrated (§3.4 b): B2's good set in the candidate variable is not the complement of fixed classes, which blocks the black-box application; a character-blind main term would also predict positivity at squares |
 | A2 | **AKS Lemma 4.3.** "There exist an r ≤ max{3, ⌈log⁵ n⌉} such that o_r(n) > log² n." Proof: the least r not dividing n^{⌊log B⌋}·∏_{i ≤ log²n}(nⁱ − 1), via lcm(1..m) ≥ 2^m (Lemma 3.1). Agrawal–Kayal–Saxena, Annals 160 (2004); author PDF v6 | ✔V | existence only; candidates r ≤ log⁵ n, so the window is polylog | **S** (input-blind squeeze) | **Fails**: Lemma 1 |
 | A3 | Least prime not dividing n: a(n) < (1 + ε) log n for n > N(ε) (OEIS A053669 %F; primorial size) | V | ≍ log n/log log n | **S** (input-blind) | as A2 |
-| A4 | **𝔽_q[t], (M2-W).** Shoup, Math. Comp. 58 (1992): a poly-time deterministic subset of GF(pⁿ) containing a primitive root for p = n^{O(1)}, no hypothesis (abstract, via `hunt_primitive_root.txt`). Bhowmick–Lê arXiv:1412.7373: "we show that the simple set of all monic polynomials of degree d ∼ C log_q n is guaranteed to contain a primitive element. This statement as it is, is not new because of the above result of Shoup." Their character-sum Thm 3 ("Our result is unconditional") rests on Thm 8 (Hsu Thm 2.1; Effinger–Hayes), i.e. Weil. Their density Thms 5–6 carry explicit parameter conditions (Thm 6 needs ε_{q,d,r,n} below c/(ω(N−1)²(log ω(N−1) + 1)²)) that are not reproduced here | ✔V (Bhowmick–Lê); V (Shoup abstract) | q^d = poly(n) candidates, polylog in N = qⁿ | **M2-W**: fixed modulus, RH-strength sums (Weil); escape (primitive = in no maximal subgroup) | **Fails** as a q-independent-threshold mechanism (`Z58_FFIELD.md` Cor 3.2); open at fixed q (§3.3) |
+| A4 | **𝔽_q[t], (M2-W).** Shoup, Math. Comp. 58 (1992), Thm 1 (verified by the cross-model reviewer from the author PDF): for f irreducible of degree n over 𝔽_p and r = ω(pⁿ − 1), p^ℓ > c r⁴(log r + 1)⁴ n² guarantees a monic irreducible θ of degree ℓ primitive mod f, with no hypothesis. Shparlinski (1990) gives an (np)^{O(1)} set, not necessarily of low degree (V2 via Shoup p. 3). Bhowmick–Lê arXiv:1412.7373: "we show that the simple set of all monic polynomials of degree d ∼ C log_q n is guaranteed to contain a primitive element. This statement as it is, is not new because of the above result of Shoup." Their character-sum Thm 3 ("Our result is unconditional") rests on Thm 8 (Hsu Thm 2.1; Effinger–Hayes), i.e. Weil. Their density Thms 5–6 carry explicit parameter conditions (Thm 6 needs ε_{q,d,r,n} below c/(ω(N−1)²(log ω(N−1) + 1)²)) that are not reproduced here | ✔V (Bhowmick–Lê); V (Shoup Thm 1, cross-model reviewer); V2 (Shparlinski) | q^d = poly(n) candidates, polylog in N = qⁿ | **M2-W**: fixed modulus, RH-strength sums (Weil); escape (primitive = in no maximal subgroup) no positivity argument with a q-independent degree threshold exists for MS_q (`Z58_FFIELD.md` Cor 3.2). A4's own regime (fixed q, degree → ∞) is open, not excluded (§3.3) |
 
 ### Tier A′ — structural comparators (the brief's "algebraic" class; not counted as passes)
 
@@ -269,15 +284,19 @@ multiplier type exists. In finite range, the d_min record is 2 953 943 at p = 85
 a divisor f ≡ −1 (mod 4u). For a fixed f this picks out the finite set {u ≡ −p (mod f), u | (f + 1)/4}, not a residue
 class: the modulus is tied to the candidate. This is the obstruction already noted in z52b_free_opus item 263.
 
-Moreover, a lower-bound sieve's main term is built from local densities of the good set in progressions. At an odd
-square m² lying in the same residue classes as p modulo every modulus used, those local data coincide, yet R(m²) = 0.
-So the remainder terms must carry a square-sensitive input. Remainders uniform over rough n cannot do this: that is the
-closed "low-conductor universality" item (z53 brief). B2 is also a **hit** of a sparse good set: its density among
+Moreover, R(m²) = 0 at every odd square. So a sieve argument whose main term is blind to the quadratic character of
+p would predict positivity at squares as well, and must take its square-sensitive input from somewhere. A square agreeing
+with p modulo every modulus used need not exist: e.g. p = 409 ≡ 3 (mod 7) is a non-square mod 7. So this is not a proof
+that local sieves fail. Square-sensitive local/genus main terms such as M_BM (FRONTIER §2.2) are possible. The closed
+"low-conductor universality" item (z53 brief) applies only to its specified smoothed blocks with remainders uniform over
+rough n, not to every sieve. Status: obstruction to the black-box transfer, not a barrier theorem. B2 is also a **hit** of a sparse good set: its density among
 u ≤ X is ≈ (log p)(log X)/X (heuristic). Jacobsthal certifies **escape** into a set of density φ(m)/m ≫ 1/log ω(m).
 
 **(c) M2 under GRH.** Under GRH every large p has a non-residue ≤ (log p)². "Small non-residue ⟹ (★) witness for all
-large p" is then equivalent to (★)-ES for large p (z52 row 11). The M2 step contributes no forcing; all the content is
-in the implication. The F4 data (§4) refute only the threshold-free version.
+large p" is then equivalent to eventual (★) positivity on that prime class (z52 row 11). This is not ES: ES need not go
+through (★), and "ES-strength" below means "sufficient for eventual (★)-ES", not a proved converse. The M2 step
+contributes no forcing; all the content is in the implication. The F2–F4 data (§4) refute only threshold-free versions,
+each for its own subfamily.
 
 ## 3.5 Cell map and the gap (Assessment; describes the results reviewed)
 
@@ -316,10 +335,10 @@ exact structure. It says that if it does go through B2 analytically, no result r
 | transfer attempt | F1 odd squares | F2 C-even / numerator 8 | F3 composites | F4 known zeros | outcome |
 |---|---|---|---|---|---|
 | (S) input-blind squeeze (AKS / Chebyshev type) | **bars it**: squares fail in every window (Lemma 1) | n/a | n/a | n/a | the input-blind class is excluded (PROVED). Primality-sensitive squeezes are not excluded, but none is known apart from identities |
-| (Sv) Jacobsthal sieve on the trial variable u or C | local main terms agree at squares in the same classes; remainders must be square-sensitive (low-conductor universality, closed) | — | — | — | blocked at T1 and at the tied modulus (§3.4 b; Assessment) |
-| (M2) GRH: small non-residue ⟹ witness | passes (squares have no non-residue) | numerator-blind: 131 has the non-residue 2 ((2/131) = −1, 131 ≡ 3 mod 8), yet 8/131 has no unit-fraction solution (FRONTIER §1) | the layer holds at non-square composite zeros: 4545 ≡ 2 (mod 11), so (4545/11) = −1, yet N_II(4545) = 0 (`Z58_WILDCARD.md`) | all 14 (★)-zero primes ≤ 10¹⁰ have n_p ≤ 23: 7, 5, 13, 13, 7, 13, 23, 5, 23, 7, 13, 19, 11, 17. R(p) = 0 is recomputed here for p ≤ 10⁴; larger zeros are the inherited certificate (FRONTIER §2.1). `qnr_zeros.txt` | refutes the threshold-free implication. The eventual implication is ES-strength (§3.4 c), so the M2 step adds no forcing |
+| (Sv) Jacobsthal sieve on the trial variable u or C | a character-blind main term would predict positivity at squares (R = 0); square-sensitive main terms are not excluded | — | — | — | no black-box transfer (tied modulus); not a barrier theorem (§3.4 b; Assessment) |
+| (M2) GRH: small non-residue ⟹ witness | passes: (m²/ℓ) is never −1 (it is 0 at ℓ \| m) | numerator-blind. 8/131 has no unit-fraction solution (FRONTIER §1), yet (2/131) = −1. The 12 C-even R₈-zero primes in [10¹⁰, 1.1·10¹⁰] all have n_p ≤ 29: 7, 3, 23, 19, 29, 3, 3, 3, 5, 3, 13, 2. Full R is positive there, so this refutes only the threshold-free "non-residue ⟹ C-even witness" | all 285 non-square composite R-zeros ≤ 8·10⁶ have a prime ℓ ≤ 41 with (ℓ/n) = −1; also 4545 with (4545/11) = −1 and N_II(4545) = 0 (`Z58_WILDCARD.md`). This refutes the threshold-free implication on composites, not a prime-only one | 14 (★)-zero primes: n_p ≤ 23 (7, 5, 13, 13, 7, 13, 23, 5, 23, 7, 13, 19, 11, 17). R(p) = 0 is recomputed here for p ≤ 10⁴; the cross-model reviewer independently rechecked all 14. 38 𝔊*-zero primes: n_p ≤ 29; this refutes threshold-free "non-residue ⟹ 𝔊* witness", not full (★). Zero status is inherited from `data/z58/screens/`; `qnr_zeros.txt`, `screens_np.txt` (CERTIFIED computation) | refutes threshold-free implications only. The eventual implication is equivalent, under GRH, to eventual (★) positivity (§3.4 c), so the M2 step adds no forcing |
 | (M2) GRH coset hit (LLS Thm 1.4) | — | — | — | — | the known bound gives no polylog guarantee at power-density targets, and the modulus moves (§3.2) |
-| (M2-W) Weil in 𝔽_q[t] | MS_q has T1 (Z58_FFIELD Lemma 1.2) | proxies only | composite zeros persist | positive-proportion irreducible zeros at fixed even degree for large q (Cor 3.2) | no q-independent-threshold mechanism; fixed q open (§3.3) |
+| (M2-W) Weil in 𝔽_q[t] | MS_q has T1 (Z58_FFIELD Lemma 1.2) | proxies only | composite zeros persist | positive-proportion irreducible zeros at fixed even degree for large q (Cor 3.2) | no q-independent-threshold mechanism; the fixed-q, growing-degree regime is open, not excluded (§3.3) |
 | (T) Zagier count congruence | an affine windmill would have to fail at squares | — | — | R(p)/2 parity behaves like a coin (z52 §2.1, EVIDENCE) | screened; non-affine thick windmills open (z52 ζ) |
 | (T) Thue/Minkowski collision | — | — | — | — | B4: signed solutions |
 | (R) Zsigmondy primitive divisor | — | — | — | the prime-divisor subfamily fails at 94 primes < 10⁶ | dead for that family |
@@ -331,15 +350,16 @@ exact structure. It says that if it does go through B2 analytically, no result r
 **Verdict: narrowed. No HOT LEAD.**
 * *Literal precedents found:* (Sv), (S), (M2-W). (Sv) came from the reviewer; (M2-W) is new to the repository's
   catalogue.
-* *Transfer:* each is shown not to transfer in its natural form — Lemma 1 (PROVED), the sieve and M2 screens
-  (Assessment), the 𝔽_q[t] check (relative to Z58_FFIELD Cor 3.2).
+* *Transfer:* none demonstrated. Lemma 1 (PROVED) excludes input-blind squeezes. The sieve, M2 and 𝔽_q[t] items are
+  obstructions to the particular transfers considered (Assessment), not barrier theorems.
 * *B2's shape:* no example found among the results reviewed, including under GRH. The nearest open relatives (H1, H2)
   are unresolved even with GRH or with full design freedom (H2 when explicit).
 
 **FRONTIER §4 hard screens for the best transfer candidates.**
-* T1: fails for input-blind squeezes (Lemma 1) and for local-density sieves; M2 passes.
-* 8/131: M2 and sieves are numerator-blind, so they fail.
-* Tied modulus: Jacobsthal and M2 need fixed moduli, so they fail.
+* T1: input-blind squeezes fail (Lemma 1). A character-blind sieve main term would fail; square-sensitive ones are
+  not excluded. M2 passes.
+* 8/131: the M2 and sieve steps as considered are numerator-blind. This is a threshold-free calibration only.
+* Tied modulus: the black-box Jacobsthal and M2 applications need fixed moduli. Reformulations are not excluded.
 * Fixed p: all three are pointwise, so they pass.
 
 **Proposed FRONTIER text** (§3, after the (J)94 table; not applied here):
@@ -349,12 +369,14 @@ exact structure. It says that if it does go through B2 analytically, no result r
 > * (S) input-blind squeezes: AKS Lemma 4.3, least prime non-divisor;
 > * (M2-W) RH-strength fixed-modulus sums, unconditional only in 𝔽_q[t]: Shoup; Bhowmick–Lê.
 >
-> None transfers:
+> No transfer was demonstrated. The obstructions to the transfers considered:
 > * T1 bars input-blind squeezes (Lemma 1, PROVED).
-> * Jacobsthal needs fixed sifting classes, and its local main terms coincide at squares.
-> * GRH-M2 yields only a small non-residue, and "non-residue ⟹ witness" is ES-strength (all 14 (★)-zero primes have
->   n_p ≤ 23).
-> * In 𝔽_q[t] no q-independent-threshold positivity exists (Z58_FFIELD Cor 3.2).
+> * Black-box Jacobsthal needs fixed sifting classes, and a character-blind main term would predict positivity at
+>   squares (Assessment).
+> * GRH-M2 yields only a small non-residue. Under GRH, eventual "non-residue ⟹ (★) witness" is equivalent to eventual
+>   (★) positivity. Threshold-free versions fail on every screen: n_p ≤ 23 at the 14 (★)-zero primes, ≤ 29 at the
+>   12 R₈ and 38 𝔊* zeros, and ℓ ≤ 41 at the 285 composite zeros.
+> * In 𝔽_q[t] there is no positivity with a q-independent degree threshold (Z58_FFIELD Cor 3.2); fixed q is open.
 >
 > No result reviewed proves a pointwise hit of a power-density, moving-modulus target at polylog count, even under
 > GRH. The least prime ≡ a (mod q) within q(log q)^A is unresolved on GRH (LLS Cor 1.2; KLM 2607.14515 Remark 2), and
@@ -365,8 +387,11 @@ sieve (Jacobsthal), by input-blind squeezes (AKS, Chebyshev), and in 𝔽_q[t] b
 these certify **escape** events against **fixed** moduli. B2 needs a **hit** of a power-density target with a
 **moving** modulus.
 * T1 rules out input-blind squeezes outright (Lemma 1).
-* Sieves and GRH character information stop at the local / non-residue layer. Every known (★)-zero prime has a
-  non-residue ≤ 23, and in 𝔽_q[t] RH is a theorem without having produced MS_q.
+* For the other transfers, none was demonstrated, and the obstructions are Assessments:
+  * the GRH character information considered stops at the non-residue layer; every known (★)-zero prime has a
+    non-residue ≤ 23 (a threshold-free refutation only);
+  * a character-blind sieve main term would also predict positivity at squares;
+  * in 𝔽_q[t], RH is a theorem without having produced MS_q, and the fixed-q regime is open.
 
 Among the many results reviewed, no theorem of B2's shape was found, even conditionally. Its fixed-modulus relative
 (least prime in an AP within q·polylog) is unresolved on GRH. *Assessment:* an analytic proof of B2 would have no
@@ -414,3 +439,33 @@ Findings and fixes:
     * Burgess exponent written exactly.
     * Linnik count corrected.
 14. Script docstring vs actual controls/range. **Fixed** in the script.
+
+**Cross-model review** (`data/z63/xreview/REVIEW_PRECEDENT.md`, openai-codex/gpt-6-astra, on 2c2199747; verdict
+ACCEPT-WITH-FIXES). The review re-fetched every decisive PDF and found Shoup Thm 1 in the author's PDF. It confirmed
+LLS Cor 1.2 / Thm 1.4, KLM Thm 5 / Remark 2, JPSZ Thm 1.1, AKS Lemma 4.3 and Lemma 1. It also gave an independent
+Jacobi-symbol proof of Lemma 1(i), and independently rechecked R = 0 at all 14 (★)-zero primes and at 4545. All five
+required fixes are applied:
+1. **Barrier wording scoped everywhere** (§0, §3.4 b, §4, §5, proposed FRONTIER text, bottom line).
+   * "None transfers" became "no transfer demonstrated; obstructions to the particular transfers considered".
+   * Only Lemma 1 is a theorem.
+   * Sieve: a square matching p modulo every modulus need not exist (p = 409 ≡ 3 mod 7). Square-sensitive main terms
+     (M_BM) are not excluded, and low-conductor universality is limited to its specified blocks.
+   * The tied modulus blocks only the black-box application.
+   * The fixed-q, growing-degree 𝔽_q[t] regime is open, not excluded.
+2. **(★) separated from ES, thresholds kept.** Under GRH, the eventual "non-residue ⟹ witness" is equivalent to
+   eventual **(★)** positivity, not to ES. All screen data refute threshold-free implications only.
+3. **F2–F4 completed on the actual screens** (new `scripts/z63_precedent_screens_np.py` →
+   `data/z63/precedent/screens_np.txt`; zero status inherited from `data/z58/screens/`).
+   * 12 R₈ zeros: n_p ≤ 29 (C-even subfamily only; full R > 0 there).
+   * 285 composite R-zeros: some ℓ ≤ 41 with (ℓ/n) = −1.
+   * 38 𝔊* zeros: n_p ≤ 29 (𝔊* subfamily, not full (★)).
+   * These match the reviewer's independent lists.
+4. **A1 count corrected:** k² log k ≪ Lφ(m)/m ≤ L ≍ k² log² k (still polylog).
+5. **Provenance and novelty kept modest.**
+   * Shoup Thm 1 is now the basis of the uniform low-degree claim.
+   * Shparlinski is marked V2, and his (np)^{O(1)} set is distinguished from Shoup's low-degree set.
+   * JPSZ's bound is called "best found".
+   * The opening "five mechanism classes" is corrected to three literal classes (Sv, S, M2-W), with T/R as
+     comparators.
+
+The internal-review item 5 wording "ES-strength" above is superseded by fix 2.
