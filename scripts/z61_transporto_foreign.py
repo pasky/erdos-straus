@@ -4,7 +4,8 @@
 For n, over ORDINARY columns compute the forced primes  Fp = {l : sum v_l(a_f) > sum v_l(a_f - 1)}  (Lemma 2: nonempty
 whenever an ORDINARY column exists). For the sink columns (HIT at primes, EXIT at composites) compute the generous
 local carrier set  Hc = primes dividing  f (f+1) k (n+k) r (r-1) a  for some sink column (r = r_f, k = k_f).
-Report |Fp|, |Fp minus Hc|. A rule in which a sink may absorb an l-token only if l divides one of these local quantities
+Carriers are the NONZERO quantities among these (convention NZ: nUncovered); convention Z additionally lets a zero
+quantity (r - 1 = 0 at an r = 1 sink) carry every l (nUncovered_Z). Report |Fp|, |Fp minus Hc|. A rule in which a sink may absorb an l-token only if l divides one of these local quantities
 of the sink ("valuation-faithful sink") cannot be valid at n when Fp minus Hc is nonempty.
 Usage: z61_transporto_foreign.py PMAX  -> data/z61/transporto/foreign.jsonl
 """
@@ -32,7 +33,10 @@ def foreign(n, spf):
                         factor_big(q, spf).keys())
     Fp = {l for l, v in D.items() if v > N.get(l, 0)}
     unc = sorted(Fp - sinkprimes)
-    return dict(n=n, nsink=sum(1 for c in cols if c[5] != "O"), nF=len(Fp), nUncovered=len(unc), uncovered_top=unc[-8:])
+    # convention Z: a zero carrier (r - 1 = 0 at an r = 1 sink) is divisible by every l, so such a sink is universal
+    zero_universal = any(c[5] != "O" and c[2] == 1 for c in cols)
+    return dict(n=n, nsink=sum(1 for c in cols if c[5] != "O"), nF=len(Fp), nUncovered=len(unc),
+                nUncovered_Z=0 if zero_universal else len(unc), uncovered_top=unc[-8:])
 
 def factor_big(q, spf):
     out = {}

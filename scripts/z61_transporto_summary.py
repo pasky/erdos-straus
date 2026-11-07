@@ -22,11 +22,14 @@ for s, L in by.items():
 P = by["P"]
 c = collections.Counter((r["n"] % 4, r1hit(r["n"]), r["valid"]) for r in P)
 out.append("primes <= PMAX by (n mod 4, has r=1 hit, R1 valid): " + str(sorted(c.items())))
+out.append("RC composites with a U7 witness (nH_any>0): %d of %d" % (sum(r['nH_any'] > 0 for r in by['RC']), len(by['RC'])))
+out.append("RC with witnesses only in EXIT-typed columns: " + str([r['n'] for r in by['RC'] if r['nH_any'] > 0 and r['nH'] == 0]))
+out.append("mean nH over primes in [5000,20000]: %.3f" % (sum(r['nH'] for r in by['P'] if r['n'] >= 5000) / sum(1 for r in by['P'] if r['n'] >= 5000)))
 out.append("odd squares valid: " + str([r["n"] for r in by["SQ"] if r["valid"]]))
 for s in ("SQ", "Z7"):
     for r in by[s][:4] if s == "SQ" else by[s]:
         out.append(f"  {s} n={r['n']} nE={r['nE']} tokens={r['tokens']} own-exit={r['tok_exit_own']} "
-                   f"sink-routed={r['sink_routed']} stranded={r['stranded']} forced={r['forced']} ({r['forced_primes']} primes)")
+                   f"sink-routed>={r['sink_routed_lb']} nH_any={r['nH_any']} stranded={r['stranded']} forced={r['forced']} ({r['forced_primes']} primes)")
 txt = "\n".join(out) + "\n"
 open(os.path.join(ROOT, "data/z61/transporto/r1_summary.txt"), "w").write(txt)
 print(txt)
@@ -42,7 +45,9 @@ if os.path.exists(fp):
         return n > 1 and all(n % q for q in range(2, int(n ** 0.5) + 1))
     Pn = sorted(n for n in F if isprime(n) and n <= 20000)
     cov = [n for n in Pn if F[n]["nUncovered"] == 0]
-    lines = [f"foreign screen: primes 13..20000: {len(Pn)}; forced primes all carried by hit columns at {len(cov)}: {cov}",
+    covZ = [n for n in Pn if F[n]["nUncovered_Z"] == 0]
+    lines = [f"foreign screen (NZ, nonzero carriers): primes 13..20000: {len(Pn)}; forced primes all carried by hit columns at {len(cov)}: {cov}",
+             f"foreign screen (Z, zero carrier universal): all carried at {len(covZ)}; uncovered at {len(Pn)-len(covZ)}; covered without r=1 hit: {[n for n in covZ if not r1hit(n)]}",
              "  max nF/nsink sample: " + str([(n, F[n]['nF'], F[n]['nUncovered'], F[n]['nsink']) for n in Pn[-3:]])]
     for n in (169, 289, 361, 529, 105, 409, 2521, 9601, 102001):
         r = F[n]

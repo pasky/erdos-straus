@@ -6,6 +6,10 @@ Usage:  z61_transporto_r1.py [--walk] [--hitset u7|u8] n1 n2 ...
   --hitset   u7 (default): HIT = a_f = 1 (r_f | f+1).  u8: HIT only at U^(8) targets (r | (f+1)/8 or r = 8a, a | (f+1)/8)
 Output: one JSON line per n.
 
+Typing: EXIT takes precedence over HIT (a U7 witness column with gcd(n, f k) > 1 is typed EXIT); nH counts HIT-typed
+columns only, nH_any counts all columns with a_f = 1. Field sink_routed_lb is a lower bound on sink traffic (the literal
+walk stops at the first sink, possibly before unused capacity); the actual traffic is reported by --walk.
+
 Closed form (proved in the memo, §2 Lemma 1): for each (l, j), stranded(l, j) = 0 if the fibre
 S_{l,j} = {f : r_f = 1 mod l^j} contains a HIT or EXIT column, else max(0, T_{l,j} - C_{l,j}), where
 T = #ORDINARY columns with l^j | a_f, C = #ORDINARY columns in S_{l,j} with l^j | a_f - 1.
@@ -123,24 +127,29 @@ def ledger(n, spf, hitset="u7", walk=False):
                tokens=sum(T.values()) + Tex, tok_exit_own=Tex,
                capacity=sum(C.values()),
                surplus_fibres=len(hitused) + len(stranded),
-               sink_routed=sum(hitused.values()),
+               sink_routed_lb=sum(hitused.values()),  # lower bound only: literal walk may exit more (use --walk)
+               nH_any=sum(1 for c in cols if c[4] == 1),  # U7 witnesses (a_f = 1) incl. EXIT-typed columns
                stranded=sum(stranded.values()),
                stranded_fibres=sorted(([l, j, s] for (l, j), s in stranded.items()), key=lambda x: -x[0])[:12],
                forced=sum(max(0, v - Nl.get(l, 0)) for l, v in Dl.items()),
                forced_primes=sum(1 for l, v in Dl.items() if v > Nl.get(l, 0)),
                valid=(sum(stranded.values()) == 0))
     if walk:
-        res["walk_stranded"] = run_walk(cols, tokens, capunits)
-        res["walk_agrees"] = (res["walk_stranded"] == res["stranded"])
+        w = run_walk(cols, tokens, capunits, Tex)
+        res["walk"] = w
+        res["walk_stranded"] = w["stranded"]
+        res["walk_agrees"] = (w["stranded"] == res["stranded"])
     return res
 
-def run_walk(cols, tokens, capunits):
-    """Literal R1 walk: tokens in increasing (l,j,f); cyclic walk on S_{l,j} from first column after f."""
+def run_walk(cols, tokens, capunits, nexit_own):
+    """Literal R1 walk: tokens in increasing (l,j,f); cyclic walk on S_{l,j} from first column after f.
+    Returns actual traffic: deposits, exits at HIT / EXIT fibre columns, own-column exits, stranded."""
+    import bisect
     typ_of = {f: typ for (f, k, r, d, a, typ) in cols}
     r_of = {f: r for (f, k, r, d, a, typ) in cols}
     fs = [c[0] for c in cols]
     tokens.sort()
-    stranded = 0
+    out = dict(deposit=0, exit_hit=0, exit_factor=0, exit_own=nexit_own, stranded=0)
     fibre_cache = {}
     used = set()
     for (l, j, f) in tokens:
@@ -148,24 +157,21 @@ def run_walk(cols, tokens, capunits):
         if (l, j) not in fibre_cache:
             fibre_cache[(l, j)] = [g for g in fs if (r_of[g] - 1) % q == 0]
         S = fibre_cache[(l, j)]
-        # start index: first column after f (cyclic)
-        import bisect
         i0 = bisect.bisect_right(S, f)
         cap = capunits.get((l, j), set())
         done = False
         for step in range(len(S)):  # potential: unvisited columns of S
             g = S[(i0 + step) % len(S)]
             t = typ_of[g]
-            if t in "HE":
-                done = True
-                break
+            if t == "H":
+                out["exit_hit"] += 1; done = True; break
+            if t == "E":
+                out["exit_factor"] += 1; done = True; break
             if g in cap and (g, l, j) not in used:
-                used.add((g, l, j))
-                done = True
-                break
+                used.add((g, l, j)); out["deposit"] += 1; done = True; break
         if not done:
-            stranded += 1
-    return stranded
+            out["stranded"] += 1
+    return out
 
 def main():
     args = sys.argv[1:]
