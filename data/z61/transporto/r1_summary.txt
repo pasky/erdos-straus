@@ -1,0 +1,24 @@
+set  N  valid  valid_without_r1hit  nH=0  nE=0  stranded[min,max]  forced[min,max]  first_invalid
+SQ 25 1 [9] 25 0 [0,1974] [1,758] [25]
+Z7 8 0 [] 8 0 [6,1823] [8,2379] [105]
+RC 60 0 [] 14 0 [2,2023] [4,1469] [57]
+STAR 14 0 [] 0 14 [87,3171130] [37,246570] [409]
+GSTAR 34 3 [] 0 34 [0,3171130] [7,246570] [37]
+AHALF 12 1 [5] 0 12 [0,753908] [0,79445] [53]
+LATE 1 0 [] 0 1 [777385,777385] [63327,63327] [2031121]
+P 2261 1431 [3, 5, 7, 11, 31] 0 2261 [0,5938] [0,1925] [17]
+U8 36 1 [5] 36 36 [0,54239] [0,6146] [17]
+primes <= PMAX by (n mod 4, has r=1 hit, R1 valid): [((1, False, False), 401), ((1, False, True), 1), ((1, True, True), 723), ((3, False, False), 429), ((3, False, True), 4), ((3, True, True), 703)]
+odd squares valid: [9]
+  SQ n=9 nE=1 tokens=2 own-exit=1 sink-routed=1 stranded=0 forced=1 (1 primes)
+  SQ n=25 nE=1 tokens=6 own-exit=1 sink-routed=0 stranded=5 forced=3 (2 primes)
+  SQ n=49 nE=1 tokens=12 own-exit=1 sink-routed=1 stranded=8 forced=5 (5 primes)
+  SQ n=81 nE=9 tokens=30 own-exit=17 sink-routed=6 stranded=4 forced=9 (7 primes)
+  Z7 n=105 nE=14 tokens=33 own-exit=23 sink-routed=4 stranded=6 forced=8 (7 primes)
+  Z7 n=1465 nE=85 tokens=633 own-exit=193 sink-routed=232 stranded=96 forced=107 (84 primes)
+  Z7 n=3865 nE=226 tokens=1836 own-exit=562 sink-routed=758 stranded=198 forced=245 (184 primes)
+  Z7 n=4545 nE=631 tokens=2445 own-exit=1695 sink-routed=455 stranded=74 forced=224 (191 primes)
+  Z7 n=10305 nE=1421 tokens=5748 own-exit=3975 sink-routed=1092 stranded=170 forced=456 (387 primes)
+  Z7 n=12145 nE=1079 tokens=6274 own-exit=2886 sink-routed=2093 stranded=390 forced=631 (502 primes)
+  Z7 n=39361 nE=1559 tokens=21191 own-exit=4532 sink-routed=10341 stranded=1823 forced=1869 (1376 primes)
+  Z7 n=67425 nE=9796 tokens=41284 own-exit=29239 sink-routed=7294 stranded=883 forced=2379 (2066 primes)
