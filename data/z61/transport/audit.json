@@ -1,0 +1,23 @@
+{
+  "checks": {
+    "capacity_free_kill_certificates": 1,
+    "complete_U7_zeros": 12,
+    "complete_token_tables": 190,
+    "exact_square_products": 4,
+    "example_certificates": 3214,
+    "fresh_U7_certificates": 490,
+    "inputs": 502,
+    "no_hit_composite_obstructions": 1
+  },
+  "failed_primes_le1000": [
+    73,
+    193,
+    313,
+    337,
+    409,
+    457,
+    577,
+    673
+  ],
+  "status": "PASS: certificates checked; proposed transport remains DEAD"
+}

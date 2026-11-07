@@ -1,0 +1,74 @@
+{
+  "complete_limit": 2000,
+  "groups": {
+    "R8-prime-zero": {
+      "U7-hit": 12,
+      "failed": 6,
+      "hit": 139,
+      "inputs": 12,
+      "matched": 1348,
+      "routed-tested-tokens": 6,
+      "stuck": 19
+    },
+    "U7-composite-zero": {
+      "U7-zero": 8,
+      "factor": 71840,
+      "failed": 8,
+      "inputs": 8,
+      "matched": 3189,
+      "stuck": 4415
+    },
+    "U8-prime-zero-control": {
+      "U7-hit": 1,
+      "hit": 34,
+      "inputs": 1,
+      "routed-tested-tokens": 1
+    },
+    "gstar-prime-zero": {
+      "U7-hit": 38,
+      "failed": 28,
+      "hit": 1368,
+      "inputs": 38,
+      "matched": 3401,
+      "routed-tested-tokens": 10,
+      "stuck": 274
+    },
+    "odd-square": {
+      "U7-zero": 4,
+      "factor": 4,
+      "inputs": 4
+    },
+    "small-prime": {
+      "U7-hit": 167,
+      "failed": 8,
+      "hit": 23609,
+      "inputs": 167,
+      "matched": 3449,
+      "routed-tested-tokens": 159,
+      "stuck": 513
+    },
+    "star-composite-zero": {
+      "U7-hit": 277,
+      "U7-zero": 8,
+      "factor": 108019,
+      "failed": 261,
+      "inputs": 285,
+      "matched": 9161,
+      "routed-tested-tokens": 24,
+      "stuck": 5887
+    },
+    "star-prime-zero": {
+      "U7-hit": 14,
+      "failed": 14,
+      "inputs": 14,
+      "matched": 1587,
+      "stuck": 213
+    }
+  },
+  "inputs": 502,
+  "totals": {
+    "factor": 4,
+    "failed": 301,
+    "routed-tested-tokens": 197
+  }
+}
