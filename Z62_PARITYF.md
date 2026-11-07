@@ -47,7 +47,7 @@ Checked by `z62_parityf_master.py` (assert) for all ordered solutions of every p
 
 **Corollary 1.4 (two shapes).** Every Type II solution is, up to order, 4Gabc = a + b + pc (equivalently c(4Gab − p) = a + b, i.e. the brief's 4abcd = a + b + pc with d = G); the shape 4uBC − u − B = p ("(★)") is exactly the sub-case c = 1. Every Type I solution is 4Gabc = pa + pb + c, equivalently c(4Gab − 1) = p(a + b); for primes p ∤ c, so 4Gab − 1 = pk with k | a + b.
 
-*Proof.* Pattern with one ε = p (say ε_c): 4Gabc = a + b + pc. With c = 1: 4Gab − a − b = p is (★) with (u,B,C) = (a,b,G). Pattern with two: 4Gabc = pa + pb + c ⟹ c(4Gab − 1) = p(a+b); if p | c then c' (4Gab − 1) = a + b with c = pc', impossible since 4Gab − 1 ≥ 4ab − 1 > a + b for a,b ≥ 1 except a=b=1, G=1 where 3 > 2. ∎
+*Proof.* Pattern with one ε = p (say ε_c): 4Gabc = a + b + pc. With c = 1: 4Gab − a − b = p is (★) with (u,B,C) = (a,b,G). Pattern with two: 4Gabc = pa + pb + c ⟹ c(4Gab − 1) = p(a+b); if p | c then c'(4Gab − 1) = a + b with c = pc', impossible since 4Gab − 1 ≥ 4ab − 1 > a + b for all a,b ≥ 1 (4ab − a − b − 1 ≥ 2ab − 1 > 0). ∎
 
 **Proposition 1.5 ((m,k)-form).** For p ≡ 1 (mod 4) prime:
  Type II ⟺ ∃ k ≡ 3 (4), m = (p + k)/4 has a factorisation m = g·a·b with k | a + b;
@@ -65,7 +65,7 @@ Equivalently (dividing the identity 4/p = 4k/(pk+ε) + 4ε/(p(pk+ε))): ES(p) �
 
 **Definition.** For n ∈ ℕ, S_n := {(g,a,c) ∈ ℕ³ : gac = n + a + c} ≅ {(a,c) ∈ ℕ² : ac | n + a + c} (g is the quotient).
 
-**Theorem 2.1.** (i) The swap τ(g,a,c) = (g,c,a) is an involution of S_n whose fixed points are the (g,a,a) with a | n and a | n/a + 2. For n = p prime ≥ 5 the only fixed point is (p+2,1,1); hence |S_p| is odd.
+**Theorem 2.1.** (i) The swap τ(g,a,c) = (g,c,a) is an involution of S_n whose fixed points are the (g,a,a) with a | n and a | n/a + 2 (g = (n/a + 2)/a). For n = p prime ≥ 5 the only fixed point is (p+2,1,1); hence |S_p| is odd. (For composite n there can be more: n = 225 has (227,1,1) and (3,9,9), so |S_225| is even; most odd squares ≤ 1225 have only (n+2,1,1) and |S_{m²}| odd — the parity of |S_n| does not separate primes from squares.)
 (ii) For every n, the elements of S_n with 4 | g are in bijection with the solutions (u,B,C) of 4uBC − u − B = n via (g,a,c) = (4C,u,B). Hence (★)(n) ⟺ S_n has an element with 4 | g.
 (iii) For p prime ≥ 5 every (a,c) ∈ S_p has gcd(a,c) = 1, so S_p = {(a,c) : a | p + c, c | p + a}.
 (iv) The slices S_p^{(g)} := {g fixed} satisfy |S_p^{(g)}| = #{d | gp + 1 : d ≡ −1 (mod g)}; |S_p^{(g)}| is even for every g ≠ p + 2 and odd for g = p + 2. In particular Σ_{4|g} |S_p^{(g)}| = R(p) is even and Σ_{g ≡ 3 (4)} |S_p^{(g)}| is odd.
