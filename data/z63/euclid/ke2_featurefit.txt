@@ -1,0 +1,3 @@
+     14   dimE 3 rank E|loops 3 rank features 7 intersection 2
+      1   dimE 7 rank E|loops 7 rank features 7 intersection 2
+      1   dimE 9 rank E|loops 9 rank features 7 intersection 2

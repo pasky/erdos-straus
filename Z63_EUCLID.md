@@ -133,6 +133,27 @@ identities to be listed; I classified them post hoc by height instead (low = h �
 prove that every low relation is a formal identity (the two families quoted are). The conclusion drawn below uses only
 the certified independence of the high loops, not the classification of the low relations.
 
+### 4.2 KE2 (secondary, NOT pre-registered): Hecke-equivariant fakes
+
+Script `scripts/z63_euclid_hecke.py` adds Hecke operators T_ℓ on H₁ (coset representatives [[1,k],[0,ℓ]], [[ℓ,0],[0,1]];
+elements re-expressed as S/T-words by the Euclidean algorithm; T-powers walked in closed form along cusp cycles). It
+computes E := {ψ ∈ H¹ : ψ∘T_ℓ = (ℓ+1)ψ, ℓ ∈ {2,3,5,7,11,13}}. Run: `BMAX=10 HIGH=20 LS=2,3,5,7,11,13 python3
+scripts/z63_euclid_hecke.py <the 89 primes p ≡ 1 (24) ≤ 6000>` → `data/z63/euclid/ke2_hecke_6000_B10_H20.tsv` (6 min).
+* χ_p ∈ E at all 89 primes. This checks Lemma E2 numerically, including the T₂ case. dim E = 3 at 78 primes and
+  5, 7, 9, 11 at 3, 4, 3, 1 primes.
+* E contains the word-local class ψ₀ (the restriction of the character S, T ↦ 1 of PSL₂(ℤ); ψ₀(γ_A) = r + 1 + Σb_i mod 2).
+  `scripts/z63_euclid_psi0.py` checks that it is a Hecke eigenclass at 73, 409, 1009, 2017.
+  On all p − 1 loops, span(E|loops) ∩ span(word features {1, r, Σb_i, χ, #even letters, b₁, b_r, ell-count}) has
+  dimension exactly 2 (= ⟨χ, ψ₀⟩) at 16 tested primes 193 … 2953 (`data/z63/euclid/ke2_featurefit.txt`). The remaining
+  dimension(s) of E are not word-local in these features (not identified; possibly a Dedekind–Rademacher-type or
+  elliptic-type class — Assessment).
+* **Hecke-equivariant fakes** (ψ ∈ E, ψ = χ on 𝒦, ψ = 0 on all length-3 loops) exist at only 23/89 primes. With ψ = χ
+  also required on the low loops and ψ = 0 on the high ones, they exist at 15/89. So imposing Hecke equivariance
+  **removes the fake-cocycle barrier at most primes**: E is so small that the known values essentially pin down χ.
+  This does not give an argument, because then "every admissible ψ is non-zero on some short loop" just says
+  χ_p(γ_A) = (A/p) = −1 for some A ∈ L₃(p), which is (S) itself. Hecke equivariance determines χ without telling
+  us its values on generic short loops. Those values are the labels' quadratic characters (Lemma E1), i.e. B2.
+
 ## 5. Theorems
 
 **Prop E3 (fake-cocycle criterion; PROVED, linear algebra).** Let H be a finite-dimensional F₂-space, χ ∈ H*, and
@@ -157,14 +178,15 @@ span 𝒦 ∩ span 𝒞_low (if k = c_low + c_high then c_high ∈ span(𝒦 ∪
 So, in the canonical complex, the "relations between words" escape of Prop R / Thm R exists only for bounded-height
 words. These are a fixed congruence menu (B1).
 
-**Lemma E2 (Hecke blindness; PROVED, §2)** closes the most natural enlargement of 𝒦. One could add every Hecke
-relation (classes T_ℓ x with known χ(T_ℓ x) = (ℓ+1)χ(x)). For odd ℓ this value is 0 identically, so χ annihilates
-T_ℓ H₁ and these relations transport no sign. For ℓ = 2, χ∘T₂ = χ, which is equivalent to (2/p) = 1 on the labels.
-*Assessment (not proved here):* a Hecke-equivariant fake must lie in the 𝔪-eigenspace of H¹ at the Eisenstein ideal
-𝔪 = (2, T_ℓ − 1 − ℓ). That space is small (the Shimura-type class χ and a cuspidal/Dedekind–Rademacher-type class),
-so Hecke equivariance probably does pin χ down. However, the coordinates of a short loop in H₁/𝔪H₁ are then χ(γ_A) =
-(A/n) and a Rademacher-type value. Both are local cell functions of the word (DEDEKIND Cor 4.1; s5_reciprocity_forcing
-Prop R). The Hecke-equivariant version therefore lands in Prop R's cell sums, i.e. B2.
+**Hecke structure (Lemma E2 + KE2).** Cor E3′ covers arguments that use χ only as a class with known values. Hecke
+equivariance is an extra property of χ, and it changes the picture in the following way.
+(a) *Hecke relations as known data are empty.* χ(T_ℓx) = (ℓ+1)χ(x) = 0 for odd ℓ, so χ annihilates T_ℓH₁ and these
+relations transport no sign (Lemma E2, PROVED). For ℓ = 2, χ∘T₂ = χ re-expresses (2/p) = 1.
+(b) *Hecke equivariance as a constraint on fakes* does pin χ down: fakes in E exist at only 23/89 primes (§4.2).
+The resulting "argument" is: every ψ ∈ E with ψ|_𝒦 = χ|_𝒦 is non-zero on some short loop. When that affine space is {χ},
+this is (S) itself. So the Hecke-refined version is a tautology rather than an index: it needs the values of χ on generic
+short loops. E|loops is spanned by the word-local classes χ, ψ₀ and non-local class(es) (§4.2). The local part is
+Prop R's cell sums. Using the non-local part would need an a-priori evaluation that nobody has (Assessment).
 
 **Remark E5 (what the Euclidean complex really contributes; Assessment, with proved pieces).**
 (1) *Easy side.* The total index over all loops is Σ_A [χ_n(γ_A) = −1] = φ(n)/2·[n ≠ □] (PROVED, Lemma E1). It is
@@ -190,6 +212,9 @@ labels (PROVED: χ_n factors through Γ₀(n) → B(ℤ/n) → (ℤ/n)^*).
   Fake classes killing every short loop while agreeing with χ_p on the known part exist at 176/267 primes (BMAX 30) and
   215/267 (BMAX 10).
 * **Kill test KE1:** fired (with the disclosed height-classification deviation).
+* **KE2 (secondary, not pre-registered; CERTIFIED for 89 primes ≤ 6000):** χ_p lies in the Hecke eigenspace E
+  (dim 3 generically). Hecke-equivariant fakes exist at only 23/89 primes, so equivariance pins χ down, but without
+  giving its values on generic short loops (§5 "Hecke structure").
 * **Precise missing lemma (what an astra-2 index would need).** *A uniform-in-p relation in H₁(Γ₀(p); F₂) (or in any
   complex through which χ_p factors) linking generic length-3 loops to classes of computable χ — equivalently, by Prop E3,
   an a-priori element of span 𝒦(p) ∩ span 𝒞(p) with χ_p = 1.* §4 shows that such elements do not exist at the tested
