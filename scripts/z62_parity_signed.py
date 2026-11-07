@@ -5,7 +5,7 @@ For each n, words (t,u,v) (unordered u <= v) of X(n); families STAR, U7, ALLX as
 Per-word signs (values in {-1,0,1}): chi(z) = Jacobi (z/n) for z in {t,u,v,u+v,A=tu-1,A*=tv-1,t*u*v}, the parities
 (-1)^t,(-1)^u,(-1)^v, and all pairwise products of these 10 base signs; plus the constant 1.
 Signed counts S_w(n) = sum over family words of w(word).
-Then: rational nullspace (computed mod P = 2^61-1) of [S_w(p) | indicator(p mod M)] over TRAIN primes p = 1 (24),
+Then: nullspace over F_P (P = 2^61-1; a rational relation reduces to one mod P, so "no excess mod P" => none over Q) of [S_w(p) | indicator(p mod M)] over TRAIN primes p = 1 (24),
 quotiented by per-word identities (nullspace of the per-word pattern matrix); report non-trivial relations and their
 held-out exactness on TEST primes.
 Usage: z62_parity_signed.py NMAX split [M]
@@ -126,6 +126,10 @@ def main():
             rows.append(r)
     pnull = nullspace_modp(rows, nf + ncl)
     wnull = nullspace_modp([list(v) for v in pats], nf)  # per-word identities (feature part only)
+    # exact rational rank of the per-word pattern matrix (rank sandwich: rank_Q >= rank_P; equality => kernels agree in dim)
+    import sympy as sp
+    rq = sp.Matrix([list(v) for v in sorted(pats)]).rank()
+    print(f"# exact rational rank of per-word pattern matrix: {rq} (mod-P rank {nf - len(wnull)})")
     print(f"# {len(rows)} train primes, {len(primes)-len(rows)} test primes, {nf} signed counts, {ncl} classes mod {M}")
     print(f"# distinct per-word patterns {len(pats)}; per-word identity dim {len(wnull)}; prime-level nullspace dim {len(pnull)}")
     # nontrivial = pnull vectors not in span(wnull x {g=0})

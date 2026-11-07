@@ -25,7 +25,11 @@ def rank(vecs):
 fn, split, M, NP = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
 rd = csv.reader(open(fn), delimiter="\t"); hdr = next(rd); data = list(rd)
 nf = len(hdr) - 2
-primes = [(int(r[0]), [int(x) % 2 for x in r[2:]]) for r in data if r[1] == "P" and int(r[0]) % 24 == 1]
+seen = set(); primes = []
+for r in data:  # deduplicate controls, bound by NP
+    n = int(r[0])
+    if r[1] == "P" and n % 24 == 1 and n <= NP and n not in seen:
+        seen.add(n); primes.append((n, [int(x) % 2 for x in r[2:]]))
 classes = sorted({p % M for p, _ in primes}); cidx = {c: j for j, c in enumerate(classes)}; ncl = len(classes)
 rows = []
 for p, v in primes:

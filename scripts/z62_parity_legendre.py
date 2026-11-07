@@ -5,7 +5,8 @@ The principal cycle of reduced forms of discriminant N (N = 1 mod 4, non-square)
 principal form its centres are ambiguous forms (a | b, giving a divisor of N) or symmetric forms (c = -a, N(eps) = -1).
 For each (p, C) we collect the divisors g = gcd(|a|, N) > 1 (g < N) forced by ambiguous forms in the principal cycle,
 and test g = -1 (mod 4C) (a (★) certificate at level C), against the random-divisor baseline
-(fraction of nontrivial divisor pairs of N in that class).
+(per (p,C): probability q = fraction of nontrivial divisor pairs of N in that class, if the forced pair were a uniformly
+random nontrivial pair; expectation sum q, variance sum q(1-q); also the same with coprime pairs only).
 Usage: z62_parity_legendre.py PMAX CMAX
 """
 import sys
@@ -57,6 +58,9 @@ def main():
     PMAX, CMAX = int(sys.argv[1]), int(sys.argv[2])
     tot_pairs = 0
     exp_hits = 0.0
+    var_hits = 0.0
+    exp_cop = 0.0
+    var_cop = 0.0
     hits = 0
     n_forced = 0
     n_sym = 0
@@ -97,16 +101,24 @@ def main():
             if forced and pairs:
                 n_forced += 1
                 tot_pairs += 1
-                exp_hits += len(inclass) / len(pairs)
+                q = len(inclass) / len(pairs)
+                exp_hits += q
+                var_hits += q * (1 - q)
+                cop = [g for g in pairs if gcd(g, N // g) == 1]
+                qc = sum(1 for g in cop if (g + 1) % (4 * C) == 0) / len(cop) if cop else 0.0
+                exp_cop += qc
+                var_cop += qc * (1 - qc)
                 h = any((g + 1) % (4 * C) == 0 for g in forced)
                 hits += h
                 anyhit |= h
         per_p_any += anyhit
         per_p_star += star
-    sd = (exp_hits * (1 - exp_hits / max(1, tot_pairs))) ** 0.5
+    sd = var_hits ** 0.5  # sum of per-(p,C) Bernoulli variances
+    sdc = var_cop ** 0.5
     print(f"primes p=1(24) <= {PMAX}: {nprimes}; C <= {CMAX}")
     print(f"(p,C) with a forced nontrivial ambiguous divisor: {n_forced}; with symmetric centre (N(eps)=-1): {n_sym}; square N: {n_sq}")
     print(f"forced divisor in class -1 mod 4C: {hits}; random-divisor baseline expectation {exp_hits:.1f} (sd ~ {sd:.1f}); z = {(hits-exp_hits)/max(sd,1e-9):.2f}")
+    print(f"baseline restricted to coprime divisor pairs: expectation {exp_cop:.1f} (sd {sdc:.1f}); z = {(hits-exp_cop)/max(sdc,1e-9):.2f}")
     print(f"primes with some forced (★) certificate (C<=CMAX): {per_p_any} / {nprimes}; with any (★) certificate at C<=CMAX: {per_p_star}")
 
 

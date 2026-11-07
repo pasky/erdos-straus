@@ -5,7 +5,7 @@ Input TSV: n, tag, then integer count columns. Rows with tag P and n = 1 mod 24 
 Finds all GF(2) combinations sum_w c_w W_w(p) that equal a function of p mod M (default 840) on the TRAIN primes
 (n <= split), reports nontrivial ones (feature part nonzero) and their held-out agreement on TEST primes.
 Also reports single columns that are constant on every class mod M (enough primes per class).
-Usage: z62_parity_gf2.py table.tsv split [M] [mask_family_prefixes,...]
+Usage: z62_parity_gf2.py table.tsv split [M] [mask_family_prefixes,... or ''] [NMAX=200000]
 """
 import sys
 import csv
@@ -41,7 +41,7 @@ def rref_nullspace(rows, ncols):
 def main():
     fn, split = sys.argv[1], int(sys.argv[2])
     M = int(sys.argv[3]) if len(sys.argv) > 3 else 840
-    prefixes = sys.argv[4].split(",") if len(sys.argv) > 4 else None
+    prefixes = sys.argv[4].split(",") if len(sys.argv) > 4 and sys.argv[4] else None
     rd = csv.reader(open(fn), delimiter="\t")
     hdr = next(rd)
     data = [r for r in rd]
@@ -50,7 +50,14 @@ def main():
         keep = [i for i, c in enumerate(cols) if any(c.startswith(p) for p in prefixes)]
     else:
         keep = list(range(len(cols)))
-    primes = [(int(r[0]), [int(r[2 + i]) % 2 for i in keep]) for r in data if r[1] == "P" and int(r[0]) % 24 == 1]
+    nmax = int(sys.argv[5]) if len(sys.argv) > 5 else 200000
+    seen = set()
+    primes = []
+    for r in data:  # deduplicate (controls may repeat main-loop primes) and bound the population
+        n = int(r[0])
+        if r[1] == "P" and n % 24 == 1 and n <= nmax and n not in seen:
+            seen.add(n)
+            primes.append((n, [int(r[2 + i]) % 2 for i in keep]))
     names = [cols[i] for i in keep]
     classes = sorted({p % M for p, _ in primes})
     cidx = {c: j for j, c in enumerate(classes)}

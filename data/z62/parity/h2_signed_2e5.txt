@@ -1,6 +1,8 @@
+# exact rational rank of per-word pattern matrix: 42 (mod-P rank 42)
 # 1181 train primes, 1031 test primes, 168 signed counts, 24 classes mod 840
 # distinct per-word patterns 56; per-word identity dim 126; prime-level nullspace dim 126
 # non-trivial excess dimension: 0
+# exact rational rank of per-word pattern matrix: 42 (mod-P rank 42)
 # 1181 train primes, 1031 test primes, 168 signed counts, 384 classes mod 13440
 # distinct per-word patterns 56; per-word identity dim 126; prime-level nullspace dim 129
 # non-trivial excess dimension: 3

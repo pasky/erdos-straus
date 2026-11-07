@@ -1,0 +1,5 @@
+primes p=1(24) <= 30000: 385; C <= 40
+(p,C) with a forced nontrivial ambiguous divisor: 11096; with symmetric centre (N(eps)=-1): 4304; square N: 0
+forced divisor in class -1 mod 4C: 503; random-divisor baseline expectation 501.9 (sd ~ 14.1); z = 0.08
+baseline restricted to coprime divisor pairs: expectation 490.1 (sd 13.4); z = 0.96
+primes with some forced (★) certificate (C<=CMAX): 291 / 385; with any (★) certificate at C<=CMAX: 378
