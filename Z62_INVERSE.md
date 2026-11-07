@@ -154,7 +154,7 @@ T1-compatible: at m² the representations are trivial, e.g. (m²+1)/2 = ((m+1)/2
   square class (FRONTIER §6, (J)3).
 
 **Prop 4 (mimicry of 1² at every bounded slice scale; CONDITIONAL on Dickson's conjecture; construction of CAP_BOUNDED
-Thm 1.3, extended to both slicings).** Fix K ≥ 1. Let L be the least common multiple of
+Thm 1.3; a specialisation of Z60_LOPEZ Prop D(a,T), see Prior art below).** Fix K ≥ 1. Let L be the least common multiple of
 840, of 4u(u+1) for u ≤ K, and of 4C+1 for C ≤ K.
 Under Dickson, there are infinitely many primes p ≡ 1 (mod L) (so p ∈ 𝔐) such that, for every u ≤ K and C ≤ K, the
 u-slice and the C-slice of p have *the same divisor-residue set as the corresponding slice of n = 1*. All of them are
