@@ -1,0 +1,51 @@
+SOURCE 1 (V): P. Erdős, J. L. Selfridge, 'The product of consecutive integers is never a power', Illinois J. Math. 19 (1975) 292-301. PDF https://www.renyi.hu/~p_erdos/1975-46.pdf (accessed 2026). p.292 verbatim (OCR; x` = x^l):
+                                  0 . Introduction
+  It was conjectured about 150 years ago that the product of consecutive
+integers is never a power . That is, the equation
+                             (n+1) • • (n+k)=x`                                    (1)
+has no solution in integers with k >_ 2, 1 >_ 2 and n >_ 0 . (These restrictions
+on k, 1 and n will be implicit throughout this paper .) The early literature on this
+subject can be found in Dickson's history and the somewhat later literature in
+the paper of Obláth [5] .
+  Rigge [6], and a few months later Erdös [1], proved the conjecture for 1 = 2 .
+Later these two authors [1] proved that for fixed 1 there are at most finitely
+many solutions to (1) . In 1940, Erdös and Siegel jointly proved that there is
+an absolute constant c such that (1) has no solutions with k > c, but this proof
+was never published . Later Erdös [2] found a different proof ; by improving
+the method used, we can now completely establish the old conjecture . Thus
+we shall prove
+  THEOREM 1 .     The product of two or more consecutive positive integers is
+never a power .
+In fact we shall prove a stronger result :
+  THEOREM 2 . Let k, 1, n be integers such that k >_ 3, 1 >_ 2 and n + k >_ p (k) ,
+where p(k) is the least prime satisfying p (k) >_ k . Then there is a prime p >_ k for
+which a p # 0 (mod 1), where ap is the power of p dividing (n + 1) . . . (n + k) .
+  Theorem 2 implies Theorem 1, since it is easy to see that (n + 1)(n + 2) is
+never an lth power and if n < k then by Bertrand's postulate the largest prime
+
+SOURCE 2 (V): P. Erdős, 'A theorem of Sylvester and Schur', J. London Math. Soc. 9 (1934) 282-288. PDF https://www.renyi.hu/~p_erdos/1934-01.pdf (accessed 2026). p.282 verbatim:
+     [Extracted from the Journal of the London Mathematical Society, Vol . 9, Part 4 .]
+    The theorem in question asserts that, if n > k, then, in the set of integers
+n, n+1, n-J-2, . . ., n +k-1, there is a number containing a prime divisor
+greater than k . If n = k+ 1, we obtain the well-known theorem of
+Chebyshev . The theorem was first asserted and proved by Sylvester t
+about forty-five years ago . Recently Schurt has rediscovered and again
+proved the theorem .
+    The following proof is shorter and more elementary than the previous
+(Equivalent binomial form: for n >= 2k, binom(n,k) has a prime factor > k.)
+
+SOURCE 3 (V): P. Erdős, 'On consecutive integers', Nieuw Arch. Wisk. (3) 3 (1955) 124-128, https://www.renyi.hu/~p_erdos/1955-04.pdf:
+                                      BY
+                                  P . ERDÖS
+   A theorem of SYLVESTER and SCHUR 1) states that for every k
+and n > k the product n(n + 1) . . . (n + k - 1) is divisible by a
+prime P > k, or in other words the product of k consecutive
+integers each greater than k always contains a prime greater than k .
+Define now 1(k) as the least integer so that the product of 1(k)
+consecutive integers, each greater than k always contains a prime
+greater than k . The theorem of SYLVESTER and SCHUR states that
+f(k) < k . In the present note we shall prove
+  Theorem 1 . There is a constant c1 > 1 so that
+                                          k
+                              f(k) < cl log k                                (1)
+                                                                  k

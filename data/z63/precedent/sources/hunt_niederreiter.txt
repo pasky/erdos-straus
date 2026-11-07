@@ -1,0 +1,8 @@
+Accessed 2026-11-07.
+[1] Niederreiter, "Dyadic Fractions with Small Partial Quotients", Monatsh. Math. 101 (1986) 309-316. https://eudml.org/doc/178282
+  EuDML keywords (verbatim): "dyadic fractions; small partial quotients; reduced fraction; continued fraction expansion; explicit construction"
+[2] Moshchevitin-Murphy-Shkredov, "Popular products and continued fractions", arXiv:1808.05845 (Israel J. Math 2020), Sec. 1 (verbatim):
+  "Niederreiter [51] proved that Zaremba's conjecture is true for q = 2^α, 3^α, α ∈ Z+ with k = 3, and for q = 5^α with k = 4."
+  "Korobov [39] showed that for prime q there exists a, (a, q) = 1, such that max b_ν(a) ≪ log q. ... Rukavishnikova [52] proved that Korobov's bound holds with positive probability"
+  Hensley: "|F_M(Q)| ≍_M Q^{2w_M}" ; Theorem 6: "|Z_M(p)| ≪_M p^{2w_M −1+ε(1−w_M)}. For large values of M, the exponent here is close to the optimal exponent 2w_M − 1 that was conjectured"
+Classification: pointwise for q in family {2^k,3^k,5^k}; mechanism (I) explicit construction; natural count of good a ~ q^{2w_M-1} (power; w_3≈0.705 => ~q^0.41) => thick. Korobov: positive proportion => thick.

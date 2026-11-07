@@ -1,0 +1,59 @@
+SOURCE: McGown & Treviño, 'The least quadratic non-residue', survey dated July 18 2019, https://campus.lakeforest.edu/trevino/SurveyLeastNonResidue.pdf (accessed 2026). Section 2, p.~3. Verbatim:
+   Let p1 = 2, p2 = 3, . . . , pk = the k-th prime, one can prove (using quadratic reciprocity,
+the Chinese remainder theorem, and Dirichlet’s theorem) that
+
+                                         |{p ≤ x | np = pk }|   1
+                                     lim                      = k.
+                                     x→∞        π(x)           2
+
+    The above suggests the following heuristic: Suppose that k ≈ log2 x, then 21k ≈ x1 .
+Therefore, the “expected number” of primes with np = pk is 1. If k is much larger, then
+we wouldn’t expect any, and if k is smaller we would expect some. Therefore, it seems
+that np can be as large as plog2 x which is (by the Prime Number Theorem) asymptotically
+log2 x log log x. Table 1 contains the list of smallest primes p satisfying np = pk , it also
+compares to log p log log p to see how good an estimate it is.1
+    The heuristic above suggests that np ≤ C log p log log p for some constant C. It also
+suggests that np ≥ C log p log log p for infinitely many p (and some constant C). Evidence
+in the direction of these conjectures is that Graham and Ringrose [14], in 1990, proved that
+np ≥ C log p log log log p for infinitely many p and some constant C.2 In fact, assuming
+the Generalized Riemann Hypothesis (GRH), Montgomery [33, Theorem 13.5], in 1971,
+proved precisely the lower bound heuristic, namely that np ≥ C log p log log p for infinitely
+many p and some constant C. For the upper bound, assuming GRH, Ankeny [1], in 1952,
+proved np ≤ C log2 p for some constant C. Bach [2], in 1985, made the constant explicit,
+showing np ≤ 2 log2 p. Finally in 2015, Lamzouri, Li and Soundararajan [21] improved
+this to np ≤ log2 p. However, we cannot prove anything remotely close to that upper bound
+
+Section 7 verbatim:
+7    Ankeny’s Theorem
+Recall that Ankeny [1] proved np ≤ C(log p)2 for some constant C > 0 under the assumption
+of the Generalized Riemann Hypothesis (GRH). In particular, this says that the GRH implies
+Vinogradov’s conjecture. Bach [3] proved np ≤ 2(log p)2 . The main idea behind Bach’s proof
+appears in [33], but to obtain explicit results there are many details to work out; Bach uses
+a slightly different kernel and introduces a parameter in order to achieve good numerical
+results. Later, Lamzouri, Li, and Soundararajan [21] prove that np ≤ (log p)2 .
+
+Section 6 (Linnik, average-only):
+Theorem 6.1 (Linnik). Fix ε > 0. Then we have
+
+                                 #{p ≤ N | np > pε } = O(N ε ) .
+
+                                                   18
+    This result means that the number of exceptions to Vinogradov’s conjecture (that the
+least quadratic non-residue np satisfies np  pε ) is very small; in particular, the theorem
+implies:
+
+Corollary 6.2. The set of primes where Vinogradov’s conjecture fails has density zero.
+
+References:
+ [1] N. C. Ankeny, The least quadratic non residue, Ann. of Math. (2) 55 (1952), 65–72.
+
+ [2] Eric Bach, Analytic methods in the analysis and design of number-theoretic algorithms,
+     ACM Distinguished Dissertations, MIT Press, Cambridge, MA, 1985.
+
+ [3]          , Explicit bounds for primality testing and related problems, Math. Comp. 55
+       (1990), no. 191, 355–380.
+[14] S. W. Graham and C. J. Ringrose, Lower bounds for least quadratic nonresidues, Ana-
+     lytic number theory (Allerton Park, IL, 1989), Progr. Math., vol. 85, Birkhäuser Boston,
+     Boston, MA, 1990, pp. 269–309.
+[33] Hugh L. Montgomery, Topics in multiplicative number theory, Lecture Notes in Math-
+     ematics, Vol. 227, Springer-Verlag, Berlin-New York, 1971.

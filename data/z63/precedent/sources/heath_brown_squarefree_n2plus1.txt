@@ -1,0 +1,26 @@
+SOURCE: D. R. Heath-Brown, 'Square-free values of n^2+1', Acta Arith. 155.1 (2012) 1-13, DOI 10.4064/aa155-1-1, CC-BY PDF https://www.impan.pl/shop/en/publication/transaction/download/product/82579 (accessed 2026). Status V. p.1 verbatim:
+   1. Introduction. Let N (x) denote the number of positive integers
+n ≤ x for which n2 + 1 is square-free. It was shown in 1931 by Estermann [4]
+that
+                         N (x) = c0 x + O(x2/3 log x)
+for x ≥ 2, where
+                                  1     Y
+                           c0 =                  (1 − 2p−2 ).
+                                  2
+                                      p≡1 mod 4
+Estermann’s argument is very simple, but despite the passage of 80 years
+the exponent 2/3 appearing above has never been improved. The aim of the
+present paper is to establish the following result.
+    Theorem. We have
+                            N (x) = c0 x + Oε (x7/12+ε )
+for any fixed ε > 0.
+    It is easy to construct intervals (x, x + c log x] with a small positive
+constant c, such that n2 + 1 has a non-trivial square factor for every n in the
+interval. This shows that the error term in our theorem is Ω(log x). However
+we know of no better result of this type, and it is unclear what one should
+conjecture. With the much simpler problem of the number of square-free
+integers n ≤ x one has an easy error term O(x1/2 ), but any reduction in the
+exponent 1/2 would appear to require a quasi Riemann Hypothesis. Thus
+it seems unlikely that we could reduce the exponent in our theorem below
+1/2 without a radically new idea.
+NOTE: a counting/density theorem (asymptotic with power-saving error); consequence: square-free n^2+1 exists in every interval (x, x + C x^{7/12+eps}], i.e. a window with expected count ~ x^{7/12}: power, not polylog.

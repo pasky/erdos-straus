@@ -1,0 +1,48 @@
+TOPIC C7: Duke 1988 / Duke-Schulze-Pillot 1990. accessed 2026-11-07
+SRC Duke preprint https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf (OCR) Thm 1 + intro on spheres (V)
+a(n) =ne/Zr3(n) W,(n), where
+                                           1
+                               W.(n)=r3(n ) ~ ; . u(~)
+are "Weyl sums". Since O(z;u) is a holomorphic cusp form for Fo(4) of
+weight 3/2 + ( for { > 1 (see [41]) we see that by Siegel's (ineffective) estimate
+r3(n) ~> n 1/2-~ and (1.2) we get
+                                  Wu(n) ~ n-l~ zS+~
+
+provided n is square-free and n ~ 7 (rood 8). By the analogue of Weyl's citerion we
+deduce the uniform distribution (with a non-trivial error term if (1.2) is made
+uniform in k) of II, on S 2 as n ~ ~ through such n. We remark that by combining
+(1.2) with the Shimura lift and Deligne's estimate the conditions on n may be
+relaxed to n - 1, 2, 3, 5, 6 (mod 8). This should be compared with Linnik's result
+([20] p. 38) giving the uniform distribution of these V, only if n is subjected to the
+further condition ( ~ ) =   ] for some fixed odd prime p. Previously this unnatural
+condition could only be removed subject to certain unproved hypotheses concern-
+Theorem 1. Suppose d is a fundamental discriminant. Then for some 3 > 0 depending
+only on 12
+
+i)                  #Adn~2-p(O)+O(ld[-a)                    as d ~ - o o   and
+                     #Ad
+                       Z ICnnl
+ii)                C~A.           - # ( 1 2 ) + 0 ( d -~)    as   d-~+oo
+                        Z ICl
+                       CEAa
+
+where ICI is the (non-Euclidean) length of C and the O-constants depend only on 6
+and f2, though ineffectively.
+
+SRC Harcos arXiv:1402.1332 (V2 on Duke delta=1/14 subconvexity => r*(n,Q) large):
+                              2            ·
+for some δ > 0, then we arrive at a useful variant of (8) for gcd(n, 10) = 1:
+                          √                    
+               ∗         4 10 √            −10n             1−δ 
+             r (n, Q) =          n L 1,              + Oε n 2 +ε .
+                          3π                  ·
+                                                                       1
+Such a conclusion was first established unconditionally with δ = 14      by Duke [13]
+                                                                   1
+using a method of Iwaniec [24] (see also [15]), and then with δ = 8 by Bykovskiı̆ [8]
+using a method of Duke, Friedlander, Iwaniec [14] (see also [4] and [22]). Further-
+more, it seems likely that the technical assumptions in a deep result of Conrey and
+Iwaniec [11] can be relaxed so as to yield the conclusion with δ = 61 . To summarize,
+
+SRC MathOverflow q/424067 answer by GH from MO (V2, DSP Thm 1-3):
+Theorem 1 shows that if the number of representations r(n,Q) exceeds n^{1/2-1/176}, then the representations become equidistributed on the relevant ellipsoid as n→∞. ... By Theorem 3 (see also the subsequent Corollary), it suffices that n is primitively represented by some form in the spinor genus of Q. By Theorem 2, if we exclude finitely many explicitly computable square classes for n, the condition simplifies

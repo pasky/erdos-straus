@@ -1,0 +1,24 @@
+# (★)-zero primes: p, n_p (least prime non-residue), R(p) recomputed if p <= 10^4 else "cert"
+409 n_p=7 R=0
+577 n_p=5 R=0
+5569 n_p=13 R=0
+9601 n_p=13 R=0
+23929 n_p=7 R=cert
+83449 n_p=13 R=cert
+102001 n_p=23 R=cert
+329617 n_p=5 R=cert
+712321 n_p=23 R=cert
+1134241 n_p=7 R=cert
+1724209 n_p=13 R=cert
+1726201 n_p=19 R=cert
+5212561 n_p=11 R=cert
+8813281 n_p=17 R=cert
+# odd squares m^2, m = 5,7,11,13: R recomputed (T1 predicts 0)
+25 R=0
+49 R=0
+121 R=0
+169 R=0
+# control primes with R>0 expected: 13, 73, 433
+13 n_p=2 R=2
+73 n_p=5 R=2
+433 n_p=5 R=10

@@ -1,0 +1,4 @@
+Accessed 2026-11-07.
+[1] Heath-Brown & Puchta, arXiv:math/0201299 abstract: "every sufficiently large even integer is a sum of two primes and exactly 13 powers of 2. Under the Generalized Rieman Hypothesis one can replace 13 by 7." -> expected count ~ n(log n)^{K-2}/... (two primes) => thick.
+[2] Zaharescu, "Small values of n^2 α (mod 1)", Invent. Math. 121 (1995) 379-388 (eudml 144304); Baker arXiv:1602.04245: "the result is known with ρ_2 = 4/7 (Zaharescu)". i.e. min_{n≤N} ||n^2 α|| ≪ N^{-4/7+ε}: expected count N^{1-4/7} -> power.
+[3] Cilleruelo-Garaev arXiv:1404.5070 abstract: "almost all the residue classes modulo p can be represented in the form x g^y (mod p) with positive integers x<p^{5/8+ε} and y<p^{3/8}"; "almost all ... xyzg^t ... x,y,z,t<p^{1/4+ε}" -> almost-all, power slack.

@@ -1,0 +1,10 @@
+Accessed 2026-11-07.
+[1] arXiv:1703.06673v1 (intro, verbatim): "The best unconditional result is g(p) = O(p^{1/4+ε}) and is due to Burgess ... assuming Generalized Riemann Hypothesis we can for instance show that g(p) = O(log^2 p)"
+[2] Lau-Wu, "On the least quadratic non-residue", hal-00097136: "n_χ ≪_ε q^{1/(4√e)+ε}" (Burgess); "Without any assumption Graham & Ringrose [14] obtained n_{χp0} = Ω(log p log_3 p)" (i.o. lower bound).
+[3] Shoup, "Searching for primitive roots in finite fields", Math. Comp. 58 (1992) 369-380, abstract (JSTOR 2153041): "We consider the problem of how to deterministically generate in polynomial time a subset of GF(p^n) that contains a primitive root... First, we present a solution to this problem for the case where p is small, i.e., p = n^{O(1)}. Second, ... under the assumption of the Extended Riemann Hypothesis (ERH) for the case where p is large and n = 2."
+[4] Bhowmick-Lê, "On primitive elements in finite fields of low characteristic", FFA 2015; https://home.olemiss.edu/~leth/papers/primitiveelement5.pdf
+  "Shoup [Sho92] and Shparlinski [Shp90] independently gave efficient algorithms to construct a set M ⊂ F_{q^n} when q is prime of size poly(n, q) that contains a primitive element."
+  "we show that the simple set of all monic polynomials of degree d ∼ C log_q n is guaranteed to contain a primitive element."
+  Theorem 3: for χ non-principal mod Q, deg Q = n, 2 log_q n ≤ r ≤ d ≤ n: Σ_{f∈A_d} χ(f) = Σ_{f∈P(d,r)} χ(f) + O(n q^{−r/2} q^d). "Our method follows Montgomery-Vaughan closely" [MV77 is a GRH lemma over Z; here RH for curves (Weil) is a theorem].
+  Theorem 6: |Q(d)|/q^d ≥ c/(log ω(N−1)+1)^2 under a condition on ε_{q,d,r,n}.
+Verdict (iii): over Z/p no unconditional polylog set is known (Burgess p^{1/4+ε}, QNR p^{1/(4√e)+ε}). Over F_{q^n} (q fixed, n→∞) YES unconditionally: poly(n)=polylog(q^n) set — mechanism = M2 with RH supplied by Weil.

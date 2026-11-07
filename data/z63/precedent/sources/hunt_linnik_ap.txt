@@ -1,0 +1,9 @@
+Accessed 2026-11-07.
+[1] M.-C. Chang, "Short character sums for composite moduli", J. Anal. Math. 123 (2014); arXiv:1201.0299, Corollary 11 (verbatim):
+  "Assume q satisfies that log p = o(log q) for any p|q. If (a, q) = 1, then there is a prime P ≡ a(mod q) such that P < q^{12/5+o(1)}."
+[2] Banks-Shparlinski arXiv:1605.07553 abstract: "...improve the error term in the asymptotic formula for primes in short arithmetic progressions modulo a power of a fixed prime" (power-size ranges).
+[3] Lamzouri-Li-Soundararajan arXiv:1309.3595 (Math Comp 2015). Corollary 1.2: "Assume GRH. Let q > 3 ... The least prime in the arithmetic progression a (mod q) satisfies P(a, q) ≤ (φ(q) log q)^2."
+  Theorem 1.4: "Assume GRH. Let q ≥ 20000 and let H be a subgroup of G = (Z/qZ)* with index h > 1. Let p be the smallest prime lying in a given coset aH. Then either p ≤ 10^9, or p ≤ (...(h − 1) log q + ...(h + 1) + (log log q)^2)^2" [pdftotext garbled the constants; shape = (h log q + loglog^2 q)^2 i.e. polylog for h ≤ polylog; exact constants NA]
+  Theorem 1.2 (GRH): least prime not in H < (α(h)+o(1))(log q)^2.
+[4] Heath-Brown conjecture (secondary, Wright, Integers 24 (2024)): smallest prime ≡ c mod d is ≪ d log^2 d — conjecture only.
+Verdict (ii): No result (unconditional or GRH) gives least p ≡ 1 mod q ≤ q(log q)^A for every q or any natural infinite family; best are q^{12/5+o(1)} (smooth q, uncond.) and q^2 log^2 q (GRH). Power.

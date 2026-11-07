@@ -1,0 +1,39 @@
+TOPIC C10: p+x^2+y^2, ternary Goldbach. accessed 2026-11-07
+SRC Hooley Acta Math 97 (1957) scan (V): conditional on GRH ('Hypothesis R')
+
+
+                                            1. Introduction
+
+       I n their celebrated paper "Some problems of partitio n u m e r o r u m : I I I " [6] H a r d y
+and Littlewood state an asymptotic formula, suggested b y a purely formal applica-
+tion of their circle method, for the n u m b e r of representations of a n u m b e r n as the
+sum of two squares a n d a prime number. The t r u t h of this formula would imply
+that   every sufficiently large n u m b e r        is the sum of two squares and a prime.          No
+proof, even on the extended R i e m a n n              hypothesis   (which we hereafter refer to as
+Hypothesis R), has hitherto been found. However, in another paper [7] t h e y suggest
+t h a t on Hypothesis R it should be possible to prove t h a t almost all n u m b e r s can be
+so represented.     This proof was effeeted b y Miss Stanley [11], as were proofs (also on
+Hypothesis R) of a s y m p t o t i c formulae for the n u m b e r of representations of a n u m b e r
+as sums of greater numbers of squares and primes.                   The dependence of her results on
+the u n p r o v e d hypothesis was gradually r e m o v e d by later writers, in particular b y
+Chowla [2], Wa]fisz [13], E s t e r m a n n [4] and H a l b e r s t a m [5].
+       I t is the purpose of this paper to shew t h a t the original formula of H a r d y and
+Littlewood is true on Hypothesis R. Our m e t h o d depends on the fact that, as is
+easily seen, the n u m b e r of representations of n in the required form is equal to the sum
+
+SRC Assing-Blomer-Li arXiv:2005.13915 (V2 for Linnik unconditional; their Thm 1.2)
+characters, see Theorem 2.2 below. As an application, we consider the classical problem of writing
+an integer n as a sum of a prime and two squares. Hooley [Ho] famously solved this under GRH,
+and Linnik [Li1] used his dispersion method to obtain the first unconditional proof. Again a simpler
+proof can be obtained by the Bombieri-Vinogradov theorem, cf. e.g. [EH]. In all cases, the error
+term saves only a small fractional power of log n, which has not been improved since the 1960s. The
+following result goes much further. Let χ´4 denote the non-principal Dirichlet character modulo 4.
+Theorem 1.2. The number of representations of an integer n in the form
+                                             n “ p ` x2 ` y 2
+in primes p and non-zero integers x, y is
+                        ź´        χ´4 ppq ¯ ź    pp ´ 1q2         `           ˘
+                π Lipnq     1`                 2
+                                                              ` OA nplog nq´A
+
+SRC Helfgott arXiv:1312.7748 abstract (V)
+The ternary Goldbach conjecture, or three-primes problem, asserts that every odd integer n greater than 5 is the sum of three primes. The present paper proves this conjecture.

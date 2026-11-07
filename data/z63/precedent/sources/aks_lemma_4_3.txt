@@ -1,0 +1,56 @@
+SOURCE: M. Agrawal, N. Kayal, N. Saxena, 'PRIMES is in P', Annals of Math 160 (2004) 781-793. Author PDF v6: https://www.cse.iitk.ac.in/users/manindra/algebra/primality_v6.pdf (accessed 2026). Status V. (dlog5 ne = ceil(log^5 n), blog Bc = floor(log B); logs base 2.)
+relatively prime to r. It is easy to see that or (a) | φ(r) for any a, (a, r) = 1.
+    We will need the following simple fact about the lcm of first m numbers (see, e.g., [Nai82] for a proof).
+Lemma 3.1. Let LCM(m) denote the lcm of first m numbers. For m ≥ 7:
+
+                                                     LCM(m) ≥ 2m .
+
+equation (2) for a number of a’s. We first bound the magnitude of the appropriate r.
+
+Lemma 4.3. There exist an r ≤ max{3, dlog5 ne} such that or (n) > log2 n.
+    1 Lemma 4.3 shows that r ≤ dlog5 ne, so Step 4 is relevant only when n ≤ 5, 690, 034.
+
+
+
+
+                                                             3
+Proof. This is trivially true when n = 2: r = 3 satisfies all conditions. So assume that n > 2. Then
+dlog5 ne > 10 and Lemma 3.1 applies. Observe that the largest value of k for any number of the form
+mk ≤ B = dlog5 ne, m ≥ 2, is blog Bc. Now consider the smallest number r that does not divide the
+product
+                                                  blog2 nc
+                                                    Y
+                                       nblog Bc ·         (ni − 1).
+                                                                        i=1
+
+Note that (r, n) cannot be divisible by all the prime divisors of r since otherwise r will divide nblog Bc by
+                                       r
+the observation above. Therefore, (r,n)    will also not divide the above product. Using the fact that r is
+the smallest number not dividing the product, it follows that (r, n) = 1. Further, since r does not divide
+any of ni − 1 for 1 ≤ i ≤ blog2 nc, or (n) > log2 n. Finally,
+                                 blog2 nc
+                                     Y                              1       2       2   4       5
+                   blog Bc
+               n             ·             (ni − 1) < nblog Bc+ 2 log n·(log n−1) ≤ nlog n ≤ 2log n ≤ 2B .
+                                     i=1
+
+(The second inequality holds for all n ≥ 2). By Lemma 3.1, the lcm of first B numbers is at least 2B .
+Therefore, r ≤ B.
+Sec.6 remark:
+
+                                                         6
+   The time complexity of the algorithm can be improved by improving the estimate for r (done in
+Lemma 4.3). Of course the best possible scenario would be when r = O(log2 n) and in that case the time
+complexity of the algorithm would be O∼ (log6 n). In fact, there are two conjectures that support the
+possibility of such an r (below ln is natural logarithm):
+
+Artin’s Conjecture: Given any number n ∈ N that is not a perfect square, the number of primes
+     q ≤ m for which oq (n) = q − 1 is asymptotically A(n) · lnmm where A(n) is Artin’s constant with
+     A(n) > 0.35.
+
+Sophie-Germain Prime Density Conjecture: The number of primes q ≤ m such that 2q + 1 is also
+    a prime is asymptotically 2C 2m
+                              ln2 m
+                                    where C2 is the twin prime constant (estimated to be approximately
+    0.66). Primes q with this property are called Sophie-Germain primes.
+

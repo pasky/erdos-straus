@@ -1,0 +1,5 @@
+SOURCE: OEIS A053669 'Smallest prime not dividing n.' https://oeis.org/A053669 (accessed 2026; entry revision #131). Status V (OEIS formula line; OEIS is a secondary/community source, no proof given).
+            %N Smallest prime not dividing n.
+            %C For k >= 0, a(A002110(k)) is the first occurrence of p = prime(k+1). Thereafter p occurs whenever A007947(n) = A002110(k). Thus every prime appears in this sequence infinitely many times. - _David James Sycamore_, Dec 04 2024
+            %F a(n) << log n. For every e > 0, there is some N such that for all n > N, a(n) < (1 + e)*log n. - _Charles R Greathouse IV_, Dec 03 2022
+Mechanism (standard, not quoted): if primes p_1..p_k all divide n then n >= p_1...p_k = primorial = e^{(1+o(1))p_k} (PNT/Chebyshev theta), hence p_{k+1} <= (1+o(1)) log n. Equality case n = primorial A002110(k).

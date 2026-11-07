@@ -1,0 +1,35 @@
+TOPIC C2: Chevalley-Warning / Ax-Katz. accessed 2026-11-07
+SRC arXiv:1404.7793 Thm 1.1, 1.2 (V2)
+                                         quickly proved a result which implies that finite fields are C1 -fields. In danger of
+                                         losing his thesis problem, Warning responded by establishing a further improve-
+                                         ment. The papers of Chevalley and Warning were published consecutively [Ch35],
+                                         [Wa35], and the following result is now a classic of elementary number theory.
+                                         Theorem 1.1. (Chevalley-Warning Theorem) Let n, r, d1 , . . . , dr ∈ Z+ with
+                                         (1)                                    d1 + . . . + dr < n.
+                                         For 1 ≤ i ≤ r, let Pi (t1 , . . . , tn ) ∈ Fq [t1 , . . . , tn ] be a polynomial of degree di . Let
+                                                         Z = Z(P1 , . . . , Pr ) = {x ∈ Fnq | P1 (x) = . . . = Pr (x) = 0}
+                                         be the common zero set in Fnq of the Pi ’s, and let z = #Z. Then:
+                                         a) (Chevalley’s Theorem [Ch35]) We have z = 0 or z ≥ 2.
+                                         b) (Warning’s Theorem [Wa35]) We have z ≡ 0 (mod p).
+                                         In fact very easy modifications of Chevalley’s argument prove Warning’s Theorem.
+                                         The more substantial contribution of [Wa35] is the following result.
+                                                                                           1
+2                 PETE L. CLARK, ADEN FORROW, AND JOHN R. SCHMITT
+
+
+Theorem 1.2. (Warning’s Second Theorem) With hypotheses as in Theorem 1.1,
+(2)                                     z = 0 or z ≥ q n−d .
+There is a rich body of work on extensions and refinements of Theorem 1.1 – too
+much to recall here! – but let us mention work of Ax and Katz which computes the
+minimal p-adic valuation of z as P1 , . . . , Pr range over all polynomials of degrees
+d1 , . . . , dr and work of Esnault showing that various geometric classes of varieties
+– including all Fano varieties – over finite fields must have rational points [Ax64],
+[Ka71], [Es03]. In contrast we know of only one refinement of Theorem 1.2: [HB11].
+
+
+SRC Wikipedia 'Chevalley–Warning theorem' raw (V2 for Ax 1964 / Katz 1971)
+== The Ax–Katz theorem ==
+
+The '''Ax–Katz theorem''', named after [[James Ax]] and [[Nicholas Katz]], determines more accurately a power <math>q^b</math> of the cardinality <math>q</math> of <math>\mathbb{F}</math> dividing the number of solutions; here, if <math>d</math> is the largest of the <math>d_j</math>, then the exponent <math>b</math> can be taken as the [[ceiling function]] of
+
+: <math>\frac{n - \sum_j d_j}{d}.</math>

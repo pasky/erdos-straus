@@ -1,0 +1,24 @@
+TOPIC C4: Tao EDP. accessed 2026-11-07
+SRC arXiv:1509.05363 (Discrete Analysis 2016:1) Thm 1.1, Cor 1.2
+Theorem 1.1 (Erdős discrepancy problem, vector-valued case). Let H be a real or complex Hilbert space,
+and let f : N → H be a function such that k f (n)kH = 1 for all n. Then the discrepancy of f is infinite.
+
+    Specialising to the case when H is the reals, we thus have
+
+Corollary 1.2 (Erdős discrepancy problem, original formulation). Every sequence f (1), f (2), . . . taking
+values in {−1, +1} has infinite discrepancy.
+
+Entropy decrement is in Tao arXiv:1509.05422 (cited as [21], Thm 1.3 there = Thm 1.10 in EDP paper):
+duce a new argument which we call the “entropy decrement argument”
+(in analogy with the “density increment argument” and “energy incre-
+ment argument” that appear in the literature surrounding Szemerédi’s
+theorem on arithmetic progressions (see e.g. [29]), and also reminis-
+cent of the “entropy compression argument” of Moser and Tardos [26]).
+This argument, which is a simple consequence of the Shannon entropy
+inequalities, can be viewed as a quantitative version of the standard
+subadditivity argument that establishes the existence of Kolmogorov-
+Sinai entropy in topological dynamical systems; it allows one to select
+a scale parameter H (in some suitable range rH´ , H` s) for which the
+sequence pλpn ` 1q, . . . , λpn ` Hqq and the graph Gn,H exhibit some
+weak independence properties (or more precisely, the mutual informa-
+tion between the two random variables is small). With this additional

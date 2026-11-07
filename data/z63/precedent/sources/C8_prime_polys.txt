@@ -1,0 +1,27 @@
+TOPIC C8: FI X^2+Y^4, HB x^3+2y^3. accessed 2026-11-07
+SRC Friedlander-Iwaniec arXiv:math/9811185 Theorem 1 (V)
+     In this paper we prove that there are infinitely many primes of the form
+a2 + b4 , in fact getting the asymptotic formula. Our main result is
+     Theorem 1. We have
+           XX                                            
+                                       3         log log x
+(1.1)           Λ(a2 + b4 ) = 4π −1 κx 4 1 + O
+           2  4
+                                                   log x
+              a +b ⩽x
+
+where a, b run over positive integers and
+
+SRC Heath-Brown ORA Oxford PDF (Acta Math 186 (2001) 1-84) Theorem (V)
+binary cubic forms. We shall prove the following.
+Theorem There are infinitely many primes of the form x3 + 2y 3 with integer
+x, y. More specifically, there is a positive constant c such that, if
+
+                                η = η(X) = (log X)−c ,
+
+then the number of such primes with X < x, y ≤ X(1 + η) is
+
+                              η2 X 2
+                        σ0           {1 + O((log log X)−1/6 )}
+                             3 log X
+as X → ∞, where

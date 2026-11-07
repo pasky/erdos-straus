@@ -1,0 +1,51 @@
+TOPIC C3: LLL, Moser-Tardos, covering systems. accessed 2026-11-07
+SRC Moser-Tardos arXiv:0903.0544 (JACM 57 (2010)); Thm 1.1 = [EL75] statement (V2), Thm 1.2 (V)
+                                        Theorem 1.1. [EL75] Let A be a finite set of events in a probability space. For A ∈ A let Γ(A) be a
+                                        subset of A satisfying that A is independent from the collection of events A \ ({A} ∪ Γ(A)). If there exists
+                                        an assignment of reals x : A → (0, 1) such that
+                                                                                                    Y
+                                                                        ∀A ∈ A : Pr[A] ≤ x(A)           (1 − x(B)),
+                                                                                                           B∈Γ(A)
+                                                                                                             Q
+                                        then the probability of avoiding all events in A is at least           A∈A(1 − x(A)), in particular it is positive.
+Theorem 1.2. Let P be a finite set of mutually independent random variables in a probability space. Let A
+be a finite set of events determined by these variables. If there exists an assignment of reals x : A → (0, 1)
+such that                                                    Y
+                                 ∀A ∈ A : Pr[A] ≤ x(A)            (1 − x(B)),
+                                                           B∈ΓA (A)
+then there exists an assignment of values to the variables P not violating any of the events in A. Moreover
+the randomized algorithm described above resamples an event A ∈ A at most an expected x(A)/(1 − x(A))
+times before it finds such an evaluation. Thus the expected total number of resampling steps is at most
+P       x(A)
+   A∈A 1−x(A) .
+
+SRC Hough arXiv:1307.0874 (Annals 181 (2015)) Theorem 1 [pdftotext lost superscript: bound is 10^16]; keywords include Lovasz Local Lemma
+                                         Theorem 1. The least modulus of a distinct covering system is at most 1016 .
+                                           Key words and phrases. Covering system of congruences, Lovász Local Lemma, Probabilistic method.
+
+SRC Balister-Bollobas-Morris-Sahasrabudhe-Tiba arXiv:1811.03547 'On the Erdos covering problem: the density of the uncovered set' Thm 1.1, 1.2
+Theorem 1.1. Let ε > 0 and let µ be the multiplicative function defined by
+                                                          (log p)3+ε
+                                         µ(pi ) = 1 +                                                     (2)
+                                                               p
+for all primes p and integers i ⩾ 1. There exists M > 0 so that if A1 , . . . , Ak are arithmetic
+progressions with distinct moduli d1 , . . . , dk ⩾ M, and
+                                                   k
+                                                   X µ(di )
+                                             C=                     ,
+                                                   i=1
+                                                           di
+                                                          Sk                   −4C
+then the density of the uncovered set R := Z \             i=1 Ai is at least e    /2.
+
+   Note that Hough’s theorem is an immediate consequence of Theorem 1.1. Our proof of
+Theorem 1.1 was inspired by that of Hough [8], but is simpler in various important ways (for
+example, we do not need to appeal to the Lovász Local Lemma, and do not need his notion
+of quasi-randomness), and as a result we obtain a somewhat simpler proof of his theorem,
+with a better bound on the minimum difference (less than 106 ). Our method of sieving,
+Theorem 1.2. If A is a finite collection of arithmetic progressions that covers the integers,
+then at least one of the moduli divides another.
+
+SRC BBMST arXiv:1901.11465 'The Erdos-Selfridge problem with square-free moduli' Thm 1.1
+Theorem 1.1. In any finite collection of arithmetic progressions with distinct square-free
+moduli that covers the integers, at least one of the moduli is even.

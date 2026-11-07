@@ -1,0 +1,88 @@
+SOURCE: N. Kandhil, A. Languasco, P. Moree, 'Beyond the Riemann Hypothesis bounds: A pair-correlation approach to the least prime in arithmetic progression and the smallest quadratic non-residue', arXiv:2607.14515v1 (16 Jul 2026), https://arxiv.org/pdf/2607.14515v1 (accessed 2026). Status V for the paper's own statements; V2 for restated results (Montgomery 13.15 [sic; McGown-Treviño cite 13.5], Graham-Ringrose, Titchmarsh, Murty, Heath-Brown conj., Bach-Sorenson, Xylouris).
+--- pp.2-3 (least QNR history):
+conjectured that
+                                      n(q) ≪ q ε ,                                  (1)
+for any fixed ε > 0. This conjecture remains open unconditionally; the best available
+                                                                              1
+                                                                              √ +ε
+bound (up to refinements of the q ε factor) for general primes q is n(q) ≪ q 4 e , for
+any fixed ε > 0. This is a well-known result of Burgess [4]. Linnik [18] demonstrated
+unconditionally that the set of primes for which Vinogradov’s conjecture fails has
+density zero.
+    Next we consider conditional results. In 1942, Linnik [18] showed that Vinogradov
+conjecture (1) follows assuming GRH; in 1952, Ankeny [1] improved the bound fur-
+ther to n(q) ≪ (log q)2 under the same hypothesis. Later in 2015, Lamzouri, Li
+and Soundararajan [15, Corollary 1.1] refined this to n(q) ≤ (log q)2 , for all q ≥ 5,
+
+
+
+                                             2
+again assuming GRH. In the same year, Tao [26] proved that Vinogradov’s conjec-
+ture follows from the Elliott–Halberstam conjecture. In 2016, assuming a conjectural
+improvement to bounds for long character sums, Bober and Goldmakher [3] showed
+that n(q) ≪ (log q)1.4 for primes q ≡ 3 (mod 4) and provided heuristic arguments
+suggesting that the exponent 1.4 should be replaceable by 1 + ε.
+    Regarding lower bounds, assuming GRH, in 1971 Montgomery [23, Theorem 13.15]
+established that
+--- Theorem 3 (GRH + pair-correlation Hypothesis 1): n(q) << (log q)^{1+eps}
+
+uniformly for
+                     3 ≤ k ≤ exp x(log x)−1                 xε ≤ T < x.
+                                                 
+                                                      and
+   This can be seen as the analogue of the pair-correlation conjecture used by Heath-
+Brown [11] in 1982, but for the Dirichlet L-function associated with the quadratic
+character modulo k. In fact, in our application involving n(q), we use the assumption
+only with k = q a prime, so from that perspective it suffices to state it only for prime
+--- pp.5-6 (least prime in AP history):
+for which p ≡ a (mod k) we denote by p(k, a). The existence of p(k, a) is guaranteed
+by Dirichlet’s classical theorem on primes in arithmetic progression, which states that
+there are infinitely many primes p ≡ a (mod k). A fundamental breakthrough was
+achieved by Linnik [19, 20], who established that
+
+                                       p(k, a) ≪ k L                                  (3)
+
+for some absolute constant L. His proof is a masterpiece involving a log-free zero-
+density theorem for Dirichlet L-functions and a result on the Deuring–Heilbronn
+phenomenon, a “repulsion” effect due to the possible existence of the so-called
+“exceptional” zero that generates a larger zero-free region for the Dirichlet L-functions.
+    Subsequent research has focused on refining the value of the exponent in (3) (now
+known as “Linnik’s constant”). In 1992, Heath-Brown [12] proved that L ≤ 5.5. In
+2018, Xylouris [29, 30], using improvement ideas indicated in Heath-Brown’s paper,
+lowered the bound to L ≤ 5, which has not been improved since. In the special case
+when the modulus k is prime, Meng [22] achieved L = 4.5.
+    Let
+                                p(k) := max p(k, a).
+                                            1≤a≤k−1
+                                             (a,k)=1
+
+In 1930, Titchmarsh [27, Theorem 6] proved, assuming GRH, that p(k) ≪ k 2 (log k)4 .
+In 1977, Kumar Murty [14] applied the Bombieri–Vinogradov theorem to prove that,
+for every ε > 0, one has p(k) < k 2+ε for almost all integers k. Assuming the Elliott–
+Halberstam conjecture, this bound may be improved to
+
+                                       p(k) < k 1+ε                                   (4)
+
+for almost all k. In [13] we proved, assuming GRH and a suitable form of the pair-
+correlation conjecture for Dirichlet L-functions, Montgomery’s conjecture on primes
+(as modified by Friedlander and Granville [6, Conjecture 1(b), p. 366]), namely
+                                       r
+                               x            x
+               ψ(x; k, a) −        ≪            xε for every 1 ≤ k ≤ x1−ε ,           (5)
+                              φ(k)         φ(k)
+
+--- Theorem 5 and Remark 2, p.8:
+
+Theorem 5. Given coprime natural numbers a and k with 1 ≤ a ≤ k − 1, denote by
+p(k, a) be the least prime greater than a such that p ≡ a (mod k). Assume that both
+GRH and Hypothesis 2 hold true. Then there exist A ∈ (1/2, 1) and B > 0 such that
+
+                   p(k) =      max        p(k, a) ≪ φ(k) exp B(log k)A .
+                                                                      
+                            1≤a≤k−1
+                             (a,k)=1
+
+
+   The constants A, B appearing above correspond with the constants c2 , respectively
+2c1 in Theorem 4.
+

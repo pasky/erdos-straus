@@ -1,0 +1,16 @@
+SOURCE: D. A. Burgess, The distribution of quadratic residues and non-residues, Mathematika 4 (1957) 106-112. PDF: https://www.cs.umd.edu/users/gasarch/TOPICS/res/burgess.pdf (accessed 2026, via curl; OCR text). Status V.
+p.107 verbatim (OCR-corrected exponent):
+  "THEOREM 2. Let d denote the least positive quadratic non-residue (mod p). Then d = O(p^a) as p -> oo, for any fixed a > (1/4)e^{-1/2}."
+  [OCR raw: 'Then d = O(pa) as p -> oo, for any fixed a > ^e~1/2.' ; p.112 proof, OCR raw: 'Since £e~1/2 = 0.15 ... >£, we can suppose ...' (i.e. (1/4)e^{-1/2}=0.15...)]
+p.106: Theorem 1 (character sum over interval N<n<=N+H is o(H) provided H > p^{1/4+delta}).
+
+SECONDARY (V2): K. McGown, E. Treviño, 'The least quadratic non-residue' (survey, July 18 2019), https://campus.lakeforest.edu/trevino/SurveyLeastNonResidue.pdf, Sec.2:
+   For δ > 0 and q large enough , we can see that N = q 1/4+δ satisfies (1). Therefore, given
+ε > 0, for all large enough p, we have
+                                                         1
+                                                         √       +ε
+                                               np ≤ p 4 e             .
+
+   No significant unconditional improvements have been done on this result from the 1960s.
+The modern improvements are in terms of making the constants explicit. These results will
+be described in section 5.

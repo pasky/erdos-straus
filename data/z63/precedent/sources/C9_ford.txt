@@ -1,0 +1,33 @@
+TOPIC C9: Ford H(x,y,z). accessed 2026-11-07
+SRC arXiv:math/0401223 (Annals 168 (2008)) Theorem 1, Corollary 2, delta
+density. Erdős in 1935 [5] showed lim ε(y, 2y) = 0 and in 1960 [8] gave the
+                                        y→∞
+further refinement (see also Tenenbaum [38])
+                       ε(y, 2y) = (log y)−δ+o(1)      (y → ∞),
+where
+                                 1 + log log 2
+                      δ =1−                    = 0.086071 . . . .
+                                    log 2
+     Theorem 1. Suppose 1 ≤ y ≤ z ≤ x. Then,
+
+  (i) H(x, y, z) = 0 if z < ⌊y⌋ + 1;
+
+ (ii) H(x, y, z) = ⌊x/(⌊y⌋ + 1)⌋ if ⌊y⌋ + 1 ≤ z < y + 1;
+
+(iii) H(x, y, z) ≍ 1 if z ≥ y + 1 and x ≤ 100000;
+
+ (iv) H(x, y, z) ≍ x if x ≥ 100000, 1 ≤ y ≤ 100 and z ≥ y + 1;
+                                              √
+  (v) If x > 100000, 100 ≤ y ≤ z − 1 and y ≤ x,
+
+                                      1
+      Corollary 2. If c > 1 and c−1      ≤ y ≤ x/c, then
+                                  x
+        H(x, y, cy) ≍c                            (Y = min(y, x/y) + 3)
+                       (log Y ) (log log Y )3/2
+                               δ
+
+and
+                                                 1
+                        ε(y, cy) ≍c                           .
+                                      (log y)δ (log log y)3/2

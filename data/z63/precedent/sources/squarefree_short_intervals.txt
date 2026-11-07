@@ -1,0 +1,49 @@
+SOURCE (V2): A. Kumchev, W. McCormick, N. McNew, A. Park, R. Scherr, W. Ziehr, 'Explicit bounds for large gaps between squarefree integers', arXiv:2211.09975v3 (26 Aug 2023), J. Number Theory 2024. https://arxiv.org/pdf/2211.09975 (accessed 2026). Restates Filaseta-Trifonov [8] = 'On gaps between squarefree numbers II', J. London Math. Soc. (2) 45 (1992) 215-221. Verbatim:
+                                                  Abstract. We obtain explicit forms of the current best known asymptotic upper
+                                                  bounds for gaps between squarefree integers. In particular we show, for any x ≥ 2,
+                                                  that every interval of the form (x, x + 11x1/5 log x] contains a squarefree integer.
+                                                  The constant 11 can be improved further, if x is assumed to be larger than a
+                                                  (very) large constant.
+                                                                                                                
+                                           follows from the work of Walfisz on the error term in the Prime Number Theorem
+                                           (see [32]). Still, a number of authors [1, 2, 11, 18–20, 22] have obtained sharper
+                                           bounds under the assumption that the Riemann Hypothesis is true.
+                                              A related problem that has attracted considerable attention concerns the gaps
+                                           between consecutive k-free integers. The first result in that direction was obtained
+                                           by Fogels [10], who proved that if θ > 2/5 the interval (x, x + xθ ] contains a square-
+                                           free integer for all sufficiently large x. In 1951, Roth [28] reduced the exponent 2/5
+                                           in Fogels’s result to 3/13, while Halberstam and Roth [14] proved that the interval
+                                           (x, x+xθ ] contains a k-free integer for any θ > 1/(2k) and for all sufficiently large x.
+                                           Around the same time, Erdős [3] proved that there exist infinitely many intervals
+                                                                                           1
+2   A. KUMCHEV, W. MCCORMICK, N. MCNEW, A. PARK, R. SCHERR, AND W. ZIEHR
+(x, x + h], with
+                                            log x
+                                    h≫              ,
+                                          log log x
+which contain no squarefree integers. Together, these results inspired the conjec-
+ture that for any fixed ε > 0, the interval (x, x + xε ] contains a squarefree integer
+for sufficiently large x. This conjecture seems beyond the reach of current meth-
+ods, though Granville [13] has shown that, like many other famous theorems and
+conjectures in number theory, it follows from the abc-conjecture of Masser and
+Oesterlé.
+   Initially, further improvements on Roth’s result [28] on gaps between squarefree
+numbers were obtained through the method of exponential sums [12, 25, 26, 29],
+while the (mostly elementary) work of Halberstam and Roth [14] inspired research
+ [2] R. C. Baker and K. Powell, The distribution of k-free numbers, Acta Math. Hungar. 126
+     (2010), no. 1-2, 181–197. MR2593323
+ [3] P. Erdős, Some problems and results in elementary number theory, Publ. Math. Debrecen 2
+     (1951), 103–109. MR45759
+ [4] M. Filaseta, An elementary approach to short interval results for k-free numbers, J. Number
+     Theory 30 (1988), no. 2, 208–225. MR961917
+ [5]         , Short interval results for squarefree numbers, J. Number Theory 35 (1990), no. 2,
+     128–149. MR1057318
+ [6] M. Filaseta, S. W. Graham, and O. Trifonov, Starting with gaps between k-free numbers, Int.
+     J. Number Theory 11 (2015), no. 5, 1411–1435. MR3376218
+ [7] M. Filaseta and O. Trifonov, On gaps between squarefree numbers, Analytic Number Theory
+     (Allerton Park, IL, 1989), Progr. Math., vol. 85, Birkhäuser Boston, Boston, MA, 1990,
+     pp. 235–253. MR1084183
+ [8]         , On gaps between squarefree numbers. II, J. London Math. Soc. (2) 45 (1992), no. 2,
+     215–221. MR1171549
+ [9]         , The distribution of fractional parts with applications to gap results in number theory,
+     Proc. London Math. Soc. (3) 73 (1996), no. 2, 241–278. MR1397690

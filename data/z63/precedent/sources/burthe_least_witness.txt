@@ -1,0 +1,75 @@
+SOURCE: R. J. Burthe Jr., 'Upper bounds for least witnesses and generating sets', Acta Arith. 80.4 (1997) 311-326. https://matwbn.icm.edu.pl/ksiazki/aa/aa80/aa8042.pdf (accessed 2026). Status V. (OCR: 'n(6 e) +eps' = n^{(6 sqrt e)^{-1}+eps}.)
+--- p.311-312 (intro, incl. restatement of Graham-Ringrose, Burgess, Montgomery/Bach G(n)):
+p the first quadratic non-residue mod p is Ω(log p); that is, there is a positive
+constant c such that the first quadratic non-residue mod p is greater than
+c log p for infinitely many primes p. Since the quadratic residues mod p
+cannot generate (Z/pZ)∗ , G(p) must be at least as large as the first quadratic
+non-residue mod p. Thus, G(p) = Ω(log p). Graham and Ringrose [GR]
+improved this result by showing that the first quadratic non-residue modulo
+a prime p is Ω(log p log log log p). Thus, G(p) = Ω(log p log log log p).
+    Granville has made the observation that from the Graham–Ringrose re-
+sult one can conclude that for every ε > 0 there is a positive constant kε
+and infinitely many integers x such that the number of integers n ≤ x with
+
+   1991 Mathematics Subject Classification: Primary 11A51.
+
+                                       [311]
+312                            R. J. Burthe Jr.
+
+G(n) > kε log n log log log n is at least x1−ε . To see this, note that if p is a
+prime dividing n, then G(p) ≤ G(n). This inequality follows from the fact
+that a set of generators for (Z/nZ)∗ must also be a set of generators for
+(Z/pZ)∗ . Now let c be the constant from the Graham–Ringrose result and
+let p be a prime such that G(p) ≥ c log p log log log p. Taking x = dp1/ε e,
+choosing n ≤ x such that p | n, and using the above inequality we see for x
+sufficiently large that
+            G(n) ≥ c log p log log log p > (cε/2) log x log log log x
+                 ≥ (cε/2) log n log log log n.
+Since the number of multiples of p less than or equal to x is about x/p ≥
+x/xε = x1−ε , we thus get the result.
+    A result from Burgess [Bu1] implies that for all primes p, G(p) =
+Oε (p1/4+ε ). Following the work of Ankeny in [A], Montgomery showed in
+[Mo] that the Generalized Riemann Hypothesis (GRH) implies that G(n) =
+O(log2 n). In 1990 in [B2], Bach showed, assuming the GRH, that one could
+take 3 as the implied constant and verified that G(n) ≤ 3 log2 n for all
+positive integers n ≤ 106 .
+--- p.313:
+    It is then natural to ask what can be said about the least positive witness,
+denoted by w(n), for an odd composite n. From the results previously stated,
+w(n) will be 2 for most n, but can get arbitrarily
+                                        √           large. Since every composite
+√ has a prime divisor not exceeding n, a trivial upper bound for w(n) is
+n
+   n. However, the works of Ankeny, Weinberger, Oesterlé, and Bach (see
+[B1]) show that if the Generalized Riemann Hypothesis (GRH) holds, then
+w(n) < 2 log2 n for all odd composite n. Thus, if the GRH holds we would
+have a polynomial time deterministic primality test.              √ −1
+    In this paper, we prove that for all ε > 0, w(n) = Oε (n(6 e) +ε ) for all
+odd composite n.
+    It should also be noted that a heuristic argument of the type done by
+Bach and Huelsbergen indicates that w(n) ≤ ((log 4)−1 +o(1)) log n log log n
+as n → ∞ through the odd composites and the constant (log 4)−1 is optimal.
+    Also, Alford, Granville, and Pomerance showed in [AGP] by assuming
+a version of the prime k-tuplets conjecture that the maximal order of w(n)
+exceeds α log n for some α > 0. They also give a heuristic argument that the
+maximal order of w(n) should be c log n log log n for some constant c > 0.
+They prove that w(n) > (log n)1/(3 log log log n) infinitely often.
+--- Corollary 4.3, Theorems 4.6, 4.7:
+      Corollary 4.3. For every ε > 0 and each odd composite n,
+                                                 √   −1
+                             w(n) = Oε (n(4 e)             +ε
+                                                                ).
+   Theorem 4.6. If n is an odd composite integer and if n is not the
+product of three distinct primes, then for every ε > 0,
+                                              √
+                           w(n) = Oε (n1/(8 e)+ε ).
+   Theorem 4.7. If n is an odd composite number with exactly 3 distinct
+prime factors, then for all ε > 0,
+                                              √
+                           w(n) = Oε (n1/(6 e)+ε ).
+--- refs:
+   [A]   N. A n k e n y, The least quadratic non-residue, Ann. of Math. 55 (1952), 65–72.
+  [B1]   E. B a c h, Analytic Methods in the Analysis and Design of Number-Theoretic
+         Algorithms, MIT Press, Cambridge, Mass., 1985.
+  [B2]   —, Explicit bounds for primality testing and related problems, Math. Comp. 55
+         (1990), 355–380.

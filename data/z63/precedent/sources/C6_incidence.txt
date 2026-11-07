@@ -1,0 +1,12 @@
+TOPIC C6: Szemeredi-Trotter / Beck. accessed 2026-11-07
+SRC Wikipedia raw 'Szemerédi–Trotter theorem' and 'Beck's theorem (geometry)' (V2-secondary)
+The '''Szemerédi–Trotter theorem''' is a [[mathematics|mathematical]] result in the field of [[Discrete geometry]]. It asserts that given {{mvar|n}}  [[Point (geometry)|points]] and {{mvar|m}} [[Line (geometry)|lines]] in the [[Euclidean plane]], the number of [[Incidence (geometry)|incidences]] (''i.e.'', the number of point-line pairs, such that the point lies on the line) is
+
+<math display=block>O \left ( n^{2/3} m^{2/3} + n + m \right ).</math>
+
+This bound cannot be improved, except in terms of the implicit constants in its [[big O notation]]. An equivalent formulation of the theorem is the following. Given {{mvar|n}}  points and an integer {{math|''k'' ≥ 2}}, the number of lines which pass through at least {{mvar|k}} of the points is
+===Statement===
+The theorem asserts the existence of positive constants ''C'', ''K'' such that given any ''n'' points in the plane, at least one of the following statements is true:
+
+# There is a line which contains at least ''n''/''C'' of the points.
+# There exist at least <math>n^2/K</math> lines, each of which contains at least two of the points.

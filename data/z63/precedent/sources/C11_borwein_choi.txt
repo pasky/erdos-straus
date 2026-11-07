@@ -1,0 +1,8 @@
+TOPIC C11: Borwein-Choi xy+yz+zx. accessed 2026-11-07
+SRC OEIS A025052 (V2; primary PDF blocked/captcha) https://oeis.org/A025052
+%S A025052 1,2,4,6,10,18,22,30,42,58,70,78,102,130,190,210,330,462
+%N A025052 Numbers not of form a*b + b*c + c*a for 1<=a<=b<=c (probably the list is complete).
+%C A025052 According to Borwein and Choi, if the Generalized Riemann Hypothesis is true, then this sequence has no larger terms, otherwise there may be one term greater than 10^11. - _T. D. Noe_, Apr 08 2004
+%C A025052 Note that n+1 must be prime for all n in this sequence. - _T. D. Noe_, Apr 28 2004
+%C A025052 Borwein and Choi prove (Theorem 6.2) that the equation N=xy+xz+yz has an integer solution x,y,z>0 if N contains a square factor and N is not 4 or 18. In the following simple proof explicit solutions are given. Let N=mn^2, m,n integer, m>0, n>1. If n<m+1: x=n, y=n(n-1), z=m+1-n. If n=m+1, n>3: x=6, y=n-3, z=n^2-4n+6. If n>m+1: if n=0 (mod m+1): x=m+1, y=m(m+1), z=m(n^2/(m+1)^2-1), if n=k (mod m+1), 0<k<m+1 
+Search-snippet of primary abstract (Mathdoc DML, not opened): 'We show that there are at most 19 integers that are not of the form xy+yz+xz with x,y,z >= 1. Eighteen of them are ...'
