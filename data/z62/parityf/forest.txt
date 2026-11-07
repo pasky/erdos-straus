@@ -1,0 +1,15 @@
+5 P |V|=6 |E|=5 comps=1 tree=True bad(#smaller!=1)=[] bad2=[] roots=[1] ES-edges=[(1, 2)] |S_p|=11
+13 P |V|=8 |E|=7 comps=1 tree=True bad(#smaller!=1)=[] bad2=[] roots=[1] ES-edges=[(1, 2)] |S_p|=15
+17 P |V|=10 |E|=9 comps=1 tree=True bad(#smaller!=1)=[] bad2=[] roots=[1] ES-edges=[(1, 6)] |S_p|=19
+29 P |V|=13 |E|=12 comps=1 tree=True bad(#smaller!=1)=[] bad2=[] roots=[1] ES-edges=[(1, 2), (1, 10)] |S_p|=25
+37 P |V|=10 |E|=9 comps=1 tree=True bad(#smaller!=1)=[] bad2=[] roots=[1] ES-edges=[(1, 2)] |S_p|=19
+41 P |V|=13 |E|=12 comps=1 tree=True bad(#smaller!=1)=[] bad2=[] roots=[1] ES-edges=[(1, 6), (1, 14), (3, 4)] |S_p|=25
+53 P |V|=16 |E|=15 comps=1 tree=True bad(#smaller!=1)=[] bad2=[] roots=[1] ES-edges=[(1, 2), (1, 18)] |S_p|=31
+73 P |V|=13 |E|=11 comps=2 tree=False bad(#smaller!=1)=[(4, [])] bad2=[] roots=[1, 4] ES-edges=[(2, 5)] |S_p|=23
+97 P |V|=16 |E|=15 comps=1 tree=True bad(#smaller!=1)=[] bad2=[] roots=[1] ES-edges=[(1, 14)] |S_p|=31
+193 P |V|=16 |E|=14 comps=2 tree=False bad(#smaller!=1)=[(7, [])] bad2=[] roots=[1, 7] ES-edges=[(2, 5), (2, 13)] |S_p|=29
+241 P |V|=17 |E|=15 comps=2 tree=False bad(#smaller!=1)=[(4, [])] bad2=[] roots=[1, 4] ES-edges=[(1, 22)] |S_p|=31
+409 P |V|=22 |E|=19 comps=3 tree=False bad(#smaller!=1)=[(4, []), (11, [])] bad2=[] roots=[1, 4, 11] ES-edges=[] |S_p|=39
+577 P |V|=26 |E|=22 comps=4 tree=False bad(#smaller!=1)=[(4, []), (6, []), (8, [])] bad2=[] roots=[1, 4, 6, 8] ES-edges=[] |S_p|=45
+1009 P |V|=22 |E|=21 comps=1 tree=True bad(#smaller!=1)=[] bad2=[] roots=[1] ES-edges=[(3, 44), (3, 92), (5, 26)] |S_p|=43
+5569 P |V|=33 |E|=27 comps=6 tree=False bad(#smaller!=1)=[(7, []), (8, []), (11, []), (24, []), (40, [])] bad2=[] roots=[1, 7, 8, 11, 24, 40] ES-edges=[] |S_p|=55
