@@ -1,0 +1,94 @@
+# Z62_PARITY — index / parity / fixed-point existence at a single prime (lane PARITY, wave z62)
+
+**ES is OPEN; nothing here proves or disproves it, or (MS), (MS-U₇), U₇.** Labels: PROVED / CONDITIONAL (on what) /
+CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Internal results, internally reviewed only.
+Scripts `scripts/z62_parity_*`, data `data/z62/parity/`. Brief: `z52bbriefs/z62_lanes.md` §PARITY.
+
+*Status: CHECKPOINT 1 (skeleton; pre-registered kill test in §3).*
+
+Notation as in FRONTIER §2 / `Z60_SUMMARY.md`: R(n) = #{(u,B,C) ∈ ℕ³ : 4uBC − u − B = n} ((★)); 𝔐 = {1, 121, 169, 289,
+361, 529} ⊂ (ℤ/840)^×; U₇(n): some f ≡ 7 (8) with (−n mod f) | f + 1; Z₇ = the eight composite U₇-zeros; "hard primes" =
+primes p ≡ 1 (24) (and p mod 840 ∈ 𝔐 where stated).
+
+## 0. Mandatory falsifier table (for the *framework* of §1 and the main line of §3; re-stated at the end)
+
+| screen | behaviour of a parity/index mechanism (§1) | where primality / non-squareness must enter |
+|---|---|---|
+| **F1 odd squares** | Automatic *if* the forced set Fix τ (or the critical / terminal cells) lies in certificates ∪ K: then W(m²) = 0 and the identity only says I(m²) = 0. The mechanism must therefore have I(m²) ≡ 0 and I(p) ≢ 0. | In the evaluation of the "easy side" I(p) (Zagier: #Fix σ = #{p = x(x+4z)} = 1 uses primality). Any I that is a genus-character / Jacobi expression in p is T1-compatible by construction. |
+| **F2 C-even / numerator 8** | An index whose terminal cells are certificates of a *sub-line* must not be stated uniformly in the numerator: R₈(p) = 0 at 12 primes in [10¹⁰, 1.1·10¹⁰]. An exact index with support in R₈ is refuted there (Lemma P1). | The index's support must contain the C-odd part, and the easy side must see 4 (not 8). |
+| **F3 composites** | Uniform-in-n identities: at the 285 composite R-zeros the easy side must vanish too (it may: divisor-type terms). Prime-only identities: no constraint, but then primality is used in the identity itself. | Divisor-type easy side (has extra terms at composites) or prime-only identity. |
+| **F4 known zeros** | **An exact index (no threshold) with support in (★) is refuted at the 14 (★)-zero primes** (Lemma P1). Support must be a family with no known prime zero: U₇, U_II, N_II (full Type II), full ES. | — |
+
+## 1. The framework and its necessary condition
+
+**Lemma P0 (index necessity; PROVED, elementary — generalises WINDMILL Lemma 1 and `BRAINSTORM/invol_topological.md`
+Lemma T to the cochain/Stokes form).** Let K be a finite cell complex (built from p), Cert ⊂ cells(K) a set of
+"certificate cells", each mapped to an ES certificate by Φ. Any of the following yields an integer (or F₂) weight
+w: {certificates} → ℤ with Σ_c w(c) = I(p), where I(p) is the quantity the argument evaluates:
+(a) two involutions σ, τ on a finite set S with Fix τ ⊂ Φ⁻¹(certificates) ∪ K_p (Zagier / Heath-Brown): I = |Fix σ| − |K_p| (mod 2);
+(b) a graph of max degree 2 (PPA / handshake) whose odd-degree vertices are a known set ∪ certificates: I = #known (mod 2);
+(c) a Morse matching on K whose critical cells are certificates ∪ known cells: I = χ(K) − χ_known (over ℤ, signed by dimension);
+(d) Stokes: an acyclic K, a cochain ω with δω supported on Cert, and a cycle z with ⟨ω, z⟩ = I ≠ 0: for every filling
+∂c = z, Σ_{e ∈ Cert} c(e)δω(e) = I (the weights c(e)δω(e) depend on the filling only through δω-cohomologous data);
+(e) Lefschetz–Hopf for a cellular self-map with fixed cells ⊂ Cert ∪ known: I = L(f) − (known).
+*Proof.* (a) |S| ≡ |Fix σ| ≡ |Fix τ|. (b) handshake. (c) the Morse complex has the same Euler characteristic.
+(d) I = ⟨ω, ∂c⟩ = ⟨δω, c⟩ and δω vanishes off Cert. (e) Hopf trace formula. ∎
+So **the entire content of any parity/index proof of ES at p is a weight w on certificates whose total is a computable,
+non-zero function of p** ("deterministic weighted count"). The novelty can only be in *where w comes from* (it may be
+non-local: in (b)–(d) w depends on neighbouring non-certificate cells).
+
+**Lemma P1 (exact indices must avoid families with prime zeros; PROVED).** If an identity Σ_{c ∈ 𝒜(p)} w(c) = I(p)
+holds for every prime p ≡ 1 (4) with no threshold, and I(p) ≠ 0 at every prime in a set 𝒫, then 𝒜(p) ≠ ∅ on 𝒫. Hence an
+exact index with support in (★) cannot have I ≠ 0 at the 9 (★)-zero primes in 𝔐 (data: `data/z58/screens/`), nor one with
+support in R₈ at the 4 R₈-zero primes in 𝔐 near 10¹⁰. An index argument for (MS) must either (i) carry a threshold in
+its *easy side* (I(p) = 0 for the small zeros, I(p) ≠ 0 eventually — unusual for parity identities, not excluded), or
+(ii) be supported on U₇ / U_II / full Type II / full ES. ∎ (Trivial, recorded because it fixes the admissible supports.)
+
+## 2. Precise statements attacked
+
+* **(PAR)** Find (K_p, Cert, w-source) as in Lemma P0 with I(p) ≠ 0 for all primes p ∈ 𝔐 (beyond a stated threshold)
+  and I(m²) = 0 for odd squares, with a proof of the evaluation of I. Open; this lane tests concrete new objects.
+* **Why not already closed.** Closed: finite-menu affine involutions on X(p) ((J)2 Thm 6.1, CONDITIONAL on BH); finite
+  affine group menus (Z52D_PARITY Thms C, D); fixed-feature weight dictionaries (WINDMILL §3, invol_windmill_signature
+  E1–E3, board astra-3 LP certificates); cheap signs on U₇ words (board, fable). Not closed: weights coming from
+  *non-affine geometric structure* (topograph / river / Farey complex), cochain (Stokes) forms (d), and indices supported
+  on U₇ or full Type II. These are what §3 tests.
+
+## 3. Main line and PRE-REGISTERED kill test (checkpoint 1)
+
+**Observation A (PROVED, one line; checked numerically in §4).** For (u,B,C) a (★) triple, the matrix
+γ = [[4Cu−1, p],[4C, 4CB−1]] ∈ SL₂(ℤ) is an automorph (U = 1) of the binary form F = [4C, 4C(B−u), −p], which is
+**ambiguous** (first coefficient divides the middle one), primitive, of discriminant Δ = t² − 4, t = tr γ = 4C(u+B) − 2
+(Δ = 16C²(B−u)² + 16Cp = 16C(C(u+B)² − (u+B)) because 4CuB − u − B = p). So (★) certificates are ambiguous forms of
+Richaud–Degert discriminant t² − 4 representing −p, i.e. **fixed points of Gauss's class inversion** on the topograph —
+exactly the role Zagier's τ-fixed points play. A Zagier/Legendre-type proof would need the *other* half: a finite set of
+forms/rivers on which this inversion acts, plus a second involution σ with a computable fixed set.
+
+**Main line.** Topograph/river structures attached to the certificate forms (cycle of F, its second ambiguous centre,
+principal-class membership, period parity) are the natural source of a non-local weight w in Lemma P0. If such a
+structure supported an index, some *river-weighted* certificate count would have a parity that is a function of p's
+coarse data.
+
+**KILL TEST KT1 (pre-registered before any computation).** For all primes p ≡ 1 (24), p ≤ 2·10⁵ (≈ 2 230 primes), compute
+for every unordered (★) certificate and every unordered U₇ word a battery of river weights (≥ 8 bits: cycle length of F
+mod 2, [F ~ principal], [second ambiguous centre of F's cycle has leading coefficient ≡ −1 mod 4C], [−F ~ F], period
+of the regular CF of the fixed point mod 2, and their products), giving count vectors W_w(p) mod 2. **The main line is
+DEAD if no GF(2) combination of the W_w(p), fitted on the primes ≤ 10⁵, predicts W(p) mod 2 = a function of
+p mod 840 on the held-out primes in (10⁵, 2·10⁵] with agreement > 60 %, and no single W_w is constant on the primes
+of any fixed class mod 840.** It is also DEAD if the only always-odd combinations are explained by a non-certificate
+central point (the WINDMILL §3.5 pattern).
+
+**KT2 (Legendre forced divisor; secondary).** For N_C = 4Cp + 1 (C ≤ 40), the reflection of the principal cycle of
+discriminant N_C has a second centre which (when N(ε) = +1) is an ambiguous form giving a parity-forced divisor a_C | N_C.
+Dead if the rate of a_C ≡ −1 (mod 4C) is within 3σ of the random-divisor baseline (no enrichment ⟹ the river forces a
+divisor but not its class: B2 in river coordinates).
+
+**Escape hatch to examine if KT1/KT2 kill:** (i) indices supported on U₇ / full Type II whose easy side carries the
+quadratic character (fable-2 / astra-2 remnants); (ii) the Stokes form (d) with a p-dependent acyclic complex (HJ trie /
+Farey complex), where the weights are filling-dependent and are not a fixed dictionary.
+
+## 4. Computations
+(to be filled)
+
+## 5. Verdict
+(to be filled)
