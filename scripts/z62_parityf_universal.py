@@ -8,7 +8,8 @@ from sympy import isprime
 
 def U_II(n):
     out = set()
-    for a in range(1, n+3):
+    # a and b both range to 2n+2 (symmetric); rows (1,p+d,1,1+(p+1)/d) have a up to 2n+1
+    for a in range(1, 2*n+3):
         b = 1
         while (a-1)*(b-1) <= n+1 and b <= 2*n+2:
             for g in range(1, (n+a+b)//(a*b) + 1):
