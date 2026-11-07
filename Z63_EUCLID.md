@@ -154,9 +154,11 @@ they are absent at 53 primes.
 
 **KE1 status (honest).** The registered kill (§3) asked whether every relation with c ≠ 0 is "forced", i.e. a formal
 identity holding for all n of the population, with the list to be fixed explicitly. That list was never fixed. Relations
-of type (ii) hold only on residue classes of p, so by the literal registered definition they are **not** forced. They
-link 𝒮 to 𝒦 at far more than 10 % of the registered primes (index relations at 46/46 primes ≤ 3000 with BMAX 30).
-So **KE1 did not fire as registered**. The registered follow-up ("examine for a uniform law") was carried out in a
+of type (ii) hold only on residue classes of p, so by the literal registered definition they are **not** forced.
+The raw count of index-positive inputs is 46/46 primes ≤ 3000 (BMAX 30). That count also includes the explicitly forced
+overlap identities of type (i), so it does **not** count non-forced relations. A classification and count of the
+non-forced relations was not carried out. Hence KE1's literal outcome is undetermined, and **KE1 is reported as "not
+evaluated as registered"**; it did not fire. The registered follow-up ("examine for a uniform law") was carried out in a
 post-hoc form, the height classification above. It found that every relation lives on bounded-height loops, and that
 generic loops have none. The verdict below rests on this post-hoc observation together with Prop E3, not on KE1's
 literal kill clause.
@@ -176,7 +178,8 @@ scripts/z63_euclid_hecke.py <the 89 primes p ≡ 1 (24) ≤ 6000>` → `data/z63
   at 16 tested primes 193 … 2953 (`data/z63/euclid/ke2_featurefit.txt`, raw rows with parameters). The remaining
   dimension(s) of E are not combinations of *these* features. That shows only that this feature dictionary fails, not
   that they are non-local in general; the classes are not identified.
-* *Affine dimension* of {ψ ∈ E : ψ|_𝒦 = χ|_𝒦}: 0 at 68 primes (χ is then pinned down by 𝒦 and Hecke equivariance), and
+* *Affine dimension* of {ψ ∈ E : ψ|_𝒦 = χ|_𝒦}: 0 at 68 primes (there 𝒦 and the Hecke equations determine χ, so all its
+  values, including those on generic loops, are computable by finite linear algebra), and
   1, 2, 3 at 16, 4, 1 primes. **Hecke-equivariant fakes** (ψ in this affine space with ψ = 0 on all length-3 loops)
   exist at 14/89 primes. With ψ = χ also on the low loops and ψ = 0 on the high ones, they exist at 15/89 primes.
 
@@ -219,9 +222,9 @@ witness procedures. That this specific menu fails infinitely often is an Assessm
 show that it largely **removes** the fake-cocycle obstruction: the affine space of Hecke-equivariant ψ agreeing with χ
 on 𝒦 is {χ} at 68/89 primes, and Hecke-equivariant fakes exist at only 14/89. A "Hecke-equivariant linear argument" at
 such a prime would have to prove that every admissible ψ, i.e. χ itself when the space is {χ}, is non-zero on some short
-loop. That is a reformulation of (S). The computation does not show that such a reformulation cannot be proved by
-structural means. It shows only that Hecke equivariance determines χ without, by itself, supplying its values on
-generic short loops (Assessment).
+loop. That is a reformulation of (S). At those 68/89 tested levels, 𝒦 and the Hecke equations determine χ and permit
+computation of all its values by finite linear algebra. What KE2 does **not** supply is a *uniform* proof that some
+short-loop value is non-zero. The computation does not show that such a uniform proof cannot exist (Assessment).
 
 **Remark E5 (what the Euclidean complex contributes; Assessment, with proved pieces).**
 (1) *Easy side.* The integer total φ(n)/2·[n ≠ □] is T1-native and computable (PROVED), but it is 0 mod 2 at primes
@@ -237,7 +240,8 @@ could help is not excluded here.
 ## 6. Verdict
 
 **NARROWED.** No HOT LEAD. ES, (MS), SQ₅ and (S) remain open.
-* **PROVED:** Lemma E1 (dictionary: Euclidean paths of n = loops [γ_A] in the level-n presentation complex; index
+* **PROVED:** Lemma E1 (dictionary, n ≡ 1 (4): HJ paths of n give distinguished loops [γ_A] in the level-n presentation
+  complex, not all loops; index
   χ_n(γ_A) = (A/n); χ_n ≠ 0 ⟺ n ≠ □); Lemma E2 (Hecke eigenrelation χ∘T_ℓ = (ℓ+1)χ); Prop E3 (fake-cocycle criterion)
   and Cor E3′ as scoped.
 * **CERTIFIED (§4.1):** in H₁(Γ₀(n)/±1; F₂), generic (height > HIGH) length-3 loops are F₂-independent modulo the known
@@ -246,16 +250,19 @@ could help is not excluded here.
   the controls, with rank deficit 0 in every case. This matches a random-vector null model (§4.1): finite evidence
   against structured relations, not a surprise. Index relations occur only through the low menu: at 262/267 (BMAX 30)
   and 214/267 (BMAX 10) primes.
-* **KE1:** not fired as registered (the "forced" list was never fixed, and the type-(ii) relations are not formal
-  identities in n). The post-hoc height version supports the verdict (§4.1).
-* **KE2 (secondary; CERTIFIED for 89 primes ≤ 6000):** χ_p ∈ E (dim 3 generically). Hecke equivariance pins χ down
-  (affine dimension 0 at 68/89 primes) without supplying its values on generic short loops.
-* **Precise missing lemma.** *A relation, uniform in p, in H₁(Γ₀(p); F₂) (or in another complex through which χ_p factors)
-  that links generic length-3 loops to classes of computable χ.* By Prop E3 this means an a-priori element of
-  span 𝒦(p) ∩ span 𝒞(p) with χ_p = 1, for a known set 𝒦(p) that is specified independently of the certificates.
-  Alternatively, an argument using structure beyond (1)–(2) of Cor E3′, such as Hecke structure, integer balance,
-  group generation, or the multiplicative labels u/v. For the tested 𝒦 the first option has no instances beyond the
-  bounded-height menu (§4.1).
+* **KE1:** not evaluated as registered. The "forced" list was never fixed, and the type-(ii) relations are not formal
+  identities in n. The raw 46/46 index-positive count includes forced overlap identities and does not count non-forced
+  relations. The post-hoc height version supports the verdict for the tested levels and known sets (§4.1).
+* **KE2 (secondary; CERTIFIED for 89 primes ≤ 6000):** χ_p ∈ E (dim 3 generically). At 68/89 primes, Hecke
+  equivariance plus 𝒦 determines χ, so all its values can be computed by finite linear algebra. It supplies no uniform
+  proof that some short-loop value is non-zero.
+* **Precise missing lemma (for this restricted linear approach, not a necessary condition for every proof of (S)).**
+  *A relation, uniform in p ≡ 1 (24), in H₁(Γ₀(p)/±1; F₂) (or in another complex through which χ_p factors) that links
+  generic length-3 loops to classes of computable χ.* By Prop E3 this means an a-priori element of span 𝒦(p) ∩ span 𝒞(p)
+  with χ_p = 1, for a known set 𝒦(p) that is specified independently of the certificates. Other proposed escapes use
+  structure beyond (1)–(2) of Cor E3′, such as Hecke structure, integer balance, group generation, or the multiplicative
+  labels u/v. For the tested 𝒦 and levels, the first option has no instances beyond the bounded-height menu (§4.1).
+  Enlarging 𝒦 does create relations (p = 1009, §5). No infinite failure of the low menu is proved.
 
 ## 7. Falsifier table (final; for EUC-H and Prop E3)
 
@@ -263,32 +270,37 @@ could help is not excluded here.
 |---|---|---|
 | F1 odd squares | χ_{m²} ≡ 0: no index anywhere; T1 automatic. The 58 squares tested show the same H₁-independence *behaviour* as primes. | only in χ_n ≠ 0 |
 | F2 C-even / numerator 8 | Support = all χ = −1 length-3 words (five slices), not (★) or its C-even half. (S) holds at all 12 R₈ zeros in [10¹⁰, 1.1·10¹⁰]: explicit interior χ = −1 words, `scripts/z63_euclid_r8check.py` → `data/z63/euclid/r8_zeros_S_witness.txt` (CERTIFIED). | — |
-| F3 composites | Behaves as at primes: 40 composite R-zeros and Z₇ tested, same independence. (S) has no known composite counterexample (at 105 it is vacuous: L₃ = ∅), so a non-squareness-only argument is not refuted by data. | not needed for (S) (Assessment) |
+| F3 composites | Behaves as at primes: 40 composite R-zeros and Z₇ tested, same independence. (S) has no known composite counterexample. The cross-model reviewer found explicit χ = −1 length-3 words at 284 of the 285 composite R-zeros. 105 has no L₃ word, so (S) is vacuous there and 105 has **no** certificate. A non-squareness-only argument is not refuted by data. | not needed for (S) (Assessment) |
 | F4 known zeros | (★)-zero primes 409, 577, 5569, 9601 tested, same structure. At 5569 and 9601 the BMAX-30 menu yields no index relation. (S) holds at all 14 (★)-zeros and all 38 𝔊*-zeros (≤ 10⁹ census of HJ_DEEP/R174) and at the R₈ zeros. | — |
 
 ## 8. Proposed FRONTIER text (do not edit FRONTIER here)
 
-*§6 (z63 EUCLID):* Board item astra-2 (an index on the complex of all Euclidean paths), canonical version. The HJ path of
-n/A is a loop γ_A in the presentation complex of Γ₀(n)/±1, with χ_n(γ_A) = (A/n), and χ_n ≠ 0 iff n is not a square.
+*§6 (z63 EUCLID):* Board item astra-2 (an index on the complex of all Euclidean paths), canonical version. For
+n ≡ 1 (4), the HJ path of n/A gives a distinguished loop γ_A in the presentation complex of Γ₀(n)/±1, with
+χ_n(γ_A) = (A/n), and χ_n ≠ 0 iff n is not a square.
 CERTIFIED (267 primes p ≡ 1 (24) ≤ 2·10⁴, 102 control levels; `Z63_EUCLID.md` §4): generic (height > 20 or > 60)
 length-3 loops are F₂-independent of the cusp and elliptic classes, of the loops of small A, and of the low-height
-length-3 loops. This is as expected for random vectors. By the fake-cocycle criterion (Prop E3), index arguments that
-use χ only as a class with values on such a known set can certify only bounded-height (menu) certificates. Hecke
-equivariance pins χ down (KE2) but does not supply its values on generic loops. Odd Hecke images have χ = 0 (Lemma E2).
-Reopen with a uniform relation linking generic short loops to computable classes, or with an input on the labels
-u/v ∈ (ℤ/p)^* (B2).
+length-3 loops. This is as expected for random vectors. By the fake-cocycle criterion (Prop E3), at these finite levels
+and for these known sets, index arguments that use χ only as a class with known values can certify only bounded-height
+(menu) certificates. Enlarging the known set creates relations (p = 1009), and no infinite failure of the menu is
+proved. Hecke equivariance plus the known set determines χ at 68/89 tested levels, but gives no uniform non-vanishing
+proof (KE2). Odd Hecke images have χ = 0 (Lemma E2). Possible reopenings, not necessary conditions: a uniform relation
+linking generic short loops to computable classes, or an input on the labels u/v ∈ (ℤ/p)^* (B2).
 
 ## 9. Bottom line
 
 The complex of all Euclidean paths of n exists canonically: the presentation complex of Γ₀(n)/±1, essentially the
-Farey tessellation modulo Γ₀(n). Every HJ path of n/A is a loop there, and its index is the quadratic character (A/n).
-T1 is built in: the character is trivial exactly at squares. But the loops that matter, those of length 3, carry no
-relations with the rest beyond a bounded-height menu. At every tested level, the generic length-3 loops are
+Farey tessellation modulo Γ₀(n). For n ≡ 1 (4), every HJ path of n/A gives a distinguished loop there, and its index is
+the quadratic character (A/n). T1 is built in: the character is trivial exactly at squares. But, for the tested levels
+and known sets, the loops that matter, those of length 3, carry no relations with the known part beyond a
+bounded-height menu. At every tested level, the generic length-3 loops are
 independent of the small loops, the cusp and elliptic classes, and the low-height short loops, as random vectors would
 be. By linear algebra (Prop E3), an index argument that uses χ only as a class with known values on such a set can
-therefore reach only bounded-height certificates. Adding Hecke equivariance pins χ down, but gives no new way to
-evaluate it on generic short loops. What is missing is either a uniform relation tying generic short loops to computable
-classes, or an input on the multiplicative labels u/v of the words, which is B2.
+therefore reach only bounded-height certificates there. Larger known sets do create relations (p = 1009), and no
+infinite failure of the menu is proved. Adding Hecke equivariance determines χ at most tested levels, so its values
+become computable, but this gives no uniform proof that one short-loop value is non-zero. Possible escapes, not proved
+necessary for every proof of (S): a uniform relation tying generic short loops to computable classes, or an input on the
+multiplicative labels u/v of the words, which is B2.
 
 ## 10. Internal hostile review (done) and fixes
 
@@ -307,3 +319,18 @@ Reviewer subagent (deep mode) over the commit range of this lane: 1 FATAL, 6 MAJ
   removed, coset and dimension assertions added, raw feature-fit rows saved; attribution paragraph added.
 The reviewer reproduced the H₁ runs at 2953, 9601, 1465, 2401, the Hecke runs at 409, 1009, 2017, the ψ₀ checks and the
 12 R₈ witnesses. It checked Lemmas E1 and E2 and Prop E3 / Cor E3′ (span decomposition) as correct.
+
+## 11. Cross-model review (`data/z63/xreview/REVIEW_EUCLID.md`: ACCEPT-WITH-FIXES) — fixes applied
+The reviewer independently re-derived E1, E2 and E3/E3′ and found them correct. It reproduced the ranks at five primes
+with independent code, the Hecke runs, the p = 1009 enlargement computation and the R₈ witnesses. It also verified (S)
+on all F2/F3/F4 screens, finding 284 explicit witnesses among the 285 composite zeros, with 105 vacuous.
+Required fixes applied:
+(1) Hecke: at 68/89 levels, 𝒦 and the Hecke equations determine χ and permit computation of all its values. The memo now
+says only that no *uniform* non-vanishing proof is supplied (§4.2, §5, §6, §8, §9).
+(2) Scope: §§6, 8, 9 now say "for these finite levels and known sets", keep the p = 1009 enlargement counterexample,
+note that no infinite failure of the low menu is proved, and no longer present the missing generic-loop relation as
+necessary for every approach.
+(3) KE1: kept as "not evaluated as registered". The raw 46/46 index-positive count is separated from the (unperformed)
+count of non-forced relations.
+(4) Notation: the missing lemma uses H₁(Γ₀(p)/±1; F₂). "HJ paths give distinguished loops" replaces the literal
+equivalence with loops. The n ≡ 1 (4) hypothesis is stated in the exported statements. F3 row: 105 has no certificate.
