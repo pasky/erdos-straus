@@ -26,3 +26,9 @@ instrumental.
   merges → export (summary writer → Astra FRONTIER consistency review → apply) → report.
 * Resource rules: `timeout` ≤ 1800, `ulimit -v` ≤ 6000000 (Lean: 16G cgroup); ≤ 2 compute processes per lane.
 * Quota footprint (z58): 16 Opus/Fable lanes + export ≈ 11 % of the Anthropic week.
+
+## Spending rule after z60 (user, agreed 2026-11-05)
+Waves z58–z60 re-encoded (★) in many coordinates; every encoding ended at B2. **Do not launch further re-encoding
+waves.** Spend remaining quota only on a *genuinely new* mechanism for forcing a single tied divisor event at one prime
+(something not reducible to counting / equidistribution / local-global / modular-proxy arguments already scoped in
+FRONTIER §3, §6). Current cleanest targets: (MS-U₇) and (MS⁺₁₀₅) (`Z60_SUMMARY.md` §5).
