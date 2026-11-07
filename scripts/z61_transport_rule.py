@@ -103,6 +103,10 @@ def route(n: int, src: dict, ell: int, e: int, used: set,
     for v in sorted((u, u - q), key=lambda x: (abs(x), x < 0)):
         fp = g * (h + M * R * v) - 1
         dst = column(n, fp)
+        # Guarded interpretation: reject raw proposals before factor testing.
+        # The preregistration was ambiguous here; see memo §4. In particular,
+        # n=105 has a rejected raw proposal with gcd 3, so its diagnostic is
+        # guard-dependent. The decisive n=193 prime kill is not.
         if dst is None or dst["k"] != k or dst["g"] != g:
             rejected.append(fp)
             continue
@@ -283,6 +287,8 @@ def run(out: Path, complete_limit: int):
     assert kill["route"]["status"] == "stuck"
     composite_src = column(105, 103)
     kill["no_hit_composite"] = dict(n=105, source=composite_src, ell=101, e=1,
+                                   scope="guarded implementation only; raw proposal exposes a factor",
+                                   raw_proposal=17223, raw_proposal_factor=gcd(105, 17223),
                                    route=route(105, composite_src, 101, 1, set()),
                                    independent_u7=witness(105))
     assert kill["no_hit_composite"]["route"]["status"] == "stuck"

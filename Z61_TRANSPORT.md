@@ -48,11 +48,13 @@ The sections above are the pre-test registration, committed in `347514c6`. Final
 ## 4. Verdict
 
 **Assessment: the frozen candidate is DEAD; astra-1 more generally is DORMANT, not disproved. ES remains OPEN.**
-The exact kill is **termination at an illegal STUCK endpoint**, not a failed conservation identity or an infinite loop. At n=193 the source (f,ℓ,e)=(183,173,1) has no permitted destination, even with every numerator slot initially free. The rule cannot route this token to either of the actual hits f=15 or f=103. There is also a no-hit composite failure at n=105, (f,ℓ,e)=(103,101,1). Neither failure is a timeout or matching-order artifact.
+The exact kill is **termination at an illegal STUCK endpoint**, not a failed conservation identity or an infinite loop. At n=193 the source (f,ℓ,e)=(183,173,1) has no permitted destination, even with every numerator slot initially free. The rule cannot route this token to any of the actual hits f=15,39,103. There is also a guarded-implementation no-hit composite failure at n=105, (f,ℓ,e)=(103,101,1). Neither recorded failure is a timeout or matching-order artifact, but the composite diagnostic has the guard-order qualification below.
 
 PROVED: the interior arithmetic, guarded valuation accounting and finiteness of the candidate list. **Not proved, and false as an unconditional property of this rule:** exhaustion only at a hit or a proper factor. The proposed potential therefore does not meet the requested legal-termination condition. No new moves were fitted after this kill.
 
-The n=193 example does **not** refute a lemma conditional on *absence of every hit*: that premise is false there. What it refutes is the explicitly proposed unconditional local routing rule. Salvaging an absence-dependent boundary theorem would require a new independent argument. Declaring that some remote hit must exist is exactly the excluded endpoint assumption. The n=105 test additionally shows that actual absence of hits plus availability of proper factors does not make this rule total.
+The n=193 example does **not** refute a lemma conditional on *absence of every hit*: that premise is false there. What it refutes is the explicitly proposed unconditional local routing rule. Salvaging an absence-dependent boundary theorem would require a new independent argument. Declaring that some remote hit must exist is exactly the excluded endpoint assumption. Under the implemented guard order, the n=105 test additionally shows that actual absence of hits plus availability of proper factors does not make this rule total.
+
+**Preregistration ambiguity, disclosed after hostile review:** §1 step 2 says “attempted destination,” whereas step 3 requires membership in F and the original stratum. The implementation checks those guards **before** applying destination gcd tests. The registration did not state that precedence unambiguously; it is not silently rewritten here. At n=105 the rejected raw proposal f′=17223 itself gives gcd(105,17223)=3, so testing raw proposals first would rescue that token. The composite example is therefore only a guarded-implementation diagnostic, not an interpretation-robust preregistered kill. The prime n=193 kill survives both interpretations: no raw proposal can produce a proper factor of a prime. No moves were enlarged after the kill.
 
 ## 5. What the construction genuinely establishes
 
@@ -114,7 +116,7 @@ The proposed translated f values are 45423 and −224457, both outside F. In fac
 3. At k=1 a hit would have f=193+g′ for g′|194. The divisors 1,2,97,194 give no f≡7 (mod 8).
 4. 193 is prime, so a proper-factor exit is impossible.
 
-Thus even arbitrary destinations within this source's entire (k,g) stratum and the entire k=1 reservoir cannot finish the token. The actual hits f=15 (r=2, word (2,8,13)) and f=103 (r=13) lie outside those destinations. There is no capacity contention to blame: `kill.json` starts with an empty occupied-slot set.
+Thus even arbitrary destinations within this source's entire (k,g) stratum and the entire k=1 reservoir cannot finish the token. The complete hit list f=15 (r=2, word (2,8,13)), f=39 (r=2, word (2,20,5)) and f=103 (r=13) lies outside those destinations. There is no capacity contention to blame: `kill.json` starts with an empty occupied-slot set.
 
 **Large-layer lemma (PROVED).** If n≡1 (mod 8), n≥41 and ℓ=n−20 is prime, then f=n−10 has k=2, g=1 and a=ℓ, but no nonzero numerator a_f−1 anywhere in F is divisible by ℓ.
 
@@ -133,7 +135,7 @@ A separate cross-block warning, also checked independently: the complete n=193,k
 
 Its 17-token cannot cancel or hit anywhere in that block, even if all gcd strata there are allowed. A cross-block rule is genuinely needed for some tokens; that fact does not construct one.
 
-At n=105, f=103 gives k=2,g=1,a=101. The source gcd tests are all 1; both signed interior destinations are outside F, and there is no reservoir destination. Full enumeration certifies no hit anywhere and no finite 101-numerator slot. Proper factors 3,5,7 exist, but the frozen arithmetic moves do not produce one for this token. This is a real no-hit composite failure, rather than a prime test with a false absence premise.
+At n=105, f=103 gives k=2,g=1,a=101. The source gcd tests are all 1; both signed interior proposals, 17223 and −69233, are outside F, and there is no reservoir destination. Full enumeration certifies no hit anywhere and no finite 101-numerator slot. The implementation rejects both raw proposals before factor testing. But gcd(105,17223)=3: the raw arithmetic **does** expose a factor if out-of-range proposals are allowed to terminate there. This is a genuine no-hit failure of the guarded implementation, not a robust kill under the alternative reading of §1 step 2. The final verdict relies on n=193, which is unaffected by this ambiguity.
 
 ## 6. Tests and mandatory falsifier table
 
@@ -183,7 +185,7 @@ At 169 the nonunit columns are exactly (f,a)=(39,13),(143,13),(247,39). The pref
 - `scripts/z61_transport_rule.py`: frozen arithmetic rule, exact candidate enumeration, slot accounting, source scopes and fixture runner; standard library only.
 - `scripts/z61_transport_check.py`: independent arithmetic implementation; does not import the engine. Checks archived explicit certificates, recomputes complete denominator ledgers and finite numerator capacities, multiplies the square products as exact Fractions, and proves the main kill by exhaustive permitted-destination enumeration.
 - `data/z61/transport/fixtures.jsonl`: every input, category, factorization, separate U₇ witness, scope, per-ℓ ledger, endpoint counts and up to three route examples of each kind. Metadata factorizations and independently located hits are **not** available to `route` as exits.
-- `summary.json`, `squares.json`, `kill.json`, `audit.json`: compact aggregates, square defects/flux, empty-capacity kill and independent audit.
+- `summary.json`, `squares.json`, `kill.json`, `audit.json`: compact aggregates, square defects/flux, empty-capacity prime kill plus explicitly scoped composite diagnostic, and independent audit.
 
 Commands (all computations use the prescribed limits):
 
@@ -193,8 +195,16 @@ timeout 1800 uv run --no-project python scripts/z61_transport_rule.py
 timeout 1800 uv run --no-project python scripts/z61_transport_check.py > data/z61/transport/audit.json
 ```
 
-The independent checker verifies 502 inputs, 490 explicit U₇ certificates, 12 complete U₇ zeros, 190 complete token tables, the sources and positive endpoints of 3214 stored route examples, and four exact square products. It does not independently re-enumerate every archived STUCK route: it independently establishes the two decisive prime/no-hit-composite obstructions and checks the n=53 normalization trap. The code uses bounded LRU factorization caches and per-input token/slot structures, never O(n) storage on the ≈10¹⁰ fixtures.
+The independent checker verifies 502 inputs, 490 explicit U₇ certificates, 12 complete U₇ zeros, 190 complete token tables, the sources and positive endpoints of 3214 stored route examples, and four exact square products. It does not independently re-enumerate every archived STUCK route: it independently establishes the decisive prime obstruction and the guarded-composite diagnostic, verifies that the latter has an out-of-range raw factor exit, and checks the n=53 normalization trap. The code uses bounded LRU factorization caches and per-input token/slot structures, never O(n) storage on the ≈10¹⁰ fixtures.
 
 **Assessment / stopping decision:** the constructive work produced a sound local carry, a sound boundary reservoir, and exact evidence that their union is not a factor-or-hit transport. The pre-registered kill fired well before the four-hour ceiling, so the attempt stops rather than adding adaptive moves to chase fixtures. There is no claimed new pointwise ES/U₇ mechanism. A future revival needs a genuinely new capacity-controlled gcd/quotient transition, not a renamed global hit search.
 
-Hostile review: pending at this checkpoint. No merge requested or performed.
+## 8. Hostile review and disposition
+
+Deep-mode hostile reviewer, independent of the derivation, reviewed commits `347514c6` and `c898f950`; report in `data/z61/transport/review_hostile.md`. Recommendation: **retain DEAD / DORMANT, with documentation corrections**. No fatal error found in the prime kill, conservation, reservoir completeness, 2-adic argument or large-layer lemma.
+
+Corrections applied: (1) disclosed the preregistration's factor-test/guard-order ambiguity and demoted n=105 to an interpretation-dependent diagnostic; its rejected raw proposal really yields factor 3; (2) added the omitted n=193 hit f=39. Neither changes the prime kill or routing data. No post-kill arithmetic move was added.
+
+Reviewer independently checked all category memberships, aggregates, factorizations and scopes; 2507 positive route legalities; replayed 184 complete inputs ≤2000 with identical ledgers, including 2163 nonfactor 2-tokens; checked all square ledgers and the numerator-8 control. I checked the review's two findings directly: 193=2·20·5−2−5, and gcd(105,17223)=3. The final checker also records the raw-proposal caveat explicitly. This is an internal hostile review, not external mathematical certification.
+
+**Final status: committed, reviewed, WAIT. No merge requested or performed. ES remains OPEN.**

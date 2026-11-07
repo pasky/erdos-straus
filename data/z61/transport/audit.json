@@ -6,8 +6,8 @@
     "exact_square_products": 4,
     "example_certificates": 3214,
     "fresh_U7_certificates": 490,
-    "inputs": 502,
-    "no_hit_composite_obstructions": 1
+    "guarded_composite_obstructions_with_raw_factor_exit": 1,
+    "inputs": 502
   },
   "failed_primes_le1000": [
     73,

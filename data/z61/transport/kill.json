@@ -52,6 +52,8 @@
       "status": "zero"
     },
     "n": 105,
+    "raw_proposal": 17223,
+    "raw_proposal_factor": 3,
     "route": {
       "M": 8,
       "R": 107,
@@ -65,6 +67,7 @@
       "status": "stuck",
       "u": 20
     },
+    "scope": "guarded implementation only; raw proposal exposes a factor",
     "source": {
       "a": 101,
       "f": 103,

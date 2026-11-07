@@ -126,10 +126,11 @@ def main():
     # not just the production code's selected signed representatives.
     permitted = [c for c in allcols if c["k"] == 1 or (c["k"], c["g"]) == (2, 1)]
     assert all(c["a"] != 1 for c in permitted)
-    assert col(193, 15)["a"] == col(193, 103)["a"] == 1
+    assert [c["f"] for c in allcols if c["a"] == 1] == [15, 39, 103]
     totals["capacity_free_kill_certificates"] += 1
 
-    # No-hit composite: same failure exists where Q really is positive.
+    # No-hit composite: guarded failure where Q really is positive.
+    # It is NOT a failure if raw out-of-range proposals get factor-tested.
     n, q, f = 105, 101, 103
     assert col(n, f)["a"] == q
     allcols = [c for fp in range(7, 212, 8) if (c := col(n, fp))]
@@ -137,7 +138,10 @@ def main():
     assert not [c for c in allcols if (c["a"] - 1) % q == 0]
     assert gcd(n, f) == gcd(n, 2) == gcd(n, q) == 1
     assert not [c for c in allcols if c["k"] == 1 and (c["a"] - 1) % q == 0]
-    totals["no_hit_composite_obstructions"] += 1
+    u = pow(2 * 8 * 107, -1, q)
+    raw_proposal = f + 8 * 107 * u
+    assert raw_proposal > 2 * n + 1 and gcd(n, raw_proposal) == 3
+    totals["guarded_composite_obstructions_with_raw_factor_exit"] += 1
 
     # Independent check of the normalization trap (not the frozen rule).
     assert col(53, 31) == dict(f=31, r=9, k=2, g=1, a=9)
