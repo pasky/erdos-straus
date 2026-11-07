@@ -11,6 +11,7 @@
 import sys
 from math import gcd
 from sympy import divisors, factorint, jacobi_symbol
+F13=True
 def classes(M):
     cl=set()  # (c mod D, D)
     for D in divisors(M):
@@ -33,11 +34,30 @@ def classes(M):
                 for t in divisors(4*a*a*h+1):
                     if t%4==3:
                         cl.add(((-(4*a*a*h+1)//t)%D,D,"B'"))
+            # F1: (b,e,lam) with 4be | M, lam*e | M, class mod L=lcm(4be,lam e)
+            # F3: (e,h,lam) with 4eh*lam | M
+            # handled below (outside D loop)
         elif D%4==3:
             e=(D+1)//4
             for Y in divisors(e):
                 for m in divisors(e//Y):
                     cl.add(((-Y*pow(m,-1,D))%D,D,'B'))
+    from math import lcm
+    if F13:
+        for D in divisors(M):
+            if D%4: continue
+            for b in divisors(D//4):
+                e=D//4//b   # 4be = D
+                for lam in divisors(M):
+                    if M%(lam*e): continue
+                    L=lcm(D,lam*e)
+                    for r in range((-lam)%D, L, D):
+                        if (r*b+e+lam*b)%(lam*e)==0: cl.add((r,L,'F1'))
+            for e in divisors(D//4):
+                h=D//4//e
+                for lam in divisors(M//D):
+                    for a0 in range(lam):
+                        if (4*a0*a0*h+1)%lam==0: cl.add(((4*e*h*a0-lam)%(D*lam),D*lam,'F3'))
     return cl
 def uncovered(M,cl=None):
     cl=cl if cl is not None else classes(M)
