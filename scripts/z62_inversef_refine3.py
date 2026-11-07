@@ -1,9 +1,11 @@
 # Track uncovered sub-classes of a target class a mod M0 under refinement to M = M0*k, memory O(k).
 import sys, time
+import z62_inversef_cover as ZC
 from z62_inversef_cover import classes
 from math import gcd
 M0=int(sys.argv[1]); k=int(sys.argv[2]); T=[int(x) for x in sys.argv[3].split(',')]
 M=M0*k
+if len(sys.argv)>4 and sys.argv[4]=='5': ZC.F13=False   # 4th arg '5' = five families (A),(B),(C),(A'),(B') only; default seven
 t0=time.time(); cl=classes(M); t1=time.time()
 print(f"M={M} classes={len(cl)} ({t1-t0:.0f}s)")
 for a in T:

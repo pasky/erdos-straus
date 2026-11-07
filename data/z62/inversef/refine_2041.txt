@@ -1,5 +1,6 @@
 # uncovered sub-classes of the non-square class 2041 mod 9240 (= 361 mod 840, QNR mod 11) under refinement M = 9240*k
-# (all five identity families, every modulus D | M). script: z62_inversef_refine3.py 9240 k 2041
+# FIVE families (A),(B),(C),(A'),(B'), every modulus D | M.  Exact command (from scripts/): python z62_inversef_refine3.py 9240 k 2041 5
+# (the first row, k=1, is from: python z62_inversef_cover.py 9240 with F13=False, i.e. 1126 classes)
 # k            M              #identity classes   uncovered / coprime sub-classes   fraction
 1              9240           1126                1 / 1                              1
 2730           25225200       134289              56 / 2520                          0.0222
@@ -7,5 +8,5 @@
 10581480       97772875200    13413339            3727 / 8709120                     0.0004
 # count GROWS, fraction shrinks: no finite exact cover found; cf. memo §6.
 #
-# WITH the two extra families F1, F3 (t varying with p) added (z62_inversef_cover.py F13=True), k=2730, M=25225200, 191465 classes:
+# SEVEN families (F1, F3 added; default of the scripts): python z62_inversef_refine3.py 9240 2730 2041,2521,3361,5161   -> M=25225200, 191465 classes:
 # class 2041: 36/2520 uncovered (0.0143); 2521: 23/2520; 3361: 51/2520; 5161: 18/2520.   Still no exact cover.
