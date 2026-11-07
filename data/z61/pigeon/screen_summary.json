@@ -1,0 +1,30 @@
+{
+  "composite_zeros_le8e6.txt": {
+    "count": 285,
+    "hits": 284,
+    "ph_at_first": 202,
+    "max_rho_star": 51,
+    "max_even_d_rho": 0
+  },
+  "gstar_zeros.txt": {
+    "count": 38,
+    "hits": 38,
+    "ph_at_first": 36,
+    "max_rho_star": 23,
+    "max_even_d_rho": 0
+  },
+  "r8_zeros_1e10.txt": {
+    "count": 12,
+    "hits": 12,
+    "ph_at_first": 12,
+    "max_rho_star": 15,
+    "max_even_d_rho": 31
+  },
+  "star_prime_zeros.txt": {
+    "count": 14,
+    "hits": 14,
+    "ph_at_first": 13,
+    "max_rho_star": 23,
+    "max_even_d_rho": 0
+  }
+}

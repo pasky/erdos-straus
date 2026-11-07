@@ -1,0 +1,9546 @@
+[
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 409,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      8
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        8
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 577,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      29
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        29
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 5569,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      41
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        41
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 9601,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 19,
+    "witness": [
+      1,
+      37,
+      2,
+      65
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 18,
+      "ph": false,
+      "collision": [
+        1,
+        5,
+        6,
+        8,
+        11,
+        13,
+        14,
+        18
+      ],
+      "unit_witness": [
+        1,
+        37,
+        2,
+        65
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 23929,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      176
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        176
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 83449,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 11,
+    "witness": [
+      1,
+      65,
+      6,
+      321
+    ],
+    "level": {
+      "occupancy": 10,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unit_witness": [
+        1,
+        65,
+        6,
+        321
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 102001,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 7,
+    "witness": [
+      1,
+      41,
+      6,
+      622
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        41,
+        6,
+        622
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 329617,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      16481
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        16481
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 712321,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 23,
+    "witness": [
+      1,
+      59362,
+      2581,
+      3
+    ],
+    "level": {
+      "occupancy": 14,
+      "phi": 22,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        6,
+        10,
+        11,
+        12,
+        13,
+        17,
+        20,
+        21,
+        22
+      ],
+      "unit_witness": [
+        1,
+        59362,
+        2581,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 1134241,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 3,
+    "witness": [
+      1,
+      233,
+      78,
+      1217
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        233,
+        78,
+        1217
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 1724209,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      33158
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        33158
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 1726201,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 23,
+    "witness": [
+      4,
+      107889,
+      4691,
+      1
+    ],
+    "level": {
+      "occupancy": 12,
+      "phi": 22,
+      "ph": true,
+      "collision": [
+        4,
+        19
+      ],
+      "unit_witness": [
+        4,
+        107889,
+        4691,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 5212561,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 11,
+    "witness": [
+      183,
+      7121,
+      664,
+      1
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        4,
+        7
+      ],
+      "unit_witness": [
+        183,
+        7121,
+        664,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "star_prime_zeros.txt",
+    "n": 8813281,
+    "source_sha256": "20c24ae6c8526cdb534e5f36c9594b9ef8a4aa83f9803fbba6ea70b754fedeb6",
+    "rho": 3,
+    "witness": [
+      1,
+      281,
+      94,
+      7841
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        281,
+        94,
+        7841
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 37,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      2,
+      1,
+      5
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        2,
+        1,
+        5
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 157,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      2,
+      1,
+      20
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        2,
+        1,
+        20
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 409,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      8
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        8
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 577,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      29
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        29
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 1621,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      2,
+      1,
+      203
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        2,
+        1,
+        203
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 4357,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      2,
+      1,
+      545
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        2,
+        1,
+        545
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 5569,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      41
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        41
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 9601,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 19,
+    "witness": [
+      1,
+      37,
+      2,
+      65
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 18,
+      "ph": false,
+      "collision": [
+        1,
+        5,
+        6,
+        8,
+        11,
+        13,
+        14,
+        18
+      ],
+      "unit_witness": [
+        1,
+        37,
+        2,
+        65
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 12301,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      2,
+      1,
+      1538
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        2,
+        1,
+        1538
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 23041,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 11,
+    "witness": [
+      1,
+      5763,
+      524,
+      1
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        10
+      ],
+      "unit_witness": [
+        1,
+        5763,
+        524,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 23929,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      176
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        176
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 26209,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 11,
+    "witness": [
+      1,
+      285,
+      26,
+      23
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        10
+      ],
+      "unit_witness": [
+        1,
+        285,
+        26,
+        23
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 60217,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      3011
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        3011
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 83449,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 11,
+    "witness": [
+      1,
+      65,
+      6,
+      321
+    ],
+    "level": {
+      "occupancy": 10,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unit_witness": [
+        1,
+        65,
+        6,
+        321
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 98017,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      4901
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        4901
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 102001,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 7,
+    "witness": [
+      1,
+      41,
+      6,
+      622
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        41,
+        6,
+        622
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 184837,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      2,
+      1,
+      23105
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        2,
+        1,
+        23105
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 329617,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      16481
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        16481
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 330697,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      16535
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        16535
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 434437,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      2,
+      1,
+      54305
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        2,
+        1,
+        54305
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 560641,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 11,
+    "witness": [
+      3,
+      19,
+      2,
+      2459
+    ],
+    "level": {
+      "occupancy": 7,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        3,
+        4,
+        7,
+        8
+      ],
+      "unit_witness": [
+        3,
+        19,
+        2,
+        2459
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 571741,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      2,
+      1,
+      71468
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        2,
+        1,
+        71468
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 597577,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      29879
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        29879
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 706801,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 11,
+    "witness": [
+      1,
+      176703,
+      16064,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 10,
+      "ph": false,
+      "collision": [
+        1,
+        10
+      ],
+      "unit_witness": [
+        1,
+        176703,
+        16064,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 712321,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 23,
+    "witness": [
+      1,
+      59362,
+      2581,
+      3
+    ],
+    "level": {
+      "occupancy": 14,
+      "phi": 22,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        6,
+        10,
+        11,
+        12,
+        13,
+        17,
+        20,
+        21,
+        22
+      ],
+      "unit_witness": [
+        1,
+        59362,
+        2581,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 963481,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 11,
+    "witness": [
+      51,
+      4723,
+      434,
+      1
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        4,
+        7
+      ],
+      "unit_witness": [
+        51,
+        4723,
+        434,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 1105441,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 11,
+    "witness": [
+      1,
+      276363,
+      25124,
+      1
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        10
+      ],
+      "unit_witness": [
+        1,
+        276363,
+        25124,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 1134241,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      233,
+      78,
+      1217
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        233,
+        78,
+        1217
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 1724209,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      33158
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        33158
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 1726201,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 23,
+    "witness": [
+      4,
+      107889,
+      4691,
+      1
+    ],
+    "level": {
+      "occupancy": 12,
+      "phi": 22,
+      "ph": true,
+      "collision": [
+        4,
+        19
+      ],
+      "unit_witness": [
+        4,
+        107889,
+        4691,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 2094481,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 11,
+    "witness": [
+      3,
+      503,
+      46,
+      347
+    ],
+    "level": {
+      "occupancy": 7,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        3,
+        4,
+        7,
+        8
+      ],
+      "unit_witness": [
+        3,
+        503,
+        46,
+        347
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 4617649,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 7,
+    "witness": [
+      1,
+      24562,
+      3509,
+      47
+    ],
+    "level": {
+      "occupancy": 5,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        24562,
+        3509,
+        47
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 5212561,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 11,
+    "witness": [
+      183,
+      7121,
+      664,
+      1
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        4,
+        7
+      ],
+      "unit_witness": [
+        183,
+        7121,
+        664,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 8813281,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 3,
+    "witness": [
+      1,
+      281,
+      94,
+      7841
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        281,
+        94,
+        7841
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 11814001,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 7,
+    "witness": [
+      1,
+      2953502,
+      421929,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        2953502,
+        421929,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 20445289,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 11,
+    "witness": [
+      1,
+      113585,
+      10326,
+      45
+    ],
+    "level": {
+      "occupancy": 10,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unit_witness": [
+        1,
+        113585,
+        10326,
+        45
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 85664329,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 15,
+    "witness": [
+      2,
+      313,
+      21,
+      34211
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        2,
+        7,
+        8,
+        13
+      ],
+      "unit_witness": [
+        2,
+        313,
+        21,
+        34211
+      ]
+    }
+  },
+  {
+    "screen": "gstar_zeros.txt",
+    "n": 564661441,
+    "source_sha256": "dab76e487e38dbe96bcd553396eefa13705c17ab88e61b98e37ab58942f65afe",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      10858874
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        10858874
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 57,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 105,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      3
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 177,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      9
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        9
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 249,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      7
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 345,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      29,
+      10,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        29,
+        10,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 465,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      13
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 777,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      39
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        39
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 801,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      202,
+      29,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        202,
+        29,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 969,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      27
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1345,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      26
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        26
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1465,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      3,
+      41,
+      4,
+      3
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        2,
+        3,
+        8,
+        9
+      ],
+      "unit_witness": [
+        3,
+        41,
+        4,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1617,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      81
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        81
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1761,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      49
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1809,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      454,
+      65,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        454,
+        65,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1905,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      53,
+      18,
+      9
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        53,
+        18,
+        9
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1969,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      29
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        29
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2305,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      17
+    ],
+    "level": {
+      "occupancy": 5,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        17
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2457,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      123
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        123
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2641,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 23,
+    "witness": [
+      1,
+      666,
+      29,
+      1
+    ],
+    "level": {
+      "occupancy": 12,
+      "phi": 22,
+      "ph": true,
+      "collision": [
+        1,
+        5,
+        9,
+        14,
+        18,
+        22
+      ],
+      "unit_witness": [
+        1,
+        666,
+        29,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2737,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      137
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        137
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2929,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      734,
+      105,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        734,
+        105,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3369,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      281,
+      94,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        281,
+        94,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3705,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      103
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3865,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      3,
+      19,
+      2,
+      17
+    ],
+    "level": {
+      "occupancy": 7,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        3,
+        4,
+        7,
+        8
+      ],
+      "unit_witness": [
+        3,
+        19,
+        2,
+        17
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 4545,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "exhaustive_zero_bound": 1516
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 5097,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      255
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        255
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 5161,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      38
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        38
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 5481,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      7,
+      7,
+      2,
+      28
+    ],
+    "level": {
+      "occupancy": 3,
+      "phi": 6,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 7641,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      1913,
+      174,
+      1
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 10,
+      "ph": false,
+      "collision": [
+        1,
+        10
+      ],
+      "unit_witness": [
+        1,
+        1913,
+        174,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 8529,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      237
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 8745,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      243
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 9145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      176
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        176
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 9177,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      459
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        459
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 10089,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      29,
+      10,
+      87
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        29,
+        10,
+        87
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 10305,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      2,
+      43,
+      3,
+      30
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        2,
+        4,
+        11,
+        13
+      ],
+      "unit_witness": [
+        2,
+        43,
+        3,
+        30
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 10465,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      77
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        77
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 12001,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      3002,
+      429,
+      1
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        3002,
+        429,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 12105,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 23,
+    "witness": [
+      1,
+      758,
+      33,
+      4
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 22,
+      "ph": false,
+      "collision": [
+        1,
+        2,
+        4,
+        19,
+        21,
+        22
+      ],
+      "unit_witness": [
+        1,
+        758,
+        33,
+        4
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 12145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      62,
+      9,
+      49
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        62,
+        9,
+        49
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 12681,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      244
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        244
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 12705,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      353,
+      118,
+      9
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        353,
+        118,
+        9
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 13041,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      13,
+      251,
+      24,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 10,
+      "ph": false,
+      "collision": [
+        2,
+        9
+      ],
+      "unit_witness": [
+        13,
+        251,
+        24,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 13737,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      687
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        687
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 14505,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      403
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 15145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 23,
+    "witness": [
+      1,
+      1264,
+      55,
+      3
+    ],
+    "level": {
+      "occupancy": 16,
+      "phi": 22,
+      "ph": true,
+      "collision": [
+        1,
+        3,
+        6,
+        7,
+        11,
+        12,
+        16,
+        17,
+        20,
+        22
+      ],
+      "unit_witness": [
+        1,
+        1264,
+        55,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 15369,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      427
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 18001,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      3,
+      19,
+      2,
+      79
+    ],
+    "level": {
+      "occupancy": 7,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        3,
+        5,
+        6,
+        8
+      ],
+      "unit_witness": [
+        3,
+        19,
+        2,
+        79
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 18361,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      41,
+      6,
+      112
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        41,
+        6,
+        112
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 20337,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      1017
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        1017
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 20601,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      303
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        303
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 22809,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      1901,
+      634,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        1901,
+        634,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 23425,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      202,
+      29,
+      29
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        202,
+        29,
+        29
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 23881,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      29,
+      2,
+      206
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        11,
+        13,
+        14
+      ],
+      "unit_witness": [
+        1,
+        29,
+        2,
+        206
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 24921,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      41,
+      6,
+      152
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        41,
+        6,
+        152
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 25441,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      6362,
+      909,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        6362,
+        909,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 26169,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      727
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 27825,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      773,
+      258,
+      9
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        773,
+        258,
+        9
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 29425,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      566
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        566
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 32049,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      8014,
+      1145,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        8014,
+        1145,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 34041,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      2837,
+      946,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        2837,
+        946,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 34489,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      7,
+      7,
+      2,
+      176
+    ],
+    "level": {
+      "occupancy": 3,
+      "phi": 6,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 35745,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      993
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 36841,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      188,
+      27,
+      49
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        188,
+        27,
+        49
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 39361,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      1406,
+      201,
+      7
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        1406,
+        201,
+        7
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 40425,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      1123
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 44145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      11038,
+      1577,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        11038,
+        1577,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 44961,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      1249
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 45705,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      293,
+      98,
+      39
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        293,
+        98,
+        39
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 48057,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      2403
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        2403
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 49569,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      729
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        729
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 50697,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      2535
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        2535
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 51129,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      376
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        376
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 56841,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      1579
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 57841,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 23,
+    "witness": [
+      1,
+      14466,
+      629,
+      1
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 22,
+      "ph": false,
+      "collision": [
+        1,
+        22
+      ],
+      "unit_witness": [
+        1,
+        14466,
+        629,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 59721,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      1659
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 60729,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      1687
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 63609,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      1767
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 65529,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      3277,
+      298,
+      5
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        10
+      ],
+      "unit_witness": [
+        1,
+        3277,
+        298,
+        5
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 65577,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      3279
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        3279
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 66105,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      29,
+      2,
+      570
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14
+      ],
+      "unit_witness": [
+        1,
+        29,
+        2,
+        570
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 66825,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      16708,
+      2387,
+      1
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        16708,
+        2387,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 67425,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      1873
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 67497,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      3375
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        3375
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 68145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      1893
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 70345,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      3,
+      41,
+      4,
+      143
+    ],
+    "level": {
+      "occupancy": 7,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        3,
+        5,
+        6,
+        8
+      ],
+      "unit_witness": [
+        3,
+        41,
+        4,
+        143
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 70665,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      1963
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 77625,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 19,
+    "witness": [
+      1,
+      2773,
+      146,
+      7
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 18,
+      "ph": false,
+      "collision": [
+        1,
+        7,
+        12,
+        18
+      ],
+      "unit_witness": [
+        1,
+        2773,
+        146,
+        7
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 78729,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      2187
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 82225,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      20558,
+      2937,
+      1
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        20558,
+        2937,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 84049,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      3002,
+      429,
+      7
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        3002,
+        429,
+        7
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 86769,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 19,
+    "witness": [
+      1,
+      21697,
+      1142,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 18,
+      "ph": false,
+      "collision": [
+        1,
+        18
+      ],
+      "unit_witness": [
+        1,
+        21697,
+        1142,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 90889,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      1748
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        1748
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 95505,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      2653
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 101601,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      1954
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        1954
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 109881,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      808
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        808
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 110425,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      812
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        812
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 112849,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      89,
+      30,
+      317
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        89,
+        30,
+        317
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 115465,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      5774,
+      385,
+      5
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 8,
+      "ph": false,
+      "collision": [
+        1,
+        14
+      ],
+      "unit_witness": [
+        1,
+        5774,
+        385,
+        5
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 133065,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      1957,
+      178,
+      17
+    ],
+    "level": {
+      "occupancy": 7,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        5,
+        6,
+        10
+      ],
+      "unit_witness": [
+        1,
+        1957,
+        178,
+        17
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 133345,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      1961
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        1961
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 137817,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      6891
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        6891
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 138777,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      6939
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        6939
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 140745,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      317,
+      106,
+      111
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        317,
+        106,
+        111
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 141177,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      7059
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        7059
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 141345,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 27,
+    "witness": [
+      3,
+      51,
+      2,
+      231
+    ],
+    "level": {
+      "occupancy": 7,
+      "phi": 18,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 147345,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      4093
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 147609,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      5,
+      61,
+      6,
+      121
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 10,
+      "ph": false,
+      "collision": [
+        5,
+        6
+      ],
+      "unit_witness": [
+        5,
+        61,
+        6,
+        121
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 150705,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      314,
+      21,
+      120
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14
+      ],
+      "unit_witness": [
+        1,
+        314,
+        21,
+        120
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 171865,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      41,
+      6,
+      1048
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        41,
+        6,
+        1048
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 179361,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      74,
+      5,
+      606
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14
+      ],
+      "unit_witness": [
+        1,
+        74,
+        5,
+        606
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 185049,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      46265,
+      4206,
+      1
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        10
+      ],
+      "unit_witness": [
+        1,
+        46265,
+        4206,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 189465,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      5263
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 193257,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      9663
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        9663
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 196065,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      1634,
+      109,
+      30
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14
+      ],
+      "unit_witness": [
+        1,
+        1634,
+        109,
+        30
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 197289,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      41,
+      14,
+      1203
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        41,
+        14,
+        1203
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 198345,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      16529,
+      5510,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        16529,
+        5510,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 199369,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      1466
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        1466
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 200049,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      5557
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 202689,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      3898
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        3898
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 210105,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      7,
+      7,
+      2,
+      1072
+    ],
+    "level": {
+      "occupancy": 3,
+      "phi": 6,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 221137,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      11057
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        11057
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 224721,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 19,
+    "witness": [
+      1,
+      3305,
+      174,
+      17
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 18,
+      "ph": false,
+      "collision": [
+        1,
+        2,
+        17,
+        18
+      ],
+      "unit_witness": [
+        1,
+        3305,
+        174,
+        17
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 227409,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      6317,
+      2106,
+      9
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        6317,
+        2106,
+        9
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 229449,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      19121,
+      6374,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        19121,
+        6374,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 235305,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      74,
+      5,
+      795
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        7,
+        8,
+        14
+      ],
+      "unit_witness": [
+        1,
+        74,
+        5,
+        795
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 236337,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      11817
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        11817
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 236649,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      41,
+      14,
+      1443
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        41,
+        14,
+        1443
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 240265,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      12014,
+      801,
+      5
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 8,
+      "ph": false,
+      "collision": [
+        1,
+        14
+      ],
+      "unit_witness": [
+        1,
+        12014,
+        801,
+        5
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 248689,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      8882,
+      1269,
+      7
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        8882,
+        1269,
+        7
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 252025,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 19,
+    "witness": [
+      1,
+      37,
+      2,
+      1703
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 18,
+      "ph": false,
+      "collision": [
+        1,
+        2,
+        6,
+        7,
+        12,
+        13,
+        17,
+        18
+      ],
+      "unit_witness": [
+        1,
+        37,
+        2,
+        1703
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 267225,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      7423
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 268345,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      3,
+      19,
+      2,
+      1177
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        2,
+        3,
+        8,
+        9
+      ],
+      "unit_witness": [
+        3,
+        107,
+        10,
+        209
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 274705,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      3,
+      7631,
+      694,
+      3
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        2,
+        3,
+        4,
+        7,
+        8,
+        9
+      ],
+      "unit_witness": [
+        9,
+        13,
+        2,
+        587
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 286825,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      5516
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        5516
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 292617,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      14631
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        14631
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 301329,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      2,
+      5381,
+      769,
+      7
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        2,
+        5
+      ],
+      "unit_witness": [
+        2,
+        5381,
+        769,
+        7
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 309249,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      62,
+      9,
+      1247
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        62,
+        9,
+        1247
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 314505,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 51,
+    "witness": [
+      1,
+      26213,
+      514,
+      3
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 32,
+      "ph": false,
+      "collision": [
+        1,
+        50
+      ],
+      "unit_witness": [
+        1,
+        26213,
+        514,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 318465,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      517,
+      74,
+      154
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        517,
+        74,
+        154
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 327705,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      9103
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 341145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      29,
+      2941,
+      270,
+      1
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        4,
+        7
+      ],
+      "unit_witness": [
+        29,
+        2941,
+        270,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 343161,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      1532,
+      219,
+      56
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        1532,
+        219,
+        56
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 345361,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      1693,
+      154,
+      51
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10
+      ],
+      "unit_witness": [
+        1,
+        1693,
+        154,
+        51
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 349545,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      29129,
+      9710,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        29129,
+        9710,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 349609,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      87405,
+      7946,
+      1
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        3,
+        4,
+        7,
+        8,
+        10
+      ],
+      "unit_witness": [
+        1,
+        87405,
+        7946,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 350065,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      1094,
+      73,
+      80
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14
+      ],
+      "unit_witness": [
+        1,
+        1094,
+        73,
+        80
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 362905,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      153,
+      14,
+      593
+    ],
+    "level": {
+      "occupancy": 10,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "unit_witness": [
+        1,
+        153,
+        14,
+        593
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 392505,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      10903
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 400065,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      11113
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 414225,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      7966
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        7966
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 424105,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      8156
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        8156
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 457977,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      22899
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        22899
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 474777,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      23739
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        23739
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 497049,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      13807
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 499425,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      13873
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 506025,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 19,
+    "witness": [
+      1,
+      341,
+      18,
+      371
+    ],
+    "level": {
+      "occupancy": 12,
+      "phi": 18,
+      "ph": true,
+      "collision": [
+        1,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        15,
+        18
+      ],
+      "unit_witness": [
+        1,
+        341,
+        18,
+        371
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 510169,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 35,
+    "witness": [
+      3,
+      697,
+      20,
+      61
+    ],
+    "level": {
+      "occupancy": 14,
+      "phi": 24,
+      "ph": true,
+      "collision": [
+        3,
+        8,
+        13,
+        17,
+        18,
+        22,
+        27,
+        32
+      ],
+      "unit_witness": [
+        3,
+        697,
+        20,
+        61
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 536697,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      26835
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        26835
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 539281,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      29,
+      10,
+      4649
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        29,
+        10,
+        4649
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 545217,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      27261
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        27261
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 546025,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      136509,
+      12410,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 10,
+      "ph": false,
+      "collision": [
+        1,
+        10
+      ],
+      "unit_witness": [
+        1,
+        136509,
+        12410,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 559881,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      569,
+      38,
+      246
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14
+      ],
+      "unit_witness": [
+        1,
+        569,
+        38,
+        246
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 573489,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      209,
+      30,
+      686
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        209,
+        30,
+        686
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 575065,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      143769,
+      13070,
+      1
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        10
+      ],
+      "unit_witness": [
+        1,
+        143769,
+        13070,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 594057,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      29703
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        29703
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 635289,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      17647
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 648145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 23,
+    "witness": [
+      2,
+      113,
+      5,
+      717
+    ],
+    "level": {
+      "occupancy": 16,
+      "phi": 22,
+      "ph": true,
+      "collision": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        15,
+        17,
+        18,
+        19,
+        21
+      ],
+      "unit_witness": [
+        2,
+        113,
+        5,
+        717
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 648225,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      12466
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        12466
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 656425,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 23,
+    "witness": [
+      1,
+      4208,
+      183,
+      39
+    ],
+    "level": {
+      "occupancy": 22,
+      "phi": 22,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unit_witness": [
+        1,
+        4208,
+        183,
+        39
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 677169,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      169294,
+      24185,
+      1
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        169294,
+        24185,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 680865,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      18913
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 700161,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      19449
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 711265,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      41,
+      14,
+      4337
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        41,
+        14,
+        4337
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 748489,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      41,
+      6,
+      4564
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        41,
+        6,
+        4564
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 752257,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      37613
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        37613
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 780409,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      15008
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        15008
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 788865,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      11601
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        11601
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 810001,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      146,
+      21,
+      1387
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        146,
+        21,
+        1387
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 810489,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      11919
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        11919
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 837505,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      16106
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        16106
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 844809,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      23467
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 861897,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      43095
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        43095
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 876129,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      24337
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 897961,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 31,
+    "witness": [
+      2,
+      112249,
+      3621,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 30,
+      "ph": false,
+      "collision": [
+        2,
+        29
+      ],
+      "unit_witness": [
+        2,
+        112249,
+        3621,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 931777,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      46589
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        46589
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 966465,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      18586
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        18586
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 973809,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 27,
+    "witness": [
+      1,
+      9017,
+      334,
+      27
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 18,
+      "ph": false,
+      "collision": [
+        1,
+        26
+      ],
+      "unit_witness": [
+        1,
+        9017,
+        334,
+        27
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 997425,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 23,
+    "witness": [
+      2,
+      124681,
+      5421,
+      1
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 22,
+      "ph": false,
+      "collision": [
+        2,
+        5,
+        10,
+        13,
+        18,
+        21
+      ],
+      "unit_witness": [
+        2,
+        124681,
+        5421,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1024065,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      36574,
+      5225,
+      7
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        36574,
+        5225,
+        7
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1025145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 19,
+    "witness": [
+      1,
+      13489,
+      710,
+      19
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 18,
+      "ph": false,
+      "collision": [
+        1,
+        18
+      ],
+      "unit_witness": [
+        1,
+        13489,
+        710,
+        19
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1054977,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      52749
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        52749
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1055265,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      3257,
+      1086,
+      81
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        3257,
+        1086,
+        81
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1055841,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      29329
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1068145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 19,
+    "witness": [
+      97,
+      2753,
+      150,
+      1
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 18,
+      "ph": false,
+      "collision": [
+        2,
+        17
+      ],
+      "unit_witness": [
+        97,
+        2753,
+        150,
+        1
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1080345,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      197,
+      66,
+      1371
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        197,
+        66,
+        1371
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1082697,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      54135
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        54135
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1140777,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      57039
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        57039
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1147065,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      31863
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1167345,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      41,
+      6,
+      7118
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        41,
+        6,
+        7118
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1181961,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      62,
+      9,
+      4766
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        62,
+        9,
+        4766
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1214409,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      17859
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        17859
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1240449,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      34457,
+      11486,
+      9
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        34457,
+        11486,
+        9
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1244265,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      41,
+      14,
+      7587
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        41,
+        14,
+        7587
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1250361,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      29,
+      10,
+      10779
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        29,
+        10,
+        10779
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1266265,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      63314,
+      4221,
+      5
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 8,
+      "ph": false,
+      "collision": [
+        1,
+        14
+      ],
+      "unit_witness": [
+        1,
+        63314,
+        4221,
+        5
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1295025,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      35973
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1366305,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      4217,
+      1406,
+      81
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        4217,
+        1406,
+        81
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1367817,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      68391
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        68391
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1392825,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      3137,
+      1046,
+      111
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        3137,
+        1046,
+        111
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1440825,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      40023
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1451145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      120929,
+      40310,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        120929,
+        40310,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1458345,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      53,
+      18,
+      6879
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        53,
+        18,
+        6879
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1530201,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      22503
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        22503
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1536249,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      128021,
+      42674,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        128021,
+        42674,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1562121,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      356,
+      51,
+      1097
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        356,
+        51,
+        1097
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1611729,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      11851
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        11851
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1650609,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 23,
+    "witness": [
+      1,
+      229,
+      10,
+      1802
+    ],
+    "level": {
+      "occupancy": 16,
+      "phi": 22,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        19,
+        21,
+        22
+      ],
+      "unit_witness": [
+        1,
+        229,
+        10,
+        1802
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1672737,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      83637
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        83637
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1693881,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      76,
+      11,
+      5572
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        76,
+        11,
+        5572
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1722865,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      5384,
+      359,
+      80
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14
+      ],
+      "unit_witness": [
+        1,
+        5384,
+        359,
+        80
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1734537,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      86727
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        86727
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1758705,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      48853
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1816161,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      50449
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1860777,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      93039
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        93039
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1879689,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      156641,
+      52214,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        156641,
+        52214,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1881825,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      52273
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1905729,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      52937,
+      17646,
+      9
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        52937,
+        17646,
+        9
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1966281,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      54619
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 1976121,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 23,
+    "witness": [
+      1,
+      123509,
+      5370,
+      4
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 22,
+      "ph": false,
+      "collision": [
+        1,
+        2,
+        4,
+        19,
+        21,
+        22
+      ],
+      "unit_witness": [
+        1,
+        123509,
+        5370,
+        4
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2052897,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      102645
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        102645
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2073705,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      57603
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2089929,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      13397,
+      4466,
+      39
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        13397,
+        4466,
+        39
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2092209,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      89,
+      30,
+      5877
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        89,
+        30,
+        5877
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2132865,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      7,
+      7,
+      2,
+      10882
+    ],
+    "level": {
+      "occupancy": 3,
+      "phi": 6,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2163249,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      9833,
+      894,
+      55
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 10,
+      "ph": false,
+      "collision": [
+        1,
+        5,
+        6,
+        10
+      ],
+      "unit_witness": [
+        1,
+        9833,
+        894,
+        55
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2172249,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      108613,
+      9874,
+      5
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        5,
+        6,
+        10
+      ],
+      "unit_witness": [
+        1,
+        108613,
+        9874,
+        5
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2231425,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      79694,
+      11385,
+      7
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        6
+      ],
+      "unit_witness": [
+        1,
+        79694,
+        11385,
+        7
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2264265,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      188,
+      27,
+      3011
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        188,
+        27,
+        3011
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2482305,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      53,
+      18,
+      11709
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        53,
+        18,
+        11709
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2524641,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      70129
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2694825,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 23,
+    "witness": [
+      1,
+      1264,
+      55,
+      533
+    ],
+    "level": {
+      "occupancy": 22,
+      "phi": 22,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "unit_witness": [
+        1,
+        1264,
+        55,
+        533
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2750841,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 19,
+    "witness": [
+      5,
+      2807,
+      148,
+      49
+    ],
+    "level": {
+      "occupancy": 12,
+      "phi": 18,
+      "ph": true,
+      "collision": [
+        2,
+        3,
+        5,
+        14,
+        16,
+        17
+      ],
+      "unit_witness": [
+        245,
+        401,
+        34,
+        7
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2753625,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      229469,
+      76490,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        229469,
+        76490,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2909817,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      145491
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        145491
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2917209,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      243101,
+      81034,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        243101,
+        81034,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2938377,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      146919
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        146919
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2956321,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      8594,
+      573,
+      86
+    ],
+    "level": {
+      "occupancy": 7,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        11,
+        13,
+        14
+      ],
+      "unit_witness": [
+        1,
+        8594,
+        573,
+        86
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 2999409,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      44109
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        44109
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3017889,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      2,
+      53891,
+      7699,
+      7
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        2,
+        5
+      ],
+      "unit_witness": [
+        2,
+        53891,
+        7699,
+        7
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3094857,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      154743
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        154743
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3210601,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      62,
+      9,
+      12946
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        62,
+        9,
+        12946
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3249169,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      23891
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        23891
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3326697,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      166335
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        166335
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3565305,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      52431
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        52431
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3573537,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      178677
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        178677
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3713521,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      71414
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        71414
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 3888465,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      108013
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 4059825,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      112773
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 4104145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      13,
+      2,
+      78926
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        13,
+        2,
+        78926
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 4154409,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      7,
+      7,
+      2,
+      21196
+    ],
+    "level": {
+      "occupancy": 3,
+      "phi": 6,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 4260201,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      118339
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 4367265,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      121313,
+      40438,
+      9
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        121313,
+        40438,
+        9
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 4591545,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      127543
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 4711449,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      197,
+      66,
+      5979
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        197,
+        66,
+        5979
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 4737657,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      236883
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        236883
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 4808265,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      133563
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 4860249,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      135007
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 5261769,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      77379
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        77379
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 5289201,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 15,
+    "witness": [
+      1,
+      194,
+      13,
+      6816
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14
+      ],
+      "unit_witness": [
+        1,
+        194,
+        13,
+        6816
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 5601225,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      82371
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        82371
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 5631369,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      156427
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 5646105,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      83031
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        83031
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 5876145,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      43207
+    ],
+    "level": {
+      "occupancy": 5,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        43207
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 5925745,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      2,
+      105817,
+      15117,
+      7
+    ],
+    "level": {
+      "occupancy": 4,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        2,
+        5
+      ],
+      "unit_witness": [
+        2,
+        105817,
+        15117,
+        7
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 6042249,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      41,
+      14,
+      36843
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        41,
+        14,
+        36843
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 6062169,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      505181,
+      168394,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        505181,
+        168394,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 6082665,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      17,
+      6,
+      89451
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        17,
+        6,
+        89451
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 6400425,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      41,
+      14,
+      39027
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        41,
+        14,
+        39027
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 6961929,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      193387
+    ],
+    "level": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 7070001,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      21821,
+      7274,
+      81
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        21821,
+        7274,
+        81
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 7217001,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 23,
+    "witness": [
+      1,
+      902128,
+      39223,
+      2
+    ],
+    "level": {
+      "occupancy": 12,
+      "phi": 22,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        21,
+        22
+      ],
+      "unit_witness": [
+        1,
+        902128,
+        39223,
+        2
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 7238457,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      361923
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        361923
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 7359121,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 11,
+    "witness": [
+      1,
+      197,
+      18,
+      9339
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        10
+      ],
+      "unit_witness": [
+        1,
+        197,
+        18,
+        9339
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 7558425,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 7,
+    "witness": [
+      1,
+      41,
+      6,
+      46088
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        41,
+        6,
+        46088
+      ]
+    }
+  },
+  {
+    "screen": "composite_zeros_le8e6.txt",
+    "n": 7753881,
+    "source_sha256": "60f2050bf7f248773fc13059fe423fd0b3befb33d09822d4a0894d2c30f1fe31",
+    "rho": 3,
+    "witness": [
+      1,
+      646157,
+      215386,
+      3
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        646157,
+        215386,
+        3
+      ]
+    }
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10156800001,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      74682353
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        74682353
+      ]
+    },
+    "even_d_rho": 7,
+    "even_d_witness": [
+      17,
+      53,
+      10,
+      2818202
+    ]
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10243598993,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 3,
+    "witness": [
+      1,
+      831731,
+      277244,
+      3079
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        831731,
+        277244,
+        3079
+      ]
+    },
+    "even_d_rho": 7,
+    "even_d_witness": [
+      1,
+      125,
+      18,
+      20487198
+    ]
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10301993881,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 11,
+    "witness": [
+      1,
+      219,
+      20,
+      11760267
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 10,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        10
+      ],
+      "unit_witness": [
+        1,
+        219,
+        20,
+        11760267
+      ]
+    },
+    "even_d_rho": 15,
+    "even_d_witness": [
+      1,
+      3209,
+      214,
+      802586
+    ]
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10529331121,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 15,
+    "witness": [
+      1,
+      29,
+      2,
+      90770096
+    ],
+    "level": {
+      "occupancy": 8,
+      "phi": 8,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14
+      ],
+      "unit_witness": [
+        1,
+        29,
+        2,
+        90770096
+      ]
+    },
+    "even_d_rho": 15,
+    "even_d_witness": [
+      1,
+      29,
+      2,
+      90770096
+    ]
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10532106649,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 7,
+    "witness": [
+      1,
+      62,
+      9,
+      42468172
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        62,
+        9,
+        42468172
+      ]
+    },
+    "even_d_rho": 7,
+    "even_d_witness": [
+      1,
+      62,
+      9,
+      42468172
+    ]
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10553835713,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 3,
+    "witness": [
+      1,
+      36143273,
+      12047758,
+      73
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        36143273,
+        12047758,
+        73
+      ]
+    },
+    "even_d_rho": 31,
+    "even_d_witness": [
+      1,
+      1655244,
+      53395,
+      1594
+    ]
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10619482193,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 3,
+    "witness": [
+      1,
+      2654870549,
+      884956850,
+      1
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        2654870549,
+        884956850,
+        1
+      ]
+    },
+    "even_d_rho": 7,
+    "even_d_witness": [
+      1,
+      6005,
+      858,
+      442110
+    ]
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10663548737,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      533177437
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        533177437
+      ]
+    },
+    "even_d_rho": 31,
+    "even_d_witness": [
+      3,
+      37026211,
+      1194394,
+      24
+    ]
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10723946017,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 3,
+    "witness": [
+      1,
+      5,
+      2,
+      536197301
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        5,
+        2,
+        536197301
+      ]
+    },
+    "even_d_rho": 7,
+    "even_d_witness": [
+      11,
+      199,
+      30,
+      1224754
+    ]
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10773657233,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 3,
+    "witness": [
+      1,
+      8597,
+      2866,
+      313297
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        8597,
+        2866,
+        313297
+      ]
+    },
+    "even_d_rho": 7,
+    "even_d_witness": [
+      1,
+      69,
+      10,
+      39034990
+    ]
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10868474401,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 7,
+    "witness": [
+      1,
+      34,
+      5,
+      79915253
+    ],
+    "level": {
+      "occupancy": 6,
+      "phi": 6,
+      "ph": true,
+      "collision": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "unit_witness": [
+        1,
+        34,
+        5,
+        79915253
+      ]
+    },
+    "even_d_rho": 7,
+    "even_d_witness": [
+      11,
+      17,
+      4,
+      14530046
+    ]
+  },
+  {
+    "screen": "r8_zeros_1e10.txt",
+    "n": 10917229157,
+    "source_sha256": "a86cc8f5e2a0d1d14adbfd0123cff9e3349b67f31513a18fe6982bbc435adbe2",
+    "rho": 3,
+    "witness": [
+      1,
+      2,
+      1,
+      1364653645
+    ],
+    "level": {
+      "occupancy": 2,
+      "phi": 2,
+      "ph": true,
+      "collision": [
+        1,
+        2
+      ],
+      "unit_witness": [
+        1,
+        2,
+        1,
+        1364653645
+      ]
+    },
+    "even_d_rho": 3,
+    "even_d_witness": [
+      1,
+      5,
+      2,
+      545861458
+    ]
+  }
+]

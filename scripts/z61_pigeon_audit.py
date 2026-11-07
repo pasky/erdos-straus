@@ -112,6 +112,19 @@ def level(ar, n, rho):
             'collision': collision, 'unit_witness': w}
 
 
+def linnik_fixture(ar, p):
+    """Least prime in the patched AP, not a claimed Type II witness level."""
+    q = next(k for k in range(2, p) if pow(k, (p-1)//2, p) == p-1)
+    assert ar.prime(q)
+    rho = (-p) % (4*q)
+    while not ar.prime(rho):
+        rho += 4*q
+    m = (p+rho)//4
+    assert m % q == 0 and pow(q, (rho-1)//2, rho) == rho-1
+    return {'p': p, 'n_p': q, 'rho_L': rho, 'M': m,
+            'factors_M': ar.factors(m), 'level': level(ar, p, rho)}
+
+
 def save(name, data):
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT/name).write_text(json.dumps(data, indent=2) + '\n')
@@ -241,9 +254,21 @@ def screens(ar):
         fixtures.append({'n': n, 'bound': bound, 'rho_ph': ph, 'rho_star': first,
                          'witness': direct(ar, n, first) if first else None,
                          'level_at_star': level(ar, n, first) if first else None})
+    linnik = [linnik_fixture(ar, p) for p in
+              (5, 13, 17, 193, 601, 2521, 67369, 87481, 8803369)]
     save('screens.json', results)
     save('fixtures.json', fixtures)
-    print(json.dumps({'screen_rows': len(results), 'fixtures': fixtures}, indent=2))
+    save('linnik_fixtures.json', linnik)
+    summary = {}
+    for name in sorted({r['screen'] for r in results}):
+        group = [r for r in results if r['screen'] == name]
+        summary[name] = {'count': len(group),
+                         'hits': sum('witness' in r for r in group),
+                         'ph_at_first': sum(r.get('level', {}).get('ph', False) for r in group),
+                         'max_rho_star': max(r.get('rho', 0) for r in group),
+                         'max_even_d_rho': max(r.get('even_d_rho', 0) for r in group)}
+    save('screen_summary.json', summary)
+    print(json.dumps({'summary': summary, 'fixtures': fixtures}, indent=2))
 
 
 if __name__ == '__main__':

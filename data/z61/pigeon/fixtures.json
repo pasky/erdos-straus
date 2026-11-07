@@ -1,0 +1,118 @@
+[
+  {
+    "n": 105,
+    "bound": 36,
+    "rho_ph": null,
+    "rho_star": 3,
+    "witness": [
+      3,
+      3,
+      2,
+      3
+    ],
+    "level_at_star": {
+      "occupancy": 1,
+      "phi": 2,
+      "ph": false,
+      "collision": [],
+      "unit_witness": null
+    }
+  },
+  {
+    "n": 4545,
+    "bound": 1516,
+    "rho_ph": null,
+    "rho_star": null,
+    "witness": null,
+    "level_at_star": null
+  },
+  {
+    "n": 67369,
+    "bound": 1200,
+    "rho_ph": null,
+    "rho_star": 35,
+    "witness": [
+      3,
+      137,
+      4,
+      41
+    ],
+    "level_at_star": {
+      "occupancy": 8,
+      "phi": 24,
+      "ph": false,
+      "collision": [
+        3,
+        17,
+        18,
+        32
+      ],
+      "unit_witness": [
+        3,
+        137,
+        4,
+        41
+      ]
+    }
+  },
+  {
+    "n": 87481,
+    "bound": 1200,
+    "rho_ph": null,
+    "rho_star": 63,
+    "witness": [
+      1,
+      62,
+      1,
+      353
+    ],
+    "level_at_star": {
+      "occupancy": 8,
+      "phi": 36,
+      "ph": false,
+      "collision": [
+        1,
+        25,
+        38,
+        62
+      ],
+      "unit_witness": [
+        1,
+        62,
+        1,
+        353
+      ]
+    }
+  },
+  {
+    "n": 8803369,
+    "bound": 1200,
+    "rho_ph": 151,
+    "rho_star": 107,
+    "witness": [
+      1,
+      18189,
+      170,
+      121
+    ],
+    "level_at_star": {
+      "occupancy": 36,
+      "phi": 106,
+      "ph": false,
+      "collision": [
+        1,
+        11,
+        14,
+        93,
+        96,
+        106
+      ],
+      "unit_witness": [
+        1,
+        18189,
+        170,
+        121
+      ]
+    }
+  }
+]
