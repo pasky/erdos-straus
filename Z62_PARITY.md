@@ -296,7 +296,7 @@ fibre-degree indices satisfy no relation with p's residue class. A parity proof 
 from data beyond a single word's conjugacy class (ML-P is one sufficient shape); no candidate is known.
 
 ## 6. Internal hostile review (done) and fixes
-Reviewer subagent (deep mode), commit range 8c4b5166..: 8 MAJOR, 4 MINOR, no FATAL; all applied:
+Reviewer subagent (Astra, deep mode), commit range 8c4b5166..: 8 MAJOR, 4 MINOR, no FATAL; all applied:
 (1) KT1's literal 60 % clause is met by near-identities (STAR_one + STAR_hj at 99.5 %, a class-majority fit at 80.5 %) →
 §4.1 now reports this, explains both as divisor-of-(p+1) counts of the u = 1 subfamily (CERTIFIED identity), and records
 the "dead" verdict as a deviation resting on Theorem R; (2) feature deviations disclosed, `hj` identified as a
