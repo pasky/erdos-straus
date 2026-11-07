@@ -1,3 +1,16 @@
-     14   dimE 3 rank E|loops 3 rank features 7 intersection 2
-      1   dimE 7 rank E|loops 7 rank features 7 intersection 2
-      1   dimE 9 rank E|loops 9 rank features 7 intersection 2
+p 193 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 241 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 313 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 337 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 433 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 457 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 577 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 601 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 673 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 769 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 937 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 1033 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 1153 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 1201 LS [2, 3, 5, 7, 11, 13] dimE 3 rank E|loops 3 rank features 7 intersection 2
+p 2137 LS [2, 3, 5, 7, 11, 13] dimE 9 rank E|loops 9 rank features 7 intersection 2
+p 2953 LS [2, 3, 5, 7, 11, 13] dimE 7 rank E|loops 7 rank features 7 intersection 2

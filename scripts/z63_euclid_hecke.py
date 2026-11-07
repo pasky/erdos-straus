@@ -174,10 +174,9 @@ def analyse(p):
         Gm = ((0, -1), (1, 0)) if g == 0 else ((1, 1), (0, 1))
         (a, b), (c, d) = lev.Rx[y]
         Y = mm(mm(lev.Rx[x], Gm), ((d, -b), (-c, a)))
-        assert lev.elem_class(Y) == 1 << e or True
         gens.append((e, Y))
-    # sanity: elem_class of a generator = its basis vector modulo relations
-    for e, Y in gens[:50]:
+    # sanity: elem_class of every generator = its basis vector modulo relations (review fix m3)
+    for e, Y in gens:
         v = lev.elem_class(Y) ^ (1 << e)
         w, h = lev.reduce_full(v, lev.basis)
         assert h is None, "elem_class mismatch"
@@ -221,12 +220,25 @@ def analyse(p):
                 if r >> m & 1:
                     return False
         return True
-    return dict(p=p, dimH=lev.dimH, dimE=len(Ebasis), chi_in_E=chi_in, nshort=len(shortv), nhigh=len(highv),
+    # affine dimension of {psi in E : psi = chi on K}  (review fix M4)
+    def rank(vs):
+        piv = {}
+        for c in vs:
+            while c:
+                hh = c.bit_length() - 1
+                if hh in piv:
+                    c ^= piv[hh]
+                else:
+                    piv[hh] = c
+                    break
+        return len(piv)
+    affdim = len(Ebasis) - rank([sum((dot(b, k) << i) for i, b in enumerate(Ebasis)) for k in known])
+    return dict(p=p, dimH=lev.dimH, dimE=len(Ebasis), chi_in_E=chi_in, nshort=len(shortv), nhigh=len(highv), affdim=affdim,
                 nminus=out['nminus'], fake_all_short=fake_exists(shortv), fake_high_only=fake_exists(highv, shortv[:nlow]))
 
 
 if __name__ == '__main__' and not os.environ.get('FIT'):
-    cols = ['p', 'dimH', 'dimE', 'chi_in_E', 'nshort', 'nminus', 'nhigh', 'fake_all_short', 'fake_high_only']
+    cols = ['p', 'dimH', 'dimE', 'affdim', 'chi_in_E', 'nshort', 'nminus', 'nhigh', 'fake_all_short', 'fake_high_only']
     print("\t".join(cols))
     for a in sys.argv[1:]:
         r = analyse(int(a))
@@ -285,7 +297,8 @@ def feature_fit(p):
     Vc = [sum(V[i][j] << i for i in range(len(V))) for j in range(len(Eb))]
     Fc = [sum(F[i][k] << i for i in range(len(F))) for k in range(len(names))]
     rV, rF, rVF = rank(Vc), rank(Fc), rank(Vc + Fc)
-    print('  dimE', len(Eb), 'rank E|loops', rV, 'rank features', rF, 'intersection', rV + rF - rVF, flush=True)
+    print('p', p, 'LS', LS, 'dimE', len(Eb), 'rank E|loops', rV, 'rank features', rF, 'intersection', rV + rF - rVF,
+          flush=True)
     # for each basis psi (and the span), solve F c = psi over F_2
     nf = len(names)
     res = []

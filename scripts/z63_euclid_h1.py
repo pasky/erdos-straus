@@ -109,6 +109,39 @@ class Level:
             self.reduce_add(self.walk(x, [0, 1] * 3)[0])
         self.relrank = len(self.basis)
         self.dimH = self.E - self.relrank
+        # assertions (review fix m3): index of Gamma_0(n) and dim H_1(Gamma_0(n)/±1; F_2) = e2 + 2g + c - 1
+        fac = {}
+        m = n; q = 2
+        while q * q <= m:
+            while m % q == 0:
+                fac[q] = fac.get(q, 0) + 1; m //= q
+            q += 1
+        if m > 1:
+            fac[m] = fac.get(m, 0) + 1
+        mu = n
+        for q in fac:
+            mu = mu * (q + 1) // q
+        assert self.N == mu, ("coset count", n, self.N, mu)
+        e2 = 1
+        e3 = 1
+        for q, k in fac.items():
+            e2 *= (1 + jacobi(-1, q)) if q != 2 else (0 if k >= 2 else 1)
+            e3 *= (1 + jacobi(-3, q)) if q != 3 else (0 if k >= 2 else 1)
+        def phi(x):
+            r = x; y = x; f = 2
+            while f * f <= y:
+                if y % f == 0:
+                    while y % f == 0:
+                        y //= f
+                    r -= r // f
+                f += 1
+            if y > 1:
+                r -= r // y
+            return r
+        c = sum(phi(gcd(d, n // d)) for d in range(1, n + 1) if n % d == 0)
+        g12 = 12 + mu - 3 * e2 - 4 * e3 - 6 * c   # 12 g
+        assert g12 % 12 == 0, ("genus", n)
+        assert self.dimH == e2 + g12 // 6 + c - 1, ("dimH", n, self.dimH, e2, g12 // 12, c)
 
     def key(self, c, d):
         n = self.n
@@ -198,7 +231,7 @@ def analyse(n, verbose=False):
         if r == 3:
             check_E1(n, A, w)
             short.append(('S', A, tuple(w), jacobi(A, n)))
-        elif r <= 2 or A <= BMAX:
+        if r <= 2 or A <= BMAX:  # known part: independent of the short set (review fix F1)
             known.append(('K', A, tuple(w), jacobi(A, n)))
     # cusp classes: T-cycles
     seen = set()
@@ -237,8 +270,10 @@ def analyse(n, verbose=False):
         v = it[4] if len(it) == 5 else lev.loop_class(list(it[2]))
         items.append((it, v))
     def height_le(A, H):
-        # A ≡ ±a/b (mod n) with 1 <= a, b <= H ?
+        # A ≡ ±a·b^{-1} (mod n) with 1 <= a, b <= H, b a unit mod n ?  (review fix M1)
         for b in range(1, H + 1):
+            if gcd(b, n) != 1:
+                continue
             a = (A * b) % n
             if a <= H or n - a <= H:
                 return True

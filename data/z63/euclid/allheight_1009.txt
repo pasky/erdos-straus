@@ -1,0 +1,4 @@
+p 1009 dimH 169 #height<=20 loops 510 their rank 125 #high short 10 rank increment 7
+relation among high loops mod low span: [(29, [35, 5, 6], 1, 174, 980), (35, [29, 6, 6], 1, 173, 974)]
+relation among high loops mod low span: [(173, [6, 6, 29], 1, 35, 836), (174, [6, 5, 35], 1, 29, 835)]
+relation among high loops mod low span: [(23, [44, 8, 3], -1, 351, 986), (44, [23, 15, 3], -1, 344, 965), (344, [3, 15, 23], -1, 44, 665), (351, [3, 8, 44], -1, 23, 658)]
