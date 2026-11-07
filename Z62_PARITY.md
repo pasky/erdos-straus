@@ -17,7 +17,7 @@ primes p ≡ 1 (24) (and p mod 840 ∈ 𝔐 where stated).
 | **F1 odd squares** | If the forced set (Fix τ minus a disjoint known part K, or the critical/terminal cells) consists of (★)/U₇/Type II certificates, these families are empty at m² (T1), so the identity forces I(m²) = 0 — the easy side must vanish at squares. (This is *not* automatic for full-ES support: odd squares have ES solutions, e.g. 4/9 = 1/3 + 1/18 + 1/18.) | In the evaluation of the easy side I(p) (Zagier: #Fix σ = #{p = x(x+4z)} = 1 uses primality). Assessment: a quadratic-character (Jacobi-type) easy side is the natural T1-compatible candidate, but square-vanishing does not force that shape, and not every Jacobi expression vanishes at squares. |
 | **F2 C-even / numerator 8** | An index with support in R₈ cannot be uniformly non-vanishing: R₈(p) = 0 at 4 primes in 𝔐 near 10¹⁰ (Lemma P1). For U₇-supported indices the relevant screen is FRONTIER's: at in-domain U⁽⁸⁾ failures the U₇ targets beyond U⁽⁸⁾ (v₂((f+1)/8) < v₂(r) < 3) must be used (threshold qualifications as there). | The support must reach beyond the 8-line (for (★): the C-odd part; for U₇: the non-U⁽⁸⁾ targets). |
 | **F3 composites** | Uniform-in-n identities: at the 285 composite R-zeros (8 U₇-zeros Z₇) the easy side must vanish too (it may: divisor-type terms). Prime-only identities: no constraint, but then primality is used in the identity itself. | Divisor-type easy side (extra terms at composites) or prime-only identity. |
-| **F4 known zeros** | Exact (no threshold) identities supported on (★) are possible only if their easy side vanishes at the 14 (★)-zero primes; **uniform non-vanishing on (★) support is refuted** (Lemma P1). U₇ / U_II / full Type II have no known prime zero. Note: a U₇-supported index would give ES(p) (U₇ ⊂ Type II), not (MS) itself. | — |
+| **F4 known zeros** | Exact (no threshold) identities supported on (★) are possible only if their easy side vanishes at the 14 (★)-zero primes (9 in 𝔐); **uniform non-vanishing on (★) support over a domain containing them is refuted** (Lemma P1). An index on the restricted 𝔊* family must vanish at all 38 𝔊*-zero primes (20 in 𝔐); 24 of these have R > 0, so a 𝔊* zero does not imply empty (★) support. U₇ / U_II / full Type II have no known prime zero. Note: a U₇-supported index would give ES(p) (U₇ ⊂ Type II), not (MS) itself. | — |
 
 ## 1. The framework and its necessary condition
 
@@ -25,25 +25,27 @@ primes p ≡ 1 (24) (and p mod 840 ∈ 𝔐 where stated).
 Lemma T, which already cover Sperner/Tucker/mod-2 degree/Smith/Lefschetz–Hopf; the Morse (c) and Stokes (d) forms are
 only spelled out here).** Let Cert(p) be the certificate set of a family (e.g. (★), U₇). Each of the following
 argument shapes yields a weight w: Cert(p) → ℤ (or F₂) with Σ_c w(c) = I(p), where I(p) is the quantity the argument
-must evaluate; the argument proves Cert(p) ≠ ∅ exactly when it proves I(p) ≠ 0 (resp. odd):
+must evaluate. A proof that I(p) ≠ 0 (resp. odd) **suffices** for Cert(p) ≠ ∅; the converse is not claimed (a construction
+can find certificates while this global total vanishes, e.g. two disjoint paths each joining a known endpoint to a
+certificate give I = 2 ≡ 0 in F₂; one then localises to a component):
 (a) two involutions σ, τ on a finite set S with a **disjoint** decomposition Fix τ = F_cert ⊔ K_p and a map
 Φ: F_cert → Cert(p) (Zagier / Heath-Brown): w(c) = |Φ⁻¹(c)|, I = |Fix σ| − |K_p| (mod 2); the argument needs
 |Fix σ| − |K_p| ≡ 1;
-(b) a graph of max degree 2 (PPA / handshake) whose odd-degree vertices are a known set ⊔ a set mapped to Cert(p):
+(b) a finite graph (PPA / handshake; max degree 2 not needed) whose odd-degree vertices are a known set ⊔ a set mapped to Cert(p):
 I = #known (mod 2);
-(c) a Morse matching on a finite complex K whose critical cells are known cells ⊔ cells mapped to Cert(p):
+(c) an acyclic discrete Morse matching on a finite complex K whose critical cells are known cells ⊔ cells mapped to Cert(p):
 I = χ(K) − Σ_known (−1)^{dim} (over ℤ, w signed by dimension);
 (d) Stokes: an acyclic K, a 1-cochain ω with δω supported on 2-cells mapped to Cert(p), and a 1-cycle z with
 ⟨ω, z⟩ = I ≠ 0: for every 2-chain c with ∂c = z, Σ_e c(e)δω(e) = I (individual weights depend on the filling, the total
-does not: two fillings differ by a 2-cycle ∂b, and ⟨δω, ∂b⟩ = ⟨δδω, b⟩ = 0);
+does not: ⟨δω, c − c′⟩ = ⟨ω, ∂(c − c′)⟩ = 0; acyclicity over the chosen coefficient ring supplies the filling);
 (e) Lefschetz–Hopf for a cellular self-map f, **provided** every nonzero diagonal coefficient of the cellular chain map
 f_# outside a known set of cells occurs on cells mapped to Cert(p): I = L(f) − Σ_known (−1)^{dim}(diagonal coefficient).
 (Without this hypothesis diagonal coefficients need not correspond to setwise-fixed cells: the degree-2 map of the
 one-vertex one-edge circle has L = −1.)
 *Proof.* (a) |S| ≡ |Fix σ| ≡ |Fix τ| = |F_cert| + |K_p|. (b) handshake. (c) the Morse complex has the same Euler
 characteristic. (d) I = ⟨ω, ∂c⟩ = ⟨δω, c⟩ and δω vanishes off certificate cells. (e) Hopf trace formula. ∎
-So any argument of these shapes is a **weight on certificates with a computable non-zero total** ("deterministic
-weighted count"); the novelty can only be in where w comes from (in (b)–(d) w may depend on neighbouring
+So any argument of these shapes produces a **weighted identity on certificates**, and a computable non-zero total is a
+sufficient way to conclude ("deterministic weighted count"); the novelty can only be in where w comes from (in (b)–(d) w may depend on neighbouring
 non-certificate cells).
 
 **Lemma P1 (uniform non-vanishing must avoid families with prime zeros; PROVED, trivial).** If Σ_{c ∈ 𝒜(p)} w(c) = I(p)
@@ -59,7 +61,8 @@ these give ES(p), and (MS) only via an extra implication back to (★)). ∎
 * **(PAR)** Find (K_p, Cert, w-source) as in Lemma P0 with I(p) ≠ 0 for all primes p ∈ 𝔐 (beyond a stated threshold)
   and I(m²) = 0 for odd squares, with a proof of the evaluation of I. Open; this lane tests concrete new objects.
 * **Prior parity work in the repo (read before computing; attribution).** WINDMILL (Lemma 1, §3 ≈ 7 000 weights),
-  WINDMILL_REDUCTION (O164: Zagier = dihedral symmetry of Conway rivers (§1); Legendre/SQUFOF midpoints carry no ES bias
+  WINDMILL_REDUCTION (O164: Zagier = dihedral symmetry of Conway rivers (§1; its Computation 1.2 is CERTIFIED to p ≤ 1300,
+  re-certified to 20 000 by R164, folklore beyond); Legendre/SQUFOF midpoints carry no ES bias
   (§3); X-certificates as ambiguous forms of discriminant T² − 4 (§5.2); T + 2 = tτ (§8); infinite-menu windmills on the
   modular hyperbola (§9); congruence sub-counts of E(p) parity-random (§6)), INVOLUTION_ES/ES2 ((J)2), Z52D_PARITY,
   PARITY_FIXED_P, DEDEKIND_ES (HJ dictionary, Jacobi sign = mod-4 class), BRAINSTORM `invol_*`, `y2_parity_involution`,
@@ -79,7 +82,7 @@ these give ES(p), and (MS) only via an extra implication back to (★)). ∎
 
 **Observation A (PROVED, one line; = WINDMILL_REDUCTION §5.2 and Z1665, rediscovered).** For (u,B,C) a (★) triple, the matrix
 γ = [[4Cu−1, p],[4C, 4CB−1]] ∈ SL₂(ℤ) is an automorph (U = 1) of the binary form F = [4C, 4C(B−u), −p], which is
-**ambiguous** (first coefficient divides the middle one), primitive, of discriminant Δ = t² − 4, t = tr γ = 4C(u+B) − 2
+**ambiguous** (first coefficient divides the middle one), primitive for prime p (gcd(4C, p) = 1), of discriminant Δ = t² − 4, t = tr γ = 4C(u+B) − 2
 (Δ = 16C²(B−u)² + 16Cp = 16C(C(u+B)² − (u+B)) because 4CuB − u − B = p). So (★) certificates are ambiguous forms of
 Richaud–Degert discriminant t² − 4 representing −p, i.e. **fixed points of Gauss's class inversion** on the topograph —
 exactly the role Zagier's τ-fixed points play. A Zagier/Legendre-type proof would need the *other* half: a finite set of
@@ -110,7 +113,7 @@ Farey complex), where the weights are filling-dependent and are not a fixed dict
 
 ## 4. Computations
 
-### 4.1 KT1 — river weights on certificate forms: exact form fires; literal 60 % clause met only by explained near-identities
+### 4.1 KT1 — river weights on certificate forms: predictive kill did NOT fire; only the always-odd/boundary limb fired (implemented dictionary only)
 
 Run: `python3 scripts/z62_parity_river.py 200000 <extras>` → `data/z62/parity/kt1_river_2e5.tsv` (all **2 212** primes
 p ≡ 1 (24) ≤ 2·10⁵, then control rows: the 12 (★)-zeros < 3·10⁶ (7 of them repeat main-loop primes), Z₇, 68 odd squares;
@@ -147,10 +150,14 @@ are unpaired (odd at 18 of 2 212 primes); (ii) the reviewer's class-majority fit
 STAR_one + STAR_ambm1 + STAR_hj + STAR_ambm1·hj (= #{u = 1 STAR words with ambm1 = 0} mod 2, again supported on the
 u = 1 subfamily) reaches 80.5 %, because p mod 840 partly determines which small primes divide p + 1. Both are
 *mostly-even* counts of an explicit divisor family of p + 1; neither is an odd index, and neither involves a river
-weight in an essential way (`hj`/`ambm1` only select boundary words). **Verdict on KT1 (Assessment):** the exact-identity
-version fired; the predictive clause was met only by these explained near-identities. I declare the main line dead on
-the strength of Theorem R below (which makes every conjugacy-type river weight provably a function of (t, u+v)), and
-record this as a deviation from the letter of the pre-registration.
+weight in an essential way (`hj`/`ambm1` only select boundary words). **Verdict on KT1 (literal, per cross-model review):** the
+**predictive kill clause did not fire** (it is met substantively, at 99.5 % and 80.5 %, not just by the zero
+combination); the "no single column constant per class" clause is likewise not met literally (many implemented columns
+are identically zero; excluding them needs the per-word quotient convention, which was not pre-registered); and the
+feature battery was changed after registration (above). Only the alternative registered limb — every exact always-odd
+combination is explained by non-certificate boundary/central words — fires, and it retires **only the implemented
+finite feature space**. Theorem R proves that conjugacy-type weights *depend* only on (t, u+v); it does not prove they are
+inadequate. Arbitrary functions of (C, u+B), including conjugacy-class weights outside this dictionary, remain open.
 
 **Lemma R (PROVED).** For a word (t, u, v) of n with σ = u + v, ε = σ mod 2, the substitution x ↦ x − ky,
 k = ⌊(v−u)/2⌋, carries F_w = [t, t(v−u), −n] to G(t, σ) := [t, tε, σ − t(σ² − ε)/4] (with m = v − u = 2k + ε the new
@@ -203,10 +210,11 @@ random among *coprime* pairs (all forced pairs observed are coprime).
 | 30 | 483 | 483.8 ± 13.7 | −0.06 | 471.3 ± 13.0 | +0.90 |
 | 40 | 503 | 501.9 ± 14.1 | +0.08 | 490.1 ± 13.4 | +0.96 |
 
-(The first version quoted ± 21.3 from a wrong variance formula; corrected.) **No enrichment** under either model
-(EVIDENCE, stated range): the parity mechanism forces *a* divisor; nothing here indicates it prefers the (★) class.
+(The first version quoted ± 21.3 from a wrong variance formula; corrected.) **No enrichment detected** under
+either baseline model in this range (EVIDENCE; the uniform-choice baselines are comparison models, not a proved
+probability law for the deterministic midpoint, and conditional enrichment is not ruled out).
 291/385 primes get a forced certificate at some C ≤ 40 — one ticket per C, sparser than (★) itself (378/385 have some
-(★) certificate with C ≤ 40). KT2's kill condition (within 3σ of baseline) is met.
+(★) certificate with C ≤ 40). KT2's registered empirical criterion (within 3σ of baseline) is met under both baselines.
 
 ### 4.3 Escape hatch H2 — signed (ℤ-valued) indices with quadratic-character signs: no relation (EVIDENCE)
 
@@ -239,7 +247,10 @@ coincidence A = tu − 1. No combination involving a non-trivial column is a fun
   arbitrary functions of the word (the word determines p = tuv − u − v), of marked data, of Γ(N)-level data, or of
   relations between words; none of these is excluded by a theorem here. What this lane tested in those directions
   (finite feature spaces: KT1's `hj`, H2's Jacobi signs, H3's fibre degrees) shows no relation with p's residue class.
-* An index with uniformly non-zero easy side must be supported beyond (★) (Lemma P1); U₇ support yields ES(p), not (MS).
+* An index claimed uniformly non-zero on a domain *containing* the certified (★)-zeros must be supported beyond (★)
+  (Lemma P1); a thresholded claim (starting above 8 813 281, or above 10¹⁷ for (MS)) is not constrained by them. Likewise
+  an index on the 𝔊* family must vanish at all 38 𝔊*-zero primes if its domain contains them. U₇ support yields ES(p),
+  not (MS).
 * **A sufficient construction that nobody has (ML-P).** *A finite set S_p ⊇ U₇-words(p), computable from p, with
   involutions σ, τ such that Fix τ = F_cert ⊔ K_p (F_cert mapped to U₇ words), |Fix σ| − |K_p| provably odd at every
   large prime p ∈ 𝔐 (e.g. Fix σ a factorisation of p), and τ neither an equation symmetry on a Zariski-dense piece
@@ -251,10 +262,11 @@ coincidence A = tu − 1. No combination involving a non-trivial column is a fun
 ## 5. Verdict
 
 **Narrowed.** No HOT LEAD; no new forcing mechanism. B2 did not move.
-* **Dead / negative (EVIDENCE or CERTIFIED in the stated finite ranges and feature spaces):** the main line — river
-  weights of certificate forms in a parity identity (KT1: exact version fired; the literal predictive clause was met
-  only by explained divisor-of-(p+1) near-identities, see §4.1; declared dead on the strength of Theorem R, a recorded
-  deviation); Legendre's parity-forced divisor of 4Cp + 1 shows no class enrichment (KT2: z = +0.08 / +0.96 at C ≤ 40);
+* **Negative (EVIDENCE or CERTIFIED in the stated finite ranges and feature spaces):** the *implemented* river-weight
+  dictionary produced no useful exact index (KT1: the predictive kill clause did **not** fire; only the
+  always-odd/boundary limb fired, which retires this modified finite feature space, not the main line of all
+  single-word conjugacy weights; §4.1); no (★)-class enrichment of Legendre's parity-forced divisor of 4Cp + 1 detected
+  under the stated baselines (KT2: z = +0.08 / +0.96 at C ≤ 40);
   Jacobi-signed word counts have no ℚ-relation with class functions mod 840 (H2); fibre-degree weights are
   handshake-trivial (H3).
 * **Proved:** Lemma P0 (restatement, with the Morse/Stokes forms and the correct disjointness / Lefschetz hypotheses),
@@ -267,10 +279,10 @@ coincidence A = tu − 1. No combination involving a non-trivial column is a fun
 ### Falsifier table (re-stated for the final state)
 | screen | KT1 / Cor R′ weights | KT2 Legendre divisor | H2 Jacobi-signed indices | (ML-P) |
 |---|---|---|---|---|
-| F1 squares | at m² the STAR/U7 families are empty, so any weighted count is 0 | forced divisors exist at m² too (no class preference seen anywhere) | (z/m²) ∈ {0, +1}; families empty at m² | easy side must vanish at m²; Jacobi-type is the natural (not forced) shape |
-| F2 C-even | conjugacy weights see C only through t = 4C; C mod 2 is one fixed feature among (C, u+B) | the (★) slice includes C even; no separation built in | (−1)^t ≡ 1 on STAR: C parity untested | support must reach beyond the 8-line (C odd for (★); non-U⁽⁸⁾ targets for U₇) |
-| F3 composites | identities are uniform in n; nothing prime-specific | — | — | prime-only identity or divisor-type easy side |
-| F4 zeros | (★)-supported identities must vanish at the 14 zeros (Lemma P1) | at the 14 zeros no C ≤ 40 gives a certificate (they are (★)-zeros) | — | U₇ support (no known prime zero); yields ES(p), not (MS) |
+| F1 squares | at m² the STAR/U7 families are empty, so any weighted count is 0 (if the identity is defined at m²) | forced divisors exist at m² too (no class preference seen anywhere) | (z/m²) ∈ {0, +1}; families empty at m² | if defined at m², the easy side must vanish there; a genuinely prime-only construction has no required square value; Jacobi-type is an Assessment, not a forced shape |
+| F2 C-even | conjugacy weights see C only through t = 4C; C mod 2 is one fixed feature among (C, u+B) | the (★) slice includes C even; no separation built in | (−1)^t ≡ 1 on STAR: C parity untested | a claim whose domain contains the R₈ zeros near 10¹⁰ must reach beyond the 8-line (C odd for (★); non-U⁽⁸⁾ targets for U₇); a claim starting above them is not refuted by them |
+| F3 composites | Theorem R is uniform in n; a parity law fitted on primes need not be, and is constrained at the 285 composites only if stated there | — | — | prime-only identity or divisor-type easy side |
+| F4 zeros | (★)-supported identities must vanish at the 14 (★)-zeros (9 in 𝔐); 𝔊*-supported ones at all 38 𝔊*-zeros (24 of which have R > 0: no inference from a 𝔊* zero to empty (★) support) | at the (★)-zeros no C gives a certificate | — | U₇ / full Type II support (no known prime zero); yields ES(p), not (MS) |
 
 ### FRONTIER §4 hard screens for Theorem R
 Theorem R is an identity, not an existence mechanism: the four screens are **not applicable** (it neither proves nor
@@ -283,17 +295,20 @@ invariant of a word matrix is a function of (t, u+v): S(u)⁻¹[[tu−1, n],[t, 
 Theorem R; explicit form of `z52b_pass1_H05` Z1700). Finite river-weight dictionaries give no parity law (KT1, primes
 ≤ 2·10⁵); Legendre's parity-forced divisor of 4Cp + 1 shows no (★)-class enrichment (KT2, replicating
 WINDMILL_REDUCTION §3 on the (★) slice); Jacobi-signed word counts satisfy no ℚ-relation with class functions mod 840
-(H2); fibre-degree weights are handshake-trivial (H3). Not excluded: arbitrary weights beyond these finite feature
-spaces, marked/Γ(N)-level data, relations between words.*
+(H2); fibre-degree weights are handshake-trivial (H3). The tested finite dictionaries produced no useful exact index;
+arbitrary functions of (C, u+B), including conjugacy-class weights outside them, marked/Γ(N)-level data and relations
+between words remain open.*
 
 ### Bottom line
 Every parity/index argument of the standard shapes is a weighted certificate count with a computable non-zero total
 (Lemma P0). The natural geometric source of weights — the river/topograph of the certificate's own form — is p-free:
 the certificate matrix is conjugate, by S(u), to the length-two Hirzebruch–Jung word (4C, u+B) (Theorem R), so all
 conjugacy-type weights are functions of (C, u+B); the finite dictionary of them tested here carries no parity law.
-Legendre's classical parity-forced divisor of 4Cp + 1 hits the (★) class at the random rate, and Jacobi-signed and
-fibre-degree indices satisfy no relation with p's residue class. A parity proof would still need an involution built
-from data beyond a single word's conjugacy class (ML-P is one sufficient shape); no candidate is known.
+Legendre's classical parity-forced divisor of 4Cp + 1 shows no detectable (★)-class enrichment over the comparison
+baselines, and Jacobi-signed and
+fibre-degree indices satisfy no relation with p's residue class (finite ranges). The tested finite dictionaries
+produced no useful exact index; arbitrary functions of (C, u+B), including conjugacy-class weights, remain open, as do
+constructions using marked data or relations between words (ML-P is one sufficient shape). No candidate is known.
 
 ## 6. Internal hostile review (done) and fixes
 Reviewer subagent (Astra, deep mode), commit range 8c4b5166..: 8 MAJOR, 4 MINOR, no FATAL; all applied:
@@ -309,3 +324,18 @@ full-ES support is not square-vanishing; U₇ support gives ES not (MS); F2 for 
 (10) H2 rank sandwich with exact rational rank 42 archived; (11) Z1700 credited; (12) explicit conjugator S(u) and a
 verification entry point (`scripts/z62_parity_verify.py`). The reviewer reproduced the TSVs, the 26 761-word cycle check,
 H2 (126/0), H3 (36 trivial) and KT2's forced-pair structure.
+
+## 7. Cross-model review (data/z62/xreview/REVIEW_PARITY.md: ACCEPT-WITH-FIXES) — fixes applied
+(1) Removed the broad "main line dead on the strength of Theorem R" and "a parity proof would still need …" claims (§4.1,
+§5, FRONTIER text, Bottom line): Theorem R proves *dependence* on (t, u+v), not inadequacy; the tested finite
+dictionaries produced no useful index, arbitrary (C, u+B)/conjugacy-class weights remain open. (2) Lemma P0: non-zero
+total is sufficient, not necessary (counterexample recorded); finite graph and acyclic discrete Morse matching stated;
+Stokes filling-independence via ⟨ω, ∂(c − c′)⟩ = 0. (3) KT1 verdict made literal: predictive clause did not fire, the
+"no constant column" clause not met literally, features changed post-registration, only the always-odd/boundary limb
+fired and it retires only the implemented feature space; KT2 meets its registered empirical criterion under both
+baselines. (4) Falsifiers completed and scoped: 𝔊* (38 zeros, 20 in 𝔐, 24 with R > 0) added to §0 and §5 tables;
+square/composite/F2 requirements conditioned on the identity's domain (prime-only and thresholded claims qualified);
+§4.5 support-enlargement bullet qualified. (5) KT2 restated as "no enrichment detected under these baselines/range";
+WINDMILL_REDUCTION §1's certification range recorded in the attribution. The reviewer reproduced all archived data
+(KT1 nullity 98, KT2 C ≤ 40 exactly, H2 126/0, H3 36, verifier 18 048 words) and found the algebra (Observation A for
+prime p, Lemma R, Theorem R, Cor R′ as scoped) correct.
