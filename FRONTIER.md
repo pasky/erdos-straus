@@ -2518,6 +2518,23 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
       must use g ≡ 3 (8) or a non-liftable U5 divisor (an eventual claim may exclude these finite failures by its threshold); least
       witness g* ≥ (1/5 − o(1)) log p infinitely often (PROVED), ≤ 10487 for p ≡ 1 (24) < 10⁸ (CERTIFIED).
 
+**z61 (board `~/.pi/boards/20261107-es-newmech/memo.md` + three bounded follow-ups; internal, unrefereed).**
+* A two-seat cross-lab board (Fable, Astra) asked for a genuinely new single-prime forcing mechanism. Both seats
+  concluded independently that none of their 11 items justifies a campaign lane (Assessment). Killed items and exact
+  kill certificates are in the memo.
+* **Divisor-residue pigeonhole (`Z61_PIGEON.md`; PROVED + CERTIFIED; non-author audit of board finalist F1).** For
+  M_ρ = (p+ρ)/4, ρ ≡ 3 (4), let S be the distinct unit-divisor residues of M_ρ mod ρ. If |S| > φ(ρ)/2 there is a Type II
+  witness; at prime p the exact criterion is S ∩ (−S) ≠ ∅ (a repackaging of the prior ρ-ratio criterion). Burgess +
+  Linnik (L = 5) give, for large primes p ≡ 1 (4), a prime level ρ_L ≡ −p (mod 4n_p), ρ_L ≤ p^{5/(4√e)+ε}, whose divisor
+  set contains a quadratic non-residue; this does **not** force a collision. Census: 18 217/18 507 (98.43 %) of least
+  witnesses at p ≡ 1 (24), p ≤ 2·10⁶ satisfy the pigeonhole condition, but 0/9 of the hard ones (least ρ ≥ 50); 17 primes
+  have no pigeonhole level at all (e.g. 67369, 87481). Assessment: a criterion and census, not a forcing mechanism.
+* **Valuation-transport ("factor-or-hit") for U₇ (`Z61_TRANSPORT.md`, Astra; `Z61_TRANSPORTO.md`, Opus; pre-registered
+  kill tests).** Both explicit rules are DEAD by their pre-registered kills (conservation/termination or illegal endpoint
+  failures at small primes; CERTIFIED). The underlying idea (board astra-1) is DORMANT: all its content sits in a
+  locality clause ("non-hit column ⇒ explicit successor of smaller potential, or a proper factor"), which nobody could
+  state (Z61_TRANSPORTO Prop 3, PROVED with stated scope). Reopen only with such a local step lemma.
+
 ## 8. Pointers into the repository
 
 * **Start:** `STATUS.md` (wave headlines, newest first; ES-not-solved banner), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
