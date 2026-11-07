@@ -115,5 +115,15 @@ Every river weight is therefore a fixed function w(C, u + B) of the certificate 
 coordinates, which is exactly what WINDMILL §3 / board astra-3 already found sterile. The river of a form *attached to a
 certificate* carries no non-local information; any topograph route must use a discriminant attached to p alone.
 
+### 4.2 KT2 — Legendre's parity-forced divisor of N_C = 4Cp + 1: **DEAD (per pre-registration)**
+
+`python3 scripts/z62_parity_legendre.py 30000 30` → `data/z62/parity/kt2_legendre_3e4_C30.txt` (385 primes p ≡ 1 (24)
+≤ 3·10⁴, C ≤ 30). The principal cycle of discriminant N_C is reflection-symmetric; its second centre is an ambiguous form
+(a parity-forced nontrivial divisor of N_C; 8 317 pairs (p, C)) or a symmetric form (N(ε) = −1; 3 233 pairs). The forced
+divisor lies in the (★) class −1 (mod 4C) **483 times against a random-divisor baseline of 483.8 ± 21.3 (z = −0.04)**.
+The parity mechanism forces *a* divisor, never its class: B2 in river coordinates (CERTIFIED for the stated range;
+"never" = Assessment). 287/385 primes get a forced certificate at some C ≤ 30 — a lottery with one ticket per C, sparser
+than (★) itself (377/385 have some (★) certificate with C ≤ 30).
+
 ## 5. Verdict
 (to be filled)
