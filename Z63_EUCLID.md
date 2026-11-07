@@ -16,9 +16,9 @@ L_r(n) = {A ∈ (0,n) : gcd(A,n) = 1, r(n/A) = r}; length-3 words n/A = [[v,t,u]
 | screen | behaviour | where primality / non-squareness enters |
 |---|---|---|
 | **F1 odd squares** | χ_{m²} ≡ 1 (trivial character), so the index is identically 0 at squares and no length-3 loop carries index — T1 is built in (DEDEKIND Prop 3.1). | In the non-triviality of the class χ_n ∈ H¹(Γ₀(n); F₂): χ_n ≠ 0 ⟺ n not a square. This is the *only* place. |
-| **F2 C-even / numerator 8** | The index is supported on *all* χ = −1 length-3 words (five DEDEKIND slices: 4 ∣ t, u, v, A or A*), not on the (★) line or its C-even half. R₈ zeros near 10¹⁰ have R ≥ 12, hence (S) holds there (the (★) words are five-slice words). An argument working "verbatim on the C-even sub-line" is not what EUC-H proposes. | — (no C-parity input; the slice union is used). |
+| **F2 C-even / numerator 8** | The index is supported on *all* χ = −1 length-3 words (five DEDEKIND slices: 4 ∣ t, u, v, A or A*), not on the (★) line or its C-even half. (S) holds at the 12 R₈ zeros near 10¹⁰ (explicit words, §7). An argument working "verbatim on the C-even sub-line" is not what EUC-H proposes. | — (no C-parity input; the slice union is used). |
 | **F3 composites** | χ_n is a non-trivial character of Γ₀(n) at every odd non-square n, so EUC-H treats composites like primes. This is consistent with the data: (S) has **no known counterexample** (0 violations among non-square n ≡ 1 (4) < 10⁹, HJ_DEEP EVIDENCE 3.1 + R174); the lone SQ₅ exception 105 has L₃(105) = ∅ (a (W)-failure, not an (S)-failure). The 285 (★)-zero composites and Z₇ all satisfy (S). | Not needed for (S) (Assessment: (S) is plausibly true for all non-squares); needed only for (W) at primes, which is trivial for p ≡ 1 (4) (bsG_primes_trivial: words (2,2,·), (3,·,4)). |
-| **F4 known zeros** | The 14 (★)-zero primes, the 38 𝔊*-zero primes and the R₈ zeros all satisfy (S) (to be re-verified by script, §3). (S) has no known zero, prime or composite. | — |
+| **F4 known zeros** | The 14 (★)-zero primes and the 38 𝔊*-zero primes satisfy (S) (HJ_DEEP/R174 census to 10⁹); the 12 R₈ zeros do too (explicit words, §7). (S) has no known zero, prime or composite. | — |
 
 ## 1. Precise statements attacked
 
@@ -185,7 +185,8 @@ labels (PROVED: χ_n factors through Γ₀(n) → B(ℤ/n) → (ℤ/n)^*).
   criterion) and Cor E3′.
 * **CERTIFIED (§4):** in H₁(Γ₀(n)/±1; F₂), generic length-3 loops are F₂-independent of each other, of all
   bounded-height loops and of the cusp/elliptic classes. This holds at all 267 primes p ≡ 1 (24) ≤ 2·10⁴ and at 108
-  controls (squares, Z₇, composite R-zeros, (★)-zero primes): 9 828 high-loop instances in total, rank deficit 0.
+  controls (squares, Z₇, composite R-zeros, (★)-zero primes): 7 244 high loops at the primes for BMAX 10 (2 584 for
+  BMAX 30; the two sets overlap) and 906 / 202 at the controls, with rank deficit 0 in every case.
   Fake classes killing every short loop while agreeing with χ_p on the known part exist at 176/267 primes (BMAX 30) and
   215/267 (BMAX 10).
 * **Kill test KE1:** fired (with the disclosed height-classification deviation).
@@ -200,7 +201,7 @@ labels (PROVED: χ_n factors through Γ₀(n) → B(ℤ/n) → (ℤ/n)^*).
 | screen | EUC-H index | where primality / non-squareness enters |
 |---|---|---|
 | F1 odd squares | χ_{m²} ≡ 0: no index anywhere; T1 automatic. The H₁-independence of generic loops holds at squares as well (58 squares tested), so the topology is identical. | only in χ_n ≠ 0 |
-| F2 C-even / numerator 8 | support = all χ = −1 length-3 words (five slices); not tied to (★) or its C-even half; R₈ zeros satisfy (S) since R ≥ 12 there | — |
+| F2 C-even / numerator 8 | support = all χ = −1 length-3 words (five slices); not tied to (★) or its C-even half. (S) holds at all 12 R₈ zeros in [10¹⁰, 1.1·10¹⁰] (explicit interior χ = −1 words, `scripts/z63_euclid_r8check.py` → `data/z63/euclid/r8_zeros_S_witness.txt`, CERTIFIED) | — |
 | F3 composites | behaves exactly as at primes (40 composite R-zeros and Z₇ tested: same independence). (S) has no known composite counterexample, so a non-squareness-only argument is not refuted by data. | not needed for (S) (Assessment) |
 | F4 known zeros | (★)-zero primes 409, 577, 5569, 9601 tested: same structure; (S) holds at all 14 (★)-zeros, all 38 𝔊*-zeros (≤ 10⁹ census of HJ_DEEP/R174) and the R₈ zeros (via R ≥ 12) | — |
 
