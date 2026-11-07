@@ -88,7 +88,32 @@ quadratic character (fable-2 / astra-2 remnants); (ii) the Stokes form (d) with 
 Farey complex), where the weights are filling-dependent and are not a fixed dictionary.
 
 ## 4. Computations
-(to be filled)
+
+### 4.1 KT1 — river weights on certificate forms: **DEAD (per pre-registration)**
+
+Run: `python3 scripts/z62_parity_river.py 200000 <extras>` → `data/z62/parity/kt1_river_2e5.tsv` (all 2 224 primes
+p ≡ 1 (24) ≤ 2·10⁵, plus the 12 (★)-zeros < 3·10⁶, Z₇, 68 odd squares; 3.5 s). Columns: for each family STAR ((★),
+unordered), U7 (unordered U₇ words), ALLX (all unordered words of X(p) = {tuv − u − v = p}) and each of 8 river
+weights and their 28 pairwise products, the count W_w(p). Checks: 2·STAR_one = R(p) against brute force (4 random
+primes, and the zeros), ALLX_one = brute-force unordered |X(n)| (11 values), U7_one = 0 exactly at squares and Z₇,
+> 0 at all 12 (★)-zeros.
+Analysis: `scripts/z62_parity_gf2.py` (GF(2) nullspace of [counts | class indicators mod 840], train p ≤ 10⁵ (1 187
+primes), test (10⁵, 2·10⁵] (1 037)); `scripts/z62_parity_quot.py` quotients by per-word identities (distinct per-word
+patterns: 16; per-word identity space: dim 95). **Prime-level nullspace dim 98 = 95 trivial + 3.** The 3 excess
+identities all generalise (held-out agreement 1.000) and all live on ALLX; restricted to interior words
+(t, u, v ≥ 2) every one of them is ≡ 0, the constant sits on boundary words and is explained exactly: e.g.
+Σ_ALLX (1 + [t = 1] + hj) ≡ #{u = 1 words} + #{HJ-length-1 words} = τ(p + 1) + 3 ≡ 1 (the three length-1 words
+(2, 1, p+1), (p+2, 1, 1), (1, 2, p+2) are not certificates for p ≡ 1 (4)). No identity involves STAR or U7 non-trivially,
+and no single STAR/U7 column is constant per class except per-word-constant ones. **KT1 fires: main line dead.**
+
+**Why (Lemma R, PROVED).** For a word (t, u, v) of n with σ = u + v, ε = σ mod 2, the substitution x ↦ x − ky,
+k = ⌊(v−u)/2⌋, carries F = [t, t(v−u), −n] to G(t, σ) := [t, tε, σ − t(σ² − ε)/4] (compute: with m = v − u = 2k + ε,
+c′ = −t(m² − ε)/4 − n and n = t(σ² − m²)/4 − σ). So **the topograph/river of a certificate form depends only on
+(t, σ) = (4C, u + B), not on p** (p enters only through which (t, σ) occur); the cycle is that of the cyclic HJ word
+(t, σ), of Gauss length 2 or 4 (CERTIFIED for all 26 761 words of primes ≡ 1 (24) < 5·10⁴: STAR always 4).
+Every river weight is therefore a fixed function w(C, u + B) of the certificate — a fixed-feature dictionary in new
+coordinates, which is exactly what WINDMILL §3 / board astra-3 already found sterile. The river of a form *attached to a
+certificate* carries no non-local information; any topograph route must use a discriminant attached to p alone.
 
 ## 5. Verdict
 (to be filled)
