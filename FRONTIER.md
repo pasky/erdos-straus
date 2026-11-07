@@ -2551,6 +2551,24 @@ cross-review, fixes applied, not re-reviewed; internal, unrefereed).**
   free involutions, so any parity proof needs a larger set; the natural universal sets have non-uniform parity. No
   Zagier-type proof found; the scoped candidates are narrowed. Not a proof that parity arguments are impossible.
 
+**z63 (precedent hunt + board item astra-2; both ACCEPT-WITH-FIXES in Astra cross-review, fixes applied; internal).**
+* **Precedent hunt (`Z63_PRECEDENT.md`; literature, sources verified).** Literal precedents for pointwise existence at
+  polylog/bounded expected count without an identity exist in a few classes: sieve lower bounds for escape events
+  (Iwaniec's Jacobsthal bound), size/valuation squeezes (AKS Lemma 4.3), and RH-strength sums at one fixed modulus made
+  unconditional by Weil in 𝔽_q[t] (Shoup, Shparlinski, Bhowmick–Lê). None transfers to B2: each fails a named screen
+  (fixed sifting classes / T1-blind local data; input-blind squeezes fail at squares; the function-field analogue
+  of (MS) has no q-independent threshold). **Gap (Assessment, search-limited):** no reviewed result proves a pointwise
+  *hit* of a target whose per-trial density decays like a power, with a modulus that moves with the trial, at polylog
+  expected count, while the statement is false on an explicit infinite set (odd squares). Such a theorem for ES would
+  be of a kind not found in the reviewed literature.
+* **Euclidean-path index (`Z63_EUCLID.md`; board astra-2).** PROVED: Euclidean/HJ paths of n are loops in the level-n
+  presentation complex of Γ₀(n), with index χ_n(γ_A) = (A/n), and χ_n ≠ 0 iff n is a non-square (T1 built in); Hecke
+  eigenrelation; a fake-cocycle criterion. CERTIFIED: generic length-3 loops are F₂-independent modulo the known part at
+  all 267 primes p ≡ 1 (24) ≤ 2·10⁴ (no structured relations; consistent with a random model). Target: CONJECTURE (S)
+  (HJ_DEEP): every non-square n ≡ 1 (4) with L₃(n) ≠ ∅ has a length-3 word A with (A/n) = −1; no known counterexample
+  < 10⁹; (S)(p) ⟹ ES(p). Missing lemma: a p-uniform relation in H₁(Γ₀(p); F₂) linking generic length-3 loops to classes
+  of computable χ. Narrowed, no lead.
+
 ## 8. Pointers into the repository
 
 * **Start:** `STATUS.md` (wave headlines, newest first; ES-not-solved banner), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
