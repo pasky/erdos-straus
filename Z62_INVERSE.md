@@ -1,4 +1,4 @@
-# Z62_INVERSE — structure vs randomness at one prime: a (★)-zero carries no slice-visible structure beyond selection (EVIDENCE, u, C ≤ 256, n ≤ 10⁸); main line DEAD by its pre-registered kill (low power); no excess joint failure at the tested scale (narrowed, no lead)
+# Z62_INVERSE — structure vs randomness at one prime: the registered operational kill fired (no excess above a ±0.05 point threshold in the tested slice summaries, u, C ≤ 256, n ≤ 10⁸; low power); narrowed, no HOT LEAD
 
 **ES is OPEN; nothing here proves or disproves it.** Labels: PROVED / CONDITIONAL (on what) / CERTIFIED (computer) /
 EVIDENCE / CONJECTURE / Assessment. Internal, unrefereed. Lane INVERSE of wave z62 (brief `z52bbriefs/z62_lanes.md`;
@@ -22,7 +22,7 @@ F1, F2 and F4 are unchanged in substance from checkpoint 1. **F3 is corrected:**
 | | behaviour of the INVERSE idea |
 |---|---|
 | **F1 odd squares** | Every slice of m² is a B-kill (T1 is the extreme structured case). Any inverse statement "R = 0 ⟹ S" with S slice-visible is *true* at squares, so a step 2 "S ⟹ another family fires" must use non-squareness at an identified step. The only candidate found is χ_p ≠ 1 (Burgess / n_p). It is defeated at every bounded scale by Prop 4: under Dickson, primes exist whose whole slice-type vector up to scale K equals that of 1 = 1². |
-| **F2 C-even / R₈** | The 12 R₈-zero primes near 10¹⁰ (tag E) have R ≥ 12. Their u-slices hit at u ≤ 4 in 35 % of cases, and their C-slices hit only at odd C. Nothing in this lane distinguishes C odd from C even: the census uses both parities, and no proved step is parity-specific. No inverse statement here is claimed on the C-even sub-line. |
+| **F2 C-even / R₈** | The 12 R₈-zero primes near 10¹⁰ (tag E) have R ≥ 12. Their u-slices u ≤ 4 hit in 17 of 48 *slices* (35 %; 7 of the 12 primes have such a hit), and their C-slices hit only at odd C. Nothing in this lane distinguishes C odd from C even: the census uses both parities, and no proved step is parity-specific. No inverse statement here is claimed on the C-even sub-line. |
 | **F3 composites** | The 285 composite zeros (265 divisible by 3, 5 or 7; tag K) are the one population with *extra* structure. Their failing slices have structured share +0.05…+0.09 above controls, mostly T-kills (EVIDENCE, §4.1), concentrated at slices with gcd(k, n) > 1. Lemma 5 gives the mechanism and the primality step. For s \| n whose squarefree kernel divides the slice index, the genus twist χ_{−4u}·χ^{(s)} transfers to ((n/s)/ℓ), so composite zeros can be "partially square". At a prime no twisted character transfers to a square class; every real odd ψ transfers to (pD′/ℓ) with pD′ a non-square. |
 | **F4 known zeros** | The 14 (★)-zeros (tag Z) satisfy Cor 3 (CERTIFIED: checked directly by factorisation, all five items, all 14; internal review). *Conditional on failure*, they are within the 0.05 tolerance of class-matched controls, with a 2–3σ B\|f excess of about +0.035 (§4.1). The 24 𝔊*-zeros with R > 0 (tag G) are in the census, but they are outside Cor 3's hypothesis and were not compared in §4.1. No positivity is "proved" anywhere, so there is no conflict. |
 
@@ -51,37 +51,43 @@ F1, F2 and F4 are unchanged in substance from checkpoint 1. **F3 is corrected:**
 
 ## 2. Results in one paragraph
 
-**Assessment (from EVIDENCE at u, C ≤ 256, n ≤ 10⁸):** beyond the four exponent-2 slices, the failing slices at zeros
-show no slice-visible excess of structured kill types beyond ±0.05. The B/T/Q versus S labels ("structured" /
-"random") are conventions.
+**Scope of the empirical result (EVIDENCE at u, C ≤ 256, n ≤ 10⁸).** Beyond the four exponent-2 slices, the tested
+summaries (the shares B|f and (B+T+Q)|f among failing slices, per band) show no excess above the pre-set ±0.05 point
+threshold. This is not an equivalence test. It does not test the full type distribution, individual indices or
+general cross-slice structure. It also does not rule out an inverse theorem at a growing scale K(p) → ∞. The B/T/Q
+versus S labels ("structured" / "random") are conventions.
 * PROVED, scope u, C ∈ {1, 2, 3, 6}: there *is* exact forced structure (Lemma 2 = Z54_HCKILL Lemma 1.2(a); Cor 3). The
   slice group has exponent 2, so failure is a pure real-character condition. At p ≡ 1 (24), R(p) = 0 forces every
   prime factor of (p+1)(p+2)(4p+1) to be a quadratic residue mod p, plus four two-way alternatives and one four-way
-  alternative (C = 6).
+  alternative (C = 6). The alternatives can involve non-residue primes (p = 577, §3).
 * CONDITIONAL on Dickson (slice part; the certificate part is unconditional): this bounded-scale structure is mimicked
   by primes that look exactly like 1² at all slices u, C ≤ K. They also fail every certificate that is determined by
-  p mod q with q | L_K and fails at n = 1 (Prop 4, a variant of CAP_BOUNDED Thm 1.3 and Z60_LOPEZ Prop D). So no
+  p mod q with q | L_K and fails at n = 1 (Prop 4, a specialisation of Z60_LOPEZ Prop D(a,T); mechanism of CAP_BOUNDED Thm 1.3). So no
   STEP2 whose input is the slice-type vector up to a fixed K and whose output is such a certificate can work.
-* Pre-registered kill test fired (EVIDENCE; low power).
+* The registered operational kill test fired (EVIDENCE; low power).
   * Beyond u, C = 16, the failing slices of the 6 fresh near-zeros have type shares within the pre-set tolerance
     |Δ| ≤ 0.05 of class-matched controls.
   * With only 6 near-zeros, SE up to 0.049, so structured excesses up to ≈ 0.1 are not excluded.
   * Exploratory, larger samples: the 14 zeros and the 125 R ≤ 4 primes are also within 0.05, but show a significant
     B|f excess of +0.03–0.04 (2–4σ) at u and C ∈ [65, 256].
-  * Assessment: this is the small-M_BM selection already seen by Z52D_FOURIER §0(b).
+  * Possible explanation, *untested* here (Assessment): the small-M_BM selection seen by Z52D_FOURIER §0(b).
 * Escape hatch (joint structure), pre-registered test 2: no *excess* joint failure beyond the pre-registered band
-  [1/3, 3]. O/E of "all u ≤ U fail" against class-conditioned marginals is 0.67–1.48 at U = 16, 32. At U ≤ 16 joint
+  [1/3, 3], which is an operational factor-three tolerance and not an independence test. O/E of "all u ≤ U fail" against class-conditioned marginals is 0.67–1.48 at U = 16, 32. At U ≤ 16 joint
   failure is significantly *rarer* than independence predicts (O/E ≈ 0.7).
 * Post-hoc test 3 conditions each slice on its visible small-prime signature, including the χ_p value of its private
   factor.
-  * Fresh window: no detectable dependence of the private layers (O/E = 0.79–1.45 for U ≤ 64; only 11–47 events at
+  * It tests one all-fail event against fitted signature-conditioned marginals, not full independence of the private
+    layers.
+  * Fresh window: no detectable excess for that event (O/E = 0.79–1.45 for U ≤ 64; only 11–47 events at
     U ≥ 32, so O/E up to ≈ 2.5 is not excluded at U = 64).
   * The window 10⁶–1.2·10⁷ shows a 2–3× excess at U = 48–64, alongside the known 10⁶–10⁷ zero cluster.
-* Verdict: **(INV-main) DEAD by its pre-registered point criterion (low power); STEP2 excluded in the bounded-scale
-  form above (Prop 4); narrowed, no HOT LEAD.**
-  * Lemma 6 (PROVED, prior) says every family needs a non-residue prime.
-  * Reading (Assessment): the structure forced by R(p) = 0 supplies only residue primes, which anti-supports but does
-    not refute STEP2.
+* Verdict: **narrowed, no HOT LEAD.**
+  * The registered operational kill of the slice-summary version of (INV-main) fired. This is not a mathematical
+    elimination of INV-main, and a growing-scale inverse theorem is untouched.
+  * STEP2 is excluded only in the bounded-scale certificate form of Prop 4.
+  * Lemma 6 (PROVED, prior) says every family's witness needs a non-residue prime. Only Cor 3(i) and B-killed slices
+    are residue-only. Cor 3's alternatives are not: at the zero p = 577 a T-kill slice carries the non-residue 5,
+    which yields a Type I witness. No general anti-support inference is drawn.
 
 ## 3. Proved statements
 
@@ -168,9 +174,13 @@ so the family is admissible. Dickson gives infinitely many t with all of them pr
 * The Type I clause: f | 4dt² + 1 forces χ_{−4d}(f) = +1 (for each prime factor ℓ of 4dt² + 1, −d is a square
   mod ℓ). But f ≡ −p ≡ −1 (mod 4dt) gives χ_{−4d}(f) = −1. ∎
 
-*Prior art.* The unconditional clause is the "fixed congruence menu" dead end (FRONTIER §6) and Z60_LOPEZ Prop D. The
-"constant × prime" Dickson mechanism is that of CAP_BOUNDED Thm 1.3 (and of Z53_HCSHIFTS Thm W's families). New here:
-only the C-slice extension, the identification of the whole slice-type vector with that of 1, and the Type I clause.
+*Prior art.* Z60_LOPEZ Prop D(a,T) already constructs, simultaneously, p + k = (k+1)q_k and kp + 1 = (k+1)Q_k with
+multipliers ≡ 1 modulo L_k, using M divisible by 4k(k+1). Taking X = 4K, k = u for the u-slices and k = 4C for the
+C-slices yields Prop 4's divisor-residue mimicry. So Prop 4 is a *specialisation/repackaging* of Z60_LOPEZ Prop D(a,T),
+including the two slicings and the whole-vector identification (cross-model review). The unconditional clause is the
+"fixed congruence menu" dead end (FRONTIER §6). The "constant × prime" Dickson mechanism is CAP_BOUNDED Thm 1.3's (and
+Z53_HCSHIFTS Thm W's families). Only the explicit Type I clause is recorded here for the first time.
+Prop 4 is "∀ fixed K, infinitely many p", not a growing-K theorem.
 
 *Scale.*
 * PROVED (Z53_HCSHIFTS Thm W, wall for fixed families of this shape): such constructions certify only K < (4 + o(1))
@@ -181,17 +191,19 @@ only the C-slice extension, the identification of the whole slice-type vector wi
 
 **Lemma 5 (transfer dimension: primes versus composites; PROVED, elementary).** Let n be odd, and ℓ ∤ 2u an odd prime
 with ℓ | n + u. Then χ_{−4u}(ℓ) = (n/ℓ) (Legendre).
-Let s | n be odd. Let χ^{(s)} be the *even* real character with χ^{(s)}(ℓ) = (s/ℓ) for odd ℓ, i.e. χ_s if s ≡ 1 (4)
-and χ_{4s} if s ≡ 3 (4). Suppose its conductor divides 4u, which holds iff the squarefree kernel of s divides u. Then
-ψ = χ_{−4u}χ^{(s)} is an odd real character mod 4u, and ψ(ℓ) = (ns/ℓ) = ((n/s)/ℓ) for every prime ℓ | n+u with
-ℓ ∤ 2u. So a ψ-kill at slice u says "n/s is a QR modulo every such ℓ": a partial T1 for the cofactor n/s. The
+Let s | n be odd, and let r be the squarefree kernel of s. Let χ^{(s)} be the primitive *even* real character of
+discriminant r (if r ≡ 1 (4)) or 4r (if r ≡ 3 (4)), induced to modulus 4u. Its conductor divides 4u iff r | u; assume
+this. Then ψ = χ_{−4u}χ^{(s)} is an odd real character mod 4u. For every prime ℓ | n+u with ℓ ∤ 2us (automatic for
+relevant factors), χ^{(s)}(ℓ) = (r/ℓ) = (s/ℓ)·(square) and ψ(ℓ) = (ns/ℓ) = ((n/s)/ℓ).
+(Cross-model fix: for non-squarefree s the literal χ_s / χ_{4s} has extra zeros, e.g. s = 9, u = 1 gives χ₉(3) = 0, so
+it is not a character mod 4. Hence the normalisation via r.) So a ψ-kill at slice u says "n/s is a QR modulo every such ℓ": a partial T1 for the cofactor n/s. The
 analogous statement holds for C-slices.
 *Correction (internal review):* the first draft used χ_{s*} with s* = ±s ≡ 1 (4). That character is odd for
 s ≡ 3 (4), so the twist was even and could kill nothing.
 For n = p prime and u < p, write any odd real character mod 4u as ψ = χ_{−4u}·χ_{D′} with χ_{D′} even and real
 (imprimitive allowed; p ∤ D′). Then ψ(ℓ) = (pD′/ℓ) on prime factors of p + u, and pD′ is never a square.
 *Reading:* no slice of a prime is killed *identically*; every kill is an accident of the factorisation of p + u. For
-n = s·k² with rad(s) | u, by contrast, ψ = χ_{−4u}χ^{(s)} is identically 1 on the relevant ℓ. So the kill is forced
+n = s·k² with r | u, by contrast, ψ = χ_{−4u}χ^{(s)} is identically 1 on the relevant ℓ. So the kill is forced
 (twisted T1; this agrees with Z60_MS105 Lemma 1: s ∤ uC). The decomposition ψ = χ_{−4u}·(even real) is Z52D_FOURIER's.
 *Proof.* As in Lemma 1(a): −u ≡ n (mod ℓ), so (−u/ℓ) = (n/ℓ), and multiplicativity of the Legendre symbol does the
 rest. ∎
@@ -202,14 +214,19 @@ This is the identifiable primality step for F3.
   * controls: 0.234, 0.637.
 * A smaller residual remains at gcd = 1 (+0.026 for u, +0.038 for C).
 
-**Lemma 6 (each family needs a non-residue prime; PROVED, elementary; prior: Z59_MSPF Lemma 1.5, Z57_BFII Lemma 2.1,
-the Z60_LOPEZ coupling lemma; recorded here for Type I in fable-5's form).** Let p ≡ 1 (mod 4).
+**Lemma 6 (each family needs a non-residue prime; PROVED, elementary; prior: Z59_MSPF Lemma 1.5,
+Z57_BFII Prop 2.2 / Cor 2.4, the Z60_LOPEZ coupling lemma; recorded here for Type I in fable-5's form).** Let p be a
+prime with p ≡ 1 (mod 4).
 * Every Type I witness (d, t, f) of fable-5's form (f | 4dt² + 1, f ≡ −p (mod 4dt)) has χ_p(d) = −1.
 * Every hit at a u-slice uses a divisor d with χ_{−4u}(d) = −1. By Lemma 1(a), d has a prime factor ℓ with χ_p(ℓ) = −1.
 * The same holds at a C-slice.
-*Reading (Assessment).* The structure that R(p) = 0 forces (Cor 3, and B-kills generally) supplies only prime factors
-that are residues mod p, so it cannot be the non-residue input. This anti-supports STEP2 but does not refute it:
-Type I's d is a free parameter, and nothing forces it to be built from the slice primes.
+*Scope (corrected after cross-model review).* Only Cor 3(i) and B-killed slices are residue-only. The alternatives in
+Cor 3(ii)–(v), and T/Q kills generally, can contain non-residue primes.
+* Counterexample to the first draft's "forced structure supplies only residue primes": at the genuine zero p = 577,
+  the u = 3 slice has p + 3 = 4·5·29. Both odd factors are ≡ 1 (mod 4) (a T-kill allowed by Cor 3(ii)), but
+  (5/577) = (577/5) = −1.
+* That factor 5 supplies the Type I witness (d, t, f) = (5, 1, 3): 3 | 21 and 3 ≡ −577 (mod 20).
+* So no general anti-support inference for STEP2 is drawn.
 *Proof.* As in the Type I clause of Prop 4: χ_{−4d}(f) = +1 from the divisor condition, while χ_{−4d}(−p) =
 −χ_{−4d}(p) = −(d/p) from the congruence. The slice statements follow from χ_{−4u}(−1) = −1 and Lemma 1(a). ∎
 
@@ -241,7 +258,10 @@ Type I's d is a free parameter, and nothing forces it to be built from the slice
 | C [17–64] | −0.031 (0.028) | −0.000 (0.036) |
 | C [65–256] | +0.007 (0.013) | −0.006 (0.020) |
 
-All |Δ| ≤ 0.05: **KILL criterion met** (the point criterion, exactly as pre-registered).
+All |Δ| ≤ 0.05: **the registered operational kill criterion is met** (a point-estimate criterion, exactly as
+pre-registered). This is not an equivalence test: e.g. Δ B|f = +0.048 with SE 0.035 has a rough 95 % interval
+[−0.02, +0.12]. Row-resampling bootstrap SEs also do not preserve the matched near-zero/control triplets. The test
+checks only B and B+T+Q shares, not the full distribution.
 * The power is low: 95 % intervals reach ±0.1, so a structured excess of about 0.1 (e.g. at u [17–64]) is not
   excluded.
 * The internal review checked the run against the pre-registration in 6500828e: same sets, bands, families, threshold
@@ -254,8 +274,8 @@ recomputed afterwards with the kill-test script.
 * The 125 primes with 1 ≤ R ≤ 4 in (10⁵, 1.2·10⁷] against the same controls, which are *not* matched to their classes
   (they include classes 169, 121 and 457 mod 840): all |Δ| ≤ 0.034. B|f excess +0.034 (0.008) at u [65–256] and
   +0.029 (0.014) at u [17–64].
-* Assessment: the persistent +0.03–0.04 B|f excess is the small-M_BM selection already seen by Z52D_FOURIER §0(b). It is
-  not tested here.
+* The persistent +0.03–0.04 B|f excess is unexplained here. A possible explanation (Assessment, *untested*) is the
+  small-M_BM selection seen by Z52D_FOURIER §0(b).
 * Raw B rates are much higher at zeros (u ≤ 4: 0.84 vs 0.58), but only because the slices failed.
 * Class matching matters. Unmatched primes ≡ 1 (24) (tag t, also R > 4) have st|f lower by 0.04–0.07 on u-slices and
   by 0–0.05 on C-slices.
@@ -302,20 +322,26 @@ mostly T, located at gcd(slice index, n) > 1 (Lemma 5). **F2:** see §0.
 ## 5. Verdict, screens, proposed FRONTIER text, bottom line
 
 **Verdict: narrowed.** No HOT LEAD.
-* (INV-main) is **dead** by its pre-registered point criterion (EVIDENCE; low power; u, C ≤ 256, n ≤ 10⁸).
+* The registered operational kill of the slice-summary version of (INV-main) fired: no excess above the ±0.05 point
+  threshold in the tested summaries (EVIDENCE; low power; u, C ≤ 256, n ≤ 10⁸).
+  * This is not an equivalence result and not a mathematical elimination of INV-main.
+  * An inverse theorem at a growing scale K(p) → ∞ is untouched.
+  * The R₈ population near 10¹⁰ (F2) is outside this inferential scope.
 * The only *forced* structure found is the exact exponent-2 content (Cor 3, PROVED).
-* That structure is mimickable at every bounded scale (Prop 4: CONDITIONAL on Dickson for the slice part, unconditional
-  for congruence-determined certificates that fail at 1).
-* By Lemma 6 (PROVED, prior) every family needs a non-residue prime. Reading (Assessment): the forced structure cannot
-  supply one.
-* No excess joint failure at U ≤ 32 (pre-registered), and none detectable in the fresh window up to U = 64 (post-hoc).
+* That structure is mimickable at every fixed bounded scale (Prop 4, a specialisation of Z60_LOPEZ Prop D(a,T):
+  CONDITIONAL on Dickson for the slice part, unconditional for congruence-determined certificates that fail at 1).
+* Lemma 6 (PROVED, prior): every family's witness needs a non-residue prime. Cor 3(i) and B-kills supply none.
+  Cor 3's alternatives can supply one (p = 577), so no anti-support for STEP2 is claimed.
+* Joint failure: no excess above the factor-three operational band at U ≤ 32 (pre-registered). Test 3 (post-hoc) finds
+  no detectable excess for the all-fail event up to U = 64 in the fresh window. This is not a test of full
+  independence.
 * What remains is the randomness half, i.e. B2 in the private-layer form: a pointwise reason why the private factors
   c_u (u ≤ U) cannot all land outside their ≤ k target classes. No new lever was found.
 * Surviving escapes (Assessment, unexplored):
-  * structure at scales ≫ 256 that is invisible slice by slice and in O/E at U ≤ 64, i.e. correlations of private
-    factors across *growing* shifts. Under the privacy of large primes (gcd(p+u, p+v) | u − v) there is no known
-    source for it;
-  * a structured excess of ≲ 0.1 that the low-power kill test cannot exclude.
+  * growing-scale inverse statements;
+  * structure at scales ≫ 256, or in summaries not tested here (full type distributions, individual indices, other
+    cross-slice statistics);
+  * a structured excess of ≲ 0.1 that the low-power test cannot exclude.
 
 **FRONTIER §4 hard screens** (for the best idea, Cor 3 + Prop 4):
 * T1: passes trivially (squares are fully structured), and that is the problem.
@@ -324,35 +350,33 @@ mostly T, located at gcd(slice index, n) > 1 (Lemma 5). **F2:** see §0.
 * Fixed p: Cor 3 is pointwise, but it gives necessary conditions only.
 
 **Proposed FRONTIER text** (§6, "Algebraic / forcing"; do not apply here):
-> * (z62) Inverse ("structure vs randomness") theorems at one prime → `Z62_INVERSE.md`:
+> * (z62) Inverse ("structure vs randomness") at one prime → `Z62_INVERSE.md` (narrowed, no lead):
 >   * The exact forced content of R(p) = 0 at the purely structured slices is Cor 3 (PROVED). These are the exponent-2
 >     slices u, C ∈ {1, 2, 3, 6} (Lemma 2 = Z54_HCKILL Lemma 1.2(a)). There, at p ≡ 1 (24), all prime factors of
->     (p+1)(p+2)(4p+1) are QRs mod p, plus four two-way alternatives and one four-way alternative.
->   * Under Dickson, primes copy 1²'s whole slice-type vector up to any fixed scale (Prop 4; CAP_BOUNDED Thm 1.3
->     mechanism).
->   * Beyond u, C = 16, failing slices at zeros and near-zeros match the class-matched control law within |Δ| ≤ 0.05
->     (pre-registered kill; low power; EVIDENCE ≤ 10⁸). The B/T/Q/S split itself is Z52D_FOURIER's. A +0.03–0.04 BM
->     excess remains, Assessment: small-M_BM selection.
->   * Joint failure of u ≤ 32 shows no excess beyond class (O/E 0.67–1.48; repulsion at U ≤ 16). Private layers show no
->     detectable dependence given visible signatures in (1.2·10⁷, 10⁸] (EVIDENCE, post-hoc).
->   * Not excluded: correlations of private factors across growing shifts.
+>     (p+1)(p+2)(4p+1) are QRs mod p, plus four two-way alternatives and one four-way alternative. The alternatives may
+>     contain non-residue primes (p = 577).
+>   * Under Dickson, primes copy 1²'s slice-type vector up to any fixed scale. This is Prop 4, a specialisation of
+>     Z60_LOPEZ Prop D(a,T) with the CAP_BOUNDED Thm 1.3 mechanism.
+>   * A registered operational test (u, C ∈ [17, 256], ±0.05 point threshold on the B and B+T+Q shares among failing
+>     slices; 6 near-zeros; low power; EVIDENCE ≤ 10⁸) found no excess at near-zeros versus class-matched controls. It
+>     is not an equivalence test and does not touch growing-scale inverse statements.
+>   * The B/T/Q/S split is Z52D_FOURIER's. A +0.03–0.04 BM excess remains at the zeros (unexplained; small-M_BM
+>     selection untested).
+>   * Joint failure of u ≤ 32 is within a factor-three band (O/E 0.67–1.48; repulsion at U ≤ 16, EVIDENCE).
+>   * Not excluded: growing-scale structure, other summaries, correlations of private factors across growing shifts.
 
 *(§7 item 19, zero-law questions, add:)* the 10⁶–10⁷ zero cluster also shows a 2–3× joint-failure excess of the
 u ≤ 48–64 slices at fixed visible signatures. It did not replicate in (1.2·10⁷, 10⁸] (`Z62_INVERSE.md` §4.2).
 
-**Bottom line.** Asked whether a (★)-zero is "structured" in the Gowers sense, the tested statistics say no
-(Assessment).
+**Bottom line.** The question was whether a (★)-zero is "structured" in the Gowers sense. In the tested slice summaries
+at u, C ≤ 256 and n ≤ 10⁸, no excess structure above a ±0.05 point threshold was found. The registered operational
+kill fired, with low power; this is not a proof of absence.
 * At the four exponent-2 slices the zero condition *is* a pure character condition. Cor 3 gives it exactly: every
-  prime factor of (p+1)(p+2)(4p+1) is a residue mod p, plus five alternatives.
-* That structure is T1-compatible and mimickable by primes under Dickson (Prop 4). It supplies only residue primes,
-  while every family needs a non-residue one (Lemma 6).
-* Beyond u, C = 16, the failing slices of zeros and near-zeros have, within ±0.05, the same B/T/Q/S mix as failing
-  slices of class-matched primes. The pre-registered kill fired, with low power.
-* Across slices, the private large-prime layers show no detectable dependence given their visible signatures (fresh
-  window, ≤ 10⁸).
-* Assessment, extrapolating EVIDENCE ≤ 10⁸: maximal cancellation at a zero is *consistent with* a conjunction of
-  private failures that are independent beyond their visible signatures. In the statistics tested here, an inverse
-  theorem has no slice-visible structure to output, and fable-5's disjunction has nothing to feed on.
+  prime factor of (p+1)(p+2)(4p+1) is a residue mod p, plus five alternatives (which may involve non-residues).
+* That structure is T1-compatible and, under Dickson, mimickable by primes at any fixed scale (Prop 4, after
+  Z60_LOPEZ Prop D(a,T)). So it cannot feed a bounded-scale congruence certificate.
+* Joint failure of small slices shows no excess beyond a factor-three band (and repulsion at U ≤ 16).
+* fable-5's disjunction found nothing to feed on in these statistics. A growing-scale inverse theorem remains open.
 * The lane narrows B2; it does not move it.
 
 ## 6. Review
@@ -370,3 +394,26 @@ number reproduced. Fixes applied in this version:
   χ_p conditioning).
 * The brute-force check is now committed.
 * Randomness claims relabelled as Assessment and scoped.
+
+## 7. Cross-model review
+`data/z62/xreview/REVIEW_INVERSE.md`, verdict ACCEPT-WITH-FIXES. It independently reproduced the slice codes (31 744
+slices, 0 mismatches), the kill-test numbers, the fresh-set selection, Test 2, Cor 3 on all 14 zeros, and Prop 4
+examples. Fixes applied:
+1. **The QR-only / anti-support claim was false and is removed.** At the zero p = 577, the u = 3 T-kill carries the
+   non-residue 5, which gives the Type I witness (5, 1, 3). The residue-only reading is now restricted to Cor 3(i) and
+   B-killed slices (§2, §3 Lemma 6 scope, §5).
+2. **Narrowed the title, §2, verdict, FRONTIER text and bottom line** to "registered operational kill fired; no excess
+   above the point threshold in the tested summaries". Removed:
+   * the equivalence, "no structure beyond selection" and "statistics say no" readings;
+   * the causal small-M_BM explanation (now untested Assessment);
+   * the private-layer independence claim (test 3 tests one all-fail event only);
+   * the claim that INV-main is dead at growing scale.
+3. **Prior art:** Prop 4 is now credited as a specialisation of Z60_LOPEZ Prop D(a,T), both slicings included. Lemma 6
+   now cites Z57_BFII Prop 2.2 / Cor 2.4.
+4. **Smaller fixes:**
+   * Lemma 5's twist is normalised via the squarefree kernel r with an induced primitive character (s = 9 example).
+   * Lemma 6 states p prime.
+   * F2's "35 %" is now 17/48 slices (7/12 primes).
+   * Prop 4 is stated as ∀ fixed K, not growing K.
+   * Kill-test caveats (equivalence, bootstrap pairing, summaries only) are added in §4.1.
+
