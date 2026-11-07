@@ -2535,6 +2535,22 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
   locality clause ("non-hit column ⇒ explicit successor of smaller potential, or a proper factor"), which nobody could
   state (Z61_TRANSPORTO Prop 3, PROVED with stated scope). Reopen only with such a local step lemma.
 
+**z62 (new proof paradigms at one prime; brief `z52bbriefs/z62_lanes.md`; all four memos ACCEPT-WITH-FIXES in Astra
+cross-review, fixes applied, not re-reviewed; internal, unrefereed).**
+* **Structure vs randomness (`Z62_INVERSE.md`, Opus; `Z62_INVERSEF.md`, Fable).** INVERSEF PROVES an exact
+  "arrangement" form of R(p) = 0 (for p ≡ 1 (4): every prime factor q of 4Cp + 1 has (q/p) = χ_C(q) for an odd character
+  χ_C mod 4C, and R(p) = 0 iff for every C no sub-multiset of prime factors multiplies to −1 mod 4C; consequences p ≡ 1 (8),
+  4p + 1 composed of primes ≡ 1 (4)). This is a sharp restatement, not a forcing step. The second step ("structure ⟹
+  another explicit solution") fails: identity-class coverage reproduces Mordell's 𝔐 at modulus 840 and leaves growing
+  uncovered sub-classes under refinement (CERTIFIED to the stated moduli). INVERSE's pre-registered kill fired: in the
+  tested slice summaries (u, C ≤ 256, n ≤ 10⁸) the (★)-zero primes show no failure structure beyond selection
+  (EVIDENCE, low power). Assessment: no inverse theorem is in sight; zeros look like random failures, not structured ones.
+* **Parity / index / Zagier-type arguments (`Z62_PARITY.md`, Opus; `Z62_PARITYF.md`, Fable).** PROVED (Lemma P0):
+  any involution/handshake/Morse/Stokes/Lefschetz-type existence argument is equivalent to a weight on certificates with
+  a computable non-zero total; uniform non-vanishing on (★)-support is refuted by the 14 zeros. ES solution sets carry
+  free involutions, so any parity proof needs a larger set; the natural universal sets have non-uniform parity. No
+  Zagier-type proof found; the scoped candidates are narrowed. Not a proof that parity arguments are impossible.
+
 ## 8. Pointers into the repository
 
 * **Start:** `STATUS.md` (wave headlines, newest first; ES-not-solved banner), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
