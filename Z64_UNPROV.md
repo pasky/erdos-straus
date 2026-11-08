@@ -371,7 +371,8 @@ a proof that no PA-proof exists.
 * *Consistency statements and machines.* Con(T) and Gödel sentences are Π₁. O'Rear's 748-state Turing machine halts iff
   ZF is inconsistent, so its non-halting is a Π₁ sentence that ZF does not prove if ZF is consistent, and that is
   independent of ZF if ZF is moreover Σ₁-sound. Source: Aaronson,
-  *The Busy Beaver Frontier*, Theorem 7, quoted verbatim in `lit_independence.md` §4 (VERIFIED, with Aaronson's caveat
+  *The Busy Beaver Frontier*, Theorem 7, quoted verbatim in `lit_independence.md` §4 and re-read by the lane in the
+  author PDF (VERIFIED, with Aaronson's caveat
   "assuming O'Rear's construction is sound").
 * *Matiyasevich (MRDP).* Every Π₁ sentence, Con(ZFC) included, is equivalent to the unsolvability of some Diophantine
   equation. So "Diophantine" is no protection against independence; the equations produced encode proof predicates.
@@ -543,6 +544,14 @@ What is out of reach (Assessment, with reasons):
   divisor, whose residues are again forced by the square-mimicking ϕ. So B2 fails there. A proof of
   B2-positivity must use a principle false in M_ϕ (§5 list).
 * *Fixed p.* Not applicable: no pointwise or averaged positivity is claimed.
+
+**Falsifier table (re-stated; details in §0).**
+* *F1 odd squares:* the mechanism of Thms A–A″ *is* T1, lifted into a model. It covers exactly the unit-square classes.
+* *F2 C-even:* applies verbatim to R₈ and every (★)-sub-line; nothing distinguishes C odd from C even; no positivity is
+  claimed.
+* *F3 composites:* the counterexamples are primes of the model (for (★), any suitable polynomial generator).
+* *F4 known zeros:* untouched; no positivity is claimed.
+No HOT LEAD.
 
 **Proposed FRONTIER text** (do not edit FRONTIER here).
 * §3, new barrier entry (after B1):
