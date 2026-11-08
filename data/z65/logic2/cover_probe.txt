@@ -1,0 +1,11 @@
+Q=101640 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 2}) target=1mod840_nr11 family_members=7747 |K|=55 covered=37 uncovered=18 frac_covered=0.6727
+Q=120120 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1}) target=1mod840_nr11 family_members=13541 |K|=60 covered=54 uncovered=6 frac_covered=0.9000
+Q=27720 ({2: 3, 3: 2, 5: 1, 7: 1, 11: 1}) target=1mod840_nr11 family_members=7162 |K|=15 covered=12 uncovered=3 frac_covered=0.8000
+Q=18480 ({2: 4, 3: 1, 5: 1, 7: 1, 11: 1}) target=1mod840_nr11 family_members=7382 |K|=10 covered=7 uncovered=3 frac_covered=0.7000
+Q=46200 ({2: 3, 3: 1, 5: 2, 7: 1, 11: 1}) target=1mod840_nr11 family_members=7485 |K|=25 covered=17 uncovered=8 frac_covered=0.6800
+Q=64680 ({2: 3, 3: 1, 5: 1, 7: 2, 11: 1}) target=1mod840_nr11 family_members=7688 |K|=35 covered=25 uncovered=10 frac_covered=0.7143
+Q=2042040 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1, 17: 1}) target=1mod840_nr11 family_members=50568 |K|=960 covered=942 uncovered=18 frac_covered=0.9812
+Q=1321320 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 2, 13: 1}) target=1mod840_nr11 family_members=28436 |K|=660 covered=607 uncovered=53 frac_covered=0.9197
+Q=360360 ({2: 3, 3: 2, 5: 1, 7: 1, 11: 1, 13: 1}) target=1mod840_nr11 family_members=26484 |K|=180 covered=175 uncovered=5 frac_covered=0.9722
+Q=38798760 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1, 17: 1, 19: 1}) target=1mod840_nr11 family_members=187050 |K|=17280 covered=17199 uncovered=81 frac_covered=0.9953
+Q=6126120 ({2: 3, 3: 2, 5: 1, 7: 1, 11: 1, 13: 1, 17: 1}) target=1mod840_nr11 family_members=98544 |K|=2880 covered=2867 uncovered=13 frac_covered=0.9955
