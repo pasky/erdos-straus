@@ -1,0 +1,102 @@
+### ell=3 K1=13 K2=25
+level 1: good caught residues 1, candidates scanned 105, B_up 201
+level 2: good caught residues 0, candidates scanned 203, B_up 378
+level 3: good caught residues 3, candidates scanned 412, B_up 716
+level 4: good caught residues 0, candidates scanned 862, B_up 1400
+level 5: good caught residues 9, candidates scanned 1864, B_up 2815
+level 6: good caught residues 0, candidates scanned 4072, B_up 5756
+level 7: good caught residues 13, candidates scanned 8695, B_up 11849
+level 8: good caught residues 0, candidates scanned 18537, B_up 24359
+level 9: good caught residues 35, candidates scanned 38948, B_up 49791
+level 10: good caught residues 0, candidates scanned 80621, B_up 100971
+level 11: good caught residues 41, candidates scanned 164949, B_up 202985
+level 12: good caught residues 0, candidates scanned 333752, B_up 404551
+level 13: good caught residues 39, candidates scanned 668187, B_up 799673
+level 14: good caught residues 0, candidates scanned 1325437, B_up 1568720
+level 15: good caught residues 81, candidates scanned 2607818, B_up 3056010
+level 16: good caught residues 0, candidates scanned 5091399, B_up 5915820
+level 17: good caught residues 65, candidates scanned 9874824, B_up 11386219
+level 18: good caught residues 0, candidates scanned 19040599, B_up 21801069
+level 19: good caught residues 109, candidates scanned 36512425, B_up 41544540
+level 20: good caught residues 0, candidates scanned 69679456, B_up 78825913
+level 21: good caught residues 143, candidates scanned 132370814, B_up 148971420
+level 22: good caught residues 0, candidates scanned 250458976, B_up 280515786
+level 23: good caught residues 119, candidates scanned 472129495, B_up 526450385
+level 24: good caught residues 0, candidates scanned 886945924, B_up 984951383
+level 25: good caught residues 113, candidates scanned 1660978117, B_up 1837505518
+exact tree to level 13: 0 survivors; branch masses 
+explicit tail bound (k > 25): 5.262e-03
+ell=3: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): []
+### ell=5 K1=9 K2=17
+level 1: good caught residues 2, candidates scanned 121, B_up 230
+level 2: good caught residues 0, candidates scanned 320, B_up 545
+level 3: good caught residues 10, candidates scanned 905, B_up 1414
+level 4: good caught residues 0, candidates scanned 2759, B_up 3911
+level 5: good caught residues 30, candidates scanned 8277, B_up 11087
+level 6: good caught residues 0, candidates scanned 24292, B_up 31376
+level 7: good caught residues 46, candidates scanned 70160, B_up 87613
+level 8: good caught residues 0, candidates scanned 197472, B_up 240576
+level 9: good caught residues 62, candidates scanned 543504, B_up 649716
+level 10: good caught residues 0, candidates scanned 1468578, B_up 1728338
+level 11: good caught residues 128, candidates scanned 3905422, B_up 4536723
+level 12: good caught residues 0, candidates scanned 10243614, B_up 11770568
+level 13: good caught residues 160, candidates scanned 26564204, B_up 30229848
+level 14: good caught residues 0, candidates scanned 68164619, B_up 76949062
+level 15: good caught residues 230, candidates scanned 173441262, B_up 194338220
+level 16: good caught residues 0, candidates scanned 437721843, B_up 487400933
+level 17: good caught residues 264, candidates scanned 1097471795, B_up 1214824124
+exact tree to level 9: 0 survivors; branch masses 
+explicit tail bound (k > 17): 1.939e-03
+ell=5: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): []
+### ell=7 K1=7 K2=14
+level 1: good caught residues 3, candidates scanned 121, B_up 253
+level 2: good caught residues 0, candidates scanned 419, B_up 720
+level 3: good caught residues 15, candidates scanned 1585, B_up 2346
+level 4: good caught residues 0, candidates scanned 5982, B_up 8134
+level 5: good caught residues 45, candidates scanned 21949, B_up 28394
+level 6: good caught residues 0, candidates scanned 78411, B_up 97406
+level 7: good caught residues 91, candidates scanned 270004, B_up 326474
+level 8: good caught residues 0, candidates scanned 904052, B_up 1070012
+level 9: good caught residues 103, candidates scanned 2953631, B_up 3438640
+level 10: good caught residues 0, candidates scanned 9458449, B_up 10866328
+level 11: good caught residues 185, candidates scanned 29808233, B_up 33850133
+level 12: good caught residues 0, candidates scanned 92579593, B_up 104163537
+level 13: good caught residues 289, candidates scanned 284289977, B_up 317160498
+level 14: good caught residues 0, candidates scanned 863638088, B_up 956854704
+exact tree to level 7: 0 survivors; branch masses 
+explicit tail bound (k > 14): 1.219e-03
+ell=7: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): []
+### ell=11 K1=6 K2=11
+level 1: good caught residues 3, candidates scanned 155, B_up 292
+level 2: good caught residues 0, candidates scanned 679, B_up 1091
+level 3: good caught residues 27, candidates scanned 3485, B_up 4836
+level 4: good caught residues 0, candidates scanned 17215, B_up 22306
+level 5: good caught residues 61, candidates scanned 81406, B_up 100860
+level 6: good caught residues 0, candidates scanned 367852, B_up 441346
+level 7: good caught residues 89, candidates scanned 1598147, B_up 1872474
+level 8: good caught residues 0, candidates scanned 6720881, B_up 7739742
+level 9: good caught residues 161, candidates scanned 27590378, B_up 31310423
+level 10: good caught residues 0, candidates scanned 110856730, B_up 124424651
+level 11: good caught residues 333, candidates scanned 438341799, B_up 487118483
+exact tree to level 6: 311256 survivors; branch masses 2:0.096633, 6:0.096633
+explicit tail bound (k > 11): 1.009e-03
+branch g0=2: exact mass 0.096633, removed (levels 7..11) <= 0.000001, tail <= 1.01e-03; lower bound 0.095623 -> SURVIVES
+branch g0=6: exact mass 0.096633, removed (levels 7..11) <= 0.000001, tail <= 1.01e-03; lower bound 0.095623 -> SURVIVES
+ell=11: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 6]
+### ell=13 K1=5 K2=11
+level 1: good caught residues 4, candidates scanned 170, B_up 309
+level 2: good caught residues 0, candidates scanned 828, B_up 1284
+level 3: good caught residues 40, candidates scanned 4674, B_up 6368
+level 4: good caught residues 0, candidates scanned 25447, B_up 32457
+level 5: good caught residues 86, candidates scanned 131382, B_up 160818
+level 6: good caught residues 0, candidates scanned 646957, B_up 768058
+level 7: good caught residues 182, candidates scanned 3057870, B_up 3550476
+level 8: good caught residues 0, candidates scanned 13988963, B_up 15977871
+level 9: good caught residues 240, candidates scanned 62437428, B_up 70345101
+level 10: good caught residues 0, candidates scanned 272840104, B_up 304161683
+level 11: good caught residues 316, candidates scanned 1172909924, B_up 1295446562
+exact tree to level 5: 54394 survivors; branch masses 2:0.079354, 7:0.079354
+explicit tail bound (k > 11): 3.717e-04
+branch g0=2: exact mass 0.079354, removed (levels 6..11) <= 0.000000, tail <= 3.72e-04; lower bound 0.078981 -> SURVIVES
+branch g0=7: exact mass 0.079354, removed (levels 6..11) <= 0.000000, tail <= 3.72e-04; lower bound 0.078981 -> SURVIVES
+ell=13: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 7]

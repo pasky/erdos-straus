@@ -1,0 +1,16 @@
+level (11^0,13^1): 4 cylinders; alive 111540 -> 74360
+level (11^0,13^2): 24 cylinders; alive 74360 -> 70070
+level (11^0,13^3): 166 cylinders; alive 70070 -> 68310
+level (11^1,13^0): 3 cylinders; alive 68310 -> 27324
+level (11^1,13^1): 66 cylinders; alive 27324 -> 2508
+level (11^1,13^2): 265 cylinders; alive 2508 -> 2508
+level (11^1,13^3): 809 cylinders; alive 2508 -> 2376
+level (11^2,13^0): 29 cylinders; alive 2376 -> 1296
+level (11^2,13^1): 295 cylinders; alive 1296 -> 864
+level (11^2,13^2): 759 cylinders; alive 864 -> 804
+level (11^2,13^3): 1315 cylinders; alive 804 -> 802
+# skipped A-splits: 2
+# SKIPPED A split al=1 be=3 (M=6.42e+09)
+# SKIPPED A split al=2 be=2 (M=5.44e+09)
+surviving fraction of K-box at (11^2,13^3): 802/111540 = 0.0072
+surviving (g mod 11 -> h mod 13): {2: [2], 6: [7]}
