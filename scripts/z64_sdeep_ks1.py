@@ -111,7 +111,9 @@ for fk, fv in feats.items():
         x = (fv + np.maximum(iv, 0)) % 2
         b1 = class_major_acc(x, d, 1680)
         base1 = class_major_acc(fv, d, 1680)
-        res.append((b1 - base1, b1, base1, int(d.sum()), fk, ik))
+        b2 = class_major_acc(x, d, 13440)
+        base2 = class_major_acc(fv, d, 13440)
+        res.append((b1 - base1, b1, base1, int(d.sum()), fk, ik, b2, base2))
 res.sort(reverse=True)
 print("# abelian-predictable features (acc>=0.99 mod 1680):", sum(1 for k in abel if abel[k][0] >= 0.99), "of", len(abel))
 print("# (gain, acc(f xor rho | p mod 1680), acc(f | p mod 1680), n, feature, rho) top 25")
@@ -120,6 +122,11 @@ for r in res[:25]:
 mx = max(r[1] for r in res)
 law = [r for r in res if r[1] >= 0.99 and r[0] > 4 * 0.5 / np.sqrt(r[3])]
 gmax = max(r[0] / (0.5 / np.sqrt(r[3])) for r in res)
+print("# pairs evaluated:", len(res))
+m2 = max(res, key=lambda r: r[6] - r[7])
+print(f"# registered modulus 840*16 = 13440: max acc(f xor rho) {max(r[6] for r in res):.4f}; max gain over abelian fit {m2[6]-m2[7]:+.4f} at {m2[4]} / {m2[5]} (n={m2[3]})")
+law2 = [r for r in res if r[6] >= 0.99 and r[6] - r[7] > 4 * 0.5 / np.sqrt(r[3])]
+print("# pairs reaching 0.99 with gain > 4 sigma at modulus 13440:", len(law2))
 print(f"# max accuracy of (feature xor non-abelian rho) from p mod 1680: {mx:.4f}; pairs reaching 0.99 with gain > 4 sigma over the abelian fit: {len(law)}; max gain {gmax:.2f} sigma")
 print("# KS1 verdict:", "SURVIVE" if law else "DEAD (no non-abelian parity law on this dictionary; every >=0.99 pair is already an abelian law)")
 print("# top 10 by accuracy (acc(f xor rho), base acc(f), gain)")

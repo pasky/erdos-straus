@@ -58,6 +58,9 @@ PARI stack size set to 200000000 bytes, maximum size set to 200003584
 +0.0064 0.5241 0.5177  18495  all:cell(t0,12)              (7/p)4*h(-8p)/4
 +0.0064 0.5241 0.5177  18495  all:cell(t0,12)              (7/p)4*h(-4p)/4
 +0.0064 0.5241 0.5177  18495  all:cell(t0,12)              (2/p)4*(7/p)4
+# pairs evaluated: 7260
+# registered modulus 840*16 = 13440: max acc(f xor rho) 0.9981; max gain over abelian fit +0.0111 at all:cell(t0,12) / (7/p)4*h(-8p)/8 (n=9193)
+# pairs reaching 0.99 with gain > 4 sigma at modulus 13440: 0
 # max accuracy of (feature xor non-abelian rho) from p mod 1680: 0.9981; pairs reaching 0.99 with gain > 4 sigma over the abelian fit: 0; max gain 2.52 sigma
 # KS1 verdict: DEAD (no non-abelian parity law on this dictionary; every >=0.99 pair is already an abelian law)
 # top 10 by accuracy (acc(f xor rho), base acc(f), gain)
