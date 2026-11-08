@@ -22,7 +22,7 @@ modulus (Prop 5.3). Such primes exist in models of true arithmetic (Prop 5.4). (
 PROVED; found by the internal review).** For every primitive class r mod q, NOI proves ES at all large primes of the
 class ⟺ IOpen proves ES on the whole class ⟺ the class is a finite union of ET Prop 1.9 family classes ⟺ its
 profinite closure misses the closed set U of unit profiles covered by no family class. The square classes meet U (ET
-Prop 1.6). CONJECTURE, with EVIDENCE from a covering tree to level 1.2·10⁹: U also contains non-squares. For example
+Prop 1.6). CONJECTURE, with EVIDENCE from a covering tree to level 3·10¹³: U also contains non-squares. For example
 the non-square class {n ≡ 1 (mod 840), (n/11) = −1} meets U, which would make ES on it NOI-unprovable as well.
 (vi) IE₁, IΔ₀, IΔ₀ + exp: still OPEN. One new constraint: IΔ₀ + Count₂(Δ₀) proves QR (Jeřábek Thm 5.7) and Lagrange
 (Jeřábek p. 20). So at square-mimicking primes its residue fields contain √ℓ* for every standard ℓ. What this tells a
@@ -86,7 +86,7 @@ QR, Bez/IE₁ and IΔ₀ (U64 §§2.8, 5, 6.2 CONJECTURE, 9 O1–O4). This lane 
 | theory | ES on a primitive class r mod q (any class, square or not) | source |
 |---|---|---|
 | IOpen / NOI (tail form, n ≥ N₀) | provable ⟺ r mod q is a finite union of ET Prop 1.9 family classes ⟺ (r + qẐ) ∩ U = ∅ | **Thm D (§5)** |
-| same, non-square classes | CONJECTURE: some non-square classes are unprovable, e.g. {1 mod 840, (n/11) = −1} (covering tree alive to 1.2·10⁹, EVIDENCE) | §5.6 |
+| same, non-square classes | CONJECTURE: some non-square classes are unprovable, e.g. {1 mod 840, (n/11) = −1} (covering tree alive to level 3·10¹³, EVIDENCE) | §5.6 |
 
 ## 2. Theorem P: ordered universal facts that hold in the U64 models
 
@@ -536,11 +536,14 @@ primes only the profinite *limits* of zeros matter.
   level Q uses all family classes whose modulus divides Q.
 * *Implementations.* `scripts/z65_logic2_covertree.py` (sparse refinement tree) and `scripts/z65_logic2_cover.py` (dense
   marking) agree on every common level (2, 6, 18, 81 uncovered at Q = 9240, ·13, ·13·17, ·13·17·19).
-* *Data (CERTIFIED for the stated levels; `data/z65/logic2/covertree.txt`, `covertree_powers.txt`, `cover_probe.txt`).*
-  * Squarefree chain 9240·13·17·19·23: open nodes 2 → 6 → 18 → 81 → **444**.
+* *Data (CERTIFIED for the stated levels; `data/z65/logic2/covertree.txt`, `covertree_deep.txt`, `covertree_powers.txt`,
+  `cover_probe.txt`).*
+  * Squarefree chain 9240·13·17·19·23·29·31·37 (final level 3.0·10¹³; `covertree_deep.txt`): open nodes
+    2 → 6 → 18 → 81 → 444 → 2 842 → 21 785 → **191 017**. The surviving fraction of children is 0.25, 0.19, 0.25,
+    0.25, 0.23, 0.26, 0.24: stable at ≈ 1/4, while the branching p − 1 grows.
   * Chain with prime powers (·13, ·3, ·17, ·2, ·5, ·19; final level 1.16·10⁹): 2 → 6 → 5 → 13 → 18 → 57 → **163**.
   * Between 19 % and 28 % of the children of an open node stay uncovered when a new prime is added. So the uncovered
-    fraction of K falls (0.4, 0.1, 0.019, 0.0047, 0.0012) while the *number* of open nodes grows about ×3–5.5 per
+    fraction of K falls (0.4, 0.1, 0.019, 0.0047, 0.0012, …) while the *number* of open nodes grows about ×3–9 per
     prime.
   * Controls (`cover_controls.txt`):
     * unit squares mod 840, 9240, 120120 and 360360: 0 % covered, as Mordell–Schinzel requires (this also checks the
@@ -648,8 +651,8 @@ What was proved:
 
 What was computed:
 * K1–K3 kill tests: passed.
-* ET Prop 1.9 covering tree for the non-square class {1 mod 840, (n/11) = −1}: CERTIFIED to level 1.2·10⁹, two
-  implementations; still alive (444 / 163 open nodes). EVIDENCE for the CONJECTURE U ⊋ (Ẑ^×)².
+* ET Prop 1.9 covering tree for the non-square class {1 mod 840, (n/11) = −1}: CERTIFIED to level 3·10¹³ (squarefree
+  chain; 191 017 open nodes) and 1.2·10⁹ (with prime powers; 163), two implementations on common levels; still alive. EVIDENCE for the CONJECTURE U ⊋ (Ẑ^×)².
 
 What stays open: OI + Bez, + QR, IE₁, IΔ₀, IΔ₀ + exp (each with the constraints of §6); E(−1); TS + cofinal primes;
 Q_U.
@@ -675,7 +678,7 @@ Q_U.
   > n = β₁² + β₂²).
   > (iii) Exact dichotomy (Thm D): NOI/IOpen prove ES at the large primes of a class iff ET's Prop 1.9 families cover
   > it finitely, iff its profinite closure misses the closed set U of uncovered unit profiles. This is U64 Cor C at
-  > every modulus. U contains the unit squares. CONJECTURE (EVIDENCE: covering tree alive to 1.2·10⁹) that U contains
+  > every modulus. U contains the unit squares. CONJECTURE (EVIDENCE: covering tree alive to level 3·10¹³ with ≈ 1/4 survival per prime) that U contains
   > non-squares, e.g. some profile ≡ 1 (mod 840) that is a non-residue mod 11.
   > (iv) The polynomial construction cannot reach Bezout, prime-Bezout, reciprocity against standard primes or
   > Lagrange (Props 4.1–4.3). Their witness relations have integer points at odd squares; arc models of them are OPEN.
@@ -759,7 +762,8 @@ uv run --with sympy python scripts/z65_logic2_onlyprime.py 200                  
 uv run --with sympy python scripts/z65_logic2_landing.py 200 6565                  # = landing_check.txt, first block (~1 min)
 uv run --with numpy --with sympy python scripts/z65_logic2_cover.py 840 nonsq      # Mordell control: 186/186 covered
 uv run --with numpy --with sympy python scripts/z65_logic2_cover.py Q 1mod840_nr11 # = cover_probe.txt lines (Q as listed)
-uv run --with sympy python scripts/z65_logic2_covertree.py 13 17 19 23             # = covertree.txt (~15 min)
+uv run --with sympy python scripts/z65_logic2_covertree.py 13 17 19 23             # = covertree.txt (< 1 min)
 uv run --with sympy python scripts/z65_logic2_covertree.py 13 3 17 2 5 19          # = covertree_powers.txt (~20 min)
+uv run --with sympy python scripts/z65_logic2_covertree.py 13 17 19 23 29 31 37    # = covertree_deep.txt (~17 min)
 ```
 Everything else is proof.

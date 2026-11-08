@@ -1,0 +1,10 @@
+# target K: n = 1 mod 840, n non-residue mod 11; refinement primes [13, 17, 19, 23, 29, 31, 37]
+level Q=9240 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1}): tested=5 uncovered=2 (family residues=1169, moduli=40)
+level Q=120120 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1}): tested=24 uncovered=6 (family residues=5134, moduli=80)
+level Q=2042040 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1, 17: 1}): tested=96 uncovered=18 (family residues=22880, moduli=160)
+level Q=38798760 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1, 17: 1, 19: 1}): tested=324 uncovered=81 (family residues=94932, moduli=320)
+level Q=892371480 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1, 17: 1, 19: 1, 23: 1}): tested=1782 uncovered=444 (family residues=393650, moduli=640)
+level Q=25878772920 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1, 17: 1, 19: 1, 23: 1, 29: 1}): tested=12432 uncovered=2842 (family residues=1616342, moduli=1280)
+level Q=802241960520 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1, 17: 1, 19: 1, 23: 1, 29: 1, 31: 1}): tested=85260 uncovered=21785 (family residues=6681349, moduli=2560)
+level Q=29682952539240 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1, 17: 1, 19: 1, 23: 1, 29: 1, 31: 1, 37: 1}): tested=784260 uncovered=191017 (family residues=27156111, moduli=5120)
+# sample uncovered residues at final level: [131220319441, 9758123845681, 12967091687761, 20187269332441, 5876307907681]
