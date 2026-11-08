@@ -11,17 +11,22 @@ research subagents failed with an expired token).
 every "positively closed" ℕ-Diophantine non-existence fact (Thm P). So NOI + T1 ⊬ ES_prime on square classes; this
 answers U64 §2.8's open item. (ii) A new model (Thm T) adds the two-squares theorem. NOI + GCD + PD + Th_∀(ℤ) + T1 +
 "every prime p ≡ 1 (4) is a sum of two squares" does not prove ES (nor ES★) at the primes of any unit-square class, in
-particular not (MS). The model has exactly one nonstandard prime, n = β₁² + β₂². (iii) No-go (Prop 4.1): the
-present construction family ("polynomial-type" models) cannot be extended to prime-Bezout (residue rings modulo primes
-are fields), to reciprocity against standard primes, or to Lagrange. Every polynomial-type model of OI + PB has only
-standard primes. (iv) Arc level (§5): those three principles are *square-compatible*; nothing in the T1 transfer
-conflicts with them. A natural true principle that *does* kill every arc counter-model is the non-residue certificate
-NR (some d ≡ 3 (mod 4), coprime to p, has d | x² + p). At square-mimicking primes every such certificate, and every
-(★)-hit, must use a nonstandard modulus (Prop 5.3). Such primes exist in models of true arithmetic (Prop 5.4).
-CONDITIONAL on CONV-II-15, the transfer method can only ever refute ES at square-mimicking primes (Prop 5.5).
-(v) IE₁, IΔ₀, IΔ₀ + exp: still OPEN. One new constraint: in IΔ₀ + Count₂(Δ₀), which proves QR (Jeřábek Thm 5.7),
-square-mimicking primes have residue fields containing √ℓ* for every standard ℓ, so no polynomial-type model exists.
-What this tells a proof is in §7.
+particular not (MS). The model has exactly one nonstandard prime, n = β₁² + β₂². (iii) No-go (Props 4.1–4.3): the
+present construction family ("polynomial-type" models) cannot satisfy Bezout at all (Prop 4.1′). Its models of OI + PB
+(prime-Bezout: residue rings modulo primes are fields) have only standard primes. It cannot satisfy reciprocity against
+standard primes at square-mimicking primes, nor Lagrange. (iv) Arc level (§5): the witness relations of these
+principles have integer points at suitable odd squares (Prop 5.2). Whether arc models of them exist is OPEN. A natural
+true principle that *does* kill every arc counter-model is the non-residue certificate NR (some d ≡ 3 (mod 4), coprime
+to p, has d | x² + p). At square-mimicking primes every such certificate, and every (★)-hit, must use a nonstandard
+modulus (Prop 5.3). Such primes exist in models of true arithmetic (Prop 5.4). (v) **Exact dichotomy (Thm D,
+PROVED; found by the internal review).** For every primitive class r mod q, NOI proves ES at all large primes of the
+class ⟺ IOpen proves ES on the whole class ⟺ the class is a finite union of ET Prop 1.9 family classes ⟺ its
+profinite closure misses the closed set U of unit profiles covered by no family class. The square classes meet U (ET
+Prop 1.6). CONJECTURE, with EVIDENCE from a covering tree to level 1.2·10⁹: U also contains non-squares. For example
+the non-square class {n ≡ 1 (mod 840), (n/11) = −1} meets U, which would make ES on it NOI-unprovable as well.
+(vi) IE₁, IΔ₀, IΔ₀ + exp: still OPEN. One new constraint: IΔ₀ + Count₂(Δ₀) proves QR (Jeřábek Thm 5.7) and Lagrange
+(Jeřábek p. 20). So at square-mimicking primes its residue fields contain √ℓ* for every standard ℓ. What this tells a
+proof is in §7 (Assessment).
 
 ## 0. Falsifier table (mandatory)
 
@@ -30,10 +35,10 @@ mechanism; the table records how the results interact with the screens.
 
 | screen | behaviour |
 |---|---|
-| **F1 odd squares** | Every non-provability result is T1 transferred into a model along analytic arcs (U64 §2.3); Thm T lands at Pythagorean odd squares (s² + t²)². New: T1 itself holds in the models (Thm P), so "use T1" is not a principle that helps. NR is singled out because it is *false at every odd square* (Prop 5.1): it is a step "false at n = m²" in the T1 sense, and it kills the transfer. |
+| **F1 odd squares** | Every non-provability result at square classes is T1 transferred into a model along analytic arcs (U64 §2.3); Thm T lands at Pythagorean odd squares (s² + t²)². New: T1 itself holds in the models (Thm P), so "use T1" is not a principle that helps. NR's *witness relation* has no integer point at any perfect square (Prop 5.1); it is a step "false at n = m²" in the T1 sense and kills the transfer. Thm D shows that the general obstruction is Mordell–Schinzel non-solvability by polynomials; T1 (ET Prop 1.6) is why squares are non-solvable. |
 | **F2 C-even sub-line** | All model results apply verbatim to R₈ and every (★)-sub-line (subsets of R vanish at squares; Thm P covers the full Type II family too). Nothing distinguishes C odd from C even. No positivity is claimed, so nothing is falsified. |
-| **F3 composites** | The counterexamples are *primes* of the models (Thm T: the only nonstandard prime). Prop 5.5 uses the composite data in reverse. Non-square landing values cannot carry a refutation when genuine Type II solutions exist there; CONV-II-15 (CERTIFIED to 10⁸) says they do for all odd non-squares coprime to 15. So the counter-models are confined to square-mimicking primes. |
-| **F4 known zeros** | No positivity claimed. The (★)-zero primes cannot serve as landing values for a nonstandard *prime* (a fixed landing value would force ϕ(n) ∈ ℤ, hence n = ϕ(n)·unit reducible; §5 Remark 5.6). |
+| **F3 composites** | The counterexamples are *primes* of the models (Thm T: the only nonstandard prime). Pointwise landing at non-square integers cannot refute Type II solutions when CONV-II-15 holds (Remark 5.5′). The refutations that do exist at non-square profiles (if U ⊋ squares, CONJECTURE) come from polynomial non-solvability along whole progressions, not from composite zeros (Thm D). |
+| **F4 known zeros** | No positivity claimed. The (★)-zero primes cannot be the profile of a nonstandard *prime*. If ϕ(n) = N₀ ∈ ℤ with |N₀| > 1, every standard prime factor of N₀ divides n in M, so n is not prime (Remark 5.6). |
 
 No HOT LEAD.
 
@@ -72,26 +77,34 @@ QR, Bez/IE₁ and IΔ₀ (U64 §§2.8, 5, 6.2 CONJECTURE, 9 O1–O4). This lane 
 | … + T1★ + T1_II + every positively closed ℕ-non-existence fact | **not provable** | Thm P (§2) |
 | NOI + GCD + PD + Th_∀(ℤ) + T1 + **TS** | **not provable** | **Thm T (§3)** |
 | … + E(−1) | OPEN; not reached by Thm T's model (E(−1) fails there); not excluded for polynomial-type models | §4.4 |
-| + **PB** (⇐ Bez ⇐ IE₁) | OPEN; **no polynomial-type model** with a nonstandard prime (Prop 4.1). Bezout models with infinite primes exist (Smith 1993; Mohsenipour 2006, talk abstract) | §§4, 6 |
+| + **PB** (⇐ Bez ⇐ IE₁) | OPEN. Bez fails in *every* polynomial-type model (Prop 4.1′), and polynomial-type models of PB have no nonstandard prime (Prop 4.1). Bezout models with infinite primes exist (Smith 1993; Mohsenipour 2006, talk abstract) | §§4, 6 |
 | + **QR_std** | OPEN; no polynomial-type model with a square-mimicking prime (Prop 4.2) | §4 |
 | + **Lag** | OPEN; no polynomial-type model at all (Prop 4.3) | §4 |
 | + **NR** | OPEN; kills *every* arc counter-model (Prop 5.1) | §5 |
 | IE₁ / IΔ₀ / IΔ₀ + Count₂(Δ₀) / IΔ₀ + exp | OPEN (no computable nonstandard models of IE₁, Wilmers) | §6 |
+
+| theory | ES on a primitive class r mod q (any class, square or not) | source |
+|---|---|---|
+| IOpen / NOI (tail form, n ≥ N₀) | provable ⟺ r mod q is a finite union of ET Prop 1.9 family classes ⟺ (r + qẐ) ∩ U = ∅ | **Thm D (§5)** |
+| same, non-square classes | CONJECTURE: some non-square classes are unprovable, e.g. {1 mod 840, (n/11) = −1} (covering tree alive to 1.2·10⁹, EVIDENCE) | §5.6 |
 
 ## 2. Theorem P: ordered universal facts that hold in the U64 models
 
 Throughout, "a U64-type model" is M_ϕ := {g ∈ ℚ[β] : ϕ(g) ∈ Ẑ}. Here β = (β₁, β₂, …) are Berarducci–Otero's
 algebraically independent elements with their order (U64 §2.1), and ϕ: ℚ[β] → 𝔸_f is the ring homomorphism with
 ϕ(β_i) = a_i for an arbitrary sequence a ∈ Ẑ^ℕ. U64 §§2.1, 2.7 show M_ϕ ⊨ NOI for every such a (BO's proof uses ϕ only
-through Lemmas 2.7, 2.8, 2.10). U64 Lemma 2.3(a),(b) supplies, for every b ∈ ℤ^k, an analytic arc ψ on an interval
+through Lemmas 2.7, 2.8 and the ϕ-independent Lemmas 2.3, 2.6, 2.9; the lane re-read BO's proof of Thm 4.2: Lemma
+2.10 is used only for primality, Thm 4.3). U64 Lemma 2.3(a),(b) supplies, for every b ∈ ℤ^k, an analytic arc ψ on an interval
 I ⊃ [0, ∞) with ψ(g)(0) = g(b) and ψ(g) eventually of the M-sign of g (g ≠ 0).
 
 **Definition.** A finite system Σ(x̄, ȳ) of polynomial equations over ℤ, with "positive" variables x̄ = (x₁..x_k)
 and free variables ȳ, is *positively closed* if every point of V_Σ(ℝ) that is a limit of points of V_Σ(ℝ) with
-x̄ ∈ (0, ∞)^k itself has x̄ ∈ (0, ∞)^k.
+x̄ ∈ (0, ∞)^k itself has x̄ ∈ (0, ∞)^k. More generally, for a closed set C ⊆ ℝ^{x̄,ȳ}, Σ is *positively closed
+over C* if the same holds for limits of points of V_Σ(ℝ) ∩ C.
 
-**Lemma 2.1 (positivity propagation; PROVED).** Let Σ be positively closed and γ: [0, ∞) → V_Σ(ℝ) continuous, with
-x̄(γ(s)) ∈ (0, ∞)^k for all large s. Then x̄(γ(s)) ∈ (0, ∞)^k for all s ≥ 0.
+**Lemma 2.1 (positivity propagation; PROVED).** Let Σ be positively closed over a closed set C, and let
+γ: [0, ∞) → V_Σ(ℝ) ∩ C be continuous, with x̄(γ(s)) ∈ (0, ∞)^k for all large s. Then x̄(γ(s)) ∈ (0, ∞)^k for
+all s ≥ 0. (C = everything gives the plain notion.)
 *Proof.* S := {s ≥ 0 : x̄(γ(s)) > 0} is nonempty and open in [0, ∞). It is closed by positive closedness. [0, ∞) is
 connected. ∎
 
@@ -117,8 +130,13 @@ no integer solution with x̄ ≥ 1, then every U64-type model satisfies ∀x̄ �
 
 The integer facts: R(m²) = 0 for every m ≥ 1 (Z57_SYNTH Lemma A.1(b) is stated "for every m": an element of H_d is a
 unit with Jacobi symbol −1, while m² mod d is either a non-unit or has symbol +1). For m = 0, 4uBC − u − B ≥
-u(2B − 1) + B(2u − 1) > 0. N_II(m²) = 0 for every m ≥ 1 (Z57_BFII Prop 2.2 / Cor 2.3, as quoted in Z58_WILDCARD §0
-F1), and 4abcd > a + b for m = 0.
+u(2B − 1) + B(2u − 1) > 0. N_II(m²) = 0 for every m ≥ 1: Z57_BFII Prop 2.2 / Cor 2.3 are stated for odd m, but
+the proof extends verbatim. Take a solution 4abcd = a + b + nc and f := 4acd − 1 (so 4acd ≡ 1 (mod f)).
+* a, c, d are units mod f, and bf = a + nc gives n ≡ −ac⁻¹ ≡ −4a²d (mod f).
+* So (n/f) = (−d/f) = −(d/f) = −1, since f ≡ −1 (mod 4d) and Jacobi reciprocity give (d/f) = 1, as in Lemma A.1(b).
+* For n = m², n is a unit mod f, so (n/f) = +1, a contradiction.
+
+For m = 0, 4abcd > a + b.
 *Kill test K3 (CERTIFIED, `scripts/z65_logic2_t1all.c 3000` → `data/z65/logic2/t1all_3000.txt`).* Sieving all
 2.7·10⁸ triples with 4uBC − u − B ≤ 9·10⁶ marks no square m², 1 ≤ m ≤ 3000, odd or even.
 
@@ -133,10 +151,13 @@ that uses T1, or Jacobi reciprocity only to prove T1-type non-existence facts, g
   whose positive real points accumulate at the boundary. Their ring-language forms are covered by U64 A″ instead.
   Whether M_ϕ satisfies the whole universal theory of (ℤ, ≤) is OPEN. The obstruction is Diophantine approximation:
   sign conditions can define thin horns around the curve Γ that contain no lattice points.
-* *ES(1) suffices for (MS) (PROVED; simplification of U64 Thm A).* For the class 1 mod 840 take q* = 1. The U64
-  proof can land at ℓ = 1, i.e. at b₁ = 1 ≡ q* (mod D). There the transferred solution solves 4/1 = 1/x + 1/y + 1/z
-  in positive integers, which is impossible since the right side is ≤ 3. So NOI ⊬ (MS) is "4 > 3" transported along
-  an arc; ET Prop 1.6 is needed only for q* ≠ 1.
+* *ES(1) suffices for NOI ⊬ (MS) (PROVED; simplification of U64 Thm A in the model M_{q*}).* For the class 1 mod 840
+  take q* = 1. The U64 proof can land at b = (1, 1, …, 1). There the transferred solution solves 4/1 = 1/x + 1/y + 1/z
+  in positive integers, which is impossible since the right side is ≤ 3. In the (★)/Hit form in which (MS) is
+  stated, it gives 4uBC − u − B = 1, impossible since R(1) = 0 (the left side is ≥ 2).
+  * So NOI ⊬ (MS) is "4 > 3" transported along an arc.
+  * This applies to U64 Thm A at q* = 1. It does not apply to Thm A′ or Thm T, whose generic residues forbid landing
+    at 1; there ET Prop 1.6 is needed.
 
 ## 3. Theorem T: the two-squares theorem does not help
 
@@ -173,12 +194,15 @@ prime ℓ, or ±n.
     for almost all ℓ.
 * (Claim.) For every f ∈ ℤ[β₁..β_k] irreducible over ℚ and not associate to n, Σ_ℓ P_μ(ℓ | f(a_ℓ)) = ∞.
   * Put F(s, t, z₃..z_k) := f(s² − t², 2st, z₃..z_k).
-  * For odd ℓ ∤ q, (a₁, a₂) mod ℓ is uniform on S_ℓ := {(s² − t², 2st) : s² + t² ≢ 0}. Hensel applies because
-    ℤ_ℓ[i] is étale over ℤ_ℓ, and w ↦ w² is 2-to-1 on 𝔽_ℓ[i]^×. Also |S_ℓ| ≤ ℓ²/2. Hence
-    P(ℓ | f(a_ℓ)) ≥ #{(s, t, z) ∈ 𝔽_ℓ^k : s² + t² ≠ 0, F ≡ 0}/ℓ^k.
-  * F has an irreducible factor F₁ not dividing s² + t². Otherwise F = c(s² + t²)^e. Then f involves only β₁, β₂, and
-    since ℚ[β₁, β₂] → ℚ[s, t] is injective with n ↦ (s² + t²)², and s² + t² ∉ ℚ[s² − t², 2st] (degree-2 part),
-    e is even and f = c·n^{e/2}. Irreducibility then gives f ~ n, a contradiction.
+  * For odd ℓ ∤ q, (a₁, a₂) mod ℓ is uniform on S_ℓ := {(s² − t², 2st) : s² + t² ≢ 0}; Hensel applies because
+    ℤ_ℓ[i] is étale over ℤ_ℓ. The squaring map w ↦ w² on 𝔽_ℓ[i]^× has fibres of constant size κ (κ = 2 for
+    ℓ ≡ 3 (4), κ = 4 for ℓ ≡ 1 (4), where 𝔽_ℓ[i] ≅ 𝔽_ℓ × 𝔽_ℓ), and κ·|S_ℓ| = |𝔽_ℓ[i]^×| ≤ ℓ². Hence
+    P(ℓ | f(a_ℓ)) = #{(s, t, z) ∈ 𝔽_ℓ^k : s² + t² ≠ 0, F ≡ 0}/(|𝔽_ℓ[i]^×|·ℓ^{k−2}) ≥ #{…}/ℓ^k.
+  * F has an irreducible factor F₁ not dividing s² + t². Otherwise F = c(s² + t²)^e, and f involves only β₁, β₂.
+    * Put u = s + it, v = s − it. Then ℚ(i)[s² − t², 2st] = ℚ(i)[u², v²] and s² + t² = uv, so (uv)^e lies in
+      the image of ℚ[β₁, β₂] only for e even.
+    * The map ℚ[β₁, β₂] → ℚ[s, t] is injective with n ↦ (uv)², so f = c·n^{e/2}.
+    * Irreducibility then gives f ~ n, a contradiction.
   * Let G₁ be an absolutely irreducible factor of F₁ over a number field L. G₁ is not associate to s ± it: otherwise
     the product of its conjugates, F₁, would be ~ s² + t².
   * For the primes ℓ splitting completely in L(i), which have positive density by Chebotarev, all but finitely many
@@ -197,9 +221,10 @@ divisor.
 *Proof.*
 * *GCD.* U64 §2.7 uses only (G1) (the ℓ-components (a_{j,ℓ})_j are algebraically independent over ℚ) and (G2)
   (coprime f, g have ℓ | f(a_ℓ), g(a_ℓ) for only finitely many ℓ).
-  * The law of (a₁, a₂) has density ≤ 2ℓ²/(ℓ − 1)² ≤ 4.5 with respect to Haar measure on ℤ_ℓ² (ℓ ≥ 3), so (G1)
-    holds.
-  * (G2) follows from the point-count lemma of U64 §2.7 with the constant 3 replaced by 4.5.
+  * The law of (a₁, a₂) has density ℓ²/|S_ℓ| ≤ 4ℓ²/(ℓ − 1)² ≤ 6.25 with respect to Haar measure on ℤ_ℓ²
+    (ℓ ≥ 5 odd, ℓ ∤ q), and a bounded density at the finitely many ℓ | 6q. So (G1) holds: null sets stay null.
+  * (G2) follows from the point-count lemma of U64 §2.7 with the constant 3 replaced by 6.25 (resp. the finite
+    constants at ℓ | 6q).
 * *PD.* Let g ≥ 2. If ϕ(g) ∉ Ẑ^×, a standard prime divides g. Otherwise, by the factorisation step of Lemma 3.2,
   g = ±n^e with e ≥ 1, so n | g. ∎
 
@@ -277,9 +302,10 @@ P.1. n ≡ r (mod q) by Lemma 3.1.
   Lemma 3.2. **CONJECTURE (sketch only, not proved):** this works and gives NOI + GCD + TS + cofinal primes ⊬
   ES_prime on square classes.
 * *Prior art.* Otero, *Quadratic forms in normal open induction* (JSL 58 (1993); abstract VERIFIED,
-  `lit_verify.md` §2) embeds M[x, y] with x² + by² = a into a model of NOI, except in trivial cases. So TS-type
-  witnesses can be added to *arbitrary* NOI models. That embedding gives no control of ES at n, which is why Thm T
-  builds the representation into the generator system instead.
+  `lit_verify.md` §2) embeds M[x, y] with x² + by² = a into a model of NOI, except in trivial cases. So a single
+  element can be given a representation x² + by² in an NOI extension. A TS model would need an ω-chain of such
+  extensions, which may create new primes or destroy ES-failure. Thm T builds the representation into the generator
+  system instead.
 * *Two-squares proofs and the T1 transfer.* TS is true at odd squares (m² = m² + 0²). Its witness relation does not
   obstruct arcs, and Thm T confirms this at the level of models.
 
@@ -313,6 +339,14 @@ and so cannot refute ES_prime on any class at a nonstandard element.
   ab − 1 ∈ pM, i.e. āb̄ = 1 in F.
 * Every element of F has the form k⁻¹ā with a ∈ M, so F would be a field. Contradiction. ∎
 
+**Proposition 4.1′ (Bez; PROVED; from the internal review, extending U64 §2.6).** No polynomial-type model satisfies
+Bez.
+*Proof.*
+* Take k, k′ ≥ 1 with g := kβ₁, h := k′β₂ ∈ M. A common divisor of g and h in M divides both in ℚ[β], so it is a
+  constant, an integer (Lemma 4.0(a)).
+* A Bezout identity ug + vh = d with d | g, d | h would make d a nonzero integer. But ug + vh has no constant term, so
+  it is never a nonzero constant. ∎
+
 **Proposition 4.2 (QR_std; PROVED).** Let M be polynomial-type and M ⊨ QR_std. Then every nonstandard prime n of M is a
 nonzero square modulo only finitely many standard primes. In particular **no polynomial-type model of OI + QR_std has a
 square-mimicking nonstandard prime**.
@@ -328,8 +362,10 @@ square-mimicking nonstandard prime**.
 IΔ₀ + Count₂(Δ₀) proves quadratic reciprocity with the supplementary laws for all odd primes of the model, with the
 Legendre symbol *defined* by squareness. So it proves QR_std. In every model of IΔ₀ + Count₂(Δ₀), the residue field
 M/nM at a square-mimicking prime n therefore contains √ℓ* for every standard ℓ: its algebraic part is infinite.
-(IΔ₀ ⊢ IE₁ ⊢ Bez already rules out polynomial-type models by Prop 4.1; Prop 4.2 is an independent obstacle for any
-future non-polynomial construction.)
+* Jeřábek also remarks, directly after Thm 5.7 (p. 20; found by the internal review), that Berarducci–Intrigila's proof
+  of Lagrange needs only multiplicativity, so IΔ₀ + Count₂(Δ₀) proves Lag.
+* IΔ₀ ⊢ IE₁ ⊢ Bez already rules out polynomial-type models altogether (Prop 4.1′), and Lag does too (Prop 4.3).
+* Prop 4.2 is an independent obstacle for any future non-polynomial construction.
 
 **Proposition 4.3 (Lag; PROVED).** No polynomial-type model satisfies Lag, nor "every x ≥ 0 is a sum of k squares"
 for any standard k.
@@ -366,21 +402,32 @@ arc counter-model** at any n ≡ 1 (4) it regards as prime.
   which is impossible. ∎
 
 The same argument applies to any principle whose existential witnesses at n form a system with no integer solution at
-n = m². The (★) system (T1), the full Type II system (T1_II) and NR are the examples. The Z64 statement (S) is a Jacobi-symbol
-version: it is not expressible in L_or, and its natural home is IΔ₀ + Count₂(Δ₀) (Jeřábek Thm 5.8).
+n = m² (with the positivity transferred, as above).
+* *Examples.* ES★ (by T1), the full Type II existence N_II ≥ 1 (by T1_II), and NR.
+* *Negative Pell* ("every prime p ≡ 1 (4) has x² − py² = −1"; Legendre; example from the internal review): at n = m²,
+  x₀² − m²y₀² = −1 forces m = 1. So it kills every arc whose landing values are not 1, i.e. every arc counter-model at a
+  profile ϕ(n) ≠ 1, but not those at ϕ(n) = 1.
+* NR is singled out only by this: it kills arcs at every profile, 1 included, and it is weaker than ES★.
+* The Z64 statement (S) uses Jacobi symbols. It is not an existential polynomial system, so arcs do not apply to it
+  directly. It is Δ₀-expressible over IΔ₀ (Jeřábek Thm 5.8), whose natural extension IΔ₀ + Count₂(Δ₀) proves the
+  Jacobi laws.
 
 **Proposition 5.2 (square-compatibility of PB, TS, E(−1), QR_std, Lag; PROVED, elementary).** Fix D ≥ 1 and a finite
 set L of standard odd primes. Let m be any product of primes r ≡ 1 (mod 8∏_{ℓ∈L} ℓ) with m ≡ 1 (mod D); by Dirichlet
-there are infinitely many. Then at n := m² every instance (with integer parameters) of the following has an integer
-witness:
+there are infinitely many. (This is the landing pattern for the profile ϕ(n) = 1. For a general square-mimicking
+profile take m² ≡ ϕ(n) (mod D), with prime factors ≡ 1 (mod 8∏_{ℓ∈L, ℓ∤D} ℓ) and the caveat below for ℓ | D.
+TS, E(−1), PB and Lag need only prime factors ≡ 1 (4).) Then at n := m² every instance (with integer parameters) of
+the following has an integer witness:
 * PB, for a coprime to m;
 * TS (m² = m² + 0²);
 * E(−1) (every prime of m is ≡ 1 (4));
 * QR_std for ℓ ∈ L (every prime of m splits in ℚ(√ℓ*));
 * Lag.
 
-So none of these witness relations conflicts with landing at odd squares. This is the reason they could be blocked
-only by the *model-building* step (§4), not by the transfer.
+So none of these witness relations has an integer obstruction at the landing squares. Whether arcs exist *jointly*
+with the other elements of a model of these axioms (Bezout coefficients interpolated along arcs, etc.) is O1′, which
+is OPEN. **Assessment:** the obstacles of §4 are plausibly artefacts of the polynomial realisation rather than T1
+conflicts, but this is not proved.
 
 *Caveat (PROVED).* For QR_std with ℓ | D, the landing m must be a quadratic residue mod ℓ (all prime factors of m
 split in ℚ(√ℓ*)). So ϕ(n) ≡ m² must be a fourth power mod ℓ for ℓ ≡ 1 (4). Square-mimicking residues that are also
@@ -415,37 +462,110 @@ d ∈ ℕ}.
 So any theory T ⊆ Th(ℕ) that proves ES_prime[r mod q] proves ES at primes all of whose standard-modulus information is
 that of a square. There, every (★)-hit, NR-witness and Type II witness is nonstandard (Prop 5.3).
 
-**Proposition 5.5 (rigidity of the transfer method).** Let n be an element of some M ⊨ OI with residue profile
-π ∈ Ẑ^× (π mod m := n mod m), and suppose π ∉ (Ẑ^×)².
-* (a) (PROVED) There is a standard D₀, divisible by 30, such that every positive integer N ≡ π (mod D₀) is an odd
-  non-square coprime to 15. (π fails to be a unit square modulo some prime power ℓ^e or modulo 8; put D₀ := 30ℓ^e or
-  240.)
-* (b) (CONDITIONAL on CONV-II-15 of `Z58_WILDCARD.md`, CERTIFIED to 10⁸ there) Every such N has a genuine ET Type II
-  solution. A transfer that lands at N ≡ π (mod D), D₀ | D, therefore cannot exclude Type II solutions at n. **Arc
-  refutations of ES are possible only at square-mimicking n.** For ES★ the same holds CONDITIONAL on the finiteness of
-  the non-square zeros of R coprime to 105 (EVIDENCE: the last ones to 10¹⁰ are 12 538 801, 17 401 609, 29 210 401;
-  `Z58_LOGIC.md` §4). A finite set of landing values cannot converge in Ẑ to a unit other than ±1.
+### 5.5 The exact dichotomy (Thm D)
+
+The draft of this memo claimed here, CONDITIONAL on CONV-II-15, that arc refutations live only at square-mimicking
+primes. The internal review showed that this inference is invalid. Arcs can also transfer a hypothetical solution
+along a whole progression and contradict *polynomial non-solvability*; pointwise solvability at the landing integers
+does not prevent that. The correct statement is the following, and it is PROVED.
+
+**Proposition 5.5 (polynomial criterion; PROVED, relative to U64 (F1), (F4), Lemmas 2.3–2.4 and ET Prop 1.9; supplied
+by the internal review).** Let M_ϕ be a U64-type model, n := β₁ and π := ϕ(β₁) ∈ Ẑ^×. Then M_ϕ ⊨ ES(n) ⟺ π lies
+in some primitive class r mod D that is solvable by polynomials ⟺ π lies in some ET Prop 1.9 family class.
+*Proof.*
+* (⇐) Let P₁, P₂, P₃ be the polynomials of the class.
+  * Each P_i(r + Dk) is integer-valued for all large k, hence for all k ∈ ℤ (Newton basis), hence P_i(r + Dκ) ∈ Ẑ
+    for κ ∈ Ẑ by continuity. So ϕ(P_i(β₁)) = P_i(π) ∈ Ẑ and P_i(β₁) ∈ M_ϕ.
+  * The leading coefficients are positive and β₁ is positive infinite, so P_i(β₁) ≥ 1.
+  * The identity 4P₁P₂P₃ = t(P₁P₂ + P₂P₃ + P₃P₁) in ℚ[t] gives ES(β₁).
+* (⇒) Let X, Y, Z ∈ M_ϕ, all ≥ 1, solve ES(β₁); all lie in ℚ[β₁..β_K]. Take D from (F4), fix b′ ≡ a′ (mod D),
+  and put P_X(t) := X(t, b′), and similarly P_Y, P_Z.
+  * For integers t ≥ 1 with t ≡ π (mod D), (F4) gives P_X(t) ∈ ℤ.
+  * U64 Lemma 2.3 (b₁ = t ≥ 1, so ψ(β₁) > 0 on [0, ∞)) and Lemma 2.4 give P_X(t), P_Y(t), P_Z(t) ≥ 1.
+  * The identity 4P_XP_YP_Z = t(P_XP_Y + P_YP_Z + P_ZP_X) holds in ℚ[t].
+  * So the primitive class π mod D is solvable by polynomials.
+* (Families.) ET Prop 1.9: every solvable class has all its large primes in finitely many family classes. By
+  Dirichlet, its unit profiles then lie in their union; otherwise a clopen subclass outside the union would contain
+  infinitely many primes. Conversely, every family class is solvable (ET, loc. cit.). ∎
+
+Define the closed set **U := {π ∈ Ẑ^× : π lies in no ET Prop 1.9 family class}**. ET Prop 1.6 (Mordell–Schinzel) gives
+(Ẑ^×)² ⊆ U. Mordell's covering (U64 Cor C, re-run by `scripts/z65_logic2_cover.py 840 nonsq`: 186/186 non-square
+classes mod 840 covered, 0/6 squares) gives U ⊆ {π : π mod 840 ∈ 𝔐}.
+
+**Theorem D (exact dichotomy for all moduli; PROVED, relative to Prop 5.5, U64 Thm B and ET Prop 1.9).** For a
+primitive class r mod q, with K_{r,q} := (r + qẐ) ∩ Ẑ^× (compact), the following are equivalent:
+* (i) K_{r,q} ∩ U = ∅;
+* (ii) for some L with q | L, every primitive class s mod L with s ≡ r (mod q) is solvable by polynomials;
+* (iii) IOpen ⊢ ∀n ≥ N₀ (Prime(n) ∧ Cl_{r,q}(n) → ES(n)) for some numeral N₀;
+* (iv) NOI ⊢ ∀n ≥ N₀ (Prime(n) ∧ Cl_{r,q}(n) → ES(n)) for some numeral N₀.
+
+*Proof.*
+* (i)⇒(ii): K_{r,q} is compact and covered by the open family classes, so finitely many suffice. Refine to a common
+  modulus L: a subclass of a solvable class is solvable (substitute n = s + Lk).
+* (ii)⇒(iii): A prime n > L of the class is coprime to L, so it lies in one of the finitely many solvable classes.
+  Thm B (tail form) applies to each.
+* (iii)⇒(iv) is trivial.
+* (iv)⇒(i): If π ∈ K_{r,q} ∩ U, take M_ϕ with ϕ(β_i) := π for all i. Then β₁ is an infinite prime ≡ r (mod q)
+  (U64 (F1), (F2)) with ¬ES(β₁) (Prop 5.5). ∎
+
+*Reading.*
+* Thm D generalises U64 Cor C from modulus 840 to every modulus. Open induction proves ES on exactly the classes that
+  polynomial identities cover. The obstruction is Mordell–Schinzel non-solvability, and T1 (ET Prop 1.6) is the reason
+  why squares are non-solvable.
+* (MS) is the case r = 1, q = 840, which meets U at π = 1.
+* Whether non-square classes can meet U is question Q_U below.
+
+
+*Remark 5.5′ (pointwise landing; the old Prop 5.5, rescoped).* If π ∉ (Ẑ^×)², some D₀ makes every positive integer
+N ≡ π (mod D₀) an odd non-square coprime to 105 (PROVED; D₀ := 210ℓ^e or 1680, where π is a non-square mod ℓ^e or
+mod 8). CONDITIONAL on CONV-II-15 (CERTIFIED to 10⁸ in `Z58_WILDCARD.md`), every such N has a genuine Type II
+solution. So a refutation that contradicts the absence of solutions *at a single landing integer* cannot work at
+non-square profiles. Refutations along whole progressions (Prop 5.5) are not affected.
 
 *Remark 5.6 (fixed landing values; PROVED).* If π = N₀ ∈ ℤ with |N₀| > 1, then every prime ℓ | N₀ divides n in M,
 since n ≡ N₀ (mod ℓ). So n is not prime. Hence the CERTIFIED prime zeros of R, e.g. 8 813 281 ≡ 1 (mod 840), cannot be
 the profile of a nonstandard prime. "Pseudo-zero primes" (the prime analogue of Z58 Thm 6.2) do not exist, and for
 primes only the profinite *limits* of zeros matter.
 
+### 5.6 Question Q_U: is U = (Ẑ^×)²? (CONJECTURE: no; EVIDENCE)
+* *Why it matters (PROVED, from Thm D).* If U = (Ẑ^×)², NOI-provability of ES on a primitive class is decided exactly
+  by whether the class contains a unit square, at every modulus. If U ⊋ (Ẑ^×)², some non-square classes are
+  NOI-unprovable too, by polynomial non-solvability rather than T1.
+* *Probe.* Take K := {n ≡ 1 (mod 840), (n/11) = −1}, a non-square class mod 9240. By König's lemma, K ∩ U ≠ ∅ iff
+  the tree of residue classes of K that are uncovered at level Q is infinite along a cofinal chain of levels. Coverage at
+  level Q uses all family classes whose modulus divides Q.
+* *Implementations.* `scripts/z65_logic2_covertree.py` (sparse refinement tree) and `scripts/z65_logic2_cover.py` (dense
+  marking) agree on every common level (2, 6, 18, 81 uncovered at Q = 9240, ·13, ·13·17, ·13·17·19).
+* *Data (CERTIFIED for the stated levels; `data/z65/logic2/covertree.txt`, `covertree_powers.txt`, `cover_probe.txt`).*
+  * Squarefree chain 9240·13·17·19·23: open nodes 2 → 6 → 18 → 81 → **444**.
+  * Chain with prime powers (·13, ·3, ·17, ·2, ·5, ·19; final level 1.16·10⁹): 2 → 6 → 5 → 13 → 18 → 57 → **163**.
+  * Between 19 % and 28 % of the children of an open node stay uncovered when a new prime is added. So the uncovered
+    fraction of K falls (0.4, 0.1, 0.019, 0.0047, 0.0012) while the *number* of open nodes grows about ×3–5.5 per
+    prime.
+  * Controls: the unit squares mod 840 and 9240 are 0 % covered, the non-squares mod 840 are 100 % covered.
+* **CONJECTURE (Q_U negative).** K ∩ U ≠ ∅, so U ⊋ (Ẑ^×)², and NOI ⊬ "ES at all large primes ≡ 1 (mod 840) that
+  are non-residues mod 11" (Thm D).
+  * EVIDENCE: the growing tree above.
+  * *Heuristic (Assessment).* Adversarially chosen square components at the new primes meet only O((log ℓ)²) active
+    family constraints per prime ℓ, against ≍ ℓ available residues.
+  * Not proved. Higher prime powers and larger primes add family classes at every level, and finite levels cannot
+    certify an infinite branch.
+
 ## 6. The ladder: IE₁, IΔ₀, IΔ₀ + exp (status and constraints)
 
 | theory | proves (verified where cited) | consequence for ES_prime[square class] |
 |---|---|---|
-| OI + Bez | models with infinite primes exist: Smith, J. Algebra 159 (1993), "an open induction domain can be a principal ideal domain different from Z" (abstract snippet, PARTLY); a computable Bezout model with cofinal primes is announced by Mohsenipour (2006 talk abstract, VERIFIED abstract) | OPEN. Not polynomial-type (Prop 4.1). Arc obstruction absent (Prop 5.2). The next step is to test arcs in the Smith/Mohsenipour chain models (O1′) |
+| OI + Bez | models with infinite primes exist: Smith, J. Algebra 159 (1993), "an open induction domain can be a principal ideal domain different from Z" (abstract snippet, PARTLY); a computable Bezout model with cofinal primes is announced by Mohsenipour (2006 talk abstract, VERIFIED abstract) | OPEN. Not polynomial-type (Prop 4.1′). No integer obstruction at the landing squares (Prop 5.2). The next step is to test arcs in the Smith/Mohsenipour chain models (O1′) |
 | IE₁ | ⊢ IOpen + Bez (Smith 1992, U64); no computable nonstandard model (Wilmers 1985, as reported by Mohsenipour) | OPEN; any counter-model is non-computable and not polynomial-type |
 | IΔ₀ | ⊢ IE₁; Jacobi symbol Δ₀-definable (Jeřábek Thm 5.8) | OPEN |
-| IΔ₀ + Count₂(Δ₀) | QR + supplementary laws + Jacobi laws for all moduli (Jeřábek Thms 5.7, 5.8, VERIFIED) | OPEN; QR_std holds, so residue fields at square-mimicking primes contain all √ℓ* (Prop 4.2 Remark) |
+| IΔ₀ + Count₂(Δ₀) | QR + supplementary laws + Jacobi laws for all moduli (Jeřábek Thms 5.7, 5.8, VERIFIED) | OPEN; QR_std holds, so residue fields at square-mimicking primes contain all √ℓ* (Prop 4.2 Remark); Lag holds too (Jeřábek p. 20) |
 | IΔ₀ + WPHP(Δ₀) | Lagrange (Berarducci–Intrigila 1991); infinitely many primes (Paris–Wilkie–Woods 1988) (both as reported by Jeřábek, PARTLY) | OPEN; Lag holds, so no polynomial-type model (Prop 4.3) |
-| IΔ₀ + exp | PNT (Cornaros–Dimitracopoulos 1994, as reported by Jeřábek, PARTLY); FLT/Euler's criterion are proved in S²₂ + iWPHP(PV) + PHP(PV) (Jeřábek Thms 4.2, 4.7) | OPEN. **Whether IΔ₀ + exp ⊢ NR is OPEN** (needs Dirichlet for the nonstandard modulus 4p or genus theory for discriminant −4p; nothing found in the literature). If it does, every model of IΔ₀ + exp is an arc non-model (Prop 5.1) |
+| IΔ₀ + exp | PNT (Cornaros–Dimitracopoulos 1994, as reported by Jeřábek, PARTLY); FLT/Euler's criterion are proved in S²₂ + iWPHP(PV) + PHP(PV) (Jeřábek Thms 4.2, 4.7); that theory is contained in IΔ₀ + exp (standard, Assessment) | OPEN. **Whether IΔ₀ + exp ⊢ NR is OPEN** (needs Dirichlet for the nonstandard modulus 4p or genus theory for discriminant −4p; nothing found in the literature; expected yes, Assessment). If it does, every model of IΔ₀ + exp is an arc non-model (Prop 5.1). Note that OI already proves NR on non-square classes such as p ≡ 5 (8) (d = (p + 1)/2, x = 1, y = 2, 2d − p = 1) or p ≡ 2 (3) (d = 3); only square-mimicking-type classes carry content |
 | PA | NR (Dirichlet's theorem; standard formalisation, Assessment) | every model of PA is an arc non-model; independence of ES from PA is not a target (U64 §4) |
 
 *Partial provability (Assessment, with a proof sketch, not claimed as PROVED).* Define the Jacobi-level non-residue
 certificate **JNR**: for every prime p ≡ 1 (4) there is d ≡ 3 (mod 4), 3 ≤ d < 4p, with Jacobi (p/d) = −1. It is a
-Δ₀ statement in IΔ₀ (Jeřábek Thm 5.8), and it is false at every odd square, since (m²/d) ∈ {0, 1}. Sketch of a proof in
+Π₁ sentence ∀p θ(p) with θ a Δ₀ formula over IΔ₀ (Jeřábek Thm 5.8), and θ is false at every odd square, since (m²/d) ∈ {0, 1}. Sketch of a proof in
 IΔ₀ + Count₂(Δ₀) + (an injective weak pigeonhole principle for Δ₀ maps 2a → a):
 * the least-square-root map [1, p − 1] → [1, (p − 1)/2] would be injective if every unit were a square, so a quadratic
   non-residue a exists;
@@ -457,32 +577,48 @@ Jacobi-level certificate of non-squareness at a nonstandard modulus is cheap.** 
 needs are *shaped* ones: −p ≡ x² (NR), or −p ∈ H_d ((★)-hit, i.e. B2). The partial result found is therefore exactly
 the part that is not hard.
 
-## 7. Answer to brief (2): the weakest axiom the construction cannot accommodate, and what a proof must use
+## 7. Answer to brief (2): what the construction cannot accommodate, and what a proof must use (Assessment, except where marked PROVED)
 
-* **Against the present (polynomial-type) construction.** The weakest natural axiom it cannot accommodate is **PB**:
-  "modulo every prime, every non-multiple is invertible". It is a single Π₂ sentence, implied by Bez and IE₁, and
-  every polynomial-type model of OI + PB has only standard primes (Prop 4.1). QR_std (Prop 4.2) and Lag (Prop 4.3) are
-  independent further obstacles. TS is accommodated (Thm T), and so are GCD, PD, normality, Th_∀(ℤ) and T1 (U64,
-  Thm P). E(−1) is OPEN (§4.4).
-* **Against every arc-type construction.** These three obstacles are artefacts of the realisation: their witness
-  relations are satisfiable at odd squares (Prop 5.2), so the T1 transfer itself does not conflict with them (whether
-  non-polynomial arc models of them exist is OPEN). The weakest natural principle that defeats *every* arc
-  counter-model is a square-root certificate of non-residuosity, **NR** (Prop 5.1), true in ℕ by Dirichlet.
-* **What a proof of ES on Mordell classes must use** (PROVED parts: Props 5.3–5.4, Thms A/A′/A″/P/T; the rest is
-  Assessment).
-  * It must handle nonstandard primes whose every standard residue is that of a square (Prop 5.4). There, every
-    (★)-hit, NR-witness or Type II witness lives at a *nonstandard modulus* (Prop 5.3).
-  * The following do not suffice, alone or together:
-    * identities and residues;
+* **Against the present (polynomial-type) construction (PROVED: Props 4.1, 4.1′, 4.2, 4.3).**
+  * Bez fails in every polynomial-type model.
+  * Polynomial-type models of OI + PB ("modulo every prime, every non-multiple is invertible") have no nonstandard
+    prime at all.
+  * QR_std fails at every square-mimicking prime, and Lag fails always.
+  * Among the axioms *examined here*, PB is the weakest one that the construction excludes. It is a single Π₂
+    sentence, implied by Bez and IE₁. No minimality claim is made: PB, E(−1) and Lag are pairwise incomparable as far
+    as we know.
+  * Accommodated: TS (Thm T), and GCD, PD, normality, Th_∀(ℤ) and T1 (U64, Thm P). E(−1) is OPEN (§4.4).
+* **Against arc-type constructions.**
+  * PROVED: the witness relations of PB, TS, E(−1), QR_std and Lag have integer points at suitable odd squares
+    (Prop 5.2).
+  * Whether arc models of these axioms exist is OPEN (O1′). The Assessment is that §4's obstacles are artefacts of
+    the polynomial realisation.
+  * A natural true principle that defeats *every* arc counter-model is NR, a square-root certificate of
+    non-residuosity at some d ≡ 3 (mod 4) (Prop 5.1, PROVED); it is true in ℕ by Dirichlet. Negative Pell kills
+    every arc counter-model except those at the profile 1. Whether some weaker natural principle does the job is not
+    known.
+* **What the obstruction is (PROVED: Thm D).** At the level of open induction the obstruction is exactly
+  Mordell–Schinzel: a class is NOI-provable at large primes iff polynomial identities cover it. T1 is why the square
+  classes are not covered. Whether other classes escape is Q_U (CONJECTURE: some do).
+* **What a proof of ES on Mordell classes must use.**
+  * PROVED (Props 5.3–5.4): it must handle nonstandard primes whose every standard residue is that of a square; such
+    primes exist in models of true arithmetic. There every (★)-hit, NR-witness and Type II witness has a
+    *nonstandard modulus*.
+  * PROVED (U64 Thms A/A′/A″, Thms P, T, D): none of the following suffice, alone or together:
+    * identities, residues and polynomial covering (Thm D);
     * Euclidean division, gcds, irreducible divisors, normality;
     * all universal ring facts about ℤ, all positively closed ℕ-non-existence facts (T1 included), and the
       two-squares theorem.
-  * It must produce, at a nonstandard modulus d, a certificate that p is a non-residue, *in the specific shape*
-    −p ∈ H_d (or another Type I/II shape). Jacobi-level certificates are plausibly available in IΔ₀ + counting (§6
-    sketch). Square-root certificates (NR) need Dirichlet or genus theory at the nonstandard discriminant −4p.
-    Divisor-shaped certificates are B2.
-  * So the logic ladder puts the missing step where the analytic campaign puts it: the passage from "(p/d) = −1 for some
-    d" to "−p ≡ k (mod d) with k | (d + 1)/4 for some d".
+  * Assessment. Every (★) or Type II solution *is* a non-residue certificate of a specific shape (Z57_SYNTH
+    Lemma A.1, Z57_BFII Prop 2.2), so "a proof must produce shaped certificates" restates "a proof must produce
+    solutions". The non-tautological content is the nonstandard modulus (Prop 5.3), together with the cost ladder:
+    * Jacobi-level certificates are plausibly cheap (IΔ₀ + counting, §6 sketch);
+    * square-root certificates (NR) need Dirichlet or genus theory at the nonstandard discriminant −4p (OPEN in weak
+      theories);
+    * divisor-shaped certificates are B2.
+
+    The logic ladder thus puts the missing step where the analytic campaign puts it: from "(p/d) = −1 for some d" to
+    "−p ≡ k (mod d) with k | (d + 1)/4 for some d".
 
 ## 8. Verdict, screens, proposed FRONTIER text, bottom line
 
@@ -490,77 +626,133 @@ the part that is not hard.
 
 What was proved:
 * **Thm P / Cor P.1.** Positively closed ℕ-non-existence facts, T1★ and T1_II included, hold in every U64-type model.
-  So NOI + GCD + PD + Th_∀(ℤ) + T1 ⊬ ES_prime[square class]; this closes U64 §2.8's OPEN item.
+  So NOI + GCD + PD + Th_∀(ℤ) + T1 ⊬ ES_prime[square class]. This closes U64 §2.8's OPEN item.
 * **Thm T.** NOI + GCD + PD + Th_∀(ℤ) + T1 + TS ⊬ ES_prime[square class], ES★_prime, (MS). This answers brief (1)
-  for TS in the negative for provability.
-* **Props 4.1–4.3.** Polynomial-type models cannot satisfy PB (they then have no nonstandard primes at all), QR_std
-  at square-mimicking primes, or Lag.
-* **Props 5.1–5.5.** NR kills every arc counter-model; PB, TS, E(−1), QR_std and Lag are square-compatible. At
-  square-mimicking primes the hit/NR moduli are nonstandard, and such primes exist in models of Th(ℕ). Arc
-  refutations live only at square-mimicking primes (CONDITIONAL on CONV-II-15). Primes cannot have an integer
-  profile (Remark 5.6).
-* Simplification: for (MS), U64's obstruction is "4 > 3" at n = 1 (§2 Remark).
+  for TS: unprovable.
+* **Thm D + Prop 5.5** (Prop 5.5's proof was supplied by the internal review). In U64-type models ES(β₁) holds iff
+  ϕ(β₁) lies in a polynomially solvable class. NOI (equivalently IOpen) proves ES at the large primes of a class r mod q
+  iff the class is covered by finitely many ET Prop 1.9 family classes, i.e. iff its closure misses U. This is U64
+  Cor C for every modulus.
+* **Props 4.1, 4.1′, 4.2, 4.3.** Polynomial-type models never satisfy Bez; their models of PB have no nonstandard
+  primes; they fail QR_std at square-mimicking primes; they fail Lag.
+* **Props 5.1–5.4, Remarks 5.5′–5.6.**
+  * NR kills every arc counter-model, and negative Pell kills those at profiles ≠ 1.
+  * The witness relations of PB, TS, E(−1), QR_std and Lag have integer points at suitable odd squares.
+  * At square-mimicking primes the hit/NR/Type II moduli are nonstandard, and such primes exist in models of Th(ℕ).
+  * Primes cannot have an integer profile.
+* Simplification: in U64's M_{q*} with q* = 1, NOI ⊬ (MS) is "4 > 3" (R(1) = 0) at n = 1 (§2 Remark).
 
-What stays open: OI + Bez, + QR, IE₁, IΔ₀, IΔ₀ + exp (each with the new constraints of §6); E(−1); TS + cofinal primes.
+What was computed:
+* K1–K3 kill tests: passed.
+* ET Prop 1.9 covering tree for the non-square class {1 mod 840, (n/11) = −1}: CERTIFIED to level 1.2·10⁹, two
+  implementations; still alive (444 / 163 open nodes). EVIDENCE for the CONJECTURE U ⊋ (Ẑ^×)².
+
+What stays open: OI + Bez, + QR, IE₁, IΔ₀, IΔ₀ + exp (each with the constraints of §6); E(−1); TS + cofinal primes;
+Q_U.
 
 **Hard screens (FRONTIER §4).**
-* *T1 squares.* Built in: every model result is T1 transported. New: T1 holds in the models (Thm P), and the principle
-  that kills the transport, NR, is itself a "step false at squares" (Prop 5.1).
+* *T1 squares.* Built in: every square-class model result is T1 transported. New:
+  * T1 holds in the models (Thm P);
+  * NR, which kills the transport, is a "step false at squares" (Prop 5.1);
+  * Thm D shows that the general obstruction is polynomial non-solvability, with squares as the known instance.
 * *8/131, numerator 8.* All model results apply verbatim to R₈ and every (★)-sub-line, and Thm P covers the full Type II
   family. Nothing separates C odd from C even; nothing is falsified.
 * *Tied modulus (B2).* Not moved. §§6–7 locate B2 on the logic ladder as the step from a Jacobi certificate to a shaped
-  certificate at a nonstandard modulus.
+  certificate at a nonstandard modulus (Assessment).
 * *Fixed p.* Not applicable: no positivity is claimed.
 
 **Proposed FRONTIER text** (do not edit FRONTIER here).
 * §3, extend the B1-formal entry:
-  > *(z65 LOGIC2.)* (i) T1 itself holds in the U64 counter-models (every positively closed ℕ-non-existence fact
-  > transfers along arcs), so NOI + T1 ⊬ ES_prime[square class]. (ii) Adding the two-squares theorem does not help:
-  > NOI + GCD + PD + Th_∀(ℤ) + T1 + "every prime ≡ 1 (4) is a sum of two squares" ⊬ ES_prime[square class], (MS)
-  > (`Z65_LOGIC2.md` Thm T; model with n = β₁² + β₂² as its only nonstandard prime).
-  > (iii) The polynomial construction cannot reach prime-Bezout, reciprocity against standard primes, or Lagrange
-  > (Props 4.1–4.3). These are square-compatible, so they are construction artefacts, not T1 conflicts. The natural
-  > principle that kills every arc counter-model is NR, "−p is a square modulo some d ≡ 3 (4) coprime to p"
-  > (Prop 5.1).
-  > (iv) At square-mimicking primes, which exist in models of true arithmetic, every (★)-hit and NR-witness has a
-  > nonstandard modulus. A proof must manufacture a *shaped* non-residue certificate at a nonstandard modulus; the
-  > Jacobi-level certificate is plausibly cheap in IΔ₀ + counting (Assessment), and the shaped step is B2.
-  > Open: OI + Bez, IE₁, IΔ₀(+exp), E(−1).
+  > *(z65 LOGIC2.)*
+  > (i) T1 itself holds in the U64 counter-models, since every positively closed ℕ-non-existence fact transfers along
+  > arcs. So NOI + T1 ⊬ ES_prime[square class].
+  > (ii) The two-squares theorem does not help: NOI + GCD + PD + Th_∀(ℤ) + T1 + "every prime ≡ 1 (4) is a sum of two
+  > squares" ⊬ ES_prime[square class], (MS) (`Z65_LOGIC2.md` Thm T; the model's only nonstandard prime is
+  > n = β₁² + β₂²).
+  > (iii) Exact dichotomy (Thm D): NOI/IOpen prove ES at the large primes of a class iff ET's Prop 1.9 families cover
+  > it finitely, iff its profinite closure misses the closed set U of uncovered unit profiles. This is U64 Cor C at
+  > every modulus. U contains the unit squares. CONJECTURE (EVIDENCE: covering tree alive to 1.2·10⁹) that U contains
+  > non-squares, e.g. some profile ≡ 1 (mod 840) that is a non-residue mod 11.
+  > (iv) The polynomial construction cannot reach Bezout, prime-Bezout, reciprocity against standard primes or
+  > Lagrange (Props 4.1–4.3). Their witness relations have integer points at odd squares; arc models of them are OPEN.
+  > NR, "−p is a square modulo some d ≡ 3 (4) coprime to p", kills every arc counter-model (Prop 5.1).
+  > (v) At square-mimicking primes, which exist in models of true arithmetic, every (★)-hit and NR-witness has a
+  > nonstandard modulus (Prop 5.3).
+  > Open: OI + Bez, IE₁, IΔ₀(+exp), E(−1), Q_U.
 
 **Bottom line.**
-* Brief (1), answered as far as it goes. Adding the two-squares theorem (and T1 itself) to normal open induction with
+* Brief (1), answered as far as it goes. Adding the two-squares theorem, and T1 itself, to normal open induction with
   gcds still does not prove ES on any square class (Thms P, T).
-* Bezout, reciprocity and Lagrange cannot be added *by this construction*: Props 4.1–4.3 prove that polynomial-type
-  models can never satisfy them in the relevant form. But they do not conflict with the T1 transfer (Prop 5.2), so
-  their status (and that of IE₁, IΔ₀, IΔ₀ + exp) stays OPEN. Bezout models with infinite primes exist in the
-  literature (Smith 1993; Mohsenipour 2006), so O1 is now a concrete question about those models.
-* Brief (2). The weakest axiom beyond the present construction is prime-Bezout. The weakest natural axiom beyond
-  *any* T1-transfer construction is a square-root non-residue certificate at a nonstandard modulus (NR).
-* The message for a proof is the T1 slogan made formal. At primes whose every standard residue is a square (they exist
-  in models of true arithmetic), a proof must produce a non-squareness certificate at a nonstandard modulus, *of the
-  right shape*. Logic suggests the Jacobi-shaped certificate is cheap. The divisor-shaped one is B2.
+* Open induction proves ES on a class exactly when polynomial identities cover it (Thm D). Whether non-square classes
+  can escape is the new concrete question Q_U. The data suggest yes.
+* Bezout, reciprocity and Lagrange cannot be added *by this construction* (Props 4.1–4.3). Their witness relations do
+  not conflict with landing at odd squares (Prop 5.2), so their status, and that of IE₁, IΔ₀ and IΔ₀ + exp, stays
+  OPEN. Bezout models with infinite primes exist in the literature (Smith 1993; Mohsenipour 2006), so O1 is now a
+  concrete question about those models.
+* Brief (2), as an Assessment: PB is the weakest axiom examined that the present construction excludes, and NR is a
+  natural principle that excludes every arc construction.
+* The message for a proof is the T1 slogan made formal. At primes whose every standard residue is a square, which exist
+  in models of true arithmetic, a proof must work at nonstandard moduli (PROVED). The cheap Jacobi-level non-squareness
+  is not the issue (Assessment); the shaped, divisor-level certificate is B2.
 * No progress on ES itself.
 
 ## 9. Open problems (precise)
 * **O1′** Do the Smith (1993) / Mohsenipour (2006) Bezout models of OI admit odd-square arcs at some infinite prime
   of a square class (U64 Prop 6.2)? If yes, OI + Bez ⊬ ES_prime[square class]. The full constructions were not
   accessible here (`lit_verify.md` §§3–4).
-* **O2′** A polynomial-type model of NOI + TS + E(−1) with ¬ES at a square-class prime (§4.4): needs a unimodular
+* **O2′** A polynomial-type model of NOI + TS + E(−1) with ¬ES at a square-class prime (§4.4). It needs a unimodular
   pair (A, B) whose square points A² + B² = □ are profinitely dense.
 * **O3′** TS + cofinal primes (§3.2 Remark, CONJECTURE).
 * **O4′** IΔ₀ + exp ⊢ NR? (Dirichlet / genus theory for nonstandard discriminants in weak arithmetic.)
-* **O5′** Formal proof of JNR in IΔ₀ + Count₂(Δ₀) + WPHP(Δ₀) (§6 sketch), with the exact WPHP form.
+* **O5′** A formal proof of JNR in IΔ₀ + Count₂(Δ₀) + WPHP(Δ₀) (§6 sketch), with the exact WPHP form.
 * **O6′** Does M_ϕ satisfy the whole universal theory of (ℤ, ≤)? (§2 Remark: thin horns.)
+* **O7′ (Q_U)** Is U = (Ẑ^×)²? Concretely: is {n ≡ 1 (mod 840), (n/11) = −1} covered by finitely many ET Prop 1.9
+  family classes? This generalises U64 O3; by Thm D it decides NOI-provability of ES at the large primes of that
+  class. The (★)-analogue (★-solvable classes) is open likewise.
 
 ## 10. Review log and replay
 
-*Internal hostile review:* pending (see below once done).
+**Internal hostile review** (`data/z65/logic2/internal_review.md`; Opus nested side agent; it reran all three scripts
+byte-identically and made independent checks). Verdict: **no FATAL issue, 2 MAJOR, 22 MINOR, all applied.**
+* **(M1)** Prop 5.5(b) ("arc refutations only at square-mimicking primes, CONDITIONAL on CONV-II-15") was an invalid
+  inference. Refutations can contradict polynomial non-solvability along whole progressions.
+  * Replaced by Prop 5.5 (polynomial criterion, PROVED; the proof was supplied by the reviewer) and Thm D.
+  * The old statement survives as Remark 5.5′ (pointwise landing only).
+  * The covering question became Q_U (§5.6). The lane then ran the covering-tree probe; this was new work after the
+    review.
+* **(M2)** The superlatives "weakest axiom …" and "nothing in the transfer conflicts" were unproved.
+  * They are now labelled Assessment and scoped to "among the axioms examined".
+  * Prop 4.1′ (Bez fails in every polynomial-type model) was added.
+  * The negative-Pell example was added.
+* **(m1–m3)** Lemma 3.2: fibre size 4 for ℓ ≡ 1 (4); the bound kept. The even-e argument via u = s + it, v = s − it.
+* **(m2)** Lemma 3.3 density constant 6.25.
+* **(m4, m5)** Lemma 2.1 and the definition were relativised to a closed set C.
+* **(m6)** T1_II for even m: proof added in §2.
+* **(m7, m8)** Prop 4.1′ is cited for "no polynomial-type model of IΔ₀".
+* **(m9)** (S) wording.
+* **(m10)** The ES(1) remark is scoped to M_{q*}, with R(1) = 0.
+* **(m11)** JNR as a Π₁ sentence.
+* **(m12)** NR is OI-provable on non-square classes such as p ≡ 5 (8) and p ≡ 2 (3).
+* **(m13)** Theory containment note.
+* **(m14)** Otero remark weakened.
+* **(m15)** Lagrange in IΔ₀ + Count₂(Δ₀) (Jeřábek p. 20).
+* **(m16)** Prop 5.2 for general profiles.
+* **(m17, m18)** D₀ with 105; moot after M1.
+* **(m19, m20)** F4/F1 wording.
+* **(m21)** Replay of the negative control: the reviewer's independent snippet is in the review file (Check 1; 29/118/37/0).
+  The lane's numbers (33/121/37 with seed 2) are recorded in `landing_check.txt`.
+* **(m22)** The "shaped certificate" tautology is acknowledged in §7.
+
+A cross-model review will follow.
 
 **Replay** (each under `ulimit -v 4000000`, `timeout 1800`):
 ```
 gcc -O2 -o /tmp/z65t1all scripts/z65_logic2_t1all.c && /tmp/z65t1all 3000        # = data/z65/logic2/t1all_3000.txt (~10 s)
 uv run --with sympy python scripts/z65_logic2_onlyprime.py 200                     # = onlyprime_200.txt (~2 min)
 uv run --with sympy python scripts/z65_logic2_landing.py 200 6565                  # = landing_check.txt, first block (~1 min)
+uv run --with numpy --with sympy python scripts/z65_logic2_cover.py 840 nonsq      # Mordell control: 186/186 covered
+uv run --with numpy --with sympy python scripts/z65_logic2_cover.py Q 1mod840_nr11 # = cover_probe.txt lines (Q as listed)
+uv run --with sympy python scripts/z65_logic2_covertree.py 13 17 19 23             # = covertree.txt (~15 min)
+uv run --with sympy python scripts/z65_logic2_covertree.py 13 3 17 2 5 19          # = covertree_powers.txt (~20 min)
 ```
-The two negative-control blocks at the end of `landing_check.txt` were produced by inline snippets (seeds 1, 2), whose
-code is reproduced in the review file. Everything else is proof.
+Everything else is proof.
