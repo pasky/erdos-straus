@@ -231,7 +231,7 @@ remaining point is a tame singleton of order prime to p.
   application to ES curves and the classification are new to the repo. Folklore-adjacent.
 
 ### 3.4 Numerator k (F2; Theorem G_k, PROVED by the same proof)
-Let k ≥ 4, p ≥ 5 prime with p ∤ k(k − 1)(k − 2), and (X, G) with X/G of signature (0; x, y, z), Σ1/· = k/p. If X has
+Let k ≥ 4, p > k prime (so k/p < 1) with p ∤ k(k − 1)(k − 2), and (X, G) with X/G of signature (0; x, y, z), Σ1/· = k/p. If X has
 potentially good reduction, then (k − 1)m = p + 1 and the signature is (m, p, pm).
 
 *Changes to G4:*
@@ -289,8 +289,14 @@ abelian:
 * A Type I cover would have two primitive tails, with sum ≥ 2. Consistently, Harvey's lcm condition already excludes
   cyclic realisations of Type I triples. ∎
 
-So every Lemma-F (★)-cover (Z64_EQUIV E11: cyclic, order puBC, p ∥) at p ≡ 1 (mod 3) has bad reduction (Theorem G) of
-exceptional type. Wewers's lifting theorem, and hence SWZ's engine, never reaches them. The engine needs non-abelian G
+So every Lemma-F (★)-cover (Z64_EQUIV E11: cyclic, order puBC, p ∥) has bad reduction *as a marked cover*. That is
+automatic, since p divides a ramification index (Obus arXiv:1208.3909 §1; quantitatively G3). At p ≡ 1 (12) it has
+bad reduction even as a curve (Theorem G), and in all cases its stable reduction is exceptional.
+
+Consistency check: the Mordell covers (m, pm, p) are the Lemma-F covers with (u, B, C) = (1, m, 1). Their marked
+stable reduction is exceptional (σ_x = 1; Z̄₀ is the C_m-Kummer line branched at two points), while the curve has
+good reduction (Theorem G converse). The components over X̄₀ are rational and are contracted in the stable model of
+the curve. There is no contradiction: the two notions of good reduction differ. Wewers's lifting theorem, and hence SWZ's engine, never reaches them. The engine needs non-abelian G
 with m_G ≥ 2. For example G = PSL₂(F_q) with p ∥ |G| has m_G = 2, which forces σ_x = 1/2 and one new tail with
 σ = 3/2. Any ES triple can be realised so (Macbeath generation, V2); nothing is gained.
 
@@ -348,7 +354,7 @@ Then char-p construction + lifting could attack realisability of 𝒟(p), as in 
   divisor form). This is the only shape found in which composite-degree Hurwitz obstructions (EKS-type,
   block/imprimitivity) could encode a divisor in a residue class. No datum forcing such a block size is known, and C
   is again a free parameter. Open; Assessment: unlikely, but it is the one form of (H★) not excluded here.
-* **Uniform-in-p families (Assessment + trivial lemma).** If 𝒟(p) is the fibre over p of a finite-type scheme over ℤ
+* **Uniform-in-p families (trivial lemma PROVED; the rest Assessment).** If 𝒟(p) is the fibre over p of a finite-type scheme over ℤ
   and "realisable" means "has an F̄_p-point", then by Chevalley the set of good p is finite or cofinite. A cofinite
   answer from a fixed family with bounded group would give polynomial-type identities, which are barred on unit-square
   classes (Elsholtz–Tao Prop 1.6, T1). So 𝒟(p) must grow with p, as SWZ's S_p does.
