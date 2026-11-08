@@ -8,6 +8,12 @@ reliable secondary source (named). **NOT FOUND** means what it says.
 
 ## Key sources I read in full or in large part (archived here)
 
+**[Inventory note, z66 IE1 cross-model review fix:** the files below were originally archived only in the research
+subagent's scratch directory `/tmp/z66_ie1_lit2/`. The decisive ones are now committed under `data/z66/ie1/sources/`:
+`hajek_pudlak_chV_jina.md`, `dimitracopoulos_filomat1995_survey.pdf`, `dimitracopoulos_filomat1995_survey_OCR.txt`,
+`fom_friedman.html`, `jerabek_abquad_mlq2010.pdf`; plus `data/z66/ie1/bovenzi_daquino_legendre_1405.4367.pdf`. The
+other files listed are NOT committed; use the URLs given.]
+
 | Source | File | URL |
 |---|---|---|
 | Hájek–Pudlák, *Metamathematics of First-Order Arithmetic*, Ch. V "Bounded Arithmetic" (Perspectives in Logic 3, pp. 267–395, open access) | `hajek_pudlak_chV_jina.md` (text extraction via r.jina.ai, so the OCR is noisy; Σ0 is often rendered "ΣQ"/"Σo") | https://projecteuclid.org/ebooks/perspectives-in-logic/Metamathematics-of-First-Order-Arithmetic/chapter/Chapter-V-Bounded-Arithmetic/pl/1235421934.pdf |

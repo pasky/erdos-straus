@@ -1,0 +1,285 @@
+                                          SHEPHERDSON’S THEOREMS FOR FRAGMENTS OF
+                                                       OPEN INDUCTION
+arXiv:1701.02001v1 [math.LO] 8 Jan 2017
+
+
+
+
+                                                             JANA GLIVICKÁ AND PETR GLIVICKÝ
+
+                                                  Abstract. By a well-known result of Shepherdson, models of the
+                                                  theory IOpen (a ﬁrst order arithmetic containing the scheme of in-
+                                                  duction for all quantiﬁer free formulas) are exactly all the discretely
+                                                  ordered semirings that are integer parts of their real closures. In
+                                                  this paper we prove several analogous results that provide algebraic
+                                                  equivalents to various fragments of IOpen.
+
+
+
+                                                                         1. Introduction
+                                             In [She64] Shepherdson proved that there is a recursive nonstandard
+                                          model of the open induction arithmetic IOpen (in contrast to Peano
+                                          arithmetic (PA), where no such model exists by the Tennenbaum’s the-
+                                          orem [Ten59]). Shepherdson’s model is constructed as an integer part
+                                          of certain real closed ﬁeld (see the Preliminaries section for the pre-
+                                          cise deﬁnitions). Implicitly, even more is proved: a discretely ordered
+                                          semiring M is a model of IOpen if and only if M is an integer part of
+                                          the real closure R(M) of M.
+                                             In this paper we prove several analogous results – versions of the
+                                          Shepherdson’s theorem – for other fragments of PA in place of IOpen
+                                          that correspond to various algebraic properties of (extensions of) their
+                                          models.
+
+                                                                         2. Preliminaries
+                                          2.1. Discretely ordered rings and their extensions. A discretely
+                                          ordered ring is a structure R = hR, 0, 1, +, −, ·, ≤i such that hR, 0, 1, +,
+                                          −, ·i is a commutative ring, ≤ is a linear ordering on R such that 1 is
+                                          the least positive element, and ≤ respects + and · in the following way:
+                                                       a ≤ b → a + c ≤ b + c,             0 ≤ a, b → 0 ≤ a · b,
+                                          for all a, b, c ∈ R.
+                                             This paper was processed with contribution of long term institutional support of
+                                          research activities by Faculty of Informatics and Statistics, University of Economics,
+                                          Prague. The study was supported by the Charles University, project GA UK
+                                          No. 270815. The work was supported by the grant SVV-2016-260336.
+                                                                                    1
+2                  JANA GLIVICKÁ AND PETR GLIVICKÝ
+
+   A nonnegative part of a discretely ordered ring in the language with-
+out − is called a discretely ordered semiring. We denote the semiring
+corresponding to the ring M by M+ .
+   Further on, M always denotes a discretely ordered ring. (Such an M
+necessarily contains negative elements and therefore, strictly speaking,
+can not be a model of arithmetical theory T . If we say that M is a
+model of T , which we denote by M |= T , we mean that M+ is.)
+   We deﬁne F(M) as the fraction ﬁeld of M and R(M) as the unique,
+up to isomorphism (by the Artin-Schreier theorem [Mar02, Theorem
+B.14]), ordered real closure of F(M) that preserves the ordering of
+F(M). By M   N
+               we denote the ordered ring of all formal fractions of the
+form m/n, where m ∈ M and 0 6= n ∈ N.
+   Let R be a ring. A discretely ordered subring I of R is called an
+integer part of R (denoted by I ⊆IP R) if for every r ∈ R, there is
+i ∈ I such that r − 1 < i ≤ r.
+   We call m ∈ M the integer part of r ∈ R(M) if r − 1 < m ≤ r.
+(Note that every r ∈ R(M) has an integer part m ∈ M if and only if
+M ⊆IP R(M).)
+   We say that an ordered ring R′ is a dense subring of an ordered ring
+R, and denote it by R′ ⊆d R, if R′ is a subring of R and for every
+q < r from R there is r ′ ∈ R′ such that q < r ′ < r.
+
+2.2. Integer-parts-of-roots property. Let f (x) be a deﬁnable unary
+function on M. By IPR(f ) (integer-parts-of-roots) we denote the fol-
+lowing formula:
+
+(a < b & f (a) ≤ y < f (b)) → (∃x)(a ≤ x < b & f (x) ≤ y < f (x + 1)).
+
+The intended meaning of M |= IPR(f ) can be expressed in vague terms
+as “existence of integer parts for all f -roots of values y ∈ M” or, in
+other words, “existence of integer parts of all values f −1 (y), where f −1
+is an inverse function of f , i.e. a function such that f (f −1 (y)) = y, for
+all y ∈ M”.
+   If F is a set of deﬁnable unary functions on M, we write IPR(F )
+for the scheme {IPR(f ); f ∈ F }.
+
+2.3. Arithmetical theories. Now we deﬁne several arithmetical the-
+ories that we use in this paper. Robinson arithmetic (Q) is a basic
+theory of arithmetic in the language L = h0, 1, +, ·, ≤i. It’s axioms are
+just elementary properties of the symbols from the language. For our
+purposes the precise axiomatics is not important. We refer the reader
+to [HP93, page 28, Deﬁnition 1.1].
+  SHEPHERDSON’S THEOREMS FOR FRAGMENTS OF OPEN INDUCTION                  3
+
+  Peano arithmetic is the extension of Q by the scheme
+        (ϕ(0, y) & (∀x)(ϕ(x, y) → ϕ(x + 1, y)) → (∀x)ϕ(x, y)),          (1)
+of induction for all L-formulas ϕ(x, y) with a distinguished variable x
+(see e.g. [Kay91] for a detailed list of axioms and basic properties of
+PA).
+   When we extend Robinson arithmetic just by the scheme (1) for all
+quantiﬁer free (also called open) formulas, we get the arithmetic of open
+induction (IOpen). Its models are exactly all the discretely ordered
+semirings that satisfy the induction axioms (1) for all quantiﬁer free
+formulas ϕ.
+   The theory IOpenLin (open linear induction) is the extension of
+Robinson arithmetic by the induction scheme (1) for all linear formu-
+las ϕ(x, y) with a distinguished variable x. Here, we say that ϕ(x, y)
+is linear if in every occurrence of · in ϕ at least one of the two factors
+is yi , for some i.
+   Presburger arithmetic (Pr) is the theory of the structure hN, 0, 1, +, ≤i.
+It can be explicitly axiomatized as the theory in the language L+ =
+h0, 1, +, ≤i containing the following axioms:
+             (A1) 0 6= z + 1, (A2) x + 1 = y + 1 → x = y,
+             (A3) x + 0 = x, (A4) x + (y + 1) = (x + y) + 1,
+                      (D≤ ) x ≤ y ↔ (∃z)(x + z = y),
+   and the scheme of induction (1) for all formulas of the language L+ .
+
+                               3. Results
+   We describe how the relations between M, F(M) and R(M) trans-
+late to certain forms of induction in M. The Shepherdson’s result on
+the relation between IOpen and integer parts of real closures [She64]
+can be reformulated in the following way:
+Theorem 1. The following are equivalent for any discretely ordered
+ring M:
+ (1) M ⊆IP R(M),
+ (2) all roots r ∈ R(M) of polynomials p ∈ M[x] have integer parts in
+     M,
+ (3) M |= IPR(M[x]),
+ (4) M+  IOpen.
+  For Presburger arithmetic a similar theorem easily follows from well
+known properties of Pr:
+Theorem 2. Let M be a discretely ordered ring. Then the following
+are equivalent:
+4                 JANA GLIVICKÁ AND PETR GLIVICKÝ
+
+ (1) M ⊆IP M   N
+                 ,
+ (2) all fractions m/n with m ∈ M and 0 6= n ∈ N have integer parts
+     in M,
+ (3) M |= IPR({n(x); n ∈ N}), where n(x) = x + . . . + x with n
+     summands,
+ (4) M+  Pr.
+  Theorems 3 and 5 state analogous results for other arithmetical
+theories, providing equivalents to the following algebraic properties:
+M ⊆IP F(M) and F(M) ⊆d R(M).
+ Theorem 3. Let M be a discretely ordered ring. Then the following
+ are equivalent:
+  (1) M ⊆IP F(M),
+  (2) all fractions m′ /m with m′ , m ∈ M and 0 < m have integer parts
+      in M,
+  (3) M |= IPR({m(x); m ∈ M}), where m(x) = m · x,
+(*3) M  (∀n, k 6= 0)(∃n′ )(∃0 ≤ l < k)(n = n′ · k + l),
+  (4) M+  IOpenLin.
+Proof. Clearly, 1 ⇔ 2 and 3 ⇔ ∗ 3. Further:
+  • 1 ⇒ 4: Let ϕ(x, ȳ) be a quantiﬁer free linear formula, m̄ ∈ M. We
+    prove that the induction axiom for ϕ(x, m̄) holds in M. ϕ(x, m̄) is
+    equivalent to a boolean combination of formulas of the form x·u ≥
+    v, for some u, v ∈ M. Suppose that M+  ϕ(0, m̄)∧¬(∀x)ϕ(x, m̄).
+    The set {x ∈ M + ; M+  ϕ(x, m̄)} is a ﬁnite union of intervals with
+    endpoints of the form uv , for some u, v ∈ M, or ±∞. By condition
+    1, for any u, v ∈ M, there exists w ∈ M such that w = uv . This
+                                                                 
+
+    implies that M+  (∃w)(ϕ(w, m̄) ∧ ¬ϕ(w + 1, m̄)).
+  • 4 ⇒ ∗ 3: Fix n, k 6= 0 ∈ M + . M  0 · k ≤ n ∧ ¬(∀n′ )(n′ · k ≤ n),
+    however n′ · k ≤ n is an open linear formula. Condition 4 implies
+    M+  (∃n′ )(n′ · k ≤ n < (n′ + 1) · k); such an n′ and l := n − n′ · k
+    satisfy the condition ∗ 3.
+  • ∗ 3 ⇒ 1: Let nk ∈ F(M) and n′ , l ∈ M satisfying the condition ∗ 3
+                          ′
+    for n, k. Then nk = n ·k+l
+                            k
+                               = n′ + kl and n′ − nk = kl < 1.
+                                                                        
+Lemma 4. Let r ∈ R(M) satisfy 0 < r < 1. Then there is some
+m ∈ M + such that 0 < m1 < r.
+Proof. Suppose for contradiction that for every m ∈ M + it is 0 < r <
+1
+m
+  . Let f (x) ∈ F(M)[x] be of the least degree such that r is the root
+of f (x). Then the absolute coeﬁcient of f (x) is 0 (if not then it can
+be expressed as a linear combination of powers of r which is easily a
+   SHEPHERDSON’S THEOREMS FOR FRAGMENTS OF OPEN INDUCTION                  5
+
+contradiction) and f (x) = g(x) · x for some g(x) ∈ F(M)[x]. This
+contradicts the minimality of degree of f (x).                 
+  Notation:
+
+Ixl ϕ(x, ȳ) = Ixl ϕ := ((∀u < l)ϕ(u, ȳ)∧(∀v)(ϕ(v, ȳ) → ϕ(v+l, ȳ))) → (∀x)ϕ(x, ȳ)
+    eIOpen is an axiom schema (∃l > 0)(Ixl ψ( xl , ȳ)), where ψ(x, ȳ) is an
+open formula.
+    If we rewrite Ixl ψ( xl , ȳ) we get the following formula
+                    u                 v           v                  x
+     ((∀u < l)ψ( , ȳ) ∧ (∀v)(ψ( , ȳ) → ψ( + 1, ȳ))) → (∀x)ψ( , ȳ).
+                    l                 l           l                  l
+Theorem 5. Let M be a discretely ordered ring. Then the following
+are equivalent:
+ (1) F(M) ⊆d R(M),
+ (2) (∀r ∈ R(M))(∃f ∈ F(M))(r < f < r + 1),
+ (3) (∀r ∈ R(M))(∃l, m ∈ M)(m ≤ lr < m + l) [i.e. ml ≤ r < ml + 1],
+ (4) M+  eIOpen.
+Proof. 1 ⇒ 4: Let ψ(x, ȳ) be an open formula, ā ∈ M + ; in the next,
+ψ(x) means ψ(x, ā). ψ(x) can be written as a boolean combination of
+fomulas of the form p(x) ≥ 0, where p(x) ∈ F(M)[x]. ψ(x) can change
+its truth value only at roots of these polynomials.
+    Suppose there is some f ∈ F(M) such that 0 ≤ f < 1 and ¬ψ(f ).
+As f = ul for some u < l ∈ M + , we have ¬ψ( ul ) and Ixl ψ(x) holds.
+    In the next, we suppose ψ(x) holds on [0, 1) ∩ F(M). Let r ∈ R(M)
+be the largest root of some polynomial from ψ(x) such that ψ(x) holds
+on [0, r) ∩ F(M) (if there is not such an r, ψ(x) holds on all f ∈ F(M);
+in particular, Ixl ψ(x) holds for any l > 0). Let r ′ ∈ R(M) be the
+smallest root of some polynomial from ψ(x) greater then r (or r ′ :=
++∞, if such a root does not exist). By 1, there exists some f ∈ F(M)
+with 1 ≤ r < f < r ′ , f < r + 1. Let us take m, l ∈ M + such that
+f − 1 = ml . Then 0 < ml < r < ml + 1 < r ′ . Then, by the choice of r, r ′ ,
+it holds ψ( ml ) and ¬ψ( ml + 1). That implies Ixl ψ( xl ).
+    4 ⇒ 3: r ≈ r ′ denotes that there is no f ∈ F(M) between r and r ′ .
+Let us ﬁx r ≥ 1, the case for 0 ≤ r < 1 is trivial, r < 0 symmetric.
+Note that it suﬃces to ﬁnd some m, l ∈ M such that 3 holds for m, l
+and any r ′ ≈ r. Let p(x) ∈ F(M)[x] be such that p(r) = 0. By
+(repeateadly) diﬀerentiating p(x), we arrive at some polynomial p′ (x)
+such that it has only one, simple root r ′ ≈ r. We may suppose that
+p′ (x) is increasing at r ′ . Choose f, f ′ ∈ F(M) so that r ′ is the only
+root of p′ (x) between them.
+    Consider ψ(x) := (x ≤ f ′ ) ∧ (x ≤ f ∨ p′ (x) ≤ 0). Obviously, ψ(x)
+holds on [0, r ′ ] and does not hold on (r ′, +∞). By 4, there exists l ∈ M,
+6                  JANA GLIVICKÁ AND PETR GLIVICKÝ
+
+l > 0 such that Ixl ψ(x). We chose r ≥ 1, thus also r ′ ≥ 1. Therefore
+ψ( ul ) holds for every u < l. On the other hand, ¬(∀x)ψ( ul ). From
+Ixl ψ(x), we get m ∈ M such that ψ( ml ) and ¬ψ( ml + 1). This implies
+m
+ l
+    ≤ r ′ < ml + 1 and we are done.
+    3 ⇒ 2: Easy.
+    2 ⇒ 1: Let r < r ′ ∈ R(M). By Lemma 4, we may ﬁx 0 < k ∈ M
+such that k1 < r ′ − r. Then kr < kr + 1 < kr ′ . By 2, there exists
+f ∈ F(M) for which kr < f < kr + 1 < kr ′ holds. This implies
+r < fk < r ′ . Since fk ∈ F(M) we are done.                         
+  As clearly (M ⊆IP F(M) & F(M) ⊆d R(M)) → M ⊆IP R(M), we
+get the following:
+Corollary 6. IOpen = IOpenLin + eIOpen.
+Proof. The inclusion ⊆ follows from the above implication. The other
+inclusion is trivial as all instances of the induction scheme in IOpenLin
+and eIOpen are just special cases of open induction.                   
+  Similarily from the inclusion IOpen ⊇ IOpenLin + eIOpen, we get:
+Corollary 7. (M ⊆IP F(M) & F(M) ⊆d R(M)) ↔ M ⊆IP R(M).
+
+                               4. Questions
+ The obvious similarity of Theorems 1, 2, 3 (and 5) suggests that there
+may be a common generalization. We state this as a rather vague
+Open question 8. Is there a truly general Shepherdson’s theorem, i.e.
+a theorem such that Theorems 1, 2, 3 (and 5) are its special cases?
+  The theory IOpen is the strongest fragment of PA that we have
+a Shepherdson’s type theorem for. Recently, however, Shepherdson’s
+original ideas were generalized by Kolodziejczyk [Kol11] and used to
+construct interesting models of the theory T20 (an arithmetic with sharply
+bounded induction – see [Kol11, Section 2] for the precise deﬁnition)
+that is stronger than IOpen. Therefore it seems interesting to ask:
+Open question 9. Are there variants of the Shepherdson’s theorem
+for theories stronger than IOpen? In particular is there such a variant
+for the theory T20 ?
+
+                                References
+[HP93] P. Hájek and P. Pudlák, Metamathematics of first order arithmetic, Per-
+        spectives in Mathematical Logic, Springer-Verlag, Berlin, 1993.
+[Kay91] R. Kaye, Models of Peano arithmetic, Oxford University Press, Oxford,
+        1991.
+   SHEPHERDSON’S THEOREMS FOR FRAGMENTS OF OPEN INDUCTION                      7
+
+[Kol11] L. A. Kolodziejczyk, Independence results for variants of sharply bounded
+        induction, Ann. Pure Appl. Logic 162 (2011), 981–990.
+[Mar02] D. Marker, Model theory: An introduction, Graduate Texts in Mathemat-
+        ics, Springer-Verlag, New York, 2002.
+[She64] J. C. Shepherdson, A non-standard model for a free variable fragment of
+        number theory, Bull. Acad. Polon. Sci. Sér. Sci. Math. Astronom. Phys.
+        12 (1964), 79–86.
+[Ten59] S. Tennenbaum, Non-archimedean models for arithmetic, Not. Amer.
+        Math. Soc. 6 (1959), 270.
+
+  Jana Glivická: Department of Theoretical Computer Science and
+Mathematical Logic, Faculty of Mathematics and Physics, Charles
+University, Malostranské náměstı́ 25, 118 00 Praha 1, Czech Republic
+
+   Petr Glivický: Department of Mathematics, Faculty of Informat-
+ics and Statistics, University of Economics, Prague, Ekonomická 957,
+148 00 Praha 4, Czech Republic
+

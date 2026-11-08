@@ -1,0 +1,601 @@
+FILOMAT (Nis) 9:3 (1995), 473-481
+Algebra, Logic & Discrete Mathematics
+
+INVITED LECTURE
+Nis, April 14-16, 1995.
+
+SUBSYSTEMS OF PEANO ARITHMETIC AND
+CLASSICAL RESULTS OF NUMBER THEORY
+
+C. Dimitracopoulos
+
+ABSTRACT. We discuss problems and results concerning subsys-
+tems of first-order Peano Arithmetic, especially concerning the
+provability of basic theorems of elementary number theory and
+combinatorics.
+
+Let L A denote the usual first-order language of arithmetic and PA denote
+Peano's axioms expressed in LA. Subsystems of PA are obtained by rex-
+tricting the induction schema or replacing it by a restriction of some other
+schema.
+
+First we recall the definition of the "arithmetic hierarchy" of formulae of
+LA.
+
+Definition 1. Let 9 be a formula of LA and » > 1. We say that
+
+(a) p is E, or Hy or bounded if p involves bounded quantifiers only, i.e.
+quantifiers of the form Ya < 11,35; < y, Ve < y, In < y.
+
+(b) @ is X,, if p is of the form 3 Y ... 0, where 0 is bounded and there exist
+n alternations of blocks of similar quantifiers in front of 0.
+
+(c) 9 is I, if =p is logically equivalent to a ~, formula.
+
+Now we proceed to the precise definition of the subsystems that were first
+studied.
+
+Definition 2. For n > 0,
+
+(a) IE,, denotes PA with induction only for ~, formulae with parameters.
+(b) BX,, denotes IE, plus the collection schema for X, formulas only, ie.
+the schema
+
+Va < zdyp(2,y) - Ii¥a < 23y < to(z,y),
+
+where o is any E,, formula with parameters.
+(c) LZ,, denotes PA with the induction schema replaced by the least number
+
+473
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+474 C. Dimitracopoulos
+
+schema ouly for E,, formulae with parameters.
+I,,, BH,, LML, are defined similarly.
+
+Remark 1. Strictly speaking, the subsystems defined above include a finite
+number of axioms expressing commutativity of + and ., associativity of +
+and ., etc.; these must be added to the usual axioms, because the amount of
+induction available in some of these systems is not sufficient to prove them.
+
+Relations among the systems we have defined were proved by Paris &
+Kirby (see [14]) and are summarized as follows.
+
+Theorem 1. For all n > 0:
+PEings
+
+4
+BEam & B,
+
+4
+I¥s & M, & IK, & Ll.
+
+Furthermore, the converses of the vertical arrows do not hold.
+In view of this theorem, the following question was asked in the 1970's;
+
+Main Problem. What is the weakest subsystem of PA that can serve as a
+basis for elementary number theory and combinatorics?
+
+It is not difficult to see that IF; is strong enough to serve as a basis;
+indeed, one can formalize usual proofs so that only induction for 54 formulae
+is needed. But what happens with the strictly weaker systems BX, and IX,?
+At this point we need to mention the following result, proved by Paris (see
+[12]) and, independently, H. Friedman.
+
+Theorem 2. For n> 0 and 0 a I,,,; sentence: BEaq F0 3> IE, F 0.
+
+By the previous theorem and the fact that all basic results of elementary
+number theory and combinatorics are formalized by I; sentences, studying
+IZ, is the same as studying BX,, as far as our main problem is concerned.
+Unfortunately, IX, seems very weak, since the usual method of coding can-
+not work in it. To test its strength, the following problems were posed and
+still remain open:
+
+Problem 1 (Paris). Does IX, prove the MRDP theorem?
+
+By MRDP theorem we mean the following result of Matijasevic-Robinson-
+Davis-Putnam (see [10]), which was crucial for the negative solution of
+Hilbert's 10th problem:
+
+MRDP Theorem. For every X;, formula (¥) we can effectively find a
+polynomial p E Z[@, y] such that
+
+ 
+
+ 
+
+ 
+
+Subsystems of Peano Arithmetic and Number Theory 475
+
+N E - 3g(p = 0)],
+where N denotes the standard model of P A.
+
+Remark 2. Strictly speaking, p = 0 stands for p* = p~, where p = p* - p~
+and p*,p~ c N[Z, y].
+
+Since the MRDP theorem cannot be expressed as a set of sentences of
+LA, what is meant in problem 1 is: Can we replace N |= by IZ, F- in the
+MRDP theorem?
+
+Problem 2 (Wilkie). Does IS, prove that the set of primes is unbounded?
+Problem 3 (Macintyre). Does IX, prove PHPE,?
+
+By PH PE, we denote the following schema, which formalizes the pigeon-
+hole principle for E, maps:
+
+Ya < 23y < zp(r,y) - 321, @» < 23y < $ a» A (21,4) A P(€zy)),
+where p is any ©, formula with parameters.
+
+It is widely believed that the answer to all these problems is "no". Con-
+
+cerning Problem 1, this feeling is especially strong, in view of the following
+observation of A. Wilkie (see [19]):
+
+If IX, proves the MRDP theorem, then NP = co- NP.
+
+Given the difficulty of working with IS,, it seemed worthwhile to consider
+systems strictly between IX, and IX,. Such a system is Xy + exp, where
+exp denotes the axiom Vx, y3z(z = #"). Here z = 2" is a bounded formula
+defining the graph of the exponential function in the standard model; the
+existence of such a formula was first shown by J. Bennett (see [1]). IZ, +
+exp is strictly stronger than [Xp, since the latter can capture functions of
+polynomial growth only, by the following result of R. Parikh (see [11]).
+
+ 
+
+Theorem 3. If IX, F Vz3yp(x,y), where is S,, then there exists k € N
+such that IS, F ¥a3y < a* +k w(x,y).
+
+It is also known that ZX) + ep is strictly weaker than IS;; this holds
+since the former cannot prove BX,, essentially by the proof that IX, cannot
+prove BX, (see [14]). However, IS, + éxp seems to be as strong as I¥;, as
+far as our main problem is concerned; the idea is that existential quantifiers,
+unbounded at first sight, are essentially bounded, as long as large numbers
+exist. For example, it is known that the answer to Problems 1 - 3 is "yes"
+if we replace IX, by IX, + exp, i.e. the following hold:
+
+Theorem 4. [X, + exp proves the MRDP theorem.
+Theorem 5. [X, + exp proves PH PS.
+
+Theorem 6. IX, + exp proves that the set of primes is unbounded.
+P P 6
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+476 C. Dimitracopoulos
+
+The first of these results was proved by H. Gaifman and, independently,
+the author (see [6]) and the second one by the author and J. Paris (see (51);
+the proofs of both are based on the fact that inside any M |= IX, + exp one
+can code finite (in the sense of M), 54 definable sequences of elements of M.
+Theorem 6 is proved by a straightforward formalization of the usual proof
+of Euclid's theorem.
+
+To strengthen the belief that TE, + exp is very strong, Ch. Cornaros and
+the author obtained (see [4])
+
+Theorem 7. [S, + exp proves (a version of) the prime number theorem.
+
+The proof of this result is a modification of Selberg's proof, the two main
+differences being that
+(a) an approximate logarithm function (previously introduced by A. Woods
+in [20]) is used instead of log.# and
+(b) arguments involving limits have been replaced by inductive ones.
+Attempts to solve Problems 2 and 3 led to the study of other systems
+strictly between TS, and, /X;.. In connection with Problem 2, A. Woods
+showed *
+
+Theorem 8. IS, + PH PS, proves Sylvester's theorem, i.c. that for any
+1 <a < y one of y+1,....y +@ has a prime divisor p > z.
+
+Let us discuss briefly the idea of his proof. In the usual proof, by consid-
+ering the largest powers of primes in the prime power decompositions of the
+numbers 1, ... , #, 4+ 1, .... y+ @, Sylvester showed that if no prime divisor
+of y +1, .... y + @ exceeds a then for any function E(x) > t(a) (= number
+of primes < #)
+
+aly! > (a+y-&(#))! (t).
+
+But for sufficiently large a and a suitable choice of £(x) (t) fails and so the
+result follows. Woods considered the logarithmic version of (¢), using the
+approximate logarithin function referred to above. Then he "unravelled" (1)
+to obtain the underlying comparison map, the existence of which contradicts
+PH PEo (the "unravelling" was necessary, since it is not known how to define
+partial sums by a X, formula in IE, + PH PEq).
+
+Clearly, we obtain as corollaries of the previous theorem:
+(a) the answer to Problem 2 is "yes" if IS, is replaced by IE, + PH PE
+(b) if the answer to Problem 3 is "yes", then the answer to Problem 2 is
+"yes".
+Note that IS, + PH PS, is strictly weaker than IX) + eap. To see this, let
+M be a nonstandard model of PA, a € M =- N and K be the substructure
+of M with universe {a e M : M |= a» < a" for some n € N}. Then K =
+IZ, + PH PE, (since PH PS, is ; axiomatizable), but clearly K {£ exp.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Subsystems of Peano Arithmetic and Number Theory 477
+
+Another system studied by A. Woods is [€], which is defined as follows:
+
+Definition 3. Let E° be the smallest class of (primitive recursive) functions
+containing +, ., all constant functions and closed under substitution and
+bounded recursion - this class was defined by A. Grzegorezyk (see [7]). I€2
+is obtained from [X, if we
+
+(a) add a new function symbol to LA, for each feE€,
+
+(b) allow induction for £2 formulae, i.e. bounded formulae of the new
+language LA(E®),
+
+(c) add a defining axiom DEF(f) for each new function symbol f.
+
+Clearly, IE, C E2, but it is unknown whether equality holds. It is easy to
+see that /E? is contained in an extension by definitions of + ezp; in fact,
+this inclusion is strict, since /€2 can only capture functions of polynomial
+growth (i.e., Theorem 3 can be proved for IE] instead of IX,).
+
+By exploiting the availability of "census functions" of E?-definable sets in
+1€2, i.e. the ability to count the number of elements of any E2-definable set
+by means of a function in £*, A. Woods proved (see [20])
+
+Theorem 9. /€2 proves PHPEZ, where PHPE2 denotes the pigeonhole
+cs
+
+principle schema for €2 formulae.
+
+As a consequence of Theorems 8 and 9, Problem 2 has a positive answer
+if is replaced by 1€2.
+
+Now we turn our attention to subsystems of £2, studied by A. Berarducci
+& B. Intrigila (see [2]) and Ch. Cornaros (see [3]). Each one of these systems
+includes TS, and is included in /£2, but it is unknown whether any of these
+inclusions are proper.
+
+Berarducci and Intrigila considered combinatorial principles provable in
+1€]; we will refer to only two, i.e. weak - PH PS, and EQ,.
+
+Definition 4. (a) Weak - PH PE, is the following schema
+
+(1 +e) > zA Va <(1+s)23y < z p(#,y) -
+Iri, @» < (1 +e) Jy < 2(a7 £ #s A (41,4) A P(@2,4)),
+
+where o is any 2, formula with parameters and & > 0 is any rational number.
+(b) EQE, (equipartition principle for ®, relations) tis the following schema
+
+ 
+
+Vz "if (x,y) defines an equivalence relation on z such that every
+equivalence class
+has exactly »» elements, then » | 2",
+
+where o is any X, formula and » € N.
+
+ 
+
+ 
+
+ 
+
+ 
+
+478 C. Dimitracopoulos
+
+It should he noted that weak - PHPE, had been previously considered
+by J. Paris, A. Wilkie and A. Woods (see [14]) and that Theorem 9 clearly
+implies that T€2 - weak - PH PS,.
+
+Using Theorem 9, Berarducci and Intrigila obtained
+
+Theorem 10. [£2 proves EQE2, where EQE2 is as before, but considering
+£2 formulae instead of S, ones.
+
+They also showed that the following hold:
+
+Theorem 11. IC, + weak - PH PX, proves Lagrange's theorem, ic. that
+every integer is the sum of four squares.
+
+Theorem 12. [Sy + EQE, proves the "complementary conditions" of the
+quadratic reciprocity law, i.e. that for any odd prime p:
+
+(a) -1 is a quadratic residue modp iff p = lmmod4
+
+(b) 2 is a quadratic residue modp iff p= £1mod8.
+
+Theorem 13. [E) + EQE, proves that a prime number is the sum of two
+squares iff it is of the form 4n + 1.
+
+For the proofs they used the multiplicative property of Legendre's symbol
+( #) (p an odd prime) and some group-theoretical considerations - the usual
+proofs are based on Euler's criterion (7) = but it is unknown
+whether this is provable in the theories considered.
+
+Cornaros, continuing the work of Berarducci and Intrigila, proved
+
+Theorem 14. [£2 proves the quadratic reciprocity law, i.e. that for any odd
+primes p, q:
+
+RY 4) = (_] )(@-U(@- 0/2
+
+(©)(4) = (<-p@-Vw-0/2,
+
+His proof is based on the usual one and exploits the the fact that | Inessy,p(2
+f(ax)modp and [(x) are €" functions, for any £ € €* and any EZ
+formula p.
+
+He also attempted to prove the following conjecture of A. Woods (see
+
+[20]).
+
+Conjecture. IX,(r)+ proves that the set of primes is unbounded,
+where IE,(t) + DEF(x) is the subsystem of IE] if we allow only one new
+function symbol t corresponding to the usual function t(x) = number of
+primes < x.
+
+Cornaros showed that adding # and one more new function symbol to LA
+suffices, namely
+
+ 
+
+ 
+
+ 
+
+Subsystems of Peano Arithmetic and Number Theory 479
+
+Theorem 15. IS,(r, DEF(K) proves Bertrand's postulate,
+where K is a new function symbol corresponding to the usual function K(z) =
+
+le<11§m logn.
+
+For the proof, an approximate logarithm function is used again and care
+is taken to define other functions involved in the usual proof, e.g. y(x), in a
+Eo(7, K) manner.
+
+Next, we discuss problems and results concerning the system IEp + th,
+where 9, denotes the axiom Vx3y(y = #"*"**!), By Theorem 3, /S, is strictly
+weaker than IXZ,+9;. To see that is strictly weaker than IE,+eaxp,
+it suffices to consider the structure with universe {a € M : M |= @ < aller"
+for some » € N}, for an arbitrary noustandard M |= PA and a € M - N.
+
+Let us see what is known about Problems 1 - 3 if IS, is replaced by
++Q.
+
+(a) The feeling is that Problem 1 again has a negative solution. Indeed,
+Wilkie's observation shows that if ZX, +9; proves the MRDP theorem,
+then NP = co- NP.
+
+(b) By using ingenious coding techniques, Paris, Wilkie and Woods showed
+(see [15])
+
+S
+
+  
+
+ 
+
+Theorem 16. IS, +9; proves weak - PH PS.
+
+(c) Again in [15] one finds
+
+Theorem 17. IS, +9, proves that the sct of of primes is unbounded.
+Actually this can be improved to
+
+Theorem 18. IX, +9, proves Sylvester's theorem.
+
+This follows from Theorem 16 and the fact that Woods's proof of Theorem
+8 really uses weak - PH PE,, not P PS,.
+
+We continue with a short discussion of a very weak subsystem of IX,.
+This is denoted by /Open and is obtained from IS, if we allow induction for
+open formulae only. The study of free-variable systems was first advocated
+by T. Skolem (see [17]). Shepherdson obtained (see [16])
+
+Theorem 19. [Open does not prove any of the following:
+(a) x" # 24" V a = 0
+
+(b) 2° $# 2 V ays =
+
+(c) the set of primes is unbounded.
+
+ 
+
+ 
+
+ 
+
+480 C. Dimitracopoulos
+
+By part (a) of this theorem and the fact that IE, proves ¥z,y(a" #
+2y° V a = 0), it follows that [Open is strictly weaker than Xp.
+
+To prove this theorem, Shepherdson constructed a recursive nonstandard
+model M of IOpen, in which (a)-(c) fail, as follows:
+The universe of M is the set of all polynomials of the form
+
+Gy X + (924 p £4 X 5 + fig,
+
+where p, g E N, q > 0, a,,... , ai are real algebraic, a, > 0 if p > 0, ag is
+an integer and is > 0 if p = 0. Successor, addition, etc., are defined in the
+obvious way; by taking X to be "infinitely large", one can make M into a
+discretely ordered semi-ring.
+
+Many other authors studied /Oper, among which A. Wilkie ([19]), L.
+Van den Dries ([18]) and A. Macintyre & D. Marker ([9]), obtaining very
+interesting results. We mention only one result from [9], namely
+
+Theorem 20. [Open does not prove Lagrange's theorem.
+
+Most proofs in [9], including the proof of the previous result, involve con-
+structions of models by unions of chains arguments and repeated use of
+purely algebraic constructions.
+
+Let us finish with a remark: Most of the systems we have defined in this
+paper have been studied extensively from more than one viewpoints, but we
+have been concerned only with results associated to the main problem stated
+at the beginning. For information concerning other viewpoints, we urge the
+interested reader to consult A. Macintyre's excellent survey of the subject
+
+([8])-
+
+RerBrENces
+
+[1] J. Bennett: On Spectra, Ph. D. thesis, Princeton University, 1962.
+
+[2] A. Berarducci & B. Intrigila: Combinatorial principles in elementary number
+theory, Aun. Pure Appl. Logic 55 (1991), 35 - 50.
+
+[3] Ch. Cornaros: On Grzegorezyk Induction, Ann. Pure Appl. Logic .. (1995), ...
+
+{4} Ch. Cornaros & C. Dimitracopoulos: The prime number theorem and fragments
+of P A, Arch. Math. Logic 33 (1994), 265 - 281.
+
+[5] C. Dimitracopoulos & J. Paris: The pigeonhole principle and fragments of arith-
+metic, Z. Math. Logik CGrundlag. Math. 32 (1986), 73 - 80.
+
+[6] H. Gaifman & C. Dimitracopoulos: Fragments of Peano's arithmetic and the
+MRDP theorem, Logic and Algorithmic, Monograph. Enseign. Math. 30 (1982),
+187 - 206.
+
+[7] A. Grzegorezyk: Some classes of recursive functions, Rozprawy Mat. IV (1953),
+1 -45.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Subsystems of Peano Arithmetic and Number Theory 481
+
+[8] A. Macintyre: The strength of weak systems, Proc. of the 11th Wittgenstein
+Symposium, Kirchberg/Wechsel (Austria), Holder-Pichler-Tempsky, Wien,
+1987, 43 - 59.
+
+[9] A. Macintyre & D. Marker: Primes and their residue rings in models of open
+induction, Ann. Pure Appl. Logic 43 (1989), 57 - 77.
+
+[10] Y. V. Matijasevic: Enumerable sets are diophantine (Russian), Dokl. Akad.
+
+Nauk SSSR, 191 (1970), 279 - 282. English translation: Soviet Math. Doklady
+
+11 (1970), 354 - 357.
+
+[11] R. Parikh: Existence and feasibility in arithmetic, J. Symbolic Logic 36 (1971),
+
+494 - 508.
+
+[12] J. Paris: Some conservation results for fragments of arithmetic, Lecture Notes
+
+in Math. 890 (1981), 251 - 262.
+
+[13] J. Paris & C. Dimitracopoulos: Truth defnilions for Ay formulae, Logic and
+
+Algorithmic, Monograph. Enseign. Math. 30 (1982), 317 - 329.
+
+[14] J. Paris & L. A. S. Kirby: ©, -Collection schemas in arithmetic, Logic Collo-
+
+quium °77, North-Holland, 1978, 199 - 209.
+
+[15] J. B. Paris, A. J. Wilkie & A. R. Woods: Provability of the pigeonhole principle
+
+and the existence of infinitely many primes, J. Symbolic Logic 53 (1988), 1235
+
+- 1244.
+
+[16] J. Shepherdson: A non-standard model for a free variable fragment of number
+
+theory, Bull. Polish Acad. Sci. Math. 12 (1964), 79 - 86.
+
+[17] Th. Skolem: Peano's axioms and models of arithmetic, Mathematical interpre-
+
+tations of formal sy s, Amsterdam, 1955, 1 - 14.
+
+[18] L. Van den Dries: Some model theory and number theory for models of weak
+
+systems of arithmetic, Lecture Notes in Math. 834 (1980), 346 - 362.
+
+[19] A.J. Wilkie: Some results and problems on weak systems systems of arithmetic,
+
+Logic Colloquium '77, North-Holland, 1978, 285 - 206.
+
+[20] A. R. Woods: Some problems in logic and number theory and their connections,
+Ph. D. thesis, Manchester University, 1981.
+
+     
+
+ 
+
+DerartMEeNT or Metnonotrogy. History anp PuirosoPHy or SCIENCE,
+University or ATHENS, 37, J. Kenneoy SprR., 161 21 KarsarIANT, GrBBcE.
+E-mail address: cdimitr@atlas.uoa.ariadne-t . gr
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
