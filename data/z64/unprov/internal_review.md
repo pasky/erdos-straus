@@ -201,3 +201,133 @@ ES is never claimed proved, and the labels are mostly right.
 * Arithmetic-hierarchy classifications are correct: ES Π⁰₁; Goodstein, PH and hydra Π⁰₂; Con(T) Π₁.
 * Literature statements match their verification status: Smith 1992 VERIFIED; PWW via Jeřábek VERIFIED; Buss–Krajíček
   Thm 5.3 VERIFIED; Aaronson Thm 7 VERIFIED with caveat; Friedman Π₁ examples NOT FOUND and correctly not claimed.
+
+## Second (focused) review
+
+Reviewer: hostile logic subagent (second pass). Scope: §2.8 Thm A″ and readings; §2.5 Remarks (generators, cofinal
+counterexamples); §6 Prop 6.2 Type II descent/positivity; §4 Prop 4.1 (revised); §3 famcheck; §9 O1; §5 rows/lower bound;
+§2.7 Caveat; whole-memo consistency. Sources: BO (pdftotext of the archived PDF: §1, stage Claim, Thm 4.3), ET (Prop 1.6,
+Prop 1.9 family list, Props 2.2/2.6, §4).
+Computations (under `ulimit -v 4000000`):
+* `python3 scripts/z64_unprov_famcheck.py 4000`: 75 124 members, all primitive, 0 unit-square hits (0.4 s, not ~1 min).
+* An independent check of the three ET Prop 1.9 families the script omits (T1b: −f mod 4ac ∩ −c/a mod f; T1c: −f mod 4cd ∩
+  n² ≡ −4c²d mod f; T2b: −4a²d mod f with 4ad | f + 1), modulus ≤ 3000: 40 288 classes, 0 unit-square hits.
+
+### Checked and sound (the attack failed)
+* **Thm A″ (proof).**
+  * Ring-language atoms are P = 0 with P ∈ ℤ[x̄], and Q_j = P_j(X̄) = 0 in M iff it is 0 in ℚ[β].
+  * (F4) carries over to arbitrary residues a_i: b^α − a^α ∈ DẐ.
+  * A nonzero polynomial does not vanish on a whole coset of Dℤ^K.
+  * Specialisation is a ring hom that preserves every atom's truth value. Correct.
+* **Shepherdson's model fails Th_∀(ℤ).** √2·t and t lie in S, and BO §1 even remarks that √2 is rational in S. Correct.
+* **MRDP remark.** The logic is right: U_ES is a universal sentence of the ring language, true in ℤ iff ES holds.
+* **Generator remark and f_m.**
+  * Generator system: f_m is linear and monic in β₁, so ℚ[f_m, β₂, …] = ℚ[β].
+  * Residue: ϕ(f_m) = q* + 0, since ϕ(β₂) = ϕ(β₃).
+  * Positivity: β₁ > 0 and (β₂ − β₃)² > 0, because β₂ ≠ β₃ (p₃ is at infinite distance from M₂ ∋ β₂).
+  * Primality: f_m is irreducible and ϕ(f_m) is a unit, so (F1) applies.
+  * Unboundedness: the x-degree is ≥ 2m·deg β₂ → ∞.
+  * Generalised Lemma 2.3:
+    * ψ is a hom because γ is a generator system.
+    * g(Γ(ξ)) is the Puiseux polynomial g(γ) ≠ 0, so (b) is unchanged.
+    * The algebra in (c) is right. Γ₁′ is a nonzero generalised polynomial with finitely many positive zeros, and it is
+      eventually > 0 because γ₁ is positive and infinite.
+  * (F4) and the Type I/II steps work in γ-coordinates, since ℓ² ≡ ϕ(γ₁) and b′_j ≡ ϕ(γ_j) mod D.
+* **Prop 6.2.**
+  * Positivity propagation is correct for both systems: 4abd = ne + 1 ≥ 1 and 4abd = n + e ≥ n > 0 at the largest zero,
+    then ce = a + b.
+  * The Type II descent algebra is checked: 4(a/p)(b/p)d = (m/p)² + e/p², and (cp)(e/p²) = a/p + b/p.
+  * ET's omitted Type II argument (4abd = n + e ⇒ (−e/q) = (n/q)) does need gcd(ab, m) = 1, so the descent is necessary.
+    The descent is sufficient: m = 1 has no solution, since e ≥ 4ab − 1 > a + b.
+  * The GCD-step proof matches ET Prop 2.2's proof line by line.
+* **Prop 4.1(a).** The bounds are derivable in discretely ordered rings:
+  * 4x ≤ 3n from yz(3n − 4x) ≥ 0;
+  * z(4xy − ny − nx) = nxy forces 4xy − ny − nx ≥ 1, hence z ≤ nxy;
+  * z ≥ y gives y(4x − n) ≤ 2nx with 4x − n ≥ 1;
+  * z ≤ 9n⁴/8.
+  (b)–(e) are correct for the corrected ES_b (issue 4).
+* **§2.7 Caveat.** Mathematically right: f(y², B′) has an absolutely irreducible factor ≠ y, Lang–Weil at split ℓ gives
+  P ≫ 1/ℓ, and Borel–Cantelli II applies. The β_i, i ≥ 2, are a.s. non-units at infinitely many ℓ.
+* **famcheck logic.** Correct. If a polynomially solvable class ρ mod Q were a unit square, it would contain a
+  square-mimicking q*. Thm A would then give an infinite prime ≡ ρ in a model of NOI ⊇ IOpen failing ES, while Thm B
+  (form without the proviso; the prime is ≥ N₀) gives IOpen ⊢ ES there. "ρ unit square mod Q" is exactly the condition.
+
+### Issues
+
+1. **MAJOR — §2.8 title and third Reading overclaim "all true Diophantine non-existence facts"**
+   * *Location:* §2.8 heading ("All true Diophantine non-existence facts hold in M_ϕ"); third Reading bullet ("What a
+     proof must use is therefore not any stock of true Diophantine non-existence facts").
+   * *What A″ actually covers.* Only Th_∀ of ℤ in the ring language. Facts about natural numbers, or with positivity
+     constraints, enter only through the four-square encoding, and inside M_ϕ that encoding does *not* express positivity.
+     M_ϕ ⊭ Lagrange: β₁ > 0 is not a sum of four squares in ℚ[β], since Σa_i² has even degree because real top forms do not
+     cancel (the TS argument of §6.2).
+   * *What it misses.* The ordered/ℕ universal theory, Th_∀(ℕ; +, ·, ≤) on M⁺, is untouched. So is the ES-relevant ordered
+     form of T1 itself, ∀s, u, B, C ≥ 1 (4uBC − u − B ≠ s²). Thm A only gives ¬ES★(β₁), and β₁ is not a square. Whether M⁺
+     satisfies that sentence is open.
+   * *Fix.*
+     * Retitle: "All true universal ring-language facts of ℤ hold in M_ϕ".
+     * Reword the Reading: "not any stock of true Diophantine non-existence facts *over ℤ in ring form*; ordered/ℕ-forms
+       (e.g. T1 as an ordered universal sentence) are not covered, and M⁺ ⊨ Th_∀(ℕ) is OPEN".
+     * Add the one-line PROVED remark "M_ϕ ⊭ Lagrange". This is also the precise reason the MRDP remark's "formulation
+       matters".
+
+2. **MINOR — §2.8 CONDITIONAL parenthetical misnumbered**
+   * *Problem.* It lists three conditions (ES true, MRDP in IΔ₀ + exp, Lagrange in IΔ₀ + exp), then says "The first is
+     Gaifman–Dimitracopoulos … the second is standard".
+   * *Fix.* Write "the second … the third".
+
+3. **MINOR — A″ prior art**
+   * *Problem.* The proof is the standard "finitely generated subrings are residually ℤ, so M embeds in an ultrapower of ℤ"
+     argument.
+   * *Directly relevant, uncited:* Otero, *On Diophantine equations solvable in models of open induction*, JSL 55 (1990)
+     (BO ref [Ot1]; `lit_models.md` §6), and Otero, *Quadratic forms in normal open induction*, JSL 58 (1993).
+   * *Fix.* Cite both, and call A″ "elementary; plausibly folklore".
+
+4. **MINOR — §4 Prop 4.1: the displayed ES_b omits x, y, z ≥ 1**
+   * *Problem.* "∀n ≥ 2 ∃x, y, z ≤ 2n⁴ (4xyz = n(xy + yz + zx))" is trivially true with x = y = z = 0. As written, (b)
+     ("if ES is false then Q ⊢ ¬ES_b") is false.
+   * *Fix.* Write ∃ 1 ≤ x, y, z ≤ 2n⁴.
+
+5. **MINOR — §3 famcheck**
+   * (i) *Coverage.* It covers only 4 of ET Prop 1.9's 7 families. Add T1b, T1c, T2b (my run: 40 288 classes ≤ 3000,
+     0 hits).
+   * (ii) *Strength.* A hit is already excluded by ET Prop 1.6: every family member gives Type I/II solutions at the odd
+     squares of its class. So the script tests the family encoding and ET 1.6, not Thm A against Thm B independently. Say
+     "sanity check".
+   * (iii) *Runtime.* It takes 0.4 s, not ~1 min.
+
+6. **MINOR — summary text lags behind the theorems**
+   * (a) *§0 F1 row.* It lists "Bezout/GCD-level" as candidate principles, but GCD is excluded by Thm A′. Also add GCD and
+     Th_∀(ℤ) to "not enough".
+   * (b) *§8 and FRONTIER text.*
+     * "What was proved" and the proposed FRONTIER text omit Thm A″.
+     * The FRONTIER text cites "BO Thms 4.2–4.3", but Thm 4.3 is not used (headline reliance list).
+     * It says "BO's recursive normal model". Recursiveness is unchecked for q* ≠ 1, which is needed for every square class
+       not containing 1 (e.g. 121 mod 840), and the A′ model (random residues) is not recursive. Drop "recursive".
+   * (c) *§5 lower bound.*
+     * "It must exceed both …": the theories are not linearly ordered. Write "it is contained in neither".
+     * "Equivalently, … a principle failing in M_ϕ" is an implication, not an equivalence.
+     * "Strictly above NOI + GCD" (the window) and the Bottom line's "between NOI + GCD and IE₁" should read
+       NOI + GCD + PD + Th_∀(ℤ).
+   * (d) *§0 F3 row.* Also state the Remark's condition (2): the complementary generators must have ϕ(γ_j) ∈ Ẑ.
+
+7. **MINOR — §2.7 Caveat unlabelled**
+   * *Problem.* The proof sketch is correct, but the Caveat carries no label.
+   * *Fix.* Label it "(PROVED, sketch; almost surely)", and write "f not associate to β₁" instead of "f ≠ β₁".
+
+8. **MINOR — §9 O1 Assessment wording**
+   * *A¹-bundle.* Spec ℚ[B][u, v]/(ug + vh − 1) is an A¹-bundle only over D(g) ∪ D(h), the complement of the codim-2 set
+     V(g, h), not over the whole previous stage.
+   * *Unstated arc-side requirement.* The integer Bezout pair at b must be ≡ (ϕ(u), ϕ(v)) mod D. This is achievable: the
+     syzygies of a unimodular row mod D are generated by (h, −g). It should be said.
+
+### Verdict
+* No FATAL issue. The new mathematics is correct: Thm A″ as stated (ring language), the f_m cofinality with the
+  generalised Lemma 2.3, the Prop 6.2 Type II descent and positivity, the revised Prop 4.1 bounds, the §2.7 Caveat, and the
+  famcheck logic.
+* One MAJOR issue is an interpretive overclaim. §2.8's title and Reading extend A″ from ring-language ℤ-facts to "all
+  Diophantine non-existence facts". Positivity-constrained (ℕ/ordered) facts, the form T1 takes, are not covered, and
+  M_ϕ ⊭ Lagrange.
+* Seven MINOR issues: one definitional typo (ES_b), one misnumbered conditional, famcheck coverage and strength, prior art,
+  and summary sections not updated for A′/A″.
+* Labels are otherwise right. ES is never claimed.

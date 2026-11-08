@@ -21,9 +21,9 @@ This lane proves *non-provability* theorems, not positivity. The table records h
 
 | screen | behaviour |
 |---|---|
-| **F1 odd squares** | The mechanism *is* F1. The unprovability theorem (Thm A) is T1 (ET Prop 1.6 / Z57_SYNTH Lemma A.1(b)) imported into a model: any hypothetical ES solution at the model prime specialises to a Type I/II solution at an odd square ℓ². So the result covers exactly the residue classes that contain unit squares, and Thm B shows that the remaining classes mod 840 are IOpen-provable. Reading: a proof of ES must use, at an identifiable step, a principle false in the model M_{q*}. Candidates are divisor arithmetic beyond normality (Bezout/GCD-level), counting, or reciprocity for non-standard moduli. Open induction, normality, residue information and "every element has an irreducible divisor" (§2.6) are not enough. |
+| **F1 odd squares** | The mechanism *is* F1. The unprovability theorem (Thm A) is T1 (ET Prop 1.6 / Z57_SYNTH Lemma A.1(b)) imported into a model: any hypothetical ES solution at the model prime specialises to a Type I/II solution at an odd square ℓ². So the result covers exactly the residue classes that contain unit squares, and Thm B shows that the remaining classes mod 840 are IOpen-provable. Reading: a proof of ES must use, at an identifiable step, a principle false in the model M_{q*}. Candidates are Bezout-level divisor arithmetic, counting, or reciprocity for non-standard moduli. Open induction, normality, gcds, residue information, "every element has an irreducible divisor" and all true universal ring facts about ℤ (§§2.6–2.8) are not enough. |
 | **F2 C-even sub-line** | Thm A transfers verbatim to R₈ and every (★)-sub-line, since R₈(m²) ≤ R(m²) = 0. Nothing here distinguishes C odd from C even. Nothing here is falsified by F2 either: no positivity is claimed. |
-| **F3 composites** | The model counterexamples are *primes* of the model (BO Lemma 2.10; §2.2). For (MS★) primality is not even used (§2.5): every polynomial generator γ (§2.5 Remark) with positive leading coefficient and square-mimicking residue fails. This is consistent with F3: by `Z58_LOGIC` Thm 6.2, composite-shaped counterexamples already exist in Shepherdson's model. |
+| **F3 composites** | The model counterexamples are *primes* of the model (BO Lemma 2.10; §2.2). For (MS★) primality is not even used (§2.5): every polynomial generator γ (§2.5 Remark) with positive leading coefficient and square-mimicking residue fails, provided the other generators of the system have ϕ(γ_j) ∈ Ẑ (the Remark's condition (2)). This is consistent with F3: by `Z58_LOGIC` Thm 6.2, composite-shaped counterexamples already exist in Shepherdson's model. |
 | **F4 known zeros** | The counterexamples sit over profinite square points, not over the 14 (★)-zero primes. No positivity is claimed, so F4 cannot falsify anything here. A proof of ES in a stronger theory is not touched. |
 
 No HOT LEAD (this is a logic lane; see §8 verdict).
@@ -250,8 +250,9 @@ additive. Then h ∈ M ⟺ v_ℓ(h) ≥ 0 for all ℓ.
 
 PD: as in §2.6. ∎
 
-*Caveat (from the internal review).* Unlike M_{q*}, this M almost surely has **no cofinal primes**: a nonconstant
-irreducible must have ϕ-value divisible by only finitely many ℓ, and for f ≠ β₁ that fails almost surely (Lang–Weil plus
+*Caveat (PROVED, sketch; almost surely; from the internal review).* Unlike M_{q*}, this M almost surely has **no
+cofinal primes**: a nonconstant irreducible must have ϕ-value divisible by only finitely many ℓ, and for f not associate
+to β₁ that fails almost surely (Lang–Weil plus
 Borel–Cantelli II). The β_i, i ≥ 2, are not even prime. A cofinal variant is plausible: take all a_i in (Ẑ^×)² and
 interleave stages adjoining c·x^N. It is not claimed here.
 
@@ -261,7 +262,7 @@ across ℓ, Σ diverges; Borel–Cantelli II). But every odd such ℓ is ≡ 1 (
 a₁ ≡ 1 (mod 8). So every standard divisor d of n + 1 has odd part ≡ 1 (mod 4) and 2-part ≤ 2. Hence d ≢ 3 (mod 4), and d is
 never a u = 1 hit. This is T1's Jacobi mechanism seen inside the model.
 
-### 2.8 All true Diophantine non-existence facts hold in M_ϕ (PROVED)
+### 2.8 All true universal ring-language facts about ℤ hold in M_ϕ (PROVED)
 
 Let Th_∀(ℤ) be the set of universal sentences in the *ring* language {0, 1, +, −, ·} (no ≤) that are true in ℤ. It
 contains every true statement "the system P₁ = … = P_r = 0 has no integer solution", more generally every true
@@ -283,14 +284,23 @@ with all X_j ∈ ℚ[β₁..β_K].
 * (PROVED) Shepherdson's model fails Th_∀(ℤ): x = √2·t, y = t give x² = 2y² with y ≠ 0. The BO-type models are much
   closer to ℤ. They satisfy every true universal ring statement, and still not ES on square classes.
 * (CONDITIONAL on ES being true, on MRDP being provable in IΔ₀ + exp, and on Lagrange's four-square theorem being
-  provable there. The first is Gaifman–Dimitracopoulos 1982, as quoted in `lit_independence.md` §3, PARTLY verified;
-  the second is standard and not checked.) Matiyasevich gives a polynomial P_ES with ES ⟺ ∀z̄ ∈ ℤ: P_ES(z̄) ≠ 0 =: U_ES,
+  provable there. The second is Gaifman–Dimitracopoulos 1982, as quoted in `lit_independence.md` §3, PARTLY verified;
+  the third is standard and not checked.) Matiyasevich gives a polynomial P_ES with ES ⟺ ∀z̄ ∈ ℤ: P_ES(z̄) ≠ 0 =: U_ES,
   using four squares for the ℕ-variables. This equivalence is then provable in IΔ₀ + exp. If ES is true, U_ES
   ∈ Th_∀(ℤ), so M_ϕ ⊨ U_ES ∧ ¬ES(n). Hence IOpen + U_ES ⊬ ES although IΔ₀ + exp ⊢ U_ES ↔ ES. At the level of open
   induction the *formulation* of ES matters: the Diophantine-universal form is "free", the unit-fraction form is not.
-* What a proof must use is therefore not any stock of true Diophantine non-existence facts. It is an existence
-  principle, a divisor or solution that some axiom forces to exist, applied to non-standard data. Examples are Bezout
-  coefficients, least-number principles, and counting. This sharpens the §5 list.
+* (PROVED) M_ϕ ⊭ Lagrange's four-square theorem: β₁ is not a sum of four squares in ℚ[β]. A sum of squares of real
+  polynomials of maximal degree δ ≥ 1 has a nonzero top form of degree 2δ ≥ 2, and constants would make β₁ constant.
+  So over M_ϕ the four-square encoding no longer expresses positivity. Th_∀(ℤ) does **not** contain the ℕ-versions of
+  Diophantine facts, i.e. those with positivity constraints. An example is T1 itself in the form
+  ∀s, u, B, C ≥ 1: 4uBC − u − B ≠ s². **Whether the non-negative part of M_ϕ satisfies such ordered/ℕ facts, T1 in
+  particular, is OPEN.**
+* (Assessment) So a proof cannot get by on true universal *ring* facts about ℤ alone. It must use existence principles
+  (a divisor or solution some axiom forces to exist, applied to non-standard data: Bezout coefficients, least-number
+  principles, counting), or ordered/ℕ-Diophantine facts beyond Th_∀(ℤ). This sharpens the §5 list.
+* *Prior art.* The argument is the standard "f.g. subrings embed in ℤ" one (models of the universal theory are the
+  subrings of ultrapowers of ℤ), and A″ is plausibly folklore for BO-type models. Related: Otero, JSL 55 (1990) and
+  JSL 58 (1993) (BO's [Ot1], [Ot2]; contents not read here).
 
 ## 3. Theorem B: what IOpen does prove
 
@@ -325,11 +335,13 @@ exist since ES is verified to 10¹⁷ (or by direct check).)
 * This reproduces Mordell's classical result (ET p. 8, citing [49, 44]); the certificate is a re-verification, not new
   mathematics. Replay: `uv run --with sympy python scripts/z64_unprov_mordell840.py` (seconds).
 
-*Consistency falsifier for Thms A and B (CERTIFIED; `scripts/z64_unprov_famcheck.py` → `data/z64/unprov/famcheck.txt`).*
+*Consistency sanity check for Thms A and B (CERTIFIED; `scripts/z64_unprov_famcheck.py` → `data/z64/unprov/famcheck.txt`).*
 Thms A and B would contradict each other if some polynomially solvable primitive class contained a unit square. The
 script enumerates all 75 124 members with modulus Q ≤ 4000 of the four explicit ET identity families (T2a, T1a, T1d, T2c,
 as in the 840 script). It finds **0** classes ρ mod Q that are unit squares mod Q, as ET Prop 1.6 / Mordell–Schinzel
-predict. Replay: `python3 scripts/z64_unprov_famcheck.py 4000` (~1 min).
+predict. Replay: `python3 scripts/z64_unprov_famcheck.py 4000` (< 1 s). This is a sanity check of the encoding, not
+an independent test: it can fail only if ET Prop 1.6 or the family encoding is wrong. The second reviewer separately checked
+ET's other three families (T1b, T1c, T2b) to modulus 3000: 40 288 classes, 0 hits.
 
 *Reading (Assessment).* At modulus 840, open induction proves *exactly* Mordell's theorem: whatever IOpen can prove about
 ES on residue classes mod 840, polynomial identities already prove. For a general modulus, ET Prop 1.9 essentially classifies the classes
@@ -340,7 +352,7 @@ solvable by polynomials (necessary families plus a converse); Thm A excludes the
 **Proposition 4.1 (PROVED; standard metamathematics, Σ₁-completeness and Gödel II as in any textbook, e.g. Hájek–Pudlák,
 *Metamathematics of First-Order Arithmetic*, Ch. I; theorem numbers not re-checked).** Let T ⊇ Q be a consistent
 recursively axiomatised theory and S ⊇ IΣ₁ a metatheory. Write ES_b for the bounded form
-∀n ≥ 2 ∃x, y, z ≤ 2n⁴ (4xyz = n(xy + yz + zx)), a Π⁰₁ (∀Δ₀) sentence.
+∀n ≥ 2 ∃x, y, z (1 ≤ x, y, z ≤ 2n⁴ ∧ 4xyz = n(xy + yz + zx)), a Π⁰₁ (∀Δ₀) sentence.
 * (a) ES ↔ ES_b is provable in IOpen, indeed in the theory of discretely ordered rings: for x ≤ y ≤ z one has
   x ≤ 3n/4, y ≤ 2nx and z ≤ nxy ≤ 2n⁴ (`BRAINSTORM/logic_weak_arithmetic.md` §1), all by ordered-ring algebra.
   (Q alone does not prove these bounds; below, "ES" means ES_b whenever T is as weak as Q.)
@@ -408,14 +420,14 @@ witness bound is x, y, z ≤ 2n⁴ (Prop 4.1(a)). ∎
   available. The S¹₂ question is therefore, in practice, the search-complexity question of `Z58_LOGIC` §5.
 
 **"Which weak theory is the first that could prove ES?" (answer, scoped).**
-* *Lower bound (PROVED).* It must exceed both NOI + GCD + PD + Th_∀(ℤ) (Thms A′, A″) and NOI + PD + cofinal primes +
-  Th_∀(ℤ) (Thms A, A″). Equivalently, a proof of ES at primes
+* *Lower bound (PROVED).* It is contained in neither NOI + GCD + PD + Th_∀(ℤ) (Thms A′, A″) nor NOI + PD + cofinal
+  primes + Th_∀(ℤ) (Thms A, A″). In particular, a proof of ES at primes
   of any square class must use a principle failing in M_ϕ. Candidates: Bezout identities, LNP/induction for formulas
   with quantifiers (bounded existential and beyond), counting (Count₂-type principles give quadratic reciprocity
   for non-standard moduli: Jeřábek, `Z58_LOGIC` lit_verify item 5), or the existence of many divisors of n + u.
 * *Upper bound.* Not known: no theory is known to prove ES (ES is open). Assessment: an elementary proof, if one
   exists, would plausibly be formalisable in IΔ₀ + exp (Friedman's grand conjecture, `Z58_LOGIC` lit_verify item 8,
-  is the general version of this expectation). So the honest window is "strictly above NOI + GCD, at most IΔ₀ + exp
+  is the general version of this expectation). So the honest window is "not contained in NOI + GCD + PD + Th_∀(ℤ), at most IΔ₀ + exp
   (if ES has an elementary proof)".
 * The first genuinely open rung is **IOpen + Bez** (and IE₁).
 
@@ -507,6 +519,8 @@ What was proved:
   `BRAINSTORM/logic_weak_arithmetic.md` §5 (IOpen ⊬ ES_prime).
   * The counterexamples are infinite primes at square-mimicking profinite points.
   * The proof transfers T1 into the model by analytic arcs (Lemmas 2.3, 2.4) and uses no hypothesis.
+* **Thm A″.** These models satisfy every true universal ring sentence about ℤ. So NOI + PD + Th_∀(ℤ) ⊬ ES_prime on square
+  classes. (CONDITIONAL on ES, MRDP and Lagrange in IΔ₀ + exp: IOpen + U_ES ⊬ ES although IΔ₀ + exp ⊢ U_ES ↔ ES.)
 * **Thm B + Cor C.** IOpen proves ES on every class solvable by polynomials. Mod 840 this gives an exact dichotomy:
   IOpen proves ES on all classes outside 𝔐, and NOI proves it on no class of 𝔐 (at primes). CERTIFIED re-verification
   of Mordell's covering.
@@ -532,13 +546,14 @@ What is out of reach (Assessment, with reasons):
 
 **Proposed FRONTIER text** (do not edit FRONTIER here).
 * §3, new barrier entry (after B1):
-  > **B1-formal — square classes are unprovable in normal open induction** (`Z64_UNPROV.md` Thms A, A′, B; PROVED
-  > relative to Berarducci–Otero JSL 1996 Thms 4.2–4.3 and ET Prop 1.6).
+  > **B1-formal — square classes are unprovable in normal open induction** (`Z64_UNPROV.md` Thms A, A′, A″, B;
+  > PROVED relative to Berarducci–Otero JSL 1996 (Lemmas 2.4, 2.6–2.9, 4.1, Thm 4.2) and ET Prop 1.6).
   > * For every primitive unit-square class r mod q, IOpen + normality + GCD + "every element has an irreducible
-  >   divisor" does not prove "ES holds at every prime ≡ r (mod q)". Conversely, IOpen proves ES on every class solvable
+  >   divisor" + all true universal ring sentences about ℤ does not prove "ES holds at every prime ≡ r (mod q)". Conversely, IOpen proves ES on every class solvable
   >   by polynomials, so mod 840 it proves exactly Mordell's theorem.
   > * Also IOpen ⊬ (MS) (answers `Z58_LOGIC` §6.1).
-  > * Model: BO's recursive normal model with residues ϕ(β) at a square-mimicking point. Its infinite primes are
+  > * Model: BO's normal-model construction with residues ϕ(β) at a square-mimicking point (for q* = 1, BO's
+  >   recursive model verbatim). Its infinite primes are
   >   counterexamples, by analytic arcs to integer points at odd squares plus T1.
   > * This is the formal-system analogue of B1 Thm C (which is conditional on H); it says nothing about ℕ and neither
   >   implies nor is implied by Thm C.
@@ -554,10 +569,10 @@ What is out of reach (Assessment, with reasons):
 * *Can unprovability of ES be proved?* For strong theories, no realistic route exists. An independence proof would
   contain a proof of ES, and ES has no consistency-strength or fast-growth mechanism.
 * For weak theories, yes. This lane proves what is, to our knowledge, the first such result at *primes*. Normal open induction, even with
-  gcds and prime divisors, cannot prove ES on any square class.
+  gcds, prime divisors and all true universal ring facts about ℤ, cannot prove ES on any square class.
 * The result is exactly the odd-square obstruction lifted to a formal theory. It is unconditional and sharp at
   modulus 840: IOpen proves precisely Mordell's classes.
-* "ES is unprovable in T" remains a realistic research target only for T between NOI + GCD and IE₁. The next rung is
+* "ES is unprovable in T" remains a realistic research target only for T between NOI + GCD + PD + Th_∀(ℤ) and IE₁. The next rung is
   IOpen + Bezout, where the arc criterion says what a counter-model must look like.
 * This is logic, not progress on ES. It formally certifies that any proof must use divisor-richness or counting
   principles which the generic-prime models violate. That is B2 seen from proof theory.
@@ -565,18 +580,21 @@ What is out of reach (Assessment, with reasons):
 ## 9. Open problems (precise)
 * **(O1) IOpen + Bez ⊬ ES_prime[r mod q] for unit-square r?** A Bezout model with the arc property (Prop 6.2) would
   settle it. Natural starting point: S. T. Smith, *Building discretely ordered Bezout domains and GCD domains*, J. Algebra
-  159 (1993) 191–239 (citation verified, contents not read; `lit_models.md` §6).
+  159 (1993) 191–239 (citation verified, contents not read; `lit_models.md` §6). Candidate: interleave the BO step with
+  Bezout steps that adjoin u, v = (1 − ug)/h for coprime pairs (g, h). Away from V(g, h) the coordinate ring is an
+  A¹-bundle over the previous stage.
   *Where the difficulty sits (Assessment).*
-  * The arc side looks fine. To adjoin u, v with ug + vh = 1 for a coprime pair, choose the integer point b so that
-    gcd(g(b), h(b)) = 1. This is possible: at the finitely many bad standard primes ϕ separates g and h, and above them
-    an Ekedahl-type sieve applies, since the density of b with ℓ | g(b), h(b) is ≤ C/ℓ² by the point-count lemma of
-    §2.7. Then let ψ(u) interpolate analytically: an integer Bezout coefficient at s = 0, the prescribed values 1/ψ(g)
-    at the zeros of ψ(h) on the arc (a generic arc avoids the codimension-2 common zeros), and u's order type at ∞.
+  * The arc side looks fine.
+    * Choose the integer point b with gcd(g(b), h(b)) = 1. At the finitely many bad standard primes, ϕ separates g and
+      h. Above them an Ekedahl-type sieve applies, since the density of b with ℓ | g(b), h(b) is ≤ C/ℓ² by the
+      point-count lemma of §2.7.
+    * Choose the integer Bezout pair at b congruent to (ϕ(u), ϕ(v)) mod D. This is possible because the syzygies of a
+      unimodular row mod D are generated by (h, −g).
+    * Let ψ(u) interpolate analytically: the integer value at s = 0, the values 1/ψ(g) at the zeros of ψ(h) on the arc
+      (a generic arc avoids the codimension-2 set V(g, h)), and u's order type at ∞.
   * The model side is the obstacle. u and v cannot be Puiseux polynomials (β₁ is not a unit mod β₂ in ℚ[β]), so
-    M[u, v] leaves K[x^ℚ]. Discreteness and the integral-part property of such extensions need a Smith-type
-    construction, which we have not carried out. Candidate: iterate the BO step with Bezout steps adjoining u, (1 − ug)/h for coprime pairs (g, h). The
-  coordinate rings are then A¹-bundles over the previous stage, and arcs extend along the fibres. Not done: the
-  integral-part, discreteness and GCD bookkeeping are unverified.
+    M[u, v] leaves K[x^ℚ]. The discreteness, integral-part and GCD bookkeeping of such extensions needs a Smith-type
+    construction, which we have not carried out.
 * **(O2) IE₁.** Any counter-model is non-recursive (Wilmers). Does IE₁ prove ES on some square class? Expected no.
 * **(O3) Non-square classes outside ET's families** (general modulus): IOpen-provable or not? Thm A needs integer points
   at odd squares. A class with no square needs a different ES-free Diophantine target.
@@ -609,10 +627,20 @@ no FATAL issue; 1 MAJOR and 14 MINOR issues, all applied:
 
 **Replay** (under `ulimit -v 4000000`):
 * `uv run --with sympy python scripts/z64_unprov_mordell840.py` writes `data/z64/unprov/mordell840.txt` (seconds);
-* `python3 scripts/z64_unprov_famcheck.py 4000` writes `data/z64/unprov/famcheck.txt` (~1 min).
+* `python3 scripts/z64_unprov_famcheck.py 4000` writes `data/z64/unprov/famcheck.txt` (< 1 s).
 Everything else is proof.
 
-**Post-review additions** (made after the internal review; checked by a second, focused review, below):
-* §2.8 Thm A″ (Th_∀(ℤ));
-* the famcheck falsifier;
-* the O1 assessment.
+**Second (focused) review** (appended to `data/z64/unprov/internal_review.md`). Scope: the post-review additions,
+i.e. §2.8 Thm A″, the cofinal generators f_m, the Prop 6.2 Type II descent, the revised Prop 4.1, the famcheck sanity
+check and the O1 assessment. It reran famcheck and checked ET's other three families separately. Verdict: no FATAL
+issue, 1 MAJOR and 7 MINOR issues, all applied:
+* (1, MAJOR) §2.8 overclaimed "all Diophantine non-existence facts". It now says "universal ring-language facts", adds
+  M_ϕ ⊭ Lagrange, and marks the ordered/ℕ facts (T1 included) as OPEN.
+* (2) CONDITIONAL numbering fixed.
+* (3) Folklore and Otero prior art noted.
+* (4) ES_b now requires x, y, z ≥ 1.
+* (5) famcheck relabelled a sanity check, runtime corrected, and the reviewer's T1b/T1c/T2b check recorded.
+* (6) Summary texts synchronised: F1 row, §8, FRONTIER text (A″; BO lemmas; recursiveness), §5 "contained in neither",
+  window and bottom line.
+* (7) §2.7 Caveat labelled.
+* (8) O1 wording: A¹-bundle away from V(g, h); Bezout pair matched to ϕ mod D.
