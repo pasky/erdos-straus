@@ -188,6 +188,43 @@ Consequently any proof of (S) must use words with unbounded denominators A and u
 (the classical Schinzel-type obstruction for Erdős–Straus, here in the Jacobi language). Words at a
 *fixed level t* (factorisations of tn + 1) are not residue-class objects and escape this remark.
 
+**Theorem 3.7 (Mordell-type covering for (S); PROVED, certificate CERTIFIED).** Let
+  𝔈 := {1, 9, 25, 49, 81, 105, 121, 169, 225, 249, 265, 289, 321, 345, 361, 385, 441, 505, 529, 561, 585, 609,
+        625, 681, 721, 729, 769, 825} ⊂ ℤ/840.
+Every n ≡ 1 (mod 4) with n mod 840 ∉ 𝔈 and n ≥ 24529 has a good word given by one of the 77 universal words
+listed in `data/z64/sdeepf/cover_words_1441440.txt` (48 fixed-denominator words (A, u) with A | L :=
+1 441 440 = 2⁵·3²·5·7·11·13, and 29 fixed-(u, v) words with uv | L/8). Together with the direct verification
+of (S) for all n ≤ 10⁸ (`crit8_1e8.txt`), **(S) holds for every non-square n ≡ 1 (mod 4) with
+n mod 840 ∉ 𝔈** — i.e. outside 28 of the 210 classes mod 840. 𝔈 contains the 24 classes of odd squares
+mod 840 (necessarily: a class containing a square can never be covered, Cor. 2.2); the remaining four
+classes 265, 321, 769, 825 are exactly the classes with n ≡ 1 (8), n ≡ 0 or 1 (3), n ≡ 0, ±1 (5),
+n ≡ 6 (7).
+*Proof.* (1) Periodicity. For a fixed-denominator word (A, u): the class is n ≡ −u (mod A), n ≡ 1 (mod 4),
+on which the word exists as soon as n ≥ 2A − u (Prop. 3.1′ for odd A; for even A the same computation,
+v = (n+u)/A ≥ 2, t = (A+1)/u ≥ 2). Writing A = 2^a A′ (A′ odd), n ↦ (A/n) = (2/n)^a (A′/n) on odd n > 0 is
+periodic with period dividing 8A′, and 8A′ | L because A′ | L/2⁵. For a fixed-(u, v) word: the class is
+n ≡ −(u+v) (mod uv), n ≡ 1 (mod 4); t = (n+u+v)/(uv) is an integer, t ≥ 2 iff n ≥ 2uv − u − v, and by
+Theorem 2.1 goodness is 8 | (n+t)(n+u+v), which depends only on n mod 8uv, and 8uv | L. Hence on every
+class n₀ (mod L) with n₀ ≡ 1 (mod 4), each listed word either does not apply, or applies with a constant
+Jacobi value. (2) Computation. `scripts/z64_sdeepf_cover2.py 1441440` enumerates all such words and marks
+the classes mod L on which some word is good (the Jacobi value is computed directly on representatives,
+and for the (u,v)-words also cross-checked against Theorem 2.1); the uncovered classes mod L are exactly
+the 13 742 classes lying over 𝔈 (output `cover2_1441440.txt`). `scripts/z64_sdeepf_cover_check.py`
+independently re-verifies, with direct Jacobi evaluation only, that for each of the 312 312 classes mod L
+not over 𝔈 one of the 77 listed words applies with (A/n) = −1 on two representatives (`cover_check.txt`),
+and that the word exists for n ≥ 24529. (3) The same computation with L = 2⁵·3³·5·7²·11·13 = 30 270 240
+(`cover2_30270240.txt`) leaves exactly the same 28 classes uncovered. ∎
+*Remarks.* (i) This is the (S)-analogue of Mordell's reduction of Erdős–Straus to the six classes 𝔐 =
+{1, 121, 169, 289, 361, 529}; (S) is harder: the 24 odd-square classes are irreducible by any finite
+covering (Prop. 3.5), and the four classes n ≡ 6 (7) above are irreducible by the 2⁵·3³·5·7²·11·13
+covering as well. (ii) Why n ≡ 6 (mod 7) resists: it is the only non-residue class mod 7 not reached by
+the denominator A = 7 (u = 2, 4 give n ≡ 5, 3 (mod 7); u = 1 is not allowed). A good word for an n in
+these classes that is a square modulo every modulus coprime to 7 must have 7 | A, hence u ≡ −n ≡ 1 and
+t ≡ u^{−1} ≡ 1 (mod 7) — a sparse family (first member A = 63, u = 8), and the numerics (`minA_mod840_2e7.txt`:
+largest minimal good denominator 2058, 3311, 1119, 1871 in the classes 265, 321, 769, 825, comparable to the
+square classes) suggest these four classes are not finitely coverable either (EVIDENCE only). (iii) Nothing
+in the proof uses primality (F3) or non-squareness beyond the (automatic) fact that squares lie in 𝔈 (F1).
+
 ## §4 The exceptional set has density zero
 
 Let E(x) := #{n ≤ x : n ≡ 1 (mod 4), n non-square, n has a word, n has no good word} (the set of
@@ -270,14 +307,16 @@ Why the obvious routes stop (all three observations PROVED above or classical):
    only global input distinguishing n from a square is the non-triviality of (·/n), which must be
    transported to the sparse set W(n). Pell/Vieta-type involutions on words do not exist (the equation
    is linear in each of t, u, v; for fixed t it is a divisor problem).
-Conclusion (honest): I did not find a proof of (S) for the classes n ≡ 1, 9, 25, 33, 49 (mod 72); the
-results proved here are Theorems 2.1, 3.1, Props. 3.1′–3.5, Thm 4.1 (given Landau), and Thm 4.2 (given a
-textbook sieve bound). No HOT LEAD.
+Conclusion (honest): I did not find a proof of (S) for the 28 classes 𝔈 mod 840 of Theorem 3.7 (24 of
+which contain squares and are provably out of reach of finite coverings); the results proved here are
+Theorems 2.1, 3.1, 3.7, Props. 3.1′–3.5, Thm 4.1 (given Landau), and Thm 4.2 (given a textbook sieve
+bound). No HOT LEAD.
 
 ## §6 EVIDENCE (all CERTIFIED by the listed scripts; data in data/z64/sdeepf/)
 
-* `crit8_2e7.txt`: all 674 224 160 words of all n ≤ 2·10⁷: criterion of Thm 2.1 exact; (S) holds for every
-  non-square n ≤ 2·10⁷ having a word; squares never have good words.
+* `crit8_2e7.txt`, `crit8_1e8.txt`: all 674 224 160 words of all n ≤ 2·10⁷, resp. all 4 146 720 310 words of
+  all n ≤ 10⁸: criterion of Thm 2.1 exact (0 mismatches, direct Jacobi); (S) holds for every non-square
+  n ≤ 10⁸ having a word (24 994 998 such n); squares never have good words.
 * `flags_2e6.bin` + `z64_sdeepf_families.c` output (run log in this memo's commit message history / rerun
   `./families 2000000 25`): among 249 292 non-square n ≡ 1 (8), n ≤ 2·10⁶ with words, the number lacking a
   good word in a given sub-family: 4 | t: 472; 4 | u or 4 | v: 54 (incl. primes 13, 193, 2521, 21841,
@@ -290,6 +329,10 @@ textbook sieve bound). No HOT LEAD.
   composites of composite_zeros_le8e6 — the exception n = 105 has no word at all (vacuous for (S)).
 * `escape_counts.txt`: §4 — fraction of n ≡ 1 (8) escaping the explicit criteria: 0.86 % for (1)–(6) at
   10⁷, decreasing with x.
+* `cover*_*.txt`, `cover_words_1441440.txt`, `cover_check.txt`: the Theorem 3.7 covering (182/210 classes
+  mod 840 covered; the 28 uncovered are 𝔈; identical with the 21× larger modulus 30 270 240). With
+  fixed-denominator words alone, 170/210 — exactly the 170 classes with bounded minimal good denominator in
+  the next item.
 * `minA_mod840_2e7.txt`: per class r mod 840 the largest minimal good denominator. Bounded (≤ 100) for 170
   classes; largest values: r = 681: 13 967 (n = 3 561 441), 345: 9392, 225: 8039, 105: 4639, 609: 4234 —
   all with 3 | r, r ≡ 1 (8); Mordell's classes 𝔐 = {1, 121, 169, 289, 361, 529}: 1519, 1356, 905, 804,

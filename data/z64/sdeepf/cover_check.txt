@@ -1,0 +1,2 @@
+classes checked: 312312 failures: 0 []
+words exist for all n >=  24529
