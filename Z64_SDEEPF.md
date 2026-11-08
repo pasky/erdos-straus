@@ -144,7 +144,8 @@ every n ≡ 1 (mod 4) with n ≡ 5 (mod 8), or n ≡ 2 (mod 3), or n ≡ 3 (mod 
   (A/n) = (n/A) = (−4/A) = (−1/A) = −1. (n = 5: t = 1, not a word; vacuous.)
 * (c) n ≡ 3 (mod 9) (so n ≡ 21 mod 36), n ≥ 57: (t, u, v) = ((n+15)/36, 3, 12) is a word (36t − 15 = n)
   with B = tv − 1 = 12t − 1 ≡ 3 (mod 4), B | n + 12 (Lemma 1.1(b)), so (B/n) = (n/B) = (−12/B) = (−3/B) = −1
-  because B ≡ 2 (mod 3); and (A/n) = (B/n) by Lemma 1.1(c).
+  because B ≡ 2 (mod 3); and (A/n) = (B/n) by Lemma 1.1(c). (The remaining n = 21 of the class is handled by (a):
+  21 ≡ 5 (mod 8), word (3, 3, 3); the displayed (c) word has t = 1 there.)
 All witnesses are direct; none needs Theorem 2.1, and none uses primality (F3) — (a) uses only
 n ≡ 5 (8), (b) n ≡ 2 (3), (c) 3 ∥ n: each excludes squares (F1).
 So (S) is open only for **n ≡ 1 (mod 24)** and for **n ≡ 9 (mod 24) with n ≢ 3 (mod 9)**, i.e. for
@@ -240,8 +241,8 @@ Theorem 2.1 goodness is 8 | (n+t)(n+u+v), which depends only on n mod 8uv, and 8
 class n₀ (mod L) with n₀ ≡ 1 (mod 4), each listed word either does not apply, or applies with a constant
 Jacobi value. (2) Computation. `scripts/z64_sdeepf_cover2.py 1441440` enumerates all such words and marks
 the classes mod L on which some word is good (the Jacobi value is computed directly on representatives,
-and for the (u,v)-words also cross-checked against Theorem 2.1); the uncovered classes mod L are exactly
-the 13 742 classes lying over 𝔈 (output `cover2_1441440.txt`). `scripts/z64_sdeepf_cover_check.py`
+and for the (u,v)-words also cross-checked against Theorem 2.1); there are 13 742 uncovered classes mod L, all
+lying over 𝔈 (a subset of the 48 048 classes mod L over 𝔈, not all of them; output `cover2_1441440.txt`). `scripts/z64_sdeepf_cover_check.py`
 re-verifies with an independent covering logic (direct Jacobi evaluation on two representatives per class;
 the two scripts share only the Jacobi routine, which was checked against sympy) that for each of the
 312 312 classes mod L not over 𝔈 one of the listed words applies with (A/n) = −1, that 57 words suffice, and
@@ -283,11 +284,16 @@ Then #{m ≤ y : m ∈ 𝒮} = Σ_{e ≥ 0, 3^e ≤ y} G(y/3^e); the terms with 
 Hence E(x) ≤ 13 + #{m ≤ x + 4 : m ∈ 𝒮} ≪ x/√(log x). ∎
 (Non-squareness is not used in this proof beyond the definition of E; indeed all odd squares DO belong to
 the sifted superset {n : n + 4 ∈ 𝒮} (m² + 4 is a sum of two coprime squares), which is why only an upper
-bound for the exceptional set, not emptiness, can come out of this family alone. The set counted is a
-subset of the sums of two squares, so Landau 1908 alone suffices; Wirsing is cited for the general form.)
+bound for the exceptional set, not emptiness, can come out of this family alone. Here n + 4 ≡ 5 (mod 8),
+so n + 4 lies in 𝒮 ∩ {m ≡ 1 (mod 4)}, which forces e even and is a subset of the sums of two squares, so Landau 1908
+alone suffices; Wirsing is cited for the general form. 𝒮 itself is *not* a subset of the sums of two squares: 3 ∈ 𝒮 —
+corrected after the Astra retro review.)
 
-**Theorem 4.2 (PROVED modulo the cited textbook sieve theorem; its conditions (Ω₁), (Ω₂(κ)), (R) for
-distinct linear forms are standard and were not re-verified here).** For every fixed K ≥ 1,
+**Theorem 4.2 (PROVED modulo a standard upper-bound sieve theorem; the Astra retro review checked an equivalent source
+directly — Tao, *254A Notes 4: Some sieve theory*, Corollary 19 with condition (22), copy in
+`sources/lit2026/audit-tao-254a-notes4-sieve-theory.md` — and verified the distinct-root, dimension and remainder
+conditions for these forms (`data/z64/xreview/REVIEW_SDEEPF_ASTRA.md`); the Halberstam–Richert theorem numbers and
+Wirsing's Satz number below were not authenticated).** For every fixed K ≥ 1,
   E(x) ≪_K x (log x)^{−κ_K},  κ_K := 3 + 2 Σ_{k=2}^{K} 1/φ(4k);
 since Σ 1/φ(4k) diverges, E(x) ≪_B x (log x)^{−B} for every B > 0.
 *Input (the only thing assumed; e.g. Halberstam–Richert, *Sieve Methods*, Thm 2.2 (Brun) or Thm 5.2
@@ -339,11 +345,15 @@ Why the obvious routes stop (all three observations PROVED above or classical):
    Numerically (§6) 170 of the 210 classes mod 840 have bounded minimal good denominator up to 2·10⁷
    (plausibly finitely covered), 40 do not; the worst are the classes 3 | n, n ≡ 1 (8).
 2. Fixed-level families (t fixed: factorisations of tn + 1; or u fixed: divisors of n + u) give good
-   words exactly when a shifted/multiplied n has a prime factor in a prescribed class (Prop. 3.3). For a
+   words *if* a shifted/multiplied n has a prime factor in a prescribed class (Prop. 3.3: sufficient criteria only).
+   In general a good word at a fixed level needs a *divisor* in a class, possibly composite: at n = 21841,
+   (t, u, v) = (64, 9, 38) has A = 575, B = 2431 and Jacobi −1, yet 64n + 1 = 5²·11·13·17·23 has no prime factor
+   ≡ −1 (mod 64) (Astra retro review; an earlier "exactly when" was false). For a
    *single* n nothing forces such a prime factor; on average the failure set has density (log x)^{−δ}
    (§4). Unboundedly many families → density (log x)^{−∞} (Thm 4.2), still not emptiness.
-3. The Jacobi value of a word is 2-adically determined (Thm 2.1), so no analytic "sign cancellation"
-   argument over words is available: for a given n all words could a priori sit in bad classes, and the
+3. The Jacobi value of a word is 2-adically determined (Thm 2.1), so (Assessment, not an impossibility theorem for
+   analytic methods: locality only reformulates cancellation as distribution among cells, and future cell-count
+   estimates are not excluded) we found no analytic "sign cancellation" argument over words: for a given n all words could a priori sit in bad classes, and the
    only global input distinguishing n from a square is the non-triviality of (·/n), which must be
    transported to the sparse set W(n). Assessment (not a theorem): I see no Pell/Vieta-type involution on
    words (the equation is linear in each of t, u, v; for fixed t it is a divisor problem).
@@ -384,8 +394,9 @@ bound). No HOT LEAD.
 * **F1 (odd squares).** Theorem 2.1 is valid for squares and yields Cor. 2.2: squares have no good words
   at all. Every statement proved here uses non-squareness exactly where it must: Theorem 3.1(a) via
   n ≡ 5 (8) (squares are 1 mod 8), (b) via n ≡ 2 (3), (c) via 3 ∥ n; Prop. 3.3 via the existence of a
-  prime factor in a non-residue class of n+u / tn+1 (for n = m² every prime factor q of m² + u has
-  (−u/q) = +1, of tm² + 1 has (−t/q) = +1, so the hypotheses are never met); Thm 4.1/4.2 bound a set that
+  prime factor in a non-residue class of n+u / tn+1 (for n = m² every odd prime factor q ∤ u of m² + u has
+  (−u/q) = +1, and every odd prime factor q ∤ t of tm² + 1 has (−t/q) = +1, so the hypotheses are never met; without
+  the coprimality the symbol can be 0, e.g. q = 3 | 3² + 3 with (−3/3) = 0, and all primes used by Prop. 3.3 satisfy it); Thm 4.1/4.2 bound a set that
   contains the squares (upper bounds only). No argument here claims (S) for a class containing squares.
 * **F2 (sub-families).** Sub-family membership was checked on the screened primes ≤ 2·10⁶ (12 of the 14
   star primes, 30 of the 38 gstar primes; `families` output, §6); for the larger screened primes and the
@@ -412,3 +423,15 @@ bound). No HOT LEAD.
 6. Thm 3.6: noted that the 57-word list is sufficient but not minimal.
 Net new content per the review: Thm 3.6 (certified covering mod 840, four stubborn non-square classes ≡ 6 (7)),
 Thm 3.1(c), Thms 4.1/4.2, and the compact form of Thm 2.1.
+
+## Cross-model retro review (Astra) (data/z64/xreview/REVIEW_SDEEPF_ASTRA.md; verdict ACCEPT-WITH-FIXES) — fixes applied
+The reviewer re-derived Thm 2.1 (all 1 280 mod-16 cells), Thms 3.1, 3.6, 4.1, 4.2 and Props 3.1′–3.5; reran the
+crit8 census to 3·10⁶ and both covering scripts byte-identically; added an independent 57-word covering check
+(`scripts/xrev_retro_sdeepf_checks.py`). Required fixes applied:
+1. §5 item 2: the false "exactly when … prime factor" necessity replaced by "sufficient criteria" (counterexample
+   n = 21841, (64, 9, 38); 64n + 1 has no prime factor ≡ −1 mod 64).
+2. Thm 4.1 aside: 𝒮 ∩ {m ≡ 1 (mod 4)} (not 𝒮, which contains 3) is the subset of sums of two squares.
+3. Thm 3.1(c): n = 21 handled by (a). Thm 3.6: "13 742 uncovered classes, all lying over 𝔈" (not all classes over 𝔈).
+4. §F F1: the +1 statement restricted to odd q ∤ u (resp. q ∤ t).
+5. §5 item 3 kept as Assessment, not a theorem excluding cell-count estimates; Thm 4.2's sieve input now points to
+   the checked Tao 254A source and the reviewer's verification of its conditions.
