@@ -18,8 +18,11 @@ Falsifiers to be answered at the end (§F):
 Status key: PROVED / CONDITIONAL (on what) / CERTIFIED (computation) / EVIDENCE.
 
 **Summary of results (no proof of (S); no HOT LEAD).**
-* Thm 2.1 (PROVED): for a word (t,u,v) of n ≡ 1 (4), (A/n) = −1 ⇔ 8 | (n+t)(n+u+v). So (S) is a purely
-  2-adic statement about the solutions of n + u + v = tuv (verified on all 4.1·10⁹ words of n ≤ 10⁸).
+* Thm 2.1 (PROVED; a REDISCOVERY in a new compact form — per cross-model review it is DEDEKIND_ES Thm 4.5/§8.1,
+  cf. FOREST_DEEP_FABLE Thm A, FOREST_CONNECTIVITY Thm 2.1, LOWERTAIL_ROUND2_FABLE Thm 1, z1_legendre_levels
+  Prop 1; only the one-product form is new): for a word (t,u,v) of n ≡ 1 (4), (A/n) = −1 ⇔ 8 | (n+t)(n+u+v).
+  So (S) is a purely 2-adic statement about the solutions of n + u + v = tuv (verified on all 4.1·10⁹ words
+  of n ≤ 10⁸).
 * Thm 3.1 (PROVED): (S) for n ≡ 5 (8) [word (3,3,(n+3)/8)], n ≡ 2 (3) [((n+7)/12, 4, 3)], n ≡ 3 (9)
   [((n+15)/36, 3, 12)].
 * Thm 3.6 (PROVED given Thm 2.1 + CERTIFIED): Mordell-type covering — (S) holds for all non-square n ≡ 1 (4)
@@ -55,7 +58,12 @@ Hirzebruch–Jung expansion of length exactly 3 of a fraction n/A; (W_A) says th
 
 ## §2 The Jacobi symbol of a word is 2-adically local (PROVED)
 
-**Theorem 2.1 (local criterion).** Let n ≡ 1 (mod 4) and (t, u, v) a length-3 word of n, A = tu − 1. Then
+**Theorem 2.1 (local criterion; PROVED here independently — priority: this is in substance DEDEKIND_ES
+Thm 4.5 ("(A/n) = −1 ⟺ 4 divides one of t, u, v, A, A*") and §8.1, with elementary proofs in
+FOREST_DEEP_FABLE Thm A and FOREST_CONNECTIVITY Thm 2.1, the coordinate form in LOWERTAIL_ROUND2_FABLE Thm 1
+and the t ≡ −n (8) piece in z1_legendre_levels Prop 1; the lane was unprimed and rediscovered it. New here:
+only the one-product formulation 8 | (n+t)·tuv and its self-contained case proof.)** Let n ≡ 1 (mod 4) and
+(t, u, v) a length-3 word of n, A = tu − 1. Then
 
   (A/n) = −1  ⇔  8 | (n + t)(n + u + v)  ⇔  8 | t·u·v·(n + t).
 
@@ -126,8 +134,9 @@ non-square n the character (·/n) is non-trivial, and (S) asks for a word in the
 
 ## §3 Proved cases of (S) and the families that are always good
 
-**Theorem 3.1 (PROVED).** (S) holds for every n ≡ 1 (mod 4) with n ≡ 5 (mod 8), or n ≡ 2 (mod 3), or
-n ≡ 3 (mod 9). Explicitly:
+**Theorem 3.1 (PROVED; (b) is prior: the same word and sign appear in bsG_primes_trivial / DISCOVERIES
+Prop 8.1 (per cross-model review); (a) is the classical easy case; (c) appears to be new).** (S) holds for
+every n ≡ 1 (mod 4) with n ≡ 5 (mod 8), or n ≡ 2 (mod 3), or n ≡ 3 (mod 9). Explicitly:
 * (a) n ≡ 5 (mod 8), n ≥ 13: (t, u, v) = (3, 3, (n+3)/8) is a word (9(n+3)/8 − 3 − (n+3)/8 = n) with
   A = 8, and (8/n) = (2/n)³ = (2/n) = −1 because n ≡ 5 (mod 8). (n = 5 has no word at all.)
 * (b) n ≡ 2 (mod 3) (so n ≡ 5 mod 12), n ≥ 17: (t, u, v) = ((n+7)/12, 4, 3) is a word
@@ -161,7 +170,8 @@ By the symmetry u ↔ v the same holds with the roles of u and v exchanged, and 
 is true for the "4 | t" family: any factorisation tn + 1 = AB, A ≡ B ≡ −1 (mod t), A, B ≥ 2t − 1, with
 4 | t gives a good word.
 
-**Proposition 3.3 (prime-factor criteria for n ≡ 1 mod 8; PROVED).** Let n ≡ 1 (mod 8) be a non-square.
+**Proposition 3.3 (prime-factor criteria for n ≡ 1 mod 8; PROVED; items (1), (3), (5) are prior =
+FOREST_CONNECTIVITY Prop 3.1(iii), per cross-model review).** Let n ≡ 1 (mod 8) be a non-square.
 (S) holds for n as soon as one of the following happens:
 1. n + 4 has a prime factor q ≡ 3 (mod 4), q ≥ 7. [word ((q+1)/4, 4, (n+4)/q); Prop. 3.2; q ≠ n+4 since
    n + 4 ≡ 1 mod 4.]
@@ -173,8 +183,8 @@ is true for the "4 | t" family: any factorisation tn + 1 = AB, A ≡ B ≡ −1 
    A = q, B = (2n+1)/q ≥ 3; same symbol.]
 5. n + 3 has a prime factor q ≡ 2 (mod 3), q ≥ 5. [u = 3, A = q, t = (q+1)/3, v = (n+3)/q ≥ 4 (4 | n+3);
    (q/n) = (n/q) = (−3/q) = −1.]
-6. 3n + 1 has a prime factor q ≡ 2 (mod 3), q ≥ 5. [t = 3, A = q, B = (3n+1)/q is even and ≡ 2 (3),
-   so B ≥ 8; (q/n) = (n/q) = (−3^{-1}/q) = (−3/q) = −1.]
+6. 3n + 1 has a prime factor q ≡ 2 (mod 3), q ≥ 5. [t = 3, A = q, B = (3n+1)/q; since 4 | 3n + 1 (n ≡ 1 mod 8)
+   and q is odd, 4 | B, and B ≡ 2 (3) excludes B = 4, so B ≥ 8; (q/n) = (n/q) = (−3^{-1}/q) = (−3/q) = −1.]
 7. More generally, for any k ≥ 1: n + 4k has a prime factor q ≡ −1 (mod 4k) with 8k − 1 ≤ q < n + 4k
    [Prop. 3.2 with u = 4k, A = q]; or 4kn + 1 has a prime factor q ≡ −1 (mod 4k) with
    8k − 1 ≤ q ≤ (4kn+1)/(8k−1) [t = 4k, Theorem 2.1].
@@ -188,7 +198,8 @@ non-square n ≡ 1 (4), n ≤ 2·10⁷, n ≠ 5 without a word (data/z64/sdeepf/
 flags file). Note ((n+5)/6, 3, 2) for n ≡ 1 (mod 24) has t ≡ 1 (mod 4), u ≡ 3, v ≡ 2: it is a BAD word
 (table row t ≡ 1: needs u or v ≡ 0 mod 4). So for n ≡ 1 (mod 24) the guaranteed word is useless.
 
-**Proposition 3.5 (no finite covering; PROVED).** (i) Fix a finite set F of pairs (u, v). Let
+**Proposition 3.5 (no finite covering; PROVED; prior in kind: HJ_DEEP Lemma 3.2, invol_sign_identities
+Prop S, per cross-model review).** (i) Fix a finite set F of pairs (u, v). Let
 M = 8·lcm{uv : (u,v) ∈ F}·6. Every non-square n ≡ 1 (mod M), n ≥ 7, has a word, but none of its words
 with (u, v) ∈ F (or (v, u) ∈ F) is good. (ii) Fix A₀. Let M = 4·lcm(1, …, A₀)·6. Every non-square
 n ≡ 1 (mod M) has a word, but no word of n with denominator A ≤ A₀ is good.
@@ -236,7 +247,8 @@ the two scripts share only the Jacobi routine, which was checked against sympy) 
 312 312 classes mod L not over 𝔈 one of the listed words applies with (A/n) = −1, that 57 words suffice, and
 that the word exists for n ≥ 24529 (`cover_check.txt`). The extension from the representatives to the whole
 class mod L is the periodicity of (1); for the (u,v)-words this rests on Theorem 2.1 (so Theorem 3.6 is
-PROVED given Theorem 2.1, which is PROVED). (3) The same computation with L = 2⁵·3³·5·7²·11·13 = 30 270 240
+PROVED given Theorem 2.1, which is PROVED). The 57-word list is sufficient, not minimal (e.g. (12320, 111) can be dropped, lowering the threshold).
+(3) The same computation with L = 2⁵·3³·5·7²·11·13 = 30 270 240
 (`cover2_30270240.txt`), with L = 2⁵·3²·5·7·11·13·17 and with L = 2⁵·3²·5·7·11·13·19 leaves exactly the
 same 28 classes uncovered (coverage inside them rises, e.g. to 96 % in class 769, but never to 100 %). ∎
 *Remarks.* (i) This is the (S)-analogue of Mordell's reduction of Erdős–Straus to the six classes 𝔐 =
@@ -333,8 +345,8 @@ Why the obvious routes stop (all three observations PROVED above or classical):
 3. The Jacobi value of a word is 2-adically determined (Thm 2.1), so no analytic "sign cancellation"
    argument over words is available: for a given n all words could a priori sit in bad classes, and the
    only global input distinguishing n from a square is the non-triviality of (·/n), which must be
-   transported to the sparse set W(n). Pell/Vieta-type involutions on words do not exist (the equation
-   is linear in each of t, u, v; for fixed t it is a divisor problem).
+   transported to the sparse set W(n). Assessment (not a theorem): I see no Pell/Vieta-type involution on
+   words (the equation is linear in each of t, u, v; for fixed t it is a divisor problem).
 Conclusion (honest): I did not find a proof of (S) for the 28 classes 𝔈 mod 840 of Theorem 3.6 (24 of
 which contain squares and are provably out of reach of finite coverings); the results proved here are
 Theorems 2.1, 3.1, 3.6, Props. 3.1′–3.5, Thm 4.1 (given Landau), and Thm 4.2 (given a textbook sieve
@@ -347,7 +359,7 @@ bound). No HOT LEAD.
   n ≤ 10⁸ having a word (24 994 998 such n); squares never have good words.
 * `flags_2e6.bin` + `z64_sdeepf_families.c` output (run log in this memo's commit message history / rerun
   `./families 2000000 25`): among 249 292 non-square n ≡ 1 (8), n ≤ 2·10⁶ with words, the number lacking a
-  good word in a given sub-family: 4 | t: 472; 4 | u or 4 | v: 54 (incl. primes 13, 193, 2521, 21841,
+  good word in a given sub-family: 4 | t: 472; 4 | u or 4 | v: 54 (incl. primes 193, 2521, 21841,
   66529); t ≡ 3 (4) with u or v even: 1297; t ≡ 2 (4) with u or v ≡ 3 (4): 4826; t ≡ −n (8): 477;
   u = 4 or v = 4 exactly: 85 102; t = 4: 97 861. So (F2) no single sub-family is universal, but the
   union of the "always good" families 4|t, 4|u, 4|v, t ≡ 3 (4) & uv even, t ≡ 2 (4) & (u or v ≡ 3 (4)),
@@ -380,11 +392,23 @@ bound). No HOT LEAD.
   r8 primes only the existence of a good word was certified (`f4_witnesses.txt`). The
   always-good sub-families 4|t, 4|u, t ≡ 3 (4)&uv even, … each miss some screened primes (e.g. 4|t misses
   409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201; "4|u or 4|v"
-  misses none of the screened primes but misses the primes 13, 193, 2521, 21841, 66529). No theorem above
+  misses none of the screened primes but misses the primes 193, 2521, 21841, 66529 (and 13 ≡ 5 mod 8)). No theorem above
   asserts universality of a sub-family; Theorems 3.1(a–c) are statements about residue classes with
-  explicit witnesses, valid for every n in the class (the words (8,3), (u,v) = (3,4), (3,12) are among the 57 of Theorem 3.6 and were evaluated by direct Jacobi on representatives of every class mod L; (S) itself is verified to 10⁸).
+  explicit witnesses, valid for every n in the class (the words (A,u) = (8,3) and (u,v) = (3,4) are among the 57 of Theorem 3.6 and were evaluated by direct Jacobi on representatives of every class mod L; (3,12) is not in that list and rests on its direct proof; (S) itself is verified to 10⁸).
 * **F3 (composites).** Nothing uses primality. Theorem 3.1 and Props. 3.1′–3.3 hold for all n ≡ 1 (4) in
   the stated classes, composite or not; Thm 4.1/4.2 count all n. The only composite-specific phenomenon
   is wordlessness (n = 105), which makes (S) vacuous there.
 * **F4.** All 14 + 38 primes satisfy (S) with explicit witnesses (`f4_witnesses.txt`), e.g. 409:
   found by the search; 564661441: (2, 7, 43435496), A = 13, (13/564661441) = −1.
+
+## Cross-model review (data/z64/xreview/REVIEW_SDEEPF.md; verdict ACCEPT-WITH-FIXES) — fixes applied
+1. Priority of Theorem 2.1 stated (DEDEKIND_ES Thm 4.5/§8.1, FOREST_DEEP_FABLE Thm A, FOREST_CONNECTIVITY
+   Thm 2.1, LOWERTAIL_ROUND2_FABLE Thm 1, z1_legendre_levels Prop 1): rediscovery; only the product form is new.
+2. Credits added: Thm 3.1(b) (bsG_primes_trivial / DISCOVERIES Prop 8.1), Prop 3.3(1),(3),(5)
+   (FOREST_CONNECTIVITY Prop 3.1(iii)), Prop 3.5 (HJ_DEEP Lemma 3.2, invol_sign_identities Prop S).
+3. §F F2: "(3,12)" removed from the "among the 57" sentence; prime 13 (≡ 5 mod 8) moved out of the n ≡ 1 (8) list.
+4. Prop 3.3(6): B ≥ 8 now justified by 4 | 3n+1 ⇒ 4 | B.
+5. §5 item 3: "no Pell/Vieta involutions" relabelled Assessment.
+6. Thm 3.6: noted that the 57-word list is sufficient but not minimal.
+Net new content per the review: Thm 3.6 (certified covering mod 840, four stubborn non-square classes ≡ 6 (7)),
+Thm 3.1(c), Thms 4.1/4.2, and the compact form of Thm 2.1.
