@@ -40,5 +40,5 @@ FRONTIER §3, §6). Current cleanest targets: (MS-U₇) and (MS⁺₁₀₅) (`Z
 
 ## Cross-model reviews owed (Astra unavailable: quota, then expired Codex auth token, 2026-11-08)
 Reviewed only by a separate Opus instance (or Opus internal review): `Z64_SDEEP.md`, `Z64_SDEEPF.md`,
-`Z64_EQUIV.md`, `Z65_LIFT.md`. Run Astra `xreview_z58.md`-style reviews on these when available.
-Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`.
+`Z64_EQUIV.md`. Run Astra `xreview_z58.md`-style reviews on these when available.
+Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`.

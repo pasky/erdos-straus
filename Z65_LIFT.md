@@ -1,6 +1,11 @@
-# Z65_LIFT — characteristic-p construction + lifting for ES certificates (wave z65, lane LIFT). Verdict: DEAD as a construction route (two scoped theorems); no HOT LEAD
+# Z65_LIFT — characteristic-p construction + lifting for ES certificates (wave z65, lane LIFT). Verdict: good-reduction lifting gives only Mordell (DEAD at p ≡ 1 (12)); bad-reduction lifting of a fixed datum is type I, datum construction unresolved (two scoped theorems); no HOT LEAD
 
-**ES is OPEN.** Nothing here proves or disproves ES, (MS) or any case of them. Labels: PROVED / CONDITIONAL (on what) /
+**ES is OPEN.** Nothing here proves or disproves ES, (MS) or any case of them.
+**Scope (governs every "DEAD" below; sharpened after the Astra retro review).** Prop O is a *preservation* theorem:
+lifting a supplied char-p datum cannot change its signature, so fixed-datum lifting adds no existence result. It is
+**not** an impossibility theorem for characteristic-p *constructions*: a constructed datum necessarily has discrete
+invariants, but that does not mean they had to be chosen beforehand. Whether some char-p construction (a canonical
+object with forced invariants, or a realisation problem (H★), §5.3) could produce new ES data is unresolved. Labels: PROVED / CONDITIONAL (on what) /
 CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Internal, unrefereed. Brief: `z52bbriefs/z65_lanes.md` §LIFT (+ z58
 common rules, z53 depth brief). Scripts `scripts/z65_lift_*`, data `data/z65/lift/` (sources: `data/z65/lift/src/`,
 PDFs/text of the arXiv versions read, accessed 2026-11-08). Checkpoint 1 (Theorem G + pre-registered kill tests):
@@ -9,7 +14,7 @@ commit 4c2ebc54d.
 ## 0. Bottom line
 
 1. **SWZ's mechanism, extracted (§2, ✔ from arXiv:2609.20572v1).** Prime-degree Hurwitz existence is proved by building,
-   over k = F̄_p, a *special stable G-map* with G ≤ S_p (p ∥ |G|, regular P = C_p, N(P) = P ⋊ F_p^×), and lifting it
+   over k = F̄_p, a *special stable G-map* with G ≤ S_p (p ∥ |G|, regular P = C_p, N_{S_p}(P) = P ⋊ F_p^×), and lifting it
    with Wewers's theorem. Primality enters in four places: the residue characteristic; Henrio's moment theorem (the
    parts of Λ ⊢ p are units of F_p with zero total and no zero proper sub-sum); C_{S_p}(P) = P (faithful tail
    characters); v_p(p!) = 1. The *discrete* data (profiles, hence σ_j = (r_j − 1)/(p − 1)) are given; char p is used
@@ -22,23 +27,27 @@ commit 4c2ebc54d.
    (Lemmas G1–G3) plus p-adic valuations. Numerator-k version (Theorem G_k) identical: only (p+1)/(k−1)-identities.
 3. **The bad-reduction branch (SWZ's actual engine) is order-transparent (§4, Prop O, PROVED from Raynaud–Wewers).**
    The signature of any lift is read off the char-p datum (tame indices on primitive tails, p × tame index of the
-   central cover at wild points). So a char-p construction can only *realise* an ES triple supplied as input. Char-0
-   realisation of any triple is already free (Riemann existence), so this is type I (Z64_EQUIV §5). Two sharper
-   facts:
+   central cover at wild points). So *lifting a given datum* only realises the ES triple that datum already carries.
+   Char-0 realisation of any triple is already free (Riemann existence), so fixed-datum lifting is type I (Z64_EQUIV
+   §5). Whether a char-p *construction of the datum* could produce a previously unknown triple is not settled by
+   Prop O (see Scope above). Two sharper facts:
    * **Prop E.** Every abelian (in particular every cyclic, hence every Lemma-F (★)-) ES cover with bad reduction has
-     *exceptional* stable reduction (σ = 1), outside the scope of Wewers's lifting theorem.
+     *exceptional* stable reduction (σ = 1), outside the scope of Wewers's lifting theorem (here p ∥ |G| by Lemma P).
    * **Lemma S.** No Galois closure of a degree-p cover, taken with its monodromy group (SWZ's object class), is an
      ES pair.
 4. **Where ES's prime/composite (T1) information lives (§5).** In SWZ the hard, prime-sensitive part is the
-   *realisation of fixed discrete data*, and the geometry sees primality there. In ES, realisation is free at every n
-   (squares included) and the whole content is the *discrete datum* (the triple). Lifting theorems preserve discrete
-   data. So the mechanism is T1-blind by construction: at n = m² every geometric step succeeds and only "choose the
-   triple" fails.
+   *realisation of fixed discrete data*, and the geometry sees primality there. In ES, characteristic-0 realisation of a given triple is free
+   (Riemann existence) and the whole content is the *discrete datum* (the triple). Lifting theorems preserve discrete
+   data. Characteristic-p realisability of prescribed cover data is **not** free (Theorem G, Prop E restrict it; e.g.
+   at p = 13 the cyclic cover v^52 = t^13(t − 1)^2, signature (4, 26, 52), genus 19, exists in characteristic 0 but has
+   neither a good-reduction model nor a special C_52-map reduction). At n = m² the characteristic-p mechanism is not
+   defined (no characteristic n), so it supplies no new T1 test.
 
    **Precise missing lemma (§5.3):** an ES/(★)-equivalent *realisation* problem whose discrete data are fixed by p and
    whose realisability fails at squares — a "Hurwitz problem for (★)". None is known; the natural candidates are
    screened there.
-5. **KT1 passed, KT2 fired (route DEAD as construction), KT3 passed** (§6). No HOT LEAD.
+5. **KT1 passed, KT2 fired (fixed-datum (BR) lifting is type I; datum construction unresolved), KT3 passed** (§6).
+   No HOT LEAD.
 
 ## 1. Mandatory falsifier table (final)
 
@@ -47,9 +56,9 @@ The mechanism under test: build in characteristic p an object Ω (curve with aut
 
 | screen | behaviour |
 |---|---|
-| **F1 odd squares** | ES holds at m², so F1 bites only on (★)/Type II sub-statements. Every lift's signature is *read off* the char-p datum (Prop O; Theorem G's cluster count). So a (★)-certificate at m² would have to be present as input data, and none exists by T1. The geometric steps (curve, deformation datum, lifting) succeed for every triple at every n. **The mechanism is T1-blind**: it uses neither primality nor non-squareness except through "characteristic = p". The good-reduction branch produces only Mordell's identity with p = 3m − 1, which never fires at m² (squares are ≡ 0, 1 mod 3). |
+| **F1 odd squares** | ES holds at m², so F1 bites only on (★)/Type II sub-statements. Every lift's signature is *read off* the char-p datum (Prop O; Theorem G's cluster count), so lifting cannot create a (★)-certificate absent from the datum. Characteristic-0 realisation of any triple is free (Riemann existence), but characteristic-p realisation of prescribed data is not (Theorem G, Prop E; p = 13 example in §0 item 4). At n = m² the char-p mechanism is not defined (no characteristic m²), so it supplies no new T1 test; it uses neither primality nor non-squareness except through "characteristic = p". The good-reduction branch produces only Mordell's identity with p = 3m − 1, which never fires at m² (squares are ≡ 0, 1 mod 3). |
 | **F2 C-even / numerator 8** | Theorem G_k (§3.4) is numerator-uniform: for k/p the good-reduction survivors are exactly the identity (m, p, pm), (k − 1)m = p + 1 (KT3: k = 8, all primes ≤ 1500, CERTIFIED: 38 identity triples, one per p ≡ 6 (7), plus the spherical sporadic (2, 2, 7) at p = 7, 39 survivors in all). Prop O and Lemma S are numerator-blind. Nothing distinguishes C odd from C even. |
-| **F3 composites** | The residue characteristic is prime by definition. At composite n the mechanism is undefined except through a prime factor ℓ \| n, where ES is inherited anyway. Primality enters only as "the characteristic", so it cannot see the 285 composite R-zeros, Z₇ or 4545. |
+| **F3 composites** | The residue characteristic is prime by definition. At composite n the mechanism is undefined; passing to a prime factor ℓ \| n is a different problem (ES(ℓ) ⟹ ES(n), so ES at n is inherited only *conditionally on* ES at that factor). Primality enters only as "the characteristic", so it cannot see the 285 composite R-zeros, Z₇ or 4545. |
 | **F4 known zeros** | All 14 (★)-zero primes, all 38 𝔊*-zero primes and all 𝔐 primes are ≡ 1 (mod 12) (checked from `star_prime_zeros.txt`, `gstar_zeros.txt`). By Theorem G every ES certificate there has bad reduction. The good-reduction branch "proves" ES only at p ≡ 2 (3), where Mordell already does, so it proves nothing false at the zeros. The bad-reduction branch proves nothing by itself (type I). |
 
 **No HOT LEAD.**
@@ -94,15 +103,16 @@ or "Wewers" outside Z64_EQUIV's precedent row and its source file.
   character faithful.
 * **M3 (central logarithmic datum, §7; new tail, §6).** A cyclic cover Z → P¹ of degree m | p − 1 with Kummer
   exponents a_j, and a Cartier-fixed logarithmic differential with prescribed divisor (Def 7.1, citing Wewers ENS 2003
-  Def 3.1). The numerical constraint is the vanishing-cycle identity Σσ_j (+ new tail) = 1 with denominators dividing
-  p − 1, which is exactly compatibility (1.1).
+  Def 3.1). The numerical constraint is the vanishing-cycle identity Σ_prim σ_j + Σ_new(σ_j − 1) = 1 (a new tail contributes
+  σ_new − 1, not σ_new) with denominators dividing p − 1, which is exactly compatibility (1.1).
 * **M4 (assembly and lifting, §8, Thm 4.8).** The tails are aligned inside one G ≤ S_p containing a common regular
   P = C_p (Lemma 8.1, using N_{S_p}(P) = P ⋊ F_p^×, Lemma 2.5, and v_p(p!) = 1). Wewers's lifting theorem
   (JAMS 2003 Thm 3 / Cor 4.6) then gives a characteristic-0 three-point G-cover. Tame inertia on primitive tails is
   preserved (Lemma 4.7).
 * **M5.** The degree-p quotient by a point stabiliser has the prescribed profiles (Lemma 2.3); descend to ℂ.
 
-**Reading.** The discrete data (Λ_1, Λ_2, Λ_3; hence G ≤ S_p, the m_j and σ_j) are **given** by the datum. The
+**Reading.** The discrete data (Λ_1, Λ_2, Λ_3; hence the tail numerical types m_j, σ_j) are **given** by the datum.
+(The profiles do not determine a unique group G; SWZ constructs G as generated by the aligned tail groups.) The
 characteristic-p work is a **continuous** existence problem over F̄_p: points a_j solving moment equations, and a
 logarithmic differential with prescribed divisor. Primality makes that problem solvable (M2) and makes the pieces fit
 in one group (M4). The composite-degree failures (EKS Prop 5.7) are visible in the group theory: blocks and
@@ -273,9 +283,10 @@ All of these are discrete invariants of f̄. Hence the (BR) branch yields an ES 
 f̄ *already carries* an ES triple in these invariants. ∎
 
 *Consequence (Assessment, made precise by Prop O).* Any three-point signature with Σ1/· < 1 is realised in
-characteristic 0 by Riemann existence plus residual finiteness of triangle groups. So the (BR) branch adds no
-existence power for ES: it can realise a triple that is given, and the given triple is the whole content of ES(p).
-This is type I in Z64_EQUIV §5's classification, now verified for the lifting theorem itself.
+characteristic 0 by Riemann existence plus residual finiteness of triangle groups. So *lifting a supplied
+datum* adds no existence power for ES: it realises a triple that is given, and the given triple is the whole content
+of ES(p). This is type I in Z64_EQUIV §5's classification, verified for the lifting theorem itself. Prop O does not
+show that a char-p *construction of the datum* cannot produce a new triple.
 
 **Lemma P (PROVED; no p² in ES denominators).** If p ≥ 3 is prime and 4/p = 1/a + 1/b + 1/c, then p² divides none of
 a, b, c.
@@ -288,16 +299,18 @@ a, b, c.
 
 (Consistent with KT1: no p² in any representation for p ≤ 1500.)
 
-**Proposition E (PROVED from Obus Lemma 3.5 + Obus Thm 3.6 (vanishing cycles for cyclic p-Sylow; for p ∥ |G| this is
-Wewers Cor 1.11)).** Let f be a three-point G-cover with cyclic p-Sylow,
-bad reduction, and m_G = 1 (for example G abelian). Then its stable reduction is exceptional. In particular, if G is
+**Proposition E (PROVED from Obus Lemma 3.5 + Wewers Cor 1.11 / Def 2.1; scope restricted after the Astra retro
+review).** Let f be a three-point G-cover with p ∥ |G|, bad reduction, and m_G = 1 (for example G abelian with
+p ∥ |G|). Then its stable reduction is exceptional. (For a cyclic p-Sylow of higher order, Obus Thm 3.6 indexes only
+the primitive/new **étale** tails; it gives the exceptional *numerical* pattern for those, but does not exclude extra
+inseparable components/tails, so only that numerical statement is claimed there.) In particular, if G is
 abelian:
 * a Type II ES cover has σ_x = 1 at its tame point (exceptional case (1)), so it is not the lift of any special G-map;
 * there are no abelian Type I ES covers (directly: in an abelian group, if p divides ord(a) but not ord(b), then p
   divides ord(ab)).
 
 *Proof.*
-* Abelian ES covers have a cyclic p-Sylow of order p, so the hypotheses hold. Let the inertia generators be
+* Abelian ES covers have a cyclic p-Sylow of order p (shown next), so p ∥ |G| and the hypotheses hold. Let the inertia generators be
   g₁g₂g₃ = 1 with g₁ tame (Type II). Then the p-parts satisfy g₂,_p = g₃,_p^{−1}, and the p-Sylow of the abelian
   group ⟨g₁, g₂⟩ is ⟨g₂,_p⟩, which is cyclic. Its order is p by Lemma P.
 * The σ's are integers. σ > 0 on primitive tails and σ ≥ 2 on new tails, while the vanishing-cycle sum (Obus Thm 3.6 with
@@ -315,8 +328,10 @@ Consistency check: the Mordell covers (m, pm, p) are the Lemma-F covers with (u,
 stable reduction is exceptional (σ_x = 1; Z̄₀ is the C_m-Kummer line branched at two points), while the curve has
 good reduction (Theorem G converse). The components over X̄₀ are rational and are contracted in the stable model of
 the curve. There is no contradiction: the two notions of good reduction differ. Wewers's lifting theorem, and hence SWZ's engine, never reaches them. The engine needs non-abelian G
-with m_G ≥ 2. For example G = PSL₂(F_q) with p ∤ q and p ∥ |G| has m_G = 2. In the non-exceptional case this forces σ_x = 1/2 and
-one new tail with σ = 3/2. (For q = p, m_G = (p − 1)/2.) Any ES triple can be realised so (Macbeath generation, V2); nothing is gained.
+with m_G ≥ 2. For example G = PSL₂(F_q) with p ∤ q and p ∥ |G| has m_G = 2. In the non-exceptional case a **Type II**
+cover then has σ_x = 1/2 and one new tail with σ = 3/2; a Type I cover instead has two primitive tails with σ = 1/2
+and no new tail. (For q = p, m_G = (p − 1)/2.) (An earlier unsourced claim that any ES triple can be realised this way
+via Macbeath generation is deleted; it was unused.)
 
 **Lemma S (PROVED; SWZ's object class is disjoint from ES curves).** Let G ≤ S_p be the monodromy group of a
 three-point degree-p cover with profiles Λ₁, Λ₂, Λ₃, and X its Galois closure. X/G has signature (lcm Λ_i), and the
@@ -332,9 +347,10 @@ G′ ⊋ G.)
 * By Lemma A no other signature occurs at p ≡ 1 (4). ∎
 
 **KT2 (pre-registered decision rule).** It fires: both lifting theorems that reach ES curves (Oort-type for (GR),
-Wewers for (BR)) determine the lifted ramification orders from the char-p datum (G1–G3, Prop O). So (BR) is **DEAD as a
-construction of ES certificates.** It would revive only if some step produced discrete data not chosen in advance; see
-§5.3.
+Wewers for (BR)) determine the lifted ramification orders from the char-p datum (G1–G3, Prop O). So fixed-datum (BR)
+lifting is **type I: it adds no existence result for ES certificates.** This is a preservation statement; KT2's
+pre-registration does not upgrade it to a no-go for constructing the datum. A char-p construction producing discrete
+data not chosen in advance remains unresolved; see §5.3.
 
 ## 5. Where the mechanism uses primality, and the precise missing lemma
 
@@ -343,16 +359,20 @@ construction of ES certificates.** It would revive only if some step produced di
 | | SWZ (Hurwitz, degree p) | ES via lifting |
 |---|---|---|
 | discrete data | given (profiles Λ_i) | the unknown (the triple (x, y, z)) |
-| char-0 realisation of given discrete data | hard (group theory: a permutation triple in S_p) | free (Riemann existence, any G) |
-| what char p solves | continuous existence over F̄_p (Henrio moments, logarithmic differentials) | nothing new: lifts preserve discrete data (G1–G3, Prop O) |
+| char-0 realisation of given discrete data | hard (group theory: a permutation triple in S_p) | free (Riemann existence, any G); char-p realisation of prescribed cover data is *not* free (Theorem G, Prop E) |
+| what char p solves | continuous existence over F̄_p (Henrio moments, logarithmic differentials) | lifting adds nothing: lifts preserve discrete data (G1–G3, Prop O); constructing new data unresolved |
 | where primality acts | characteristic; F_p-units summing to 0 (M2); C_{S_p}(P) = P; v_p(p!) = 1 | characteristic only. In (GR) it forces the wild cluster shape (G3), which leaves only Mordell |
 | composite / square failures | EKS 5.7: imprimitive data, seen by the group theory | T1: no triple at m², seen by nothing geometric |
 
 ### 5.2 T1 (brief item "at n = m² the construction must fail — where?")
-For (★)/Type II at n = m², every geometric step is available for every candidate triple: curves, covers, deformation
-data and lifts all exist for any signature with Σ < 1. The construction fails only because the triple does not exist
-(T1), which is the input. So the mechanism does not "fail" at m² in any geometric step. It is input-transparent, and
-any T1-sensitivity would have to be put in by hand. The (GR) branch is the one place where char p imposes something
+(Corrected after the Astra retro review.) What is PROVED is the characteristic-0 statement: every signature with
+Σ < 1 is realised by a three-point cover in characteristic 0 (Riemann existence plus residual finiteness). Riemann
+existence does **not** supply a special G-map or a good-reduction model in a specified residue characteristic, and
+those are genuinely restricted (Theorem G; Prop E). Example: at p = 13 the cyclic cover v^52 = t^13(t − 1)^2 has
+signature (4, 26, 52), reciprocal sum 4/13, genus 19; it exists in characteristic 0 but has no good-reduction model (G)
+and no special C_52-map reduction (E). At n = m² there is no characteristic n, so this char-p mechanism is not defined
+there and supplies no new T1 test; no claim is made that "its geometric steps all succeed" at squares. Lifting itself
+is input-transparent (Prop O), so any T1-sensitivity would have to enter through the construction of the datum. The (GR) branch is the one place where char p imposes something
 (G3). What it imposes, p = 3m − 1, is a congruence: Mordell's identity, which never fires at squares.
 
 ### 5.3 The precise missing lemma, and screened candidates
@@ -373,10 +393,12 @@ Then char-p construction + lifting could attack realisability of 𝒟(p), as in 
   divisor form). This is the only shape found in which composite-degree Hurwitz obstructions (EKS-type,
   block/imprimitivity) could encode a divisor in a residue class. No datum forcing such a block size is known, and C
   is again a free parameter. Open; Assessment: unlikely, but it is the one form of (H★) not excluded here.
-* **Uniform-in-p families (trivial lemma PROVED; the rest Assessment).** If 𝒟(p) is the fibre over p of a finite-type scheme over ℤ
-  and "realisable" means "has an F̄_p-point", then by Chevalley the set of good p is finite or cofinite. A cofinite
-  answer from a fixed family with bounded group would give polynomial-type identities, which are barred on unit-square
-  classes (Elsholtz–Tao Prop 1.6, T1). So 𝒟(p) must grow with p, as SWZ's S_p does.
+* **Uniform-in-p families (trivial lemma PROVED).** If 𝒟(p) is the fibre over p of a finite-type scheme over ℤ
+  and "realisable" means "has an F̄_p-point", then by Chevalley the set of good p is finite or cofinite. No further
+  inference is made: existence over algebraically closed fibres gives no polynomial or rational witnesses (Spec
+  ℤ[u]/(u² − 2) has a point in every algebraically closed fibre but no rational section), so this does **not** connect
+  to Elsholtz–Tao's polynomial-identity obstruction and does not show that 𝒟(p) must grow with p. (An earlier
+  inference to that effect is withdrawn.)
 
 ### 5.4 The other EQUIV rows in characteristic p (brief item (2); short)
 * **E4 (lct) has a genuine char-p analogue, the F-pure threshold, and it is a T1-blind relaxation (PROVED from
@@ -400,26 +422,29 @@ Then char-p construction + lifting could attack realisability of 𝒟(p), as in 
 ## 6. Kill tests (pre-registered at checkpoint 1, commit 4c2ebc54d) — outcomes
 * **KT1 (kill Theorem G): PASSED.** 0 non-Mordell survivors among 11 800 representations (p ≤ 1500); G2 checked
   exactly on the converse example. (CERTIFIED / PROVED)
-* **KT2 (decision on (BR)): FIRED → DEAD as construction.** Order transparency is verified in the source (Wewers
-  Lemma 1.4(3)(4), Thm 3; SWZ Lemma 4.7). (PROVED from sources)
+* **KT2 (decision on (BR)): FIRED → fixed-datum lifting is type I.** Order transparency is verified in the source
+  (Wewers Lemma 1.4(3)(4), Thm 3; SWZ Lemma 4.7). (PROVED from sources.) The pre-registered rule read this as "DEAD as
+  construction"; that inference is narrowed (Scope note at top): Prop O does not exclude constructing new data.
 * **KT3 (F2 twin): PASSED.** Numerator 8 shows only the identity pattern 7m = p + 1 (p ≤ 1500), and the proof
   generalises (Theorem G_k).
 
 ## 7. Verdict, proposed FRONTIER text, bottom line
 
-**Verdict: DEAD (as a construction route), with two new scoped theorems; no HOT LEAD.** Scope: this is a statement
-about the two lifting branches as constructions (Theorem G, and Prop O with the pre-registered KT2 rule). It is not a
-theorem that no characteristic-p argument could bear on ES. The escape (H★) and canonical char-p objects with forced
-invariants remain open (§5.3).
+**Verdict: (GR) DEAD at p ≡ 1 (12) (only Mordell); (BR) fixed-datum lifting is type I, datum construction
+unresolved; two new scoped theorems; no HOT LEAD.** Scope: Theorem G is a no-go for good-reduction lifting; Prop O is a
+preservation theorem for lifting a supplied datum, not an impossibility theorem for char-p constructions. It is not a
+theorem that no characteristic-p argument could bear on ES. Canonical char-p objects with forced invariants and the
+realisation problem (H★) remain open (§5.3).
 * **Strengthened (small, PROVED):**
   * Theorem G / G_k: ES curves have potentially good reduction at p only for Mordell's p ≡ 2 (3) signature;
   * Corollary: every ES curve at p ≡ 1 (12) (all of 𝔐, all (★)-zeros) has bad reduction;
-  * Prop E: cyclic/abelian ES covers have exceptional reduction, outside Wewers lifting;
+  * Prop E: cyclic/abelian ES covers (p ∥ |G|) have exceptional reduction, outside Wewers lifting;
   * Lemma S: SWZ's degree-p objects are never ES curves.
 * **Narrowed / dead:**
-  * (GR) dead (Theorem G);
-  * (BR) dead as a construction (Prop O, type I).
-* **Surviving:** only (H★), an ES-equivalent realisation problem with p-determined data. No candidate is known.
+  * (GR) dead at p ≡ 1 (12) (Theorem G);
+  * (BR) lifting of a fixed datum is type I (Prop O); constructing new data is unresolved.
+* **Surviving:** char-p constructions that produce data not chosen in advance, e.g. (H★), an ES-equivalent realisation
+  problem with p-determined data. No candidate is known.
 
 **Proposed FRONTIER text (§3 or z65 block; not applied here):**
 > *(z65 LIFT, `Z65_LIFT.md`; internal.)* SWZ's prime-degree Hurwitz mechanism has two parts. Discrete data are fixed;
@@ -430,19 +455,22 @@ invariants remain open (§5.3).
 > * Good reduction: an ES curve at p has potentially good reduction only for Mordell's signature
 >   ((p+1)/3, p, p(p+1)/3), p ≡ 2 (3) (Theorem G; Weierstrass fixed-point count). So every ES curve at every
 >   p ≡ 1 (12) has bad reduction, and Oort-type lifting yields only Mordell.
-> * Bad reduction: the lifted signature is read off the char-p datum (Raynaud–Wewers), so lifting only realises a
->   given triple (type I). Cyclic (★)-covers even have exceptional reduction, outside Wewers lifting.
+> * Bad reduction: the lifted signature is read off the char-p datum (Raynaud–Wewers), so lifting a supplied datum
+>   only realises the triple it carries (type I). Whether a char-p construction of the datum could produce new data is
+>   unresolved. Cyclic (★)-covers even have exceptional reduction, outside Wewers lifting.
 >
-> The mechanism is T1-blind: at squares every geometric step succeeds and only the triple is missing. What is missing
-> for an SWZ-type proof is (H★), a realisation problem for (★) whose data are fixed by p and which fails at squares.
+> Characteristic-0 realisation of any triple is free, characteristic-p realisation of prescribed data is not; at squares
+> the char-p mechanism is undefined and gives no new T1 test. What is missing for an SWZ-type proof is a construction
+> producing new data, e.g. (H★), a realisation problem for (★) whose data are fixed by p and which fails at squares.
 
 **Bottom line.** Characteristic p and lifting are powerful when the hard part of a problem is to *realise* given
 discrete data. SWZ's Hurwitz theorem is such a problem, and there primality is visible inside the geometry. ES is the
-opposite: realisation is free at every n, and the whole difficulty is the discrete datum. Lifting theorems carry
+opposite: characteristic-0 realisation of a given triple is free, and the whole difficulty is the discrete datum. Lifting theorems carry
 discrete data across unchanged. The one place where char p does constrain ES curves, potentially good reduction, is now
-classified at the level of signatures: it is Mordell's p ≡ 2 (mod 3) identity and nothing else. So this route is dead unless someone
-finds (H★), a Hurwitz-type realisation problem with p-determined data equivalent to (★). Nothing here suggests that it
-exists.
+classified at the level of signatures: it is Mordell's p ≡ 2 (mod 3) identity and nothing else. So good-reduction lifting is dead at
+p ≡ 1 (12), and bad-reduction lifting of a fixed datum adds nothing; what would be needed is a char-p construction
+that produces new data, e.g. (H★), a Hurwitz-type realisation problem with p-determined data equivalent to (★).
+Nothing here suggests that it exists, but nothing here excludes it.
 
 ## 8. Sources (✔ = read by me in the downloaded text, `data/z65/lift/src/`)
 * ✔ Song–Wen–Zhang, arXiv:2609.20572v1: Thm 1.1, Lemma 2.3, 2.5, Prop 3.1, Lemma 3.3, Def 4.1–4.6, Lemma 4.7,
@@ -457,7 +485,7 @@ exists.
 * ✔ Hernández, *F-invariants of diagonal hypersurfaces*, arXiv:1112.2425v1: Def 2.1, 2.3, 2.5, Thm 3.1.
 * V2 (textbook, not re-read): Serre *Local Fields* IV §1–2 (ramification groups, I = P ⋊ C_m, Prop 9 character
   relation); Liu §9.3 (minimal models); smooth proper base change; Lefschetz fixed-point formula; Macbeath (PSL₂
-  generation; used only in a remark).
+  generation; formerly cited in a remark, now deleted).
 
 ## 9. Review log
 * **Cross-model review** (`data/z65/xreview/REVIEW_LIFT.md`; a same-family Opus stand-in, because the Codex token had
@@ -472,10 +500,10 @@ exists.
   * **F5.** PSL₂ remark: p ∤ q and the non-exceptional case (m_G = (p − 1)/2 when q = p).
   * **F6.** Lemma S is worded for the pair (X, Mon). The 38 𝔊*-zeros (all ≡ 1 mod 12) are added to the F4 row.
 
-  A genuinely cross-model review is still owed.
+  A genuinely cross-model review was owed; it is now done (Astra retro review, end of this log).
 * **Hostile reviewer subagent: could not run.** Six attempts (`subagent` deep mode ×3, `review` tool ×3, the last after a 10-min wait,
   2026-11-08) failed with "authentication token has expired". This is an infrastructure failure, not a skipped step.
-  **An independent hostile review of this memo is still owed** (cross-model or re-run of the deep subagent).
+  An independent hostile review was owed; the Astra retro review (end of this log) supplies it.
 * **Author's structured self-review** (`data/z65/lift/REVIEW_INTERNAL.md`, clearly labelled as such) was done in its
   place: every step of G0–G4 and G_k re-derived; Prop O/E and Lemma S re-checked against the source texts; scripts
   re-run. Fixes applied:
@@ -487,3 +515,19 @@ exists.
   5. The fpt equality wording is corrected.
   6. The verdict scope is stated: two branches as constructions, not all char-p arguments.
   7. The Lemma A dependence is made explicit in Theorem G.
+
+**Cross-model retro review (Astra)** (`data/z65/xreview/REVIEW_LIFT_ASTRA.md`; verdict ACCEPT-WITH-FIXES; Theorem G,
+G_k, Prop O, Lemma P, the abelian application of Prop E and Lemma S re-derived as correct; SWZ PDF hash re-checked; an
+independent enumeration `scripts/xrev_retro_lift_astra_check.py` agrees with KT1/KT3). All five required fixes applied:
+1. BR conclusion narrowed everywhere (title, §0, Scope note, §4 Consequence, KT2, §7 verdict, proposed FRONTIER text,
+   bottom line, FRONTIER.md): Prop O is preservation (fixed-datum lifting is type I), not a no-go for constructing
+   data; GR stays DEAD at p ≡ 1 (12).
+2. F1 row, §0 item 4 and §5.2: universal char-p realisability replaced by the proved char-0 statement, with the p = 13
+   counterexample v^52 = t^13(t − 1)^2; at squares the mechanism is undefined and gives no new T1 test.
+3. Prop E restricted to p ∥ |G| (all its abelian ES applications); for higher cyclic p-Sylow only the étale-tail
+   numerical pattern is stated.
+4. Shorthand corrected: N_{S_p}(P); M3 vanishing-cycle identity with σ_new − 1; profiles determine tail types, not G;
+   PSL₂ remark split into Type II (1/2 + new 3/2) and Type I (two primitive 1/2 tails); the unsourced Macbeath claim
+   deleted.
+5. Chevalley lemma kept; the unsupported inference to polynomial witnesses / "𝒟(p) must grow with p" removed.
+Also from the falsifier audit: the F3 row now says ES at composites is inherited only conditionally on ES at a factor.

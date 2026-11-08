@@ -2596,13 +2596,15 @@ the OpenAI quota was exhausted — weaker than the usual cross-model check; all 
   construction in characteristic p and lifting; does not transfer (Lemma H, CONDITIONAL on that claim).
 
 **z65 (char-p construction + lifting; logical strength; internal, unrefereed).**
-* **Lifting (`Z65_LIFT.md`; Opus-reviewed ACCEPT, fixes applied — cross-model review owed).** PROVED (Thm G): for a prime
+* **Lifting (`Z65_LIFT.md`; Opus-reviewed ACCEPT; Astra retro review ACCEPT-WITH-FIXES; fixes applied).** PROVED (Thm G): for a prime
   p ≥ 5, p ≡ 1 (4), an "ES curve" at p (Z64_EQUIV Lemma A: a group action with |G|(p − 4) = p(2g − 2)) has potentially good
   reduction at p only if p ≡ 2 (mod 3), with Mordell's signature; so every ES curve at every p ≡ 1 (12) — all of 𝔐 —
   has bad reduction at p, and "build in characteristic p and lift" (Oort-type) yields exactly Mordell's p ≡ 2 (3)
   identity. The bad-reduction branch (Song–Wen–Zhang's actual engine for prime-degree Hurwitz) is order-transparent
-  (Prop O, from Raynaud–Wewers): a char-p construction only realises a signature supplied as input. Verdict: DEAD as a
-  construction route; missing lemma H★ = a Hurwitz-type realisation problem with data fixed by p that fails at squares.
+  (Prop O, from Raynaud–Wewers): lifting a supplied char-p datum only realises the signature it carries (type I) — a
+  preservation theorem, not a no-go for constructing new data. Verdict: good-reduction lifting DEAD at p ≡ 1 (12);
+  fixed-datum bad-reduction lifting adds nothing; datum construction unresolved (e.g. H★ = a Hurwitz-type realisation
+  problem with data fixed by p that fails at squares).
 * **Logical strength (`Z65_LOGIC2.md`; Opus internal hostile review; Astra retro review ACCEPT-WITH-FIXES, fixes applied).** Extends
   Z64_UNPROV: normal open induction + gcd + irreducible divisors + all true universal ring sentences + T1 itself + "every
   prime ≡ 1 (4) is a sum of two squares" still does not prove ES (or (★)) at primes of any unit-square class (Thms P, T).
