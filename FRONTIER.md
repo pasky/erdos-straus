@@ -2618,6 +2618,23 @@ cross-review, fixes applied, not re-reviewed; internal, unrefereed).**
   primes; a natural true principle that kills every arc counter-model is the non-residue certificate NR. IE₁, IΔ₀,
   IΔ₀ + exp remain OPEN.
 
+**z66 (uncovered set U, the next logical rung, Hurwitz-type lemma H★; all four ACCEPT-WITH-FIXES in Astra cross-review,
+fixes applied; internal, unrefereed).**
+* **U ⊋ squares (`Z66_UCOVER.md`; strengthened).** PROVED (Thm T, relative to Elsholtz–Tao §3 counting): for every large
+  prime ℓ, the non-square ℓ-profiles covered by some ET family class have Haar measure ≤ ℓ^{−2/5+o(1)}, so almost all
+  non-square profiles lie in U. By Z65_LOGIC2 Thm D: for large ℓ all but O(ℓ^{3/5+o(1)}) of the non-square classes
+  {n ≡ 1 (840), n ≡ g (mod ℓ)} are not finite unions of family classes and NOI does not prove ES at their large primes
+  ("Mordell–Schinzel beyond squares"; ℓ₀ effective, not computed). (S)-version PROVED (computer-assisted, interval
+  arithmetic): e.g. {n ≡ 1 (840), n ≡ 2 or 6 (mod 11)} is not finitely coverable by (S) good words. CERTIFIED small-ℓ
+  data; the class {n ≡ 1 (840), (n/11) = −1} meeting U remains a CONJECTURE.
+* **Next logical rung (`Z66_IE1.md`; narrowed).** The odd-square landing (arc) method behind Z64_UNPROV/Z65_LOGIC2 is
+  characterised exactly and is dead from IOpen + Lagrange upward (IΔ₀ + Count₂(Δ₀), IΔ₀ + Ω₁, IΔ₀ + exp); IE₁ has no
+  global landing; PROVED IOpenLin + Bezout ⊬ (MS). Provability of ES in IE₁ / IΔ₀ / IΔ₀ + exp remains OPEN.
+* **Hurwitz-type lemma H★ (`Z66_HSTAR.md`, `Z66_HSTARF.md`; narrowed).** H★ made precise (realisation schemes);
+  centraliser obstruction, polynomial-extraction lemma, transparency results, exhaustive small-degree census — no
+  engine found. HSTARF: a realisation problem (abelian triangle covers pulled back along the p-th power map) equivalent
+  to the full Type II family, with the square obstruction built in; no proof of solvability at large primes.
+
 ## 8. Pointers into the repository
 
 * **Start:** `STATUS.md` (wave headlines, newest first; ES-not-solved banner), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
