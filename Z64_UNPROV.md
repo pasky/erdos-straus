@@ -185,6 +185,59 @@ for analytic functions.) ∎
   help.
 * *Bezout fails:* β₁, β₂ have gcd 1 but no Bezout identity, by degree in ℚ[β]. So M ⊭ IE₁ (Smith 1992 abstract, verified
   in `lit_models.md` §6: IE₁ ⊢ IOpen + Bez).
+* *GCD fails in M_{q*}* when all ϕ(β_i) are equal. β₁ − β₂ and β₁ − β₃ have ϕ = 0, so both are divisible by every
+  standard integer. They are coprime in ℚ[β], so their common divisors in M are exactly the nonzero integers, and there
+  is no greatest one. §2.7 repairs this with generic residues.
+
+### 2.7 The GCD strengthening (PROVED)
+
+**Theorem A′.** For every primitive unit-square class r mod q there is a model M ⊨ NOI + GCD + PD (every pair of
+elements has a gcd; every element ≥ 2 has an irreducible divisor) with cofinal infinite primes. It contains an infinite
+prime n ≡ r (mod q) with M ⊨ ¬ES(n) ∧ ¬ES★(n). Hence **IOpen + GCD + PD ⊬ ES_prime[r mod q]**. In particular the Type I/II
+reduction, which needs only gcds, is available inside M and does not help.
+
+*Construction.* As in §2.1, but with ϕ(β_i) := a_i for a sequence a = (a_i) ∈ Ẑ^ℕ such that
+* a₁ ∈ (Ẑ^×)², a₁ ≡ r (mod q);
+* (G1) for every prime ℓ the ℓ-components (a_{i,ℓ})_i ∈ ℤ_ℓ are algebraically independent over ℚ;
+* (G2) for every k and every pair f, g ∈ ℤ[B₁..B_k] coprime in ℚ[B], only finitely many ℓ satisfy ℓ | f(a_ℓ) and
+  ℓ | g(a_ℓ), where a_ℓ := (a_{1,ℓ}, …, a_{k,ℓ}).
+M := {g ∈ ℚ[β] : ϕ(g) ∈ Ẑ} ⊨ NOI as in §2.1. β₁ is prime, ϕ(β₁) = a₁ is a unit (F1), and the proof of §2.5 runs
+verbatim with "b_i ≡ q* (mod D)" replaced by "b_i ≡ a_i (mod D)" and s₀² ≡ a₁ (mod D).
+
+*Existence of a (measure argument).* Take a₁ Haar-random in the open subset {a₁ ≡ r (mod q)} of (Ẑ^×)², and a_i
+(i ≥ 2) Haar-random in Ẑ, all independent. The ℓ-components are independent across ℓ. For ℓ ∤ 2q, a_{1,ℓ} mod ℓ is
+uniform on the nonzero squares of 𝔽_ℓ, so every point of 𝔽_ℓ^k has probability ≤ 3/ℓ^k under a_ℓ mod ℓ.
+* (G1): the zero set in ℤ_ℓ^k of a nonzero polynomial is Haar-null (Fubini over the last variable), and there are
+  countably many polynomials and primes.
+* (G2): by the point-count lemma below, P(ℓ | f(a_ℓ), ℓ | g(a_ℓ)) ≤ 3·#V_ℓ/ℓ^k ≤ 3C/ℓ² for ℓ ≥ ℓ₀. Since Σ_ℓ ℓ^{−2} < ∞,
+  Borel–Cantelli gives finitely many such ℓ almost surely. There are countably many pairs.
+
+*Point-count lemma.* Let f, g ∈ ℤ[B₁..B_k] be nonconstant and coprime in ℚ[B]. Then there are C, ℓ₀ such that
+#V_ℓ := #{x ∈ 𝔽_ℓ^k : f(x) ≡ g(x) ≡ 0} ≤ Cℓ^{k−2} for all primes ℓ ≥ ℓ₀. (If one of them is a nonzero constant c,
+V_ℓ = ∅ for ℓ ∤ c.)
+*Proof.*
+* Choose a primitive v ∈ ℤ^k with f_top(v) ≠ 0 (f_top = top-degree form) and A ∈ SL_k(ℤ) with Ae₁ = v. Substituting
+  B ↦ AB preserves coprimality and all counts #V_ℓ. Afterwards f = c_f B₁^{deg f} + (lower in B₁), with c_f ∈ ℤ∖{0}.
+* f is then primitive as a polynomial in B₁ over ℚ[B₂..B_k]. So (Gauss) f and g are coprime in ℚ(B₂..B_k)[B₁], and
+  Res := Res_{B₁}(f, g) ∈ ℤ[B₂..B_k] is nonzero. Write Res = Uf + Wg with U, W ∈ ℤ[B].
+* For ℓ ∤ c_f·cont(Res): a common zero x mod ℓ has Res(x₂..x_k) ≡ 0.
+  * By Schwartz–Zippel this leaves ≤ deg(Res)·ℓ^{k−2} choices of (x₂..x_k).
+  * For each of them, f(·, x₂..x_k) mod ℓ has leading coefficient c_f ≢ 0, so ≤ deg f roots x₁.
+* Hence #V_ℓ ≤ deg f·deg Res·ℓ^{k−2}. ∎
+
+*GCD in M.* Let ϕ_ℓ be the ℓ-component of ϕ and v_ℓ(h) := ord_ℓ ϕ_ℓ(h) for h ∈ ℚ[β]∖0. This is finite by (G1), and
+additive. Then h ∈ M ⟺ v_ℓ(h) ≥ 0 for all ℓ.
+* Given g, h ∈ M∖0, let G := gcd_{ℚ[β]}(g, h), with g = Gg₁, h = Gh₁ and g₁, h₁ coprime.
+* m_ℓ := min(v_ℓ(g₁), v_ℓ(h₁)) is 0 for almost all ℓ. Write g₁ = λg₁′, h₁ = μh₁′ with g₁′, h₁′ primitive in ℤ[β].
+  For ℓ ∤ λμ (numerators and denominators), m_ℓ > 0 iff ℓ | g₁′(a_ℓ) and ℓ | h₁′(a_ℓ), which happens finitely often by (G2).
+* Put d := cG with c := ∏_ℓ ℓ^{m_ℓ} ∈ ℚ^×. Then v_ℓ(d) = min(v_ℓ(g), v_ℓ(h)) ≥ 0, so d ∈ M, and g/d, h/d ∈ M.
+* If e ∈ M divides g and h in M, then e | G in ℚ[β], and v_ℓ(d/e) = min(v_ℓ g, v_ℓ h) − v_ℓ(e) ≥ 0. So e | d in M.
+
+PD: as in §2.6. ∎
+
+*Remark (what the generic residues do).* In this M, n + 1 = β₁ + 1 is divisible by infinitely many standard primes ℓ
+(almost surely: those with a_{1,ℓ} ≡ −1 mod ℓ, probability 2/(ℓ − 1) for ℓ ≡ 1 (mod 4), independent across ℓ, Σ diverges). But all of them have ℓ ≡ 1 (mod 4), since a₁ is a square. So every
+standard divisor d of n + 1 is ≡ 1 (mod 4) and never a u = 1 hit. This is T1's Jacobi mechanism seen inside the model.
 
 ## 3. Theorem B: what IOpen does prove
 
