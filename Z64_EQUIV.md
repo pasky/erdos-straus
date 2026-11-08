@@ -53,7 +53,7 @@ circular.
    tool met falls into one of four types:
    * (I) realisation from parameter data: the data are the certificate;
    * (II) universality or density theorems, which hold only after a relaxation that is T1-blind or averaged
-     (Lemma R: each proved relaxation holds at odd squares);
+     (Lemma R: each proved relaxation holds at odd squares or is only an average);
    * (III) obstruction theorems, which give non-existence only;
    * (IV) structure theorems on a canonical p-object, which are the only non-circular type. All the instances known
      to the repo are already screened.
@@ -72,7 +72,7 @@ on the **native tool** of the target field. Column entries say what the field's 
 |---|---|---|---|---|---|
 | E1 k-Frobenius | inverse theorems (Rosales: every g is a 3-generator Frobenius number; odd g = F(2, g+2)) are input-blind, true at m² | level k ≡ 3 (4) is not controlled by any inverse theorem | input-blind | no tool sees them | circular / relaxation |
 | E3 orbifold χ, Aut(X) | ES itself holds at m² (no T1 for ES); realisation (Selberg/Fox) needs the signature = certificate | — | — | — | circular (I) |
-| E4 lct | 4/n ∈ lct(ℂ²) for all n ≥ 5 (Lemma R(c)), so the full lct statement is true at squares and everywhere | — | — | — | relaxation (II) |
+| E4 lct | 4/n ∈ lct(ℂ²) for all n ≥ 6 (Lemma R(b)), so the full lct statement is true at squares and everywhere | — | — | — | relaxation (II) |
 | E5 pretzel / Seifert | invariants are computed from (x, y, z) | — | — | — | circular (I) |
 | E6 lens space / plumbing (S) | the Jacobi −1 class is empty at m² (statement-level F1); Donaldson/HF tools are obstructions | C = 1 ↔ (−4) vertex; C even not distinguished | — | — | obstruction (III) |
 | E7 Lorenzini (W)/(S) | (W) is true at m² ≥ 25 (T1-blind); Wang–Lu density theorem is averaged | — | (W) exceptions finite (to 10⁹) | — | relaxation (II) |
@@ -229,7 +229,7 @@ theory for the transported objects. Pure relabellings rank lowest. "Type" refers
 | rank | ID | equivalence (proved in §4.x) | field | native tool(s) | might / might not apply | type | catalogue |
 |---|---|---|---|---|---|---|---|
 | 1 | E7 | (W)(n) ⟺ n ∈ d_{A₃}(ℤ³_{≥2}) (Lorenzini's critical polynomial of the path A₃); **(S)(n) ⟺ some x ∈ ℤ³_{≥2} with d_{A₃}(x) = n has critical-group discriminant form ⟨A/n⟩ of Jacobi symbol −1**; CONV-II(n) ⟺ some multiple cn is a formal A₃-value with middle weight ≡ 0 (mod 4c) | graph theory (arithmetical/critical structures) | Lorenzini Prop 6.3 (congruence slices); Wang–Lu EJC 33(3) #P3.80 Thm 5 (density 1 for every graph, via Dirichlet + AP unions) | active published open question ((W) = Lorenzini Ex. 6.2(a)), but the proved tools are fixed-pair slices (HJ_DEEP Lemma 3.2 bars finite coverings) and density | II | HJ_DEEP §3 (W); the pairing reading is new |
-| 2 | E6 | (S)(p) ⟺ ∃ q, (q/p) = −1, such that L(p, q) bounds the negative-definite linear plumbing with **three** spheres of Euler numbers ≤ −2 (HJ length 3); its boundary linking form has Legendre class (q/p). **The C = 1 line of (★) = the chains (−v, −4, −u): the middle vertex is configuration (a) of Aceto–McCoy–Park, so these L(p, 4u − 1) are not b₂-minimal.** Relaxation T(p): "∃ q, (q/p) = −1, L(p, q) bounds some smooth negative-definite X with b₂ ≤ 3" is implied by (S)(p) and also by length-≤ 2 chains, which are not ES certificates, so T carries no ES content | low-dimensional topology | Donaldson diagonalisation, Heegaard Floer d-invariants, Lisca (b₂ = 0), Greene changemakers, AMP / Fung–Park forbidden configurations | all are **obstructions** (non-existence) or classifications of minimality; existence comes from Kirby constructions, i.e. from words. Lisca is the topological mirror of T1 (rational balls exist only over squares) | III | DEDEKIND_ES, bsA_lens_*; the AMP / rational-blowdown reading is new |
+| 2 | E6 | (S)(p) ⟺ ∃ q, (q/p) = −1, such that L(p, q) bounds the negative-definite linear plumbing with **three** spheres of Euler numbers ≤ −2 (HJ length 3); its boundary linking form has Legendre class (q/p). **The C = 1 line of (★) (with u, B ≥ 2) = the chains (−v, −4, −u): the middle vertex is configuration (a) of Aceto–McCoy–Park, so these L(p, 4u − 1) are not b₂-minimal.** Relaxation T(p): "∃ q, (q/p) = −1, L(p, q) bounds some smooth negative-definite X with b₂ ≤ 3" is implied by (S)(p) and also by length-≤ 2 chains, which are not ES certificates, so T carries no ES content | low-dimensional topology | Donaldson diagonalisation, Heegaard Floer d-invariants, Lisca (b₂ = 0), Greene changemakers, AMP / Fung–Park forbidden configurations | all are **obstructions** (non-existence) or classifications of minimality; existence comes from Kirby constructions, i.e. from words. Lisca is the topological mirror of T1 (rational balls exist only over squares) | III | DEDEKIND_ES, bsA_lens_*; the AMP / rational-blowdown reading is new |
 | 3 | E1 | (★)(p) ⟺ p is the largest integer having exactly k representations by some numerical semigroup ⟨u, B⟩ with k ≡ 3 (mod 4) (generalised Frobenius number g_k = (k+1)uB − u − B) | numerical semigroups | Beck–Robins Thm 3; Popoviciu; inverse theorems (Rosales et al., Math. Scand. 94 (2004) Thm 1.11: every g is a 3-generator Frobenius number; odd g = F(2, g + 2)) | inverse results exist but only for relaxed shapes (3 generators, or k = 0); none controls k mod 4 | II | Z0394–Z0402 |
 | 4 | E3 | **Lemma A:** for every odd n ≥ 5, ES(n) ⟺ 4/n − 1 is the Euler characteristic of a closed orientable 2-orbifold ⟺ ∃ compact Riemann surface X (g ≥ 2) and finite G ≤ Aut(X) with \|G\|(n − 4) = n(2g − 2) | Riemann surfaces, Fuchsian groups | Riemann existence, Selberg's lemma / Fox, Kulkarni genus spectrum | realisation needs the signature, which is an Egyptian representation | I | Z0171, Z0417 (forms); Lemma A with the r = 4, 5 analysis is new |
 | 5 | E4 | ES(n) ⟺ 4/n = lct₀(x^a + y^b + z^c) for some a, b, c ≥ 1 (n ≥ 5) | singularity theory / birational geometry | Kollár (16.1), (3.2); ACC (Hacon–McKernan–Xu); Kuwata, Prokhorov | the full lct question is trivially true: 4/n ∈ lct(ℂ²) for all n ≥ 6 (Lemma R(b)); ES is the diagonal stratum, about which the field says nothing pointwise | II | Z0155 |
@@ -309,8 +309,8 @@ without a theorem number. This is a relabelling.)
 
 Hence (S)(p) ⟺ ∃ q with (q/p) = −1 and len(p/q) = 3, i.e. L(p, q) = ∂X(p, q) with b₂ = 3.
 
-* **C = 1 line.** The (★) words with C = 1 are exactly the length-3 chains with middle weight 4, i.e. plumbings
-  (−v, −4, −u). AMP Thm 1.1(iii)(a) is the single vertex of weight −4, and its (iv) lists X(4, 1). So these L(p, A)
+* **C = 1 line.** The (★) solutions with C = 1 and u, B ≥ 2 are exactly the length-3 chains with middle weight 4,
+  i.e. plumbings (−B, −4, −u) (u = 1 or B = 1 gives a formal word of HJ length 2). AMP Thm 1.1(iii)(a) is the single vertex of weight −4, and its (iv) lists X(4, 1). So these L(p, A)
   admit negative-definite fillings with b₂(X) < 3 (✔ read).
 * **Relaxation T(p).** (S)(p) ⟹ T(p) is immediate from the plumbing. But T(p) also follows from any non-residue q with
   len(p/q) ≤ 2. For example p/q = [[a, b]] with p + 1 = ab and (b/p) = −1; such a q exists whenever p + 1 has a
