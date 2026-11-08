@@ -1,7 +1,10 @@
-"""z64 EQUIV Lemma R(a): the sign-free half (W) (n = tuv - u - v, t,u,v >= 2) holds at every odd square
-m^2 >= 25, via a finite set of fixed pairs (t,u): m^2 = (tu-1)v - u  <=>  m^2 = -u (mod tu-1), v = (m^2+u)/(tu-1).
-Search a finite pair set whose congruence conditions on m cover all odd m (mod L = lcm of moduli, with 2 | L),
-then check small m directly.  Usage: python z64_equiv_wsquares.py"""
+"""z64 EQUIV Lemma R(a): does the sign-free half (W) (n = tuv - u - v, t,u,v >= 2) hold at odd squares m^2?
+Attempt: a finite set of fixed pairs (t,u) (m^2 = -u mod tu-1, v = (m^2+u)/(tu-1)) covering all odd m modulo
+L = lcm of the moduli.  RESULT (recorded in data/z64/equiv/wsquares.txt): the greedy search does NOT find a cover;
+the uncovered residues are all divisible by 3 (for 3 | m the pair (2,2) is unavailable), consistent with
+HJ_DEEP Lemma 3.2 (no finite fixed-pair covering).  What is PROVED (memo Lemma R(a)) is only the case 3 ∤ m via
+(t,u,v) = (2,2,(m^2+2)/3).  The direct brute-force check of odd m in [5, 2000] is EVIDENCE for the rest.
+Usage: python z64_equiv_wsquares.py"""
 from math import gcd
 from itertools import product
 def lcm(a, b): return a // gcd(a, b) * b
@@ -52,4 +55,4 @@ def W(n):
 bad = [m for m in range(5, 2001, 2) if W(m * m) is None]
 print("odd m in [5,2000] with m^2 not a word:", bad)
 maxq = max(q for (t, u, q, r) in chosen)
-print("largest modulus", maxq, "; for m^2 >= 2*maxq every covering pair gives v >= 2")
+print("largest modulus used", maxq, "(no complete cover found; see docstring)")

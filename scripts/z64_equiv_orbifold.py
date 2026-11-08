@@ -2,6 +2,9 @@
 2-orbifold S^2(m_1..m_r) with r = 4 or 5 cone points (m_i >= 2), other than via the (2,2,a,b) family
 (which is the two-term equation 4/n = 1/a + 1/b)?  Exact rational enumeration (Fractions).
 r=4: 1/m1+1/m2+1/m3+1/m4 = 1 + 4/n ; r=5: sum_5 1/m_i = 2 + 4/n.  Prints sporadic n (not via (2,2,.,.)).
+Exhaustiveness: sorted r=4 tuples have m1<=3, m2<=5 (1/m1+3/m2>1), m3 bounded (loop break when 1/m1+1/m2+2/m3<=1),
+m4 bounded (loop break when the remainder 4/n would be <= 0); every reachable odd n is <= 6888 (attained in the
+s<0 cases), so NMAX >= 10^4 is exhaustive (a rerun with NMAX = 10^8 gives the identical list).
 Usage: python z64_equiv_orbifold.py NMAX"""
 import sys
 from fractions import Fraction as F
@@ -35,8 +38,6 @@ for m1 in (2,):
                     n = F(4) / s
                     if n.denominator == 1 and n.numerator % 2 == 1 and n.numerator <= NMAX:
                         spor5.setdefault(int(n), []).append((2, 2, 2, m4, m5))
-for m3 in range(2, 4):  # (2,2,m3,m4,m5) with m3>=3 handled: sum<=1+1/3*3=2 -> need care
-    pass
 # general r=5 brute force small: m_i>=2, sum_5 > 2 forces at least two 2's; enumerate fully
 for m1 in (2,):
     for m2 in (2, 3):
