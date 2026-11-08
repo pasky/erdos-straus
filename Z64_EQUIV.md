@@ -229,7 +229,7 @@ theory for the transported objects. Pure relabellings rank lowest. "Type" refers
 | rank | ID | equivalence (proved in §4.x) | field | native tool(s) | might / might not apply | type | catalogue |
 |---|---|---|---|---|---|---|---|
 | 1 | E7 | (W)(n) ⟺ n ∈ d_{A₃}(ℤ³_{≥2}) (Lorenzini's critical polynomial of the path A₃); **(S)(n) ⟺ some x ∈ ℤ³_{≥2} with d_{A₃}(x) = n has critical-group discriminant form ⟨A/n⟩ of Jacobi symbol −1**; CONV-II(n) ⟺ some multiple cn is a formal A₃-value with middle weight ≡ 0 (mod 4c) | graph theory (arithmetical/critical structures) | Lorenzini Prop 6.3 (congruence slices); Wang–Lu EJC 33(3) #P3.80 Thm 5 (density 1 for every graph, via Dirichlet + AP unions) | active published open question ((W) = Lorenzini Ex. 6.2(a)), but the proved tools are fixed-pair slices (HJ_DEEP Lemma 3.2 bars finite coverings) and density | II | HJ_DEEP §3 (W); the pairing reading is new |
-| 2 | E6 | (S)(p) ⟺ ∃ q, (q/p) = −1, such that L(p, q) bounds the negative-definite linear plumbing with **three** spheres of Euler numbers ≤ −2 (HJ length 3); its boundary linking form has Legendre class (q/p). **The C = 1 line of (★) = the chains (−v, −4, −u): the middle vertex is configuration (a) of Aceto–McCoy–Park, so these L(p, 4u − 1) are not b₂-minimal.** Relaxation T(p): "∃ q, (q/p) = −1, L(p, q) bounds some smooth negative-definite X with b₂ ≤ 3" satisfies (S)(p) ⟹ T(p); converse unknown | low-dimensional topology | Donaldson diagonalisation, Heegaard Floer d-invariants, Lisca (b₂ = 0), Greene changemakers, AMP / Fung–Park forbidden configurations | all are **obstructions** (non-existence) or classifications of minimality; existence comes from Kirby constructions, i.e. from words. Lisca is the topological mirror of T1 (rational balls exist only over squares) | III | DEDEKIND_ES, bsA_lens_*; the AMP / rational-blowdown reading is new |
+| 2 | E6 | (S)(p) ⟺ ∃ q, (q/p) = −1, such that L(p, q) bounds the negative-definite linear plumbing with **three** spheres of Euler numbers ≤ −2 (HJ length 3); its boundary linking form has Legendre class (q/p). **The C = 1 line of (★) = the chains (−v, −4, −u): the middle vertex is configuration (a) of Aceto–McCoy–Park, so these L(p, 4u − 1) are not b₂-minimal.** Relaxation T(p): "∃ q, (q/p) = −1, L(p, q) bounds some smooth negative-definite X with b₂ ≤ 3" is implied by (S)(p) and also by length-≤ 2 chains, which are not ES certificates, so T carries no ES content | low-dimensional topology | Donaldson diagonalisation, Heegaard Floer d-invariants, Lisca (b₂ = 0), Greene changemakers, AMP / Fung–Park forbidden configurations | all are **obstructions** (non-existence) or classifications of minimality; existence comes from Kirby constructions, i.e. from words. Lisca is the topological mirror of T1 (rational balls exist only over squares) | III | DEDEKIND_ES, bsA_lens_*; the AMP / rational-blowdown reading is new |
 | 3 | E1 | (★)(p) ⟺ p is the largest integer having exactly k representations by some numerical semigroup ⟨u, B⟩ with k ≡ 3 (mod 4) (generalised Frobenius number g_k = (k+1)uB − u − B) | numerical semigroups | Beck–Robins Thm 3; Popoviciu; inverse theorems (Rosales et al., Math. Scand. 94 (2004) Thm 1.11: every g is a 3-generator Frobenius number; odd g = F(2, g + 2)) | inverse results exist but only for relaxed shapes (3 generators, or k = 0); none controls k mod 4 | II | Z0394–Z0402 |
 | 4 | E3 | **Lemma A:** for every odd n ≥ 5, ES(n) ⟺ 4/n − 1 is the Euler characteristic of a closed orientable 2-orbifold ⟺ ∃ compact Riemann surface X (g ≥ 2) and finite G ≤ Aut(X) with \|G\|(n − 4) = n(2g − 2) | Riemann surfaces, Fuchsian groups | Riemann existence, Selberg's lemma / Fox, Kulkarni genus spectrum | realisation needs the signature, which is an Egyptian representation | I | Z0171, Z0417 (forms); Lemma A with the r = 4, 5 analysis is new |
 | 5 | E4 | ES(n) ⟺ 4/n = lct₀(x^a + y^b + z^c) for some a, b, c ≥ 1 (n ≥ 5) | singularity theory / birational geometry | Kollár (16.1), (3.2); ACC (Hacon–McKernan–Xu); Kuwata, Prokhorov | the full lct question is trivially true: 4/n ∈ lct(ℂ²) for all n ≥ 6 (Lemma R(b)); ES is the diagonal stratum, about which the field says nothing pointwise | II | Z0155 |
@@ -251,7 +251,7 @@ theory for the transported objects. Pure relabellings rank lowest. "Type" refers
   Thm 1 (with "exactly" = "at most"). Both V by subagent. Brute-force check (i): u, B ≤ 13, k ≤ 6, 805 cases.
 * With k = 4C − 1 this is 4CuB − u − B, which is the (★) shape.
 * For a prime p every (★) solution has gcd(u, B) = 1. Indeed gcd(u, B) divides 4uBC − u − B = p, and gcd = p would
-  force u, B ≥ p, hence 4uBC − u − B ≥ 4p² − 2p·… > p. So (★)(p) ⟺ ∃ coprime (u, B) and k ≡ 3 (mod 4) with
+  force u, B ≥ p, hence 4uBC − u − B ≥ 4uB − u − B ≥ 2uB ≥ 2p² > p. So (★)(p) ⟺ ∃ coprime (u, B) and k ≡ 3 (mod 4) with
   p = g_k(u, B). ∎
 * Inverse results: every positive g is the Frobenius number of some ⟨n₁, n₂, n₃⟩ (Rosales et al. Thm 1.11), and every
   odd g = F(2, g + 2). Both hold at every odd square: they are input-blind relaxations (§5 type II).
@@ -285,8 +285,8 @@ O(p) ≅ ω ⊗ π*O(4C) ⟺ p = 4CuB − u − B. ∎ (Catalogue Z0418; a degre
       m₃ ≤ 11, so finitely many cases.
 
     The exhaustive enumeration (`scripts/z64_equiv_orbifold.py`, exact Fractions, CERTIFIED) gives the odd n
-    {15, 21, 23, 39, 45, 47, 75, 95, 105, 111, 115, 117, 119, 165, 273}. ES holds at each of them (Salez, < 10¹⁷;
-    e.g. 105: 4/105 = 1/27 + 1/945 + … is not needed, any census suffices).
+    {15, 21, 23, 39, 45, 47, 75, 95, 105, 111, 115, 117, 119, 165, 273}. ES holds at each of them: all are below
+    Salez's 10¹⁷, and `scripts/z64_equiv_orbifold.py` also prints an explicit 3-term representation for each.
 
 ∎ *Corollary.* For primes p ≡ 1 (4) only r = 3 occurs: 4/p is never a two-term Egyptian fraction, and no such p
 lies in the sporadic list. So (c) is ES(p) on the nose.
@@ -312,9 +312,11 @@ Hence (S)(p) ⟺ ∃ q with (q/p) = −1 and len(p/q) = 3, i.e. L(p, q) = ∂X(p
 * **C = 1 line.** The (★) words with C = 1 are exactly the length-3 chains with middle weight 4, i.e. plumbings
   (−v, −4, −u). AMP Thm 1.1(iii)(a) is the single vertex of weight −4, and its (iv) lists X(4, 1). So these L(p, A)
   admit negative-definite fillings with b₂(X) < 3 (✔ read).
-* **Relaxation T(p).** (S)(p) ⟹ T(p) is immediate from the plumbing. The converse would need every negative-definite
-  b₂ ≤ 3 filling of a lens space with non-residue q to come from a ≤ 3-chain. That is not known; AMP characterise only
-  when the canonical plumbing is minimal.
+* **Relaxation T(p).** (S)(p) ⟹ T(p) is immediate from the plumbing. But T(p) also follows from any non-residue q with
+  len(p/q) ≤ 2. For example p/q = [[a, b]] with p + 1 = ab and (b/p) = −1; such a q exists whenever p + 1 has a
+  divisor b ∈ [2, (p + 1)/2] with (b/p) = −1. Those chains are not ES certificates. So the topologically natural
+  relaxation loses the content. The ES content is "the *canonical* plumbing has exactly three vertices", a
+  continued-fraction condition that smooth-topology tools see only through minimality criteria (AMP).
 * **Native tools** (Donaldson, d-invariants, Lisca, AMP, Fung–Park) are obstructions or minimality criteria. Lisca's
   theorem (Geom. Topol. 2007, Thm 1.2, V by subagent: L(p, q) bounds a rational ball iff p/q ∈ ℛ, which forces
   p = m²) is the topological mirror image of T1: at squares, *rational balls* exist, while (★)-chains do not.
@@ -365,7 +367,8 @@ Hence (S)(p) ⟺ ∃ q with (q/p) = −1 and len(p/q) = 3, i.e. L(p, q) = ∂X(p
   x, y, z over 0, 1, ∞, and 2g − 2 = N(1 − 4/p) = uBC(p − 4).
 
 *Proof.*
-* (a) gcd(u, B) = 1 (E1), and p ∤ uBC since u, B, C < p. Then lcm(uBC, pBC) = BC·lcm(u, p) = N, and the other two
+* (a) gcd(u, B) = 1 (E1), and p ∤ uBC since u, B, C < p. Indeed p + B = u(4BC − 1) ≥ 3u and p + u ≥ 3B give
+  u + B ≤ p, and p + u = B(4uC − 1) ≥ 4uC − 1 gives C < p. Then lcm(uBC, pBC) = BC·lcm(u, p) = N, and the other two
   pairs are the same.
 * (b) is solved by CRT one prime ℓ | N at a time, with e = v_ℓ(N):
   * ℓ = p (e = 1): take a ≡ 0, b ≡ 1, c ≡ −1.
@@ -382,3 +385,125 @@ Hence (S)(p) ⟺ ∃ q with (q/p) = −1 and len(p/q) = 3, i.e. L(p, q) = ∂X(p
 
 **E12–E14.** These are quoted from the cited memos and not re-proved.
 
+## 5. Native tools: four types, and why formula-level dictionaries are circular (Push 2)
+
+Every row E1–E13 is a **formula dictionary**. Explicit formulas in the certificate parameters (u, B, C) or (t, u, v)
+or (x, y, z) produce the field object, and explicit formulas read the parameters back off it. Every native existence
+tool met in this lane belongs to one of four types. The types are judged by what the tool takes as input and what
+it concludes.
+
+**Type I: realisation from parameter data.** Examples: Riemann existence; Selberg/Fox; Kirby/plumbing constructions;
+Waterhouse–Honda–Tate; Steinitz; Freedman; the CRT step of Lemma F. Such a theorem says "for every admissible datum
+δ there is an object O(δ)". In each row δ is the certificate itself:
+* the signature in E3/E13;
+* the chain in E6;
+* (x, y, z) in E5/E11;
+* (u, B, C) in E2/E8.
+
+*Observation (PROVED, trivial).* If Φ(n) ⟺ ∃ δ ∈ Δ(n) with O(δ) realised, and a type-I theorem realises every δ,
+then Φ(n) ⟺ Δ(n) ≠ ∅. That is the original statement. So type I contributes nothing to existence.
+
+**Type II: universality or density after a relaxation.** Examples: Rosales et al. Thm 1.11; lct ∈ HT₂; Lorenzini
+Prop 6.3 slices; Wang–Lu density; Kulkarni's genus spectrum; and Hurwitz realisability at prime degree (§3.3), whose
+relaxation is "drop the arithmetic".
+
+**Lemma R (T1-blindness of the proved relaxations).** Let m ≥ 3 be odd.
+* (a) (W) holds at m² for every m with 3 ∤ m: (t, u, v) = (2, 2, (m² + 2)/3). PROVED. It holds at every odd m² with
+  25 ≤ m² < 10⁹. CERTIFIED: HJ_DEEP's (W) census to 10⁹ has exception set E_W, which contains no square except 9;
+  `scripts/z64_equiv_wsquares.py` independently finds no exception among odd m ≤ 2000.
+* (b) 4/m² is the log canonical threshold of a plane-curve germ: 4/n = lct₀(x^a y^b (x + y³)) with n = 3a + b + 3,
+  b ≤ a + 1 and a ≤ b + 3. This is Kollár's HT₂ formula (3.2) with (c₁, c₂) = (1, 3), V by subagent. I re-derived it
+  by the toric blow-up: the weight (3, 1) divisor gives 4/(3a + b + 3), which is ≤ 1/a and ≤ 1/b under the
+  constraints. The ranges cover every n ≥ 6. PROVED, relative to the standard lct formula for Newton-non-degenerate
+  plane curves (Kollár Thm 15).
+* (c) m² is the Frobenius number of the two-generator semigroup ⟨2, m² + 2⟩ (Rosales et al. Lemma 1.1; check:
+  2(m² + 2) − 2 − (m² + 2) = m²). PROVED.
+* (d) Wang–Lu's theorem is a density statement (averaged; B6).
+
+Meanwhile (★), (S), U₇ and CONV-II all fail at every odd square (T1).
+
+*Consequence (PROVED).* No relaxation in (a)–(c) implies any of these four statements. Each is true at odd squares,
+where the target is false. Any proof that passes through such a relaxation needs a square-sensitive input elsewhere.
+This is Z63 Lemma 1's logic applied to the other fields.
+
+**Type III: obstructions.** Examples: Donaldson; Heegaard Floer d-invariants; Lisca; AMP / Fung–Park; ACC for lct;
+EKS non-realisability; Hasse–Weil upper bounds. These prove non-existence. To use one for ES, a *hypothetical
+failure* ¬(★)(p) would have to produce an object with a forbidden property. In E1–E13 every object is built from a
+certificate, and a failure supplies none (Assessment). So type III enters only through canonical p-objects (type IV).
+In the reverse direction, Lisca's theorem is the topological mirror of T1 (E6).
+
+**Type IV: structure theorems on a canonical p-object.** These are objects defined from p alone that exist at every
+input, squares included:
+* the level-p presentation complex of Γ₀(p) (Z63_EUCLID);
+* Cl(ℚ(√−p)) and ray class groups (Z60_RAYCLASS);
+* supersingular isogeny graphs (bsC_*);
+* the family {L(p, q)}_q of lens spaces, equivalently the set Λ₃(p) = {A ∈ (ℤ/p)^× : len(p/A) = 3}, whose
+  intersection with the non-residues is (S) (E6/E7; this is SDEEP's target set).
+
+Only this type can be non-circular. Every instance found here is already a repo target with its own screening memo.
+
+**Shape of an escaping equivalence (Assessment).** A useful new equivalence must
+* (i) attach to p a canonical object O(p) that exists unconditionally and also at m²;
+* (ii) have a structure theorem in its field forcing a sub-object S ⊂ O(p) that maps to a certificate;
+* (iii) let that theorem use a property of O(p) that differs between primes and squares.
+
+The Hurwitz theorem has (i)–(iii) for its own target (O(p) = S_p with its regular C_p), but its sub-object is not
+arithmetic (§3.3). Of the rows above, only E6/E7 (Λ₃(p)) and E9/E10 have (i). None has (ii).
+
+## 6. Four FRONTIER §4 hard screens for the best items
+
+| item | T1 squares | 8/131 | tied modulus | fixed p |
+|---|---|---|---|---|
+| E7 / E6 (Λ₃(p), critical-group sign) | built into the statement (Jacobi −1 is impossible at m²); the native relaxations are T1-blind (Lemma R) | the sign law (A/p) = −(−1/p) on Type II words is numerator-blind; C even vs C odd is invisible to the graph and the topology | the middle letter t = 4C is a vertex weight, and the tie is the same | yes (pointwise statements), but no forcing tool |
+| (Ch) Hurwitz prime degree (precedent) | composite degrees fail; there is no square-specific failure | n/a | n/a (no modulus) | yes; but the witness is not arithmetic |
+| E3 (Lemma A) | ES itself has no T1 | 8/n analogue: 8/n − 1 as χ^orb is the same equivalence with 8 (Lemma A's proof is numerator-specific only in the r = 4, 5 casework) | not applicable (no modulus) | circular |
+
+## 7. Verdict, proposed FRONTIER text, bottom line
+
+**Verdict: narrowed.** No HOT LEAD.
+
+**Strengthened (small, PROVED):**
+* Lemma A (orbifold χ and automorphism ratio ⟺ ES for every odd n ≥ 5);
+* Lemma F ((★) triples are lcm-balanced and cyclically realisable);
+* E7's identification of the (S) sign with the critical-group discriminant form;
+* E6's identification of the C = 1 line with AMP's (−4) configuration;
+* Lemma R (the proved relaxations are T1-blind).
+
+**Narrowed:**
+* every formula dictionary is circular for type-I/II/III tools (§5);
+* the new precedent class (Ch) does not transfer to arithmetic witnesses (§3.3, Lemma H CONDITIONAL).
+
+**Surviving:** only type-IV structure theorems on canonical p-objects, all already screened elsewhere in the repo.
+
+**Proposed FRONTIER text** (§3 after the z63 precedent paragraph, or §7 z64 block; not applied here):
+> *(z64, `Z64_EQUIV.md`; internal.)* A precedent class missing from Z63 is the Hurwitz existence problem in prime
+> degree:
+> * every compatible branch datum of degree p over S² is realisable (Edmonds–Kulkarni–Stong's question; claimed
+>   theorem of Song–Wen–Zhang arXiv:2609.20572, unrefereed, proved in residue characteristic p via a regular
+>   C_p ≤ S_p);
+> * every composite degree has non-realisable data (EKS Prop 5.7).
+>
+> It is the one verified "true at every prime, false on explicit composites" existence result whose proof is not an
+> identity or a count. Primality acts on a geometric/group-theoretic object, and prime-degree realisability carries
+> no (★) information (Lemma H, conditional). Fourteen cross-field equivalences are proved in Z64_EQUIV §4, among them:
+> * ES(n) ⟺ some Riemann surface has an automorphism group with |G|(n − 4) = n(2g − 2) (n odd ≥ 5);
+> * the (S) sign = the critical-group discriminant form of Lorenzini's A₃;
+> * the C = 1 line = lens-space plumbings with a (−4) vertex (Aceto–McCoy–Park).
+>
+> Their native tools are realisation theorems (circular), T1-blind or averaged relaxations (Lemma R), or obstructions.
+> Only structure theorems on canonical p-objects (Γ₀(p), class groups, Λ₃(p)) can be non-circular; no new one was
+> found.
+
+**Bottom line.** Re-expressing ES, (★), (S), U₇ or CONV-II in other fields is easy, and the repo's catalogue already
+held most of the forms. This lane proved fourteen of them with exact ranges. Every native existence tool met is of
+one of three kinds: it realises objects from the very data that constitute a certificate; it proves a relaxation
+that also holds at odd squares (or only on average); or it obstructs. The one genuinely new item is on the precedent
+side: prime-degree Hurwitz existence, a 2026 claimed theorem with ES's exact prime/composite shape, proved by
+construction in characteristic p. Its primality acts on S_p and on covers over an algebraically closed field, not on
+a ℤ-point. So it widens the catalogue of how primality can force existence, without giving B2 a template. Any future
+equivalence worth a lane must attach a canonical object to p and come with a structure theorem that distinguishes
+primes from squares. None was found.
+
+## 8. Review log
+
+*(pending: internal hostile review by a deep-mode subagent; fixes and notes will be recorded here.)*

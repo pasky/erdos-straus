@@ -56,3 +56,14 @@ print("r=4 sporadic odd n (not (2,2,a,b)):", sorted(spor4))
 for n in sorted(spor4): print(" ", n, spor4[n][:4])
 print("r=5 odd n:", sorted(spor5))
 for n in sorted(spor5): print(" ", n, spor5[n][:4])
+# explicit ES representations for the sporadic odd n (so Lemma A's (b) => (a) is self-contained)
+def es3(n):
+    for x in range(n // 4 + 1, 3 * n // 4 + 2):
+        r = F(4, n) - F(1, x)
+        if r <= 0: continue
+        for y in range(max(x, int(1 / r) + 1), int(2 / r) + 2):
+            s = r - F(1, y)
+            if s > 0 and s.numerator == 1 and s.denominator >= y: return (x, y, s.denominator)
+    return None
+for n in sorted(set(spor4) | set(spor5)):
+    print("ES", n, es3(n))
