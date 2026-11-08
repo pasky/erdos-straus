@@ -444,6 +444,22 @@ Among the verified engines:
 * CPZ / Petronio fail (v): they are realisable at squares.
 * Fried satisfies (v) only through its group-theoretic hypotheses (r ≥ n). Its output is a sign (D3).
 
+### 6.1 Where characteristic p does create integers (Assessment)
+Three sources of integers are *outputs*, not inputs, of a char-p construction:
+* the new-tail invariants σ_new of a stable reduction. Under p ∥ |G| they lie in (1/m_G)ℤ with m_G | p − 1
+  (Obus Lemma 3.5 as used in Z65 Prop E). They obey the vanishing-cycle sum Σ_prim σ_j + Σ_new(σ_j − 1) = 1;
+* forced congruences from a geometric condition, e.g. Z65 Thm G, where potentially good reduction forced
+  3m − 1 = p;
+* p-ranks / Hasse–Witt data (Deuring–Shafarevich).
+
+None of them enters the *signature* of a lifted three-point cover: stabiliser orders of the marked points are carried
+by the char-p datum (Z65 Prop O for p ∥ |G|; in general the generic stabiliser of a branch point specialises to
+the stabiliser of its reduction). The created integers have denominators dividing p − 1 (or are congruences of
+identity type, Thm G). They are not divisors of 4Cp + 1 in a residue class. The one region where no lifting theory
+is available is ES pairs with **non-cyclic** Sylow p-subgroup. Lemma P only forces p ∥ element orders, not
+|G|_p = p. Whether such ES pairs exist was not settled here; even if they do, the signature-transparency argument
+above does not depend on the Sylow structure.
+
 *Assessment.* A surviving (H★) would be a realisation problem whose discrete data are fixed by p, whose
 realisations are wild covers with groups containing C_p × C_k, and whose existence is proved by a char-p
 construction that *creates* the integer k. In SWZ the integers (the partitions) are inputs; nothing in the
