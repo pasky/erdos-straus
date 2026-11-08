@@ -1,0 +1,11 @@
+primeA-fail 20521 (all -1 pairs 3)
+primeA-fail 21841 (all -1 pairs 1)
+primeA-fail 589681 (all -1 pairs 5)
+decade 1e1: primes 5  mean primeA(-1)/log p 0.4854  mean all(-1)/log^2 p 0.1413
+decade 1e2: primes 32  mean primeA(-1)/log p 0.6062  mean all(-1)/log^2 p 0.1620
+decade 1e3: primes 258  mean primeA(-1)/log p 0.7302  mean all(-1)/log^2 p 0.1849
+decade 1e4: primes 2089  mean primeA(-1)/log p 0.8113  mean all(-1)/log^2 p 0.1999
+decade 1e5: primes 17168  mean primeA(-1)/log p 0.8868  mean all(-1)/log^2 p 0.2126
+decade 1e6: primes 146424  mean primeA(-1)/log p 0.9440  mean all(-1)/log^2 p 0.2220
+decade 1e7: primes 151501  mean primeA(-1)/log p 0.9693  mean all(-1)/log^2 p 0.2262
+total primeA failures 3
