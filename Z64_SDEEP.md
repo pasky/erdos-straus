@@ -48,12 +48,12 @@ sign of a reversal pair is the quadratic character of n at s + 2 = t(u+v), s = t
 genus-type character attached to the factorisation (s−2)(s+2) of the discriminant s² − 4 of the form
 [n, A* − A, −t] (this makes the BRAINSTORM item Z2825 precise; it is a reformulation, not a mechanism).
 
-**Lemma 2 (character blindness; PROVED, from DK §8.1).** For n ≡ 1 (mod 4) the map L₃(n) → {±1}, A ↦ χ_n(A),
+**Lemma 2 (character blindness; PROVED — a restatement of DK §8.1 / Thm 4.5, novelty only in the formulation).** For n ≡ 1 (mod 4) the map L₃(n) → {±1}, A ↦ χ_n(A),
 factors through the cell map w = (t,u,v) ↦ (t,u,v) mod 4 ∈ (ℤ/4)³, followed by the *n-independent* function
 σ: σ(c) = +1 iff c ∈ C₊ := {(1,2,3), (1,3,2), (2,1,2), (2,2,1), (3,1,1)}. Consequently, for every F: L₃(n) → ℂ,
 Σ_{A∈L₃(n)} χ_n(A)F(A) = Σ_c σ(c) Σ_{cell(w)=c} F(A_w), and
 **(S)(n) ⟺ the integral points of S_n : tuv − u − v = n (letters ≥ 2) are not all contained in the five residue
-classes C₊ mod 4.** At n = m² they are (T1). *Proof.* DK Thm 4.5/§8.1 (σ is the stated table), applied termwise. ∎
+classes C₊ mod 4.** At n = m² they are (T1). *Proof.* DK Thm 4.5/§8.1 (σ is the stated table; DK's proof uses Rademacher's congruence and a cell enumeration, elementary reciprocity proofs valid for all odd n ≡ 1 (4) with Jacobi symbols: FOREST_DEEP_FABLE §1 Thm A, FOREST_CONNECTIVITY Thm 2.1), applied termwise. ∎
 *Meaning for the brief.* On the structured set L₃(n) the character χ_n carries no information beyond selecting 15 of
 the 20 admissible 2-adic cells. The analytic content of χ_n (Burgess on intervals of length n^{1/4+ε}, Pólya–Vinogradov,
 GRH for small non-residues, large sieve in the modulus n) concerns χ_n on *additively* structured sets of power size;
@@ -62,14 +62,16 @@ being 2-adically non-degenerate", i.e. to cell-restricted representation counts 
 divisor-in-a-moving-class events (HJ_DEEP Prop 4.1; B2).
 
 **Prop 3 (aggregate character data is congruence data; PROVED, a restatement of CLASS_FORCING Thm 2.1 at levels u).**
-For a fixed level u and N = n + u, Π_{q^e ‖ N, q odd} χ_n(q)^e = χ_n(u)·(2/n)^{v₂(N)} and, for odd prime q | N, q ∤ n,
-χ_n(q) = (−u/q). Both are functions of n mod 8u (and of q mod 4u). So every identity obtained from χ_n on the
-*whole* fibre is a congruence condition on n (B1). It forces an admissible −1 divisor (A ≡ −1 mod u) by itself only
-when (ℤ/u)^× has exponent ≤ 2, i.e. u ∣ 24 (the quadratic layer of FOREST_CONNECTIVITY Prop 3.1, Landau-type and
-conditionally refuted as a complete proof under Schinzel's H). For u ∤ 24 the passage from "odd number of χ_n-odd
-prime factors" to "a sub-product ≡ −1 (mod u)" is exactly the B2 class event. *Proof.* χ_n(N) = χ_n(u) since
-N ≡ u (mod n); multiplicativity; reciprocity q ∣ n + u ⟹ (q/n) = (n/q) = (−u/q). The exponent-2 statement is
-CLASS_FORCING Thm 2.1 / FOREST_CONNECTIVITY Prop 3.1. ∎
+For a fixed level u with gcd(u, n) = 1 and N = n + u: Π_{q^e ‖ N, q odd} χ_n(q)^e = χ_n(u)·(2/n)^{v₂(N)}, and
+χ_n(q) = (−u/q) for every odd prime q ∣ N. The first is determined by n mod 8u together with v₂(n + u) (congruence
+data of n), the second by q mod 4u. *Proof.* N ≡ u (mod n) gives χ_n(N) = χ_n(u); multiplicativity; for odd q ∣ n + u,
+q ∤ n: (q/n) = (n/q) = (−u/q) by reciprocity (n ≡ 1 mod 4). ∎
+*Reading (Assessment, with the cited proofs).* Every identity obtained from χ_n on the *whole* fibre (all prime factors
+of N) is congruence data on n (B1; CLASS_FORCING Thm 2.1 at levels t). It only fixes the parity of the number of
+χ_n-odd prime factors of N; turning that into an admissible −1 divisor needs (1) N to be composite of the right shape
+(N itself is never admissible, v ≥ 2) and (2) for u ∤ 24, a sub-product in the single class −1 (mod u) — the B2 class
+event. For u ∣ 24, (ℤ/u)^× has exponent ≤ 2 and (2) collapses to a Landau-type condition (FOREST_CONNECTIVITY Prop 3.1,
+the quadratic layer), which leaves ≈ 0.4 % of primes uncertified at 10⁷ and fails infinitely often under Schinzel's H.
 
 **Prop 4 (KS2: Salié / Kloosterman completion is a B3 instance; PROVED as a counting statement + Assessment).**
 By Lemma 1 the words are the points (A, A*) of the modular hyperbola AA* ≡ 1 (mod n), 0 < A, A* < n, with
@@ -78,8 +80,8 @@ t := (AA* − 1)/n ≥ 2 and t ∣ A + 1 (then t ∣ A* + 1 automatically, since
 so every region in the (A, A*)-plane meets the word set in a union of single hyperbolas, one integer tn + 1 per t.
 (ii) Under the extra congruence t ∣ A + 1 the expected number of points over all t is Σ_t τ(tn+1)/t ≍ log² n
 (heuristic for the average; the pointwise count is N(n) = |L₃(n)|, which is ≍ log² n on average, DK 10.2).
-(iii) The available pointwise error term for counting modular-hyperbola points in a region of area 𝒜 is
-O(n^{1/2+ε}) (Weil/Salié), independent of 𝒜. Since the word set has total size ≍ log² n, a completion argument
+(iii) (Assessment) The available pointwise error term for counting modular-hyperbola points in a box (or a region of
+bounded boundary complexity) is O(n^{1/2+ε}) (Weil/Salié bounds), independent of its area. Since the word set has total size ≍ log² n, a completion argument
 needs an error ≪ log² n: B3's scale constraint (FRONTIER §3) applies verbatim. **KS2 fired (registered kill):** the
 word region is a union of one-point-thick hyperbolas (i), and the completion only re-expresses each per-t divisor
 problem. The Salié identity (twisted Kloosterman sums are sums over square roots mod n) converts a χ_n-weighted count
@@ -116,10 +118,10 @@ first −1 word followed by full enumeration if none is found; validated against
 | family | n | range | mode | (S)-failures | min N₋ (pairs) | mean N₋/|L₃| |
 |---|---|---|---|---|---|---|
 | (a) near-squares m² + k, −48 ≤ k ≤ 48 | 1 248 | 10¹²–8·10¹³ | full | 0 | 69 | 0.736 (lowest group k = 24: 0.62) |
-| (b) d·m², d ∈ {5,…,105} (21 values) | 2 088 (timeout at 2 310) | 10¹¹–8·10¹³ | full | 0 | 65 | 0.738 (lowest d = 5: 0.68) |
+| (b) d·m², d ∈ {5,…,105} (21 values) | 2 088 (timeout at 2 310) | 4·10¹¹–8·10¹³ | full | 0 | 65 | 0.738 (lowest d = 5: 0.68) |
 | (c) n ≡ 1 (mod lcm(1..23)) | 14 999 | 5·10⁹–8·10¹³ | early | 0 | — | first −1 word at u ≤ 24 |
 | (d) m² + k, m ≡ 0 (mod lcm(1..13)) | 622 | ≤ 9·10¹³ | early | 0 | — | — |
-**Reading (EVIDENCE).** No failure; in the fully enumerated families N₋ ≥ 65 pairs and N₋/|L₃| ≥ 0.47 at every n.
+**Reading (EVIDENCE).** No failure; in the fully enumerated families N₋ ≥ 65 pairs and N₋/|L₃| ≥ 0.46 at every n.
 Near-squares and fixed-character composites show only mild deficits (T1 deformation: at n = m² + k the sign of a word
 with outer letter u is the character (u(u+k)/A), so slices with u(u+k) = □ are dead — finitely many u per k).
 Square-mimicking n (c, d) are *not* hard for (S): words with one small letter and one large letter remain (only words
@@ -147,9 +149,11 @@ divisors have expected count ≍ log² p.
 * **(a) Explicit infinite non-congruence family of primes.** The only mechanism tried that would give one (a parity law
   with a non-abelian invariant, KS1) is dead on its dictionary. Families defined by the factorisation of n + u (e.g.
   "p + 4 has a prime factor ≡ 3 (4)", FOREST_CONNECTIVITY Prop 3.1) are certificate-defined and give nothing new.
-  Polynomial families: with letters linear in m and t constant, tuv − u − v = d·m² + k forces
-  k = −d(x − β/d)² − αβ/d < 0 (u = α(m+x), v = β(m+y), tαβ = d; elementary coefficient comparison), so no polynomial
-  family represents d·m² + k with k ≥ 0 (PROVED for this shape; cf. (J)84 for the general positivity obstruction).
+  Polynomial families: with t constant and both outer letters linear in m (u = α(m+x), v = β(m+y), tαβ = d),
+  tuv − u − v = d·m² + k forces k = −d(x − β/d)² − αβ/d < 0; with v constant and t, u linear it forces k = −dy² − v < 0
+  (elementary coefficient comparison; PROVED for these two shapes only). Shapes with two constant letters are
+  fixed-pair congruence families (HJ_DEEP Lemma 3.2 type, B1) and do exist for suitable classes of m; cf. (J)84 for
+  the general positivity obstruction.
 * **(b) Threshold under a named hypothesis.** GRH, Elliott–Halberstam and Chebotarev-type hypotheses control Frobenius
   data; every (S)-witness condition is "q ∣ N" for a specific integer N ∈ {n + u, tn + 1}, which is not a Frobenius
   condition (Prop 3: the Frobenius-visible part is n mod 8u). We found no standard hypothesis implying (S) at every
