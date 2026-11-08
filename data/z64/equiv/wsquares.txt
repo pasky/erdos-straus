@@ -1,0 +1,16 @@
+add (2, 2, 3) L = 6 uncovered odd residues: 1
+add (2, 6, 11) L = 66 uncovered odd residues: 9
+add (6, 2, 11) L = 66 uncovered odd residues: 7
+add (3, 5, 14) L = 462 uncovered odd residues: 35
+add (5, 3, 14) L = 462 uncovered odd residues: 21
+add (2, 9, 17) L = 7854 uncovered odd residues: 315
+add (9, 2, 17) L = 7854 uncovered odd residues: 273
+add (2, 10, 19) L = 149226 uncovered odd residues: 4641
+add (10, 2, 19) L = 149226 uncovered odd residues: 4095
+add (3, 9, 26) L = 1939938 uncovered odd residues: 45045
+add (9, 3, 26) L = 1939938 uncovered odd residues: 36855
+add (3, 13, 38) L = 1939938 uncovered odd residues: 31941
+add (13, 3, 38) L = 1939938 uncovered odd residues: 27027
+pairs: [(2, 2), (2, 6), (6, 2), (3, 5), (5, 3), (2, 9), (9, 2), (2, 10), (10, 2), (3, 9), (9, 3), (3, 13), (13, 3)] L = 1939938 uncovered odd m mod L: 27027 [21, 57, 105, 153, 237, 273, 321, 351, 363, 615]
+odd m in [5,2000] with m^2 not a word: []
+largest modulus 38 ; for m^2 >= 2*maxq every covering pair gives v >= 2
