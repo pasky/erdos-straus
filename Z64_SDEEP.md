@@ -43,15 +43,20 @@ If gcd(tr γ + 2, n) = 1 then (d/n) = ((tr γ + 2)/n); if gcd(tr γ − 2, n) = 
 *Proof.* ad ≡ 1 (mod n), so tr γ ± 2 ≡ d + d⁻¹ ± 2 = (d ± 1)²·d⁻¹ (mod n); take Jacobi symbols. ∎
 *For words.* γ_w = [[A, t],[n, A*]] ∈ SL₂(ℤ) ∩ Γ₀(n) and tr γ_w + 2 = A + A* + 2 = t(u+v). Hence
 **χ_n(A) = (t(u+v)/n) = ((t(u+v) − 4)/n)** whenever these are coprime to n. CERTIFIED on every word (u < v) of every
-prime p ≡ 1 (8), p ≤ 2·10⁶ (37 116 primes; `scripts/z64_sdeep_words.c`, 0 failures). *Class-invariance (corrected after review).* Write s = tr γ_w = t(u+v) − 2 and f_w = [n, A* − A, −t]
-(discriminant s² − 4). (a) **s odd (PROVED, relative to classical genus theory):** D = s² − 4 ≡ 5 (mod 8) and
-D = D₁D₂ with D₁ = ε(s+2), D₂ = ε(s−2), ε = ±1 chosen so that D₁ ≡ D₂ ≡ 1 (mod 4) (possible as s+2 ≡ s−2 mod 4);
-the Gauss–Kronecker genus character χ_{D₁}(C) = (D₁/m) (m represented by C, gcd(m, D₁) = 1) is a class invariant,
-and at m = n it equals ((s+2)/n)·(ε/n) = χ_n(A) (n ≡ 1 mod 4). So for odd trace the sign *is* a genus character of
-the SL₂(ℤ)-class of f_w (primitive at primes). (b) **s even: not a class invariant** — the repo's Z2825 counterexample
-(ES_CONNECTIONS_TODO): (2,2,5) at n = 13 and (2,3,4) at n = 17 give the SL₂(ℤ)-equivalent forms [13, 6, −2] and
-[17, 2, −2] (s = 12, D = 140) with signs (14/13) = +1, (14/17) = −1. So Lemma 1 is a formula in (s, n), not a class
-invariant in general; either way it is a reformulation, not a mechanism.
+prime p ≡ 1 (8), p ≤ 2·10⁶ (37 116 primes; `scripts/z64_sdeep_words.c`, 0 failures). *Class-invariance (corrected after review).* Write s = tr γ_w = A + A* = t(u+v) − 2 and f_w = [n, A* − A, −t]
+(discriminant D = s² − 4; primitive at primes). (a) **s ≢ 0 (mod 4): the sign is an invariant of the proper
+SL₂(ℤ)-class of f_w (PROVED, classical genus argument).** Put D₁ = ε(s+2) with ε = ±1 such that D₁ ≡ 1 (mod 4) if s is
+odd (possible since s+2 ≡ s−2 mod 4), and D₁ = s + 2 ≡ 0 (mod 4) if s ≡ 2 (mod 4). Then D₁ is a discriminant, D₁ ∣ D,
+and in the identity a·f(x,y) = (ax + (b/2)y)² − (D/4)y² (b even) resp. 4a·f(x,y) = (2ax + by)² − Dy² (b odd) the
+subtracted term is ≡ 0 (mod D₁) (for s ≡ 2 mod 4 because 4 ∣ s − 2). Since the Kronecker symbol (D₁/·) is a character
+mod |D₁|, every m represented by the class with gcd(m, 2D₁) = 1 (and a representation with the square coprime to D₁)
+has (D₁/m) = (D₁/a) — a class invariant; at m = n it equals ((s+2)/n)(ε/n) = χ_n(A) (n ≡ 1 mod 4). (b) **s ≡ 0
+(mod 4): not a class invariant** — then s ± 2 ≡ 2 (mod 4) are not discriminants; the repo's Z2825 counterexample
+(ES_CONNECTIONS_TODO): (2,2,5) at n = 13 and (2,3,4) at n = 17 give the equivalent forms [13, 6, −2], [17, 2, −2]
+(s = 12, D = 140) with signs (14/13) = +1, (14/17) = −1. CERTIFIED (`scripts/z64_sdeep_genus_check.py`, all words of
+non-square n ≡ 1 (4) < 3000, Gauss ρ-cycles as class invariants): 0 sign disagreements in 3 089 same-class comparisons
+with s ≢ 0 (mod 4); 1 155 disagreements in 1 901 comparisons with s ≡ 0 (mod 4). Either way Lemma 1 is a reformulation,
+not a mechanism (the class of f_w is determined by the word, and which classes have length-3 words is the problem).
 
 **Lemma 2 (character blindness; PROVED — a restatement of DK §8.1 / Thm 4.5, novelty only in the formulation).** For n ≡ 1 (mod 4) the map L₃(n) → {±1}, A ↦ χ_n(A),
 factors through the cell map w = (t,u,v) ↦ (t,u,v) mod 4 ∈ (ℤ/4)³, followed by the *n-independent* function
@@ -232,8 +237,8 @@ products (CLASS_FORCING §6 "full factor multiset"); mod-4/8 (not mod-2) laws of
 
 ## 8. Proposed FRONTIER text (do NOT edit FRONTIER here)
 *§6 / z64 block (SDEEP, `Z64_SDEEP.md`):* Conjecture (S) as a character-value problem. PROVED (new): for γ ∈ Γ₀(n),
-(d/n) = ((tr γ ± 2)/n), so the sign of a word is (t(u+v)/n) (trace form; a genus character of the form class for odd
-trace, not class-invariant for even trace — Z2825). Restating DEDEKIND_ES §8.1: the sign on L₃(n) is the n-free mod-4
+(d/n) = ((tr γ ± 2)/n), so the sign of a word is (t(u+v)/n) (trace form; a genus-character value of the form class when
+tr ≢ 0 (mod 4), not class-invariant when tr ≡ 0 (mod 4) — Z2825). Restating DEDEKIND_ES §8.1: the sign on L₃(n) is the n-free mod-4
 cell function, so on n with L₃(n) ≠ ∅, (S) ⟺ the integral points of tuv − u − v = n escape the five cells C₊ (T1: at
 squares they never do). Whole-fibre χ_n data is congruence data (cf. CLASS_FORCING Thm 2.1); Salié/Kloosterman
 completion meets the words in one-point-thick hyperbolas (B3). CERTIFIED/EVIDENCE: no non-abelian parity law for 368
@@ -257,8 +262,9 @@ What remains is the familiar tied-divisor event, now stated as a 2-adic escape l
 Requested deep-mode reviewer unavailable (provider usage limit); review run as a `smart`-mode subagent with the same
 hostile brief (report `/tmp/z64_sdeep_review.md`, not committed). 0 FATAL, 5 MAJOR, 12 MINOR; all applied:
 * **M1** (S) ⟺ ML only on n with L₃(n) ≠ ∅ (counterexamples 5, 105): Lemma 2, §5, §6, §8 restricted.
-* **M2** the genus reading of Lemma 1 was false for even trace (Z2825's counterexample (2,2,5)@13 vs (2,3,4)@17):
-  corrected to "genus character for odd trace (proved), not class-invariant for even trace".
+* **M2** the genus reading of Lemma 1 was false in general (Z2825's counterexample (2,2,5)@13 vs (2,3,4)@17, s = 12):
+  corrected and sharpened after review to "class-invariant iff s ≢ 0 (mod 4)" (genus proof for s odd and s ≡ 2 mod 4;
+  certified n < 3000; counterexamples for s ≡ 0 mod 4).
 * **M3** Prop 4 (ii)/(iii) were listed as PROVED in §6: relabelled; KS2 declared tautological as registered.
 * **M4** §5 item 2 and the §6/§8/§9 wording overreached (χ_n values on L₃(n) vs character methods in general):
   relabelled Assessment, narrowed, and characters mod the level u explicitly not excluded.
