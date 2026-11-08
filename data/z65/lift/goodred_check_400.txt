@@ -1,0 +1,44 @@
+primes 5..400: 2256 representations of 4/p checked
+representations with p^2 | some denominator: 0; first few: []
+triples admitting a good-reduction cluster partition: 39
+  p=5 triple=(2, 5, 10) partitions=[[[1, 2], [0]]] mordell=True
+  p=11 triple=(4, 11, 44) partitions=[[[1, 2], [0]]] mordell=True
+  p=17 triple=(6, 17, 102) partitions=[[[1, 2], [0]]] mordell=True
+  p=23 triple=(8, 23, 184) partitions=[[[1, 2], [0]]] mordell=True
+  p=29 triple=(10, 29, 290) partitions=[[[1, 2], [0]]] mordell=True
+  p=41 triple=(14, 41, 574) partitions=[[[1, 2], [0]]] mordell=True
+  p=47 triple=(16, 47, 752) partitions=[[[1, 2], [0]]] mordell=True
+  p=53 triple=(18, 53, 954) partitions=[[[1, 2], [0]]] mordell=True
+  p=59 triple=(20, 59, 1180) partitions=[[[1, 2], [0]]] mordell=True
+  p=71 triple=(24, 71, 1704) partitions=[[[1, 2], [0]]] mordell=True
+  p=83 triple=(28, 83, 2324) partitions=[[[1, 2], [0]]] mordell=True
+  p=89 triple=(30, 89, 2670) partitions=[[[1, 2], [0]]] mordell=True
+  p=101 triple=(34, 101, 3434) partitions=[[[1, 2], [0]]] mordell=True
+  p=107 triple=(36, 107, 3852) partitions=[[[1, 2], [0]]] mordell=True
+  p=113 triple=(38, 113, 4294) partitions=[[[1, 2], [0]]] mordell=True
+  p=131 triple=(44, 131, 5764) partitions=[[[1, 2], [0]]] mordell=True
+  p=137 triple=(46, 137, 6302) partitions=[[[1, 2], [0]]] mordell=True
+  p=149 triple=(50, 149, 7450) partitions=[[[1, 2], [0]]] mordell=True
+  p=167 triple=(56, 167, 9352) partitions=[[[1, 2], [0]]] mordell=True
+  p=173 triple=(58, 173, 10034) partitions=[[[1, 2], [0]]] mordell=True
+  p=179 triple=(60, 179, 10740) partitions=[[[1, 2], [0]]] mordell=True
+  p=191 triple=(64, 191, 12224) partitions=[[[1, 2], [0]]] mordell=True
+  p=197 triple=(66, 197, 13002) partitions=[[[1, 2], [0]]] mordell=True
+  p=227 triple=(76, 227, 17252) partitions=[[[1, 2], [0]]] mordell=True
+  p=233 triple=(78, 233, 18174) partitions=[[[1, 2], [0]]] mordell=True
+  p=239 triple=(80, 239, 19120) partitions=[[[1, 2], [0]]] mordell=True
+  p=251 triple=(84, 251, 21084) partitions=[[[1, 2], [0]]] mordell=True
+  p=257 triple=(86, 257, 22102) partitions=[[[1, 2], [0]]] mordell=True
+  p=263 triple=(88, 263, 23144) partitions=[[[1, 2], [0]]] mordell=True
+  p=269 triple=(90, 269, 24210) partitions=[[[1, 2], [0]]] mordell=True
+  p=281 triple=(94, 281, 26414) partitions=[[[1, 2], [0]]] mordell=True
+  p=293 triple=(98, 293, 28714) partitions=[[[1, 2], [0]]] mordell=True
+  p=311 triple=(104, 311, 32344) partitions=[[[1, 2], [0]]] mordell=True
+  p=317 triple=(106, 317, 33602) partitions=[[[1, 2], [0]]] mordell=True
+  p=347 triple=(116, 347, 40252) partitions=[[[1, 2], [0]]] mordell=True
+  p=353 triple=(118, 353, 41654) partitions=[[[1, 2], [0]]] mordell=True
+  p=359 triple=(120, 359, 43080) partitions=[[[1, 2], [0]]] mordell=True
+  p=383 triple=(128, 383, 49024) partitions=[[[1, 2], [0]]] mordell=True
+  p=389 triple=(130, 389, 50570) partitions=[[[1, 2], [0]]] mordell=True
+primes p=2 mod 3 in range: 39; primes with a survivor: 39; equal: True
+NON-MORDELL SURVIVORS (would kill Theorem G arithmetic): 0
