@@ -189,7 +189,7 @@ PSL₂(𝔽_ℓ) CAN act with such a signature** — e.g. PSL₂(𝔽₁₉) is 
 of orders 2, 5 with xy of order 10, signature (2, 5, 10), Σ = 4/5, genus 343 (certified by exhaustive multiplication
 in the review). Moreover non-abelian groups can realise Type I signatures, which no abelian group can: PSL₂(𝔽₄₁)
 with x = [[0,1],[40,0]], y = [[0,6],[34,17]] has signature (2, 4, 20), Σ = 4/5, genus 3445, and 20 ∤ lcm(2, 4)
-(second review pass). So the *signature* of a general action with |G|(p − 4) = p(2g − 2) is an ES triple of Type I
+(second review pass; both examples re-verified by `scripts/z66_hstarf_psl2.py`: orders and full generation by BFS). So the *signature* of a general action with |G|(p − 4) = p(2g − 2) is an ES triple of Type I
 or II; it is Type II (and then cyclically realisable) exactly when the action is abelian (Theorem 2.2). The
 existence question is in every case the Diophantine one; Dickson's classification of subgroups is never needed.
 (Outlook, not pursued: a non-abelian realisation problem — e.g. groups ℤ_p ⋊ A or PSL₂(𝔽_ℓ) with ℓ ≡ ±1 (mod p) —
