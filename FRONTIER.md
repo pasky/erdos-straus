@@ -2569,6 +2569,30 @@ cross-review, fixes applied, not re-reviewed; internal, unrefereed).**
   < 10⁹; (S)(p) ⟹ ES(p). Missing lemma: a p-uniform relation in H₁(Γ₀(p); F₂) linking generic length-3 loops to classes
   of computable χ. Narrowed, no lead.
 
+**z64 (conjecture (S), equivalent statements in other fields, unprovability; reviews by a separate Opus instance because
+the OpenAI quota was exhausted — weaker than the usual cross-model check; all ACCEPT-WITH-FIXES, fixes applied; internal).**
+* **Unprovability (`Z64_UNPROV.md`; strengthened, logic).** PROVED (relative to Berarducci–Otero, JSL 61 (1996), and
+  Elsholtz–Tao Prop 1.6): for every primitive residue class r mod q that is a unit square mod q, *normal open induction*
+  (even with gcds, irreducible divisors, and all true universal ring sentences about ℤ) does not prove "ES holds at every
+  prime ≡ r (mod q)". With Mordell's identities this decides open-induction provability class by class mod 840: IOpen
+  proves ES on every class outside 𝔐, and on no class in 𝔐 (also IOpen ⊬ (MS)). The model's counterexamples are
+  non-standard primes whose profinite residue is a square-mimicking unit (T1 imported into the model). Reading: any proof of
+  ES must use a principle false in these models (e.g. Bezout-level divisor arithmetic, counting, reciprocity for
+  non-standard moduli). PA/ZFC independence of ES (a Π⁰₁ sentence) is not a realistic target (Assessment).
+* **Conjecture (S) (`Z64_SDEEP.md`, Opus; `Z64_SDEEPF.md`, Fable).** No proof. SDEEP: adversarial census of 19 179
+  inputs up to 9·10¹³ (many composites, near-squares, n ≡ 1 mod lcm(1..23)) — 0 failures (CERTIFIED); non-abelian
+  parity laws tested and dead by pre-registered kills. SDEEPF (rediscovering DEDEKIND_ES Thm 4.5 in a compact form:
+  (A/n) = −1 ⟺ 8 | (n+t)(n+u+v)): explicit words prove (S) for n ≡ 5 (8), n ≡ 2 (3), n ≡ 3 (9); a Mordell-type
+  covering proves (S) for all non-square n ≡ 1 (4) outside 28 classes mod 840 (the 24 classes containing odd squares,
+  which no finite covering can remove, plus four with n ≡ 6 (7)); exceptional set ≪_B x(log x)^{−B} (given a standard
+  sieve bound). (S) remains the cleanest open target: sign-only, no known exception.
+* **Equivalent statements in other fields (`Z64_EQUIV.md`).** Ten proved equivalences across fields (numerical
+  semigroups, stacky curves, Riemann surfaces/orbifold automorphisms, singularities, pretzel links/Seifert manifolds, lens
+  spaces and definite fillings, Lorenzini's critical groups, SL₂/Farey), each screened; their native existence tools do
+  not apply at a single prime. One new precedent class missed by Z63: prime-degree Hurwitz realisability (Edmonds–Kulkarni–
+  Stong 1984; claimed by Song–Wen–Zhang arXiv:2609.20572, unrefereed) — prime/composite shape like ES, proved by
+  construction in characteristic p and lifting; does not transfer (Lemma H, CONDITIONAL on that claim).
+
 ## 8. Pointers into the repository
 
 * **Start:** `STATUS.md` (wave headlines, newest first; ES-not-solved banner), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
