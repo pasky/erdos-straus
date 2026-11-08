@@ -39,6 +39,7 @@ waves.** Spend remaining quota only on a *genuinely new* mechanism for forcing a
 FRONTIER §3, §6). Current cleanest targets: (MS-U₇) and (MS⁺₁₀₅) (`Z60_SUMMARY.md` §5).
 
 ## Cross-model reviews owed (Astra unavailable: quota, then expired Codex auth token, 2026-11-08)
-Reviewed only by a separate Opus instance (or Opus internal review): `Z64_UNPROV.md`, `Z64_SDEEP.md`, `Z64_SDEEPF.md`,
+Reviewed only by a separate Opus instance (or Opus internal review): `Z64_SDEEP.md`, `Z64_SDEEPF.md`,
 `Z64_EQUIV.md`, `Z65_LIFT.md`; `Z65_LOGIC2.md` (Opus internal review only). Run Astra `xreview_z58.md`-style reviews
-on these when available — priority: Z64_UNPROV + Z65_LOGIC2 (new logic theorems).
+on these when available — priority: Z65_LOGIC2 (new logic theorems).
+Done (Astra retro review, fixes applied): `Z64_UNPROV.md`.

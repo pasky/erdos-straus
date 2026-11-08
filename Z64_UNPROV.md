@@ -22,7 +22,7 @@ This lane proves *non-provability* theorems, not positivity. The table records h
 
 | screen | behaviour |
 |---|---|
-| **F1 odd squares** | The mechanism *is* F1. The unprovability theorem (Thm A) is T1 (ET Prop 1.6 / Z57_SYNTH Lemma A.1(b)) imported into a model: any hypothetical ES solution at the model prime specialises to a Type I/II solution at an odd square ℓ². So the result covers exactly the residue classes that contain unit squares, and Thm B shows that the remaining classes mod 840 are IOpen-provable. Reading: a proof of ES must use, at an identifiable step, a principle false in the model M_{q*}. Candidates are Bezout-level divisor arithmetic, counting, or reciprocity for non-standard moduli. Open induction, normality, gcds, residue information, "every element has an irreducible divisor" and all true universal ring facts about ℤ (§§2.6–2.8) are not enough. |
+| **F1 odd squares** | The mechanism *is* F1. The unprovability theorem (Thm A) is T1 (ET Prop 1.6 / Z57_SYNTH Lemma A.1(b)) imported into a model: any hypothetical ES solution at the model prime specialises to a Type I/II solution at an odd square ℓ². So the result covers exactly the residue classes that contain unit squares, and Thm B shows that the remaining classes mod 840 are IOpen-provable. Reading: a proof of ES at the primes of a unit-square class must use some principle false in the model M_{q*} (the theorem does not single out which). Candidates are Bezout-level divisor arithmetic, counting, or reciprocity for non-standard moduli. Open induction, normality, gcds, residue information, "every element has an irreducible divisor" and all true universal ring facts about ℤ (§§2.6–2.8) are not enough. |
 | **F2 C-even sub-line** | Thm A transfers verbatim to R₈ and every (★)-sub-line, since R₈(m²) ≤ R(m²) = 0. Nothing here distinguishes C odd from C even. Nothing here is falsified by F2 either: no positivity is claimed. |
 | **F3 composites** | The model counterexamples are *primes* of the model (proved directly in (F1), §2.2). For (MS★) primality is not even used (§2.5): every polynomial generator γ (§2.5 Remark) with positive leading coefficient and square-mimicking residue fails, provided the other generators of the system have ϕ(γ_j) ∈ Ẑ (the Remark's condition (2)). This is consistent with F3: by `Z58_LOGIC` Thm 6.2, composite-shaped counterexamples already exist in Shepherdson's model. |
 | **F4 known zeros** | The counterexamples sit over profinite square points, not over the 14 (★)-zero primes. No positivity is claimed, so F4 cannot falsify anything here. A proof of ES in a stronger theory is not touched. |
@@ -302,8 +302,9 @@ with all X_j ∈ ℚ[β₁..β_K].
 * (Assessment) So a proof cannot get by on true universal *ring* facts about ℤ alone. It must use existence principles
   (a divisor or solution some axiom forces to exist, applied to non-standard data: Bezout coefficients, least-number
   principles, counting), or ordered/ℕ-Diophantine facts beyond Th_∀(ℤ). This sharpens the §5 list.
-* *Prior art.* The argument is the standard "f.g. subrings embed in ℤ" one (models of the universal theory are the
-  subrings of ultrapowers of ℤ), and A″ is plausibly folklore for BO-type models. Related: Otero, *On Diophantine equations
+* *Prior art.* The argument is the standard discrimination one: any finite set of nonzero elements can simultaneously
+  be kept nonzero by a homomorphism to ℤ (finitely generated subrings themselves need **not** embed in ℤ: ℤ[β₁] does
+  not, as β₁ is transcendental; models of the universal theory are the subrings of ultrapowers of ℤ), and A″ is plausibly folklore for BO-type models. Related: Otero, *On Diophantine equations
   solvable in models of open induction*, JSL 55 (1990) 779–786 (BO's [Ot1]); method-adjacent prior art: Otero,
   *Quadratic forms in normal open induction*, JSL 58 (1993) 456–476 (NOI embeddings for x² + by² = a via
   parametrisations). BO's [Ot2] is a different paper (*The joint embedding property in NOI*, APAL 60 (1993) 275–290).
@@ -311,10 +312,19 @@ with all X_j ∈ ℚ[β₁..β_K].
 
 ## 3. Theorem B: what IOpen does prove
 
-**Theorem B (PROVED; elementary).** If a primitive class r mod q is solvable by polynomials, with P₁, P₂, P₃ positive
-on the whole real interval [1, ∞) (this is what the 840 certificate checks), then IOpen ⊢ ES[r mod q]. (Without the positivity proviso: IOpen ⊢ ∀n ≥ N₀ (Cl_{r,q}(n) →
-ES(n)) for a numeral N₀. The finitely many standard n < N₀ of the class are settled by exhibiting witnesses, which
-exist since ES is verified to 10¹⁷ (or by direct check).)
+**Theorem B (PROVED; elementary).** If a primitive class r mod q is solvable by polynomials, then IOpen ⊢ ES[r mod q].
+No positivity proviso and no finite check of small n is needed, by the following lemma.
+
+*Lemma B.0 (PROVED; Astra retro review).* If P₁, P₂, P₃ ∈ ℚ[n] witness solvability by polynomials of r mod q, then
+(i) each P_i(t) > 0 for **all** real t > 0, and (ii) each k ↦ P_i(qk + r) is integer-valued on all of ℤ.
+*Proof.* (i) Each P_i is a nonzero polynomial taking positive values at infinitely many large integers, so it is
+eventually positive. For ε > 0 apply Lemma 2.4 to F_i(s) := P_i(ε + s), N(s) := ε + s on I = ℝ: N > 0 on [0, ∞) and
+4F₁F₂F₃ = N(F₁F₂ + F₂F₃ + F₃F₁) identically. So P_i > 0 on [ε, ∞) for every ε > 0. (ii) Q_i(k) := P_i(qk + r) takes
+integer values at all large k, in particular at deg + 1 consecutive integers; by finite differences its Newton
+coefficients are integers, so it is integer-valued on ℤ. ∎
+(The earlier version of this theorem assumed real positivity on [1, ∞) and otherwise appealed to a finite check of
+n < N₀ "since ES is verified to 10¹⁷"; no bound N₀ ≤ 10¹⁷ was supplied, so that fallback was unjustified. Lemma B.0
+makes it unnecessary.)
 
 *Proof.* Work in a model M ⊨ OI and let n ∈ M, n ≥ 1, n = qk + r.
 * *Integer values.* Q_i(k) := P_i(qk + r) is integer-valued on ℤ, so Q_i = Σ_j c_{ij} C(k, j) with c_{ij} ∈ ℤ (Newton
@@ -323,10 +333,9 @@ exist since ES is verified to 10¹⁷ (or by direct check).)
   y := Q₂(k), z := Q₃(k) ∈ M.
 * *The identity.* (N!)³·(4Q₁Q₂Q₃ − (qk + r)(Q₁Q₂ + Q₂Q₃ + Q₃Q₁)), with N ≥ deg, is a polynomial in the falling factorials
   with integer coefficients that vanishes in ℤ[k]. So it vanishes in M, and M is torsion-free.
-* *Positivity.* By hypothesis "∀ real t ≥ 1: P_i(t) > 0" holds in ℝ. It is a first-order sentence with rational
-  parameters, so it holds in every real closed field (Tarski), in particular in RC(M) ⊇ M. So x, y, z ≥ 1 in the discrete
-  ring M. (If one only knows positivity at the integers of the class, split the argument. For non-standard n, transfer
-  "∀t ≥ T₀: P_i(t) > 0" with a standard rational T₀ beyond the real roots. For standard n, use the hypothesis directly.) ∎
+* *Positivity.* By Lemma B.0(i), "∀ real t > 0: P_i(t) > 0" holds in ℝ. It is a first-order sentence with rational
+  parameters, so it holds in every real closed field (Tarski), in particular in RC(M) ⊇ M. Since n ≥ 1 > 0, x, y, z > 0,
+  hence ≥ 1 in the discrete ring M. ∎
 
 **Corollary C (the mod-840 dichotomy; PROVED + CERTIFIED).**
 * (a) For every r mod 840 with r ∉ 𝔐, IOpen ⊢ ES[r mod 840] (all n ≥ 2 of the class, prime or not).
@@ -373,8 +382,10 @@ recursively axiomatised theory and S ⊇ IΣ₁ a metatheory. Write ES_b for the
   S is not a subtheory of T (T ⊬ Con(T)). Any metatheory proving "PA ⊬ ES" proves Con(PA).
 * (e) PA ⊬ ES iff some model of PA contains an n ≥ 2 with no x, y, z ≤ 2n⁴ in the model solving 4/n (completeness,
   using (a)). If ES holds in ℕ, such an n must be non-standard.
-So "ES is independent of PA" is a strictly stronger target than "ES is true": it needs a proof of ES (in S ⊋ PA) *and*
-a proof that no PA-proof exists.
+So a proof in S that "ES is independent of PA" (PA ⊬ ES *and* PA ⊬ ¬ES) yields S ⊢ ES by (c) and S ⊢ Con(PA) by (d);
+under the stated incompleteness assumptions S is then not a subtheory of PA (S need not *contain* PA). Note the
+asymmetry: (c) concerns T ⊬ ¬ES. A proof of the one-sided statement "T ⊬ ES" alone yields Con(T) by (d) but **not**
+ES: if ES were false, Con(T) plus the finite counterexample would itself prove T ⊬ ES.
 
 **What is known about independence of natural Π₁ sentences (literature; see `data/z64/unprov/lit_independence.md`).**
 * *Consistency statements and machines.* Con(T) and Gödel sentences are Π₁. O'Rear's 748-state Turing machine halts iff
@@ -396,14 +407,15 @@ a proof that no PA-proof exists.
 * Every verified independent Π₁ sentence above encodes consistency or a proof predicate. We know of no route by which
   a sentence like ES could imply Con(PA) or any other statement unprovable in PA.
 * The heuristic picture (≍ log²p expected certificates per prime; FRONTIER §1) also points the other way.
-* So **"PA ⊬ ES" or "ZFC ⊬ ES" is not a realistic research target.** It is at least as hard as proving ES ((c)), and
-  no mechanism for it is visible.
+* So **independence of ES from PA or ZFC is not a realistic research target.** A proof of it contains a proof of ES
+  ((c)) and of Con(T) ((d)), and no mechanism for it is visible. The one-sided "PA ⊬ ES" / "ZFC ⊬ ES" does not by
+  itself contain a proof of ES, but it does contain a proof of Con(T) ((d)); no mechanism for it is visible either.
 
 ## 5. Weak theories: the ladder
 
 | theory | ES[classes solvable by polynomials] (incl. all r ∉ 𝔐 mod 840) | ES_prime[unit-square classes] | status / pointer |
 |---|---|---|---|
-| Q (Robinson) | each true instance ES(n̄) provable (Σ₁-completeness) | each instance provable | no induction; uniform statements not considered |
+| Q (Robinson) | each true instance ES(n̄) provable (Σ₁-completeness) | each true instance provable | no induction; uniform statements not considered |
 | IOpen = OI | **provable** for every class solvable by polynomials, in particular all r ∉ 𝔐 mod 840 | **unprovable** | Thm B, Cor C; Thm A |
 | NOI (+ PD, cofinal primes) | provable | **unprovable** | Thm A, §2.5 Remark, §2.6 |
 | NOI + GCD (+ PD) | provable | **unprovable** | Thm A′ |
@@ -446,7 +458,8 @@ witness bound is x, y, z ≤ 2n⁴ (Prop 4.1(a)). ∎
 
 ## 6. Barrier reading
 
-**6.1 What Theorem A rules out (Assessment, made precise by the theorem).** NOI + GCD proves everything that follows
+**6.1 What Theorems A, A′ rule out (Assessment, made precise by the theorems).** NOI + GCD + PD (Thm A′; PD is an
+extra axiom there, not derived from NOI + GCD) proves everything that follows
 from the following tools, applied a fixed finite number of times:
 * ring identities with rational coefficients (division by standard integers);
 * Euclidean division by arbitrary, also non-standard, elements;
@@ -484,18 +497,23 @@ too: at the largest zero, 4abd = ne + 1 ≥ 1 forces a, b, d > 0, and then ce = 
 *Proof of the GCD step.* With x = ndx′, y = dy′, z = dz′ and gcd(x′, y′, z′) = 1, the relation 4dx′y′z′ = y′z′ + nx′y′ +
 nx′z′ gives x′ | y′z′, y′ | x′z′, z′ | x′y′, using gcd(y′, n) = gcd(z′, n) = 1, which holds since n is prime and n ∤ y′, z′.
 In a GCD domain, gcd(a, bc) | gcd(a, b)gcd(a, c), and coprime divisors multiply. So x′ = ab, y′ = ac, z′ = bc up to
-units, with a = gcd(x′, y′), b = gcd(x′, z′), c = gcd(y′, z′). The rest is ET's algebra. ∎ (The Type II analogue in a
-GCD domain is a sketch: the same steps with x = dx′, y = ndy′, z = ndz′ and ET Prop 2.6's algebra, not written out.)
+units, with a = gcd(x′, y′), b = gcd(x′, z′), c = gcd(y′, z′). The rest is ET's algebra. ∎ *Type II in a GCD domain (completed
+in the Astra retro review).* Take d = gcd(X, Y/n, Z/n), write the primitive triple as ab, ac, bc and cancel to get
+4abcd = nc + a + b. Then c | a + b, e := (a + b)/c > 0 and 4abd = n + e. This uses GCD-domain Euclid only, not unique
+factorisation; at the integer endpoint the descent above removes gcd(ab, m) > 1. (Without GCD, irreducibility is not
+identified with ring-primality; the endpoint coprimality hypothesis supplies the needed split.)
 
-*Reading.* The arc criterion says what a counter-model for a stronger theory needs: finitely generated pieces that are
-"free enough" to have integer points at odd squares, connected analytically to the order at infinity. A theory
-proves ES on square classes only if its axioms force Diophantine relations among the finitely many elements involved,
-and these relations must have **no** integer points at odd squares.
+*Reading (Assessment, heuristic).* The arc criterion is a **sufficient** condition for a counter-model of a stronger
+theory: finitely generated pieces that are "free enough" to have integer points at odd squares, connected analytically
+to the order at infinity. It is not shown to be necessary: an axiom system can defeat the arc construction without
+its forced relations lacking integer points at odd squares, so failure of the criterion does not by itself mean
+anything about such integer points. Heuristically, axioms whose forced Diophantine relations do have integer points at
+odd squares are not obstructions of the arc type.
 * Bezout identities ug + vh = 1, two-square representations n = a² + b², and Fermat-type relations all have integer
   points at suitable odd squares. Heuristically, then, they do not obstruct arcs. Note (PROVED) that M_ϕ itself violates the
   two-squares principle TS ("every prime ≡ 1 (mod 4) is a sum of two squares"): in ℚ[β], a² + b² with a, b
   nonconstant has even degree ≥ 2, since the top forms cannot cancel over ℝ, so a² + b² = β₁ is impossible. So TS is
-  another principle a proof could use. The arc criterion suggests it is not the decisive one.
+  another principle a proof could use (heuristically not of the arc-obstructing type; not a proved statement).
 * The ES/Type I/II relations have none, by T1.
 CONJECTURE (T1 meta-principle for theories): IOpen + Bez + {every prime ≡ 1 (mod 4) is a sum of two squares} ⊬
 ES_prime[r mod q] for unit-square classes. Not proved: it needs a model construction that closes under Bezout
@@ -516,8 +534,8 @@ binary numerals that verifies multiplication tables (e.g. PV, S¹₂, Q with eff
 O(log n) bits (Prop 4.1(a)) and verify the equation by school arithmetic. So no superpolylogarithmic lower bound on
 instance proofs can hold.
 *Consequences (Assessment).*
-* The difficulty of ES is uniformity, not length. Thm A is a uniformity statement: NOI proves each ES(p̄) in poly(log p)
-  steps, but proves no single sentence covering all primes of a square class.
+* The difficulty of ES is uniformity, not length. Thm A is a uniformity statement: NOI proves each *true* instance
+  ES(p̄) (every instance only if ES holds) in poly(log p) steps, but proves no single sentence covering all primes of a square class.
 * Proof-complexity questions about ES are therefore about the *search problem*: its TFNP class (FP? PLS? PPA?). Through
   witnessing these correspond to provability in S¹₂, T¹₂, …, and they have no unconditional answers for non-black-box
   problems.
@@ -544,7 +562,8 @@ What was proved:
 * **Prop 7.1.** Instances have poly(log n) proofs; the difficulty is uniformity.
 
 What is out of reach (Assessment, with reasons):
-* "PA ⊬ ES" / "ZFC ⊬ ES": strictly harder than ES (Prop 4.1), and no mechanism is visible.
+* Independence of ES from PA/ZFC: a proof of it contains a proof of ES and of Con(T) (Prop 4.1(c),(d)); no mechanism
+  is visible. The one-sided "PA ⊬ ES" / "ZFC ⊬ ES" implies Con(T) but not ES (Prop 4.1(d)); no mechanism is visible.
 * "IΔ₀ ⊬ ES": no explicit nonstandard models; nothing comparable is known for any natural statement.
 * "S¹₂ ⊬ ES": via witnessing it needs a hardness result implying P ≠ NP.
 
@@ -552,10 +571,12 @@ What is out of reach (Assessment, with reasons):
 * *T1 squares.* Built in: Thm A *is* T1 lifted to a theory. It covers exactly the classes containing unit squares.
 * *8/131, numerator 8.* Thm A(iii) applies verbatim to R₈ and to every (★)-sub-line (subsets of R vanish at squares).
   Nothing here distinguishes C odd from C even; nothing is falsified.
-* *Tied modulus (B2).* Not addressed. Assessment: in M_ϕ the integers n + u are "generic". Their standard divisors avoid
-  the hit classes by the Jacobi mechanism, and their only non-standard divisors are the cofactors (n + u)/k, k a standard
-  divisor, whose residues are again forced by the square-mimicking ϕ. So B2 fails there. A proof of
-  B2-positivity must use a principle false in M_ϕ (§5 list).
+* *Tied modulus (B2).* Not addressed. Thm A(ii)/(iii) exclude solutions at the model prime n, so any uniform proof of
+  B2-positivity at the primes of a unit-square class (which would prove ES_prime there) must use some principle false
+  in M_ϕ (§5 list). No divisor-level explanation is claimed: the earlier statement that the only non-standard divisors
+  of n + u are cofactors (n + u)/k (k standard) holds for standard u (§2.7 Remark, u = 1) but is **false** for
+  non-standard u. With t := ⌊√n⌋ + 1 and u := t² − n > 0 (u = O(√n) < n), n + u = t² has the non-standard divisor t,
+  which is not (n + u)/k for any standard k.
 * *Fixed p.* Not applicable: no pointwise or averaged positivity is claimed.
 
 **Falsifier table (re-stated; details in §0).**
@@ -599,8 +620,10 @@ No HOT LEAD.
 * "ES is unprovable in T" remains a realistic research target only for weak T: open candidates are IOpen + Bez and IE₁
   (these theories are not comparable with NOI + GCD + PD + Th_∀(ℤ); see §5). For IOpen + Bez the arc criterion says what a
   counter-model must look like.
-* This is logic, not progress on ES. It formally certifies that any proof must use divisor-richness or counting
-  principles which the generic-prime models violate. That is B2 seen from proof theory.
+* This is logic, not progress on ES. It formally certifies that any proof of ES at the primes of a unit-square class
+  must use *some* principle false in the generic-prime models. It does not single out a mechanism: §5 lists
+  candidates (Bezout-level divisor arithmetic, quantified induction, counting/reciprocity for non-standard moduli,
+  the two-/four-squares principles, ordered/ℕ-Diophantine facts).
 
 ## 9. Open problems (precise)
 * **(O1) IOpen + Bez ⊬ ES_prime[r mod q] for unit-square r?** A Bezout model with the arc property (Prop 6.2) would
@@ -688,3 +711,18 @@ All ten required fixes were applied:
 * (9) FRONTIER text: "Rules out" names the theory; "Does NOT rule out" adds the two-/four-squares principles and the
   ordered/ℕ facts (T1).
 * (10) Prop 6.2 GCD Type II is marked as a sketch.
+
+**Cross-model retro review (Astra)** (`data/z64/xreview/REVIEW_UNPROV_ASTRA.md`; Astra `gpt-6-astra`, the genuine
+cross-model check; verdict ACCEPT-WITH-FIXES). A/A′/A″, internal primality of β₁, the T1 specialisation and Cor C were
+re-derived as correct; both certificate scripts replay byte-identically. All six required fixes applied:
+* (1) Instance truth: the §5 Q row and §7 now say "each *true* instance" (unqualified "each" would assert ES).
+* (2) Unprovability vs independence (§4, §8 "out of reach"): Prop 4.1(c) concerns T ⊬ ¬ES; independence yields ES and
+  Con(T), one-sided T ⊬ ES yields only Con(T). "S ⊋ PA" replaced by "S is not a subtheory of PA".
+* (3) §8 B2: the general "non-standard divisors of n + u are cofactors" claim is deleted (false for non-standard u:
+  n + u = t² with t = ⌊√n⌋ + 1); only the standard-u Remark of §2.7 stands.
+* (4) Thm B repaired via Lemma B.0 (Lemma 2.4 gives positivity on all t > 0; finite differences give integrality on
+  ℤ); the unjustified "finite check below N₀" fallback is removed and Thm B has no positivity proviso.
+* (5) A″ prior-art wording: discrimination of finite sets of nonzero elements, not "f.g. subrings embed in ℤ".
+* (6) Scope of necessity claims: §6.1 names NOI + GCD + PD; §6.2 Reading marks the arc criterion as sufficient only;
+  the F1 row and bottom line say "some principle false in the models", not a specified mechanism. The Prop 6.2 Type II
+  GCD step is completed from the review.
