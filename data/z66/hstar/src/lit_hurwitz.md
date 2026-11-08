@@ -41,7 +41,7 @@ No exact family found in the checked sources whose nonrealizability is **equival
 
 ## (b) Serre lifting obstruction / theta characteristics
 
-**Serre bibliography:** Jean-Pierre Serre, “Revêtements à ramification impaire et thêta-caractéristiques,” *Comptes Rendus de l’Académie des Sciences de Paris, Série I Mathématique* **311** (1990), 547–552. The original note’s full theorem text was not available among sources retrieved. **Important verified secondary source:** Michael D. Fried, “Alternating groups and moduli space lifting invariants,” *Israel Journal of Mathematics* **179** (2010), 1–42 (arXiv:math/0611591), https://arxiv.org/pdf/math/0611591 — **V** for Fried’s statements below, but **V2** for attributing the formula to Serre.
+**Serre bibliography:** Jean-Pierre Serre, “Revêtements à ramification impaire et thêta-caractéristiques,” *Comptes Rendus de l’Académie des Sciences de Paris, Série I Mathématique* **311** (1990), 547–552. The original note’s full theorem text was not available among sources retrieved. **Important verified secondary source:** Michael D. Fried, “Alternating groups and moduli space lifting invariants,” *Israel Journal of Mathematics* **179** (2010) (page range not verified; arXiv:math/0611591), https://arxiv.org/pdf/math/0611591 — **V** for Fried’s statements below, but **V2** for attributing the formula to Serre.
 
 Fried §2.3, Corollary 2.3, defines for odd-order `g∈Aₙ` `w(g)` as the sum over disjoint cycle lengths `ℓ` of `(ℓ²−1)/8 mod 2`; for a genus-zero Nielsen class of odd-order branch cycles `g=(g₁,…,gᵣ)`, the spin/lifting invariant is constant and equals `s(g)=(-1)^{Σᵢw(gᵢ)}`. Near-verbatim quote: “Generally, for any genus 0 Nielsen class of odd order elements … s(g) is constant, equal to (−1)^{Σᵢw(gᵢ)}.” For a cycle type with all ramification indices odd, this is the requested `(-1)^{Σ_cycles(e²−1)/8}` formula. Fried §6.15 / p. 36 explicitly calls this “Serre’s formula written multiplicatively” and connects it to theta characteristics. I did **not** verify the original Serre note’s precise general theta-characteristic theorem statement; exact original wording/theorem number: **NOT FOUND**.
 
@@ -49,7 +49,7 @@ Serre’s “L’invariant de Witt de la forme Tr(x²),” *Commentarii Mathemat
 
 ## (c) Fried: 3-cycles in alternating groups
 
-**Bibliography:** Michael D. Fried, “Alternating groups and moduli space lifting invariants,” *Israel Journal of Mathematics* **179** (2010), 57–125; arXiv:math/0611591 (preprint 2006). **Source read:** https://arxiv.org/pdf/math/0611591 — **V**.
+**Bibliography:** Michael D. Fried, “Alternating groups and moduli space lifting invariants,” *Israel Journal of Mathematics* **179** (2010) (page range not verified); arXiv:math/0611591 (preprint 2006). **Source read:** https://arxiv.org/pdf/math/0611591 — **V**.
 
 Write `H(Aₙ,C₃ʳ)^{in}` for inner and `H(Aₙ,C₃ʳ)^{abs}` for absolute Hurwitz spaces, with `r` branch cycles all 3-cycles. **Theorem 1.2:** for `r=n−1`, `n≥5` (genus-zero degree-`n` covers), the inner space has exactly one connected component; the inner-to-absolute map has degree 2. Quote: “For r=n−1, n≥5, H(Aₙ,C₃ⁿ⁻¹) has exactly one connected component.” The unique spin value is `(-1)^{n−1}` (Corollary 2.3 gives the genus-zero invariant).
 

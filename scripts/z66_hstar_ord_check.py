@@ -53,8 +53,10 @@ def main():
     for b in bad[:20]:
         print("   ", b)
     print(f"reps with p^2 | an entry: {psq}")
-    print("KT1:", "PASSED" if not bad and mordell == 0 and psq == 0 else "FIRED")
+    ok = not bad and mordell == 0 and psq == 0
+    print("KT1:", "PASSED" if ok else "FIRED")
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
