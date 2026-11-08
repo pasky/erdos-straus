@@ -1,0 +1,1 @@
+N=20000000 words=674224160 mismatches=0 | nonsquares with words=4997762, of which without good word=0 | squares with good word=0
