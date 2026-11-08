@@ -27,7 +27,8 @@ commit 4c2ebc54d.
    facts:
    * **Prop E.** Every abelian (in particular every cyclic, hence every Lemma-F (★)-) ES cover with bad reduction has
      *exceptional* stable reduction (σ = 1), outside the scope of Wewers's lifting theorem.
-   * **Lemma S.** No Galois closure of a degree-p cover — SWZ's object class — is an ES cover.
+   * **Lemma S.** No Galois closure of a degree-p cover, taken with its monodromy group (SWZ's object class), is an
+     ES pair.
 4. **Where ES's prime/composite (T1) information lives (§5).** In SWZ the hard, prime-sensitive part is the
    *realisation of fixed discrete data*, and the geometry sees primality there. In ES, realisation is free at every n
    (squares included) and the whole content is the *discrete datum* (the triple). Lifting theorems preserve discrete
@@ -47,9 +48,9 @@ The mechanism under test: build in characteristic p an object Ω (curve with aut
 | screen | behaviour |
 |---|---|
 | **F1 odd squares** | ES holds at m², so F1 bites only on (★)/Type II sub-statements. Every lift's signature is *read off* the char-p datum (Prop O; Theorem G's cluster count). So a (★)-certificate at m² would have to be present as input data, and none exists by T1. The geometric steps (curve, deformation datum, lifting) succeed for every triple at every n. **The mechanism is T1-blind**: it uses neither primality nor non-squareness except through "characteristic = p". The good-reduction branch produces only Mordell's identity with p = 3m − 1, which never fires at m² (squares are ≡ 0, 1 mod 3). |
-| **F2 C-even / numerator 8** | Theorem G_k (§3.4) is numerator-uniform: for k/p the good-reduction survivors are exactly the identity (m, p, pm), (k − 1)m = p + 1 (KT3: k = 8, all primes ≤ 1500, CERTIFIED; plus the spherical sporadic (2, 2, 7) at p = 7). Prop O and Lemma S are numerator-blind. Nothing distinguishes C odd from C even. |
+| **F2 C-even / numerator 8** | Theorem G_k (§3.4) is numerator-uniform: for k/p the good-reduction survivors are exactly the identity (m, p, pm), (k − 1)m = p + 1 (KT3: k = 8, all primes ≤ 1500, CERTIFIED: 38 identity triples, one per p ≡ 6 (7), plus the spherical sporadic (2, 2, 7) at p = 7, 39 survivors in all). Prop O and Lemma S are numerator-blind. Nothing distinguishes C odd from C even. |
 | **F3 composites** | The residue characteristic is prime by definition. At composite n the mechanism is undefined except through a prime factor ℓ \| n, where ES is inherited anyway. Primality enters only as "the characteristic", so it cannot see the 285 composite R-zeros, Z₇ or 4545. |
-| **F4 known zeros** | All 14 (★)-zero primes and all 𝔐 primes are ≡ 1 (mod 3) (checked from `star_prime_zeros.txt`). By Theorem G every ES certificate there has bad reduction. The good-reduction branch "proves" ES only at p ≡ 2 (3), where Mordell already does, so it proves nothing false at the zeros. The bad-reduction branch proves nothing by itself (type I). |
+| **F4 known zeros** | All 14 (★)-zero primes, all 38 𝔊*-zero primes and all 𝔐 primes are ≡ 1 (mod 12) (checked from `star_prime_zeros.txt`, `gstar_zeros.txt`). By Theorem G every ES certificate there has bad reduction. The good-reduction branch "proves" ES only at p ≡ 2 (3), where Mordell already does, so it proves nothing false at the zeros. The bad-reduction branch proves nothing by itself (type I). |
 
 **No HOT LEAD.**
 
@@ -115,8 +116,9 @@ geometrically connected curve and G ≤ Aut_{K̄}(X) finite with |G|(p − 4) = 
 reduction, then p ≡ 2 (mod 3) and X/G has signature (0; m, p, pm), m = (p + 1)/3. This is the curve form of Mordell's
 identity 4/p = 1/m + 1/p + 1/(pm).
 
-Conversely, for every prime p ≡ 2 (mod 3), p ≥ 5, such (X, G) with good reduction exist. G is cyclic of order pm, and
-the special fibre is z^m = y^p − y.
+Conversely, for every prime p ≡ 2 (mod 3), p ≥ 5, such (X, G) with good reduction exist. In the examples constructed
+below G is cyclic of order pm and the special fibre is z^m = y^p − y. Theorem G classifies *signatures*; it does not
+assert that every good-reduction ES curve is this example.
 
 *Corollary (PROVED).* For every prime p ≡ 1 (mod 12) every ES curve at p has bad reduction at p. This includes every
 prime in 𝔐 mod 840 and the 14 (★)-zero primes. So no Oort-type construction (a smooth char-p curve with automorphisms,
@@ -231,17 +233,17 @@ remaining point is a tame singleton of order prime to p.
   application to ES curves and the classification are new to the repo. Folklore-adjacent.
 
 ### 3.4 Numerator k (F2; Theorem G_k, PROVED by the same proof)
-Let k ≥ 4, p > k prime (so k/p < 1) with p ∤ k(k − 1)(k − 2), and (X, G) with X/G of signature (0; x, y, z), Σ1/· = k/p. If X has
+Let k ≥ 4, p > k prime (so k/p < 1; this already gives p ∤ k(k − 1)(k − 2)), and (X, G) with X/G of signature (0; x, y, z), Σ1/· = k/p. If X has
 potentially good reduction, then (k − 1)m = p + 1 and the signature is (m, p, pm).
 
 *Changes to G4:*
 * |W| = 3 needs k = 3.
 * The a = b ≥ 2 case gives (kp^{a−1} − 1) | (p + k), which is impossible.
-* π_1 = 1 or m = 1 need p | k − 1 or p | k − 2 respectively.
+* π_1 = 1 or m = 1 need p | k − 1 or p | k − 2 respectively, which p > k excludes.
 
 *KT3 (CERTIFIED).* `z65_lift_goodred_check.py 1500 8` → `kt3_goodred_num8_1500.txt`: 4 965 representations of 8/p;
-the survivors are the 39 triples (m, p, pm) with 7m = p + 1, plus (2, 2, 7) at p = 7 (excluded by p ∤ k − 1; it is
-spherical, Σ > 1).
+the 39 survivors are the 38 triples (m, p, pm) with 7m = p + 1 (one per prime p ≡ 6 (mod 7) in range) plus (2, 2, 7)
+at p = 7 (excluded by p > k; it is spherical, Σ > 1).
 
 ## 4. The bad-reduction branch (SWZ's engine) is order-transparent
 
@@ -275,7 +277,19 @@ characteristic 0 by Riemann existence plus residual finiteness of triangle group
 existence power for ES: it can realise a triple that is given, and the given triple is the whole content of ES(p).
 This is type I in Z64_EQUIV §5's classification, now verified for the lifting theorem itself.
 
-**Proposition E (PROVED from Obus Lemma 3.5 + Wewers Cor 1.11).** Let f be a three-point G-cover with cyclic p-Sylow,
+**Lemma P (PROVED; no p² in ES denominators).** If p ≥ 3 is prime and 4/p = 1/a + 1/b + 1/c, then p² divides none of
+a, b, c.
+
+*Proof.* Let B = max v_p ≥ 2.
+* A single term of valuation −B would make v_p(Σ) = −B ≠ −1.
+* Three terms with v_p = B give Σ ≤ 3/p² < 4/p.
+* So exactly two, say b and c, have v_p = B. Then 0 < 4/p − 1/a = 1/b + 1/c ≤ 2/p². Hence
+  p/4 < a ≤ p²/(4p − 2) = p/4 + p/(8p − 4) < p/4 + 1/4, i.e. p < 4a < p + 1. No integer qualifies. ∎
+
+(Consistent with KT1: no p² in any representation for p ≤ 1500.)
+
+**Proposition E (PROVED from Obus Lemma 3.5 + Obus Thm 3.6 (vanishing cycles for cyclic p-Sylow; for p ∥ |G| this is
+Wewers Cor 1.11)).** Let f be a three-point G-cover with cyclic p-Sylow,
 bad reduction, and m_G = 1 (for example G abelian). Then its stable reduction is exceptional. In particular, if G is
 abelian:
 * a Type II ES cover has σ_x = 1 at its tame point (exceptional case (1)), so it is not the lift of any special G-map;
@@ -283,7 +297,11 @@ abelian:
   divides ord(ab)).
 
 *Proof.*
-* The σ's are integers. σ > 0 on primitive tails and σ ≥ 2 on new tails, while the sum in Cor 1.11 is 1. So either
+* Abelian ES covers have a cyclic p-Sylow of order p, so the hypotheses hold. Let the inertia generators be
+  g₁g₂g₃ = 1 with g₁ tame (Type II). Then the p-parts satisfy g₂,_p = g₃,_p^{−1}, and the p-Sylow of the abelian
+  group ⟨g₁, g₂⟩ is ⟨g₂,_p⟩, which is cyclic. Its order is p by Lemma P.
+* The σ's are integers. σ > 0 on primitive tails and σ ≥ 2 on new tails, while the vanishing-cycle sum (Obus Thm 3.6 with
+  r = 3; Wewers Cor 1.11 when p ∥ |G|) is 1. So either
   one primitive tail has σ = 1 and there are no new tails, or there are no primitive tails and one new tail has σ = 2.
 * A Type II cover has exactly one tame point, so B_prim ≠ ∅, and the first case holds.
 * A Type I cover would have two primitive tails, with sum ≥ 2. Consistently, Harvey's lcm condition already excludes
@@ -297,12 +315,13 @@ Consistency check: the Mordell covers (m, pm, p) are the Lemma-F covers with (u,
 stable reduction is exceptional (σ_x = 1; Z̄₀ is the C_m-Kummer line branched at two points), while the curve has
 good reduction (Theorem G converse). The components over X̄₀ are rational and are contracted in the stable model of
 the curve. There is no contradiction: the two notions of good reduction differ. Wewers's lifting theorem, and hence SWZ's engine, never reaches them. The engine needs non-abelian G
-with m_G ≥ 2. For example G = PSL₂(F_q) with p ∥ |G| has m_G = 2, which forces σ_x = 1/2 and one new tail with
-σ = 3/2. Any ES triple can be realised so (Macbeath generation, V2); nothing is gained.
+with m_G ≥ 2. For example G = PSL₂(F_q) with p ∤ q and p ∥ |G| has m_G = 2. In the non-exceptional case this forces σ_x = 1/2 and
+one new tail with σ = 3/2. (For q = p, m_G = (p − 1)/2.) Any ES triple can be realised so (Macbeath generation, V2); nothing is gained.
 
 **Lemma S (PROVED; SWZ's object class is disjoint from ES curves).** Let G ≤ S_p be the monodromy group of a
-three-point degree-p cover with profiles Λ₁, Λ₂, Λ₃. Its Galois closure has signature (lcm Λ_i). It is never an ES
-curve at p.
+three-point degree-p cover with profiles Λ₁, Λ₂, Λ₃, and X its Galois closure. X/G has signature (lcm Λ_i), and the
+pair (X, G) is never an ES pair at p. (Lemma S does not address whether X is an ES curve for some larger group
+G′ ⊋ G.)
 
 *Proof.*
 * An element of S_p has order divisible by p iff it is a p-cycle.
@@ -421,7 +440,7 @@ invariants remain open (§5.3).
 discrete data. SWZ's Hurwitz theorem is such a problem, and there primality is visible inside the geometry. ES is the
 opposite: realisation is free at every n, and the whole difficulty is the discrete datum. Lifting theorems carry
 discrete data across unchanged. The one place where char p does constrain ES curves, potentially good reduction, is now
-completely classified: it is Mordell's p ≡ 2 (mod 3) identity and nothing else. So this route is dead unless someone
+classified at the level of signatures: it is Mordell's p ≡ 2 (mod 3) identity and nothing else. So this route is dead unless someone
 finds (H★), a Hurwitz-type realisation problem with p-determined data equivalent to (★). Nothing here suggests that it
 exists.
 
@@ -441,6 +460,19 @@ exists.
   generation; used only in a remark).
 
 ## 9. Review log
+* **Cross-model review** (`data/z65/xreview/REVIEW_LIFT.md`; a same-family Opus stand-in, because the Codex token had
+  expired; verdict ACCEPT-WITH-FIXES, no verdict changes). Fixed:
+  * **F1.** Prop E now cites Obus 1208.3909 Thm 3.6 (vanishing cycles for cyclic p-Sylow); Wewers Cor 1.11 is used
+    only for p ∥ |G|. Added why abelian ES covers have a cyclic p-Sylow, and a new Lemma P: no denominator of 4/p is
+    divisible by p², with proof.
+  * **F2.** The converse is worded as describing the constructed examples. "Completely classified" became "classified
+    at the level of signatures".
+  * **F3.** KT3 count corrected: 38 identity triples + (2, 2, 7) = 39 survivors.
+  * **F4.** G_k: p > k already implies p ∤ k(k − 1)(k − 2).
+  * **F5.** PSL₂ remark: p ∤ q and the non-exceptional case (m_G = (p − 1)/2 when q = p).
+  * **F6.** Lemma S is worded for the pair (X, Mon). The 38 𝔊*-zeros (all ≡ 1 mod 12) are added to the F4 row.
+
+  A genuinely cross-model review is still owed.
 * **Hostile reviewer subagent: could not run.** Six attempts (`subagent` deep mode ×3, `review` tool ×3, the last after a 10-min wait,
   2026-11-08) failed with "authentication token has expired". This is an infrastructure failure, not a skipped step.
   **An independent hostile review of this memo is still owed** (cross-model or re-run of the deep subagent).
