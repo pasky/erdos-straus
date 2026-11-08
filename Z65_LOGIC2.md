@@ -2,6 +2,8 @@
 
 Status: z65 lane LOGIC2 (brief `z52bbriefs/z65_lanes.md` §LOGIC2; common rules `z58_lanes.md`, `z53_depth.md`).
 **ES is OPEN. Nothing here proves or disproves ES, (MS), (S), or any case of them.** Internal, unrefereed.
+**Review status:** internal hostile review (Opus) done and applied; **cross-model review PENDING** (the OpenAI token
+expired, so only the Opus internal review was done).
 Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z65_logic2_*`,
 data `data/z65/logic2/`. Builds on `Z64_UNPROV.md` (cited as **U64**: Thms A, A′, A″, B; Lemmas 2.3, 2.4; §§2.6–2.8;
 Prop 6.2) and `Z58_LOGIC.md`. Literature checks: `data/z65/logic2/lit_verify.md` (made by the lane itself; the two
@@ -753,7 +755,7 @@ byte-identically and made independent checks). Verdict: **no FATAL issue, 2 MAJO
   The lane's numbers (33/121/37 with seed 2) are recorded in `landing_check.txt`.
 * **(m22)** The "shaped certificate" tautology is acknowledged in §7.
 
-A cross-model review will follow.
+Cross-model review: PENDING (OpenAI token expired; only the Opus internal review was done).
 
 **Replay** (each under `ulimit -v 4000000`, `timeout 1800`):
 ```
