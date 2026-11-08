@@ -19,7 +19,8 @@ circular.
    * Song–Wen–Zhang claim a proof (arXiv:2609.20572, Thm 1.1, Sep 2026, unrefereed). Their mechanism is
      **construction in residue characteristic p followed by lifting**. Primality enters through the regular subgroup
      C_p ≤ S_p (their Lemma 2.5).
-   * For **every** composite degree there is an explicit non-realisable datum (EKS Prop. 5.7).
+   * For **every** composite degree there is an explicit non-realisable datum (EKS Prop. 5.7; V by subagent from a
+     scan, not re-read by me).
    * Some families are realisable exactly at the degrees x² + y² (Petronio's survey, Thm 3.13). These contain all
      primes ≡ 1 (4) and fail on a density-1 set of degrees.
    Z63 also omitted classes that the repository knows elsewhere: Elkies-type sign forcing, Legendre's negative Pell,
@@ -65,6 +66,10 @@ circular.
 5. **FRONTIER §4 screens** (§6): every row inherits T1 / 8/131 / composite behaviour verbatim, so the screens bite on
    tools. All type-(I)–(III) tools fail "fixed p, non-circular". The type-(IV) candidates are those of Z63_EUCLID /
    RAYCLASS / supersingular memos, unchanged.
+6. **Single-prime push on the top rows E6/E7** (§5.1; classical theorems plus an exact check on 9.9·10⁶ words). The
+   best topological invariant of L(p, A), the Dedekind sum / Rokhlin invariant, reduces the (S) sign to fixed mod-4
+   cells of the plumbing weights. This re-derives DK Thm 4.5 and leaves the five-slice existence problem untouched.
+   Negative, as predicted.
 
 ## 1. Mandatory falsifier table (F1–F4; data `data/z58/screens/`)
 
