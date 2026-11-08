@@ -109,7 +109,7 @@ imprimitivity.
 
 ## 3. Theorem G: the good-reduction branch gives only Mordell's identity
 
-**Theorem G (PROVED, from the standard facts named in G0).** Let p ≥ 5 be a prime, p ≡ 1 (mod 4). Let K be a
+**Theorem G (PROVED, from the standard facts named in G0 and Z64_EQUIV Lemma A + Corollary, internal).** Let p ≥ 5 be a prime, p ≡ 1 (mod 4). Let K be a
 characteristic-0 field complete for a discrete valuation with residue characteristic p. Let X/K be a smooth projective
 geometrically connected curve and G ≤ Aut_{K̄}(X) finite with |G|(p − 4) = p(2g − 2). If X has potentially good
 reduction, then p ≡ 2 (mod 3) and X/G has signature (0; m, p, pm), m = (p + 1)/3. This is the curve form of Mordell's
@@ -120,7 +120,7 @@ the special fibre is z^m = y^p − y.
 
 *Corollary (PROVED).* For every prime p ≡ 1 (mod 12) every ES curve at p has bad reduction at p. This includes every
 prime in 𝔐 mod 840 and the 14 (★)-zero primes. So no Oort-type construction (a smooth char-p curve with automorphisms,
-lifted equivariantly) gives ES at any p ≡ 1 (mod 3).
+lifted equivariantly) gives ES at any p ≡ 1 (mod 12).
 
 ### 3.1 Proof
 
@@ -262,8 +262,8 @@ Sources ✔: Wewers, *Three point covers with bad reduction*, JAMS 16 (2003), ar
 * **Thm 3.** Every special G-map lifts to a three-point G-cover.
 * **Obus Lemma 3.5** (citing his Lemma 2.20/4.2 in 2012b). σ_b ∈ (1/m_G)ℤ with m_G = |N_G(P)|/|Z_G(P)|.
 
-**Proposition O (order transparency; PROVED from Lemma 1.4).** Let f̄ be a special G-map and f any lift (Wewers
-Thm 3). The signature of f is
+**Proposition O (order transparency; PROVED from Lemma 1.4).** Let p ∥ |G| (the standing hypothesis of Wewers's
+paper and of SWZ Thm 4.8), let f̄ be a special G-map and f any lift (Wewers Thm 3). The signature of f is
 * n_j = the tame index of the primitive-tail cover at x̄_j, for j ∈ B_prim;
 * p·n′_j with n′_j = the index of Z̄₀ → X̄₀ at x̄_j, for j ∈ B_wild.
 
@@ -368,8 +368,8 @@ Then char-p construction + lifting could attack realisability of 𝒟(p), as in 
     3 ≤ p − 1, and the second digits add to 3(p − 2) > p − 1. So L = 1 and fpt_p = 3/p + 1/p = **4/p**. Checked exactly for all primes 5 ≤ p < 2000
     (`scripts/z65_lift_fpt_check.py` → `data/z65/lift/fpt_check.txt`, CERTIFIED).
   * So the char-p version of "4/p is a threshold of a Brieskorn–Pham germ" holds at every prime, uniformly. Its lct
-    is 6/(p+1) ≠ 4/p. fpt does not lift (fpt ≤ lct, with equality only for p in suitable residue classes), and the
-    statement is blind to the arithmetic of ES.
+    is 6/(p+1) ≠ 4/p. fpt does not lift: fpt ≤ lct, with equality e.g. when no carrying occurs (L = ∞, for instance
+    p ≡ 1 mod lcm(a, b, c)). The statement is blind to the arithmetic of ES.
   * This illustrates in one line why char-p analogues of the dictionary rows relax away the content.
 * **E2 (stacky line P(u, B), O(p) ≅ ω ⊗ π*O(4C))** is a degree identity, valid verbatim in every characteristic.
   Char p adds nothing.
@@ -388,7 +388,10 @@ Then char-p construction + lifting could attack realisability of 𝒟(p), as in 
 
 ## 7. Verdict, proposed FRONTIER text, bottom line
 
-**Verdict: DEAD (as a construction route), with two new scoped theorems; no HOT LEAD.**
+**Verdict: DEAD (as a construction route), with two new scoped theorems; no HOT LEAD.** Scope: this is a statement
+about the two lifting branches as constructions (Theorem G, and Prop O with the pre-registered KT2 rule). It is not a
+theorem that no characteristic-p argument could bear on ES. The escape (H★) and canonical char-p objects with forced
+invariants remain open (§5.3).
 * **Strengthened (small, PROVED):**
   * Theorem G / G_k: ES curves have potentially good reduction at p only for Mordell's p ≡ 2 (3) signature;
   * Corollary: every ES curve at p ≡ 1 (12) (all of 𝔐, all (★)-zeros) has bad reduction;
@@ -438,4 +441,17 @@ exists.
   generation; used only in a remark).
 
 ## 9. Review log
-(pending: internal hostile review)
+* **Hostile reviewer subagent: could not run.** Three attempts (`subagent` deep mode ×2, `review` tool ×3,
+  2026-11-08) failed with "authentication token has expired". This is an infrastructure failure, not a skipped step.
+  **An independent hostile review of this memo is still owed** (cross-model or re-run of the deep subagent).
+* **Author's structured self-review** (`data/z65/lift/REVIEW_INTERNAL.md`, clearly labelled as such) was done in its
+  place: every step of G0–G4 and G_k re-derived; Prop O/E and Lemma S re-checked against the source texts; scripts
+  re-run. Fixes applied:
+  1. G_k needs p > k.
+  2. Prop E's consequence now separates bad reduction of the marked cover (automatic) from bad reduction of the curve
+     (Theorem G, p ≡ 1 (12)), with a consistency check on the Mordell covers.
+  3. Prop O states p ∥ |G| explicitly.
+  4. Corollary range p ≡ 1 (12) is now used consistently.
+  5. The fpt equality wording is corrected.
+  6. The verdict scope is stated: two branches as constructions, not all char-p arguments.
+  7. The Lemma A dependence is made explicit in Theorem G.
