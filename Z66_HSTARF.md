@@ -222,10 +222,111 @@ and "construct in characteristic p, then lift" does not apply to REAL(p) as it d
   (third period not coprime to n) — which is why REAL(n) carries that refinement for composite n.
 * `scripts/z66_hstarf_cyclic.py`: Harvey's criterion holds for every Type II triple, p < 3·10⁵ (785 696 triples).
 
-## §5–§8 Proof attempts
+## §5 Proof attempts (what was tried, what is PROVED, where it breaks)
 
-(to be written)
+### 5.1 A covering formulation without side conditions, and the sharp form of the obstruction
+
+**Proposition 5.1 (PROVED).** For n ≥ 5: Type II(n) ⇔ ∃ (a, d, j) ∈ ℕ³ with n ≡ −(j + 4a²d) (mod 4adj).
+Proof. N := 4a²d + n. "N ≡ −j (mod 4adj)" ⇔ j | N and N/j ≡ −1 (mod 4ad) ⇔ q := N/j is a divisor of N in the
+class −1 (mod 4ad) (and conversely j := N/q). Apply Lemma 1.2(ii). In terms of (a,b,c,d): j = (a+b)/c. ∎
+So REAL(p) says: p lies in one of the residue classes −(j + 4a²d) mod 4adj. (The c = 1 sub-family (★) is j = a + b
+with … ; the classical identities are the small moduli: (a,d,j) = (1,1,3) covers p ≡ 5 (12), (1,2,3) covers 13 (24),
+(2,1,1)… etc.) **No finite set of these classes covers all primes** (PROVED): the class 1 (mod 4adj) is never
+covered, since 1 ≡ −(j + 4a²d) would need 4adj | j + 4a²d + 1, impossible as 0 < j + 4a²d + 1 < 4adj for
+adj ≥ 2 and false for a = d = j = 1 (6 ≢ 0 mod 4); so primes ≡ 1 mod lcm(moduli) escape (Dirichlet). This is the
+Schinzel-type barrier: the proof must choose moduli of size growing with p.
+
+**Proposition 5.2 (PROVED; the obstruction in its sharpest form).** Let p ≡ 1 (mod 4) be prime and 4abcd = a + b + pc
+with gcd(a, b, c) = 1 (primitive; every solution is a multiple of a primitive one, §2). Then
+   (ab/p) = −1,   (q₁/p) = −1 for q₁ = 4acd − 1,   (jd/p) = −1 for j = (a+b)/c.
+Proof. (q₁/p): as in Theorem 3.1, −p ≡ (2a)²d (mod q₁) gives (p/q₁) = −(d/q₁) = −1 and reciprocity (p ≡ 1 mod 4)
+gives (q₁/p) = (p/q₁) = −1. (jd/p): j ≡ −p (mod 4ad) and j | p + 4a²d, j odd (j ≡ −p ≡ 3 mod 4), gcd(a, j) = 1
+(a common prime would divide a and a + b = cj, hence b, hence by the equation c — contradicting primitivity). So
+(p/j) = (−4a²d/j) = −(d/j). Write d = 2^k d', d' odd. j ≡ −p (mod 4d') and reciprocity give (d'/j) = (j/d')·
+(−1)^{(d'−1)/2} = (−p/d')(−1)^{(d'−1)/2} = (p/d'); if k ≥ 1 then 8 | 4d, j ≡ −p (mod 8) and (2/j) = (2/p).
+Hence (p/j) = −(2/p)^k (p/d'), and by reciprocity (p/j) = (j/p), (p/d') = (d'/p): (j·2^k·d'/p) = (jd/p) = −1.
+(ab/p): a + b ≡ 4abcd (mod p) gives jd = d(a+b)/c ≡ 4abd² (mod p), so (ab/p) = (jd/p) = −1. ∎
+(CERTIFIED on all 31 745 solutions with p ≤ 2·10⁴ by `scripts/z66_hstarf_jacobi.py`, no violation.)
+For n = m² all three symbols are +1, which re-proves Theorem 3.1. Consequence for any proof: it must *produce* a
+quadratic non-residue of p of a very specific shape (q₁ = 4acd − 1 dividing 4a²d + p). Burgess gives non-residues
+below p^{1/(4√e)+ε}, but nothing forces one of that shape.
+
+### 5.2 The mirror class and a formal identity
+
+For (a, d) fixed let N = 4a²d + p. Divisors q of N with q ≡ +1 (mod 4ad) satisfy (q/p) = +1, those with
+q ≡ −1 (mod 4ad) satisfy (q/p) = −1 (same computation). Hence, with R⁻(p) := #{(a,d,q): q | N, q ≡ −1 (4ad)}
+(the Type II count) and R⁺(p) := #{(a,d,q): q | N, q ≡ +1 (4ad)}:
+   R⁻(p) = ½[ (R⁺ + R⁻) − Σ_{(a,d)} Σ_{q | N_{a,d}, q ≡ ±1 (4ad)} (q/p) ].
+For a square n the character sum equals the total count and R⁻ = 0. **This identity is empty for a proof**
+(PROVED-empty): on divisors q of N_{a,d} the symbol (q/p) is a function of q mod 4d only, i.e. it merely relabels
+the two classes; there is no range of q over which a character-sum bound (Pólya–Vinogradov/Burgess) could be applied,
+because the summation is over the divisors of one integer. The mirror class corresponds (q = 4acd + 1 | 4a²d + p ⇔
+q | p − a) to the equation 4abcd + a + b = p, which has NO solution for p = 5, 13, 17, 97, … (7 primes ≤ 2·10⁴),
+so R⁺ and R⁻ are not comparable termwise either.
+
+### 5.3 Primality versus non-squareness
+
+Proposition 5.2 only uses that p is not a square (Jacobi symbols). The computation of §4 shows the Type II equation
+fails for the non-square n = 4545 = 3²·5·101, so "n ≡ 1 (mod 4), n not a square" is NOT sufficient at small n.
+`data/z66/hstarf/typeII_zero_all_1e7.txt` (scan of all n ≡ 1 (4) ≤ 10⁷, see §4 for the result) tests whether 4545 is
+the only non-square exception; if it is, the natural conjecture is "Type II(n) for every non-square n ≡ 1 (mod 4),
+n > 4545", in which case a proof should use non-squareness only (i.e. the non-triviality of the Jacobi character
+(·/n)), and primality is a red herring — for n with 9 | n the local densities are smaller (mod 9 the equation
+4abcd ≡ a + b forces constraints) which plausibly explains the single small exception.
+
+### 5.4 Why the group-theoretic tools in the brief do not bite (PROVED statements)
+
+* The automorphism group of any REAL(p)-surface is ℤ_p × A with A abelian WLOG and cyclic WLOG (Thm 2.2, Prop 2.5).
+  PSL₂(𝔽_ℓ) (any ℓ), and more generally any group without a central ℤ_p factor acting as in Lemma 2.1, is excluded
+  (Prop 3.2). Dickson's subgroup classification therefore never enters.
+* The Frobenius character formula for the number of generating triples with prescribed orders in a cyclic (or
+  abelian) group is elementary and reduces exactly to the gcd equation gcd(α,N) + gcd(β,N) + gcd(α+β,N) = 4N/p: the
+  "counting" is the Diophantine problem itself; nothing is gained.
+* Characteristic-p constructions produce the wrong genus (Prop 3.4); non-Galois pull-backs do not see the obstruction
+  (Prop 3.3), so the prime-degree Hurwitz theorem has no analogue here: realisability of REAL(p) is an arithmetic
+  (unit-fraction) condition on three integers, not a monodromy condition.
+
+### 5.5 What a proof must do (reduction, PROVED equivalence)
+
+REAL(p) ⇔ ∃ q ≡ 3 (mod 4) with p mod q ∈ S_q := {−a·c^{-1} mod q : ac | (q+1)/4} (Lemma 1.2(iii) rewritten:
+q = 4acd − 1, p c + a ≡ 0 mod q). |S_q| ≤ τ₃((q+1)/4) = q^{o(1)} and S_q ⊂ {non-residues mod q}; for prime q,
+p ∈ S_q forces (q/p) = −1. Heuristically Σ_{q ≤ Q} |S_q|/q ≍ (log Q)³, so a prime p "should" be covered by
+≍ (log p)³ moduli q ≤ p (consistent with the counts in §4: R⁻(8813281) = 64). Membership p ∈ S_q is the statement
+"q divides pc + a with ac | (q+1)/4", i.e. a divisor-in-arithmetic-progression condition on the shifted numbers
+pc + a; for c = 1 it is "p + a has a divisor ≡ −1 (mod 4a)". So REAL(p) for all p is exactly the shifted-divisor
+problem that the analytic approaches attack; the geometric packaging (superelliptic curves w^N = z^α(z−1)^β with
+N | 4p·(gcd sums)) adds no new invariant. I found no route that avoids this reduction.
+
+### 5.6 Partial results actually PROVED here (all classical in substance)
+
+For completeness, from Prop. 5.1 with small (a, d, j): REAL(p) holds for p ≡ 5 (mod 12) [(1,1,3)], p ≡ 13 (mod 24)
+[(1,2,3)], p ≡ 5 (mod 8) [(2,1,1)… precisely (a,b,c,d) = (2,1,1,(p+3)/8)], p ≡ 2 (mod 3) [(1,(p+1)/3,1,1)·… i.e.
+Y = ℙ¹], and whenever (p+1)/2 has a divisor ≡ 3 (mod 4), or p + 4 has a divisor ≡ 3 (mod 4), or p + 2 has a divisor
+≡ 7 (mod 8), or 2p + 1 = δk with δ ≡ 5, k ≡ 7 (mod 8) [the (★) family at u = 1, 2 and (a,d) = (1,1)].
+None of these reaches the residue classes p ≡ 1, 121, 169, 289, 361, 529 (mod 840) in general, as expected.
+
+## §6 Summary of the lane
+
+PROVED: a clean realisation problem REAL(p) (pull-back of a prime-to-p triangle cover along z ↦ z^p with
+2g − 2 = |A|(p − 4)) which is equivalent to the full Type II family of Erdős–Straus, hence implies ES(p); cyclic
+groups always suffice (superelliptic model); REAL fails at odd squares via a Jacobi-symbol obstruction whose sharp
+form is (ab/p) = −1 for every solution; PSL₂, characteristic-p lifting and non-Galois Hurwitz data are all shown to
+be the wrong tools; an unconditional covering formulation p ≡ −(j + 4a²d) (mod 4adj).
+CERTIFIED: Type II for all p ≡ 1 (4) ≤ 2·10⁷; the four falsifiers behave as stated; sub-families (a=1, d=1, c=1)
+each fail somewhere; composites fail only at odd squares and 4545 below 10⁶ (10⁷ scan: see §4 addendum).
+OPEN / NOT PROVED: REAL(p) for all large primes. No HOT LEAD. The honest conclusion is that every geometric or
+group-theoretic dressing of 4/p = 1/x + 1/y + 1/z with p | x, p | y collapses to the same shifted-divisor problem.
 
 ## §9 Falsifiers re-stated
 
-(to be written)
+* **F1 (odd squares):** REAL(m²) is false (Theorem 3.1, Prop. 5.2: every solution has (ab/n) = −1, impossible for
+  n = m²). Every argument in §5 either uses this Jacobi symbol explicitly or is a verbatim covering congruence
+  that squares avoid; no argument for primes is claimed that would survive at squares.
+* **F2 (C-even sub-equation fails above 10¹⁰):** REAL(p) is equivalent to the FULL family (all a, b, c, d; all
+  parities), Theorem 2.2; the C-even/c = 1 sub-families are not what REAL(p) realises.
+* **F3 (285 (★)-free composites):** the Type II equation (= REAL's arithmetic content) has solutions for all of
+  them below 10⁶ except 4545, and fails at 4545 — so no claim of a proof "for all n ≡ 1 (4)" is made, and a proof
+  for primes must fail at 4545 (and at squares) — §5.3.
+* **F4 (14 (★)-free primes ≤ 10¹⁰):** all 14 have Type II solutions with c ≥ 2 (§4), so REAL(p) holds for them.
+
+Nothing in this memo proves the Erdős–Straus conjecture or any new case of it; the conjecture remains OPEN.
