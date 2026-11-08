@@ -58,7 +58,7 @@ level does not decrease. **Result: passed.**
 * ℓ = 11, 13 die at level 1.
 * All 20 primes 17 ≤ ℓ ≤ 101 survive level 2 with mass 0.06–0.37 (out of 0.5).
 * The 10 primes 17 ≤ ℓ ≤ 53 survive level 3, and ℓ = 17, 19, 23 survive level 4.
-* The caught mass per level drops roughly tenfold per odd level (§3).
+* The mass of the level-k event set, and the new loss of surviving mass, drop quickly with k (§3).
 * Theorem T then made the route a proof for large ℓ.
 
 ## 1. Precise statements
@@ -69,7 +69,7 @@ level does not decrease. **Result: passed.**
 * **Q_U (brief).** Is U = (Ẑ^×)²? Equivalently (Thm D) is every non-square primitive class eventually covered by
   identities?
 * **Theorem T (proved in §4).** For all sufficiently large primes ℓ, the Haar measure μ_ℓ of
-  {g ∈ ℤ_ℓ^× : e_{ℓ,g} ∉ U} tends to 0. In particular e_{ℓ,g} ∈ U for non-squares g, so U ⊋ (Ẑ^×)².
+  {g ∈ ℤ_ℓ^× : e_{ℓ,g} ∉ U} tends to 0. In particular e_{ℓ,g} ∈ U for most non-squares g, so U ⊋ (Ẑ^×)².
 * **K-question (brief).** Does K := {n ≡ 1 (840), (n/11) = −1} meet U?
 
 ## 2. Lemma 1 (reduction to three event equations; PROVED)
@@ -78,7 +78,8 @@ Let ℓ be an odd prime, k ≥ 1, N := ℓ^k. Call **generators of level k** the
 pure (E/D) and (A) below, and let E_k^{red}(ℓ) be their set.
 * (a) Every generator cylinder {g ≡ ρ mod ℓ^k} is the catch set of a family class whose modulus has ℓ-valuation k.
 * (b) Conversely, the catch set {g : e_{ℓ,g} ∈ class} of every family class whose modulus has ℓ-valuation k ≥ 1 is
-  contained in a generator cylinder of some level ≤ k. Mixed I-4/II-1 classes are exactly where the level drops.
+  contained in a generator cylinder of some level ≤ k. The level drops only for the mixed I-4/II-1 classes; I-2, I-3
+  and II-3 map to generators of the same level or catch nothing (§2.1).
 
 Hence {g : e_{ℓ,g} ∉ U} = ∪_k ∪_{ρ ∈ E_k^{red}} (ρ + ℓ^kℤ_ℓ). The generators are produced by:
 * **(F)** a, c, d ≥ 1, ℓ ∤ acd, 4acd − 1 = N f′, ℓ ∤ f′, f′ | a + c:  ρ = −a/c (mod N).
@@ -455,6 +456,6 @@ uv run python scripts/z66_ucover_tree.py 17 4                            # = tre
 uv run --with sympy python scripts/z66_ucover_kbrute.py 1000000 3 2 1    # = kbrute_1e6.txt (K-question)
 uv run --with sympy python scripts/z66_ucover_sbrute.py 17 30000 30000   # = sbrute_17_3e4.txt (also 11, 13 at 1e5)
 uv run --with mpmath python scripts/z66_ucover_stree.py 11 6 11          # = stree_certified_small.txt, block ell=11
-uv run --with mpmath python scripts/z66_ucover_stree.py 17 4 9           # = stree_certified.txt, block ell=17
+uv run --with mpmath python scripts/z66_ucover_stree.py 17 5 9           # = stree_certified.txt, block ell=17
 uv run --with mpmath python scripts/z66_ucover_sbound.py 100000          # Theorem S(b): 0.3655 < 1/2
 ```
