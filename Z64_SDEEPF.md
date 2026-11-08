@@ -109,3 +109,69 @@ has a good word (data/z64/sdeepf/crit8_2e7.txt).
 t, u, v ≥ 2 and 8 | (m² + t)·tuv — e.g. none with 4 | t, none with 4 | u, none with t ≡ 3 (4) and u even.
 (Jacobi symbols modulo m² are +1.) This is where non-squareness enters any use of Theorem 2.1: for a
 non-square n the character (·/n) is non-trivial, and (S) asks for a word in the GOOD classes.
+
+## §3 Proved cases of (S) and the families that are always good
+
+**Theorem 3.1 (PROVED).** (S) holds for every n ≡ 1 (mod 4) with n ≡ 5 (mod 8) or n ≡ 2 (mod 3).
+Explicitly:
+* (a) n ≡ 5 (mod 8), n ≥ 13: (t, u, v) = (3, 3, (n+3)/8) is a word (9(n+3)/8 − 3 − (n+3)/8 = n) with
+  A = 8, and (8/n) = (2/n)³ = (2/n) = −1 because n ≡ 5 (mod 8). (n = 5 has no word at all.)
+* (b) n ≡ 2 (mod 3) (so n ≡ 5 mod 12), n ≥ 17: (t, u, v) = ((n+7)/12, 4, 3) is a word
+  (12t − 7 = n) with A = 4t − 1 = (n+4)/3. Here A ≡ 3 (mod 4) (n + 4 ≡ 9 mod 12) and A | n + 4, so
+  (A/n) = (n/A) = (−4/A) = (−1/A) = −1. (n = 5: t = 1, not a word; vacuous.)
+Both witnesses are direct; neither needs Theorem 2.1, and neither uses primality (F3) — (a) uses only
+n ≡ 5 (8), which already excludes squares (F1); (b) uses n ≡ 2 (3), which excludes squares too.
+So (S) is open only for **n ≡ 1 or 9 (mod 24)**.
+
+**Proposition 3.2 (the "4 | u" family is always good; PROVED).** Let u ≡ 0 (mod 4), v ≡ 3 (mod 4), and
+n ≡ −(u+v) (mod uv) with n ≥ 2uv − u − v. Then t := (n+u+v)/(uv) ≥ 2 is an integer, (t, u, v) is a
+word, and (A/n) = −1 for A = tu − 1.
+*Proof.* Integrality and t ≥ 2 are the hypotheses. A ≡ −1 (mod u), so 4 | A + 1, A ≡ 3 (mod 4), and
+A | n + u (Lemma 1.1(b)), hence (A/n) = (n/A) = (−u/A) = (−1/A)(u/A) = −(u/A). Write u = 2^k u', k ≥ 2:
+(u'/A) = (−1)^{((u'−1)/2)((A+1)/2)} = 1 since (A+1)/2 is even; (2/A)^k = 1 since either k is even or
+k ≥ 3 and then A ≡ −1 (mod 8). So (A/n) = −1. ∎
+(The parity v ≡ 3 (4) is forced: n ≡ −u − v ≡ −v (mod 4) must be 1.) Equivalent "divisor" form:
+*if n + u (u ≡ 0 mod 4) has a divisor A ≡ −1 (mod u) with 2u − 1 ≤ A ≤ (n+u)/2, (S) holds for n.*
+By the symmetry u ↔ v the same holds with the roles of u and v exchanged, and by Theorem 2.1 the same
+is true for the "4 | t" family: any factorisation tn + 1 = AB, A ≡ B ≡ −1 (mod t), A, B ≥ 2t − 1, with
+4 | t gives a good word.
+
+**Proposition 3.3 (prime-factor criteria for n ≡ 1 mod 8; PROVED).** Let n ≡ 1 (mod 8) be a non-square.
+(S) holds for n as soon as one of the following happens:
+1. n + 4 has a prime factor q ≡ 3 (mod 4), q ≥ 7. [word ((q+1)/4, 4, (n+4)/q); Prop. 3.2; q ≠ n+4 since
+   n + 4 ≡ 1 mod 4.]
+2. 4n + 1 has a prime factor q ≡ 3 (mod 4), q ≥ 7, with 4n + 1 ≠ 3q. [t = 4, A = q, B = (4n+1)/q ≡ 3 (4),
+   B ≥ 7; Theorem 2.1 row t ≡ 0 (4), or directly (q/n) = (n/q) = (−4^{-1}/q) = (−1/q) = −1.]
+3. n + 2 has a prime factor q ≡ 5 or 7 (mod 8), q ≠ n + 2. [u = 2, A = q, t = (q+1)/2, v = (n+2)/q ≥ 3;
+   (q/n) = (n/q) = (−2/q) = −1.]
+4. 2n + 1 has a prime factor q ≡ 5 or 7 (mod 8), q ≠ 2n + 1. [t = 2, A = q, B = (2n+1)/q ≥ 3; same symbol.]
+5. n + 3 has a prime factor q ≡ 2 (mod 3), q ≥ 5. [u = 3, A = q, t = (q+1)/3, v = (n+3)/q ≥ 4 (4 | n+3);
+   (q/n) = (n/q) = (−3/q) = −1.]
+6. 3n + 1 has a prime factor q ≡ 2 (mod 3), q ≥ 5. [t = 3, A = q, B = (3n+1)/q is even and ≡ 2 (3),
+   so B ≥ 8; (q/n) = (n/q) = (−3^{-1}/q) = (−3/q) = −1.]
+7. More generally, for any k ≥ 1: n + 4k has a prime factor q ≡ −1 (mod 4k) with 8k − 1 ≤ q < n + 4k
+   [Prop. 3.2 with u = 4k, A = q]; or 4kn + 1 has a prime factor q ≡ −1 (mod 4k) with
+   8k − 1 ≤ q ≤ (4kn+1)/(8k−1) [t = 4k, Theorem 2.1].
+*Proof.* Each bracket exhibits a word (check t, u, v ≥ 2 as indicated) and evaluates its symbol by
+Lemma 1.1(e) (n ≡ −u (mod A), resp. tn ≡ −1 (mod A)) and the supplementary laws. ∎
+
+**Remark 3.4 (how the (S)-hypothesis "n has a word" is met).** Every n ≡ 1 (mod 6), n ≥ 7, has the word
+((n+5)/6, 3, 2) and every n ≡ 5 (mod 12), n ≥ 17, has ((n+7)/12, 4, 3); so every prime p ≡ 1 (mod 4),
+p > 5, has a word (the brief's parenthetical claim). Composites can be wordless: n = 105 is the only
+non-square n ≡ 1 (4), n ≤ 2·10⁷, n ≠ 5 without a word (data/z64/sdeepf/crit8_2e7.txt and the
+flags file). Note ((n+5)/6, 3, 2) for n ≡ 1 (mod 24) has t ≡ 1 (mod 4), u ≡ 3, v ≡ 2: it is a BAD word
+(table row t ≡ 1: needs u or v ≡ 0 mod 4). So for n ≡ 1 (mod 24) the guaranteed word is useless.
+
+**Proposition 3.5 (no finite covering; PROVED).** (i) Fix a finite set F of pairs (u, v). Let
+M = 8·lcm{uv : (u,v) ∈ F}·6. Every non-square n ≡ 1 (mod M), n ≥ 7, has a word, but none of its words
+with (u, v) ∈ F (or (v, u) ∈ F) is good. (ii) Fix A₀. Let M = 4·lcm(1, …, A₀)·6. Every non-square
+n ≡ 1 (mod M) has a word, but no word of n with denominator A ≤ A₀ is good.
+*Proof.* n ≡ 1 (mod 6) gives the word of Remark 3.4. (i) For (u,v) ∈ F the word (t,u,v) of n exists iff
+uv | n + u + v, and then t ≡ (1 + u + v)/(uv)·… — more precisely t mod 8 is determined by n mod 8uv,
+and so is the truth of 8 | (n+t)(n+u+v). Pick an odd square s² ≡ 1 ≡ n (mod 8uv) with s large; then
+s² has the word (t', u, v) with t' ≡ t (mod 8), and by Corollary 2.2 8 ∤ (s² + t')(s² + u + v), hence
+8 ∤ (n + t)(n + u + v): the word is bad by Theorem 2.1. (ii) For a word with denominator A ≤ A₀,
+(A/n) as a function of odd n > 0 is periodic mod 4A | M (Kronecker symbol), so (A/n) = (A/1) = 1. ∎
+Consequently any proof of (S) must use words with unbounded denominators A and unbounded (u, v)
+(the classical Schinzel-type obstruction for Erdős–Straus, here in the Jacobi language). Words at a
+*fixed level t* (factorisations of tn + 1) are not residue-class objects and escape this remark.
