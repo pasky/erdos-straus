@@ -1,0 +1,34 @@
+# trials per (Y, D) = 200, seed 6565
+b1                   D=   840 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1                   D=  4680 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1                   D=   816 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1                   D=  9240 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1+b2                D=   840 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1+b2                D=  4680 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1+b2                D=   816 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1+b2                D=  9240 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+n+b1                 D=   840 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+n+b1                 D=  4680 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+n+b1                 D=   816 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+n+b1                 D=  9240 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+(b1+1)n+5            D=   840 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+(b1+1)n+5            D=  4680 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+(b1+1)n+5            D=   816 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+(b1+1)n+5            D=  9240 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1^2-b2^2+7b1b2-3    D=   840 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1^2-b2^2+7b1b2-3    D=  4680 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1^2-b2^2+7b1b2-3    D=   816 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1^2-b2^2+7b1b2-3    D=  9240 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+n^2+n+1              D=   840 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+n^2+n+1              D=  4680 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+n^2+n+1              D=   816 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+n^2+n+1              D=  9240 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1*b2                D=   840 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1*b2                D=  4680 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1*b2                D=   816 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+b1*b2                D=  9240 trials= 200 residue_ok=200 ell_odd=200 gcd(s,t)=1:200 gcd(Y(b),ell)=1:200 PASS
+ALL PASS
+# negative control (Y = n + b1, D = 840, no P-avoidance): 0 of 1935 landings have gcd(Y(b), ell) > 1
+# negative control (Y = b1+3, D = 840, no P-avoidance): 33 of 3896 landings have gcd(Y(b), ell) > 1
+# negative control (Y = b1*b2+13, D = 840, no P-avoidance): 121 of 3865 landings have gcd(Y(b), ell) > 1
+# negative control (Y = b1^2-b2^2+7b1b2-3, D = 840, no P-avoidance): 37 of 3877 landings have gcd(Y(b), ell) > 1
