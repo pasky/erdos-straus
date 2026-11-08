@@ -2,8 +2,8 @@
 
 Status: z65 lane LOGIC2 (brief `z52bbriefs/z65_lanes.md` §LOGIC2; common rules `z58_lanes.md`, `z53_depth.md`).
 **ES is OPEN. Nothing here proves or disproves ES, (MS), (S), or any case of them.** Internal, unrefereed.
-**Review status:** internal hostile review (Opus) done and applied; **cross-model review PENDING** (the OpenAI token
-expired, so only the Opus internal review was done).
+**Review status:** internal hostile review (Opus) done and applied; cross-model retro review (Astra,
+`data/z65/xreview/REVIEW_LOGIC2_ASTRA.md`) ACCEPT-WITH-FIXES, fixes applied (§10).
 Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z65_logic2_*`,
 data `data/z65/logic2/`. Builds on `Z64_UNPROV.md` (cited as **U64**: Thms A, A′, A″, B; Lemmas 2.3, 2.4; §§2.6–2.8;
 Prop 6.2) and `Z58_LOGIC.md`. Literature checks: `data/z65/logic2/lit_verify.md` (made by the lane itself; the two
@@ -21,9 +21,12 @@ principles have integer points at suitable odd squares (Prop 5.2). Whether arc m
 true principle that *does* kill every arc counter-model is the non-residue certificate NR (some d ≡ 3 (mod 4), coprime
 to p, has d | x² + p). At square-mimicking primes every such certificate, and every (★)-hit, must use a nonstandard
 modulus (Prop 5.3). Such primes exist in models of true arithmetic (Prop 5.4). (v) **Exact dichotomy (Thm D,
-PROVED; found by the internal review).** For every primitive class r mod q, NOI proves ES at all large primes of the
-class ⟺ IOpen proves ES on the whole class ⟺ the class is a finite union of ET Prop 1.9 family classes ⟺ its
-profinite closure misses the closed set U of unit profiles covered by no family class. The square classes meet U (ET
+PROVED; found by the internal review).** For every primitive class r mod q: for some standard numeral N₀, NOI proves ES at all
+primes n ≥ N₀ of the class ⟺ the same with IOpen ⟺ the class's unit profiles are *covered by* (contained in) a finite
+union of ET Prop 1.9 family classes ⟺ its profinite closure misses the closed set U of unit profiles covered by no
+family class. (Prime tail only, with the numeral N₀ quantified outside the provability; not "the whole class", and
+not "equal to a finite union of family classes": 2 mod 9 is solvable by polynomials but is no union of family
+classes.) The square classes meet U (ET
 Prop 1.6). CONJECTURE, with EVIDENCE from a covering tree to level 3·10¹³: U also contains non-squares. For example
 the non-square class {n ≡ 1 (mod 840), (n/11) = −1} meets U, which would make ES on it NOI-unprovable as well.
 (vi) IE₁, IΔ₀, IΔ₀ + exp: still OPEN. One new constraint: IΔ₀ + Count₂(Δ₀) proves QR (Jeřábek Thm 5.7) and Lagrange
@@ -87,7 +90,7 @@ QR, Bez/IE₁ and IΔ₀ (U64 §§2.8, 5, 6.2 CONJECTURE, 9 O1–O4). This lane 
 
 | theory | ES on a primitive class r mod q (any class, square or not) | source |
 |---|---|---|
-| IOpen / NOI (tail form, n ≥ N₀) | provable ⟺ r mod q is a finite union of ET Prop 1.9 family classes ⟺ (r + qẐ) ∩ U = ∅ | **Thm D (§5)** |
+| IOpen / NOI (primes n ≥ N₀, for some standard numeral N₀) | provable ⟺ the unit profiles of r mod q are covered by finitely many ET Prop 1.9 family classes ⟺ (r + qẐ) ∩ U = ∅ | **Thm D (§5)** |
 | same, non-square classes | CONJECTURE: some non-square classes are unprovable, e.g. {1 mod 840, (n/11) = −1} (covering tree alive to level 3·10¹³, EVIDENCE) | §5.6 |
 
 ## 2. Theorem P: ordered universal facts that hold in the U64 models
@@ -96,7 +99,8 @@ Throughout, "a U64-type model" is M_ϕ := {g ∈ ℚ[β] : ϕ(g) ∈ Ẑ}. Here 
 algebraically independent elements with their order (U64 §2.1), and ϕ: ℚ[β] → 𝔸_f is the ring homomorphism with
 ϕ(β_i) = a_i for an arbitrary sequence a ∈ Ẑ^ℕ. U64 §§2.1, 2.7 show M_ϕ ⊨ NOI for every such a (BO's proof uses ϕ only
 through Lemmas 2.7, 2.8 and the ϕ-independent Lemmas 2.3, 2.6, 2.9; the lane re-read BO's proof of Thm 4.2: Lemma
-2.10 is used only for primality, Thm 4.3). U64 Lemma 2.3(a),(b) supplies, for every b ∈ ℤ^k, an analytic arc ψ on an interval
+2.10 is used only for primality, Thm 4.3). U64 Lemma 2.3(a),(b) supplies, for every b ∈ ℤ^k, an analytic arc (U64 states the lemma for b₁ ≥ 1; that hypothesis is
+used only in (c), and the displayed proof of (a),(b) is unchanged for arbitrary b ∈ ℤ^k, which is how it is used here) ψ on an interval
 I ⊃ [0, ∞) with ψ(g)(0) = g(b) and ψ(g) eventually of the M-sign of g (g ≠ 0).
 
 **Definition.** A finite system Σ(x̄, ȳ) of polynomial equations over ℤ, with "positive" variables x̄ = (x₁..x_k)
@@ -239,8 +243,9 @@ divisor.
   component of x̄ squares to 0 unless it has degree 0, so x̄ ∈ A₀ = ℚ. That is impossible.
 * M ⊭ PB and M ⊭ QR_std, by Props 4.1 and 4.2 below. Primes are not cofinal.
 
-**Lemma 3.5 (landing points with coprimality; PROVED).** Let D be a multiple of 8q and Y ∈ ℚ[β₁..β_k] with n ∤ Y.
-Then there are infinitely many b ∈ ℤ^k with the following properties:
+**Lemma 3.5 (landing points with coprimality; PROVED).** Let Y ∈ M ∩ ℚ[β₁..β_k] with n ∤ Y, and let D be a multiple
+of 8q and of an (F4) modulus for Y, so that Y(b) ∈ ℤ for every b ≡ a (mod D). (Integrality is needed for the integer
+gcd below to make sense: for Y = 1/2 it does not; the uses in §3.2 already take D from (F4).) Then there are infinitely many b ∈ ℤ^k with the following properties:
 * b ≡ a (mod D);
 * b₁ = s² − t², b₂ = 2st with gcd(s, t) = 1, and ℓ := s² + t² is odd and coprime to D, so n(b) = ℓ²;
 * gcd(Y(b), ℓ) = 1, and the same holds simultaneously for finitely many such Y.
@@ -325,7 +330,8 @@ U64-type model and the model of Thm T qualify: ϕ(g) ∈ D⁻¹Ẑ for some D, s
 * (a) M is discrete and contains ℤ.
 * (b) Suppose M ⊂ ℚ[β₁]. Some element G(β₁) of M is infinite, so β₁ is infinite (a polynomial in a bounded element is
   bounded). Hence a polynomial of higher degree is larger in absolute value. Take c = ±kβ₁ ∈ M with c > 0.
-* By Shepherdson's criterion (U64 §1) some g ∈ M has g² ≤ c < (g + 1)², i.e. 0 ≤ c − g² < 2g + 1.
+* By Shepherdson's criterion (as stated in BO Thm 1.1, U64 §1; Shepherdson's 1964 original was not read; alternatively
+  by open induction on the open formula x² ≤ c) some g ∈ M has g² ≤ c < (g + 1)², i.e. 0 ≤ c − g² < 2g + 1.
   * If deg g ≥ 1, then c − g² ≠ 0 has degree 2 deg g > deg(2g + 1), which contradicts the bound.
   * If deg g = 0, then c ≤ (g + 1)² is bounded, a contradiction. ∎
 
@@ -376,7 +382,7 @@ its top form is a nonzero sum of squares of real forms. It cannot have degree 1.
 
 **4.4 E(−1) (OPEN for polynomial-type models).** Prop 4.2's argument allows finitely many square roots, so E(−1) is
 not excluded.
-* A polynomial-type model of E(−1) needs every nonstandard prime h to have i ∈ ℚ[β]/(h). For example n = A² + B² with
+* A polynomial-type model of E(−1) needs every nonstandard prime h ≡ 1 (mod 4) to have i ∈ ℚ[β]/(h). For example n = A² + B² with
   (A, B) unimodular in ℚ[β], such as n = β₁² + (1 + β₁β₂)², where i = AB⁻¹ mod n.
 * Thm T's proof then needs landing points b ≡ a (mod D) on {A² + B² = □} with the Lemma 3.5 coprimality. For
   (A, B) = (β₁, 1 + β₁β₂) these are Pythagorean pairs (x, B) with x | B − 1, which looks like a thin, Vieta-type set.
@@ -409,18 +415,24 @@ n = m² (with the positivity transferred, as above).
 * *Negative Pell* ("every prime p ≡ 1 (4) has x² − py² = −1"; Legendre; example from the internal review): at n = m²,
   x₀² − m²y₀² = −1 forces m = 1. So it kills every arc whose landing values are not 1, i.e. every arc counter-model at a
   profile ϕ(n) ≠ 1, but not those at ϕ(n) = 1.
-* NR is singled out only by this: it kills arcs at every profile, 1 included, and it is weaker than ES★.
+* NR is singled out only by this: it kills arcs at every profile, 1 included. (An earlier claim that NR is "weaker
+  than ES★" is withdrawn: no base theory or implication was supplied, and the (★) congruence n ≡ −u (mod 4uC − 1) does
+  not itself give a square root of u modulo that modulus.)
 * The Z64 statement (S) uses Jacobi symbols. It is not an existential polynomial system, so arcs do not apply to it
   directly. It is Δ₀-expressible over IΔ₀ (Jeřábek Thm 5.8), whose natural extension IΔ₀ + Count₂(Δ₀) proves the
   Jacobi laws.
 
 **Proposition 5.2 (square-compatibility of PB, TS, E(−1), QR_std, Lag; PROVED, elementary).** Fix D ≥ 1 and a finite
 set L of standard odd primes. Let m be any product of primes r ≡ 1 (mod 8∏_{ℓ∈L} ℓ) with m ≡ 1 (mod D); by Dirichlet
-there are infinitely many. (This is the landing pattern for the profile ϕ(n) = 1. For a general square-mimicking
-profile take m² ≡ ϕ(n) (mod D), with prime factors ≡ 1 (mod 8∏_{ℓ∈L, ℓ∤D} ℓ) and the caveat below for ℓ | D.
-TS, E(−1), PB and Lag need only prime factors ≡ 1 (4).) Then at n := m² every instance (with integer parameters) of
+there are infinitely many. (This is the landing pattern for the profile ϕ(n) = 1; TS, E(−1), PB and Lag need only prime factors ≡ 1 (4).
+*General profiles (corrected after the Astra retro review).* The earlier recipe "m² ≡ ϕ(n) (mod D) with prime factors
+≡ 1 (mod 8∏ℓ)" is wrong: it forces m ≡ 1 (mod 8), hence m² ≡ 1 (mod 16), so it misses e.g. D = 16, L = ∅ and a profile
+with π₂ ≡ 9 (mod 16). Repair: by CRT and Dirichlet choose a *prime* m ≡ 1 (mod 4) with m² ≡ ϕ(n) (mod D) and (m/ℓ) = 1
+for ℓ ∈ L, assuming the fourth-power condition of the Caveat below at the ℓ ∈ L dividing D. At ℓ ≡ 3 (4) dividing D
+choose the sign of the square root that is a residue; at 2 choose the sign giving m ≡ 1 (mod 4); do not impose
+m ≡ 1 (mod 8).) Then at n := m² every instance (with integer parameters) of
 the following has an integer witness:
-* PB, for a coprime to m;
+* PB, for a coprime to m (only these a are covered, not all a with m² ∤ a);
 * TS (m² = m² + 0²);
 * E(−1) (every prime of m is ≡ 1 (4));
 * QR_std for ℓ ∈ L (every prime of m splits in ℚ(√ℓ*));
@@ -505,14 +517,18 @@ primitive class r mod q, with K_{r,q} := (r + qẐ) ∩ Ẑ^× (compact), the fo
 * (i)⇒(ii): K_{r,q} is compact and covered by the open family classes, so finitely many suffice. Refine to a common
   modulus L: a subclass of a solvable class is solvable (substitute n = s + Lk).
 * (ii)⇒(iii): A prime n > L of the class is coprime to L, so it lies in one of the finitely many solvable classes.
-  Thm B (tail form) applies to each.
+  Thm B applies to each. (Only the prime tail is covered: composites sharing a factor with L, and primes ≤ L, are
+  not. U64 Thm B's former "finite check below N₀ via 10¹⁷" sentence was invalid; D never used it, and U64 now proves
+  Thm B without it, Lemma B.0.)
 * (iii)⇒(iv) is trivial.
 * (iv)⇒(i): If π ∈ K_{r,q} ∩ U, take M_ϕ with ϕ(β_i) := π for all i. Then β₁ is an infinite prime ≡ r (mod q)
   (U64 (F1), (F2)) with ¬ES(β₁) (Prop 5.5). ∎
 
 *Reading.*
-* Thm D generalises U64 Cor C from modulus 840 to every modulus. Open induction proves ES on exactly the classes that
-  polynomial identities cover. The obstruction is Mordell–Schinzel non-solvability, and T1 (ET Prop 1.6) is the reason
+* Thm D generalises U64 Cor C from modulus 840 to every modulus. Open induction proves ES at the large primes of
+  exactly the classes whose unit profiles polynomial identities cover. (Note (ii) is about refinements, which are
+  polynomially solvable subclasses, not necessarily ET family members; K_{r,q} is *contained in* a finite union of
+  family cylinders, not equal to one.) The obstruction is Mordell–Schinzel non-solvability, and T1 (ET Prop 1.6) is the reason
   why squares are non-solvable.
 * (MS) is the case r = 1, q = 840, which meets U at π = 1.
 * Whether non-square classes can meet U is question Q_U below.
@@ -639,8 +655,9 @@ What was proved:
 * **Thm T.** NOI + GCD + PD + Th_∀(ℤ) + T1 + TS ⊬ ES_prime[square class], ES★_prime, (MS). This answers brief (1)
   for TS: unprovable.
 * **Thm D + Prop 5.5** (Prop 5.5's proof was supplied by the internal review). In U64-type models ES(β₁) holds iff
-  ϕ(β₁) lies in a polynomially solvable class. NOI (equivalently IOpen) proves ES at the large primes of a class r mod q
-  iff the class is covered by finitely many ET Prop 1.9 family classes, i.e. iff its closure misses U. This is U64
+  ϕ(β₁) lies in a polynomially solvable class. For some standard numeral N₀, NOI (equivalently IOpen) proves ES at the
+  primes n ≥ N₀ of a class r mod q iff its unit profiles are covered by finitely many ET Prop 1.9 family classes,
+  i.e. iff its closure misses U (prime tail only; coverage, not equality). This is U64
   Cor C for every modulus.
 * **Props 4.1, 4.1′, 4.2, 4.3.** Polynomial-type models never satisfy Bez; their models of PB have no nonstandard
   primes; they fail QR_std at square-mimicking primes; they fail Lag.
@@ -678,8 +695,8 @@ Q_U.
   > (ii) The two-squares theorem does not help: NOI + GCD + PD + Th_∀(ℤ) + T1 + "every prime ≡ 1 (4) is a sum of two
   > squares" ⊬ ES_prime[square class], (MS) (`Z65_LOGIC2.md` Thm T; the model's only nonstandard prime is
   > n = β₁² + β₂²).
-  > (iii) Exact dichotomy (Thm D): NOI/IOpen prove ES at the large primes of a class iff ET's Prop 1.9 families cover
-  > it finitely, iff its profinite closure misses the closed set U of uncovered unit profiles. This is U64 Cor C at
+  > (iii) Exact dichotomy (Thm D): for some standard numeral N₀, NOI/IOpen prove ES at the primes n ≥ N₀ of a class
+  > iff finitely many of ET's Prop 1.9 family classes cover its unit profiles, iff its profinite closure misses the closed set U of uncovered unit profiles. This is U64 Cor C at
   > every modulus. U contains the unit squares. CONJECTURE (EVIDENCE: covering tree alive to level 3·10¹³ with ≈ 1/4 survival per prime) that U contains
   > non-squares, e.g. some profile ≡ 1 (mod 840) that is a non-residue mod 11.
   > (iv) The polynomial construction cannot reach Bezout, prime-Bezout, reciprocity against standard primes or
@@ -692,7 +709,8 @@ Q_U.
 **Bottom line.**
 * Brief (1), answered as far as it goes. Adding the two-squares theorem, and T1 itself, to normal open induction with
   gcds still does not prove ES on any square class (Thms P, T).
-* Open induction proves ES on a class exactly when polynomial identities cover it (Thm D). Whether non-square classes
+* Open induction proves ES at the large primes of a class exactly when polynomial identities cover its unit profiles
+  (Thm D; prime tail only). Whether non-square classes
   can escape is the new concrete question Q_U. The data suggest yes.
 * Bezout, reciprocity and Lagrange cannot be added *by this construction* (Props 4.1–4.3). Their witness relations do
   not conflict with landing at odd squares (Prop 5.2), so their status, and that of IE₁, IΔ₀ and IΔ₀ + exp, stays
@@ -755,7 +773,21 @@ byte-identically and made independent checks). Verdict: **no FATAL issue, 2 MAJO
   The lane's numbers (33/121/37 with seed 2) are recorded in `landing_check.txt`.
 * **(m22)** The "shaped certificate" tautology is acknowledged in §7.
 
-Cross-model review: PENDING (OpenAI token expired; only the Opus internal review was done).
+**Cross-model retro review (Astra)** (`data/z65/xreview/REVIEW_LOGIC2_ASTRA.md`; verdict ACCEPT-WITH-FIXES; P, T,
+formal D, Props 4.1–4.3 and 5.3–5.4 re-derived as correct; all scripts replayed byte-identically, dense and sparse
+cover implementations agree, the seven encoded families checked against ET 1.9). All seven required fixes applied:
+* (1, MAJOR) Thm D quantifiers/domain: the abstract (v), the results table, §8 and the FRONTIER text now say "for some
+  standard numeral N₀, T ⊢ ES at primes n ≥ N₀", not "on the whole class".
+* (2, MAJOR) Coverage, not equality: "finite union of family classes" replaced by "unit profiles covered by finitely
+  many family classes" (2 mod 9 is solvable by polynomials but is no union of family classes).
+* (3) Prop 5.2 general-profile recipe corrected (it forced m ≡ 1 (mod 8)); CRT/Dirichlet prime-m repair; PB scope noted.
+* (4) Lemma 3.5 now assumes Y ∈ M and an (F4) modulus (Y = 1/2 shows why); U64 Lemma 2.3(a),(b) explicitly extended to
+  arbitrary b₁; §4.4 E(−1) restricted to nonstandard primes h ≡ 1 (mod 4).
+* (5) "NR is weaker than ES★" withdrawn (unproved, no base theory).
+* (6) Dependency on U64 Thm B: only the valid tail form is used; U64's invalid finite-check sentence is now removed
+  there (U64 Lemma B.0).
+* (7) Sources: `lit_verify.md` records Jeřábek's explicit Lagrange remark and that Shepherdson's 1964 original, Smith's
+  full construction and Berarducci–Intrigila's proof were not read; the §4 Shepherdson citation says "as stated in BO".
 
 **Replay** (each under `ulimit -v 4000000`, `timeout 1800`):
 ```

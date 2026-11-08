@@ -19,6 +19,9 @@ Author PDF `users.math.cas.cz/~jerabek/papers/flt.pdf` (archived: `jerabek_2010_
   positive m, n, supplementary laws).
 * **Theorem 4.2**: S²₂ + iWPHP(PV) + PHP(PV) proves Fermat's little theorem. **Theorem 4.6** (in S¹₂): Euler's
   criterion ⟺ FLT ∧ ∃a a^{(p−1)/2} ≡ −1 (mod p). **Theorem 4.7**: S²₂ + iWPHP(PV) + PHP(PV) proves Euler's criterion.
+* Directly after Thm 5.7 (p. 20; re-checked in the Astra retro review): "Lagrange's four-square theorem is also
+  provable in IΔ₀ + Count₂(Δ₀)." So Lag in IΔ₀ + Count₂(Δ₀) is Jeřábek's explicit statement (VERIFIED as a statement;
+  the underlying Berarducci–Intrigila proof was **not** independently read).
 * Introduction (a primary source *reporting* other results; not re-read in the originals): "the proof of infinitude of
   prime numbers in IΔ₀ + WPHP(Δ₀) by Paris et al. [22], the proof of Lagrange's four-square theorem in IΔ₀ + WPHP(Δ₀)
   by Berarducci and Intrigila [2], the proof of the prime number theorem in IΔ₀ + exp by Cornaros and Dimitracopoulos
@@ -86,3 +89,10 @@ Arithmetic" was visible. No theorem used.
 5. OI + Bez models with infinite primes exist: Smith 1993 (even a PID ≠ ℤ, abstract snippet); a computable Bezout
    model with cofinal primes is announced by Mohsenipour 2006 (talk abstract).
 6. IE₁ has no computable nonstandard model (Wilmers; via Mohsenipour's abstract).
+
+## Access limits (added after the Astra retro review)
+* **Shepherdson 1964** (integer-part criterion): the original was **not** read; the memo relies on BO Thm 1.1's
+  statement of it (BO p. 2, checked). The RCIN archive copy is restricted to Institute terminals. Original-source
+  verification incomplete.
+* **Smith 1993**: only an abstract snippet; the full construction was not read.
+* **Berarducci–Intrigila**: only as reported by Jeřábek; the proof was not read.

@@ -2603,12 +2603,13 @@ the OpenAI quota was exhausted — weaker than the usual cross-model check; all 
   identity. The bad-reduction branch (Song–Wen–Zhang's actual engine for prime-degree Hurwitz) is order-transparent
   (Prop O, from Raynaud–Wewers): a char-p construction only realises a signature supplied as input. Verdict: DEAD as a
   construction route; missing lemma H★ = a Hurwitz-type realisation problem with data fixed by p that fails at squares.
-* **Logical strength (`Z65_LOGIC2.md`; Opus internal hostile review only — cross-model review PENDING).** Extends
+* **Logical strength (`Z65_LOGIC2.md`; Opus internal hostile review; Astra retro review ACCEPT-WITH-FIXES, fixes applied).** Extends
   Z64_UNPROV: normal open induction + gcd + irreducible divisors + all true universal ring sentences + T1 itself + "every
   prime ≡ 1 (4) is a sum of two squares" still does not prove ES (or (★)) at primes of any unit-square class (Thms P, T).
-  Exact dichotomy (Thm D): NOI proves ES at all large primes of a class ⟺ IOpen proves it on the class ⟺ the class is a
-  finite union of Elsholtz–Tao Prop 1.9 family classes ⟺ its profinite closure misses the set U of uncovered unit
-  profiles. CONJECTURE (EVIDENCE from a covering tree to 3·10¹³): U also contains non-squares, e.g. {n ≡ 1 (840),
+  Exact dichotomy (Thm D): for some standard numeral N₀, NOI proves ES at the primes n ≥ N₀ of a class ⟺ the same
+  for IOpen ⟺ the class's unit profiles are covered by finitely many Elsholtz–Tao Prop 1.9 family classes (coverage,
+  not equality) ⟺ its profinite closure misses the set U of uncovered unit profiles (prime tail only, not the whole
+  class). CONJECTURE (EVIDENCE from a covering tree to 3·10¹³): U also contains non-squares, e.g. {n ≡ 1 (840),
   (n/11) = −1}. The present model construction cannot satisfy Bezout, prime-Bezout or reciprocity at square-mimicking
   primes; a natural true principle that kills every arc counter-model is the non-residue certificate NR. IE₁, IΔ₀,
   IΔ₀ + exp remain OPEN.
