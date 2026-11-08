@@ -1,4 +1,4 @@
-# Certificate for Theorem 3.7: L=1441440. 48 fixed-denominator words (A,u) [class n=-u mod A, n=1 mod 4, (A/n)=-1 on the class]
+# Certificate for Theorem 3.7: L=1441440. 48 fixed-denominator words (A,u) [class n=-u mod A, n=1 mod 4; (A/n) is constant on each class mod lcm(A,8) (period | 8A', A' = odd part of A) and only the sub-classes where it is -1 are used — for A = 154 it is -1 only for n = 1 mod 8]
 # and 29 fixed-(u,v) words [class n=-(u+v) mod uv, n=1 mod 4, good iff 8|(n+t)(n+u+v), t=(n+u+v)/uv; only the good sub-classes mod 8uv are used].
 # Together they cover every class n mod L with n=1 mod 4 except those lying over the 28 classes mod 840 listed in the memo.
 A-words: (5,2) (5,3) (7,2) (7,4) (8,3) (11,3) (11,4) (13,2) (13,7) (15,4) (39,4) (39,5) (39,8) (39,10) (48,7) (63,8) (65,6) (65,11) (99,5) (99,20) (132,7) (132,19) (143,6) (143,8) (143,9) (143,12) (143,16) (143,18) (143,24) (154,5) (154,31) (224,15) (231,8) (231,29) (455,19) (455,24) (495,16) (495,31) (528,23) (1287,23) (1287,56) (1456,31) (1456,47) (4576,23) (4576,199) (4680,31) (4680,151) (12320,111)
