@@ -197,8 +197,9 @@ listed in `data/z64/sdeepf/cover_words_1441440.txt` (48 fixed-denominator words 
 of (S) for all n ≤ 10⁸ (`crit8_1e8.txt`), **(S) holds for every non-square n ≡ 1 (mod 4) with
 n mod 840 ∉ 𝔈** — i.e. outside 28 of the 210 classes mod 840. 𝔈 contains the 24 classes of odd squares
 mod 840 (necessarily: a class containing a square can never be covered, Cor. 2.2); the remaining four
-classes 265, 321, 769, 825 are exactly the classes with n ≡ 1 (8), n ≡ 0 or 1 (3), n ≡ 0, ±1 (5),
-n ≡ 6 (7).
+classes 265, 321, 769, 825 all have n ≡ 1 (8), n ≡ 0 or 1 (3), n ≡ 0, ±1 (5) (squares mod 8, 3, 5) and
+n ≡ 6 (7) (the non-residue mod 7 not reachable by A = 7). The two other classes with this residue
+pattern, 489 and 601, ARE covered (e.g. by (A,u) = (63, 8), (224, 15), (4576, 23), (1287, 56), (u,v) = (14, 15)).
 *Proof.* (1) Periodicity. For a fixed-denominator word (A, u): the class is n ≡ −u (mod A), n ≡ 1 (mod 4),
 on which the word exists as soon as n ≥ 2A − u (Prop. 3.1′ for odd A; for even A the same computation,
 v = (n+u)/A ≥ 2, t = (A+1)/u ≥ 2). Writing A = 2^a A′ (A′ odd), n ↦ (A/n) = (2/n)^a (A′/n) on odd n > 0 is
@@ -217,12 +218,14 @@ and that the word exists for n ≥ 24529. (3) The same computation with L = 2⁵
 *Remarks.* (i) This is the (S)-analogue of Mordell's reduction of Erdős–Straus to the six classes 𝔐 =
 {1, 121, 169, 289, 361, 529}; (S) is harder: the 24 odd-square classes are irreducible by any finite
 covering (Prop. 3.5), and the four classes n ≡ 6 (7) above are irreducible by the 2⁵·3³·5·7²·11·13
-covering as well. (ii) Why n ≡ 6 (mod 7) resists: it is the only non-residue class mod 7 not reached by
-the denominator A = 7 (u = 2, 4 give n ≡ 5, 3 (mod 7); u = 1 is not allowed). A good word for an n in
-these classes that is a square modulo every modulus coprime to 7 must have 7 | A, hence u ≡ −n ≡ 1 and
-t ≡ u^{−1} ≡ 1 (mod 7) — a sparse family (first member A = 63, u = 8), and the numerics (`minA_mod840_2e7.txt`:
-largest minimal good denominator 2058, 3311, 1119, 1871 in the classes 265, 321, 769, 825, comparable to the
-square classes) suggest these four classes are not finitely coverable either (EVIDENCE only). (iii) Nothing
+covering as well. (ii) Why n ≡ 6 (mod 7) is delicate: it is the only non-residue class mod 7 not reached by the
+denominator A = 7 (u = 2, 4 give n ≡ 5, 3 (mod 7); u = 1 is not allowed). For an n ≡ 1 (8) in such a class
+that is moreover a square modulo every modulus coprime to 7, a good word must have 7 | A (else
+(A/n) = (A′/n) = (n/A′) = 1), hence u ≡ −n ≡ 1 and t ≡ u^{−1} ≡ 1 (mod 7) — a sparse family (first member
+A = 63, u = 8). Whether the four classes are finitely coverable is open here; the numerics
+(`minA_mod840_2e7.txt`: largest minimal good denominator 2058, 3311, 1119, 1871 in the classes 265, 321,
+769, 825, comparable to the square classes, and no change under the 21× larger modulus) suggest not
+(EVIDENCE only). (iii) Nothing
 in the proof uses primality (F3) or non-squareness beyond the (automatic) fact that squares lie in 𝔈 (F1).
 
 ## §4 The exceptional set has density zero
