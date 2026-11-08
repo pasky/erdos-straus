@@ -2588,11 +2588,12 @@ the OpenAI quota was exhausted — weaker than the usual cross-model check; all 
   covering proves (S) for all non-square n ≡ 1 (4) outside 28 classes mod 840 (the 24 classes containing odd squares,
   which no finite covering can remove, plus four with n ≡ 6 (7)); exceptional set ≪_B x(log x)^{−B} (given a standard
   sieve bound). (S) remains the cleanest open target: sign-only, no known exception.
-* **Equivalent statements in other fields (`Z64_EQUIV.md`).** Ten proved equivalences across fields (numerical
+* **Equivalent statements in other fields (`Z64_EQUIV.md`; Astra retro review ACCEPT-WITH-FIXES, fixes applied).** Ten proved equivalences across fields (numerical
   semigroups, stacky curves, Riemann surfaces/orbifold automorphisms, singularities, pretzel links/Seifert manifolds, lens
   spaces and definite fillings, Lorenzini's critical groups, SL₂/Farey), each screened; their native existence tools do
   not apply at a single prime. One new precedent class missed by Z63: prime-degree Hurwitz realisability (Edmonds–Kulkarni–
-  Stong 1984; claimed by Song–Wen–Zhang arXiv:2609.20572, unrefereed) — prime/composite shape like ES, proved by
+  Stong 1984; claimed by Song–Wen–Zhang arXiv:2609.20572, unrefereed) — a prime/composite shape analogous to that of
+  ES's restricted predicates (ES itself has no square obstruction), proved by
   construction in characteristic p and lifting; does not transfer (Lemma H, CONDITIONAL on that claim).
 
 **z65 (char-p construction + lifting; logical strength; internal, unrefereed).**

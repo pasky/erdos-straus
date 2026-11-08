@@ -1,7 +1,8 @@
 # Z64_EQUIV — statements equivalent to ES-at-primes / (MS) / U₇ / (S) / CONV-II in other fields (wave z64, lane EQUIV)
 
 **ES is OPEN.** Nothing here proves or disproves it. Labels: PROVED / CONDITIONAL (on what) / CERTIFIED / EVIDENCE /
-CONJECTURE / Assessment. Internal results, internally reviewed only. Brief: `z52bbriefs/z64_lanes.md` §EQUIV (+ z58 common
+CONJECTURE / Assessment. Internal results; internal review, an Opus stand-in cross-review and an Astra retro cross-model
+review (fixes applied, §8). Brief: `z52bbriefs/z64_lanes.md` §EQUIV (+ z58 common
 rules, z53 depth brief). Scripts `scripts/z64_equiv_*`, data `data/z64/equiv/` (source excerpts with URLs, theorem numbers
 and access dates in `data/z64/equiv/sources/*.md`, gathered by three research subagents; decisive items re-read by me,
 marked ✔).
@@ -13,7 +14,9 @@ circular.
 
 ## 0. Bottom line
 
-1. **Z63_PRECEDENT missed one precedent class that has the exact prime/composite shape ES has.** It is the Hurwitz
+1. **Z63_PRECEDENT missed one precedent class with a prime/composite shape analogous to ES's** (an analogy, not an
+   identity: ES itself has no square obstruction; the restricted certificate predicates R, (★) do, and R(p) even has
+   exceptional primes). It is the Hurwitz
    existence problem in prime degree (§3.2, ✔). Every compatible branch datum of degree p over S² is realisable:
    * Edmonds–Kulkarni–Stong asked this in 1984 (Trans. AMS 282, p. 774, p. 787).
    * Song–Wen–Zhang claim a proof (arXiv:2609.20572, Thm 1.1, Sep 2026, unrefereed). Their mechanism is
@@ -73,7 +76,9 @@ circular.
 
 ## 1. Mandatory falsifier table (F1–F4; data `data/z58/screens/`)
 
-An *equivalence* is the same statement in other coordinates, so it inherits F1–F4 verbatim. The screens therefore bite
+An *equivalence* is the same statement in other coordinates, so it inherits F1–F4 verbatim — but only inside its
+proved domain and for its own target. The prime-only rows E1, E2, E10 (and E6, E11 at primes) are not established
+equivalences at composites, so their composite-screen cells describe the native tools, not an inherited statement. The screens therefore bite
 on the **native tool** of the target field. Column entries say what the field's best native tool does on each screen.
 
 Convention for the cells: a "type I" tool needs the certificate as input, so on every screen it returns exactly the
@@ -87,14 +92,14 @@ screened property, so applied verbatim it would prove the target on the screened
 | E4 lct | 4/m² ∈ lct(ℂ²): blind (Lemma R(b)) | the diagonal stratum for 8/131 is empty (8/131 has no 3-term representation), but the full lct statement holds there: blind | blind | blind | relaxation (II) |
 | E5 pretzel / Seifert | invariants are computed from (x, y, z) | type I | type I | type I | circular (I) |
 | E6 lens space / plumbing | statement-level: no Jacobi −1 class at m². Tools (Donaldson, d, Lisca, AMP) are obstructions; Lisca's rational balls *exist* at squares | the AMP non-minimality locus is C = 1 or 4 ∈ {u, B} (C otherwise arbitrary); it does not separate C even from C odd | obstruction tools are not primality-specific | no obstruction applies to an absent chain | obstruction (III) |
-| E7 Lorenzini (W)/(S) | (W) holds at m² for 3 ∤ m (PROVED) and for all odd 25 ≤ m² < 10⁹ (census, EVIDENCE): blind. Wang–Lu density is averaged | the critical-group sign law (A/p) = −(−1/p) on Type II words is numerator-blind | (W) is false only on E_W (conjecturally), so the (W) tools are blind on the 285 | blind | relaxation (II) |
+| E7 Lorenzini (W)/(S) | (W) holds at m² for 3 ∤ m (PROVED) and for all odd 25 ≤ m² < 10⁹ (census, EVIDENCE): blind. Wang–Lu density is averaged | the critical-group sign law (A/p) = −(−1/p) on Type II words is numerator-blind | (W) holds at 284 of the 285 supplied composite R-zeros and fails at 105, so the (W) tools are blind on most (not all) of that screen | blind | relaxation (II) |
 | E8 SL₂ / Farey / cat map | SL₂(ℤ) structure is p-blind | type I | type I | type I | circular (I) |
 | E9–E10 ray class / ℤ[√−p] | genus layer free (SPARKS9 Prop 2.2); class-level forcing not available | covered in RAYCLASS | covered | covered | covered (IV) |
 | E11 Fermat quotients | genus formula only | type I | type I | type I | circular (I) |
 | E12 q-series | Thm K is T1-exact; single-coefficient positivity is not available | covered (AUTOMORPH) | covered | covered | covered |
 | E13 Hurwitz / dessins | uniform data = signature | type I | type I | type I | circular (I) |
 | E14 TFNP | a syntactic totality proof is a parity / pigeonhole / potential argument (Z62 P0, Z61) | covered | covered | covered (Z62: uniform parity refuted by the 14 zeros) | covered |
-| §3.3 Hurwitz prime degree (precedent) | composite degrees fail (EKS 5.7); ES's square failures have no Hurwitz counterpart | — | Lemma H: prime-degree realisability carries no (★) information (CONDITIONAL) | R(409) = 0 while every degree-409 datum is realisable (SWZ) | no transfer |
+| §3.3 Hurwitz prime degree (precedent) | composite degrees fail (EKS 5.7); ES itself has no square failures, and the square failures of the restricted predicates (R, (★)) have no Hurwitz counterpart | — | Lemma H: prime-degree realisability carries no (★) information (CONDITIONAL) | R(409) = 0 while every degree-409 datum is realisable (SWZ) | no transfer |
 
 No row survives all four screens with a working native tool. **No HOT LEAD.**
 
@@ -144,7 +149,7 @@ against a fresh literature pass. Sources: `data/z64/equiv/sources/precedent_nt.m
 
 | class (new label) | representative theorem (source, number) | ver. | P1–P4 | count in guaranteed window | where primality / non-squareness enters | in repo elsewhere? |
 |---|---|---|---|---|---|---|
-| **(Ch) characteristic-p construction + lifting** | Hurwitz existence in prime degree: "Let p be a prime. Every branch datum of degree p satisfying (1.1) is realized by a connected branched cover Σ_g → S²" (Song–Wen–Zhang arXiv:2609.20572v1 Thm 1.1; **claimed, unrefereed**; question of EKS 1984 p. 774, p. 787; verified computationally for p < 32, arXiv:2512.06545) | ✔V | P1 (every prime p, every datum); P3 (no identity; stable reduction in char p, Henrio moments, Wewers lifting); P4 (if correct) | varies with the datum; for rigid genus-0 data the Hurwitz number is O(1) (e.g. the Euclidean family below has ≍ r₂(d)/8 realisations, inferred) | the monodromy group contains a regular C_p, with normaliser C_p ⋊ 𝔽_p^× (SWZ Lemma 2.5); the cover is built in characteristic p. Composite failure: EKS Prop 5.7, for every d = ab the datum {[a,…,a], [b+1,1,…,1], [a, a(b−1)]} is non-realisable (V by the subagent from a scan of EKS, quoted in `precedent_comb.md` §1a; independently confirmed computationally by the cross-model reviewer for d ≤ 12) | **no** (0 hits) |
+| **(Ch) characteristic-p construction + lifting** | Hurwitz existence in prime degree: "Let p be a prime. Every branch datum of degree p satisfying (1.1) is realized by a connected branched cover Σ_g → S²" (Song–Wen–Zhang arXiv:2609.20572v1 Thm 1.1; **claimed, unrefereed**; question of EKS 1984 p. 774, p. 787; verified computationally for p < 32, arXiv:2512.06545) | ✔V | P1 (every prime p, every datum); P3 (no identity; stable reduction in char p, Henrio moments, Wewers lifting); P4 (if correct) | varies with the datum and is **not** O(1) in general, even for three-branch-value genus-0 data: for p = 4a + 1 prime the passport ([3ᵃ, 1ᵃ⁺¹], [2²ᵃ, 1], [p]) has Catalan(a) realisations (Astra retro review: rooted plane full binary trees, edges subdivided); the Euclidean family below has ≍ r₂(d)/8 (inferred). No P2 pass is claimed | the monodromy group contains a regular C_p, with normaliser C_p ⋊ 𝔽_p^× (SWZ Lemma 2.5); the cover is built in characteristic p. Composite failure: EKS Prop 5.7, for every d = ab the datum {[a,…,a], [b+1,1,…,1], [a, a(b−1)]} is non-realisable (V by the subagent from a scan of EKS, quoted in `precedent_comb.md` §1a; independently confirmed computationally by the cross-model reviewer for d ≤ 12) | **no** (0 hits) |
 | (Ch′) prime-exact via norms | Petronio, Winter Braids LN 7 (2020) Thm 3.13: (S², S², d, 3; [2,…,2,1], [4,…,4,1], [4,…,4,1]) realisable iff d = x² + y² with x, y of different parity; Thm 3.14 (x² + xy + y²) | V | P1 at primes ≡ 1 (4); P3 fails (two-squares identity, class (R)) | ≍ r₂(d)/8 (inferred) | Fermat/Gauss representation by a norm form; fails on a density-1 set of composite d | no |
 | (Sg) sign / reciprocity forcing | Elkies, Invent. Math. 89 (1987) Thm 1: "Let S be a finite set of primes. Then E has a supersingular prime outside S" | V | P1, P3, P4; fails P2 | power: the window is an iterated exponential (Elkies, Astérisque 198–200 (1991)); best unconditional count π₀(x) ≥ log₃x/(log₄x)^{1+δ} (Fouvry–Murty 1996 Thm 1) against a heuristic ≍ √x/log x | an archimedean sign of P_ℓ(J)P_{4ℓ}(J) < 0 plus (−1/ℓ) = −1 forces an odd number of non-residue prime factors. Needs a real embedding | yes: `TORSION_FIRING.md` §4, upgrades items 271–272; repo verdict "reproduces the genus layer only" |
 | (U) unit group + unique factorisation | Legendre: x² − py² = −1 solvable for every prime p ≡ 1 (4) (Niven–Zuckerman–Montgomery §7.8 Ex. 12) | V2 | P1, P4; P3 fails (algebraic); P2 n/a (infinite solution group; one class) | one solution class | (x₀ − 1)(x₀ + 1) = py₀² with p prime admits only two coprime splittings, and minimality kills one. Fails at squares and at composites 205, 221, 305, 377, 505, … (OEIS A031398; recomputed by the subagent) | yes: `DETERMINISTIC_EXISTENCE.md` §4 row 9, z52 β′; absent from Z63's table |
@@ -160,7 +165,8 @@ against a fresh literature pass. Sources: `data/z64/equiv/sources/precedent_nt.m
 * The (Ch) row is the one omission that changes the picture. In literal terms, its P2 status depends on the datum,
   and its proof is a 40-page unrefereed preprint, so it is not entered as a Tier-A pass.
 * What matters is its *shape*: "true at every prime, false at every composite by an explicit construction, and proved
-  by an argument in which p is the characteristic". Z63 §3.5 records no such shape among the results it reviewed. §3.3
+  by an argument in which p is the characteristic". This is an analogy with ES's restricted predicates, not ES's own
+  shape (ES has no known failure at all). Z63 §3.5 records no such shape among the results it reviewed. §3.3
   tests whether it transfers.
 
 ### 3.2 The (Ch) precedent in detail (✔ read from arXiv:2609.20572v1 and the API records of 1010.2888, 2512.06545)
@@ -211,7 +217,9 @@ with deg 𝒟(d) = d. Then the statement "𝒟(p) is realisable ⟺ R(p) ≥ 1, 
 
 *Scope.* The lemma is deliberately weak. It concerns only families with degree exactly p, and it uses only the
 conclusion of SWZ (SWZ Thm 4.8 is stated for odd p; p = 2 is handled separately in their §8). For data in which all
-but one profile is a pure cycle it is unconditional, by Chenakkod–Faraco–Gupta Cor 9.6 as cited by SWZ (V2).
+but one profile has at most one nontrivial cycle it is unconditional, by Chenakkod–Faraco–Gupta arXiv:2103.01580v4
+Cor 9.6 (read directly in the Astra retro review). It does not exclude an equivalence restricted to the large-prime
+(MS) domain.
 
 So prime-degree realisability carries no (★) information. A transfer would have to use the *mechanism* (characteristic
 p, regular C_p), not the theorem. The table's first row says why the mechanism does not reach ℤ-points.
@@ -252,8 +260,8 @@ theory for the transported objects. Pure relabellings rank lowest. "Type" refers
 | 3 | E1 | (★)(p) ⟺ p is the largest integer having exactly k representations by some numerical semigroup ⟨u, B⟩ with k ≡ 3 (mod 4) (generalised Frobenius number g_k = (k+1)uB − u − B) | numerical semigroups | Beck–Robins Thm 3; Popoviciu; inverse theorems (Rosales et al., Math. Scand. 94 (2004) Thm 1.11: every g is a 3-generator Frobenius number; odd g = F(2, g + 2)) | inverse results exist but only for relaxed shapes (3 generators, or k = 0); none controls k mod 4 | II | Z1970 (verbatim; Popoviciu Z1972) |
 | 4 | E3 | **Lemma A:** for every odd n ≥ 5, ES(n) ⟺ 4/n − 1 is the Euler characteristic of a closed orientable 2-orbifold ⟺ ∃ compact Riemann surface X (g ≥ 2) and finite G ≤ Aut(X) with \|G\|(n − 4) = n(2g − 2) | Riemann surfaces, Fuchsian groups | Riemann existence, Selberg's lemma / Fox, Kulkarni genus spectrum | realisation needs the signature, which is an Egyptian representation | I | Z0153 / Agol's comment on MO 267209 (statement for hyperbolic 2-orbifolds), Z0171, Z0167; new: the proof of the all-signature direction (15 sporadic odd n) and the standard form (c) |
 | 5 | E4 | ES(n) ⟺ 4/n = lct₀(x^a + y^b + z^c) for some a, b, c ≥ 1 (n ≥ 5) | singularity theory / birational geometry | Kollár (16.1), (3.2); ACC (Hacon–McKernan–Xu); Kuwata, Prokhorov | the full lct question is trivially true: 4/n ∈ lct(ℂ²) for all n ≥ 6 (Lemma R(b)); ES is the diagonal stratum, about which the field says nothing pointwise | II | Z0155 |
-| 6 | E11 | (★)(p) ⟹ ∃ N and a quotient y^N = t^α(1 − t)^β of the Fermat curve F_N with three branch points of ramification indices (x, y, z), 1/x + 1/y + 1/z = 4/p (genus 1 + uBC(p − 4)/2) ⟹ ES(p). **(★) triples are lcm-balanced and always cyclically realisable** (Lemma F) | arithmetic geometry (Fermat curves, cyclic covers) | Jacobi sums / Weil for the Jacobians; genus formula | the genus formula is the only link; point counts are irrelevant to existence | I | Z0167 / Z1922 neighbourhood; Lemma F is new |
-| 7 | E8 | (★)(n) ⟺ n is the upper-right entry of T^u(−L^{−4C})T^B (u, B, C ≥ 1) ⟺ ∃ γ = [[a, n], [c, d]] ∈ SL₂(ℤ), c ∈ 4ℕ, a, d ≥ 1, a ≡ −1 (mod c) ⟺ the Anosov map γ of T² sends the c-torsion point (1/c, 0) to its negative, c being its own lower-left entry | dynamics / Farey / SL₂(ℤ) | Farey graph, periodic orbits of cat maps, Ghys–Rademacher linking | SL₂(ℤ) structure is p-blind; the tied modulus (c is an entry of γ) is B2 verbatim | I | FRONTIER §2.1 SL₂ form; Z63_EUCLID |
+| 6 | E11 | for odd primes p (p ≥ 5): (★)(p) ⟹ ∃ N and a quotient y^N = t^α(1 − t)^β of the Fermat curve F_N with three branch points of ramification indices (x, y, z), 1/x + 1/y + 1/z = 4/p (genus 1 + uBC(p − 4)/2) ⟹ ES(p). **(★) triples are lcm-balanced and always cyclically realisable** (Lemma F) | arithmetic geometry (Fermat curves, cyclic covers) | Jacobi sums / Weil for the Jacobians; genus formula | the genus formula is the only link; point counts are irrelevant to existence | I | Z0167 / Z1922 neighbourhood; Lemma F is new |
+| 7 | E8 | (★)(n) ⟺ n is the upper-right entry of T^u(−L^{−4C})T^B (u, B, C ≥ 1) ⟺ ∃ γ = [[a, n], [c, d]] ∈ SL₂(ℤ), c ∈ 4ℕ, a, d ≥ 1, a ≡ −1 (mod c) ⟺ some Anosov map γ = [[a, n], [c, d]] of T² **with upper-right entry n, c ∈ 4ℕ and a, d ≥ 1** sends the c-torsion point (1/c, 0) to its negative, c being its own lower-left entry (the bare Anosov/torsion condition is not equivalent: [[−1, 9], [4, −37]] negates (1/4, 0) but R(9) = 0) | dynamics / Farey / SL₂(ℤ) | Farey graph, periodic orbits of cat maps, Ghys–Rademacher linking | SL₂(ℤ) structure is p-blind; the tied modulus (c is an entry of γ) is B2 verbatim | I | FRONTIER §2.1 SL₂ form; Z63_EUCLID |
 | 8 | E5 | ES(n) ⟺ ∃ x, y, z ≥ 1 with n·det P(x, y, z) = 4xyz (pretzel link) ⟺ the Seifert fibred double branched cover M(0; (x,1), (y,1), (z,1)) has rational Euler number of absolute value 4/n | knot theory / Seifert manifolds | determinant, signature, Montesinos classification | invariants are computed from (x, y, z) | I | Z0158 (verbatim) |
 | 9 | E2 | (★)(p) ⟺ O(p) ≅ ω ⊗ π*O_{ℙ¹}(4C) on the stacky line ℙ(u, B) | algebraic geometry of stacks | Riemann–Roch / Serre duality (denumerant symmetry) | a degree identity | I | Z1991 (verbatim) |
 | 10 | E9 | (★)_C(n) ⟺ 4Cn + 1 has a divisor in the ray class of complex conjugation in Cl_{4C·∞}(ℚ) ≅ Gal(ℚ(ζ_{4C})/ℚ) ⟺ a sub-multiset of the Frobenius elements of its prime factors multiplies to complex conjugation | algebraic NT (CFT) | Chebotarev, CFT existence | moving field ℚ(ζ_{4C}); the genus layer is free and the class layer is B2 | IV (covered) | Z62_INVERSEF; Z60_RAYCLASS |
@@ -304,8 +312,10 @@ O(p) ≅ ω ⊗ π*O(4C) ⟺ p = 4CuB − u − B. ∎ (Catalogue Z1991, verbati
       m₃ ≤ 11, so finitely many cases.
 
     The exhaustive enumeration (`scripts/z64_equiv_orbifold.py`, exact Fractions, CERTIFIED) gives the odd n
-    {15, 21, 23, 39, 45, 47, 75, 95, 105, 111, 115, 117, 119, 165, 273}. The largest odd sporadic n is 273. Every r = 4 value is ≤ 6888 (even, attained at (2, 3, 7, 41)), so the script's
-    NMAX = 10⁵ is exhaustive. The internal review reran it with NMAX = 10⁸ and got
+    {15, 21, 23, 39, 45, 47, 75, 95, 105, 111, 115, 117, 119, 165, 273}. The largest odd sporadic n is 273. In the s < 0 sporadic cases every value is ≤ 6888 (even, attained at
+    (2, 3, 7, 41)); with s > 0 (n < 120) and s = 0 (n even), the script's NMAX = 10⁵ is exhaustive for odd sporadic n.
+    (Not every r = 4 value is bounded: (2, 2, q, nq) gives unbounded odd n = 4q − 1, and (2, 3, 6, m) unbounded even
+    n = 4m; neither is sporadic.) The internal review reran it with NMAX = 10⁸ and got
     the same list. ES holds at each of them: all are below
     Salez's 10¹⁷, and `scripts/z64_equiv_orbifold.py` also prints an explicit 3-term representation for each.
 
@@ -385,7 +395,9 @@ where L₃ = ∅, e.g. at 5 and 105. The internal review flagged the earlier "(S
   (check (ii): 10 632 solutions).
 * Conversely, if γ = [[a, n], [c, d]] ∈ SL₂(ℤ) with c ∈ 4ℕ, a ≥ 1 and a ≡ −1 (mod c), then ad ≡ 1 forces d ≡ −1, and
   T^{−(a+1)/c} γ T^{−(d+1)/c} = [[−1, 0], [c, −1]]. This recovers (u, B) = ((a + 1)/c, (d + 1)/c), both ≥ 1.
-* On T² = ℝ²/ℤ², γ(1/c, 0)ᵀ = (a/c, 1) ≡ (a/c, 0), which equals −(1/c, 0) iff a ≡ −1 (mod c).
+* On T² = ℝ²/ℤ², γ(1/c, 0)ᵀ = (a/c, 1) ≡ (a/c, 0), which equals −(1/c, 0) iff a ≡ −1 (mod c). The torus form keeps
+  the restrictions upper-right entry n, c ∈ 4ℕ, a, d ≥ 1 (they give trace ≥ 6, so γ is Anosov); without them the
+  equivalence fails, e.g. γ = [[−1, 9], [4, −37]] is Anosov and negates (1/4, 0), but R(9) = 0.
 
 ∎
 
@@ -404,7 +416,8 @@ where L₃ = ∅, e.g. at 5 and 105. The internal review flagged the earlier "(S
 * Hence 𝔞 ↦ N𝔞 is a bijection from ideal divisors of (α) onto positive divisors of N(α), and the (★)_{c²} condition
   transports. ∎
 
-**E11 = Lemma F.** Let p be prime and (u, B, C) a (★) solution, with (x, y, z) = (uBC, pBC, puC) and N = puBC.
+**E11 = Lemma F.** Let p be an odd prime (nonvacuous cases p ≥ 5; at p = 2, (u, B, C) = (1, 1, 1) gives indices
+(1, 2, 2), i.e. only two branch points) and (u, B, C) a (★) solution, with (x, y, z) = (uBC, pBC, puC) and N = puBC.
 * (a) lcm(x, y) = lcm(y, z) = lcm(z, x) = N.
 * (b) There are a, b, c ∈ ℤ/N with a + b + c = 0, gcd(a, N) = N/x = p, gcd(b, N) = N/y = u and gcd(c, N) = N/z = B.
   The cover is connected because gcd(a, b, N) divides gcd(p, u) = 1. Hence the cyclic cover y^N = t^a(1 − t)^b of ℙ¹
@@ -582,7 +595,8 @@ arithmetic (§3.3). Of the rows above, only E6/E7 (Λ₃(p)) and E9/E10 have (i)
 held most of the forms. This lane proved ten equivalences and one implication chain with exact ranges. Every native existence tool met is of
 one of three kinds: it realises objects from the very data that constitute a certificate; it proves a relaxation
 that also holds at odd squares (or only on average); or it obstructs. The one genuinely new item is on the precedent
-side: prime-degree Hurwitz existence, a 2026 claimed theorem with ES's exact prime/composite shape, proved by
+side: prime-degree Hurwitz existence, a 2026 claimed theorem with a prime/composite shape *analogous* to that of
+ES's restricted predicates (not ES's own shape), proved by
 construction in characteristic p. Its primality acts on S_p and on covers over an algebraically closed field, not on
 a ℤ-point. So it widens the catalogue of how primality can force existence, without giving B2 a template. Any future
 equivalence worth a lane must attach a canonical object to p and come with a structure theorem that distinguishes
@@ -652,3 +666,17 @@ confirmed the SWZ / Petronio / AMP / Lorenzini sources. All eight required fixes
 8. **EKS Prop 5.7** now cites the reviewer's computational confirmation for d ≤ 12.
 
 The falsifier-table F2 cell for E6 is also reworded. The verdict is unchanged.
+
+**Cross-model retro review (Astra)** (`data/z64/xreview/REVIEW_EQUIV_ASTRA.md`; verdict ACCEPT-WITH-FIXES; E1–E10,
+Lemma A (with an independent exhaustive signature analysis), Lemma F, Lemma R and conditional Lemma H re-derived; all
+four lane scripts replay byte-identically; independent check `scripts/xrev_retro_equiv_astra.py`). All four required
+fixes applied:
+1. Domains explicit: E8's torus clause keeps upper-right entry n, c ∈ 4ℕ, a, d ≥ 1 (counterexample [[−1, 9], [4, −37]],
+   R(9) = 0); E11/Lemma F restricted to odd primes (p = 2 gives two branch points); §1 notes that inheritance of
+   screens holds only inside each row's proved domain (E1/E2/E10 are prime-only).
+2. Hurwitz: the "O(1) for rigid genus-0 data" count is deleted (Catalan(a) realisations of a genus-0 passport at
+   p = 4a + 1); "ES's exact prime/composite shape" / "ES's square failures" replaced by an analogy with the restricted
+   predicates (ES itself has no square obstruction). Lemma H's Chenakkod–Faraco–Gupta subcase restated as read.
+3. The 6888 bound scoped to the s < 0 sporadic signatures (memo and `scripts/z64_equiv_orbifold.py` docstring;
+   output unchanged).
+4. F3: (W) holds at 284 of the 285 composite R-zeros and fails at 105; "blind on the 285" became "blind on most".

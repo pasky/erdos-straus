@@ -3,8 +3,11 @@
 (which is the two-term equation 4/n = 1/a + 1/b)?  Exact rational enumeration (Fractions).
 r=4: 1/m1+1/m2+1/m3+1/m4 = 1 + 4/n ; r=5: sum_5 1/m_i = 2 + 4/n.  Prints sporadic n (not via (2,2,.,.)).
 Exhaustiveness: sorted r=4 tuples have m1<=3, m2<=5 (1/m1+3/m2>1), m3 bounded (loop break when 1/m1+1/m2+2/m3<=1),
-m4 bounded (loop break when the remainder 4/n would be <= 0); every reachable odd n is <= 6888 (attained in the
-s<0 cases), so NMAX >= 10^4 is exhaustive (a rerun with NMAX = 10^8 gives the identical list).
+m4 bounded (loop break when the remainder 4/n would be <= 0). Scope of the bound (corrected after the Astra retro
+review): with s = 1/m1+1/m2+1/m3-1, the s>0 cases give n < 120, the s=0 family (2,3,6,m) gives only even n = 4m
+(unbounded), and the s<0 sporadic cases give n <= 6888 (an even value, at (2,3,7,41)); the largest odd sporadic n is
+273. NOT every r=4 value is bounded: (2,2,q,nq) gives unbounded odd n = 4q-1 (excluded here as the two-term family).
+So for odd sporadic n, NMAX >= 10^4 is exhaustive (a rerun with NMAX = 10^8 gives the identical list).
 Usage: python z64_equiv_orbifold.py NMAX"""
 import sys
 from fractions import Fraction as F
