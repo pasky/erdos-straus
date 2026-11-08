@@ -186,17 +186,44 @@ for analytic functions.) ∎
 * *Bezout fails:* β₁, β₂ have gcd 1 but no Bezout identity, by degree in ℚ[β]. So M ⊭ IE₁ (Smith 1992 abstract, verified
   in `lit_models.md` §6: IE₁ ⊢ IOpen + Bez).
 
-## 3. Theorem B: what IOpen does prove (statement; proof to follow)
+## 3. Theorem B: what IOpen does prove
 
-**Theorem B (PROVED; elementary).** If a primitive class r mod q is solvable by polynomials, then IOpen ⊢ ES[r mod q].
-**Corollary C (the mod-840 dichotomy).** For r mod 840: if r ∉ 𝔐 then IOpen ⊢ ES[r mod 840] (all n, not only primes);
-if r ∈ 𝔐 then NOI ⊬ ES_prime[r mod 840]. [Classical input: every primitive non-square class mod 840 is solvable by
-polynomials (Mordell; ET p. 8); non-primitive classes via a divisor 2, 3, 5 or 7. To be CERTIFIED by
-`scripts/z64_unprov_mordell840.py`.]
+**Theorem B (PROVED; elementary).** If a primitive class r mod q is solvable by polynomials, with P₁, P₂, P₃ positive
+on every n ≥ 1 of the class, then IOpen ⊢ ES[r mod q]. (Without the positivity proviso: IOpen ⊢ ∀n ≥ N₀ (Cl_{r,q}(n) →
+ES(n)) for a numeral N₀, and the finitely many standard n < N₀ are settled by exhibiting witnesses.)
+
+*Proof.* Work in a model M ⊨ OI and let n ∈ M, n ≥ 1, n = qk + r.
+* *Integer values.* Q_i(k) := P_i(qk + r) is integer-valued on ℤ, so Q_i = Σ_j c_{ij} C(k, j) with c_{ij} ∈ ℤ (Newton
+  basis). OI proves j! | k(k − 1)⋯(k − j + 1): split k into its residues mod j!, using division by the numeral j!, and in
+  each case the divisibility is a polynomial identity. So C(k, j) ∈ M is defined as the quotient, and x := Q₁(k),
+  y := Q₂(k), z := Q₃(k) ∈ M.
+* *The identity.* N!·(4Q₁Q₂Q₃ − (qk + r)(Q₁Q₂ + Q₂Q₃ + Q₃Q₁)), with N ≥ deg, is a polynomial in the falling factorials
+  with integer coefficients that vanishes in ℤ[k]. So it vanishes in M, and M is torsion-free.
+* *Positivity.* "∀ real t ≥ 1: P_i(t) > 0" is a true universal statement of real closed fields, hence true in RC(M) ⊇ M.
+  So x, y, z ≥ 1 in the discrete ring M. ∎
+
+**Corollary C (the mod-840 dichotomy; PROVED + CERTIFIED).**
+* (a) For every r mod 840 with r ∉ 𝔐, IOpen ⊢ ES[r mod 840] (all n ≥ 2 of the class, prime or not).
+* (b) For every r ∈ 𝔐, NOI ⊬ ES_prime[r mod 840] (Cor A.1(a); 𝔐 is exactly the set of unit squares mod 840).
+
+*Certificate for (a)* (`scripts/z64_unprov_mordell840.py` → `data/z64/unprov/mordell840.txt`).
+* Each of the 186 primitive classes outside 𝔐 is covered by a member of ET's Type II family "n ≡ −e (mod 4ab), e | a + b"
+  with 4ab | 840: x = (n + e)/4, y = cn(n + e)/(4b), z = cn(n + e)/(4a), c = (a + b)/e. Only eight members are needed
+  (moduli 4, 8, 20, 24, 40, 56, 84, 168).
+* Each member's triple is checked for: the identity (sympy), integer values on the class (deg + 1 consecutive values),
+  and positivity for all real n ≥ 1.
+* The uncovered primitive classes are exactly 𝔐 = the unit squares mod 840.
+* The non-primitive classes use 4/(gm) = 1/(am) + 1/(bm) + 1/(cm) for (g; a, b, c) = (2; 1, 2, 2), (3; 1, 4, 12),
+  (5; 2, 4, 20), (7; 2, 21, 42).
+* This reproduces Mordell's classical result (ET p. 8, citing [49, 44]); the certificate is a re-verification, not new
+  mathematics. Replay: `uv run --with sympy python scripts/z64_unprov_mordell840.py` (seconds).
+
+*Reading (Assessment).* At modulus 840, open induction proves *exactly* Mordell's theorem: whatever IOpen can prove about
+ES on residue classes mod 840, polynomial identities already prove. For a general modulus, ET Prop 1.9 lists the classes
+solvable by polynomials; Thm A excludes the unit-square classes; classes in neither family are not settled here.
 
 ## 4–7. TODO (after checkpoint)
-PA/ZFC independence (what "PA ⊬ ES" entails; known natural Π₁ independence); bounded arithmetic (S¹₂/T¹₂/PV,
-IΔ₀, IE₁) — what is in reach; barrier reading of Thm A against B1 Thm M/C; proof complexity; GCD strengthening.
+PA/ZFC; bounded arithmetic; barrier reading; proof complexity; GCD strengthening.
 
 ## 8. Verdict (checkpoint)
 **Strengthened (logic).** New theorem: square classes are not provable in normal open induction (Thm A). This is the
