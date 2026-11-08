@@ -213,7 +213,7 @@ since Σ 1/φ(4k) diverges, E(x) ≪_B x (log x)^{−B} for every B > 0.
 *Input (the only thing assumed; e.g. Halberstam–Richert, *Sieve Methods*, Thm 2.2 (Brun) or Thm 5.2
 (Selberg), with conditions (Ω₁), (Ω₂(κ)), (R) verified for linear forms as usual).* Let L₁, …, L_r be
 pairwise non-proportional linear forms L_i(n) = a_i n + b_i (a_i ≥ 1), P₁, …, P_r sets of primes with
-Σ_{p ≤ y, p ∈ P_i} (log p)/p = δ_i log y + O(1), and z = x^{1/(10 r)}. Then
+Σ_{p ≤ y, p ∈ P_i} (log p)/p = δ_i log y + O(1), and z = x^{c} with c = c(r) > 0 a sufficiently small constant. Then
   #{n ≤ x : for every i, L_i(n) has no prime factor p ∈ P_i with p ≤ z} ≪ x ∏_{i} (log x)^{−δ_i},
 the implied constant depending on the forms and the sets.
 *Proof of 4.2 from the input.* By Theorem 3.1 and Prop. 3.3, every n ∈ E with √x ≤ n ≤ x is counted by
@@ -222,7 +222,7 @@ the sifted set with the 2 + 2 + 2 + 2(K−1) forms and prime sets
   (4kn+1, P_{4k}),
 where P₁ = {q ≡ 3 (4), q ≥ 7}, P₂ = {q ≡ 5, 7 (8)}, P₃ = {q ≡ 2 (3), q ≥ 5}, P_{4k} = {q ≡ −1 (4k),
 q ≥ 8k−1}: indeed each criterion of Prop. 3.3 has a side condition (q ≠ n+4 or 4n+1 ≠ 3q, q ≠ n+2,
-q ≠ 2n+1, q < n+4k, q(8k−1) ≤ 4kn+1) that is automatic for q ≤ z = x^{1/(10r)} and n ≥ √x (x large).
+q ≠ 2n+1, q < n+4k, q(8k−1) ≤ 4kn+1) that is automatic for q ≤ z = x^{c} < x^{1/2}/4 and n ≥ √x (x large).
 The densities are δ = 1/2, 1/2, 1/2, 1/2, 1/2, 1/2 and 1/φ(4k) twice (prime number theorem in arithmetic
 progressions), so Σδ_i = 3 + 2Σ_{k=2}^K 1/φ(4k) = κ_K. Adding the ≤ √x values n < √x gives the claim. ∎
 Status: CONDITIONAL only on a textbook sieve theorem (no conjecture). I have not re-derived the sieve
