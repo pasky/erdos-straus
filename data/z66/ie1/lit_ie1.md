@@ -126,6 +126,7 @@ Abstract (verbatim): "We study the relative strength of the two axioms (P) Every
   - Abstract: "It is unknown whether the fragment of arithmetic IE1 (or even the stronger system IΔ0) proves that every odd prime has a quadratic nonresidue. We show that one direction of the quadratic reciprocity law holds in IE1 when one of the primes is standard…"
   - **Cor 2.8**: if M ⊨ IE1 and p is prime in M, then M/pM is a field.
   - **Thm 3.11**: M ⊨ IE1, p, q primes, p standard: (q/p)=1 ⇒ (p/q)=1 unless p ≡ q ≡ 3 mod 4, in which case (p/q) = −1.
+    **[CORRECTION by the z66 IE1 internal review: the direction is reversed. Smith proves, for distinct odd primes with p standard, (p/q)=1 ⇒ (q/p)=1, except (q/p)=−1 when p ≡ q ≡ 3 mod 4.]**
   - **Thm 4.2**: M ⊨ IE1, q odd prime: q = x²+y² ⇔ (−1/q)=1. This is the two-squares theorem for primes, *relative to* −1 being a QR.
   - **Thm 4.4**: the same for x²+2y² with (−2/q) and x²+3y² with (−3/q).
   - **Cor 4.5**: the same for x²+4y².
