@@ -276,8 +276,10 @@ with X₀ = √(2N) + 2, R = √(N + X₀) + 2, S = √(N/2) + 3, R_r = √(2N) 
   residue, s | M + r, r ≤ √(2N) + 1, and the cofactor (u′ or v′) is ≤ √(N/2) + 1.
 * Each candidate yields at most one event.
 * The script asserts cand ≤ B at every computed level.
-* *Cross-check* (`sbrute_17_3e4.txt`, `scripts/z66_ucover_sbrute.py`). Direct Jacobi on large integer representatives,
-  A ≤ 3·10⁴ and uv ≤ 3·10⁴, ℓ = 17, k ≤ 3: brute ⊆ exact, and all 79 exact events in range are found.
+* *Cross-check* (`scripts/z66_ucover_sbrute.py`, files `sbrute_17_3e4.txt`, `sbrute_11_1e5.txt`, `sbrute_13_1e5.txt`).
+  Direct Jacobi on large integer representatives:
+  * ℓ = 17, A, uv ≤ 3·10⁴, k ≤ 3: brute ⊆ exact, and all 79 exact events in range are found;
+  * ℓ = 11, 13, A, uv ≤ 10⁵, k ≤ 4: brute ⊆ exact, and all 95 resp. 77 exact events in range are found.
   * Good W2 events at non-unit ρ (ℓ | ρ) occur. They are irrelevant for unit g and are discarded.
   * No good event at a quadratic residue occurs.
 
