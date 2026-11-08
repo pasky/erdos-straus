@@ -1,0 +1,4 @@
+(i) k-Frobenius checks: 805 bad so far 0
+(ii) SL2 factorisations: 10632  (iii) cyclic-cover checks: 1998 bad so far 0
+(iv) A3 critical-matrix checks: 53518
+TOTAL bad: 0
