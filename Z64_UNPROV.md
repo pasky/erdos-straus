@@ -325,6 +325,12 @@ exist since ES is verified to 10¹⁷ (or by direct check).)
 * This reproduces Mordell's classical result (ET p. 8, citing [49, 44]); the certificate is a re-verification, not new
   mathematics. Replay: `uv run --with sympy python scripts/z64_unprov_mordell840.py` (seconds).
 
+*Consistency falsifier for Thms A and B (CERTIFIED; `scripts/z64_unprov_famcheck.py` → `data/z64/unprov/famcheck.txt`).*
+Thms A and B would contradict each other if some polynomially solvable primitive class contained a unit square. The
+script enumerates all 75 124 members with modulus Q ≤ 4000 of the four explicit ET identity families (T2a, T1a, T1d, T2c,
+as in the 840 script). It finds **0** classes ρ mod Q that are unit squares mod Q, as ET Prop 1.6 / Mordell–Schinzel
+predict. Replay: `python3 scripts/z64_unprov_famcheck.py 4000` (~1 min).
+
 *Reading (Assessment).* At modulus 840, open induction proves *exactly* Mordell's theorem: whatever IOpen can prove about
 ES on residue classes mod 840, polynomial identities already prove. For a general modulus, ET Prop 1.9 essentially classifies the classes
 solvable by polynomials (necessary families plus a converse); Thm A excludes the unit-square classes; classes in neither family are not settled here.
@@ -559,7 +565,16 @@ What is out of reach (Assessment, with reasons):
 ## 9. Open problems (precise)
 * **(O1) IOpen + Bez ⊬ ES_prime[r mod q] for unit-square r?** A Bezout model with the arc property (Prop 6.2) would
   settle it. Natural starting point: S. T. Smith, *Building discretely ordered Bezout domains and GCD domains*, J. Algebra
-  159 (1993) 191–239 (citation verified, contents not read; `lit_models.md` §6). Candidate: iterate the BO step with Bezout steps adjoining u, (1 − ug)/h for coprime pairs (g, h). The
+  159 (1993) 191–239 (citation verified, contents not read; `lit_models.md` §6).
+  *Where the difficulty sits (Assessment).*
+  * The arc side looks fine. To adjoin u, v with ug + vh = 1 for a coprime pair, choose the integer point b so that
+    gcd(g(b), h(b)) = 1. This is possible: at the finitely many bad standard primes ϕ separates g and h, and above them
+    an Ekedahl-type sieve applies, since the density of b with ℓ | g(b), h(b) is ≤ C/ℓ² by the point-count lemma of
+    §2.7. Then let ψ(u) interpolate analytically: an integer Bezout coefficient at s = 0, the prescribed values 1/ψ(g)
+    at the zeros of ψ(h) on the arc (a generic arc avoids the codimension-2 common zeros), and u's order type at ∞.
+  * The model side is the obstacle. u and v cannot be Puiseux polynomials (β₁ is not a unit mod β₂ in ℚ[β]), so
+    M[u, v] leaves K[x^ℚ]. Discreteness and the integral-part property of such extensions need a Smith-type
+    construction, which we have not carried out. Candidate: iterate the BO step with Bezout steps adjoining u, (1 − ug)/h for coprime pairs (g, h). The
   coordinate rings are then A¹-bundles over the previous stage, and arcs extend along the fibres. Not done: the
   integral-part, discreteness and GCD bookkeeping are unverified.
 * **(O2) IE₁.** Any counter-model is non-recursive (Wilmers). Does IE₁ prove ES on some square class? Expected no.
@@ -592,5 +607,12 @@ no FATAL issue; 1 MAJOR and 14 MINOR issues, all applied:
 * (14) Novelty qualified "to our knowledge"; Smith 1993 cited for O1; q* = 1 is BO's model verbatim.
 * (15) Wording: Presburger row, recursiveness parenthetical, Bezout argument, ET Prop 1.9, TS label.
 
-**Replay.** `uv run --with sympy python scripts/z64_unprov_mordell840.py` writes `data/z64/unprov/mordell840.txt`
-(seconds, under `ulimit -v 4000000`). Everything else is proof.
+**Replay** (under `ulimit -v 4000000`):
+* `uv run --with sympy python scripts/z64_unprov_mordell840.py` writes `data/z64/unprov/mordell840.txt` (seconds);
+* `python3 scripts/z64_unprov_famcheck.py 4000` writes `data/z64/unprov/famcheck.txt` (~1 min).
+Everything else is proof.
+
+**Post-review additions** (made after the internal review; checked by a second, focused review, below):
+* §2.8 Thm A″ (Th_∀(ℤ));
+* the famcheck falsifier;
+* the O1 assessment.

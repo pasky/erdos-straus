@@ -1,0 +1,3 @@
+# z64 UNPROV famcheck: QMAX=4000
+# family members enumerated: 75124; primitive: 75124
+# primitive family classes containing a unit square: 0
