@@ -119,9 +119,20 @@ Explicitly:
 * (b) n ≡ 2 (mod 3) (so n ≡ 5 mod 12), n ≥ 17: (t, u, v) = ((n+7)/12, 4, 3) is a word
   (12t − 7 = n) with A = 4t − 1 = (n+4)/3. Here A ≡ 3 (mod 4) (n + 4 ≡ 9 mod 12) and A | n + 4, so
   (A/n) = (n/A) = (−4/A) = (−1/A) = −1. (n = 5: t = 1, not a word; vacuous.)
-Both witnesses are direct; neither needs Theorem 2.1, and neither uses primality (F3) — (a) uses only
-n ≡ 5 (8), which already excludes squares (F1); (b) uses n ≡ 2 (3), which excludes squares too.
-So (S) is open only for **n ≡ 1 or 9 (mod 24)**.
+* (c) n ≡ 3 (mod 9) (so n ≡ 21 mod 36), n ≥ 57: (t, u, v) = ((n+15)/36, 3, 12) is a word (36t − 15 = n)
+  with B = tv − 1 = 12t − 1 ≡ 3 (mod 4), B | n + 12 (Lemma 1.1(b)), so (B/n) = (n/B) = (−12/B) = (−3/B) = −1
+  because B ≡ 2 (mod 3); and (A/n) = (B/n) by Lemma 1.1(c).
+All witnesses are direct; none needs Theorem 2.1, and none uses primality (F3) — (a) uses only
+n ≡ 5 (8), (b) n ≡ 2 (3), (c) 3 ∥ n: each excludes squares (F1).
+So (S) is open only for **n ≡ 1 (mod 24)** and for **n ≡ 9 (mod 24) with n ≢ 3 (mod 9)**, i.e. n ≡ 1, 9, 33
+(mod 72).
+
+**Proposition 3.1′ (universal words of fixed denominator; PROVED).** Let A ≥ 3 be odd, u | A + 1 with
+2 ≤ u ≤ (A+1)/2 and (−u/A) = −1. Then every n ≡ 1 (mod 4) with n ≡ −u (mod A) and n ≥ 2A − u has the good
+word ((A+1)/u, u, (n+u)/A). (Lemma 1.1(e).) Examples: A = 5, u ∈ {2, 3}: n ≡ 3, 2 (mod 5); A = 7, u ∈ {2, 4}:
+n ≡ 5, 3 (mod 7); A = 11, u ∈ {3, 4}: n ≡ 8, 7 (mod 11); A = 13, u ∈ {2, 7}: n ≡ 11, 6 (mod 13). The class
+n ≡ 6 (mod 7) (where (7/n) = −1) is NOT of this form for A = 7 (it would need u = 1); the smallest universal
+word there is A = 63, u = 8: n ≡ 55 (mod 63).
 
 **Proposition 3.2 (the "4 | u" family is always good; PROVED).** Let u ≡ 0 (mod 4), v ≡ 3 (mod 4), and
 n ≡ −(u+v) (mod uv) with n ≥ 2uv − u − v. Then t := (n+u+v)/(uv) ≥ 2 is an integer, (t, u, v) is a
@@ -166,9 +177,9 @@ flags file). Note ((n+5)/6, 3, 2) for n ≡ 1 (mod 24) has t ≡ 1 (mod 4), u �
 M = 8·lcm{uv : (u,v) ∈ F}·6. Every non-square n ≡ 1 (mod M), n ≥ 7, has a word, but none of its words
 with (u, v) ∈ F (or (v, u) ∈ F) is good. (ii) Fix A₀. Let M = 4·lcm(1, …, A₀)·6. Every non-square
 n ≡ 1 (mod M) has a word, but no word of n with denominator A ≤ A₀ is good.
-*Proof.* n ≡ 1 (mod 6) gives the word of Remark 3.4. (i) For (u,v) ∈ F the word (t,u,v) of n exists iff
-uv | n + u + v, and then t ≡ (1 + u + v)/(uv)·… — more precisely t mod 8 is determined by n mod 8uv,
-and so is the truth of 8 | (n+t)(n+u+v). Pick an odd square s² ≡ 1 ≡ n (mod 8uv) with s large; then
+*Proof.* n ≡ 1 (mod 6) gives the word of Remark 3.4. (i) Key fact: *if n is a square modulo 8uv, then a
+word (t, u, v) of n (if it exists) is bad.* Indeed the word exists iff uv | n + u + v, and
+t = (n+u+v)/(uv) mod 8 is determined by n mod 8uv, hence so is the truth of 8 | (n+t)(n+u+v). Pick an odd square s² ≡ 1 ≡ n (mod 8uv) with s large; then
 s² has the word (t', u, v) with t' ≡ t (mod 8), and by Corollary 2.2 8 ∤ (s² + t')(s² + u + v), hence
 8 ∤ (n + t)(n + u + v): the word is bad by Theorem 2.1. (ii) For a word with denominator A ≤ A₀,
 (A/n) as a function of odd n > 0 is periodic mod 4A | M (Kronecker symbol), so (A/n) = (A/1) = 1. ∎
