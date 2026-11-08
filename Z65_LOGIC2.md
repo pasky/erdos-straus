@@ -588,9 +588,9 @@ the part that is not hard.
   * Polynomial-type models of OI + PB ("modulo every prime, every non-multiple is invertible") have no nonstandard
     prime at all.
   * QR_std fails at every square-mimicking prime, and Lag fails always.
-  * Among the axioms *examined here*, PB is the weakest one that the construction excludes. It is a single Π₂
-    sentence, implied by Bez and IE₁. No minimality claim is made: PB, E(−1) and Lag are pairwise incomparable as far
-    as we know.
+  * Of the Bezout-type axioms examined, PB is the weakest that the construction excludes. It is a single Π₂ sentence,
+    implied by Bez and IE₁. QR_std and Lag are excluded as well, and they are incomparable with PB as far as we know.
+    No minimality claim is made.
   * Accommodated: TS (Thm T), and GCD, PD, normality, Th_∀(ℤ) and T1 (U64, Thm P). E(−1) is OPEN (§4.4).
 * **Against arc-type constructions.**
   * PROVED: the witness relations of PB, TS, E(−1), QR_std and Lag have integer points at suitable odd squares
@@ -693,8 +693,11 @@ Q_U.
   not conflict with landing at odd squares (Prop 5.2), so their status, and that of IE₁, IΔ₀ and IΔ₀ + exp, stays
   OPEN. Bezout models with infinite primes exist in the literature (Smith 1993; Mohsenipour 2006), so O1 is now a
   concrete question about those models.
-* Brief (2), as an Assessment: PB is the weakest axiom examined that the present construction excludes, and NR is a
-  natural principle that excludes every arc construction.
+* Brief (2), as an Assessment:
+  * PB (prime-Bezout) is the weakest Bezout-type axiom examined that the present construction excludes. QR_std and
+    Lag are incomparable further exclusions.
+  * NR is a natural true principle that excludes every arc construction.
+  * At the level of open induction the exact obstruction is polynomial non-coverage (Thm D).
 * The message for a proof is the T1 slogan made formal. At primes whose every standard residue is a square, which exist
   in models of true arithmetic, a proof must work at nonstandard moduli (PROVED). The cheap Jacobi-level non-squareness
   is not the issue (Assessment); the shaped, divisor-level certificate is B2.
