@@ -175,3 +175,51 @@ s² has the word (t', u, v) with t' ≡ t (mod 8), and by Corollary 2.2 8 ∤ (s
 Consequently any proof of (S) must use words with unbounded denominators A and unbounded (u, v)
 (the classical Schinzel-type obstruction for Erdős–Straus, here in the Jacobi language). Words at a
 *fixed level t* (factorisations of tn + 1) are not residue-class objects and escape this remark.
+
+## §4 The exceptional set has density zero
+
+Let E(x) := #{n ≤ x : n ≡ 1 (mod 4), n non-square, n has a word, n has no good word} (the set of
+counterexamples to (S) up to x; conjecturally E ≡ 0, and E(10⁹) = 0 by the brief).
+
+**Theorem 4.1 (PROVED, given the classical Landau–Wirsing count).** E(x) ≪ x/√(log x).
+*Proof.* By Theorem 3.1 every n ∈ E with n ≥ 13 satisfies n ≡ 1 (mod 8). By Prop. 3.3(1), n + 4 has no
+prime factor q ≡ 3 (mod 4) with q ≥ 7, i.e. n + 4 ∈ 𝒮 := {m : every prime factor of m is 3 or ≡ 1 (mod 4)}.
+Let G(y) := #{m ≤ y : all prime factors of m are ≡ 1 (mod 4)}. The classical theorem (Landau 1908 for
+sums of two squares; in the form needed here Wirsing, Math. Ann. 143 (1961), Satz 1, applied to the
+indicator of the set of integers composed of primes ≡ 1 (mod 4), a set of primes of Dirichlet density
+τ = 1/2; equivalently the Selberg–Delange method, Tenenbaum *Introduction to analytic and probabilistic
+number theory*, Ch. II.6) gives G(y) ~ c·y (log y)^{−1/2}, in particular G(y) ≪ y/√(log 2y) for y ≥ 1.
+Then #{m ≤ y : m ∈ 𝒮} = Σ_{e ≥ 0, 3^e ≤ y} G(y/3^e); the terms with 3^e ≤ √y contribute
+≪ Σ_e (y/3^e)/√(log √y) ≪ y/√(log y), those with 3^e > √y contribute ≤ Σ_{3^e > √y} y/3^e ≪ √y.
+Hence E(x) ≤ 13 + #{m ≤ x + 4 : m ∈ 𝒮} ≪ x/√(log x). ∎
+(Non-squareness is used only through Theorem 3.1(a) — for n ≡ 1 (mod 8) squares DO belong to the
+set {n : n + 4 ∈ 𝒮} (m² + 4 is a sum of two coprime squares), which is why only an upper bound for the
+exceptional set, not emptiness, can come out of this family alone.)
+
+**Theorem 4.2 (CONDITIONAL on the standard upper-bound sieve).** For every fixed K ≥ 1,
+  E(x) ≪_K x (log x)^{−κ_K},  κ_K := 3 + 2 Σ_{k=2}^{K} 1/φ(4k);
+since Σ 1/φ(4k) diverges, E(x) ≪_B x (log x)^{−B} for every B > 0.
+*Input (the only thing assumed; e.g. Halberstam–Richert, *Sieve Methods*, Thm 2.2 (Brun) or Thm 5.2
+(Selberg), with conditions (Ω₁), (Ω₂(κ)), (R) verified for linear forms as usual).* Let L₁, …, L_r be
+pairwise non-proportional linear forms L_i(n) = a_i n + b_i (a_i ≥ 1), P₁, …, P_r sets of primes with
+Σ_{p ≤ y, p ∈ P_i} (log p)/p = δ_i log y + O(1), and z = x^{1/(10 r)}. Then
+  #{n ≤ x : for every i, L_i(n) has no prime factor p ∈ P_i with p ≤ z} ≪ x ∏_{i} (log x)^{−δ_i},
+the implied constant depending on the forms and the sets.
+*Proof of 4.2 from the input.* By Theorem 3.1 and Prop. 3.3, every n ∈ E with √x ≤ n ≤ x is counted by
+the sifted set with the 2 + 2 + 2 + 2(K−1) forms and prime sets
+  (n+4, P₁), (4n+1, P₁), (n+2, P₂), (2n+1, P₂), (n+3, P₃), (3n+1, P₃), and for 2 ≤ k ≤ K: (n+4k, P_{4k}),
+  (4kn+1, P_{4k}),
+where P₁ = {q ≡ 3 (4), q ≥ 7}, P₂ = {q ≡ 5, 7 (8)}, P₃ = {q ≡ 2 (3), q ≥ 5}, P_{4k} = {q ≡ −1 (4k),
+q ≥ 8k−1}: indeed each criterion of Prop. 3.3 has a side condition (q ≠ n+4 or 4n+1 ≠ 3q, q ≠ n+2,
+q ≠ 2n+1, q < n+4k, q(8k−1) ≤ 4kn+1) that is automatic for q ≤ z = x^{1/(10r)} and n ≥ √x (x large).
+The densities are δ = 1/2, 1/2, 1/2, 1/2, 1/2, 1/2 and 1/φ(4k) twice (prime number theorem in arithmetic
+progressions), so Σδ_i = 3 + 2Σ_{k=2}^K 1/φ(4k) = κ_K. Adding the ≤ √x values n < √x gives the claim. ∎
+Status: CONDITIONAL only on a textbook sieve theorem (no conjecture). I have not re-derived the sieve
+constants; the forms are distinct, so the standard verification of (Ω₂) applies.
+
+**Numerics for the explicit criteria (CERTIFIED, `scripts/z64_sdeepf_escape.c`, data/z64/sdeepf/
+escape_counts.txt).** Among the 1 248 419 non-square n ≡ 1 (8), n ≤ 10⁷: 36.9 % escape criterion (1),
+15.3 % escape (1)–(2), 3.08 % escape (1)–(4), 0.86 % escape (1)–(6), 0.20 % escape (1)–(6) plus k ≤ 4.
+The fractions decrease with x as the theorems predict (e.g. (1)–(6): 1.77 %, 1.28 %, 0.86 % at
+x = 10⁵, 10⁶, 10⁷) — logarithmically slowly. Every escaping n still has a good word (crit8 run), of
+course with larger (u, v, t).
