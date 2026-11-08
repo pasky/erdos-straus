@@ -72,8 +72,8 @@ A ≡ −1 (mod t'), reciprocity gives (t'/A) = (A/t')(−1)^{(A−1)(t'−1)/4}
   – u ≡ 2 (4): t'u − 1 odd; t'u/2 odd so t'u(t'u−1)/2 odd; (u/2)(t'−1) even. E even, (A/n) = +1.
     Here v is odd, n + t odd, so v₂(C) = v₂(t) + v₂(u) = 2: 8 ∤ C. ✓
   – u odd (v even): E ≡ (t'u−1)/2 + (t'−1)/2 ≡ t'(u+1)/2 − 1 (mod 2). If u ≡ 1 (4), (u+1)/2 is odd and
-    E is even: (A/n) = +1; if u ≡ 3 (4), E is odd: (A/n) = −1. On the other side, n ≡ 2uv − u − v ≡
-    −u − v (mod 4) (as 2uv ≡ 0 mod 4), so u + v ≡ 3 (mod 4): u ≡ 1 ⇒ v ≡ 2 (4), v₂(C) = 2, 8 ∤ C;
+    E is even: (A/n) = +1; if u ≡ 3 (4), E is odd: (A/n) = −1. On the other side, n ≡ 2t'uv − u − v ≡
+    −u − v (mod 4) (as v is even, 2t'uv ≡ 0 mod 4), so u + v ≡ 3 (mod 4): u ≡ 1 ⇒ v ≡ 2 (4), v₂(C) = 2, 8 ∤ C;
     u ≡ 3 ⇒ v ≡ 0 (4), 8 | C. ✓
   This also shows the parenthetical equivalence in the table row t ≡ 2 (4).
 
@@ -112,8 +112,8 @@ non-square n the character (·/n) is non-trivial, and (S) asks for a word in the
 
 ## §3 Proved cases of (S) and the families that are always good
 
-**Theorem 3.1 (PROVED).** (S) holds for every n ≡ 1 (mod 4) with n ≡ 5 (mod 8) or n ≡ 2 (mod 3).
-Explicitly:
+**Theorem 3.1 (PROVED).** (S) holds for every n ≡ 1 (mod 4) with n ≡ 5 (mod 8), or n ≡ 2 (mod 3), or
+n ≡ 3 (mod 9). Explicitly:
 * (a) n ≡ 5 (mod 8), n ≥ 13: (t, u, v) = (3, 3, (n+3)/8) is a word (9(n+3)/8 − 3 − (n+3)/8 = n) with
   A = 8, and (8/n) = (2/n)³ = (2/n) = −1 because n ≡ 5 (mod 8). (n = 5 has no word at all.)
 * (b) n ≡ 2 (mod 3) (so n ≡ 5 mod 12), n ≥ 17: (t, u, v) = ((n+7)/12, 4, 3) is a word
@@ -124,8 +124,8 @@ Explicitly:
   because B ≡ 2 (mod 3); and (A/n) = (B/n) by Lemma 1.1(c).
 All witnesses are direct; none needs Theorem 2.1, and none uses primality (F3) — (a) uses only
 n ≡ 5 (8), (b) n ≡ 2 (3), (c) 3 ∥ n: each excludes squares (F1).
-So (S) is open only for **n ≡ 1 (mod 24)** and for **n ≡ 9 (mod 24) with n ≢ 3 (mod 9)**, i.e. n ≡ 1, 9, 33
-(mod 72).
+So (S) is open only for **n ≡ 1 (mod 24)** and for **n ≡ 9 (mod 24) with n ≢ 3 (mod 9)**, i.e. for
+n ≡ 1, 9, 25, 33, 49 (mod 72).
 
 **Proposition 3.1′ (universal words of fixed denominator; PROVED).** Let A ≥ 3 be odd, u | A + 1 with
 2 ≤ u ≤ (A+1)/2 and (−u/A) = −1. Then every n ≡ 1 (mod 4) with n ≡ −u (mod A) and n ≥ 2A − u has the good
@@ -153,9 +153,10 @@ is true for the "4 | t" family: any factorisation tn + 1 = AB, A ≡ B ≡ −1 
    n + 4 ≡ 1 mod 4.]
 2. 4n + 1 has a prime factor q ≡ 3 (mod 4), q ≥ 7, with 4n + 1 ≠ 3q. [t = 4, A = q, B = (4n+1)/q ≡ 3 (4),
    B ≥ 7; Theorem 2.1 row t ≡ 0 (4), or directly (q/n) = (n/q) = (−4^{-1}/q) = (−1/q) = −1.]
-3. n + 2 has a prime factor q ≡ 5 or 7 (mod 8), q ≠ n + 2. [u = 2, A = q, t = (q+1)/2, v = (n+2)/q ≥ 3;
-   (q/n) = (n/q) = (−2/q) = −1.]
-4. 2n + 1 has a prime factor q ≡ 5 or 7 (mod 8), q ≠ 2n + 1. [t = 2, A = q, B = (2n+1)/q ≥ 3; same symbol.]
+3. n + 2 has a prime factor q ≡ 5 or 7 (mod 8). [q ≠ n + 2 automatically, as n + 2 ≡ 3 (mod 8); u = 2,
+   A = q, t = (q+1)/2, v = (n+2)/q ≥ 3; (q/n) = (n/q) = (−2/q) = −1.]
+4. 2n + 1 has a prime factor q ≡ 5 or 7 (mod 8). [q ≠ 2n + 1 automatically (2n + 1 ≡ 3 mod 8); t = 2,
+   A = q, B = (2n+1)/q ≥ 3; same symbol.]
 5. n + 3 has a prime factor q ≡ 2 (mod 3), q ≥ 5. [u = 3, A = q, t = (q+1)/3, v = (n+3)/q ≥ 4 (4 | n+3);
    (q/n) = (n/q) = (−3/q) = −1.]
 6. 3n + 1 has a prime factor q ≡ 2 (mod 3), q ≥ 5. [t = 3, A = q, B = (3n+1)/q is even and ≡ 2 (3),
@@ -203,11 +204,13 @@ number theory*, Ch. II.6) gives G(y) ~ c·y (log y)^{−1/2}, in particular G(y)
 Then #{m ≤ y : m ∈ 𝒮} = Σ_{e ≥ 0, 3^e ≤ y} G(y/3^e); the terms with 3^e ≤ √y contribute
 ≪ Σ_e (y/3^e)/√(log √y) ≪ y/√(log y), those with 3^e > √y contribute ≤ Σ_{3^e > √y} y/3^e ≪ √y.
 Hence E(x) ≤ 13 + #{m ≤ x + 4 : m ∈ 𝒮} ≪ x/√(log x). ∎
-(Non-squareness is used only through Theorem 3.1(a) — for n ≡ 1 (mod 8) squares DO belong to the
-set {n : n + 4 ∈ 𝒮} (m² + 4 is a sum of two coprime squares), which is why only an upper bound for the
-exceptional set, not emptiness, can come out of this family alone.)
+(Non-squareness is not used in this proof beyond the definition of E; indeed all odd squares DO belong to
+the sifted superset {n : n + 4 ∈ 𝒮} (m² + 4 is a sum of two coprime squares), which is why only an upper
+bound for the exceptional set, not emptiness, can come out of this family alone. The set counted is a
+subset of the sums of two squares, so Landau 1908 alone suffices; Wirsing is cited for the general form.)
 
-**Theorem 4.2 (CONDITIONAL on the standard upper-bound sieve).** For every fixed K ≥ 1,
+**Theorem 4.2 (PROVED modulo the cited textbook sieve theorem; its conditions (Ω₁), (Ω₂(κ)), (R) for
+distinct linear forms are standard and were not re-verified here).** For every fixed K ≥ 1,
   E(x) ≪_K x (log x)^{−κ_K},  κ_K := 3 + 2 Σ_{k=2}^{K} 1/φ(4k);
 since Σ 1/φ(4k) diverges, E(x) ≪_B x (log x)^{−B} for every B > 0.
 *Input (the only thing assumed; e.g. Halberstam–Richert, *Sieve Methods*, Thm 2.2 (Brun) or Thm 5.2
@@ -225,8 +228,9 @@ q ≥ 8k−1}: indeed each criterion of Prop. 3.3 has a side condition (q ≠ n+
 q ≠ 2n+1, q < n+4k, q(8k−1) ≤ 4kn+1) that is automatic for q ≤ z = x^{c} < x^{1/2}/4 and n ≥ √x (x large).
 The densities are δ = 1/2, 1/2, 1/2, 1/2, 1/2, 1/2 and 1/φ(4k) twice (prime number theorem in arithmetic
 progressions), so Σδ_i = 3 + 2Σ_{k=2}^K 1/φ(4k) = κ_K. Adding the ≤ √x values n < √x gives the claim. ∎
-Status: CONDITIONAL only on a textbook sieve theorem (no conjecture). I have not re-derived the sieve
-constants; the forms are distinct, so the standard verification of (Ω₂) applies.
+Status: depends only on a textbook sieve theorem (no conjecture). I have not re-derived the sieve
+constants; the forms are distinct, so the standard verification of (Ω₂) applies (ω(p) = #{i : p ∈ P_i}
+for p outside the finite set of primes dividing the leading coefficients and pairwise resultants).
 
 **Numerics for the explicit criteria (CERTIFIED, `scripts/z64_sdeepf_escape.c`, data/z64/sdeepf/
 escape_counts.txt).** Among the 1 248 419 non-square n ≡ 1 (8), n ≤ 10⁷: 36.9 % escape criterion (1),
@@ -246,9 +250,10 @@ For n ≡ 1 (mod 8) the condition reads 8 | (t + 1)(u + v + 1). In the (W_u) par
 n ≡ 1 (mod 8): a word (u, A | n+u, A ≡ −1 mod u) is good iff (−u/A′) = −1 where A′ is the odd part of A
 (Lemma 1.1(e) plus (2/n) = 1). So (S) for n ≡ 1 (mod 8) says: *for some u, n + u has a divisor
 A ≡ −1 (mod u) in the range [2u−1, (n+u)/2] whose odd part is a non-residue for the character (−u/·)* —
-equivalently, **n is a quadratic non-residue modulo some word denominator A** ((A/n) = (n/A) for odd A).
+equivalently, **n is a quadratic non-residue modulo the odd part of some word denominator A**
+((A/n) = (n/A) for odd A; for even A, (A/n) = (n/A′) when n ≡ 1 mod 8).
 So (S) is a "least non-residue"-type statement restricted to the sparse set of word denominators: the
-set W(n) of denominators has ≍ (log n)² elements on average, and a counterexample would be an n for
+set W(n) of denominators has ≍ (log n)² elements on average (heuristic/EVIDENCE: brief + §6 counts), and a counterexample would be an n for
 which (·/n) is trivial on all of W(n) — exactly the behaviour of squares (Cor. 2.2).
 
 Why the obvious routes stop (all three observations PROVED above or classical):
@@ -265,9 +270,9 @@ Why the obvious routes stop (all three observations PROVED above or classical):
    only global input distinguishing n from a square is the non-triviality of (·/n), which must be
    transported to the sparse set W(n). Pell/Vieta-type involutions on words do not exist (the equation
    is linear in each of t, u, v; for fixed t it is a divisor problem).
-Conclusion (honest): I did not find a proof of (S) for the classes n ≡ 1, 9, 33 (mod 72); the results
-proved here are Theorems 2.1, 3.1, Props. 3.1′–3.5, Thm 4.1, and Thm 4.2 conditional on a textbook sieve
-bound. No HOT LEAD.
+Conclusion (honest): I did not find a proof of (S) for the classes n ≡ 1, 9, 25, 33, 49 (mod 72); the
+results proved here are Theorems 2.1, 3.1, Props. 3.1′–3.5, Thm 4.1 (given Landau), and Thm 4.2 (given a
+textbook sieve bound). No HOT LEAD.
 
 ## §6 EVIDENCE (all CERTIFIED by the listed scripts; data in data/z64/sdeepf/)
 
@@ -299,7 +304,9 @@ bound. No HOT LEAD.
   prime factor in a non-residue class of n+u / tn+1 (for n = m² every prime factor q of m² + u has
   (−u/q) = +1, of tm² + 1 has (−t/q) = +1, so the hypotheses are never met); Thm 4.1/4.2 bound a set that
   contains the squares (upper bounds only). No argument here claims (S) for a class containing squares.
-* **F2 (sub-families).** Checked on both screen files (§6, `f4_witnesses.txt`, `families` output): the
+* **F2 (sub-families).** Sub-family membership was checked on the screened primes ≤ 2·10⁶ (12 of the 14
+  star primes, 30 of the 38 gstar primes; `families` output, §6); for the larger screened primes and the
+  r8 primes only the existence of a good word was certified (`f4_witnesses.txt`). The
   always-good sub-families 4|t, 4|u, t ≡ 3 (4)&uv even, … each miss some screened primes (e.g. 4|t misses
   409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201; "4|u or 4|v"
   misses none of the screened primes but misses the primes 13, 193, 2521, 21841, 66529). No theorem above
