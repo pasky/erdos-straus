@@ -542,7 +542,11 @@ primes only the profinite *limits* of zeros matter.
   * Between 19 % and 28 % of the children of an open node stay uncovered when a new prime is added. So the uncovered
     fraction of K falls (0.4, 0.1, 0.019, 0.0047, 0.0012) while the *number* of open nodes grows about ×3–5.5 per
     prime.
-  * Controls: the unit squares mod 840 and 9240 are 0 % covered, the non-squares mod 840 are 100 % covered.
+  * Controls (`cover_controls.txt`):
+    * unit squares mod 840, 9240, 120120 and 360360: 0 % covered, as Mordell–Schinzel requires (this also checks the
+      encoding of the families);
+    * non-squares mod 840: 186/186 covered (Mordell);
+    * non-squares mod 9240: 1886/1890 covered.
 * **CONJECTURE (Q_U negative).** K ∩ U ≠ ∅, so U ⊋ (Ẑ^×)², and NOI ⊬ "ES at all large primes ≡ 1 (mod 840) that
   are non-residues mod 11" (Thm D).
   * EVIDENCE: the growing tree above.

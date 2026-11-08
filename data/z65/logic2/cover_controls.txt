@@ -1,0 +1,7 @@
+Q=840 ({2: 3, 3: 1, 5: 1, 7: 1}) target=nonsq family_members=956 |K|=186 covered=186 uncovered=0 frac_covered=1.0000
+Q=840 ({2: 3, 3: 1, 5: 1, 7: 1}) target=sq family_members=956 |K|=6 covered=0 uncovered=6 frac_covered=0.0000
+Q=9240 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1}) target=sq family_members=3631 |K|=30 covered=0 uncovered=30 frac_covered=0.0000
+Q=9240 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1}) target=1mod840_nr11 family_members=3631 |K|=5 covered=3 uncovered=2 frac_covered=0.6000
+Q=120120 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1, 13: 1}) target=sq family_members=13541 |K|=180 covered=0 uncovered=180 frac_covered=0.0000
+Q=360360 ({2: 3, 3: 2, 5: 1, 7: 1, 11: 1, 13: 1}) target=sq family_members=26484 |K|=540 covered=0 uncovered=540 frac_covered=0.0000
+Q=9240 ({2: 3, 3: 1, 5: 1, 7: 1, 11: 1}) target=nonsq family_members=3631 |K|=1890 covered=1886 uncovered=4 frac_covered=0.9979
