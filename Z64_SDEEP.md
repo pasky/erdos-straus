@@ -50,17 +50,21 @@ BRAINSTORM/y1_gamma8_trace Fact G2* (χ is not an SL₂(ℤ)-class function of M
 counterexample crosses n mod 4, n = 37 vs 39): no contradiction — (a) below is a positive genus-character statement
 for the different matrix γ_w on n ≡ 1 (4) with s ≢ 0 (4), and sharpens G2's reading.
 *Class-invariance (corrected after review).* Write s = tr γ_w = A + A* = t(u+v) − 2 and f_w = [n, A* − A, −t]
-(discriminant D = s² − 4; primitive at primes). (a) **s ≢ 0 (mod 4): the sign is an invariant of the proper
-SL₂(ℤ)-class of f_w (PROVED, classical genus argument).** Put D₁ = ε(s+2) with ε = ±1 such that D₁ ≡ 1 (mod 4) if s is
+(discriminant D = s² − 4; primitive at primes). (a) **s ≢ 0 (mod 4) and gcd(n, s + 2) = 1: the sign is an invariant of the
+proper SL₂(ℤ)-class of f_w (PROVED, classical genus argument).** (The coprimality is needed for the last step and is
+not automatic at composites: (t,u,v) = (7,3,9), n = 177, A = 20, A* = 62, s = 82, f_w = [177, 42, −7] primitive, has
+(20/177) = −1 but ((s+2)/177) = (84/177) = 0 — Astra retro review. At primes it is automatic: p | s + 2 would force
+A ≡ −1 (mod p), impossible for an interior word. The ramified cases gcd(n, s + 2) > 1 are not proved.) Put D₁ = ε(s+2) with ε = ±1 such that D₁ ≡ 1 (mod 4) if s is
 odd (possible since s+2 ≡ s−2 mod 4), and D₁ = s + 2 ≡ 0 (mod 4) if s ≡ 2 (mod 4). Then D₁ is a discriminant, D₁ ∣ D,
 and in the identity a·f(x,y) = (ax + (b/2)y)² − (D/4)y² (b even) resp. 4a·f(x,y) = (2ax + by)² − Dy² (b odd) the
 subtracted term is ≡ 0 (mod D₁) (for s ≡ 2 mod 4 because 4 ∣ s − 2). Since the Kronecker symbol (D₁/·) is a character
 mod |D₁|, every m represented by the class with gcd(m, 2D₁) = 1 (and a representation with the square coprime to D₁)
-has (D₁/m) = (D₁/a) — a class invariant; at m = n it equals ((s+2)/n)(ε/n) = χ_n(A) (n ≡ 1 mod 4). (b) **s ≡ 0
-(mod 4): not a class invariant** — then s ± 2 ≡ 2 (mod 4) are not discriminants; the repo's Z2825 counterexample
+has (D₁/m) = (D₁/a) — a class invariant; at m = n (a unit mod D₁ by gcd(n, s + 2) = 1) it equals ((s+2)/n)(ε/n) =
+χ_n(A) (n ≡ 1 mod 4). (b) **s ≡ 0 (mod 4): not a class invariant in general** — then s ± 2 ≡ 2 (mod 4) are not discriminants; the repo's Z2825 counterexample
 (ES_CONNECTIONS_TODO): (2,2,5) at n = 13 and (2,3,4) at n = 17 give the equivalent forms [13, 6, −2], [17, 2, −2]
 (s = 12, D = 140) with signs (14/13) = +1, (14/17) = −1. CERTIFIED (`scripts/z64_sdeep_genus_check.py`, all words of
-non-square n ≡ 1 (4) < 3000, Gauss ρ-cycles as class invariants): 0 sign disagreements in 3 089 same-class comparisons
+non-square n ≡ 1 (4) < 3000 whose form f_w is **primitive** (imprimitive forms are skipped), Gauss ρ-cycles as class
+invariants): 0 sign disagreements in 3 089 same-class comparisons
 with s ≢ 0 (mod 4); 1 155 disagreements in 1 901 comparisons with s ≡ 0 (mod 4). Either way Lemma 1 is a reformulation,
 not a mechanism (the class of f_w is determined by the word, and which classes have length-3 words is the problem).
 
@@ -70,7 +74,7 @@ factors through the cell map w = (t,u,v) ↦ (t,u,v) mod 4 ∈ (ℤ/4)³, follow
 Σ_{A∈L₃(n)} χ_n(A)F(A) = Σ_c σ(c) Σ_{cell(w)=c} F(A_w), and
 **for n with L₃(n) ≠ ∅: (S)(n) ⟺ the integral points of S_n : tuv − u − v = n (letters ≥ 2) are not all contained
 in the five residue classes C₊ mod 4.** At n = m² they are (T1). (Without L₃(n) ≠ ∅ the right side is false while (S)
-is vacuous: n = 5, 105 are the non-squares ≤ 2·10⁴ with L₃ = ∅ — the (W)-exceptions; at primes p > 5, L₃(p) ≠ ∅.) *Proof.* DK Thm 4.5/§8.1 (σ is the stated table; DK's proof uses Rademacher's congruence and a cell enumeration, elementary reciprocity proofs valid for all odd n ≡ 1 (4) with Jacobi symbols: FOREST_DEEP_FABLE §1 Thm A, FOREST_CONNECTIVITY Thm 2.1), applied termwise. ∎
+is vacuous: n = 5, 105 are the non-squares ≤ 2·10⁴ with L₃ = ∅ — the (W)-exceptions; at primes p > 5, L₃(p) ≠ ∅.) *Proof.* DK Thm 4.5/§8.1 (σ is the stated table; DK's proof uses Rademacher's congruence and a cell enumeration, valid for all n ≡ 1 (4); an unrestricted elementary proof is Z64_SDEEPF Thm 2.1. The elementary reciprocity proofs FOREST_DEEP_FABLE §1 Thm A and FOREST_CONNECTIVITY Thm 2.1 assume gcd(uv, n) = 1 and so cover only those words — corrected after the Astra retro review), applied termwise. ∎
 *Meaning for the brief (Assessment).* On the structured set L₃(n) the *values* of χ_n carry no information beyond
 selecting 15 of the 20 admissible 2-adic cells. The analytic content of χ_n (Burgess on intervals of length
 n^{1/4+ε}, Pólya–Vinogradov, GRH for small non-residues, large sieve in the modulus n) concerns χ_n on *additively*
@@ -226,8 +230,8 @@ products (CLASS_FORCING §6 "full factor multiset"); mod-4/8 (not mod-2) laws of
 
 **NARROWED.** No HOT LEAD; ES and (S) remain open.
 * **PROVED:** Lemma 1 (trace form of the sign — new in the repo; certified on 37 116 primes) and its
-  class-invariance for traces s ≢ 0 (mod 4) (classical genus argument; certified for n < 3000; fails for s ≡ 0 mod 4,
-  Z2825);
+  class-invariance for traces s ≢ 0 (mod 4) with gcd(n, s + 2) = 1 (classical genus argument; automatic at primes;
+  certified on primitive forms for n < 3000; not in general for s ≡ 0 mod 4, Z2825; ramified composite cases unproved);
   Lemma 2 (restatement of DK §8.1: on n with L₃(n) ≠ ∅, (S) ⟺ ML, 2-adic escape of integral points); Prop 3
   (whole-fibre χ_n data = congruence data; cf. CLASS_FORCING Thm 2.1); Prop 4 (i) (completion over the (A, A*)-plane
   meets words in one-point-thick hyperbolas); no polynomial word family for d·m² + k, k ≥ 0, in the two shapes of §4(a)
@@ -248,11 +252,13 @@ products (CLASS_FORCING §6 "full factor multiset"); mod-4/8 (not mod-2) laws of
 
 ## 8. Proposed FRONTIER text (do NOT edit FRONTIER here)
 *§6 / z64 block (SDEEP, `Z64_SDEEP.md`; setup γ_w / f_w / modular-hyperbola box from WINDMILL_REDUCTION §5.2–5.3):* Conjecture (S) as a character-value problem. PROVED (new): for γ ∈ Γ₀(n),
-(d/n) = ((tr γ ± 2)/n), so the sign of a word is (t(u+v)/n) (trace form; a genus-character value of the form class when
-tr ≢ 0 (mod 4), not class-invariant when tr ≡ 0 (mod 4) — Z2825). Restating DEDEKIND_ES §8.1: the sign on L₃(n) is the n-free mod-4
+(d/n) = ((tr γ + 2)/n) when gcd(n, tr γ + 2) = 1, and (d/n) = ((tr γ − 2)/n) when gcd(n, tr γ − 2) = 1, so the sign of
+a word is (t(u+v)/n) when coprime (trace form; a genus-character value of the form class when tr ≢ 0 (mod 4) and
+gcd(n, tr + 2) = 1 — automatic at primes; not class-invariant in general when tr ≡ 0 (mod 4) — Z2825). Restating DEDEKIND_ES §8.1: the sign on L₃(n) is the n-free mod-4
 cell function, so on n with L₃(n) ≠ ∅, (S) ⟺ the integral points of tuv − u − v = n escape the five cells C₊ (T1: at
 squares they never do). Whole-fibre χ_n data is congruence data (cf. CLASS_FORCING Thm 2.1); Salié/Kloosterman
-completion meets the words in one-point-thick hyperbolas (B3). CERTIFIED/EVIDENCE: no non-abelian parity law for 368
+completion meets the words in one-point-thick hyperbolas (Prop 4(i), PROVED); that its square-root error is too large
+is an Assessment about the current completion estimate (B3), not a general impossibility theorem. CERTIFIED/EVIDENCE: no non-abelian parity law for 368
 sub-count parities vs 66 listed (≈ 36 distinct) quartic/class-number invariants and products (p ≡ 1 (8) ≤ 2·10⁶); no
 (S) failure among 19 179 adversarial n ≤ 9·10¹³ (min N₋ = 65 pairs where fully enumerated); prime-certificate (S)
 fails only at 20521, 21841, 589681 (p ≡ 1 (8) ≤ 2·10⁷), measured mean count ≤ 0.97 log p (extrapolated c∞ > 1,
@@ -265,7 +271,8 @@ character problem in that sense. On L₃(n) the Jacobi symbol is a fixed functio
 equals (t(u+v)/n), the character at trace + 2), so any argument that uses only the values of χ_n on L₃(n) sees only
 which 2-adic cells the integral points of tuv − u − v = n occupy (Assessment). T1 is the statement that at squares they occupy only five cells. The
 three mechanisms registered here all failed their kill tests or found nothing: no non-abelian parity law, no
-completion with a positive-thickness region, no counterexample in adversarial families up to 9·10¹³ (N₋ ≥ 65 there).
+completion with a positive-thickness region, no counterexample in adversarial families up to 9·10¹³ (N₋ ≥ 65 on the 3 558 fully enumerated adversarial rows; the
+other rows were early-exit).
 What remains is the familiar tied-divisor event, now stated as a 2-adic escape lemma for integral points (§5).
 
 ## 10. Internal hostile review and fixes
@@ -274,8 +281,9 @@ Requested deep-mode reviewer unavailable (provider usage limit); review run as a
 hostile brief (report `/tmp/z64_sdeep_review.md`, not committed). 0 FATAL, 5 MAJOR, 12 MINOR; all applied:
 * **M1** (S) ⟺ ML only on n with L₃(n) ≠ ∅ (counterexamples 5, 105): Lemma 2, §5, §6, §8 restricted.
 * **M2** the genus reading of Lemma 1 was false in general (Z2825's counterexample (2,2,5)@13 vs (2,3,4)@17, s = 12):
-  corrected and sharpened after review to "class-invariant iff s ≢ 0 (mod 4)" (genus proof for s odd and s ≡ 2 mod 4;
-  certified n < 3000; counterexamples for s ≡ 0 mod 4).
+  corrected and sharpened after review to "class-invariant for s ≢ 0 (mod 4); not in general for s ≡ 0 (mod 4)"
+  (genus proof for s odd and s ≡ 2 mod 4, needing gcd(n, s + 2) = 1 — see §12; certified on primitive forms for
+  n < 3000; counterexamples for s ≡ 0 mod 4).
 * **M3** Prop 4 (ii)/(iii) were listed as PROVED in §6: relabelled; KS2 declared tautological as registered.
 * **M4** §5 item 2 and the §6/§8/§9 wording overreached (χ_n values on L₃(n) vs character methods in general):
   relabelled Assessment, narrowed, and characters mod the level u explicitly not excluded.
@@ -300,3 +308,14 @@ y1_gamma8_trace Fact G2 (different matrix; G2's counterexample crosses n mod 4; 
 (3) KS1: stated that the registered survive clause was triggered (0.9981) and resolved as a constant-ρ redundancy
 with gain 0 before the DEAD verdict;
 (4) prime-A: decade means are over p ≡ 1 (8); failure ⟺ every −1 pair has A and A* composite.
+
+## 12. Cross-model retro review (Astra) (`data/z64/xreview/REVIEW_SDEEP_ASTRA.md`: ACCEPT-WITH-FIXES) — fixes applied
+The reviewer reproduced the census checks (independent t,u,v enumeration to 2·10⁴; eight full adversarial rows; 130
+early rows; all 357 screen rows; prime-A to 2·10⁷ byte-identical) and audited the proofs; the unrestricted genus proof
+is not certified. Required fixes applied:
+(1) Lemma 1(a) now assumes gcd(n, s + 2) = 1 (counterexample to the last step without it: n = 177, (7,3,9), (20/177) = −1
+vs (84/177) = 0; automatic at primes; ramified composite cases unproved); §6/§8 restore the separate gcd(n, tr γ ± 2) = 1
+conditions; §10's "iff" became "for s ≢ 0 (4); not in general for s ≡ 0 (4)"; the genus census is primitive-only.
+(2) Lemma 2's source scope: the two FOREST proofs require gcd(uv, n) = 1; DK (and Z64_SDEEPF Thm 2.1) cover all n.
+(3) §9 "N₋ ≥ 65" is scoped to the 3 558 fully enumerated rows; the KS2 export keeps the Assessment label (current
+completion estimate, not a general impossibility).

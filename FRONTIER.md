@@ -2581,7 +2581,8 @@ the OpenAI quota was exhausted — weaker than the usual cross-model check; all 
   e.g. Bezout-level divisor arithmetic, counting, reciprocity for non-standard moduli). PA/ZFC independence of ES (a Π⁰₁
   sentence) is not a realistic target: it would contain a proof of ES and Con(T); one-sided T ⊬ ES only of Con(T)
   (Assessment).
-* **Conjecture (S) (`Z64_SDEEP.md`, Opus; `Z64_SDEEPF.md`, Fable).** No proof. SDEEP: adversarial census of 19 179
+* **Conjecture (S) (`Z64_SDEEP.md`, Opus; `Z64_SDEEPF.md`, Fable; Astra retro review of SDEEP ACCEPT-WITH-FIXES, fixes
+  applied).** No proof. SDEEP: adversarial census of 19 179
   inputs up to 9·10¹³ (many composites, near-squares, n ≡ 1 mod lcm(1..23)) — 0 failures (CERTIFIED); non-abelian
   parity laws tested and dead by pre-registered kills. SDEEPF (rediscovering DEDEKIND_ES Thm 4.5 in a compact form:
   (A/n) = −1 ⟺ 8 | (n+t)(n+u+v)): explicit words prove (S) for n ≡ 5 (8), n ≡ 2 (3), n ≡ 3 (9); a Mordell-type
