@@ -1,0 +1,1252 @@
+                                                                                                                  ...meiner lieben Gerda gewidmet
+
+
+
+                                                                       LIFTING of CURVES
+                                                                        — The Oort Conjecture —
+arXiv:1203.1867v1 [math.AG] 8 Mar 2012
+
+
+
+
+                                                                                    FLORIAN POP
+
+                                                Abstract. In this note we show that a special case of a recent result by Obus–Wewers
+                                                (used as a black box) together with a deformation argument in characteristic p leads to a
+                                                proof of the Oort Conjecture in the general case. A boundedness result is given as well.
+
+
+
+
+                                                                                 1. Introduction
+                                            The aim of this note is to present a proof of the (classical) Oort Conjecture, which is a
+                                         question about lifting Galois covers of curves from characteristic p > 0 to characteristic zero.
+                                         In one form or the other, this kind of question might well be considered math folklore, and it
+                                         was also well known that in general the lifting is not possible. The problem was systematically
+                                         addressed and formulated by Oort at least as early as 1987, see [19] or rather [20]. The
+                                         general context of the lifting question/problem is as follows: Let k be an algebraically closed
+                                         field of characteristic p > 0, and W (k) be the ring of Witt vectors over k. Let Y → X
+                                         a G-cover of complete smooth k-curves, where G is a finite group. Then the question is
+                                         whether there exists a finite extension of discrete valuation rings W (k) ֒→ R and a G-cover
+                                         YR → XR of complete smooth R-curves whose special fiber is the given G-cover Y → X.
+                                         The answer to this question in general is negative, because over k there are curves of genus
+                                         g > 1 and huge automorphism groups, see e.g. Roquette [27], whereas in characteristic zero
+                                         one has the Hurwitz bound 84(g − 1) for the order of the automorphism group. The Oort
+                                         Conjecture is about a subtle interaction between the ramification structure and the nature
+                                         of the inertia groups of generically Galois covers of curves, the idea being that if the inertia
+                                         groups of a G-cover Y → X look like in characteristic zero, i.e., they are all cyclic, then the
+                                         Galois cover should be smoothly liftable to characteristic zero.
+                                           Oort Conjecture. Let k and W (k) be as above. Let Y → X be a possibly ramified
+                                         G-cover of complete smooth k-curves having only cyclic groups as inertia groups. Then there
+                                         exists a finite extension R of W (k) over which the G-cover Y → X lifts smoothly, i.e., there
+                                         exists a G-cover YR → XR of complete smooth R-curves with special fiber Y → X.
+
+                                           Date: 12.29.11 / 1.30.12 / 2.12.12.
+                                           1991 Mathematics Subject Classification. Primary 12E, 12F, 12G, 12J; Secondary 12E30, 12F10, 12G99.
+                                           Key words and phrases. Galois G-covers of curves, Witt vectors, Artin–Schreier–Witt theory, Hilbert
+                                         ramification theory, smooth curves over valuation rings, lifting of G-covers, Oort Conjecture.
+                                           Supported by NSF grant DMS-1101397.
+                                                                                           1
+   There is also the local Oort conjecture, which asserts that every finite cyclic extension
+k[[t]] ֒→ k[[z]] is the canonical reduction of a cyclic extension R[[T ]] ֒→ R[[Z]] for some finite
+extension R of W (k). The local/global Oort Conjecrures are related as follows, see Fact 4.9,
+where further equivalent forms of the Oort Conjecture are given: Let R be a finite extension
+of W (k), and XR be a complete smooth curve with special fiber X. Then a given G-cover
+Y → X, y 7→ x, with cyclic inertia groups lifts smoothly over a given R iff the local cyclic
+extensions k[[tx ]] := O bX,x ֒→ O
+                                 bY,y =: k[[ty ]] lift smoothly over R for all x ∈ X and y 7→ x.
+   Notation: Let degp (D) be the power of p in the degree of the different of k[[t]] ֒→ k[[z]],
+and degp (Dx ) be correspondingly defined for the local extension k[[tx ]] ֒→ k[[ty ]] at y 7→ x.
+  Theorem 1.1. The Oort Conjecture holds. Moreover, for every δ there exists an algebraic
+integer πδ such that for every algebraically closed field k, char(k) = p, the following hold:
+  1) Let k[[t]] ֒→ k[[z]] be a cyclic extension with degp (D) ≤ δ.
+  2) Let Y → X be a G-cover with cyclic inertia groups and degp (Dx ) ≤ δ for all x ∈ X.
+Then k[[t]] ֒→ k[[z]] and Y → X are smoothly liftable over W (k)[πδ ].
+   Historical Note: The first evidence for the Oort Conjecture is the fact that the conjecture
+holds for G-covers Y → X which have tame ramification only, i.e., G-covers whose inertia
+groups are cyclic of the form Z/m with (p, m) = 1. Indeed, the lifting of such G-covers
+follows from the famous Grothendieck’s specialization theorem for the tame fundamental
+group, see e.g., SGA I. The first result which involved typical wild ramification is Oort–
+Sekiguchi–Suwa [21] which tackled the case of Z/p-covers. It was followed by a quite
+intensive research activity, see the survey article by Obus [16] as well as the bibliography list
+at the end of this note. Garuti [8], [9] contains a lot of foundational work and beyond that
+showed that every G-cover Y → X has (usually) non-smooth liftings with a well understood
+geometry. This aspect of the problem was revisited recently by Saidi [28], where among
+other things a systematic discussion of the (equivalent) forms of the Oort Conjecture is
+given. The paper [11] by Green–Matignon contains further foundational work and gives a
+positive answer to the Oort Conjecture in the case of inertia groups of the form Z/mpe with
+(p, m) = 1 and e ≤ 2. Their result relies on the Sekiguchi–Suwa theory, see [31] and [32]. The
+paper Bertin–Mézard [1] addresses the deformation theory for covers, whereas Chinburg–
+Guralnick–Harbater [5], [6] initiated the study of the so called Oort groups, and showed
+that the class of Oort groups is quite restrictive. Last but not least, the very recent result
+by Obus–Wewers [18], see rather Obus [16], Theorem 6.28, solves the Oort Conjecture in
+the case the inertia groups are of the form Z/mpe for (p, m) = 1 and e ≤ 3, and essential
+for the method of this note, when the upper ramification jumps are subject to some explicit
+(strong) restrictions, see the explanations at Remark 4.12 in section 4 for details.
+   About the proof: Concerning technical tools, we use freely a few of the foundational
+results from the papers mentioned above. The main novel tools for the proof are Key
+Lemma 3.2 and its global form Theorem 3.7, and second, Key Lemma 4.11, which is actually
+a very special case of Lemma 6.27 from Obus [16], see section 4 for precise details and
+citations. All these results will be used as “black boxes” in the proof of the Oort Conjecture,
+given in section 4. Concerning the idea of the proof, there is little to say: The point is to
+first deform a given G-cover Y → X to a cover Yo → Xo over o = k[[̟]] in such a way that
+the ramification of the deformed cover has no essential upper jumps as defined/introduced at
+the beginning of section 3, then apply the local-global principles, etc.
+                                                 2
+   Maybe it’s interesting to mention that the first variant of the proof (January, 2011) was
+shorter, but relied heavily on model theoretical tools and was not effective (concerning the
+finite extensions of W (k) over which the smooth lifting can be realized).
+  Acknowledgements(...) If my recollection is correct, during an MFO Workshop in
+2003 or so, someone asked what should be the “characteristic p Oort Conjecture,” but it
+seems that nobody ever followed up (successfully) on that idea.
+
+
+                             2. Reviewing well known facts
+  Throughout this section, k is an algebraically closed field with char(k) = p > 0. All the
+other fields will be field extensions of k, in particular will be fields of characteristic p.
+A) Reviewing higher ramification for cyclic extensions
+   Let K be a complete discrete valued field of positive characteristic p > 0, with valuation
+ring R and having as residue field an algebraically closed field k. Let L|K be a finite Galois
+extension, say with Galois group G = Gal(L|K). Since K is complete, the valuation vK of
+K as a unique prolongation to L. And since the residue field k of K is algebraically closed,
+L|K is totally ramified, i.e., [L : K] = e(L|K). Finally, let vL be the normalized valuation of
+                               1
+L, hence vL (L× ) = Z and [L|K]  vL = vK on K.
+   Recall that the lower ramification groups of L|K or of G are defined as follows: Let z ∈ L
+be a uniformizing parameter. For every  we set G := {σ ∈ G | vL (σz − z) > } and call it
+the th lower ramification group of L|K or of G. Clearly, G = G0 is the inertia group of L|K,
+and G1 is the ramification group of L|K, thus the Sylow p-group of G, and G = 1 for 
+sufficiently large. In particular, G = G1 iff G is a p-group iff L|K is totally wildly ramified.
+   The first important fact about the lower ramification groups (G ) is Hilbert’s different
+formula, which gives an estimate for the degree deg(DL|K ) of the different of L|K in terms
+of the orders of the lower ramification groups, see e.g., Serre [30], IV, §1:
+                                                 ∞
+                                                 X                   
+                                 deg(DL|K ) =               |G | − 1 .
+                                                 =0
+
+We further denote by ρ the lower jumps for L|K, or of G, as being the numbers satisfying
+Gρ 6= Gρ +1 . In particular, setting −1 = −1 and 0 = 0, and denoting the upper jumps
+for L|K by 0 ≤ 1 ≤ · · · ≤ r , one has that r = max {  | G 6= 1 }.
+   Now suppose that L|K is a cyclic extension with G = Z/pe . Then G = G0 = G1 by the
+discussion above, and every subgroup of G is a lower ramification group for L|K. Thus one
+has precisely e lower positive jumps 1 ≤ · · · ≤ e , and G1 ≥ · · · ≥ Ge are precisely the e
+non-trivial subgroups of G = Z/pe . Finally, the Hilbert’s Different Formula becomes:
+                                                                          e
+                                                                          X
+                        Pe                              
+deg(DL|K ) = pe − 1 +     ρ=1 (ρ − ρ−1 ) |Gρ | − 1        = pe − 1 +         (ρ − ρ−1 )(pe−(ρ−1) − 1)
+                                                                          ρ=1
+
+   We recall that the lower ramification subgroups behave functorially in the base field, i.e.,
+if K ′ |K is some finite sub-extension of L|K, and G′ ⊆ G is the Galois group of L|K ′ , then
+G′ = G ∩ G′ . Since the lower ramification groups do not behave functorially with respect
+                                                 3
+                                                                                        ı
+to Galois sub-extensions, one introduced the upper ramification groups G for ı ≥ −1 of L|K,
+which behave functorially under taking Galois sub-extensions, see Serre Se, IV, §3.
+  At least in the case of cyclic extensions L|K with Gallois group G ∼  = Z/pe , the formula
+                                                                                  ı
+which relates the lower ramification groups G to the upper ramification groups G is explicit
+via Herbrand’s formula, see e.g. Serre [30], IV, §3. Namely, if ı0 := 0 and ı1 ≤ · · · ≤ ıe are
+the upper jumps for L|K, then one has:
+                           ρ − ρ−1 = p ρ−1 (ıρ − ıρ−1 ),     ρ = 1, . . . , e.
+  Thus in the case L|K is cyclic with Galois group G = Z/pe , one can express the degree of
+the different of L|K in terms of higher ramification groups as follows:
+                             Xe                                    e
+                                                                   X
+       deg(DL|K ) = pe − 1 +     (ıρ − ıρ−1 )pρ−1 (pe−(ρ−1) − 1) =   (ıρ + 1)(p ρ − pρ−1 ).
+                                ρ=1                                         ρ=1
+
+B) Explicit formulas via Artin–Schreier–Witt Theory
+   In the above notations, let t be any uniformizing parameter of the complete discrete valued
+field K of characteristic p > 0. Then K is canonically isomorphic to the Laurent power series
+field K = k((t)) in the variable t over k.
+   Recall that the Artin–Schreier–Witt theory gives a description of the cyclic p-power exten-
+sions of K via finite length Witt vectors as follows, see e.g., Lang [15], or Serre [30], II. Let
+A be an integrally closed domain which is a k-algebra, and We (A) = {(a1 , . . . , ae ) | ai ∈ A}
+be the Witt vectors of length e over A. Then the Frobenius morphism Frob of A lifts
+to the Frobenius morphism Frobe of We (A), and one defines the Artin–Schreier–Witt opera-
+                                           nr
+tor ℘e := Frobe − Id of A. If A ֒→ A is a ind-étale universal cover of A, one has the
+Artin–Schreier–Witt exact sequence
+                                                          nr   ℘e           nr
+                       0 → We (Fp ) = Z/pe −→ We (A ) −→ We (A ) → 0.
+of sheaves on Et(A). In particular, if Pic(A) = 0, one gets a canonical isomorphism
+                                                               
+                          We (A)/im(℘e ) → Hom π1 (A), Z/pe ,
+which gives a canonical bijection between the cyclic subgroups hai ⊂ We (A)/im(℘e ) and the
+integral étale cyclic extensions A ֒→ Aa with Galois group a quotient of Z/pe by via
+                                        hai 7→ Aa := A[x]
+where x = (x1 , . . . , xe ) is any solution of the equation ℘e (x) = a.
+   In the special case A = K = k((t)), one can make things more precise as follows. First,
+by Hensel’s Lemma, the class of every element in We (K)/im(℘e ) contains a representative of
+the form p = (p1 , . . . , pe ) with pρ = pρ (t−1 ) ∈ k[t−1 ] a polynomial in the variable t−1 over k.
+Second, using the properties of the Artin–Schreier operator ℘e , one can inductively “reduce”
+the terms of each pρ (t−1 ) which contain powers of t−1 to exponent divisible by p. If all the
+polynomials pρ (t−1 ) have this property, one says that p = (p1 , . . . , pe ) is in standard form.
+Following Garuti [10], Thm. 1.1, and Thomas [33], Prop. 4.2, see also Obus–Priess [17], one
+can describe the upper jumps ı1 ≤ · · · ≤ ıe for the extension L = Kp with p = (p1 , . . . , pe )
+in standard form and p1 (t−1 ) 6= 0 as follows:1
+                         ıρ = max { pıρ−1 , deg(pρ (t−1 ))},        ρ = 1, . . . , e.
+  1Notice that we use the conventions deg(0) = −∞ and ı
+                                                          0 = 0.
+                                                  4
+In particular, ıρ ≥ p ρ deg(p1 (t−1 )), and the highest non-zero upper ramification index, i.e.,
+the Artin conductor of Kp |K is ıe = max { pe−ρ deg(pρ (t−1 )) | ρ = 1, . . . , e}.
+   We make the following remark for later use: For a = (a1 , . . . , ae ) an arbitrary Witt vector
+of length e over K, and Ka |K as above one has: [Ka : K] = pm , where m is minimal such
+that (a1 , . . . , ae−m ) ∈ im(℘e−m ). In particular, if m < e, then setting b = (b1 , . . . , bm ) with
+bρ = aρ+e−m , one has: Ka |K is actually the cyclic extension Kb |K of degree pm of K, and
+one can compute the upper ramification indices of Ka = Kb using the discussion above.
+C) Kato’s smoothness criterion
+   Let k be as usual an algebraically closed field of characteristic p > 0, and o a complete
+discrete valuation ring with quotient field κ̂ = Quot(o) and residue field k. Let A = o[[T ]]
+be the power series ring over o. Then R := R ⊗o κ̂ = κ̂hhT ii is the ring of power series
+in T over κ̂ having vκ̂ -bounded coefficients. Thus R is a Dedekind ring having Spec(R) in
+bijection with the points of the open rigid disc X = Spf R of radius 1 over the complete valued
+field κ̂. Further, A is a two dimensional complete regular ring with maximal ideal (π, T ) with
+A → A/(π, T ) = k, and X = Spec(R) is nothing but the complement of V (π) ⊂ Spec(A).    
+Finally, A := A/(π) = k[[t]] is the power series ring in the variable t := T mod (π) , thus a
+complete discrete valuation ring.
+   Let K := Quot(A) and K := Quot(A) = k((t)) be the fraction fields of A, respectively A.
+Let K ֒→ L be a finite separable field extension, and B ⊂ S be the integral closures of A ⊂ R
+in the finite field extension K ֒→ L. Then B is finite A-module, and S is a finite R-module,
+in particular a Dedekind ring.
+   Next let r1 , . . . , rr be the prime ideals of B above (π). Then each ri has height one, and
+the localizations Bri are precisely the valuation rings of L above the discrete valuation ring
+A(π) of K. And since K ֒→ L is a finite separable extension, by the Finiteness Lemma, the
+fundamental equality holds:
+                                                Xr
+                                      [L : K] =     e(ri |π) · f (ri |π),
+                                              i=1
+
+where e(ri |π) and f (ri |π) = [κ(ri ) : K] is the ramification index, respectively the residual
+degree of ri |π. Therefore, if vπ is the discrete valuation of K with valuation ring A(π) , one
+has K = κ(π) = Quot A/(π) = κ(vπ ), and the following are equivalent:
+    i) There exists a prolongation w of vπ to L such that [L : K] = [L : K], where L := κ(w).
+   ii) The ideal r := πB is a prime ideal of B, or equivalently, π is a prime element of B.
+In particular, if the above equivalent conditions i), ii), hold, then Br is the valuation ring
+of w, and one has κ(r) = Quot B/(π) = κ(w) = L. Further, w is the unique prolongation
+of vπ to L, and r = πB is the unique prime ideal of B above the ideal πA of A.
+   We conclude by mentioning the following smoothness criterion, which is a special case of
+the theory developed in Kato [13], §5; see also Green–Matignon [11], §3, especially 3.4.
+  Fact 2.1. In the above notations, suppose that vπ has a prolongation w to L such that
+[L : K] = [L : K], where L := κ(w) and K =: κ(vπ ). Let A ֒→ B be the integral closure of
+A = k[[t]] = A/(π) in the field extension K ֒→ L. Let DS|R and DB|A be the differents of
+the extensions of Dedekind rings R ֒→ S, respectively A ֒→ B. The following are equivalent:
+   i) Spec B is smooth over Spec o.
+                                                    5
+  ii) The degrees of DS|R and DB|A are equal: deg(DS|R) = deg(DB|A ).
+  If the above equivalent conditions are satisfied, then there exists Z ∈ B such that B = o[[Z]]
+and B = S/(π) = k[[z]], where z = Z mod (π) .
+                      3. The characteristic p Oort Conjecture
+   Remark/Definition 3.1. In the context of section 2), A), let L|K be a cyclic extension
+of degree pe := [L : K] with upper ramification jumps ı1 ≤ · · · ≤ ıe . Recall that setting
+ı0 = 0, one has that pıρ−1 ≤ ıρ for all ρ with 0 < ρ ≤ e, and the inequality is strict if and
+only if ıρ is not divisible by p. The division by p gives:
+                                     ıρ − pıρ−1 = pqρ + ǫρ
+with 0 ≤ qρ and 0 ≤ ǫρ < p, and notice that by the remark above one has: 0 < ǫρ if and
+only if (p, ıρ ) = 1 if and only if pıρ−1 < ıρ .
+   We call qρ the essential part of the upper jump at ρ, and if 0 < qρ we say that ıρ is an
+essential upper jump for L|K, and that ρ is an essential upper index for L|K.
+   We introduce terminology as follows: Let R ֒→ S be any generically finite Galois extension
+of Dedekind rings with cyclic inertia groups, and K := Quot(R) ֒→ Quot(S) =: L be the
+corresponding cyclic extension of their quotient fields. For a maximal ideal q ∈ Spec S
+above p ∈ Spec R, let Kp ֒→ Lq be the corresponding extension of complete discrete valued
+fields. We we will say that R ֒→ S has (no) essential ramification jumps at p, if the p-part
+of the cyclic extension of discrete complete valued fields Kp ֒→ Lq has (no) essential upper
+ramification jumps. And we say that R ֒→ S is has no essential ramification, if R ֒→ S is
+has no essential ramification jumps at any p ∈ Spec R.
+   In the remaining part of this subsection, we will work in a special case of the situation
+presented in section 2, C), which is as follows: We consider a fixed algebraically closed field k
+with char(k) = p > 0, let o = k[[̟]] be the power series ring in the variable ̟ over k, thus
+κ̂ = k((̟)) = Quot(o) is the Laurent power series in the variable ̟ over k. Let A = k[[̟, t]]
+and K = k((̟, t)) = Quot(A) be its field of fractions. Then A = A/(̟) = k[[t]] and
+K = k((t)) = Quot(A) is the fraction field of A. Further, R := R ⊗o κ̂ = κ̂hhtii is the ring of
+power series in t over κ̂ having vκ̂ -bounded coefficients. Thus R is a Dedekind ring having
+Spec(R) in bijection with the points of the open rigid disc X = Spf R of radius 1 over the
+complete valued field κ̂. And we notice that X = Spec(R) is precisely the complement of
+V (̟) ⊂ Spec(A). Finally, for a finite separable field extension K ֒→ L, we let B ⊂ S be the
+integral closures of A ⊂ R in the finite field extension K ֒→ L. Thus B is finite A-module,
+and S is a finite R-module, in particular a Dedekind ring.
+  Key Lemma 3.2. (Characteristic p local Oort conjecture) In the above notations, let
+N := 1 + q1 + · · · + qe and x1 , . . . , xN ∈ mo be distinct points. Let K ֒→ L be a cyclic
+Z/pe -extension with upper ramification jumps ı1 ≤ · · · ≤ ıe . Then there exists a cyclic Z/pe -
+extension K ֒→ L such that the integral closure A ֒→ B of A in K ֒→ L and the corresponding
+extension of Dedekind rings R ֒→ S satisfy:
+  1) The morphism ϕ : Spec B → Spec o is smooth. In particular, B = k[[̟, Z]]         and the
+special fiber of ϕ is Spec B → k, where B = k[[z]] = B/(̟) and z = Z mod (̟) .
+  2) The canonical morphism R ֒→ S has no essential ramification and is ramified only at
+points yµ ∈ Spec S above the points xµ ∈ Spec R, 1 ≤ µ ≤ N.
+                                                6
+  3) Let (ıµ,ρ )1≤ρ≤eµ be the upper ramification jumps at each yµ 7→ xµ . Then (eµ )1≤µ≤N is
+decreasing, and the upper jumps are given by:
+     i) ı1,ρ = pı1,ρ−1 + ǫ ρ for 1 ≤ ρ ≤ e.
+    ii) ıµ,ρ = pıµ,ρ−1 + p − 1 for 1 < µ ≤ N and 1 ≤ ρ ≤ eµ .
+  4) In particular, the branch locus {x1 , . . . , xN } of R ֒→ S is independent of k[[t]] ֒→ k[[z]],
+and the upper ramification jumps ıµ := (ıµ,1 , . . . , ıµ,eµ ) at each yµ 7→ xµ , 1 ≤ µ ≤ N, depend
+only on the upper jumps ı := (ı1 , . . . , ıe ) of k[[t]] ֒→ k[[z]].
+  The proof of the Key Lemma 3.2 will take almost the whole section. We begin byrecalling
+that in the notations from section 2, B), there exists p = p1 (t−1 ), . . . , pe (t−1 ) , say in
+standard form, such that L = Kp . The integral closure A ֒→ B of A = k[[t]] in the field
+extension K ֒→ L is of the form B = k[[z]] for any uniformizing P
+                                                                parameter z of L = Quot(B).
+And the degree of the different DL|K := DB|A is deg(DL|K ) = eρ=1 (ıρ + 1)(p ρ − pρ−1 ).
+A) Combinatorics of the upper jumps
+   In the above context, let e0 be the number of essential upper jumps, which could be zero.
+If there exist essential upper jumps, i.e., 0 < e0 , let r1 ≤ · · · ≤ re0 be the essential upper
+indices for L|K, and notice that the sequence (ri )1≤i≤e0 is strictly increasing with re0 ≤ e.
+For technical reasons (to simplify notations) we set re0 +1 := e + 1, and if we need to speak
+about re0 +1 , we call it the improper upper index, which for e0 = 0 would become r1 = e + 1.
+   We next construct a finite strictly increasing sequence (di )0≤i≤e0 as follows: We set d0 = 1,
+and we are done if e0 = 0. If e0 > 0, we define inductively di := di−1 + qri for 1 ≤ i ≤ e0 . In
+particular, we see that N := 1 + q1 + . . . qe is N = 1 if e0 = 0, and N := de0 otherwise.
+   We define an N × e matrix of non-negative integers (θµ,ρ )1≤µ≤N, 1≤ρ≤e as follows:
+  • If e0 = 0, then N = 1, and the 1 × e matrix is given by θ1,ρ := u ρ , 1 ≤ ρ ≤ e.
+  • If e0 > 0, thus N > 1, we define:2
+    a) θ1,ρ = pθ1,ρ−1 + ǫ ρ for 1 ≤ ρ ≤ e.
+    b) For i = 1, . . . , e0 and di−1 < µ ≤ di define:
+       • θµ,ρ = 0 for 1 ≤ ρ < ri .
+       • θµ,ρ = pθµ,ρ−1 + p − 1 for ri ≤ ρ ≤ e.
+
+  Notice that in the case e0 > 0, one has: Let ρ with 1 ≤ ρ ≤ e be given. Consider the
+unique 1 ≤ i ≤ e0 such that ri ≤ ρ < ri+1 . (Recall the if ri = e, then ri+1 := e + 1 by the
+convention above!) Then for all µ with 1 ≤ µ ≤ N one has: θµ,ρ 6= 0 if and only if µ ≤ di .
+The fundamental combinatorial property of (θµ,ρ )1≤µ≤N, 1≤ρ≤e is given by the following:
+                                                                     P
+  Lemma 3.3. For 1 ≤ i ≤ e0 and ri ≤ ρ < ri+1 one has: ı ρ + 1 = 1≤µ≤di (θµ,ρ + 1).
+Proof. The proof follows by induction on ρ = 1, . . . , e. Indeed, if e0 = 0, then N = 1, and
+there is nothing to prove. Thus supposing that e0 > 0, one argues as follows:
+  • The assertion holds for ρ = 1: First, if r1 > 1, then θµ,1 = 0 for 1 < µ, thus there is
+nothing to prove. Second, if r1 = 1, then q1 > 0 and d1 = 1 + q1 . Further, by the definitions
+one has: θ1,1 = ǫ1 and θµ,1 = p−1 for 1 < µ ≤ d1 , and conclude by the fact that u1 = pq1 +ǫ1 .
+  2Here and elsewhere, we set θ
+                                  µ,0 := 0 as well as ı0 = 0 and ıµ,0 = 0.
+                                                       7
+   • If the assertion of Lemma 3.3 holds for ρ < e, the assertion also holds for ρ + 1: Indeed,
+let i be such that ri ≤ ρ < ri+1 .
+   Case 1: ρ + 1 < ri+1 . Then ri ≤ ρ + 1 < ri+1 , and in particular, ρ + 1 is not an essential
+jump index. Hence by definitions one has that ı ρ+1 = pı ρ + ǫ ρ+1 with
+                                                                     P 0 ≤ ǫ ρ+1 < p. On the
+other hand, by the induction hypothesis we have that ı ρ = θ1,ρ + 1<µ≤di (θµ,ρ + 1). Hence
+taking into account the definitions of θµ,ρ , we conclude the proof in Case 1 as follows:
+              ı ρ+1 + 1 = pı ρ + ǫ ρ+1 + 1
+                                    P
+                        = pθ1,ρ + 1<µ≤di (pθµ,ρ + p) + ǫ ρ+1 + 1
+                                                  P                          
+                        = (pθ1,ρ+1 + ǫ ρ+1 + 1) + 1<µ≤di (pθµ,ρ + p − 1) + 1
+                                          P
+                        = (ı1,ρ+1 + 1) + 1<µ≤di (θµ,ρ+1 + 1)
+                          P
+                        =    1≤µ≤di (θµ,ρ+1 + 1).
+    Case 2: ρ + 1 = ri+1 . Then ρ + 1 is an essential jump index, thus by definitions one has:
+ı ρ+1 = pı ρ +pq ρ+1 +ǫ ρ+1 with 0 < q ρ+1 and 0 < ǫ ρ+1 < p, di+1 = di +q ρ+1 , rP
+                                                                                  i+1 ≤ ρ+1 < ri+2 .
+On the other hand, by the induction hypothesis one has ı ρ = θ1,ρ + 1<µ≤di (θµ,ρ + 1).
+Therefore, using the definitions of θµ,ρ we get:
+    ı ρ+1 + 1 = pı ρ + pq ρ+1 + ǫ ρ+1 + 1
+                                       P
+              = (pθ1,ρ + ǫ ρ+1 + 1) + 1<µ≤di (pθµ,ρ + p) + pq ρ+1
+                                P                           P                     
+              = (ı1,ρ+1 + 1) + 1<µ≤di (pθµ,ρ + p − 1) + 1 + di <µ≤di+1 (p − 1) + 1
+                                P
+              = (ı1,ρ+1 + 1) + 1<µ≤di+1 (θµ,ρ+1 + 1)
+                P
+              =    1≤µ≤di+1 (θµ,ρ+1 + 1).
+
+  This completes the proof of Lemma 3.3.                                                              
+
+B) Generic liftings
+   Let k[[t]] ֒→ k[[z]] be a Z/pe -cyclic extension with upper ramification jumps ı1 ≤ · · · ≤ ıe .
+Recall that setting K = k((t)) and L= k((z)), in the notations introduced in section 2, B),
+there exists p = p1 (t−1 ), . . . , pe (t−1 ) such that L = Kp , where p is in standard form, i.e.,
+either pρ (t−1 ) = 0 or it contains no non-zero terms in which the exponent of t−1 is divisible
+by p. And by the discussion in section 2, B), one has that
+                         ıρ = max { pıρ−1 , deg(pρ (t−1 ))}, ρ = 1, . . . , e.
+                                                     
+  Fact 3.4. Let c := h1 (t−1 ), . . . , he (t−1 ) be an arbitrary Witt vector with coordinates
+in k[t−1 ]. For a fixed polynomial h(t−1 ) ∈ k[t−1 ], let ch,i be the Witt vector whose ith
+coordinate is h(t−1 ), and all the other coordinates
+                                                           are equal to 0 ∈ k[t−1 ]. Then c̃ := c + ch,i
+has coordinates c̃ = h̃1 (t−1 ), . . . , h̃e (t−1 ) satisfying the following:
+    a) h̃j (t−1 ) = hj (t−1 ) for j < i.
+    b) h̃i (t−1 ) = hi (t−1 ) + h(t−1 ).
+    c) deg(h̃j (t−1 )) ≤ max { deg(hj (t−1 )), pj−i deg(h(t−1 ))} for all i < j.
+
+
+
+                                                   8
+   Definition/Remark 3.5.
+                                                                   
+   1) In the above context, let q := q1 (t−1 ), . . . , qe (t−1 ) with qρ (t−1 ) ∈ k[t−1 ] be some
+generator of L|K, i.e., L = Kq . We say that q is normalized if ıρ = deg(qρ (t−1 )), ρ = 1, . . . , e.
+And we say that q is separable, if each qρ (t−1 ) is a separable polynomial (in t−1 ).
+                                                         
+   2) We notice that if q := q1 (t−1 ), . . . , qe (t−1 ) is some given Witt vector and L := Kq ,
+then q is normalized if and only if it satisfies: deg(q1 (t−1 )) is prime to p, and for all 1 ≤ ρ < e
+one has that p|deg(qρ+1 (t−1 )) implies deg(qρ+1 (t−1 )) = p deg(qρ (t−1 )).
+                                                          
+   3) Given a generator p = p1 (t−1 ), . . . , pe (t−1 ) in standard form      for L|K, one can con-
+                                                          −1           −1
+struct a separable normalized generator q = q1 (t ), . . . , qe (t ) as follows: Consider Witt
+vectors of the form c := h1 (t−1 ), . . . , he (t−1 ) with hρ (t−1 ) ∈ k[t−1 ] and deg(hρ (t−1 )) = ıρ−1
+for 1 < ρ ≤ e, which are “inductively generic” with those properties. Then setting
+                                                                          
+                           q =: p + ℘e (c) =: q1 (t−1 ), . . . , qe (t−1 ) ,
+it follows that Kq = L = Kp , thus q is a representative for p modulo ℘e (K). And applying
+inductively Fact 3.4 above, one gets: If pıρ−1 < ıρ , then deg(hρ (t−1 )) = deg(pρ (t−1 )) = ıρ .
+Second, if pıρ−1 = ıρ , then deg(pρ (t−1 )) < ıρ = pıρ−1 . Hence applying Fact 3.4 inductively,
+since hρ (t−1 ) is generic of degree ıρ−1 , we get: deg(qρ (t−1 )) = pdeg(hρ−1 (t−1 )) = pıρ−1 = ıρ ,
+and each qρ (t−1 ) is separable.
+                                                                           
+   Coming back to our general context, let p = p1 (t−1 ), . . . , pe (t−1 ) be a normalized gener-
+ator for L|K. Let (θµ,ρ )1≤µ≤N, 1≤ρ≤e be the matrix of non-negative integers produced in the
+previous subsection A). Since k is algebraically closed, we can write each polynomial pρ (t−1 )
+as a product of polynomials pµ,ρ (t−1 ) as follows:
+                                               Q
+                                   pρ (t−1 ) = 1≤µ≤N pµ,ρ (t−1 ),
+with deg(p1,ρ (t−1 )) = θ1,ρ , deg(pµ,ρ (t−1 )) = θµ,ρ + 1 for µ > 1, θµ,ρ 6= 0, pµ,ρ = 1 if θµ,ρ = 0.
+  For the given elements xµ ∈ ̟o, µ = 1, . . . , N we set tµ := t − xµ ∈ o[t]. And for
+a fixed choice pµ,ρ (t−1 ) ∈ k[t−1 ], we let Pµ,ρ (t−1              −1
+                                                        µ ) ∈ o[tµ ] be “generic” preimages with
+           −1                −1
+deg(Pµ,ρ (tµ )) = deg(pµ,ρ (t )) for µ = 1, . . . , N and ρ = 1, . . . , e. In particular, each
+                      Q
+                Pρ := µ Pµ,ρ (t−1        −1            −1
+                                µ ) ∈ o[tx1 , . . . , txN ] ⊂ Ax1 ,...,xN , ρ = 1, . . . , e
+is a linear combination of monomials in (t − x1 )−1 , . . . , (t − xN )−1 with “general” coefficients
+from o such that under the specialization homomorphism Ax1,...,xN → A[t−1 ] they map to
+pρ = pρ (t−1 ). To indicate this, we will write for short
+                              Pµ,ρ (t−1            −1
+                                     µ ) 7→ pµ,ρ (t ),   Pρ 7→ pρ (t−1 ).
+
+   We set P := (P1 , . . . , Pe ) and view it as a Witt vector of length e over K, and consider
+the corresponding cyclic field extension L := KP . Let A ֒→ B be the normalization of A
+in K ֒→ L. Since A = k[[̟, t]] is Noetherian and K ֒→ L is separable, it follows that B is a
+finite A-algebra, thus Noetherian. And since A is local and complete, so is B.
+  We next have a closer look at the branching in the finite ring extension A ֒→ B. For
+that we view A ֒→ B as a finite morphism of o := k[[̟]] algebras, and introduce geometric
+language as follows: X = Spec A and Y = Spec B. Thus A ֒→ B defines a finite o-morphism
+Y → X . Further let Y := Spec S → Spec R =: X and Y := Spec B/(̟) → Spec A/(̟) =: X
+                                                   9
+be the generic fiber, respectively the special fiber of Y → X . In particular, X = Spec A and
+Y → X is a finite morphism. We further mention the following general fact for later use:
+   Fact 3.6. Let K ֒→ L be a cyclic extension of degree [L : K] = pe with Galois group
+G = Z/pe , say defined by some Witt vector a = (a1 , . . . , ae ) ∈ We (K). For every 0 ≤ m ≤ e
+let K ֒→ Lm be the unique sub-extension of K ֒→ L with [Lm : K] = pm , hence L0 = K and
+Le = L. Let v be a discrete valuation of K, say with valuation ring Ov ⊂ K and residue field
+Ov → κv , f 7→ f , and let Tv ⊆ Zv ⊆ G be the inertia, respectively decomposition, subgroups
+of v in G. Then for all m with 1 ≤ m ≤ e the following hold:
+     1) Let v(a1 ), . . . , v(am ) ≥ 0. Then Tv ⊆ pm G, and Zv ⊂ pm G iff (a1 , . . . , am ) ∈ im(℘m ).
+     2) If v(am ) is negative and prime to p, then pm−1 G ⊆ Tv .
+  We notice that since A = k[[̟, t]] is a two dimensional local regular ring, X is a two
+dimensional regular scheme. Therefore, the branch locus of Y → X is of pure co-dimension
+one. Thus in order to describe the branching behavior of Y → X one has to describe the
+branching at the generic point (̟) of the special fiber X ⊂ X of X , and at the closed points
+x of the generic fiber X ⊂ X of X .
+• The branching at (̟)
+   We recall that K ֒→ L Q   is defined as a cyclic extension by P := (P1 , . . . , Pe ), where each
+Pρ is of the form Pρ = µ Pµ,ρ (t−1                      −1        −1
+                                        µ ) with Pµ,ρ (tµ ) ∈ o[tµ ] ⊂ Ax1 ,...,xN is some generic
+preimage of pµ,ρ (t−1 ) with degree satisfying deg(Pµ,ρ (t−1                   −1
+                                                            µ )) = deg (pµ,ρ (t )). In particular,
+the elements Pµ,ρ (t−1
+                     µ ) are not divisible by ̟ in the factorial ring Ax1 ,...,xN . Therefore, the
+                −1
+elements Pµ,ρ (tµ ) are units A(̟) . By Fact 3.6 we conclude that ̟ is not branched in K ֒→ L,
+and therefore, the special fiber Y → X of Y → X is reduced. Moreover, since P1 7→ p1 (t−1 ),
+and the latter satisfies p1 (t−1 ) 6∈ ℘(K), it follows by Fact 3.6, 1), that Gal(L|K) is contained
+in the decomposition group of v̟ . In other words, ̟ is totally inert in K ֒→ L. In particular,
+Y → X is étale above ̟, and moreover, the special fiber Y → X of Y → X is reduced,
+irreducible, and generically cyclic Galois of degree pe = [L : K].
+• The branching at the points of the generic fiber x ∈ X
+   Recall that κ̂ = k((̟)) and that X = Spec R, where R = A ⊗k[[̟]] κ̂ is the ring of power
+series in t with bounded coefficients from the complete discrete valued field κ̂. [Thus X is
+actually the rigid open unit disc over κ̂.] If x ∈ X is a closed point different from x1 , . . . , xN ,
+and Ax is the local ring of X at x, it follows that P1 , . . . , Pe ∈ Ap . Hence by Fact 3.6, 1), it
+follows that x is not branched in K ֒→ L. Thus it is left to analyze the branching behavior
+of Y → X at the closed points x1 , . . . , xN ∈ X. In this process we will also compute the total
+contribution of the ramification above xµ to the total different DS|R for µ = 1, . . . , N.
+   Recall that every xµ is a κ̂ rational point of X, and tµ := t − xµ is the “canonical”
+uniformizing parameter at xµ . Thus Kµ := κ̂((tµ )) is the quotient field of the completion of
+the local ring at xµ , and we denote by vµ : Kµ× → Z the canonical valuation at xµ . We notice
+that tν = xµ − xν + tµ , hence by the “genericity” of Pµ,ρ (t−1      µ ), we can and will suppose that
+       −1
+Pν,ρ (tν ) is a vµ -unit in Kµ . We conclude that there exist vµ -units η1 , . . . ηe ∈ Kµ such that
+denoting by Lµ the compositum of Kµ and L, the cyclic extension Kµ ֒→ Lµ is defined by
+the Witt vector:
+                                                                         
+                                Pµ = η1 Pµ,1 (t−1                     −1
+                                               µ ), . . . , ηe Pµ,e (tµ ) .
+                                                  10
+  Case 1: µ = 1.
+First, by definitions we have deg(P1,ρ (t−1                          −1
+                                             1 )) = deg (p1,ρ (t )) = θ1,ρ for all ρ. Second, by
+the definitions of (θ1,ρ )1≤ρ≤e it follows that p1,1 (t−1 ), . . . , p1,e (t−1 ) is actually a normalized
+system of polynomials in k[t−1 ]. Hence by Definition/Remark 3.5, 3), it follows that the
+upper ramification jumps of K1 ֒→ L1 are precisely θ1,1 ≤ · · · ≤ θ1,e , and in particular, one
+has [L1 : K1 ] = pe .
+   Case 2: 1 < µ, hence one has 0 < N0 as well.
+In the notations from the previous subsection A), let 1 ≤ i ≤ N0 maximal be such that
+di−1 < µ. Then by the definition of (θµ,ρ )1≤ρ≤e we have: θµ,ρ = 0 for ρ < ri , θµ,ri = p − 1,
+and θµ,ρ = pθµ,ρ−1 + p − 1 for ri ≤ ρ ≤ e. Further, again by definitions, one has Pµ,ρ (t−1       µ ) = 1
+                                               −1
+for θµ,ρ = 0, i.e., for ρ < ri . And Pµ,ρ (tµ ) is generic of degree θµ,ρ + 1 for ri ≤ ρ ≤ e. Hence
+                                                                   
+the Witt vector Pµ := η1 Pµ,1 (t−1                           −1
+                                     µ ), . . . , ηe Pµ,e (tµ ) satisfies the following conditions:
+   - ηρ Pµ,ρ (t−1
+               µ ) = ηρ for 1 ≤ ρ < ri .
+               −1
+   - ηρ Pµ,ρ (tµ ) is a generic polynomial of degree θµ,ρ + 1 for ri ≤ ρ ≤ e.
+In particular, by Fact 3.6, one has that vµ is unramified in the sub-extension K ֒→ Lri −1 of
+degree pri −1 of K ֒→ L. We claim that Lri −1 ֒→ L is actually totally ramified, or equivalently,
+that Gal(L|Lri−1 ) ⊆ Gal(L|K) is the inertia group of vµ , hence the ramification subgroup of
+vµ , because there is no tame ramification involved. Indeed, it is sufficient to prove that this
+                                                                                                        nr
+is the case after base changing everything to the maximal unramified extension Kµ ֒→ Kµ
+of Kµ . Recall that for ρ with ri ≤ ρ ≤ e we have by definitions that Pµ,ρ (t−1                     −1
+                                                                                           µ ) ∈ o[tµ ] is
+a generic polynomial in t−1  µ over o = k[[̟]] of degree θµ,ρ + 1. Hence for ρ = ri we have:
+θµ,r1 + 1 is divisible by p and Pµ,ri (t−1   µ ) is generic. But then it follows that the standard
+                                                                                    nr
+representative Qµ,ri (tµ ) ∈ κ̂ [tµ ] of Pµ,ρ (t−1
+                         −1       sep −1
+                                                         µ ) modulo ℘(Kµ ) has degree θµ,ρ . Thus by
+                                                                                       nr     nr
+Fact 3.6, 3), it follows that vµ is totally ramified in the field extension Kµ ֒→ Lµ and that
+               nr    nr
+pe−ri +1 = [Lµ : Kµ ]. Combining this with the fact that vµ is unramified in K ֒→ Lri −1 and
+pri −1 = [Lri −1 : K], it follows that K ֒→ Lri −1 is the ramification field of vµ in K ֒→ L.
+Equivalently, Gal(L|Lri −1 ) ⊆ Gal(L|K) is the ramification subgroup of vµ .
+   We next compute the degree of the local different of R ֒→ S above xµ . Recall that K ֒→ L
+is defined by the Witt vector
+                                                                                    
+                                 Pµ = η1 Pµ,1 (t−1    µ ),  . . . , ηe P µ,e (t−1
+                                                                               µ  )  .
+                                                          nr
+On the other hand, Pµ is equivalent modulo ℘e (K ) to its standard form
+                                                                  
+                             Pµ′ = Qµ,1 (t−1                  −1
+                                          µ ), . . . , Qµ,e (tµ )
+
+with Qµ,ρ = 0 for 1 ≤ ρ < ri and deg(Qµ,e (t−1
+                                            µ )) = θµ,ρ for ri ≤ ρ ≤ e. Hence setting
+                                                                     
+                             Qµ = Qµ,ri (t−1
+                                           µ  ), . . . , Qµ,e (t−1
+                                                                µ  )   ,
+it follows that Qµ is a Witt vector of length e − ri + 1, and Qµ is in standard form, and the
+                    nr     nr
+cyclic extension Kµ ֒→ Lµ is defined by Qµ . Hence setting eµ := e − ri + 1, it follows that
+                              nr   nr
+the cyclic field extension Kµ ֒→ Lµ has degree peµ and upper ramification jumps given by
+
+       (∗)               ıµ,ν = deg(Qµ,ri +ν (t−1
+                                               µ )) = θµ, ri +ν−1 ,   ν = 1, . . . , eµ .
+
+
+                                                    11
+C) Finishing the proof of Key Lemma 3.2
+   Let Dµ be the local part above xµ of the global different DS|R of the extension of Dedekind
+rings R ֒→ S. Then if K ֒→ LZ ֒→ LT ֒→ L are the decomposition/inertia subfields of vµ in
+the cyclic field extension K ֒→ L, by the functorial behavior of the different, it follows that
+                           deg(Dµ ) = [κ(xµ ) : κ̂] · [LT : K] · deg(DLnr  nr ).
+                                                                       µ |Kµ
+
+On the other hand, since xµ ∈ mo , one has κ(xµ ) = κ̂. Further, by the discussion above one
+has that LT = Lri −1 , thus pri −1 = [LT : K]. And deg(DLnr      nr ) can be computed in terms of
+                                                             µ |Kµ
+upper ramification jumps as indicated at the end of section 1), A):
+                                            P                   ν      ν−1
+                        deg(DLnr     nr ) =
+                                 µ |Kµ       1≤ν≤eµ (ıµ,ν + 1)(p − p       ).
+Hence taking into account the discussion above, we get:
+                  deg(Dµ ) = [κ(xµ ) : κ̂] · [LT : K] · deg(DLnr    nr )
+                                                                µ |Kµ
+                                    P
+                           = pri −1 1≤ν≤eµ (ıµ,ν + 1)(pν − pν−1 )
+                             P                             ν+ri −1
+                           =    1≤ν≤eµ (θµ,ri +ν−1 + 1)(p          − p(ν+ri −1)−1 )
+                             P                       ρ     ρ−1
+                           =    ri ≤ρ≤e (θµ,ρ + 1)(p − p       )
+                    P                                     P
+Recall that ı ρ +1 = ′µ (θµ,ρ +1) for all 1 ≤ ρ ≤ e, where ′µ is taken over all µ with θµ,ρ 6= 0.
+                    P                                             P
+Further, deg(D1 ) = 1≤ρ≤e (θ1,ρ + 1)(p ρ − p ρ−1 ) and deg(Dµ ) = ri ≤ρ≤e (θµ,ρ + 1)(p ρ − p ρ−1 )
+for all 1 < µ ≤ N. Therefore we get the following:
+                    P
+  deg(DS|R) =            deg(Dµ )
+                   1≤µ≤N
+                    P                                         P        P        P
+              =            (θ1,ρ + 1)(p ρ − p ρ−1 ) +                                   (θµ,ρ + 1)(p ρ − p ρ−1 )
+                   1≤ρ≤e                                    1≤i≤N0 di−1 <µ≤di ri ≤ρ≤e
+                    P                       ρ    ρ−1          P        P         P
+              =            (θ1,ρ + 1)(p − p            )+                                (θµ,ρ + 1)(p ρ − p ρ−1 )
+                   1≤ρ≤e                                    1≤i≤N0 ri ≤ρ<ri+1 d0 <µ≤di
+                     P            P             P
+              =                                      (θµ,ρ + 1)(p ρ − p ρ−1 )
+                   1≤i≤N0      ri ≤ρ<ri+1 1≤µ≤di
+                     P            P
+              =                             (ı ρ + 1)(p ρ − p ρ−1 )
+                   1≤i≤N0      ri ≤ρ<ri+1
+                    P
+              =            (ı ρ + 1)(p ρ − p ρ−1 )
+                   1≤ρ≤e
+
+              = deg(DL|K ).
+We thus conclude the proof of Key Lemma 3.2 by applying Kato’s criterion Fact 2.1.
+D) Characteristic p global Oort Conjecture
+   Theorem 3.7. (Characteristic p global Oort conjecture) In the notations from the Key
+Lemma 3.2, let Y → X be a (ramified) Galois cover of complete smooth k-curves having
+only cyclic groups as inertia groups, and set Xo := X ×k o. Then there exists a G-cover
+of complete smooth o-curves Yo → Xo with special fiber Y → X such that the generic fiber
+Yκ̂ → Xκ̂ of Yo → Xo has no essential ramification.
+                                                         12
+Proof. First, as in the case of the classical Oort Conjecture, the local-global principle for
+lifting (ramified) Galois covers, see Garuti [8], §3, as well as Saidi [28], §1.2, where the
+proofs of Propositions 1.2.2 and 1.2.4 are very detailed, reduces the proof of the Theorem 3.7
+to the corresponding local problem over o. Further, exactly as in the case of the classical
+local Oort Conjecture, the local problem is equivalent to the case where the inertia groups
+are cyclic p-groups. One concludes by applying the Key Lemma 3.2.                           
+
+
+                                   4. Proof of Theorem 1.1
+A) Generalities about covers of P1
+
+   Notations 4.1. We begin by introducing notations concerning families of covers of curves
+which will be used throughout this section. Let S be a separated, integral normal scheme,
+e.g., S = Spec A with A and integrally closed domain, and k := κ(S) its field of rational
+functions. Let k(t) ֒→ F be a finite extension of the rational function field k(t).
+        1
+   1) Pt,S = Proj Z[t0 , t1 ] × S is the t-projective line over S, where t = t1 /t0 is the canonical
+                1                       1
+parameter on Pt,S  . In particular, Pt,S   is the gluing of its canonical affine lines over S, namely
+A t,S := Spec Z[t] × S and At−1, S := Spec Z[t−1 ] × S.
+  1                              1
+
+   2) Let k(t) ֒→ F be a finite extension, and Yt,S → A1t,S and Yt−1 ,S → A1t−1 ,S the corre-
+                                                                               1       1
+sponding normalizations in k(t) ֒→ F . Then the normalization YS → Pt,S            of Pt,S in k(t) ֒→ F
+                                           1                     1
+is nothing but the gluing of Yt,S → A t,S and Yt−1, S → At−1, S .
+   3) For every p ∈ S we denote by p ֒→ S the closure of p in S (endowed with the reduced
+scheme structure). We denote by Op := OS,p the local ring at p ∈ S. We set Sp := Spec Op
+and consider the canonical morphism Sp ֒→ S. We notice that p ֒→ S is both the generic
+fiber of p ֒→ S and the special fiber of Sp ֒→ S at p. We get corresponding base changes:
+
+                              Y p → Pt,1 p,          1
+                                              YSp → Pt,S p
+                                                           ,   Yp → Pt,1 p
+                                                                                            1
+where Yp → Pt,1 p is both the generic fiber of Y p → Pt,1 p and the special fiber of YSp → Pt,S p
+                                                                                                  .
+  4) Finally, affine schemes will be sometimes replaced by the corresponding rings. Con-
+cretely, if S = Spec A, and k = Quot(A), for a finite extension k(t) ֒→ F one has/denotes:
+                                           1
+    a) The t-projective line over A is Pt,A    = Spec A[t] ∪ Spec A[t−1 ], and the normalization
+                1       1
+       YA → Pt,A    of Pt,A  in k(t) ֒→ F is obtained as the gluing of Spec Rt → Spec A[t] and
+       Spec Rt−1 → Spec A[t−1 ], where Rt , respectively Rt−1 , are the integral closures of
+       A[t], respectively of A[t−1 ], in the field extension k(t) ֒→ F .
+                                                           1                    1
+    b) For p ∈ Spec(A) one has/denotes: YA/p → Pt,A/          p and YAp → Pt,Ap are the base
+                               1
+       changes of YA → Pt,A      under A → → A/p, respectively A ֒→ Ap ; and finally, the fiber
+                  1                1                                         1
+       Yκp → Pt,κp of YA → Pt,A is both, the special fiber of YAp → Pt,A       p
+                                                                                  and the generic
+                            1
+       fiber of YA/p → Pt,A/p .
+
+   In the above notations, suppose that A = O is a local ring with maximal ideal m and
+residue field κm . Let Ov be a valuation ring of k domination O and having κm = κv .
+                        1                 1
+We denote by YO → Pt,O      and YOv → Pt,O  v
+                                               the corresponding normalizations of the the
+corresponding projective lines. The canonical morphism Spec Ov → Spec O gives canonically
+                                                   13
+a commutative diagrams dominant morphisms of the form:
+                                 1
+                          YOv → Pt,O               Y k → Y Ov ← Y v
+                                v                           
+                           y     y                 y∼=    y     y
+                                      1
+                          YO    →    Pt,O          Yk →      YO    ← Ym
+   We denote by ηm ∈ Pt,1 m the generic point of the special fiber of Pt,O
+                                                                         1
+                                                                            , and by ηm,i ∈ Ym the
+                                                                         1
+generic points of the special fiber of YO . Correspondingly, ηv ∈ Pt,v is the generic point of
+                       1
+the special fiber of Pt,O v
+                            , and ηv,j ∈ Yv are the generic points of the special fiber of YOv . We
+              1       1
+notice that Pt,v → Pt, m is an isomorphism (because κm = κv ), and by the valuation criterion
+for completeness, for every ηm,i there exists some ηv,j such that ηv,j 7→ ηm,i under Yv → Ym .
+                                  1
+The local ring Oηv of ηv ∈ Pt,O     v
+                                       is the valuation ring of the so called Gauss valuation vt of
+k(t), thus Oηv,j are the valuation rings of the prolongations vj of vt to F . Finally, for every
+complete k-curve C we denote by gC the geometric genus of C.
+  Lemma 4.2. In the above notations, let Ym,1 → Ym,1 be the normalization of Ym,1. Sup-
+pose that [κ(ηm,1 ) : κm (t)] ≥ [F : k(t)] and that Yk is smooth. Then the following hold:
+  1) The special fibers Ym and Yv are reduced and irreducible.
+                                      1
+  2) If gYm,1 ≥ gYk , then YOv → Pt,O   v
+                                           is a cover of smooth Ov -curves.
+Proof. To 1): Let ηv,1 7→ ηm,1 . Then κηm,1 ֒→ κηv,1 , thus [κηm,1 : κm (t)] ≤ [κηv,1 : κv (t)].
+Hence using the fundamental equality and the hypothesis one gets that
+                                                               P
+       [κ(ηv,1 ) : κv (t)] ≥ [κ(ηm,1 ) : κm (t)] ≥ [F : k(t)] = j [κvj : κv(t) ]e(vj |vt )δ(vj |vt ),
+where e(·|·) is the ramification index and δ(·|·) is the Ostrowski defect. Hence we conclude
+that w1 is the only prolongation of vt to F , and e(v1 |vt ) = 1 = δ(v1 |vt ).
+  To 2): Since Yv is reduced and irreducible, by Roquette [26], Satz I, it follows that the
+Euler characteristics of the special fiber Yv and that of the generic fiber Yk of YOv are equal:
+                                       χ(Yk |k) = χ(Yv |κv ).
+Since Yv dominates Ym , one has κ(Ym ) ֒→ κ(Yv ), hence one has gYm ≤ gYv . Thus 2) implies:
+      1 − gYm,1 ≤ 1 − gYk = χ(Yk |k) = χ(Yv |κv ) ≤ χ(Yv |κv ) ≤ χ(Ym,1|κm ) = 1 − gYm,1 .
+Hence all the above are equalities, thus finally one has that (Yv |κv ) ≤ χ(Yv |κv ). Therefore,
+the normalization Yv → Yv is an isomorphism, and YOv is smooth.                               
+
+   In the context above, let A = O be a valuation ring and v be its valuation. Let v := v0 ◦ v1
+be the valuation theoretical composition of two valuations, say with valuation rings O1 ⊂ k,
+respectively O0 ⊂ k0 , where k0 := kv1 is the residue field of v1 . Then kv =: k := k0 v0 is the
+residue field of both v and v0 . Let t ∈ F is a fixed function, and t0 := tv0,t be the residue of
+t with to the Gauss valuation v0,t on k(t). Suppose that the following hold:
+                                                          1         1
+    i) The special fiber Y1, s of the normalization Y1 → Pt,O 1
+                                                                of Pt,O 1
+                                                                          in k(t) ֒→ F is irreducible.
+Thus v1,t has a unique prolongation w1 to F , and F0 := F w1 = κ(Y1, s ).
+                                                                  1          1
+   ii) The special fiber Y0, s of the normalization Y0 → Pt,O        0
+                                                                       of Pt,O 0
+                                                                                  in k0 (t0 ) ֒→ F0 is
+irreducible. Thus v0,t0 has a unique prolongation w0 to F0 , and F0 w0 = κ(Y0, s ).
+                                                  14
+   Lemma 4.3. (Transitivity of smooth covers) In the above notations, suppose that the
+                                                                     1
+hypotheses i), ii) are satisfied. Set w := w0 ◦ w1 , and let Y → Pt,O  be the normalization of
+ 1
+Pt,O in k(t) ֒→ F . Then w is the unique prolongation of vt to F , and the following hold:
+     1) The base change of Y under O ֒→ Ov1 is Y1 = Y ×O Ov1 canonically, thus Y1, s = Ym1
+        is the fiber of Y at the valuation ideal m1 ∈ Spec O of v1 .
+                       1                                 1
+     2) Let YO0 → Pt,O   0
+                           be the base change of Y → Pt,O   under the O → → O0 . Then Ym1 is
+                                              1                                   1
+        the generic fiber of YO0 and Y0 → Pt,O0 is the normalization of YO0 → Pt,O  0
+                                                                                      .
+In particular, Y is a smooth O-curve if and only if Y1 is a smooth O1 curve and Y0 is a
+smooth O0 -curve.
+Proof. Klar, by the discussion above, and Roquette [26], Satz I, combined with the fact that
+a projective curve is smooth if and only if its arithmetic genus equal its geometric genus. 
+
+B) A specialization result
+   We begin by recalling the following two well known facts. The first one is by Katz (and
+Gabber) [13]: Let k be an algebraically closed field with char(k) = p. Then the localization
+                                                                                 1
+at t = 0 defines a bijection between the finite Galois p-power degree covers of Pt,k unramified
+outside t = 0 and the finite Galois p-power extensions k[[t]] ֒→ k[[z]], and this bijection
+preserves the ramification data. Thus given a cyclic Z/pf -cover k[[t]] ֒→ k[[z]], there exists
+a unique cyclic Z/pf cover of complete smooth curves Yk → Pt,k    1
+                                                                    which is branched only at
+t = 0 (thus totally branched there) such that k[[t]] ֒→ k[[z]] is the extension of local rings
+           1                                            1
+of Y → Pt,k   above t = 0. We will say that Y → Pt,k       is the KG-cover for k[[t]] ֒→ k[[z]].
+The second fact is the local-global principle for the Oort Conjecture, see e.g. Garuti [8], §3,
+Saidi [28], §1.2, especially Proposition 1.2.4, which among other things imply:
+   LGP 4.4. Let k[[t]] ֒→ k[[z]] be a Z/pf -extension and Yk → Pt,k
+                                                                  1
+                                                                     be its KG-cover. Further
+                                                              f
+let W (k) ֒→ R be a finite extension of W (k). Then the Z/p -extension k[[t]] ֒→ k[[z]] has a
+smooth lifting over R if and only if the Z/pf -cover Yk → Pt,k
+                                                            1
+                                                                has a smooth lifting over R.
+   Next let f be a fixed positive integer, and consider a finite sequences of positive numbers
+ı := (ı1 ≤ · · · ≤ ıf ) satisfying: 1 ≤ ı1 is prime to p, and ıν+1 = pıν + ǫ with ǫ ≥ 0 and ǫ prime
+to p if ǫ > 0. For such a sequence ı, let |ı| = ı1 + · · · + ıf and consider        Pı = P1 , . . . , Pf )
+                                                       −1
+a sequence of generic polynomials Pν = Pν (t ) of degrees deg Pν = ıν for 1 ≤ ν ≤ f .
+In other words, all the coefficients aν,ρ , 1 ≤ ν ≤ f , 1 ≤ ρ ≤ ıν of the polynomials Pν
+are independent free variables over F := Fp . Let Aı := F[(aν,ρ )ν,ρ ] be the corresponding
+polynomial ring and A|ı| = Spec Aı the resulting affine space over F.
+   For every x ∈ A|ı| let kx be any algebraically closed field extension of F, and x ∈ A|ı| (kx ) be
+a kx -rational point of A|ı| defined by a F-embedding φx : κx ֒→ kx . Let pı,x = (p1,x , . . . , pf,x )
+and pı,x = (p1,x , . . . , pf,x ) be the images of Pı over κx , respectively kx . Then one has virtually
+by definitions that pν,x = φx (pν,x ), thus pı,x = φx (pı,x ). In particular, if deg(Pν ) = deg(pν )
+for all ν, then pı,x gives rise to a cyclic extension kx [[t]] ֒→ kx [[zx ]] of degree pf and upper
+                                                                           1
+jumps ı = (ı1 , . . . , ıf ), and canonically to its KG-cover Ykx → Pt,k     x
+                                                                               .
+  Definition 4.5. For F ֒→ kx as above, let kx [[t]] ֒→ kx [[zx ]] be a cyclic Z/pf -extension
+            1
+and Ykx → Pt,k x
+                 be its KG-cover. We say that kx [[t]] → kx [[zx ]] is an ı-extension at x ∈ A|ı|
+                  1
+and that Ykx → Pt,k x
+                      is an ı-KG-cover at x ∈ A|ı| , if kx [[t]] ֒→ kx [[zx ]] has ı = (ı1 , . . . , ıf ) as
+upper ramification jumps.
+                                                    15
+  Notations 4.6. We denote by Σı ⊂ A|ı| the set of all x ∈ A|ı| which satisfy: There exists
+some mixed characteristic valuation ring Rx with residue field kx such that some ı-KG-cover
+       1
+Ykx → Pt,k x
+             has a smooth lifting over Rx .
+  Proposition 4.7. In Notations 4.6, suppose that Σı ⊆ A|ı| is Zariski dense. Then there
+exists an algebraic integer πı such that for every algebraically closed field k of characteristic
+                                                  1
+char(k) = p one has: Every ı-KG-cover Yk → Pt,k      has a smooth lifting over W (k)[πı ].
+Proof. The proof is quite involved, and has two main steps as follows:
+Step 1. Proving that the generic point ηı ∈ A|ı| lies in Σı
+   Let U be an ultrafilter on Σ which contains all the Zariski open subsets of Σ. (Since Σ is
+Zariski dense in the irreducible scheme A|ı|, any Zariski open subset of Σ is dense as well, thus
+ultrafilter U exist.) Let kx → Θx ⊂ Rx be any set of representatives for for Rx . Consider the
+following ultraproducts index by Σ:
+    ∗
+            Q           ∗
+                                Q             ∗
+                                                       Q                 Q            ∗
+     k :=     x kx /U → Θ :=       x Θx /U ⊂ W :=        x W (kx ) /U ֒→    x Rx /U =: R.
+
+By general model theoretical principles, it follows that ∗R is a valuation ring having residue
+field equal to ∗k, and ∗Θ ⊂ ∗R is a system of representatives for the residue field ∗k of ∗R.
+   Next, coming to geometry, by general model theoretical principles, it follows that the fam-
+ily of Z/pe -covers Yx → Pt,k
+                            1
+                               x
+                                 with upper ramification jumps ı = (ı1 , . . . , ıf ) gives rise to a U-
+             f
+generic Z/p -cover Y∗k → Pt, ∗k of complete smooth ∗k-curves with upper ramification jumps ı.
+                              1
+                                                                                                       
+Precisely, setting ∗pν := (pν,x )x /U, the system of polynomials ∗pı = ∗p1 (t−1 ), . . . , ∗pf (t−1 )
+defines the local extension ∗k[[t]] ֒→ ∗k[[z]] of Y∗k → Pt,1 ∗k at t = 0. Moreover, consider the
+∗
+ k-rational point ∗φηı of A|ı| defined by
+                          ∗
+                                                                     
+   (∗)                    φηı : κηı → ∗k, ∗φηı (aν,ρ ) := φx (aν,ρ ) x /U.
+Then ∗pı = ∗φηı (Pı ), which means that ∗φηı is the ∗k-rational point of A|ı| defining ∗pı .
+  Again, by general model theoretical principles for ultraproducs of (covers of) curves, the
+                                   1
+family of the Z/pf -covers YRx → Pt,Rx
+                                       with special fiber Yx → Pt,k1
+                                                                     x
+                                                                       gives rise to a Z/pf -cover
+Y∗R → Pt,1 ∗R of complete smooth ∗R-curves, with Y∗k → Pt,1 ∗k as special fiber.
+   Let A|ı| ֒→ P|ı| be the canonical embedding of the affine F-space A|ı| := Spec F[(aν,ρ )ν,ρ ] into
+the corresponding projective F-space P|ı| := Proj F[t0 , (tν,ρ )ν,ρ ] via the t0 -dehomogenization
+                                 nr
+aν,ρ = tν,ρ /t0 . Letting Z0 := Zp be the maximal unramified extension, and
+                    A|Zı|0 = Spec Z0 [(aν,ρ )ν,ρ ] and P|Zı0| = Proj Z0 [t0 , (tν,ρ )ν,ρ ],
+the embedding A|ı| ֒→ P|ı| is the special fiber of A|Zı|0 ֒→ P|Zı|0 . Notice that ∗φηı : Aı → ∗k gives
+rise via ∗k → ∗Θ canonically to an embedding of Z0 -algebras defined by
+                      ∗
+                       φZ0 : Aı,Z0 := Z0 [(aν,ρ )ν,ρ ] ֒→ ∗R,      aν,ρ 7→ ∗φηı (aν,ρ ).
+  Let V be a projective normal Z0 -scheme with function field κ(V ) embeddable in Quot(∗R),
+say via κ(V ) ֒→ Quot(∗R), such that the following are satisfied:
+   1) Let p ∈ V be the center of ∗w of ∗R on V induced by κ(V ) ֒→ ∗R, and Op the local ring
+of p. Then the Z/pf -cover of complete smooth ∗R-curves Y∗R → Pt,1 ∗R is defined over Op .
+                                                      16
+   2) The image of ∗φZ0 : Aı,Z0 → ∗R is contained in the image of κ(V ) ֒→ ∗R, and the
+resulting embedding Aı,Z0 ֒→ κ(V ) is defined by some proper morphism
+                                             V → P|Zı0| .
+   We notice that condition 1) means that there exists a Z/pf -cover of complete smooth
+                          1
+Op -curves YOp → Pt,O         p
+                                 such that Y∗R → Pt,1 ∗R is the base change of YOp → Pt,O   1
+                                                                                              p
+                                                                                                under
+Op ֒→ ∗R. In particular, if Op → κp is the residue field of Op , then the special fiber
+Yp → Pt,1 p of YOp → Pt,O   1
+                                p
+                                  is a Z/pf -cover of complete smooth κp -curves whose base change
+under κp ֒→ ∗k is canonically isomorphic to Y∗k → Pt,1 ∗k . In other words, the embedding
+∗
+ φηı : Aı ֒→ ∗k defined by (∗) above factors through Aı ֒→ κηı ֒→ κp , and p ∈ V is mapped
+to the generic point p 7→ ηı of the special fiber ηı ∈ P|ı| ֒→ P|Zı0| under V → P|Zı0| .
+   Recall that p ⊂ V the Zariski closure of p in V viewed as a closed Z0 -subscheme of V
+endowed with the reduced scheme structure. Since p 7→ ηı , one has that κηı ֒→ κp , hence κp
+has characteristic p, and p lies in the special fiber VF of V. We conclude that p ⊂ VF .
+   Next, if p has codimension > 1, let Ṽ → V be the normalization of the blowup of V along
+the closed Z0 -subscheme p. Let E1 , . . . , Er ⊂ Ṽ be the finitely many irreducible components
+of the preimage of the exceptional divisor of the blowup. Then the generic points ri of the
+Ei , i = 1, . . . , r are precisely the points of codimension one of Ṽ which map to p under
+Ṽ → V , and ∪i Ei is the preimage of p in V . Further, if r = ri is fixed, and Õ is the local
+ring of r ∈ Ṽ and κr is its residue field, it follows that Op ֒→ Õ and κp ֒→ κr canonically.
+                                                        1
+Recall that by the property 1) above, YOp → Pt,O          p
+                                                            is a Z/pf -cover of smooth Op -curves with
+special fiber Yp → Pt,1 p , whose base change under κp ֒→ ∗k is Y∗k → Pt,1 ∗k . Therefore, the
+base change YÕ → Pt,1 Õ of YOp → Pt,O     1
+                                               p
+                                                 defined by the inclusion Op ֒→ Õ is a Z/pf cover of
+proper smooth Õ-curves whose special fiber Yr → Pt,1 r is the base change of Yp → Pt,1 p under
+κp ֒→ κr. Hence choosing any κp -embedding κr ֒→ ∗k, we get that the special fiber Yr → Pt,1 r
+becomes Y∗k → Pt,1 ∗k under κr ֒→ ∗k.
+   Hence by replacing V by Ṽ if necessary, we can suppose that p ∈ V has codimension one,
+or equivalently, that p ⊂ VF is an irreducible component of VF .
+   By de Jong’s theory of alterations de Jong [7], Theorem 6.5, there exists a finite extension
+of discrete valuation rings Z0 ֒→ Z := Z0 [π0 ] with π0 any uniformizing parameter of Z and
+a dominant generically finite proper morphism W → V of projective Z0 -schemes with W
+strictly semi-stable over Z, i.e., the generic fiber of W is a smooth projective variety over
+Quot(Z), the special fiber WF is reduced and satisfies: If WF,j , j ∈ J is any set of |J| distinct
+irreducible components of WF , then ∩j WF,j is a smooth subscheme of W of codimension |J|.
+Hence the sequence of dominant proper morphisms of projective Z0 -schemes
+                                          W → V → P|Zı0|
+satisfies: Let q ∈ W denote a fixed preimage of p. Then q has codimension one, because
+p does so. Further, the local ring Oq of q ∈ W as a point of W dominates the local ring
+Op of p ∈ V , thus one has a canonical inclusion Op ֒→ Oq which gives rise to a canonical
+inclusion of the residue fields κηı ֒→ κp ֒→ κq corresponding to q → p → ηı . Recall that
+           1
+YOp → Pt,O   p
+               is a Z/pf -cover of smooth Op -curves with special fiber Yp → Pt,1 p whose base
+change under κq ֒→ ∗k is Y∗k → Pt,1 ∗k . Let YOq → Pt,O
+                                                     1
+                                                        q
+                                                          be the base change of YOp → Pt,O 1
+                                                                                             p
+                                                  17
+                                      1
+under Op ֒→ Oq . Then YOq → Pt,O        q
+                                           is a Z/pf -cover of proper smooth Oq -curves whose
+special fiber Yq → Pt,1 q is the base change of Yp → Pt,1 p under κp ֒→ κq . Again, choosing
+any κp -embedding of κq ֒→ ∗k, one gets that the base change of the special fiber Yq → Pt,1 q
+under κq ֒→ ∗k becomes Y∗k → Pt,1 ∗k . This means that the embedding ∗φηı : Aı ֒→ ∗k defined
+at (∗) above factors through Aı ֒→ κηı ֒→ κp ֒→ κq , reflecting the fact that q 7→ p 7→ ηı .
+In other words, there exists a ∗k-rational point ∗φq : κq → ∗k such that the given ∗k-rational
+point ∗φηı : κηı → ∗k defined by ∗φηı : Aı → Spec ∗k is of the form
+                                       ∗
+  (∗∗)                                 φηı = ∗φq ◦ (κηı ֒→ κq ).
+Step 2. Finishing the proof of Proposition 4.7
+    Let λ := κ(W ) denote the function field of W , and F := κ(YOq ) be the function field
+                         1
+of YOq . Then YOq → Pt,O    q
+                              has as generic fiber a Z/pf -cover of complete smooth λ-curves
+         1
+Yλ → Pt,λ  , and gives rise to a Z/pf extension of function field in one variable λ(t) ֒→ F .
+                                                        1
+Since Oq is a (discrete) valuation ring, and YOq → Pt,O   q
+                                                             is a cover of smooth Oq -curves, it
+                                                              1
+follows by the discussion in subsection A), that YOq → Pt,O       q
+                                                                    is precisely the normalization
+     1                                                                   1
+of Pt,Oq in the function field extension λ(t) ֒→ F . Notice that Pt,λ        is the generic fiber of
+  1
+Pt,W , and consider
+                                                   1
+                                          YW → Pt,W
+                       1
+the normalization of Pt,W  in the field extension λ(t) ֒→ F . We notice that the base change
+            1                                               1
+of YW → Pt,W under Spec Oq ֒→ W is precisely YOq → Pt,O         q
+                                                                  .
+  Lemma 4.8. Let x ∈ A|ı| be such that the image pı,x = (p1,x , . . . , pf,x ) of Pı = (P1 , . . . , Pf )
+under Aı → κx satisfies deg(pν,x ) = deg(Pν ) for all ν = 1, . . . , f . Let y ∈ q be a preimage of
+x ∈ A|ı| ⊂ P|ı| under q → p → P|ı| and Ov be a valuation ring dominating Oy with κv = κy .
+                1
+Then YOv → Pt,O   v
+                    is a cover of smooth curves.
+                               1                                    1
+Proof. Recall that YOy → Pt,O    y
+                                   is the base change of YW → Pt,W      under the canonical
+                                                        1                               1
+embedding Spec Oy ֒→ W , and in particular, YOy → Pt,Oy is the normalization of Pt,O       y
+                                                                                             in
+                                                                             1               1
+the field extension λ(t) ֒→ F . Since y ∈ q, and the geometric fiber Yq → Pt, q of Yq → Pt, q
+is a Z/pf -cover of smooth complete curves, the same holds correspondingly, if one replaces
+Oy = OW,y by oy := Oq,y = Oy /q, and λ(t) ֒→ F by κq (t) ֒→ Fq , where Fq := κ(Yq )
+is viewed as function field over κq . Recall that the local extension κq [[t]] ֒→ κq [[zq ]] of
+Yq → Pt,1 q at t = 0 is defined by the image pı,q of Pı under the canonical embedding
+Aı ֒→ κηı ֒→ κq . On the other hand, if ox denotes the local ring of x ∈ A|ı| ⊂ P|ı| then
+Aı ⊂ ox and oy dominates ox . Hence Aı ֒→ oy and therefore, pı,q is defined over oy . Further,
+by the commutativity of the diagrams
+                                 Aı ֒→ oy               Pı    7→ pı,q
+                                                               
+                                 y     y                y         y
+                                 κx ֒→ κy               pı,x 7→ pı,y
+it follows that the image of pı,q under the residue homomorphism oy → κy equals the image
+of pı,x under κx ֒→ κy . Thus by the functoriality of the Artin–Schreier–Witt theory, it
+follows that every irreducible component of the special fiber of Pt,1 oy dominates the KG-cover
+     1
+of Pt,κ y
+          defined by pı,y . Since deg(pν,y ) = deg(pν,x ) = deg Pν for all ν, the latter cover
+                                                   18
+must have degree pf and upper ramification jumps ı = (ı1 , . . . , ıf ). In particular, we can
+apply Lemma 4.2, and conclude that the special fibers Yy and Yv are reduced and irreducible.
+  In order to conclude, we notice that by the discussion above, the normalization Yy → Yy
+                               1
+dominates the ı-KG-cover of Pt,y  defined by pı,y . Since every ı-KG-cover has as genus a
+constant depending on ı only, thus including the generic fiber it follows that gYy ≥ gYq . We
+thus conclude the proof of Lemma 4.8 by applying Lemma 4.2.                                  
+   Coming back to the proof of Proposition 4.7 we proceed as follows. Let k be any alge-
+                                                        1
+braically closed field with char(k) = p, and Yk → Pt,k     be an ı-KG-cover, say with local ring
+extension k[[t]] ֒→ k[[z]] at t = 0 defined by pı = p1 , . . . , pf ).
+   In notations as introduced right before Lemma 4.8, let x ∈ A|ı| and φx : κx → k be such
+that φx (pı,x ) = pı . Since q → p → P|ı| is dominant and proper, there exists a preimage y ∈ q
+of x such that κx ֒→ κy is finite. Since k is algebraically closed, there is a κx -embedding
+φy : κy ֒→ k such that φx = φy ◦ (κx ֒→ κy ). In particular, if pı,y is the image of pı,x under
+κx ֒→ κy , then pı = φy (pı,y ).
+   Let WF,j , j ∈ J, be the irreducible components of WF which contain y, and WJ := ∩j WF,j .
+Then WJ is a smooth F-subvariety WJ ⊂ WF , and the following hold, see e.g., de Jong [7],
+section 2.16 and explanations thereafter: Let Oy be the local ring of y ∈ W . There exists a
+system of regular parameters (u1 , . . . , uN ) of Oy which satisfy:
+    i) uj defines locally at y the equation of WF,j and π0 = u1 . . . uny .
+   ii) (uj )n<j≤N give rise to a regular system of parameters at y ∈ WJ in Oy /(u1 , . . . , uny ).
+  Let r := (u1 − ui )i ⊂ Oy be the ideal generated by all the u1 − ui , 1 ≤ i ≤ N. Then r is a
+regular point with (u1 − ui )i a regular system of parameters, and
+                                           Zy := Oy /r
+                                                                                          n
+is a discrete valuation ring having πy := u1 (mod r) as uniformizing parameter, and πy y = π0 .
+In particular, if π0 was an algebraic integer, then so is πy .
+   Let v1 be a valuation of F with center r, and residue field equal to κr = Quot(Zy ). And
+further, let v0 be the canonical valuation of O0 := Zy . Then the valuation ring Ov of the
+valuation v := v0 ◦ v1 dominates Oy and has κv = κy . Hence by Lemma 4.8 above, it follows
+                1
+that YOv → Pt,O    v
+                     is a Z/pf -cover of smooth Ov -curves. Hence by Lemma 4.3, it follows that
+          1
+YZy → Pt,Z   y
+               is a Z/pf -cover of smooth Zy -curves.
+   Let nı = l.c.m.(ny )y , and notice that nı is bounded by n!, where n = dim(W ) − 1.
+Choose a fixed algebraic integer π0 such that Z = Z0 [π0 ], and let πı be defined by πını = π0 .
+Then there are canonical embeddings Zy ֒→ W (κy )[πy ] ֒→ W (k)[πı ], and the base change of
+          1
+YZy → Pt,Z   y
+               under Zy ֒→ W (k)[πı ] is a Z/pf -cover of smooth W (k)[πı ]-curves
+                                                    1
+                                      YW (k)[πı] → Pt,W (k)[πı ]
+                                        1
+with special fiber the ı-KG-cover Yk → Pt,k of the given cyclic Z/pf -extension k[[t]] ֒→ k[[z]].
+  This concludes the proof of Proposition 4.7.                                                
+
+C) The strategy of proof for Theorem 1.1
+   We begin by recalling that there are several forms of the Oort Conjecture (OC) which are
+all equivalent, see e.g. Saidi [28], §3.1, for detailed proofs.
+                                                 19
+  Let k be an algebraically closed field with char(k) = p > 0. Let W (k) be the ring of
+Witt vectors over k, and W (k) ֒→ R denote finite extension of discrete valuation rings. We
+consider the following two situations, which are related to two variants of OC:
+  a) Y → X is a finite (ramified) G-cover of complete smooth k-curves such that the inertia
+groups at all closed points y ∈ Y are cyclic.
+  b) XR is a complete smooth R-curve with special fiber X, and Y → X is as a (ramified)
+G-cover of complete smooth curves as in case a) above.
+   We say that OC holds over R in case a) or b), if there exists a G-cover of complete smooth
+R-curves YR → XR , with XR the given one in case b), having the G-cover Y → X as special
+fiber. And given a cyclic extension k[[t]] ֒→ k[[z]], we say that the local OC holds over R for
+k[[t]] ֒→ k[[z]], if there exists a smoth smooth lifting R[[T ]] ֒→ R[[Z]] of k[[t]] ֒→ k[[z]].
+  Fact 4.9. (Saidi [28], §3.1) The following hold:
+  1) Local global principle for OC. Let Y → X be a finite G-cover with cyclic inertia groups,
+and for y 7→ x, let k[[tx ]] ֒→ k[[ty ]] be the corresponding extension of local rings. Let XR be
+some complete smooth R-curve with special fiber X. Then the following are equivalent:
+     i) There is a G-cover of complete smooth R-curves YR → XR with special fiber Y → X.
+    ii) For all y 7→ x, the local cyclic extension k[[tx ]] ֒→ k[[ty ]] has a smooth lifting over R.
+  2) Equivalent forms of OC. The following assertions are equivalent:
+    a) OC holds for all G-covers Y → X as in case a), or b).
+                                               1
+    b) OC holds for G cyclic and X = Pt,k        .
+                                               1             1
+    c) OC holds for G cyclic and X = Pt,k and Y → Pt,k         branched at t = 0 only.
+    d) The local OC holds.
+    e) Any of the assertions above, but restricted to cyclic p-groups as inertia groups.
+
+   Thus in order to prove Theorem 1.1 from Introduction, we can proceed as follows: Let
+Y → X be a given G-cover of projective smooth k-curves, with branch locus Σ ⊂ X. Then
+for a given algebraic integer π and R := W (k)[π], and a smooth model XR of X over R one
+has: The OC holds for Y → X over R iff the local OC holds for the local cyclic extension
+k[[tx ]] ֒→ k[[ty ]] over R for all x ∈ Σ. Further, the local OC holds for a fixed local cyclic
+extension k[[tx ]] ֒→ k[[ty ]] over R if and only if the local OC holds over R for the p-power
+sub-extension k[[tx ]] ֒→ k[[zx ]] of k[[tx ]] ֒→ k[[ty ]]. Thus the global assertion of Theorem 1.1
+is equivalent to the local assertion for cyclic p-power extensions k[[x]] ֒→ k[[z]].
+  We tackle the case of p-power cyclic extensions k[[t]] ֒→ k[[z]] as follows.
+  Step 1. Let ı = (ı1 , . . . ıe ) be a fixed upper ramification jumps sequence. By Key
+Lemma 3.2 and Theorem 3.7 there exists some N and sequences ıµ = (ı1 , . . . , ıeµ ), 1 ≤ µ ≤ N,
+depending on ı only, such that the following hold: Let o be a complete discrete valuation ring
+over with residue field k, and x1 , . . . , xN ∈ mo be distinct points. Then for every ı-KG-cover
+       1
+Y → Pt,k  there exists a Z/pe -cover of projective smooth o-curves Yo → Pt,1 o satisfying:
+  a) The special fiber of Yo → Pt,1 o is the given ı-KG-cover Y → Pt,k   1
+                                                                           .
+  b) The generic fiber Yκ̂ → Pt,1 κ̂ of Yo → Pt,1 o is branched above x1 , . . . , xN only.3
+  3 N.B., Y      Pt,1 κ̂ is not always an ı-KG-cover!
+          κ̂ →
+                                                        20
+  c) The upper ramification jumps above each xµ are ıµ := (ı1 , . . . , ıeµ ), µ = 1, . . . , N.
+                                                         1
+  Step 2. Let κ̂ ֒→ l be an algebraic closure, and Yl → Pt,l be the base change of Yκ̂ → Pt,1 κ̂ .
+Then Yl → P1l is a Z/pe -cover of projective smooth curves with no essential ramification.
+  Hypothesis 4.10. In the Notations 4.6, suppose that for every ıµ = (ı1 , . . . , ıeµ ) with
+µ = 1, . . . , N, the subset Σıµ ⊂ A|ıµ | is Zariski dense.
+                                                                               1
+   For every fixed µ = 1, . . . , N, consider the ıµ -KG-cover Yµ → Pt,l         of the local Z/peµ -
+extension l[[tµ ]] ֒→ l[[zµ ]], where zµ and tµ are local parameters at yµ 7→ xµ . Then by
+Proposition 4.7 applied for each ıµ = (ı1 , . . . , ıµ ), there exists some algebraic integer πµ such
+                               1
+that ıµ -KG-cover Yµ → Pt,l       has a smooth lifting over W (l)[πµ ]. Thus by the local-global
+principle Fact 4.9, it follows that if πı is an algebraic integer such that πµ ∈ W (l)[πı ] for all
+                              1                                    1
+µ = 1, . . . , N then Yl → Pt,l  has a smooth lifting YO1 → Pt,O     1
+                                                                       over O1 := W (l)[πı ].
+   Let v1 be the canonical valuation of O1 , and v0 be the (unique) prolongation of the
+                                                                                             1
+valuation of o to l, say having valuation ring O0 . Then the base change YO0 → Pt,O             0
+                                                                                                  of the
+Z/pe -cover of complete curves Yo → Pt,1 o under o ֒→ O0 is a Z/pe -cover of complete smooth
+                                            1
+O0 -curves with generic fiber Yl → Pt,l       . And the Z/pe -cover of complete smooth l-curves
+        1
+Yl → Pt,l   is the special fiber of the Z/pe -cover of smooth O1 -curves YO1 → Pt,O  1
+                                                                                       1
+                                                                                         . The setting
+v := v0 ◦ v1 and letting O be the valuation ring of v, it follows by Lemma 4.3 that there
+                                       1
+exists a smooth lifting of Y → Pt,k      to a Z/pe -cover of smooth O-curves YO → Pt,O     1
+                                                                                              .
+                                     1
+   Since the ı-KG-cover Y → Pt,k we started with was arbitrary, it follows that the Hypoth-
+esis 4.10 implies that Σı = A|ı| . Hence by Proposition 4.7 we conclude that:
+             Hypothesis 4.10 implies the existence of an algebraic integer πı such
+                                           1
+             that every ı-KG-cover Y → Pt,k   has a smooth lifting over W (k)[πı ].
+D) Concluding the proof of the Oort Conjecture
+  By the observation above, the proof of the Oort Conjecture is reduced to showing that the
+Hypothesis 4.10 holds for every system of upper ramification indices ı = (ı1 , . . . , ıe ) which
+has no essential jump indices, i.e., pı ρ−1 ≤ ı ρ < pı ρ−1 + p for ρ = 1, . . . , e. Via the local-
+global principle Fact 4.9, this fact is equivalent to a (very) special case of the local Oort
+Conjecture, which follows from a more general (but still partial) result recently announced
+by Obus–Wewers [18], see Obus [16], Theorem 6.28. Here is the special case needed here:
+   Key Lemma 4.11. (Special case of Obus–Wewers) In notations and context as above,
+let k[[t]] ֒→ k[[z]] be cyclic extension of degree pe which has no essential ramification. Then
+the local Oort Conjecture holds for k[[t]] ֒→ k[[z]], i.e., k[[t]] ֒→ k[[z]] has a smooth lifting
+over some finite extension R of W (k) to a smooth cyclic cover R[[T ]] ֒→ R[[Z]].
+Proof. Recall that Lemma 6.27 from Obus [16] asserts that the local Oort conjecture holds
+for cyclic extensions k[[t]] ֒→ k[[z]] of degree pe, provided the upper ramification jumps
+ı1 ≤ · · · ≤ ıe satisfy: For every 1 ≤ ν < e, there is no integer m such that:
+                                                                ıν+1
+        (∗)                  ıν+1 − pıν < pm ≤ (ıν+1 − pıν )            .
+                                                              ıν+1 − ıν
+Notice that if k[[t]] ֒→ k[[z]] has no proper essential ramification jumps, thus by definition
+ıν+1 ≤ pıν +p−1 for all 1 ≤ ν < e, then the hypothesis (∗) above is satisfied. Indeed, we first
+notice that pıν ≤ ıν+1 implies that m must be positive. Hence setting δ := ıν+1 − pıν and
+                                                  21
+                                                          
+u := ıν , the second inequality becomes pm δ + (p − 1)u ≤ δ(δ + pu), which is equivalent
+to p(p − 1)mu ≤ δ(δ + pu − pm). Hence taking into account that δ ≤ p − 1, we get:
+p(p−1)mu ≤ (p−1)(p−1+pu−mp), thus dividing by (p−1), we get: pmu ≤ p−1+pu−mp,
+or equivalently, p(m − 1)(u + 1) + 1 ≤ 0, which does not hold for any positive integer m. 
+
+  This concludes the proof of Theorem 1.1.
+
+   Remark 4.12. The main result of Obus–Wewers, see [16], Theorem 6.28, asserts that if
+the hypothesis (∗) above is satisfied for all 3 ≤ ν < e, then the local Oort conjecture holds
+for the cyclic extension k[[t]] ֒→ [[z]]. Therefore, the Oort Conjecture holds unconditionally
+for n = 3, and the above hypothesis (∗) kicks in only for exponents 3 < e. Unfortunately,
+for 3 < e, the hypothesis (∗) becomes very restrictive indeed. Setting namely δ := ıν+1 − pıν
+and u := ıν , we have that ıν+1 = δ + pu for some 0 ≤ δ. If 0 < δ, then δ is prime to p hence
+writing δ = r p − η with 1 ≤ η ≤ p − 1, the hypothesis (∗) for m := r implies that:
+                                                                         
+      At least one of the inequalities δ < r p ≤ δ(δ + pu)/ δ + (p − 1)u does not hold.
+Since the first inequality holds,
+                                the second inequality must not hold. Therefore
+                                                                                we must have
+r p > δ(δ + pu)/ δ + (p − 1)u . Since the LHS equals δ + δu/  δ + (p − 1)u , and pr − δ = η,
+the above inequality is equivalent to η > δu/ δ + (p − 1)u , hence to ηδ + η(p − 1)u > δu,
+and finally to η 2 (p − 1) > δ − η(p − 1) (u − η). Thus since δ − η(p − 1) = (r − η)p, the last
+inequality becomes η 2 (p − 1) > p(r − η)(u − η). Since p > p − 1, the last inequality implies
+η 2 > (r − η)(u − η). On the other hand, one has 1 ≤ η < p and p2 ≤ u for 1 < ν, thus
+η 2 < u − η. Therefore, in order to satisfy the inequality, one must have r ≤ η. Hence the
+hypothesis (∗) for 1 < ν < e is equivalent to:
+     (∗)′ If ıν+1 = pıν + prν − ην with 0 ≤ ην < p, then 0 ≤ rν ≤ ην for all 1 < ν < e.
+In particular, ην = 1 implies δν = p − 1, and δν ≤ (p − 1)2 in general. It seems to me that
+the reformulation (∗)′ is better/easier than the original formulation of hypothesis (∗).
+
+
+                                              References
+ [1] Bertin, J. and Mézard, A., Déformations formelles des revêtements sauvagement ramifiés de courbes
+     algébriques. Invent. Math. 141 (2000), 195–238. ↑1
+ [2] N. Bourbaki, Algèbre commutative. Hermann Paris 1964. ↑
+ [3] Bouw, I. and Wewers, S., The local lifting problem for dihedral groups. Duke Math. J. 134 (2006), 421–
+     452. ↑
+ [4] Bouw, I. and Wewers, S. and Zapponi, L., Deformation data, Belyi maps, and the local lifting problem.
+     Transactions AMS 361 (2009), 6645–6659. ↑
+ [5] Chinburg, T. and Guralnick, R. and Harbater, D., Oort groups and lifting problems. Compositio Math.,
+     144 (2008), 849–866. ↑1
+ [6]          , The local lifting problem for actions of nite groups on curves. Ann. Sci. École Norm. Sup. 44
+     no. 4 (2011), 537–605. ↑1
+ [7] A. J. de Jong, Smoothness, semi-stability and alterations. Publ. Math. I.H.É.S. 83 (1996), 51–93. ↑4, 4
+ [8] M. Garuti, Prolongement des revêtements galoisiens en géométrie rigide. Compositio Math., 104 (1996),
+     305–331. ↑1, 3, 4
+ [9]          , Géométrie rigide et géométrie formal. in: Courbes Semi-Stables et Groupe Fondamental en
+     Géométrie Algébrique, Luminy, 1998; eds. J.-B. Bost, F. Loeser, M. Raynaud, Progr. Math. 187,
+     Birkhäuser Verlag, Basel, 1998, pp. 21–32. ↑1
+                                                     22
+[10]         , Linear systems attached to cyclic inertia. in: Arithmetic Fundamental Groups and Non-
+     commutative Algebra, Berkeley, CA, 1999; eds: M. Fried, Y. Ihara, Proc. Sympos. Pure Math. 70,
+     AMS Providence, RI, 2002, pp. 367–376. ↑2
+[11] Green, B.-W. and Matignon, M., Liftings of Galois covers of smooth curves. Compositio Math., 113
+     (1998), 237–272. ↑1, 2
+[12]         , Order p automorphisms of the open disc of a p-adic field. Journal AMS, 12 (1999), 269–303. ↑
+[13] K. Kato, Vanishing cycles, ramification of valuations, and class field theory. Duke Math. J. 55 (1987),
+     629–659. ↑2, 4
+[14] N. Katz, Local-to-global extensions of representations of fundamental groups. Ann. Inst. Fourier Grenoble
+     36 (1986), no. 4, 69–106. ↑
+[15] S. Lang, Algebra. Graduate Texts in Mathematics 211, Springer-Verlag, New York, third edition, 2002.
+     ↑2
+[16] A. Obus, The (local) lifting problem for curves. Galois-Teichmüller theory and Arithmetic Geometry,
+     eds: Nakamura, Pop, Schneps, Tamagawa, MSJ Conferece Proceedings, 2012; see: arXiv:1105.1530v1
+     [math.AG]. ↑1, 4, 4, 4.12
+[17] Obus, A. and Pries, R., Wild tame-by-cyclic extensions. J. Pure Appl. Alg. 214 (2010), 565–573. ↑2
+[18] Obus, A. and Wewers, S., Cyclic extensions and the local lifting problem. Manuscript 2011. ↑1, 4
+[19] F Oort, Lifting algebraic curves, abelian varieties, and their endomorphisms to characteristic zero.
+     in: Algebraic Geometry, Bowdoin, 1985; ed. S. Bloch, Proc. Sympos. Pure Math., 46, Part 2, AMS
+     Providence, RI, 1987, pp. 165–195. ↑1
+[20]         , Some Questions in Algebraic Geometry. Utrecht University, Math. Dept. Preprint Series, June
+     1995; available at: http://www.staff.science.uu.nl/ oort0109/. ↑1
+[21] Oort, F. and Sekiguchi, T. and Suwa, N., On the deformation from Artin–Schreier to Kummer. Ann.
+     Scie. École Norm. Sup., 22 (1989) 345–375. ↑1
+[22] P. Pries, Families of wildly ramified covers of curves. Amer. J. Math. 124 (2002), no. 4, 737–768. ↑
+[23]         , Conductors of wildly ramified covers III. Pacifc J. Math. 211 (2003), 163–182. ↑
+[24] M. Raynaud, p-groupes et réduction semi-stable des courbes. The Grotendieck Festchrift Vol. III, Progr.
+     Math. 88, Birkäuser Boston, Boston, MA, 1990; pp. 179-197. ↑
+[25]         , Specialization des revêtements en caractéristique p > 0. Ann. Sci. École Norm. Sup. 32 (1999),
+     87–126. ↑
+[26] P. Roquette, Zur Theorie der Konstantenreduktion algebraischer Mannigfaltigkeiten. ↑4, 4
+[27]         , Abschätzung der Automorphismenanzahl von Funktionenkörper bei Primzahlcharakteristik.
+     Math. Z. 117 (1970), 157–163. ↑1
+[28] M. Saidi, Fake liftings of Galois covers between smooth curves. Preprint, available at
+     http://arxiv.org/abs/1010.1311v1. ↑1, 3, 4, 4, 4.9
+[29] M. Schmid, Zyklischen algebraische Funktionenkörper vom Grade pm über endlichem Konstantenkörper
+     der Charakteristik p. J. Reine Angew. Math. 176 (1936), 108–123. ↑
+[30] J.-P. Serre, Local Fields. Springer-Verlag, New York, 1979. ↑2
+[31] Sekiguchi, T. and Suwa, N., On the unified Kummer–Artin–Schreier–Witt Theory. Chuo Math. Preprint
+     Series 41, 1994. ↑1
+[32]         , On the unified Kummer–Artin–Schreier–Witt Theory. Laboratoire de Mathématiques Pures de
+     Bordeaux Preprint Series 111, 1999. ↑1
+[33] L. Thomas. J. Théorie Nombres Bordeaux, 17 (2005), 689-720. ↑2
+[34] S. Wewers, Deformation of tame admissible covers of curves. in: Aspects of Galois Theory, Gainesville,
+     Florida, 1996; ed. H. Völklein, LMS Lecture Note Series. 256, Cambridge Univ. Press, Cambridge, 1999;
+     pp. 239–282. ↑
+[35]         , Fiercely ramified extensions of p-adic fields with imperfect residue fields. Preprint, available at
+     http://arxiv.org/abs/1104.3785v1. ↑
+[36]         , Three point covers with bad reduction. Journal AMS 16 (2003), 991–1032. ↑
+
+   Department of Mathematics
+   University of Pennsylvania
+   DRL, 209 S 33rd Street
+                                                       23
+Philadelphia, PA 19104. USA
+E-mail address: pop@math.upenn.edu
+URL: http://math.penn.edu/~pop
+
+
+
+
+                                     24
+

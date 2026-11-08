@@ -1,0 +1,827 @@
+                                                  Good reduction of three-point Galois covers
+
+                                                                                    Andrew Obus
+arXiv:1208.3909v3 [math.AG] 2 Aug 2016
+
+
+
+
+                                                                                        Abstract
+                                              Michel Raynaud gave a criterion for a three-point G-cover f : Y → X = P1 , defined
+                                              over a p-adic field K, to have good reduction. In particular, if the order of a p-Sylow
+                                              subgroup of G is p, and the number of conjugacy classes of elements of order p is greater
+                                              than the absolute ramification index e of K, then f has potentially good reduction.
+                                              We give a different proof of this criterion, which extends to the case where G has an
+                                              arbitrarily large cyclic p-Sylow subgroup, answering a question of Raynaud. We then
+                                              use the criterion to give a family of examples of three-point covers with good reduction
+                                              to characteristic p and arbitrarily large p-Sylow subgroups.
+
+                                                                                     1. Introduction
+                                         This paper is about three-point G-Galois covers of the projective line (that is, G-Galois covers
+                                         f : Y → X = P1 that are étale outside of {0, 1, ∞} ⊆ X). In particular, we give a criterion for
+                                         such covers to have potentially good reduction to characteristic p, when they are defined over a
+                                         mixed characteristic (0, p) discrete valuation field. If p ∤ |G|, then it is known ([GR03]) that the
+                                         cover has potentially good reduction. If p divides the order of any ramification index, then the
+                                         cover will have bad reduction (see § 3 for what we specifically mean by this). When p divides
+                                         |G|, but not any ramification index (the “in-between” case), then it can be quite difficult to
+                                         determine whether the cover has potentially good reduction. Our main theorem is the following
+                                         (which is phrased equivalently, although slightly differently, in the body of the paper).
+                                         Theorem 5.2. Let G be a finite group with cyclic p-Sylow subgroup. Let K0 = Frac(W (k)),
+                                         where k is an algebraically closed field of characteristic p. Let K/K0 be a finite extension of degree
+                                         e(K), where e(K) is less than the number of conjugacy classes of order p in G. If f : Y → X = P1
+                                         is a three-point G-cover defined over K (as a G-cover), then f has potentially good reduction,
+                                         realized over a tame extension L/K of degree dividing the exponent of the center Z(G) of G. In
+                                         particular, if Z(G) is trivial, then f has good reduction.
+                                            Note that, if f is a cover satisfying the hypotheses of Theorem 5.2, then the ramification
+                                         indices of f are all prime to p ([Ray99, Lemma 4.2.13]).
+                                            The immediate motivation for Theorem 5.2 is the result [Ray99, Théorème 0] of Raynaud,
+                                         which is Theorem 5.2 in the case that the p-Sylow subgroup of G has order exactly p. Raynaud
+
+                                         2010 Mathematics Subject Classification Primary 14H57, 11G32 14H30; Secondary 14H25, 14G20
+                                         Keywords: three-point cover, good reduction, auxiliary cover, stable model
+                                            The author was supported by an NSF Postdoctoral Research Fellowship in the Mathematical Sciences, as well
+                                         as NSF FRG grant DMS-1265290. This paper was conceived and written during a visit to the Max-Planck-Institut
+                                         für Mathematik in Bonn.
+                                          Andrew Obus
+
+asked ([Ray99, Question 6.2.1]) whether his theorem could be extended to the case where G
+has a cyclic p-Sylow subgroup. This was shown to be true under a quite strong assumption in
+[Obu12b, Corollary 5.11] (that the stable reduction of the cover has “no new étale tails”), and
+the current paper removes this assumption.
+    Raynaud’s proof (in the vp (|G|) = 1 case) was based on a study of the stable model of the
+cover f . In particular, he showed that the action of the absolute Galois group GK on the stable
+reduction f of f factors through a quotient of prime-to-p order (i.e., that the “wild monodromy” is
+trivial), and was able to conclude the good reduction from this. The author undertook a detailed
+study of this Galois action in [Obu12b], but it is still not clear whether the wild monodromy must
+be trivial for three-point covers as in Theorem 5.2. We are able to get around this obstacle by
+analyzing the arithmetic of certain extensions of discrete valuation rings attached to the stable
+model of f , see § 1.1.
+    Of course, the greater background motivation for our result is to understand the tame funda-
+mental group π1 (Uk )tame of Uk := P1k \{0, 1, ∞}, where k is algebraically closed of characteristic p.
+If K is an algebraic closure of Frac(W (k)) and UK = P1K \{0, 1, ∞}, then Grothendieck ([GR03])
+showed that there exists a well-defined surjection
+                                  pr : π1 (UK )p-tame → π1 (Uk )tame
+up to conjugation (here π1 (UK )p-tame is the inverse limit of the automorphism groups of p-tame
+étale Galois covers of UK , that is, covers whose completion to a branched cover of P1K has
+prime-to-p branching indices). The surjection pr is an isomorphism on the maximal prime-to-p
+quotients. Understanding the kernel of pr (equivalently, π1 (Uk )tame ) is equivalent to determining
+which p-tame three-point G-Galois covers of P1K have good reduction. For a purely group-theoretic
+translation of our result, see Appendix A.
+     We mention that Ihara ([Iha12]) has asked a related question, which he believes to have a
+positive answer. Namely, let f be a three-point G-cover defined over K as in Theorem 5.2, with
+G an arbitrary finite group, and e(K) < p − 1 (of course, G must be generated by two elements).
+Assume further that there is a K-rational point of P1 \{0, 1, ∞} above which f splits completely.
+Does this imply that f has good reduction? Ihara answers this question positively when G is
+solvable (see [Iha12, § 4.3]). He also shows that it is enough to show that f has potentially
+good reduction ([Iha12, Proposition 1]). For a possible connection between this question and the
+techniques used in this paper, see Remark 5.6.
+
+1.1 Plan of the proof
+Similarly to the proof of Raynaud, our proof of Theorem 5.2 depends upon understanding the
+stable reduction f : Y → X of the G-cover f to characteristic p. We will recall the details we need
+in § 3. If f has bad reduction, there will be irreducible components of X above which the map f is
+inseparable, where information from the original cover is seemingly lost. But we are able to show
+that, when f is a three-point cover with bad reduction, the reduction is multiplicative. That is,
+the action of certain subgroups Z/pi ⩽ G on certain irreducible components of Y reduces to that
+of the multiplicative group scheme µpi . This is done by generalizing a result of Wewers ([Wew03])
+on multiplicative reduction of Z/p ⋊ Z/m-covers (p ∤ m) to the case of Z/pi ⋊ Z/m-covers. In § 4
+we use the construction of the auxiliary cover (originally by Raynaud in [Ray99], generalized by
+the author in [Obu13]), to reduce the case of general G with cyclic p-Sylow subgroup to the case
+of Z/pi ⋊ Z/m.
+    We show independently in § 5 (Proposition 5.1) that a three-point G-cover (or even a G-cover
+
+
+                                                  2
+                          Good reduction of three-point covers
+
+of P1 branched at arbitrarily many equidistant points) defined over a “small” field (i.e., a field
+K such as in Theorem 5.2) cannot possibly have multiplicative reduction. This uses results in § 2
+on Galois extensions of mixed characteristic discrete valuation fields. This allows us to conclude
+Theorem 5.2. In § 6, we apply Theorem 5.2 to give examples of infinite families of covers with
+good reduction and arbitrarily large p-Sylow subgroups.
+
+1.2 Notation
+For any group G with a cyclic p-Sylow subgroup P , we set mG := |NG (P )|/|ZG (P )|, the order of
+the normalizer of P divided by the order of the centralizer. A G-Galois cover (or just G-cover )
+of projective, smooth, geometrically integral curves over a field K is a finite map f : Y → X
+such that K(Y )/K(X) is a G-Galois extension. If f is a G-Galois cover, with y ∈ Y such that
+f (y) = x, then the ramification index of y is equal to the branching index of x, which is the
+ramification index of the extension ÔY,y → ÔX,x of complete local rings (that is, the valuation
+of a uniformizer of ÔX,x in ÔY,y . If this index is greater than 1, then y is called a ramification
+point and x is a branch point.
+    Let f : Y → X be any morphism of schemes and assume H is a finite group with H ֒→
+Aut(Y /X). If G is a finite group containing H, then we define the map IndG               G
+                                                                                H f : IndH Y → X by
+            G
+setting IndH Y to be a disjoint union of [G : H] copies of Y , indexed by the left cosets of H in
+G, and applying f to each copy. The group G acts on IndG      H Y , and the stabilizer of each copy of
+Y in IndGH  Y  is a conjugate of H.
+    The valuation on any mixed characteristic discrete valuation field K is written vK , and is
+normalized so that the value group is Z. The symbol ζn always represents a primitive nth root of
+unity. For any mixed characteristic discrete valuation ring or field R, the absolute ramification
+index (i.e., the valuation of p) is written e(R).
+
+
+Acknowledgements
+
+The main result of this paper is the first result I had originally wanted to prove for my Ph.
+D. thesis. While I was not able to succeed at the time, I was able to lay much of the essential
+groundwork for this paper. I thank my thesis advisor, David Harbater, for invaluable help with
+this process. I also thank Irene Bouw, Gerd Faltings, Michel Raynaud, and Kirsten Wickelgren
+for useful comments.
+
+
+                          2. Extensions of discrete valuation fields
+
+Let L/K be a finite separable extension of complete discrete valuation fields (DVFs), with val-
+uation rings OL /OK and residue fields κL /κK . The extension L/K (likewise OL /OK ) is called
+unramified if a uniformizer of K is also a uniformizer of L, and the extension κL /κK is separable.
+If the extension is not unramified, it is called ramified. If κL /κK is inseparable, the extension is
+called fiercely ramified. If a uniformizer of K is not a uniformizer of L, we will call the extension
+naively ramified. An extension that is not naively ramified is called weakly unramified (it might
+be fiercely ramified or unramified). Furthermore, if L/K is a (not necessarily finite) extension of
+complete DVFs such that K has perfect residue field, it is called unramified if a uniformizer of
+K is a uniformizer of L.
+    Now, let us assume that L and K have characteristic (0, p), and that L/K is a Z/pn -extension,
+for n ⩾ 1. The extension L/K (likewise OL /OK ) is said to be of µpn -type if ζpn ∈ K and L/K is
+
+
+                                                  3
+                                            Andrew Obus
+
+a Kummer extension that can be generated by extracting a pn th root of an element a ∈ K such
+that vK (a) = 0 and the reduction of a is not a pth power in κK . Such an extension is clearly
+fiercely ramified and weakly unramified, with an inseparable residue field extension of degree
+pn . If F ⊆ K is a complete DVF, then the extension L/K (likewise OL /OK ) is potentially of
+µpn -type with respect to F if there exists a finite extension F ′ /F of complete DVFs such that the
+base change L′ /K ′ := (L ⊗F F ′ )/(K ⊗F F ′ ) of L/K is a field extension of µpn -type.
+    The terminology “µpn -type” comes from the fact that the corresponding map Spec OL →
+Spec OK is a torsor under the group scheme µpn .
+Lemma 2.1. Let L/K be a Z/pn -extension of characteristic (0, p) complete DVFs such that
+ζpn ∈ K, given as a Kummer extension by extracting a pn th root of a, where vK (a) = 0. For any
+complete DVF F ⊆ K, we have that L/K is potentially of µpn -type with respect to F if and
+only if it is of µpn -type.
+Proof. The “if” direction is trivial. For the “only if” direction, suppose L/K is not of µpn -type,
+let F ′ /F be a finite extension, and let L′ /K ′ = (L ⊗F F ′ )/(K ⊗F F ′ ). Assume L′ /K ′ is a field
+extension. Then a reduces to a pth power a in the residue field κK of K, and a is also a√pth
+                                                          √
+                                                          n                                      n
+power in the residue field κK ′ of K ′ . Now, L′ = K ′ ( p a). If we can also write L′ = K ′ ( p b),
+with vK  ′ (b) = 0, then Kummer theory shows that b = ar cpn for some r ∈ Z and c ∈ K ′ . This
+
+means that b reduces to a pth power in κK ′ , so L′ /K ′ is not of µpn -type.
+Lemma 2.2. Let L/K be a Z/pn -extension of characteristic (0, p) complete DVFs with n ⩾ 1, and
+let M/K be the unique Z/p-subextension. Suppose F ⊆ K is a complete DVF with algebraically
+closed residue field such that K is unramified over F . Then L/K is potentially of µpn -type with
+respect to F if and only if M/K is potentially of µp -type with respect to F .
+Proof. Throughout this proof, a base change of K by a finite extension F ′ /F (resp. F ′′ /F , etc.)
+will be denoted K ′ (resp. K ′′ , etc.). The same holds for L and M .
+     If L/K is potentially of µpn -type with respect to F , then there is a finite extension F ′ /F such
+                   √n
+that L′ = K ′ ( p a) with vK ′ (a) = 0 and a does not reduce to a pth power in the residue field
+                                                      √
+κK ′ of K ′ . Then M ′ /K ′ is given by M ′ = K ′ ( p a), so M/K is potentially of µp -type.
+                                                                                              √
+     Conversely, suppose a finite extension F ′ /F yields M ′ /K ′ given by M ′ = K ′ ( p a), where
+vK ′ (a) = 0 and a does not reduce to a pth power in κK ′ . Note that K ′ is unramified over F ′ .
+If F ′′ = F ′ (ζpn ), then F ′′ /F ′ is totally naively ramified (as F ′ has algebraically closed residue
+field). So K ′′ /K ′ is also totally naively ramified, vK    ′′ (a) = 0, and a does not reduce to a pth
+                                                                                           √
+power in the residue field κK ′′ = κK ′ of K . Thus M ′′ /K ′′ is given by M ′′ = K ′′ ( p a), which√is a
+                                                   ′′
+                                                                                                     n
+nontrivial Z/p-extension. This means that L′′ /K ′′ is a Z/pn -extension given by L′′ = K ′′ ( p b),
+where b/a is a pth power in K ′′ . After a further totally naively ramified extension F ′′′ /F ′′ (giving
+a totally naively ramified extension K ′′′ /K ′′ ), and possibly multiplying b by a pn th power in K ′′′ ,
+we may assume that vK ′′′ (b) = 0, and a still does not reduce to a pth power in the residue field
+κK ′′′ = κK ′ of K ′′′ . Since b/a is a pth power √    in K ′′′ , we have that b does not reduce to a pth
+                                     ′′′     ′′′ pn
+power in κK ′′′ . In particular, L = K ( b), thus L/K is potentially of multiplicative type.
+Remark 2.3. One can give an alternate proof of Lemma 2.2 by using [Tos10, Lemma 3.2] for
+the case n = 2, and then induction for general n.
+Proposition 2.4. Let m > 1 be prime to p, let M/K be a Z/m-extension of characteristic (0, p)
+                                                                             √
+complete DVFs, and assume that ζp ∈ K. Let a ∈ M × \(M × )p , and let L = M ( p a). If L/K is
+G-Galois with G nonabelian, then p | vM (a).
+
+
+
+                                                    4
+                          Good reduction of three-point covers
+
+Proof. By the Schur-Zassenhaus theorem, G ∼    = Z/p ⋊ Z/m, for some nontrivial action of Z/m on
+Z/p. Let σ, c ∈ G be noncommuting elements of order p and prime-to-p respectively, such that
+cσ = σ ν c, with ν 6≡ 1 (mod p). Since L/K is Galois, we know that a and c(a) both yield the
+same Kummer extension, so c(a) = ad z p , where z ∈ M and p ∤ d.
+                        √                                                            √       √
+   Choose a pth root p a of a in L, and let ζ be a pth root of unity such that σ( p a) = ζ p a.
+                       √            √ d
+Let αc be such that c( p a) = ζ αc z p a . Then
+                              √            √        √               √ d
+                           cσ( p a) = c(ζ p a) = ζc( p a) = ζ 1+αc z p a ,
+whereas
+                                     √                  √ d               √ d
+                               σ ν c( p a) = σ ν (ζ αc z p a ) = ζ νd+αc z p a .
+Thus νd ≡ 1 (mod p). In particular, d 6≡ 1 (mod p). Since
+                               vM (a) ≡ vM (c(a)) ≡ dvM (a) (mod p),
+we conclude that p | vM (a).
+
+Lemma 2.5. If K is a characteristic (0, p) complete DVF such that e(K) < p − 1, then every
+ramified Z/p-extension L/K is naively ramified.
+
+Proof. This is well known and follows, for example, from [Ray74, Proposition 3.3.2 and Théorème
+3.3.3].
+
+Corollary 2.6. Let m > 1 be prime to p, and let L/K be a Z/p ⋊ Z/m-extension of character-
+istic (0, p) complete DVFs. Let M be the intermediate field corresponding to the subgroup Z/p.
+Set K ′ (resp. L′ , M ′ ) equal to K(ζp ) (resp. L(ζp ), M (ζp )). Suppose that e(M ) < p − 1, and that
+L′ /K ′ is nonabelian. Then L/M is not potentially of µp -type with respect to any DVF F ⊆ M .
+
+Proof. By Lemma 2.5, L/M is naively ramified. By Proposition 2.4 applied to K ′ ⊆ M ′ ⊆ L′ ,
+we know that L′ /M ′ is given by extracting a pth root of some a ∈ M ′ such that p | vM ′ (a). After
+multiplying by a pth power, we may assume vM ′ (a) = 0. Since L/M is naively ramified and
+M ′ /M is a prime-to-p extension, we have that L′ /M ′ is naively ramified, thus not of µp -type. By
+Lemma 2.1, L′ /M ′ is not potentially of µp -type with respect to any DVF F ′ ⊆ M ′ . By definition,
+the same is true for L/M .
+
+Remark 2.7. In the situation of Corollary 2.6, suppose further that the conjugation action of
+Z/m on Z/p is faithful. One easily sees that in order to check L′ /K ′ nonabelian, it suffices to
+have M 6⊆ K ′ .
+
+
+                                   3. Stable reduction of covers
+
+Let R be a mixed characteristic (0, p) complete discrete valuation ring (DVR) with residue field
+k and fraction field K. We set X ∼ = P1K , and we fix a smooth model XR = P1R of X. Let G be a
+finite group with cyclic p-Sylow group. Let f : Y → X be a G-Galois cover defined over K, such
+that the branch points of f are defined over K and their specializations do not collide on the
+special fiber of XR . Assume that f is branched at at least three points. The cover f may not have
+a smooth model over R, but it at least has a model over a finite extension of R that is “as close
+to smooth as possible.” Specifically, by a theorem of Deligne and Mumford ([DM69, Corollary
+2.7]), combined with work of Raynaud ([Ray90, Appendice], [Ray99, Proposition 2.4.5]) and Liu
+([Liu06, Theorem 0.1]), there is a minimal finite extension K st /K with valuation ring Rst , and
+
+
+                                                      5
+                                           Andrew Obus
+
+a unique model f st : Y st → X st of fK st := f ×K K st (called the stable model of f ) over Rst such
+that
+  – The special fiber Y of Y st is semistable (i.e., has only ordinary double points for singulari-
+    ties).
+  – The ramification points of fK st specialize to distinct smooth points of Y .
+  – G acts on Y st , and X st = Y st /G.
+  – Any genus zero irreducible component of Y contains at least three marked points (i.e.,
+    ramification points or points of intersection with the rest of Y ).
+If the last criterion is omitted, we say we have a semistable model for f . If we are working over
+a finite extension K ′ /K st with valuation ring R′ , we will sometimes abuse language and call
+f st ×Rst R′ the stable model of f . This is justified because the special fiber of such a model is
+identical to that of the original stable model.
+     If Y is smooth, the cover f : Y → X is said to have potentially good reduction. If f does not
+have potentially good reduction, it is said to have bad reduction. In any case, the special fiber
+f : Y → X of the stable model is called the stable reduction of f . One can view X st as a blowup
+of XR ×R Rst . The strict transform of the special fiber of XR ×R Rst in X st is called the original
+component, and will be denoted X 0 .
+
+3.1 Inertia Groups of the Stable Reduction
+The action of G on Y st reduces to an action on the special fiber Y . By [Ray94, Lemme 6.3.3],
+we know that the inertia groups of the action of G on Y at generic points of Y are p-groups. If
+V is an irreducible component of Y , we will always write IV ⩽ G for the inertia group of the
+generic point of V , and DV ⩽ G for the decomposition group.
+   The inertia groups above a generic point of an irreducible component W ⊂ X are conjugate
+cyclic p-groups. If they have order pi , we call W a pi -component. If i = 0, we call W an étale
+component, and if i > 0, we call W an inseparable component.
+   As in [Ray99], we call an irreducible component W ⊆ X a tail if it is not the original
+component and intersects exactly one other irreducible component of X. Otherwise, it is called
+an interior component. A tail of X is called primitive if it contains the specialization of a branch
+point of f . Otherwise it is called new. An étale component that is a tail is called an étale tail.
+Lemma 3.1 [Obu12b], Proposition 2.13. If x ∈ X is branched of prime-to-p order, then x spe-
+cializes to an étale component.
+Lemma 3.2 [Ray99], Proposition 2.4.8. If f has bad reduction and W is an étale component of
+X, then W is a tail. In particular, the original component is an inseparable component.
+Remark 3.3. We will see in § 3.2 that, even for fixed i, not all pi -components are created
+equal! Indeed, one wishes to keep track of some of the information that is lost when reducing to
+characteristic p. For a reasonably full picture of what gets lost, the standard technique is to use
+“deformation data” as developed, e.g., in [Hen00, § 1], [Wew03, § 1.3], and [Obu12b, Construction
+2.4]. However, in this paper, we will only need to keep track of whether certain inseparable
+components are “multiplicative” or not, see § 3.2. Our proof of Theorem 5.2 is based on showing
+that if f has bad reduction, then under the assumptions of Theorem 5.2, the original component
+must be both multiplicative and not multiplicative, a contradiction. In § 3.4, we give an explicit
+sufficient criterion for the original component to be multiplicative, when G ∼= Z/ps ⋊ Z/m.
+
+
+                                                 6
+                          Good reduction of three-point covers
+
+3.2 Multiplicative reduction
+Maintain the notation previously introduced in § 3. Suppose that f : Y → X = P1 has bad
+reduction, and let f ss : Y ss → X ss be a semistable model for f , defined over R, with special
+        ss    ss      ss                                          ss
+fiber f : Y → X . Let V be an irreducible component of Y above an inseparable component
+          ss
+W of X , let IV be its inertia group, and let DV be its decomposition group. Since IV is normal
+in DV , it follows that DV has a normal subgroup of order p. Thus, by [Obu12b, Corollary 2.4], the
+maximal normal prime-to-p subgroup N of DV is such that DV /N has normal p-Sylow subgroup
+P of some order pj .
+    If η is the generic point of V /N , then P acts on the complete DVR B := ÔYR /N,η . Let C be
+the fixed ring B P . Since P acts trivially on the residue field k(V /N ) of B, we have that B/C is
+a totally ramified P -extension of complete DVRs. If B/C is potentially of µpj -type with respect
+to Frac(R), then the model f ss is said to have multiplicative reduction above W (in the language
+of Remark 3.3, the component W is multiplicative). As mentioned at the beginning of § 2, this
+means that B/C is a µpj -torsor.
+
+3.3 Vanishing cycles formula
+The original version of the vanishing cycles formula below is due to Raynaud in [Ray99]. The
+generalized version below is a special case of [Obu12b, Theorem 3.14], which will be vital for
+Proposition 4.3. The idea is to relate the genera and ramification behavior of certain irreducible
+components of the stable reduction of f to the ramification behavior of f itself. First we need a
+definition. Maintain the notation from the beginning of § 3.
+
+Definition 3.4 (cf. [Obu12a], Definition 4.10). Consider an étale tail X b of X. Suppose X b
+intersects the rest of X at xb . Let Y b be a component of Y lying above X b , and let y b be a point
+lying above xb . Then the effective ramification invariant σb of X b is the conductor of higher
+ramification for the extension ÔY b ,y /ÔX b ,xb of complete DVRs. That is,
+                                     b
+
+                                         σb = sup (H i 6= id),
+                                              i∈Q⩾0
+
+where H is the Galois group of ÔY b ,y /ÔX b ,xb and H i is the filtration for the upper numbering
+                                       b
+(see [Ser79, IV § 3]). We also set mb equal to the prime-to-p part of |H|.
+
+Lemma 3.5 ([Obu12b], Lemma 2.20, Lemma 4.2). The effective ramification invariants σb are
+positive and lie in m1G Z. Furthermore, if X b is a new tail, then σb ⩾ 1 + 1/mG .
+
+Theorem 3.6 (Vanishing cycles formula, [Obu12b], Theorem 3.14, Corollary 3.15). Let f : Y →
+X∼= P1 be a G-Galois cover with bad reduction branched at r points as in this section, where G
+has a cyclic p-Sylow subgroup. Let Bnew be an indexing set for the new étale tails and let Bprim
+be an indexing set for the primitive étale tails. Let σb be the effective ramification invariant in
+Definition 3.4. Then we have the formula
+
+                                           X                     X
+                                r−2=               (σb − 1) +             σb .                  (3.1)
+                                          b∈Bnew                b∈Bprim
+
+
+3.4 Covers of multiplicative type
+Maintain the notation of this section, and assume for the duration of § 3.4 that G = Z/ps ⋊ Z/m,
+where m is prime to p, the action of Z/m on Z/ps is faithful, and s ⩾ 1. Note that mG = m. Fix
+
+
+                                                     7
+                                              Andrew Obus
+
+elements c ∈ G of order m and σ ∈ G of order p. Then we can define a character χ : Z/m → F×       p
+such that ci σc−i = σ χ(i) for all i ∈ Z/m. By [Obu12b, Lemma 2.1], the character χ is injective;
+in particular, m|p − 1. We lift χ to a character χ : Z/m → K such that χ(i) is the unique mth
+root of unity whose reduction is χ(i).
+    Let f : Y → X = P1 be a G-cover defined over K branched at r K-points x1 , . . . , xr , with
+r ⩾ 3. Assume that the branching indices are all prime to p. For notational purposes, choose a
+coordinate for X such that xi 6= ∞ for 1 ⩽ i ⩽ r. Throughout § 3.4, we allow the specializations of
+                                                                                                adm
+the branch points to collide on the special fiber of XR . There is then a unique stable model X
+of XR separating the specializations of the branch points, such that each irreducible component
+                       adm
+of the special fiber X        of X contains at least three marked points (i.e., branch points and
+                     adm                                           adm
+singular points of X      ). In the case of a three-point cover, X     is smooth.
+    The cover f is the composition of a Z/m-cover g : Z → X given (birationally) by an equation
+of the form
+
+                                                    Y
+                                                    r
+                                              m
+                                          z       =   (x − xi )ai                                  (3.2)
+                                                    i=1
+with an étale cover Y → Z of degree pn . Here z is chosen so that c∗ z = χ(1)z. We mayPr assume
+that, for 1 ⩽ i ⩽ r, we have 0 ⩽ ai ⩽ m. Since g is unramified at ∞, we have m| i=1 ai . If
+P  r
+   i=1 ai = m, then f is said to be of multiplicative type (cf. [Wew03, § 1]).
+                                                                              ss ss      ss
+     Let f ss : Y ss → X ss be a semistable model for f with special fiber f : Y → X . Since
+                                                                                    ss      adm
+a semistable model must separate the specializations of branch points, we have X ⊇ X            . If
+                          ss
+X b is an étale tail of X that intersects an inseparable component (not automatic, as f ss is not
+necessarily the stable model), then one can define σb and mb for X b as in Definition 3.4.
+     The following proposition is analogous to [Wew03, Proposition 1.8 (i)].
+                                                                             ss
+Proposition 3.7. Given f ss as above, suppose X b is an étale tail of X containing the special-
+ization xi of xi and no other specializations of branch points. Suppose further that X b intersects
+                                ss
+an inseparable component of X . Then
+                                                    ai
+                                             hσb i = ,
+                                                    m
+where h·i means the fractional part.
+Proof. Let u be a coordinate on X b such that u = ∞ corresponds to the intersection point xb
+                       ss
+with the rest of X . If H = Z/pa ⋊Z/mb is the decomposition group of an irreducible component
+     ss
+of Y above X b , then σb is defined by a jump in the upper numbering of an H-Galois extension
+of k[[u−1 ]], and replacing σb by any other jump does not change its fractional part ([OP10,
+Theorem 1.1]). So it suffices to prove the theorem for the first positive upper jump σb′ of the
+Galois extension in Definition 3.4 (i.e., the smallest number i > 0 such that H i ) H i+ǫ for all
+ǫ > 0). Since the upper numbering is invariant under taking quotients ([Ser79, IV, Proposition
+14]), taking the quotient of the cover f ss by the unique subgroup of order pa−1 in G does not
+affect the quantities in the proposition, and we may assume a = 1.
+                  ss
+    Let Y b = Y ×X ss X b , which is a disjoint union of H-covers of X b . Let V b ⊆ Y b be a disjoint
+union of m/mb of these covers on which a group Γ ∼        = Z/p⋊Z/m with H ⊆ Γ ⊆ G acts transitively.
+                                                                   ss
+If we let τi be the point where X b intersects the rest of X , then the quotient V b /(Z/p) → X b
+is of type (xi , τi , ai , m − ai ) with respect to χ in the sense of [Wew03, p. 116]. Thus, the proof of
+[Wew03, Proposition 1.8 (i)] carries through verbatim to prove the proposition.
+
+
+                                                       8
+                           Good reduction of three-point covers
+
+   The term “multiplicative type” is closely related to multiplicative reduction, as the next
+proposition shows.
+Proposition 3.8. If f : Y → X is of multiplicative type with G = Z/ps ⋊ Z/m, then any
+semistable model f ss has multiplicative reduction (§ 3.2) above every irreducible component of
+  adm
+X     .
+Proof. If s = 1, then this follows from [Wew03, Proposition 1.3] and [Ray90, p. 190] (see proof
+of [Wew03, Corollary 1.5]). If s ⩾ 1, then f has a quotient Z/p ⋊ Z/m-cover h : W → X, which
+is also of multiplicative type. Thus any semistable model hss of h has multiplicative reduction
+                adm                                                     adm
+above all of X      . This implies that each irreducible component of X     is a ps -component for
+          ss                                       ss                   ss
+f . Let K /K be a finite extension over which f is defined. Since K has algebraically closed
+                                                                                       adm
+residue field, Lemma 2.2 implies that f ss has multiplicative reduction over all of X      .
+
+
+                                      4. The auxiliary cover
+Our goal in this section is to simplify the group-theoretical structure of a G-cover f by replacing
+it with the so-called auxiliary cover, which is originally an idea of Raynaud. This will be a cover
+whose geometry is similar to f , but which has more branch points and a simpler Galois group.
+In particular, the auxiliary cover will have a quotient, called the strong auxiliary cover, whose
+Galois group is isomorphic to Z/ps ⋊ Z/m, for some s and some m that is prime to p. The main
+goal of this section is to show (Proposition 4.3) that the strong auxiliary cover of a three-point
+G-cover with bad reduction is of multiplicative type when G has a cyclic p-Sylow subgroup. This
+will have the consequence (Corollary 4.4) that the original cover has multiplicative reduction
+over the original component.
+    Specifically, let G be a finite group with cyclic p-Sylow group. Assume that f : Y → X =
+  1
+P is a G-cover defined over K as in § 3 with bad reduction, such that the specializations of
+the branch points do not collide on the special fiber of XR . By the construction given at the
+beginning of [Obu13, § 7] (which is originally based on [Ray99, § 3.2]), one can construct (over
+some finite extension K ′ /K) an auxiliary cover f aux : Y aux → X aux := X with a semistable
+                                                                 aux    aux     aux
+model (f aux )ss : (Y aux )ss → (X aux )ss and special fiber f       :Y     → X . We do not repeat
+the construction here, but we summarize the important properties, which all follow from [Obu13,
+§ 7]. In particular, properties (ii), (iii) and (v) of Proposition 4.1 below show that f aux has similar
+geometry to f , whereas property (vi) shows that the group theory of f aux is rather simple.
+Proposition 4.1. Assume that p does not divide any branch index of f .
+  (i) The cover f aux is a Gaux -Galois cover, where Gaux ⩽ G.
+                                           aux
+ (ii) We have (X aux )ss = X st and X          = X.
+(iii) There exists an étale neighborhood Z (relative to X st ) of the union U of the inseparable
+      components of X, such that the cover f st ×X st Z is isomorphic to IndG      Gaux (f
+                                                                                           aux )ss × st Z.
+                                                                                                    X
+(iv) The cover f aux has a branch point xb of index mb for each étale tail X b of X such that
+      mb > 1 (Definition 3.4). If X b is a primitive tail, then xb is the corresponding point branched
+      in f . If X b is a new tail, then xb specializes to a smooth point of X b . These points comprise
+      the entire branch locus of f aux (see Lemma 3.1).
+                                                                                    aux
+ (v) If X b is an étale tail of X, and if V b is an irreducible component of Y          above X b , then
+      V b → X b is generically étale. If the effective ramification invariant σbaux of V b → X b is
+      defined as in Definition 3.4, then σbaux = σb .
+
+
+                                                    9
+                                              Andrew Obus
+
+(vi) If N is the maximal prime-to-p normal subgroup of Gaux , then Gaux /N ∼
+                                                                           = Z/ps ⋊ Z/mGaux ,
+                                                  s
+     where s ⩾ 1 and the action of Z/mGaux on Z/p is faithful.
+Remark 4.2. In the context of Proposition 4.1 (iii), U is a tree, and thus has trivial fundamental
+                                              aux
+group. So f ×X U is isomorphic to IndG Gaux f     ×X U . In particular, the inseparable components
+of X for the auxiliary cover are the same as for the original cover.
+
+    In light of Proposition 4.1 (vi), write Gstr := Gaux /N ∼     = Z/ps ⋊ Z/mGaux , where N is the
+maximal prime-to-p normal subgroup of Gaux . The canonical Gstr -quotient gover of f aux is
+called the strong auxiliary cover, and is written f str : Y str → X str := X aux = X. We also
+                                                 str     str     str
+write (f str )ss : (Y str )ss → (X str )ss and f     : Y     → X     for (f aux )ss /N and its reduction,
+respectively. Since the higher ramification filtration for the upper numbering is invariant under
+taking quotients ([Ser79, IV, Proposition 14]), the effective ramification invariants for the strong
+auxiliary cover are the same as those for the auxiliary cover, which (by Proposition 4.1 (v)) are
+the same as those for the original cover.
+Proposition 4.3. The strong auxiliary cover f str of a three-point G-cover f with prime-to-p
+branching is of multiplicative type (§ 3.4).
+                                     str
+Proof. For each étale tail X b of X , let σb be its effective ramification invariant, which is equal
+to the corresponding effective ramification invariant of f . The vanishing cycles formula (3.1)
+shows that
+                                       X                   X
+                                   1=        (σb − 1) +          σb ,
+                                           b∈Bnew         b∈Bprim
+                                            str
+where b ranges over the étale tails of X (here “new” and “primitive” refer to the corresponding
+tails of f ). By Lemma 3.5, each term in the sums on the right hand side is positive. By Lemma
+3.1, there are three primitive étale tails, thus namely more     Pthan one étale tail, so each term is
+also strictly between 0 and 1. Thus we conclude both that b hσb i = 1 and that mb > 1 for each
+étale tail.
+     By Proposition 4.1 (iv), each étale tail contains the specialization of exactly one branch point
+of  f str . Also, f str has a Z/m aux -quotient cover given by an equation in the form of (3.2). Since
+P                                  G
+   b hσ  b i = 1, Proposition  3.7 shows that f str is of multiplicative type.
+Corollary 4.4. Let f : Y → X be a three-point G-cover with bad reduction, such that all
+branching indices are prime to p. Then the stable model of f has multiplicative reduction over
+the original component.
+Proof. By Propositions 4.3 and 3.8, any semistable model of the strong auxiliary cover f str has
+multiplicative reduction over the original component. Since f str is a prime-to-p quotient of the
+auxiliary cover f aux , we have that any semistable model of f aux also has multiplicative reduction
+over the original component. By Proposition 4.1 (iii), over an étale neighborhood of the original
+component, the cover f is isomorphic to a disjoint union of copies of f aux . Thus the stable model
+of f also has multiplicative reduction over the original component.
+Remark 4.5. If vp (|G|) = 1, then Corollary 4.4 follows rather easily from [Wew03, § 1.4 and the
+proof of Corollary 1.5]. Indeed, the vanishing cycles formula and the auxiliary cover construction
+were already known for vp (|G|) = 1 at the time of [Wew03]. The key new ingredients for the
+general case are the auxiliary cover construction and the vanishing cycles formula when G has
+an arbitrarily large cyclic p-Sylow subgroup.
+
+
+                                                    10
+                          Good reduction of three-point covers
+
+Lemma 4.6. Let f : Y → X be a G-cover branched at r ⩾ 3 points as in this section, with bad
+reduction, such that all branching indices are prime to p. Let V be an irreducible component
+above the original component, with decomposition group DV ⊆ G. Then mDV > 1.
+                                                                              aux
+Proof. By Remark 4.2, V can be viewed as an irreducible component of Y          with decomposition
+                                                                                                 str
+group isomorphic to DV , so it suffices to prove the lemma for the auxiliary cover f aux . Let V     be
+the image of V under the canonical map (Y aux )ss → (Y str )ss . The decomposition group DV str is
+a quotient of DV by a prime-to-p subgroup. It follows easily that mD str = mDV . Furthermore,
+                                                                         V
+since the strong auxiliary cover has Galois group Gstr ∼   = Z/ps ⋊ Z/mGaux (for some s), with
+faithful conjugation action of Z/mGaux on Z/ps , any subgroup Γ of Gstr that has order divisible
+by p, but is not a p-group, has mΓ > 1. Thus it suffices to show that DV str is not a p-group.
+   Set m = mGaux . Then f str has a Z/m-quotient cover given birationally by
+                                                   Y
+                                                   ρ
+                                             m
+                                         z       =   (x − xi )ai ,                               (4.1)
+                                                   i=1
+where 0 < ai < m. It suffices to prove that this cover does not split completely over the original
+component, that is, that the reduction
+                                                 Y
+                                                 ρ
+                                                   (x − xi )ai                                   (4.2)
+                                                 i=1
+of the right hand side of (4.1) modulo the maximal ideal is not an mth power in k(x).
+     Since f is branched in r different points, assumed to reduce to pairwise distinct points of
+P1k , we know that there are at least r different residue classes represented among
+                                                                              P     the xi . By the
+vanishing cycles formula (3.1), Lemma 3.5, and Proposition 3.7, we have ( ρi=1 ai ) /m ⩽ r − 2.
+Since at least r residue classes are represented
+                                              P among the xi , there is at least one residue class,
+comprised of xi1 , . . . , xiν , such that 0 < νj=1 aij < m. This means that (4.2) is not an mth
+power, and we are done.
+
+
+                                        5. Good reduction
+In this section, k is an algebraically closed field of characteristic p, and K0 = Frac(W (k)). The
+main result here is Proposition 5.1.
+Proposition 5.1. Let G be a finite group with nontrivial cyclic p-Sylow subgroup. Let K/K0
+be a finite extension such that e(K) < (p − 1)/mG , and let f : Y → X = P1 be a G-cover defined
+over K, branched at distinct K-points {x1 , . . . , xr }, with r ⩾ 3. Let R be the valuation ring
+of K, and suppose that there is a smooth model XR for X such that the specializations of the
+branch points do not collide on the special fiber. If f has bad reduction, then the stable model
+of f does not have multiplicative reduction over the original component.
+Proof. Suppose f has bad reduction. Let fR : YR → XR be the normalization of XR in K(Y ),
+and let f : Y → X be the special fiber of fR . Pick an irreducible component V of Y , and let
+ηV and ηX be the respective generic points (note that V → X is automatically finite). Then
+ÔYR ,ηV /ÔXR ,ηX is a Galois extension of mixed characteristic (0, p) complete DVRs containing
+R. Let ∆ be the Galois group of this extension, and I the inertia group. Then I is normal in ∆,
+and the p-Sylow subgroup of I (which is nontrivial by Lemma 3.2) is characteristic in I, so it is
+normal in ∆. By [Obu12b, Corollary 2.4], there is a prime-to-p normal subgroup N of ∆ such
+that ∆/N ∼  = P ⋊ Z/m∆ , where P is a p-group and Z/m∆ acts faithfully on P .
+
+
+                                                       11
+                                              Andrew Obus
+
+   Let P ′ ⩽ P be the (nontrivial) p-Sylow subgroup of I/N , and let P ′′ < P ′ be the unique
+subgroup of index p. Write
+                                         E ⊇ D ⊇ C ⊇ B ⊇ A,
+where
+                                         ′′           ′
+           E := (ÔYR ,ηV )N , D := E P , C := E P , B := E I/N , A := E ∆/N = ÔXR ,ηX .
+Since m∆ |mG and e(B) = e(A) = e(K), we have
+                                 e(C) ⩽ e(B)m∆ ⩽ e(K)mG < p − 1.
+   Furthermore, let R′ /R be a finite extension containing ζp over which f attains a stable model.
+Let E ′ (resp. D ′ , C ′ , B ′ , A′ ) be the normalization of the compositum of E (resp. D, C, B, A)
+and R′ viewed as lying in some fixed algebraic closure of A. Then
+                                        E ′ ⊇ D ′ ⊇ C ′ ⊇ B ′ ⊇ A′
+are mixed characteristic complete DVR’s, and Gal(E ′ /A′ ) is a quotient of the decomposition
+group of an irreducible component of the stable reduction of f over the original component. If f
+has multiplicative reduction over the original component, then E ′ /C ′ is potentially of µ[E ′ :C ′ ] -type
+with respect to Frac(R′ ). To obtain a contradiction, we will show that D ′ /C ′ is a Z/p-extension
+that is not potentially of µp -type with respect to Frac(R′ ) (Lemma 2.2 gives the contradiction).
+To do this, it suffices to show that D/C is not potentially of µp -type with respect to Frac(R),
+and that D 6⊆ C ′ .
+    Now, Lemma 4.6 shows that mGal(E ′ /A′ ) > 1, so Gal(C ′ /A′ ) has an element g with prime-to-p
+order m > 1. Then g acts nontrivially on C, so D/C hgi is a Z/p ⋊ Z/m-extension, with faithful
+action of Z/m on Z/p. Furthermore, C hgi (ζp ) 6⊇ C, as g fixes ζp but acts nontrivially on C. Since
+e(C) < p − 1, Corollary 2.6 and Remark 2.7 applied to D/C hgi show that D/C is not potentially
+of µp -type with respect to Frac(R). Furthermore, C ′ /C hgi is abelian, whereas D/C hgi is not, thus
+D 6⊆ C ′ . We are done.
+Theorem 5.2. Let G be a finite group with cyclic p-Sylow subgroup. Let K/K0 be a finite
+extension such that e(K) < (p − 1)/mG , and let f : Y → X = P1 be a three-point G-cover
+defined (as a G-cover) over K. Then f has potentially good reduction, realized over a tame
+extension L/K of degree dividing the exponent of the center Z(G) of G. In particular, if Z(G)
+is trivial, then f has good reduction.
+Proof. Since e(K) < (p − 1)/mG , [Ray99, Lemme 4.2.13] shows that the branching indices of f
+are all prime-to-p. If f has bad reduction, then Corollary 4.4 shows that the stable model of f
+has multiplicative reduction over the original component. However, by Proposition 5.1, this is
+impossible. Thus f must have potentially good reduction.
+    By [Ray99, Proposition 4.1.2], if L/K is the minimal extension such that f ×K L has good
+reduction, then Gal(L/K) is a subgroup of Z(G). If p divides |Z(G)|, then [Obu12b, Corollary
+2.4] shows that G has a quotient that is a nontrivial p-group. Thus f must be branched with
+ramification indices divisible by p, which we have already seen is impossible. So p ∤ Gal(L/K).
+This means that Gal(L/K) is cyclic, so its degree divides the exponent of Z(G).
+Remark 5.3. Since all p-Sylow subgroups of G are conjugate to each other, so are all subgroups
+of order p. If Q is such a subgroup, then the G-conjugacy class of a nontrivial element q ∈ Q
+contains mG elements of Q. Thus there are (p − 1)/mG different conjugacy classes of elements of
+order p in G, and the form of Theorem 5.2 stated above is equivalent to that in the introduction.
+
+
+                                                    12
+                         Good reduction of three-point covers
+
+Remark 5.4. Raynaud asked ([Ray99, Question 6.2.2]) if Theorem 5.2 might hold when G has
+a p-Sylow group of order p and r − 2 < p/mG , where r is the number of branch points and all
+branch points are equidistant. For instance, should Theorem 5.2 hold for four-point covers with
+equidistant branch locus when mG 6= p − 1? Unfortunately, Corollary 4.4 need not hold for covers
+with more than three branch points, so it looks as though other techniques must be used for such
+covers.
+
+Remark 5.5. It is not hard to show (with essentially the same proof) that if X is any smooth
+curve over K of genus gX with good reduction, if f : Y → X is branched at r K-points specializing
+to distinct points on a smooth model of X, and if 2gX − 2 + r > 0, then the analog of Proposition
+5.1 holds as long as the analog of Lemma 4.6 holds. Thus, if f : Y → X is as in Theorem 5.2,
+then f will have good reduction if one can show that f having bad reduction would imply the
+analogs of Corollary 4.4 and Lemma 4.6. It would be interesting to see if this is the case when
+gX = 1 and r = 1, which in many ways is analogous to the case gX = 0 and r = 3 (for instance,
+the fundamental groups of X ×K K are the same in both cases, and by [Ray99, Théorème 5.1.5],
+Theorem 5.2 is true in both cases when vp (|G|) = 1 and G has trivial center).
+
+Remark 5.6. In the vein of Remark 5.5, one method of attacking Ihara’s question from the
+introduction would be to define a notion of multiplicative reduction for G-covers (G arbitrary),
+and show that all three-point covers with bad reduction have this type of reduction. One might
+then be able to show that if the cover is defined over a small field and has a split point, then
+it cannot have this type of reduction. This notion of multiplicative reduction should somehow
+reflect the fact the three-point covers are rigid (cf. [Wew05, Introduction]).
+
+
+                                         6. Examples
+
+Let k be an algebraically closed field of characteristic p, and let K0 = Frac(W (k)). We exhibit
+a family of three-point covers defined over K0 that have good reduction, generalizing [Obu12b,
+Example 5.12]. In particular, fix integers n ⩾ 1 and m ⩾ 2, and let p ≡ 1 (mod m) be a
+prime not equal to m + 1. For any m, n, and p as above, we construct (for infinitely many q)
+a G := P GLm (q)-cover over K0 with good reduction, where G has p-Sylow subgroup of size at
+least pn . Note that G has trivial center.
+    Let q be a prime power such that
+                   q m ≡ 1 (mod pn ), but q j 6≡ 1   (mod pn ) for 1 ⩽ j < m.                (6.1)
+Since p ≡ 1 (mod m), the group (Z/pn )× has elements of exact order m, and (6.1) has integer
+solutions q. Then Dirichlet’s theorem shows that there are infinitely many prime power solutions
+q (in fact, infinitely many prime solutions).
+     Assume q = ℓd is a prime power satisfying (6.1). We know by [Hup67, II, Satz 7.3], along with
+an examination of the order of G, that G = P GLm (q) has a cyclic p-Sylow subgroup of order
+      m
+pvp (q −1) ⩾ pn . The same construction as in [Obu12b, Example 5.12] now works to construct a
+three-point G-cover defined over K0 with potentially good reduction to characteristic p. Since it
+is brief, we include it here.
+     Consider H := GLm (q) ⋊ Z/2, where the Z/2-action is inverse-transpose. In [MM99, II,
+Proposition 6.4 and Theorem 6.5], a rigid class vector (C̃0 , C̃1 , C̃∞ ) is exhibited for H/{±1},
+where C̃0 has order 2, C̃1 has order 4, and C̃∞ has order (q − 1)ℓa for some a (this is because
+the characteristic polynomial for the elements of C̃∞ has eigenvalues of order q − 1). Since p
+
+
+                                               13
+                                           Andrew Obus
+
+does not divide the order of any of the ramification indices, this triple is rational over K0 , so
+the corresponding H/{±1}-cover is defined over K0 . Thus there is a quotient G ⋊ Z/2-cover
+h : Y → P1 defined over K0 .
+    Let X → P1 be the quotient cover of h : Y → P1 corresponding to the group G. Then
+X → P1 is a cyclic cover of degree 2, branched at 0 and 1. This means that X ∼= P1 , and Y → X
+is branched at three points (the two points above ∞, and the unique point above 1). So we have
+constructed a three-point G-cover f : Y → X ∼ = P1 defined over K0 , such that all branch points
+have prime-to-p branching index. Since the e(K0 ) is 1, and since m = mG < p − 1, we have
+e < (p − 1)/mG . We conclude that f has good reduction using Theorem 5.2.
+
+
+                Appendix A. Group-theoretic translation of Theorem 5.2
+
+Let k be an algebraically closed field of characteristic p, let K0 = Frac(W (k)), and let K be an
+algebraic closure of K0 . For any field L, write UL = P1 \{0, 1, ∞}. We then have the fundamental
+exact sequence
+                      1 → π1 (UK )p-tame → π1 (UK0 )p-tame → Gal(K/K0 ) → 1,                      (A.1)
+where “p-tame” has the meaning from the introduction. A finite three-point G-cover f of P1
+defined over K with prime-to-p branching indices (which we will call a p-tame cover ) corresponds
+to the open normal subgroup Nf of π1 (UK )p-tame . One knows that π1 (UK )p-tame /Nf ∼  = G. The
+field of moduli of a G-cover f is the minimal extension Mf /K0 contained in K such that the
+action of Gal(K/Mf ) on π1 (UK )p-tame by conjugation preserves Nf and descends to an inner
+automorphism on π1 (UK )p-tame /Nf (this means that Gal(K/Mf ) preserves the isomorphism class
+of f when acting on the coefficients of the equations for f ). We note that the conjugation
+action is a priori only an outer action, but that the field of moduli does not depend on which
+representative action is taken. Since K0 and all finite extensions have cohomological dimension
+1, [CH85, Proposition 2.5] shows that f can be defined over a given finite extension L/K0 exactly
+when L ⊇ Mf .
+   Also, from the introduction, we have a surjection
+                                  pr : π1 (UK )p-tame → π1 (Uk )tame .
+An element σ ∈ π1 (UK )p-tame is determined (up to conjugation) by its action on the system of p-
+tame three-point covers of P1K , and it is in the kernel of pr precisely when it acts trivially on every
+such cover that has good reduction. In other words, it must be contained in the corresponding
+normal subgroup for each such cover. As a consequence of Theorem 5.2 and the discussion above,
+we obtain the following group-theoretic restatement of the main theorem.
+
+Corollary A.1. Let σ ∈ π1 (UK )p-tame . If σ ∈ ker(pr), then σ is contained in every finite index
+normal subgroup N of π1 (UK )p-tame such that both
+
+ (i) π1 (UK )p-tame /N ∼
+                       = G has a cyclic (possibly trivial) p-Sylow subgroup.
+ (ii) There exists a subgroup Γ ⩽ Gal(K/K0 ) of index less than (p − 1)/mG such that the
+      conjugation action of Γ on π1 (UK )p-tame from (A.1) fixes N and descends to an inner
+      automorphism of π1 (UK )p-tame /N (Note: this is automatic if π1 (UK )p-tame /N is prime to p,
+      as all such covers can be defined over K0 ).
+
+
+
+
+                                                  14
+                           Good reduction of three-point covers
+
+References
+CH85     Kevin Coombes and David Harbater, Hurwitz families and arithmetic Galois groups, Duke Math.
+         J. 52 (1985), no. 4, 821–839. MR 816387 (87g:14012)
+DM69     Pierre Deligne and David Mumford, The irreducibility of the space of curves of given genus, Inst.
+         Hautes Études Sci. Publ. Math. (1969), no. 36, 75–109. MR 0262240 (41 #6850)
+GR03   Alexander Grothdendieck and Michèle Raynaud, Revêtements étales et groupe fondamental
+       (SGA 1), Documents Mathématiques (Paris), 3, Société Mathématique de France, Paris, 2003,
+       Séminaire de géométrie algébrique du Bois Marie 1960–61. Updated and annotated reprint of
+       the 1971 original [Lecture Notes in Math., 224, Springer, Berlin; MR0354651 (50 #7129)]. MR
+       2017446 (2004g:14017)
+Hen00 Yannick Henrio, Arbres de hurwitz et automorphismes d’ordre p des disques et des couronnes
+       p-adiques formels.
+Hup67 B. Huppert, Endliche Gruppen. I, Die Grundlehren der Mathematischen Wissenschaften, Band
+       134, Springer-Verlag, Berlin, 1967. MR 0224703 (37 #302)
+Iha12  Yasutaka Ihara, Comparison of some quotients of fundamental groups of algebraic curves over
+       p-adic fields, Galois-Teichmüller Theory and Arithmetic Geometry, Adv. Stud. Pure Math.,
+       vol. 63, Mathematical Society of Japan, Tokyo, 2012, pp. 221–249.
+Liu06  Qing Liu, Stable reduction of finite covers of curves, Compos. Math. 142 (2006), no. 1, 101–118.
+       MR 2196764 (2007k:14057)
+MM99 Gunter Malle and B. Heinrich Matzat, Inverse Galois theory, Springer Monographs in Mathe-
+       matics, Springer-Verlag, Berlin, 1999. MR 1711577 (2000k:12004)
+Obu12a Andrew Obus, Fields of moduli of three-point G-covers with cyclic p-Sylow, I, Algebra Number
+       Theory 6 (2012), no. 5, 833–883. MR 2968628
+Obu12b         , Vanishing cycles and wild monodromy, Int. Math. Res. Not. IMRN (2012), no. 2, 299–
+         338. MR 2876384
+Obu13          , Fields of moduli of three-point G-covers with cyclic p-Sylow, II, J. Théor. Nombres
+         Bordeaux 25 (2013), no. 3, 579–633.
+OP10     Andrew Obus and Rachel Pries, Wild tame-by-cyclic extensions, J. Pure Appl. Algebra 214
+         (2010), no. 5, 565–573. MR 2577662 (2011h:12011)
+Ray74    Michel Raynaud, Schémas en groupes de type (p, . . . , p), Bull. Soc. Math. France 102 (1974),
+         241–280. MR 0419467 (54 #7488)
+Ray90           , p-groupes et réduction semi-stable des courbes, The Grothendieck Festschrift, Vol.
+         III, Progr. Math., vol. 88, Birkhäuser Boston, Boston, MA, 1990, pp. 179–197. MR 1106915
+         (92m:14025)
+Ray94           , Revêtements de la droite affine en caractéristique p > 0 et conjecture d’Abhyankar,
+         Invent. Math. 116 (1994), no. 1-3, 425–462. MR 1253200 (94m:14034)
+Ray99           , Spécialisation des revêtements en caractéristique p > 0, Ann. Sci. École Norm. Sup. (4)
+         32 (1999), no. 1, 87–126. MR 1670532 (2000e:14016)
+Ser79    Jean-Pierre Serre, Local fields, Graduate Texts in Mathematics, vol. 67, Springer-Verlag, New
+         York, 1979. MR 554237 (82e: 12016)
+Tos10    Dajano Tossici, Models of µp2 ,K over a discrete valuation ring, J. Algebra 323 (2010), no. 7,
+         1908–1957, With an appendix by Xavier Caruso. MR 2594655 (2011c:14127)
+Wew03    Stefan Wewers, Reduction and lifting of special metacyclic covers, Ann. Sci. École Norm. Sup.
+         (4) 36 (2003), no. 1, 113–138. MR 1987978 (2004i:14029)
+Wew05           , Formal deformation of curves with group scheme action, Ann. Inst. Fourier (Grenoble)
+         55 (2005), no. 4, 1105–1165. MR 2157165 (2006f:14003)
+
+
+
+
+                                                    15
+                                       Andrew Obus
+
+Andrew Obus andrewobus@gmail.com
+University of Virginia, 141 Cabell Drive, Charlottesville, VA 22904
+
+
+
+
+                                              16
+

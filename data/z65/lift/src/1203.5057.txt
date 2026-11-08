@@ -1,0 +1,2565 @@
+                                             Cyclic extensions and the local lifting problem
+arXiv:1203.5057v2 [math.AG] 9 May 2012
+
+
+
+
+                                                              Andrew Obus and Stefan Wewers
+
+                                                                          October 29, 2018
+
+                                                                                Abstract
+                                                    The local Oort conjecture states that, if G is cyclic and k is an al-
+                                               gebraically closed field of characteristic p, then all G-extensions of k[[t]]
+                                               should lift to characteristic zero. We prove a critical case of this con-
+                                               jecture. In particular, we show that the conjecture is always true when
+                                               vp (|G|) ≤ 3, and is true for arbitrarily highly p-divisible cyclic groups G
+                                               when a certain condition on the higher ramification filtration is satisfied.
+
+
+                                         1    Introduction
+                                         1.1 The local lifting problem Let Ȳ be a smooth, projective, connected
+                                         curve over an algebraically closed field k of characteristic p > 0. Results in
+                                         deformation theory going back to Grothendieck show that Ȳ can always be lifted
+                                         to characteristic zero. Specifically, one can always find a discrete valuation ring
+                                         (DVR) R in characteristic zero, with residue field k, such that there exists a
+                                         smooth relative R-curve Y with Y ×R k ∼     = Ȳ .
+                                              In [25], Oort asked the natural question: can one lift a Galois cover of curves
+                                         to characteristic zero? That is, if G is a finite group, and f¯ : Ȳ → X̄ is a G-
+                                         Galois cover of smooth, projective, connected curves, is there a G-Galois cover
+                                         f : Y → X of smooth relative curves over a DVR R in characteristic zero
+                                         whose special fiber is f¯ : Ȳ → X̄? Clearly, the answer is not always “yes.” For
+                                         instance, the group G = Z/p × Z/p acts faithfully on Ȳ = P1k via an embedding
+                                         into Ga (k). If X̄ = Ȳ /G, then the generic fiber of any lift f : Y → X of
+                                         f¯ : Ȳ → X̄ must be a G-Galois cover P1K → P1K , where K = Frac(R). But if
+                                         p ≥ 3, then G cannot act faithfully on P1 in characteristic zero, so such a lift
+                                         does not exist. However, Oort conjectured ([24]) that G-covers should always
+                                         lift when G is cyclic. Our main result (Theorem 1.4) proves the Oort conjecture
+                                         whenever vp (|G|) ≤ 3, and in many cases for arbitrarily large cyclic groups G.
+                                         Specific statements are in §1.3. The case we prove is critical, as Pop ([27]) is
+                                         able to reduce the conjecture to the case we have proven, thus proving the entire
+                                         conjecture. See Remark 1.5.
+                                            2010 Mathematics subject classification. Primary 14H37, 12F10; Secondary 11G20,
+                                         12F15, 13B05, 13F35, 14G22, 14H30
+                                            Key words and phrases. branched cover, lifting, Galois group, Oort conjecture.
+
+
+                                                                                    1
+    Although this was not yet known at the time of [25], it turns out that the
+nature of lifting Galois covers of curves is completely local. Let B be the branch
+locus of the G-Galois cover f¯ : Ȳ → X̄. If, for each x ∈ B, one can lift the cover
+f¯ when restricted to a formal neighborhood x̂ of x, then one can lift f as well.
+This is known as the local-global principle. Proofs have been given by Bertin
+and Mézard ([3]), Green and Matignon ([15]), and Garuti ([12]).
+    The restriction f¯|x̂ is a disjoint union of covers of the form Spec k[[z]] →
+Spec k[[t]]. Thus, the study of lifting Galois covers can be reduced to the fol-
+lowing local lifting problem:
+
+Problem 1.1 (The local lifting problem) Let k be an algebraically closed
+field of characteristic p and G a finite group. Let k[[z]]/k[[t]] be a G-Galois
+extension (i.e., an integral extension of integrally closed domains that is G-
+Galois on the level of fraction fields). Does there exist a DVR R of characteristic
+zero with residue field k and a G-Galois extension R[[Z]]/R[[T ]] that reduces to
+k[[z]]/k[[t]]? That is, does the G-action on R[[Z]] reduce to that on k[[z]], if we
+assume that Z (resp. T ) reduces to z (resp. t)?
+
+Remark 1.2 If L/k[[t]] is any G-Galois extension, then the structure theorem
+for complete DVRs shows that L is always abstractly isomorphic to k[[z]]. So in
+the local lifting problem, we may as well talk about general G-Galois extensions
+of k[[t]].
+   In light of the local-global principle, one translates the conjecture of Oort
+above into the local context.
+
+Conjecture 1.3 (Local Oort conjecture) The local lifting problem can al-
+ways be solved when G is cyclic.
+   Note that a consequence of the local Oort conjecture and the local-global
+principle is that any Galois cover of k-curves with cyclic inertia groups (not just
+cyclic Galois group) lifts to characteristic zero.
+   The first author’s paper [23] is a detailed exposition of many aspects of the
+local lifting problem.
+
+1.2 Previously known results It is easy to prove that if Conjecture 1.3
+is true for a given Z/pn -extension Ln /k[[t]], then it is also true for any Z/rpn -
+extension (p ∤ r) whose unique Z/pn -subextension is Ln /k[[t]] (see, e.g., the proof
+of [23], Proposition 6.3). Thus, we may reduce to the case where G ∼     = Z/pn .
+    If G ∼               2
+          = Z/p or Z/p , then Conjecture 1.3 has already been shown to be
+true. The original proof of the case G ∼= Z/p was given by Oort, Sekiguchi, and
+Suwa in [26]. Their proof was given in the global context, for any Z/p-cover of
+smooth, projective curves. The proof used essentially global techniques, such as
+generalized Jacobians and abelian schemes.
+    Later, Green and Matignon reproved Conjecture 1.3 for G = Z/p, and also
+proved it for G = Z/p2 ([15], II, Theorems 4.1 and 5.5). Their lifts were given
+
+
+                                         2
+by explicit Kummer extensions. The form of these extensions was inspired
+by Sekiguchi-Suwa Theory (or Kummer-Artin-Schreier-Witt Theory), although
+Green and Matignon developed their proofs independently. This theory gives
+(in principle) explicit equations for group schemes classifying unramified Z/pn -
+extensions of flat local R-algebras, where R is a complete discrete valuation
+ring in mixed characteristic (0, p). When n ≤ 2, it is manageable to write down
+these equations explicitly, and Green and Matignon were able to exploit this to
+write down their lifts. See [28] for an overview of the general theory, [29] for an
+expanded version with proofs included, [30] for a detailed account of the case
+n ≤ 2, or [32] for a briefer overview of this case.
+    Unfortunately, when n ≥ 3, the equations involved in Sekiguchi-Suwa theory
+become extremely complicated, and extraordinarily difficult to work with. No
+one has been able to use the method of [15] to prove Conjecture 1.3 for any
+Z/pn -extension with n ≥ 3. Indeed, prior to this paper, Conjecture 1.3 for
+such extensions was only known to be true for sporadic examples arising from
+Lubin-Tate formal group laws ([16], [14]).
+    However, there has long been evidence for the truth of Conjecture 1.3, in the
+sense that all of the main known obstructions to lifting (such as the Bertin/Katz-
+Gabber-Bertin obstructions of [2], [10], and the Hurwitz tree obstruction of [9],
+[8]) vanish for cyclic extensions.
+
+1.3 Main result To state our main result, Theorem 1.4, we recall that a
+Z/pn -extension Ln /k[[t]] gives rise to a higher ramification filtration Gss≥0 on the
+group G for the upper numbering ([31], IV). The breaks in this filtration (i.e.,
+the values i for which Gi ) Gj for all j > i) will be denoted by (m1 , m2 , . . . , mn ).
+One knows that mi ∈ N and
+                                    mi ≥ p mi−1 ,                                    (1)
+for i = 2, . . . , n (see, e.g., [13]).
+
+Theorem 1.4 Let Ln /k[[t]] be a Z/pn -extension with upper ramification breaks
+(m1 , m2 , . . . , mn ). Suppose, for3 ≤ i ≤ n−
+                                                 1, that there
+                                                              is never an integer ai
+such that mpi − mi−1 < ai ≤ mi −m        mi
+                                            i−1
+                                                  mi
+                                                  p  − m i−1 . Then Conjecture 1.3
+holds for Ln /k[[t]].
+
+Remark 1.5 (i) It is not hard to see that the condition in Theorem 1.4
+   is satisfied whenever Ln /k[[t]] has no “essential ramification,” i.e., that
+   mi < pmi−1 + p for 2 ≤ i ≤ n. Pop’s proof of the Oort conjecture in
+   in [27] reduces the (local) Oort conjecture to the case where there is no
+   essential ramification.
+ (ii) The condition in Theorem 1.4 is vacuous for n = 3, so Conjecture 1.3 for
+      G∼= Z/p3 is an immediate consequence.
+ (iii) The condition that there is no integer ai such that mpi − mi−1 < ai ≤
+                           
+            mi       mi
+         mi −mi−1    p − mi−1   is equivalent to saying that, if mi = pmi−1 +
+
+
+                                           3
+      pri − ηi , with ri and ηi integers such that 0 ≤ ηi < p, then 0 ≤ ri ≤ ηi .
+      See [27].
+ (iv) One can conjecture further that, if G ∼
+                                            = Z/pn , one should be able to take
+      R = W (k)[ζpn ] in Conjecture 1.3, where ζpn is a pn th root of unity. This
+      is known when n ≤ 2. Unfortunately, our proof gives no effective bounds
+      on R. The proof of [27] gives, in theory, some effective bounds on R, but
+      they are much weaker than what is expected.
+
+Remark 1.6 It would be interesting to investigate the local lifting problem
+when G ∼  = Z/pn ⋊ Z/m, with p ∤ m. One can show that a necessary condition
+to lift a G-extension L/k[[t]] to characteristic zero is that the action of Z/m
+on Z/pn is either faithful or trivial, and that, if it is faithful, then the upper
+ramification breaks (m1 , . . . , mn ) of the Z/pn -subextension are all congruent to
+−1 (mod m). In light of [27], one can ask if this is the only restriction. For
+instance, should all Dpn -extensions lift for odd p?
+
+1.4 Outline of the paper We start with a short section (§2) overviewing
+the basics of the Artin-Schreier-Witt theory, giving an explicit characterization
+of the Z/pn -extensions of k[[t]]. In §3, we set up our induction on n, and show
+how it proves Theorem 1.4. We prove the base cases n = 1 and n = 2 in §4. The
+paper begins in earnest with §5. In §5.1 and §5.2 we introduce the language of
+characters, which will often be more convenient than the language of extensions
+for expressing our results. In §5.3, we introduce Kato’s Swan conductor in the
+situation relevant to us. The Swan conductor serves several purposes in this
+paper, most notably giving us a way to measure how bad the reduction of a
+cover is. In §5.4 and §5.5, we examine the particular case of Z/p-extensions in
+great detail. This is important, as Z/p-extensions are the building blocks of our
+inductive process.
+    In §6, we give the main proofs. Unlike in [15], we do not try to write
+down a lift of a given Z/pn -extension explicitly. In particular, we do not use
+the Sekiguchi-Suwa theory at all, except in the relatively trivial case of Z/p-
+extensions (i.e., Kummer-Artin-Schreier theory). Instead, we write down what
+the form of the equations should be, in order that we might lift some Z/pn -
+extension. Then, we show that if equations in this form do not reduce to a
+Galois extension, then they can be deformed to yield something that comes
+closer to reducing to a Galois extension, and this deformation process eventually
+terminates. This proves Conjecture 1.3 for some Z/pn -extension. We then show
+that, given a solution for some particular extension, we can find solutions to
+many more. A more detailed outline of §6 is given in §6.1.
+    The proofs of several key technical results are postponed to §7. This is
+partially because proving these results would disrupt the continuity of §6, and
+partially because the proofs share much notation, and thus are more easily read
+together.
+
+
+
+
+                                         4
+1.5 Conventions The letter K will always be a field of characteristic zero
+that is complete with respect to a discrete valuation v : K × → Q. We assume
+that the residue field k of K is algebraically closed of characteristic p. We
+also assume that the valuation v is normalized such that v(p) = 1. The ring
+of integers of K will be denoted R. We fix an algebraic closure K̄ of K, and
+whenever necessary, we will replace K by a suitable finite extension within K̄,
+without changing the above notation. The maximal ideal of R will be denoted
+m. Furthermore, for each r ∈ N, we fix once and for all a compatible system of
+rth roots p1/r in K̄ such that if ab = r, then (p1/r )a = p1/b . Thus pq ∈ K̄ is
+well defined for any q ∈ Q. The greatest integer function of x is written [x].
+
+
+Acknowledgements
+The authors would like the thank Irene Bouw, Louis Brewis, David Harbater,
+and Martin Rubey for useful conversations. In particular, Louis Brewis showed
+us that the Hurwitz tree obstruction to the local Oort conjecture vanishes,
+which helped us come up with the idea of where to place our branch points.
+Irene Bouw showed us how to vastly simplify our proof of Theorem 7.7. We
+also thank Michel Matignon and Florian Pop for helpful comments on earlier
+versions of this article.
+    The first author was partially supported by an NSF Mathematical Sciences
+Postdoctoral Research Fellowship. This work was completed during a visit by
+the first author to the Max-Planck-Institut für Mathematik, and he thanks the
+Institute for its support and pleasant atmosphere.
+
+
+2    Artin-Schreier-Witt theory
+If Ln /k[[t]] is a Z/pn -extension, then so is the extension Mn /k((t)), where Mn =
+Frac(Ln ). The classical Artin-Schreier-Witt theory states that Mn /k((t)) is
+given by an Artin-Schreier-Witt equation
+                           ℘(x1 , . . . , xn ) = (f1 , . . . , fn ),
+where (f1 , . . . , fn ) lies in the ring Wn (k((t))) of truncated Witt vectors, F is
+the Frobenius morphism on Wn (k((t))), and ℘(x) := F (x) − x is the Artin-
+Schreier-Witt isogeny. Adding a truncated Witt vector of the form ℘(y) to
+(f1 , . . . , fn ) does not change the extension, and we obtain a group isomorphism
+H 1 (k((t)), Z/pn ) ∼    = Wn (k((t)))/℘(Wn (k((t)))). Since we can add ℘(y) to a
+Witt vector without changing the extension, we may assume that the fi are
+polynomials in t−1 , all of whose terms have prime-to-p degree. In this case, if
+                   mi := max{ pi−j degt−1 (fj ) | j = 1, . . . , i },            (2)
+then the mi are exactly the breaks in the higher ramification filtration of
+Mn /k((t)) ([13], Theorem 1.1). From this, one easily sees that p ∤ m1 , that
+mi ≥ pmi−1 for 2 ≤ i ≤ n, and that if p|mi , then mi = pmi−1 .
+   For more details, see [35] or the exercises on page 330 of [20].
+
+                                              5
+3      The induction process
+Let Ln /k[[t]] be a Z/pn -extension. A theorem of Harbater-Katz-Gabber ([17],
+[19]) shows that (after possibly changing the uniformizer t of k[[t]]) there exists
+a unique cover Ȳn → X̄ := P1k that is étale outside t = 0, totally ramified above
+t = 0, and such that the formal completion of Ȳn → X̄ at t = 0 yields the
+extension Ln /k[[t]]. The local-global principle thus shows that solvability of the
+local lifting problem from Ln /k[[t]] is equivalent to the following claim, which
+will be more convenient to work with:
+
+Claim 3.1 Given a G-Galois extension Ln /k[[t]], with G ∼      = Z/pn , then after
+possibly changing the uniformizer t of k[[t]], there exists a G-Galois cover Yn →
+X := P1K (where K is the fraction field of some DVR R as above) with the
+following properties:
+    (i) The cover Yn → X has good reduction with respect to the standard model
+        P1R of X and reduces to a G-Galois cover Ȳn → X̄ = P1k which is totally
+        ramified above the point t = 0 and étale everywhere else.
+ (ii) The completion of Ȳn → X̄ at t = 0 yields Ln /k[[t]].
+
+Remark 3.2 Let T be a coordinate of P1R reducing to t. Then Condition (i)
+and (ii) in Claim 3.1 can be reformulated as follows:
+    (i) The cover Yn → X is étale outside the open disk
+
+                                  D := { T | |T | < 1 }.
+
+ (ii) The inverse image of D in Yn is an open disk.
+(iii) If A = R[[T ]]{T −1} is the ring
+                                                            
+                      X                                     
+                            aj T j | aj ∈ R, aj → 0 as j → −∞ ,
+                                                            
+                        j∈Z
+
+
+       then the cover Yn → X is unramified when base changed to Spec A
+       (which corresponds to the “boundary” of the disk D). The extension
+       of residue fields is isomorphic to the extension of fraction fields coming
+       from Ln /k[[t0 ]].
+    If R is a characteristic zero DVR with residue field k and fraction field K,
+set D(r) = {T ∈ K̄ | |T | < |p|r }, using the non-archimedean absolute value on
+K induced from the valuation.
+    We prove Theorem 1.4 (in the context of Claim 3.1) by induction using the
+following base case (Lemma 3.3) and induction step (Theorem 3.4).
+
+
+
+
+                                         6
+Lemma 3.3 If n = 1 (resp. n = 2), let Ln /k[[t]] be a Z/pn -extension with
+upper ramification break m1 (resp. breaks (m1 , m2 )). Then there exists a Z/pn -
+cover Yn → X satisfying Claim 3.1 for Ln /k[[t]], which is étale outside the open
+                            1
+disk D(rn ), where rn = mn (p−1) .
+
+Theorem 3.4 (i) Suppose n > 1, and let Ln /k[[t]] be a Z/pn -extension
+    with upper ramification breaks (m1 , . . . , mn ) and Z/pn−1 -subextension
+    Ln−1 /k[[t]]. Suppose there exists a Z/pn−1 -cover Yn−1 → X satisfying
+    Claim 3.1 for Ln−1 /k[[t]], which is furthermore étale outside the open disk
+    D(rn−1 ), where rn−1 = mn−11(p−1) . Then there is a Z/pn -cover Yn → X
+    satisfying Claim 3.1 for Ln /k[[t]].
+ (ii) If Ln /k[[t]] is as in part (i) and there is no integer a satisfying
+                                                                     
+                   mn                         mn           mn
+                        − mn−1 < a ≤                           − mn−1 ,
+                    p                     mn − mn−1         p
+
+      then the Z/pn -cover Yn → X in part (i) can be chosen to be étale outside
+                             1
+      D(rn ), where rn = mn (p−1) .
+
+    Theorem 1.4 now follows easily.
+
+    Proof: (of Theorem 1.4) Let Ln /k[[t]] be in the form of Theorem 1.4. We
+                                              ′
+note that, for any n′ ≤ n, the unique Z/pn -subextension Ln′ /k[[t]] of Ln /k[[t]]
+has upper ramification breaks (m1 , . . . , mn′ ) ([31], IV, Proposition 14). Using
+Lemma 3.3, Theorem 3.4, and induction, it follows that there is a Z/pn−1 -cover
+Yn−1 → X satisfying Claim 3.1 for Ln−1 /k[[t]], that is étale outside D(rn−1 ).
+Then Theorem 3.4 (ii) shows that Claim 3.1, thus Conjecture 1.3, holds for
+Ln /k[[t]].                                                                      ✷
+
+
+4     The base case
+The proof of Lemma 3.3 is straightforward, using the explicit equations given
+in [15].
+    Proof of Lemma 3.3 for Z/p-extensions: By Artin-Schreier theory, any
+Z/p-extension of k((t)) is given by an equation y p − y = f1 , where f1 ∈ k((t)) is
+unique up to addingPelements     of the form ap − a, with a ∈ k((t)). Thus, we may
+                      m1
+assume that f1 = i=1 ai t ∈ k[t−1 ] is a polynomial in t−1 such that ai = 0
+                              −i
+
+for i ≡ 0 (mod p). Thenp the break in the ramification filtration is m1 , which
+is prime to p. Since m1 1/f1 is a uniformizer of k((t)), we may make a change
+of variables and assume f1 = t−m1 . So we assume our equation is given by
+y p − y = t−m1 . In [15], II, Theorem 4.1, a Z/p-cover Y → P1 satisfying Claim
+3.1 is given by the Kummer extension
+
+                           y p = G1 (T ) = 1 + λp T −m1 ,                      (3)
+
+
+
+                                         7
+where T reduces to t and λ = ζp − 1 for ζp a primitive pth root of unity. The
+                                    p          1
+zeroes of G1 all have valuation m1 (p−1) > m1 (p−1) =: r1 , and the unique pole is
+at T = 0. Since the branch points all have valuation greater than r1 , the lemma
+is proved.                                                                     ✷
+   Proof of Lemma 3.3 for Z/p2 -extensions: Let L2 /k((t)) be a Z/p2 -
+                                                                       1
+extension with upper ramification breaks (m1 , m2 ), and let ri = mi (p−1)  for
+i ∈ {1, 2}. After a possible change of variables, [15], II, Theorem 5.5 gives a
+Z/p2 -cover Y → P1 satisfying Claim 3.1, in the form of a Kummer extension
+                                  2
+                                z p = G1 (T )G2 (T )p .
+
+Here G1 is as in (3) and G2 is a polynomial in T −1 , which is called
+                                                  m1 (p−1)
+                                                    X
+                                −1            p
+                          G(T        ) + pµ                  As T −s            (4)
+                                                    s=1
+
+                                          1
+in [15], II, Theorem 5.5. Also, v(µ) = p(p−1)  and v(As ) ≥ 0 for all s. It is clear
+                              −1
+from the expression for G(T ) given in loc.cit. that the coefficient of each
+                                                         1
+non-constant term of G(T −1 ) has valuation at least p−1    . The same holds for
+       p
+the pµ As by inspection. Furthermore, the proof of [15], II, Theorem 5.5 shows
+that each term in (4) has degree less than m2 in T −1 (m2 is called d in loc.cit.).
+    Now, we have already seen that the zeroes and poles of G1 have valuation
+greater than r1 > r2 . The only pole of G2 is at T = 0, so it suffices to show that
+the zeroes of G2 have valuation greater than r2 , or equivalently (by the theory
+of Newton polygons), that the coefficient of T −ℓ in G2 − 1 has valuation greater
+                 ℓ
+than ℓr2 = m2 (p−1) . But this is true because ℓ < m2 and the valuation is at
+        1
+least p−1 .                                                                       ✷
+
+
+5    Characters and Swan conductors
+In this section we introduce the general geometric setup (characters) and our
+most important tools (Swan conductors). As laid out in the introduction, our
+goal is to construct pn -cyclic covers Y → X = P1K of the projective line reducing
+to a given cover Ȳ → X̄ = P1k which is étale outside the origin. For technical
+reasons it is more convenient to work with the corresponding character of the
+Galois group of the function field of X.
+
+5.1 Geometric setup Let X be a smooth, projective and absolutely irre-
+ducible curve over K. We write K for the function field of X. We assume that
+X has good reduction, and fix a smooth R-model XR . We let X̄ := XR ⊗R k
+denote the special fiber of XR . We also fix a K-rational point x0 on X and
+write x̄0 ∈ X̄ for the specialization of x0 with respect to the model XR . In our
+main example, we have X = P1K , XR = P1R and x0 = 0, but we will not assume
+this in §5.
+
+                                              8
+    We let X an denote the rigid analytic space associated to X. The residue
+class of x0 with respect to the model XR ,
+
+                                D :=]x̄0 [XR ⊂ X an ,
+
+is the set of points of X an specializing to x̄0 ∈ X̄ ([5]). It is an open subspace
+of X an , isomorphic to the open unit disk. To make this isomorphism explicit
+we choose an element T ∈ OXR ,x̄0 with T (x0 ) = 0 and whose restriction to
+the special fiber generates the maximal ideal of OX̄,x̄0 (this is possible because
+X̄ is smooth). Then ÔXR ,x̄0 = R[[T ]], and T induces an isomorphism of rigid
+analytic spaces
+                          D∼ = { x ∈ (A1K )an | v(x) > 0 }
+which sends the point x0 to the origin. We call T a parameter for the open disk
+D with center x0 . The choice of T having been made, we identify D with the
+above subspace of (A1K )an .
+   For r ∈ Q≥0 we define
+
+                            D[r] := { x ∈ D | v(x) ≥ r }.
+
+We have D[0] = D. For r > 0 the subset D[r] ⊂ D is an affinoid subdomain.
+Let vr : K× → Q denote the “Gauss valuation” with respect to D[r]. This
+is a discrete valuation on K which extends the valuation v on K and has the
+property vr (T ) = r. It corresponds to the supremum norm on the open subset
+D[r] ⊂ X an .
+    Let κr denote the residue field of K with respect to the valuation vr . For
+r = 0, κ0 is the function field of X̄. We let ordx̄0 : κ×
+                                                        0 → Z denote the normalized
+valuation corresponding to the point x̄0 ∈ X̄.
+    Now suppose that r > 0. Then after replacing K by a finite extension (which
+depends on r!) we may assume that pr ∈ K. Then D[r] is isomorphic to a closed
+unit disk over K with parameter Tr := p−r T . Moreover, the residue field κr is
+the function field of the canonical reduction D̄[r] of the affinoid D[r]. In fact,
+D̄[r] is isomorphic to the affine line over k with function field κr = k(t), where
+t is the image of Tr in κr . For a closed point x̄ ∈ D̄[r], we let ordx̄ : κ×
+                                                                            r → Z
+denote the normalized discrete valuation corresponding to the specialization of
+x̄ on D̄[r]. We let ord∞ denote the unique normalized discrete valuation on κr
+corresponding to the ‘point at infinity’.
+    For F ∈ K× and r ∈ Q≥0 , we let [F ]r denote the image of p−vr (F ) F in the
+residue field κr .
+
+5.2 Characters We fix n ≥ 1 and assume that K contains a primitive pn th
+root of unity ζpn (this is true after a finite extension of K). For an arbitrary
+field L, we set
+                            Hp1n (L) := H 1 (L, Z/pn Z).
+In the case of K, we have
+                                                            n
+                    Hp1n (K) := H 1 (K, Z/pn Z) ∼
+                                                = K× /(K× )p
+
+                                         9
+(the latter isomorphism depends on the choice of ζpn ). Elements of Hp1n (K) are
+called characters on X. Given an element F ∈ K× , we let Kn (F ) ∈ Hp1n (K)
+                                                                  n
+denote the character corresponding to the class of F in K× /(K× )p .
+    For i = 1, . . . , n the homomorphism
+
+                       Z/pi Z → Z/pn Z,         a 7→ pn−i a,
+
+induces an injective homomorphism Hp1i (K) ֒→ Hp1n (K). Its image consists of
+all characters killed by pi . We consider Hp1i (K) as a subgroup of Hp1n (K) via
+this embedding.
+    A character χ ∈ Hp1n (K) gives rise to a (possibly branched) Galois cover
+Y → X. If χ = Kn (F ) for some F ∈ K× , then Y is a connected component of
+                                                                          n
+the smooth projective curve given generically by the Kummer equation y p = F .
+If χ has order pi as element of Hp1n (K), then the Galois group of Y → X is the
+unique subgroup of Z/pn Z of order pi .
+    A point x ∈ X is called a branch point for the character χ ∈ Hp1n (K) if it is
+a branch point for the cover Y → X. The branching index of x is the order of
+the inertia group for some point y ∈ Y above x. The set of all branch points is
+called the branch locus of χ and is denoted by B(χ).
+
+Definition 5.1 A character χ ∈ Hp1n (K) is called admissible if its branch locus
+B(χ) is contained in the open disk D.
+
+5.2.1   Reduction of characters
+Let χ ∈ Hp1n (K) be an admissible character of order pn , and let Y → X be
+the corresponding cyclic Galois cover. Let G ∼  = Z/pn Z denote the Galois group
+of Y → X. Let YR be the normalization of XR in Y . Then YR is a normal
+R-model of Y and we have XR = YR /G.
+    After enlarging our ground field K, we may assume that the character χ is
+weakly unramified with respect to the valuation v0 , see [11]. By definition, this
+means that for all extensions w of v0 to the function field of Y the ramification
+index e(w/v0 ) is equal to 1. It then follows that the special fiber Ȳ := YR ⊗R k
+is reduced (see e.g. [1], §2.2).
+
+Definition 5.2 We say that the character χ has étale reduction if the map
+Ȳ → X̄ is generically étale.
+    In terms of Galois cohomology the definition can be rephrased as follows.
+The character χ has étale reduction if and only if the restriction of χ to the
+completion K̂0 of K with respect to v0 is unramified. The latter means that
+χ|K̂0 lies in the image of the cospecialization morphism
+
+                              Hp1n (κ0 ) → Hp1n (K̂0 )
+
+(which is simply the restriction morphism induced by the projection GalK̂0 →
+Galκ0 ). Since the cospecialization morphism is injective, there exists a unique
+
+                                        10
+character χ̄ ∈ Hp1n (κ0 ) whose image in Hp1n (K̂0 ) is χ|K̂0 . By construction, the
+Galois cover of X̄ corresponding to χ̄ is isomorphic to an irreducible component
+of the normalization of Ȳ .
+
+Definition 5.3 If χ has étale reduction, we call χ̄ the reduction of χ, and χ a
+lift of χ̄.
+
+Remark 5.4 Assume that χ has étale reduction. Then the condition that χ is
+admissible implies that the cover Ȳ → X̄ corresponding to the reduction χ̄ is
+étale over X̄ − {x̄0 } (the proof uses Purity of Branch Locus, see e.g. [22]). It
+follows that Ȳ is smooth outside the inverse image of x̄0 .
+
+Definition 5.5 Let χ ∈ Hp1n (K) be an admissible character of order pn . We
+say that χ has good reduction if it has étale reduction and the cover Ȳ → X̄
+corresponding to the reduction χ̄ of χ is smooth.
+   Note that a Z/pn -cover of P1k , unramified outside x0 , is uniquely determined
+by its germ above the branch point (see, e.g., [19]). Thus, with the above
+notation, the local Oort conjecture (more specifically, Claim 3.1) may be refor-
+mulated as follows.
+
+Conjecture 5.6 Suppose that X = P1K . Let χ̄ ∈ Hp1n (κ0 ) be a character
+of order pn , unramified outside of x̄0 . Then (after replacing K by a finite
+extension, if necessary) there exists an admissible character χ ∈ Hp1n (K) with
+good reduction lifting χ̄.
+
+5.3     Swan conductors
+
+5.3.1
+Fix r ∈ Q≥0 . We assume that pr ∈ K. Let K̂r denote the completion of K
+with respect to the valuation vr . Let χ ∈ Hp1n (K) be a character of order ≤ pn .
+By Epp’s theorem ([11]) we may assume that the restriction χ|K̂r is weakly
+unramified. Under this condition, we can define three types of invariants which
+measure in some way the ramification of χ with respect to the valuation vr .
+   First of all, we have the depth Swan conductor
+
+                            δχ (r) := sw(χ|K̂r ) ∈ Q≥0 ,
+
+see [34], Definition 3.3. By definition, δχ (r) = 0 if and only if χ is unramified
+with respect to vr . If this is the case then the reduction χ̄r ∈ Hp1n (κr ) is well
+defined (see the previous subsection on the case r = 0).
+    Let us now assume that δχ (r) > 0. Then we can define the differential Swan
+conductor of χ with respect to vr ,
+
+                           ωχ (r) := dsw(χ|K̂r ) ∈ Ω1κr ,
+
+
+                                        11
+see [34], Definition 3.9.
+    Finally, let ordx̄ : κ×
+                          r → Z be a normalized discrete valuation whose restric-
+tion to k is trivial. Of course, ordx̄ corresponds either to a closed point x̄ on
+the canonical reduction of the affinoid D[r], or it corresponds to the point at
+infinity, x̄ = ∞. Then the composite of vr with ordx̄ is a valuation on K of
+rank two, which we denote by η(r, x̄) : K× → Q × Z (see e.g. [36], §10, p. 43;
+the group Q × Z is equipped with the lexicographic ordering). By definition, we
+have
+                           η(r, x̄)(F ) = (vr (F ), ordx̄ ([F ]r )),
+for F ∈ K× . In [18] Kato defines a Swan conductor swK      χ (r, x̄) ∈ Q≥0 × Z of
+χ with respect to η(r, x̄) (see [18], Definition 2.4 and 3.10; note that we have
+ǫ := (0, 1)). By definition, the first component of swK χ (r, x̄) is equal to δχ (r).
+We define the boundary Swan conductor
+                                        swχ (r, x̄) ∈ Z
+as the second component of swK
+                             χ (r, x̄).
+
+Remark 5.7 The invariant swχ (r, x̄) is determined by the invariants δχ (r) and
+ωχ (r), as follows.
+  (i) If δχ (r) = 0 then
+                                       swχ (r, x̄) = swχ̄r (x̄).
+       Here χ̄r is the reduction of χ with respect to vr (well defined because
+       χ is unramified at vr ) and swχ̄r (x̄) is the usual Swan conductor of χ̄r
+       with respect to the valuation ordx̄ (one less than the Artin conductor for
+       nontrivial characters, see [31], VI, §2). This formula follows easily from
+       the definitions. As a consequence we see that swχ (r, x̄) ≥ 0 and that
+       swχ (r, x̄) = 0 if and only if χ̄r is unramified with respect to ordx̄ .
+ (ii) If δχ (r) > 0 then we have
+                                 swχ (r, x̄) = −ordx̄ (ωχ (r)) − 1.
+       This follows from [18], Corollary 4.6.1
+
+Proposition 5.8 Let χ1 , χ2 ∈ Hp1n (K), and let χ3 = χ1 χ2 . For i ∈ {1, 2, 3}
+and r ∈ Q≥0 , set δi = δχi (r). If δi > 0 then we set ωi := ωχi (r). If δi = 0 then
+χ̄i ∈ Hp1n (κr ) denotes the reduction of χi with respect to vr .
+  (i) If δ1 6= δ2 then δ3 = max(δ1 , δ2 ). If δ1 > δ2 then ω3 = ω1 .
+ (ii) Assume δ1 = δ2 > 0. Then
+                      ω1 + ω2 6= 0       ⇒     δ1 = δ2 = δ3 , ω 3 = ω 1 + ω 2
+       and
+                                   ω1 + ω2 = 0       ⇒      δ3 < δ1 .
+    1 The proof in [18] uses class field theory and works only if the residue field of K is quasi-
+
+finite. For a much more direct and elementary proof, see [7].
+
+
+                                               12
+(iii) Assume δ1 = δ2 = 0. Then δ3 = 0 and χ̄3 = χ̄1 χ̄2 .
+   Proof: Parts (i)-(ii) follow from [34], Proposition 3.10. Part (iii) is clear,
+because the cospecialization map Hp1n (κr ) → Hp1n (K̂r ) is a homomorphism. ✷
+
+
+5.3.2
+The finite extension of K that was necessary in order to define the invariants
+δχ (r), ωχ (r) and swχ (r, x̄) depends on r. However, the values δχ (r) and ωχ (r)
+do not depend on the choice of this extension. Therefore, it makes sense to
+consider δχ , ωχ and swχ as functions in r ∈ Q≥0 and x̄.
+
+Proposition 5.9 δχ extends to a continuous, piecewise linear function
+
+                                   δχ : R → R≥0
+
+Furthermore:
+
+  (i) For r ∈ Q>0 , the left (resp. right) derivative of δχ at r is −swχ (r, ∞)
+      (resp. swχ (r, 0)).
+ (ii) If r is a kink of δχ (meaning that the left and right derivatives do not
+      agree), then r ∈ Q.
+    Proof: See e.g. [33], Proposition 2.9. A more direct proof of a special case
+of the proposition can be derived from §5.4 below.                            ✷
+
+Corollary 5.10 If r ≥ 0 and δχ (r) > 0, then the left and right derivatives of
+δχ at r are given by ord∞ (ωχ (r)) + 1 and −ord0 (ωχ (r)) − 1, respectively.
+   Proof: Immediate from Proposition 5.9 (i) and Remark 5.7 (ii).                  ✷
+
+
+5.3.3
+We are going to characterize the case when χ has good reduction in terms of the
+function δχ . Our main tool for this is a certain “local vanishing cycles formula”.
+As a special case, we recover the criterion for good reduction from [15], §3.4. We
+fix an admissible character χ ∈ Hp1n (K) of order pn and let Y → X denote the
+corresponding Galois cover. Let us also fix r ∈ Q≥0 and assume that pr ∈ K.
+     Suppose first that r > 0. Then the affinoid subdomain D[r] ⊂ X an gives rise
+                              ′
+to an admissible blowup XR      → XR with the following properties ([1] §3.5 and
+                ′
+[6]): Firstly, XR is a semistable curve whose special fiber X̄ ′ := XR ′
+                                                                         ⊗R k consists
+of two smooth irreducible components which meet in exactly one point. The
+first component is the strict transform of X̄, which we may identify with X̄. The
+                                                                     ′
+second component is the exceptional divisor Z̄ of the blowup XR          → XR , which
+is isomorphic to the projective line over k and intersects X̄ in the distinguished
+point x̄0 . By construction, the complement Z̄ ◦ := Z̄\{x̄0 } is identified with
+
+
+                                         13
+the canonical reduction D̄[r] of the affinoid D[r]. In particular this means that
+                                                                             ′
+the discrete valuation on K corresponding to the prime divisor Z̄ ⊂ XR         is
+equivalent to the valuation vr and that the residue field κr may be identified
+with the function field of Z̄.
+   Let YR′ denote the normalization of XR    ′
+                                               in Y . We obtain a commutative
+diagram
+                                 YR′ −−−−→ YR
+                                              
+                                              
+                                  y            y
+                                    ′
+                                   XR −−−−→ XR
+in which the vertical maps are finite G-covers and each horizontal map is the
+composition of an admissible blowup with a normalization. Let W̄ ⊂ YR′ be the
+exceptional divisor of YR′ → YR . After enlarging the ground field K we may
+assume that W̄ is reduced. Note that this holds if and only if the character χ
+is weakly unramified with respect to the valuation vr , and that this is exactly
+the condition we need to define δχ (r), ωχ (r) and swχ (r, x̄). We now choose a
+closed point x̄ ∈ Z̄ ◦ = D̄[r] and a point ȳ ∈ W̄ lying over Z̄. We let
+
+                                  U (r, x̄) :=]x̄[D[r]
+
+denote the residue class of x̄ on the affinoid D[r]. Clearly, U (r, x̄) is isomorphic
+to the open unit disk. Finally, we let q : W̄˜ → W̄ denote the normalization of
+W̄ and set
+                            δȳ := dimk (q∗ OW̄
+                                              ˜ /OW̄ )ȳ .
+
+Then δȳ ≥ 0 and we have δȳ = 0 if and only if ȳ ∈ W̄ is a smooth point.
+     The above notation extends to the case r = 0 as follows. If r = 0 then we let
+Z̄ := X̄ denote the special fiber of the smooth model XR of X and W̄ := Ȳ the
+special fiber of Y . We set x̄ := x̄0 and choose an arbitrary point ȳ ∈ W̄ above
+x̄0 . The residue class U (r, x̄) is now equal to the open disk D and the invariant
+δȳ is defined in the same way as for r > 0.
+
+Proposition 5.11 With the notation introduced above we have
+
+                      swχ (r, x̄) = |B(χ) ∩ U (r, x̄)| − 1 − 2δȳ .
+
+    Proof: This follows from [18], Theorem 6.7. To see this, note that the left
+hand side of the formula in loc.cit. (the “vanishing cycles”) remains invariant
+if the sheaf F is pulled back to a Galois cover of Spec (A) on which F becomes
+                                                 h
+constant. In our situation we take for A := OX     ′     the henselian local ring of
+                                                   R ,x̄
+                    ′
+x̄ on the scheme XR and for F the étale sheaf corresponding to the character
+χ. Then the ring extension B := OYh ′ ,ȳ /A gives rise to a Galois cover which
+                                       R
+trivializes F . To prove Proposition 5.11, one applies the formula from loc.cit.
+to F and its pullback. After equating the left hand side of both formulas and
+tracing back the definitions of all terms appearing in the right hand side one
+obtains the desired result.                                                      ✷
+
+                                           14
+   As a first consequence of the above proposition we reprove the following
+important criterion for good reduction from [15], §3.4.
+
+Corollary 5.12       (i) Let χ ∈ Hp1n (K) be an admissible character of order pn .
+    Then
+                                 |B(χ)| ≥ swχ (0, x̄0 ) + 1.
+      Also, χ has good reduction if and only if δχ (0) = 0 and equality holds
+      above.
+ (ii) Suppose χ has good reduction with upper ramification breaks (m1 , . . . , mn ).
+      If 1 ≤ i ≤ n, then
+
+        |{x ∈ B(χ) | ramification index of x is exactly pn−i+1 }| = mi − mi−1 ,
+
+      where we set m0 = −1.
+     Proof: The inequality in part (i) follows immediately from Proposition 5.11
+since B(χ) ⊂ D = U (0, x̄0 ) by assumption. Now, by definition χ has good
+reduction if and only if δχ (0) = 0 and Ȳ = W is smooth in any point ȳ above
+the distinguished point x̄0 . The latter condition is equivalent to δȳ = 0. Thus,
+the rest of part (i) also follows from Proposition 5.11.
+                                                                  n−i
+     In the situation of part (ii), the character χi := χpn            ∈ Hp1i (K) is an
+                                                      i
+admissible character with reduction χ̄i of order p with upper ramification breaks
+(m1 , . . . , mi ). Thus the Swan conductor of χ̄i is mi ([31], Corollary 2 to Theorem
+1, noting that the Swan conductor is one less than the Artin conductor). By part
+(i), |B(χi )| = mi + 1. Since elements of B(χi ) correspond exactly to elements of
+B(χ) with ramification index at least pn−i+1 , part (ii) follows.                    ✷
+
+Corollary 5.13 Let χ ∈ Hp1n (K) be an admissible character of order pn , r ∈
+Q>0 and x̄ a point on the canonical reduction of D[r]. Then
+
+                         swχ (r, x̄) ≤ |B(χ) ∩ U (r, x̄)| − 1.
+
+Moreover, if χ has good reduction then equality holds.
+    Proof: The inequality follows immediately from Proposition 5.11. To prove
+the second statement we note that if χ has good reduction, then in the situation
+of Proposition 5.11 the point ȳ ∈ W̄ is smooth. This is because the curve W̄ is
+the exceptional divisor of the modification YR′ → YR . If χ has good reduction
+then YR is smooth over R and hence regular. It follows from Castelnuovo’s
+criterion (see e.g. [21], Theorem 9.3.8) that W̄ is smooth.                   ✷
+
+Corollary 5.14 In the situation of Corollary 5.13, if δχ (r) > 0, we have
+ordx̄ (ωχ (r)) ≥ −|B(χ) ∩ U (r, x̄)|, with equality if χ has good reduction.
+   Proof: Immediate from Corollary 5.13 and Remark 5.7 (ii).                        ✷
+
+
+                                          15
+Remark 5.15 (i) If χ has good reduction, then Corollaries 5.10 and 5.14
+   show that δχ is a piecewise linear, weakly concave down function. More-
+   over, the position of the kinks of δχ correspond to the valuations of the
+   ramification points in B(χ). If r > 0 is a kink, then the number of ramifi-
+   cation points of χ with valuation r is precisely the difference between the
+   left and the right derivative of δχ at r.
+ (ii) Now assume that B(χ) ⊂ D(r0 ) for some r0 ∈ Q>0 . Then it follows from
+      Remark 5.7, Corollary 5.10, and Corollary 5.14 that the restriction of δχ
+      to the interval [0, r0 ] is weakly concave up. Together with (i) this shows
+      that, if χ has good reduction, then δχ |[0,r0 ] is linear.
+
+5.4     Characters of order p
+
+5.4.1
+We will now describe in the special case n = 1 how to determine the function δχ
+explicitly in terms of a suitable element F ∈ K× corresponding to the character
+χ ∈ Hp1 (K) ∼= K× /(K× )p .
+
+Proposition 5.16 Let F ∈ K× \(K× )p , χ := K1 (F ) ∈ Hp1 (K) and r ∈ Q≥0 .
+Suppose that vr (F ) = 0. Suppose, moreover, that χ is weakly unramified with
+respect to vr .
+  (i) We have
+                                         p
+                             δχ (r) =       − max vr (F − H p ),
+                                        p−1    H
+
+        where H ranges over all elements of K.
+ (ii) The maximum of vr (F − H p ) in (i) is achieved if and only if
+
+                                    g := [F − H p ]r 6∈ κpr .
+
+        If this is the case, and δχ (r) > 0, then
+                                  (
+                                      dg/g if δχ (r) = p/(p − 1),
+                         ωχ (r) =
+                                      dg     if 0 < δχ (r) < p/(p − 1).
+
+        If, instead, δχ (r) = 0, then χ̄ corresponds to the Artin-Schreier extension
+        given by the equation y p − y = g.
+    Proof: The assumption g 6∈ κpr shows that vr (H) ≥ 0. If vr (H) > 0 then
+g = [F ]r . In this case, [34], Proposition 5.3, says that δχ (r) = p/(p − 1) and
+ωχ (r) = dg/g. Otherwise,
+                                 F H −p = 1 + ps G,
+where s := vr (F − H p ) > 0 and G ∈ K is an element with vr (G) = 0 and residue
+class g. By [34], Proposition 5.3, we now have δχ (r) = p/(p − 1) − s. Moreover,
+if δχ (r) > 0 then ωχ (r) = dg.
+
+                                            16
+                              p
+    If δχ (r) = 0, then s = p−1 . Make a change of variable 1 + λY = F H −p ,
+                                                                   λ
+where λ ∈ K is the unique element satisfying λp−1 = −p and v(1+ p1/(p−1) ) > 0.
+                            p       s          p
+Then the equation (1 + λY ) = 1 + p G yields Y − Y = G + o(1), which reduces
+to the desired Artin-Schreier extension.                                    ✷
+
+
+5.5 Detecting the slope of δχ Let χ ∈ Hp1 (K) be an admissible character
+of order p, giving rise to a branched cover Y → X. Let m > 1 be a prime-to-p
+integer. We assume that the following conditions hold.
+ (a) The branch locus of χ is contained in the closed disk D[r0 ], for some
+     r0 > 0, and T = 0 is one of the branch points.
+ (b) For all r ∈ (0, r0 ], the left derivative of δχ at r is ≤ m (equivalently, by
+     Proposition 5.9, swχ (r, ∞) ≥ −m).
+ (c) For all r ∈ (0, r0 ], we have δχ (r) > 0.
+    Because of Condition (a) we can represent χ as the Kummer class of a power
+series                                 ∞
+                                       X
+                              F =1+        ai T −i ,
+                                           i=1
+
+with ai ∈ R and v(ai ) ≥ r0 i. We wish to find a polynomial H in T −1 whose
+pth power approximates F well enough to use Proposition 5.16 simultaneously
+for all r in an interval (0, s] ∩ Q, for some 0 < s < r0 . We will then get explicit
+expressions for the slopes of δχ on the interval [0, r0 ].
+    For any N ≥ 1, set
+                                           XN
+                                 H := 1 +     bj T −j .
+                                           j=1
+
+Here we consider the bj for the moment as indeterminates. Write
+                                            ∞
+                                            X
+                                F − Hp =          ck T −k ,
+                                            k=1
+
+where ck is a polynomial in b1 , . . . , bmin(k,N ) . Note that ck = ak ∈ R for k > pN .
+
+Lemma 5.17 Assuming condition (a), after replacing K by some finite exten-
+sion, there exist b1 , . . . , bN ∈ R such that
+  (i) v(ck ) ≥ r0 k for all k, and
+ (ii) ckp = 0 for all k ≤ N .
+
+
+
+
+                                          17
+   Proof: For (ii) to hold we can solve the equations cpN = cp(N −1) = . . . =
+cp = 0 inductively:
+
+                                 cpN = bpN − aN p = 0,
+                             cp(N −1) = bpN −1 + . . . = 0,
+                                    ..    ..
+                                     .     .
+
+One easily checks that these solutions verify v(bj ) ≥ jr0 for all j. So we have
+vr0 (F ), vr0 (H) ≥ 0. Thus we get vr0 (F − H p ) ≥ 0, which is equivalent to (i).
+                                                                               ✷
+
+Remark 5.18 The proof above shows that there are only finitely many solu-
+tions for the bj , and that they vary analytically as the ai do.
+
+Proposition 5.19 Assume conditions (a), (b), and (c) hold.                Choose s ∈
+(0, r0 ) ∩ Q and N ∈ N such that
+                                              p
+                               pN ≥                    .                               (5)
+                                       (p − 1)(r0 − s)
+
+Let b1 , . . . , bN be as in Lemma 5.17. Define λm (χ) ∈ [0, r0 ] by
+                                                                 
+             λm (χ) := max {r ∈ (0, r0 ] | swχ (r, ∞) > −m} ∪ {0} .
+
+Set
+                                 v(cm ) − v(ck )                   
+              µm (χ) := max {                    | 1 ≤ k < m} ∪ {0} .
+                                    m−k
+Then
+  (i) For all r ∈ (0, s] ∩ Q we have
+
+                                      [F − H p ]r 6∈ κpr .
+
+       Therefore,
+
+          δχ (r) = p/(p − 1) − vr (F − H p ),       swχ (r, ∞) = −ord∞ [F − H p ]r .
+
+ (ii) We have
+                              λm (χ) < s        ⇔    µm (χ) < s.
+
+(iii) If λm (χ) < s then λm (χ) = µm (χ).
+
+Remark 5.20 Note that, if λm (χ) 6= r0 , then Proposition 5.9 implies that
+λm (χ) is the largest value in (0, r0 ] where δχ has a kink.
+
+
+
+
+                                           18
+   Proof: (of Proposition 5.19) Fix r ∈ (0, s] ∩ Q and set M := ord∞ [F − H p ]r .
+By definition and by Lemma 5.17 (i) we have
+
+             vr (F − H p ) = v(cM ) − rM ≥ M (r0 − r) ≥ M (r0 − s).            (6)
+
+On the other hand, condition (c) shows that δχ (r) > 0 and Proposition 5.16
+show that
+                         vr (F − H p ) < p/(p − 1).                     (7)
+Using (6), (7) and the choice of N we obtain the inequality
+                                        p
+                           M<                    ≤ N p.                        (8)
+                                 (p − 1)(r0 − s)
+
+If M was divisible by p then (8) and Lemma 5.17 (ii) would show that cM = 0,
+which contradicts the definition of M . Therefore, M is prime to p, and Part (i)
+of the lemma follows from Proposition 5.16 and Remark 5.7 (ii).
+    In order to prove (ii) and (iii) we note that, by condition (b), λm (χ) < s
+is equivalent to swP χ (s, ∞) = −m. Let N be the Newton polygon of the power
+                        ∞
+series F − H p =        k=1 ck T
+                                 −k
+                                    . By (i), the Swan conductor of χ on (0, s] is
+determined by N . In particular, we have swχ (s, ∞) = −m for some r ∈ (0, s]
+if and only if the point (m, v(cm )) is a vertex of N and s1 ≤ s < s2 , where s1
+(resp. s2 ) is the slope of the edge to the left (resp. to the right) of the vertex
+(m, v(cm )). Furthermore, in this case we have µm (χ) = s1 < s, and λm (χ) = s1 ,
+which proves (iii).
+    To prove (ii), it remains to show that if µm (χ) < s, then λm (χ) < s. If
+(m, v(cm )) is a vertex of N , then as in the paragraph above we have λm (χ) =
+µm (χ), so λm (χ) < s. If (m, v(cm )) is not a vertex of N , then there exists a
+line segment of N with slope s′ < µm (χ) < s connecting two points (i, v(ci ))
+and (j, v(cj )), where i < m < j. But this means that swχ (s, ∞) ≥ −j, which
+contradicts condition (b). This proves (ii).                                     ✷
+    Proposition 5.19 will be the key to §6.4.
+
+
+6     Proof of Theorem 3.4
+6.1 Plan of the proof We continue with the notation of §5, and for the
+rest of the paper, we set X ∼
+                            = P1 and x0 = 0. Recall that D is the unit disk in
+   1 an
+(AK ) centered at 0. For r ∈ Q≥0 , we set
+
+                     D(r) = {T ∈ (A1K )an | |T | < |p|r } ⊆ D.
+
+We are given a character χ̄n ∈ Hp1n (κ0 ) of order exactly pn , with upper ramifi-
+cation breaks (m1 , m2 , . . . , mn ). We further assume that n ≥ 2. For 1 ≤ i ≤ n,
+             1
+set ri = mi (p−1) . Recall that p ∤ m1 and
+
+                                  mi ≥ p mi−1 ,
+
+
+
+                                        19
+     for i = 2, . . . , n. Moreover, if the inequality above is strict then (mi , p) = 1. For
+                                        n−i
+     i = 1, . . . , n we set χ̄i := χ̄pn    ∈ Hp1i (κ0 ). By assumption, for each 1 ≤ i < n,
+     there is a character χi lifting χ̄i . We assume that B(χn−1 ) lies in the disk
+     D(rn−1 ), and we may further assume that T = 0 is a branch point of order
+     pn−1 . In order to prove Theorem 3.4, we must show that there exists a character
+     χn ∈ Hp1n (K) with (good) reduction χ̄n . Furthermore, we must have B(χn ) ⊆ D,
+     and if there is no integer a satisfying
+                                                                         
+                        mn                           mn          mn
+                            − mn−1 < a ≤                            − mn−1 ,              (9)
+                         p                     mn − mn−1          p
+
+     then we must even have B(χn ) ⊆ D(rn ). We will construct χn such that χpn =
+     χn−1 .
+        We may assume that χn−1 corresponds to an extension of K given by a
+     system of Kummer equations
+
+                               yip = yi−1 Gi ,      i = 1, . . . , n − 1
+
+     with y0 := 1 and Gi ∈ K. Any χ ∈ Hp1n (K) such that χp = χn−1 is given by an
+     additional equation
+                                    ynp = yn−1 G.                            (10)
+     Since we must have B(χ) ⊆ D, we will search for G ∈ 1 + T −1 m[T −1 ], where m
+     is the maximal ideal of R. In particular,
+                                          N
+                                          Y
+                                    G=          (1 − xi T −1 )ai ,                      (11)
+                                          i=1
+
+     where ai ∈ N, (ai , p) = 1, and xi ∈ m are pairwise distinct. We will say that
+     the polynomial G gives rise to the character χ. If xi is a branch point of χn−1
+     then we may also transfer the term (1 − xi t−1 )ai into Gn−1 . Therefore, we may
+     assume that none of the xi is a branch point of χn−1 . If this is the case, then
+     Corollary 5.12 (ii) shows that a necessary condition for good reduction of χ is
+     that N = mn − mn−1 . We assume this.
+        Our proof that a choice Gn for G exists giving rise to a character χn whose
+     (good) reduction is χ̄n will be done in two parts:
+(Part A) We prove that there exists a polynomial Gmin ∈ 1 + T −1m[T −1 ] giving rise
+         to a character χmin with good reduction χ̄min having upper ramification
+         breaks (m1 , . . . , mn−1 , pmn−1 ) at the ramified point.
+(Part B) We construct the desired polynomial Gn by modifying Gmin .
+     Furthermore, we show that if there is no a satisfying (9), and if Gn gives rise to
+     χn , then B(χn ) ⊆ D(rn ). This will complete the proof of Theorem 3.4.
+         We remark that the basic strategy for our proof is adapted from the proof of
+     the case n = 2 by Green and Matignon, [15]. Essentially, Part (A) corresponds
+     to Lemmas 5.2 and 5.3 in loc.cit., whereas Part (B) corresponds to Lemma 5.4.
+
+
+                                                  20
+    The proof of Part (A) will be done in three steps. The first step (§6.2) is
+to find an appropriate family of candidate polynomials for Gmin , which we will
+call Gn . This family is defined in Definition 6.7. The second step (§6.3) is to
+show that if a polynomial in Gn yields a character with bad reduction, it can
+be altered (within Gn ) to obtain a new polynomial whose reduction is “closer”
+to being good (i.e., the depth Swan conductor of the corresponding character
+is lower). The key result here is Proposition 6.13. Lastly (§6.4), we show there
+must exist a polynomial in Gn that is “closest” to having good reduction (i.e.,
+the depth Swan conductor of the corresponding character is minimal). This is
+the content of Proposition 6.15. Combining these steps shows that there must
+exist Gmin ∈ Gn giving a character with good reduction.
+    Proposition 6.21 proves Part (B), and is found in §6.5.
+
+6.2     A family of candidate polynomials
+
+6.2.1
+We continue with the setup of §6.1. In particular, recall that χi is a lift of χ̄i
+for 1 ≤ i < n, and χ is the character arising from G, as in (10). If r ∈ Q≥0 ,
+then to simplify the notation we will write δi (r) and ωi (r) instead of δχi (r) and
+ωχi (r) for the depth and differential Swan conductors of χi (§5.3). Furthermore,
+write δn (r) and ωn (r) instead of δχ (r) and ωχ (r). As will become apparent in
+Proposition 6.4 and its proof, it will be very important to control ωn (rn−1 ).
+The polynomials G which give our desired ωn (rn−1 ) will comprise our candidate
+family Gn .
+
+Lemma 6.1 Assume 1 ≤ i < n. Then for r ∈ [0, ri ] we have
+
+                                  δi (r) = mi · r.                             (12)
+
+Moreover, for 0 < r ≤ ri we have
+                                              ci dt
+                                  ωi (r) =          .                          (13)
+                                             tmi +1
+Here ci ∈ k × is a constant depending on i and r.
+   Proof: By hypothesis, χi has good reduction χ̄i . Therefore, δi (0) = 0. On
+the other hand, the hypothesis that χi has good reduction and that all of its
+mi + 1 branch points are contained in the disk D(ri ) implies that
+
+                   ord0 (ωi (r)) = −mi − 1,       ordx̄ (ωi (r)) = 0
+
+for all r ∈ (0, ri ] and x̄ 6= 0, ∞, using Corollary 5.14. So (12) follows, using
+Corollary 5.10. But now the same corollary shows that
+
+                              ord∞ (ωi (r)) = mi − 1,
+
+and (13) follows as well.                                                        ✷
+
+
+                                        21
+Remark 6.2 Suppose 1 < i < n and 0 < r < ri . Lemma 6.1 shows that
+
+                            pδi−1 (r) ≤ δi (r) < 1/(p − 1).
+
+Moreover, the first inequality is an equality if and only if mi = pmi−1 . It follows
+from [34], Theorem 4.3 (ii) that C(ωi (r)) = 0 if and only if mi > pmi−1 , where
+C is the Cartier operator. This is consistent with (13). On the other hand, if
+mi = pmi−1 then
+                                C(ωi (r)) = ωi−1 (r).
+In particular, we have ci = cpi−1 in (13).
+
+6.2.2
+We now focus on the critical radius rn−1 . To further simplify the notation we
+will, until the end of §6.2, write ωi (resp. δi ) instead of ωi (rn−1 ) (resp. δi (rn−1 )).
+By Lemma 6.1 we have δn−1 = 1/(p − 1). So [34], Theorem 4.3, says that
+                                               p
+                                       δn =                                           (14)
+                                              p−1
+and
+                                  C(ωn ) = ωn + ωn−1 .                                (15)
+Let m be the minimal upper ramification break mi such that mn−1 is a power
+of p times mi . Thus m is prime to p. Set ν = n − 1 − i. Thus 0 ≤ ν ≤ n − 2,
+and mn−1 = mpν .
+    By Lemma 6.1 and Remark 6.2 we have
+                                                           ν
+                                   c dt                    cp dt
+                           ωi =     m+1
+                                        , . . . , ωn−1 = pν m+1 ,
+                                  t                      t
+for some c ∈ k × . After a change of parameter we may assume that c = m,
+viewed as an element of k × . Note that mp = m. Set
+                                                         ν
+                                                         X          j
+                   η := −(ωi + . . . + ωn−1 ) = −m             t−mp −1 dt.            (16)
+                                                         j=0
+
+
+Lemma 6.3 Let g = [G]rn−1 . Then
+
+                                                  dg
+                                      ωn = η +       .
+                                                   g
+    Proof: One easily checks that C(η) = η + ωn−1 . Using (15) we conclude
+that
+                                            dh
+                                 ωn = η +      ,
+                                             h
+for some h ∈ κ× rn−1 .
+    Let us first assume that G = 1. Then B(χn ) lies in the disk D(rn−1 ). It
+follows from Corollary 5.14 that the differential ωn has no poles outside t = 0.
+
+                                            22
+Since η has no poles outside t = 0, this can happen only if dh/h = 0. This
+shows that the lemma is true if G = 1.
+   To prove the general case, we note that multiplying G by an element H ∈ K×
+has the effect of adding the character K1 (H) ∈ Hp1 (K) to χ. We may assume
+that vrn−1 (H) = 0 and let h ∈ κrn−1 denote the residue of H. Then we have
+
+                   δK1 (H) = p/(p − 1) and ωK1 (H) = dh/h
+
+if and only if h 6∈ κprn−1 , by Proposition 5.16. If h ∈ κprn−1 then δK1 (H) <
+p/(p − 1). In both cases, Proposition 5.8 shows that multiplying G by H has
+the effect of adding dh/h to ωn . The lemma follows.                        ✷
+    The following proposition is not strictly necessary for the proof of Theorem
+3.4, but it helps to narrow our search for the correct Gn . Recall that we assume
+Gn to be in the form (11), and that N = mn − mn−1 .
+
+Proposition 6.4 If χ has good reduction then the following hold.
+  (i) For all i we have v(xi ) ≤ rn−1 = mn−11(p−1) .
+
+ (ii) For i, j with v(xi ) = v(xj ) = rn−1 we have x̄i 6= x̄j (where x̄i denotes the
+      reduction of xi p−rn−1 ).
+(iii) Write N = N1 + N2 , where N1 is the number of xi ’s with v(xi ) = rn−1 .
+      We may assume that v(xi ) < rn−1 for i = N1 + 1, . . . , n. Then
+                                 N
+                                 X
+                                         ai ≡ 0    (mod p).
+                               i=N1 +1
+
+     In particular, if ai = 1 for all i then N2 ≡ 0 (mod p).
+(iv) If mn = pmn−1 then N1 = mn−1 (p − 1) and N2 = 0. Otherwise, N1 <
+     mn−1 (p − 1) and N2 > 0.
+   Proof: By Lemma 6.3, we have
+                                           ν
+                                           X         j
+                         ωn = dg/g − m           t−mp −1 dt,                   (17)
+                                           j=0
+
+where
+                              g := [G]rn−1 ∈ k[t−1 ].
+It follows that ord0 (ωn ) = −mn−1 −1. So if χ has good reduction, then Corollary
+5.14 shows that the number of branch points specializing to 0 (i.e. with valuation
+> rn−1 ) must be equal to mn−1 + 1. Since χn−1 has exactly mn−1 + 1 branch
+points with valuation > rn−1 , none of the new branch points can have this
+property. This proves (i).
+    By (17), ωn can have at most a simple pole at any point x̄ 6= 0, and then
+good reduction and Corollary 5.14 implies that branch points with radius rn−1
+
+                                         23
+have to lie in distinct residue classes. This proves (ii). It follows similarly from
+Corollary 5.14 that ωn has no zeroes outside t = ∞, so the fact that div(ωn )
+has degree −2 means that ord∞ (ωn ) = mn−1 + N1 − 1 ≥ 0. But it is easy to
+see that
+                                            XN
+                               ord∞ (g) =         ai ,
+                                              i=N1 +1
+
+and (17) shows that ord∞ (ωn ) ≥ −1 if and only if ord∞ g ≡ 0 (mod p). This
+proves (iii).
+   On the other hand we have C(ωn ) = ωn + ωn−1 and ord∞ (ωn−1 ) = mn−1 − 1,
+which implies, by an easy calculation, that
+
+                              ord∞ ωn ≤ pmn−1 − 1.
+
+It follows that N1 ≤ mn−1 (p − 1).
+    Now suppose that mn = pmn−1 . Then Corollaries 5.10 and 5.14 show that
+the right derivative of δn is at most mn−1 + N = pmn−1 on [0, rn−1 ). Since
+               p
+δn (rn−1 ) = p−1  by (14), and good reduction requires δn (0) = 0, this slope
+must be pmn−1 on the entire interval. Thus ord∞ ωn = mn − 1 = pmn−1 − 1,
+by Corollary 5.10. Hence N1 = N = mn−1 (p − 1) and N2 = 0. Otherwise,
+if mn > pmn−1 , then the condition that δn is weakly concave down (Remark
+5.15) and has right derivative mn at r = 0 (Proposition 5.9 (i)) implies that
+δn (r) > pmn−1 r for 0 < r < rn−1 . But this means that ord∞ ωn + 1 < pmn−1
+at r = rn−1 , hence N1 < mn−1 (p − 1). It follows that
+
+                  N2 = mn − mn−1 − N1 > mn − pmn−1 > 0.
+
+This completes the proof of the proposition.                                           ✷
+    It follows from Proposition 6.4 that, up to a constant factor that we may
+eliminate by rescaling t, we have
+                                              N1
+                                              Y
+                       [G]rn−1 = g = ta0         (1 − x̄i t−1 )ai ,                   (18)
+                                              i=1
+
+where
+                                    N
+                                    X
+                        a0 := −              ai ≡ 0 (mod p).
+                                   i=N1 +1
+
+Hence
+                                        N1
+                                        X  ai x̄i t−2 dt
+                              dg/g =                        .                         (19)
+                                        i=1
+                                              1 − x̄i t−1
+
+Corollary 6.5 In the notation of Proposition 6.4, if χ has good reduction then
+                             ν
+                             X          j                       c dt
+            ωn = dg/g − m          t−mp −1 dt =                 Q N1              ,   (20)
+                             j=0                    tmn−1 +1     i=1 (t − x̄i )
+
+
+                                             24
+                       QN1
+where c := (−1)N1 +1 m( i=1 x̄i ) is a nonzero constant. In particular, ord∞ ωn =
+mn−1 + N1 − 1.
+    Proof: The middle expression is the expression deduced for ωn in (17). We
+have seen in the proof of Proposition 6.4 that ωn has simple poles at the x̄i , a
+pole of order mn−1 + 1 at 0, and no zero outside ∞. It follows that ωn is equal
+to the right hand side of (20) times a constant. To determine this constant, one
+computes the Laurent series representation in t of both sides.                ✷
+    The next theorem, showing that we can often find a g satisfying the condi-
+tions of 6.5, is critical.
+
+Theorem 6.6 Suppose m|mn (equivalently, m|N = mn − mn−1 ). Then, under
+the assumption that ai = 1 for i ≥ 1, there is a solution g ∈ k[t−1 ] to (20) as in
+(18) of degree N .
+   Proof: This is contained in Corollary 7.8.                                       ✷
+
+Definition 6.7 If g is the solution to (20) guaranteed by Theorem 6.6, then we
+define Gn to be the subset of all G of the form (11) with [G]rn−1 = g.
+
+Remark 6.8 Corollary 7.8 also shows that, if ai = 1 for all i ≥ 1 and N1 is as
+in (18), then we have m|N1 and
+
+         mn−1 (p − 1) − mp < N1 ≤ mn−1 (p − 1),         N1 ≡ N      (mod p).
+
+This determines N1 uniquely. This means that if G is as in (11), has all ai =
+1, and gives rise to χ with good reduction, then the number of zeroes of G
+with valuation rn−1 is fixed. The importance of this condition is illustrated in
+Example 6.9.
+
+Example 6.9 Assume that p = 5, n = 3, and the upper ramification breaks of
+χ̄3 are (m1 , m2 , m3 ) = (1, 5, 34). If G3 is in the form of (11) with all ai = 1, and
+if G3 gives rise to a character χ3 with good reduction χ̄3 , then N = 29. Remark
+6.8 shows that χ3 gives rise to a cover with exactly N1 = 19 branch points at
+radius r2 = 1/20 and N2 = 10 branch points at radius < 1/20. We know from
+(14) that δ3 (1/20) = 45 . By Corollaries 5.10 and 5.14, the (left) slope of δ3 at
+r ≤ 1/20 is equal to 5 + N (r), where N (r) is the number of branch points with
+valuation ≥ r. Since δ(0) = 0, one can show that there must be at least one
+branch point with valuation ≤ 1/200. But r3 = 1/136 > 1/200, so B(χ3 ) cannot
+lie in the disk D(r3 ).
+     See Remark 6.22 and Example 7.18 for such an example with 10 branch
+points with valuation exactly 1/200. Note that this does not contradict Theorem
+3.4 (ii), as we can take a = 2 there.
+
+Remark 6.10 If we do not assume ai = 1 for all i, then (20) can still sometimes
+be solved. In particular, in light of Example 6.9, it would be nice to find solutions
+
+
+                                          25
+to (20) with arbitrary ai and N1 not satisfying Remark 6.8. We might then have
+some hope of finding a lift χn of χ̄n with B(χn ) lying in the disk D(rn ), even
+when the condition in Theorem 3.4 (ii) does not hold. However, even when such
+solutions to (20) exist, it seems as if our current techniques are often insufficient
+to turn them into lifts. For further discussion, see Remark 7.12.
+
+6.3 Reducing the depth Swan conductor We maintain the notation of
+§6.2, and we assume further that mn = pmn−1 . Then, by Proposition 6.4, we
+have N = N1 = mn−1 (p − 1).
+     Recall that any G ∈ Gn (Definition 6.7) gives rise to a character χ of order pn
+lifting χn−1 as in (10), by adjoining the equation ynp = yn−1 G. By Corollaries 6.5
+and 5.10, we know that the left derivative of δn at rn−1 is mn . Recall also from
+                          p
+(14) that δn (rn−1 ) = p−1   = mn rn−1 . It follows that there exists 0 ≤ λ < rn−1
+such that
+                       δn (s) = s · mn = psmn−1 = pδn−1 (s)
+for all s ∈ [λ, rn−1 ] (the last equality following from Lemma 6.1). Let λ(G) be
+the minimal value of λ with this property. In other words, λ(G) is the largest
+kink of the function δn on the open interval (0, rn−1 ) (or is zero if δn is linear
+                                               p
+on [0, rn−1 ]). Note that δn (λ) = mn λ < p−1    .
+
+Proposition 6.11 If G ∈ Gn satisfies λ(G) = 0, then the corresponding char-
+acter χ has good reduction.
+   Proof: By definition, λ(G) = 0 implies δχ (0) = 0. Now, If χ lifts χn−1
+and has δχ (0) = 0, then swχ (0, x̄0 ) ≥ pmn−1 , as the Swan conductor of a pn -
+cyclic extension must be at least p times the Swan conductor of its index p
+subextension (because each upper ramification break of a pn -cyclic extension
+must be at least p times the previous one). On the other hand, by construction,
+B(χ) has exactly N + mn−1 + 1 = pmn−1 + 1 branch points. The proposition
+then follows by Corollary 5.12 (i).                                          ✷
+    Thus, in order to prove Part (A), it suffices to show that λ(G) = 0 for some
+G ∈ Gn . Proposition 6.13 will show that λ(G) = 0 is the only possible minimal
+value of λ(G), as G ranges over Gn . In §6.4, we will show that this minimum is
+realized. First, we state a lemma.
+
+Lemma 6.12 Let G ∈ Gn and r ∈ [0, rn−1 ). Let f ∈ t−1 k[t−1 ] be a polynomial
+of degree < mn without constant term, which we regard as an element of κr .
+Set s := p/(p − 1) − mn r. Then, after a possible finite extension of K, there
+exists G′ ∈ Gn and F ∈ K such that vr (F ) = 0, [F ]r = f , and
+                         G′ /G ≡ 1 − ps F     (mod (K× )p ).
+   Proof: The proof is given as Corollary 7.11.                                   ✷
+
+Proposition 6.13 Suppose G ∈ Gn with λ(G) > 0. Then there exists G′ ∈ Gn
+with λ(G′ ) < λ(G).
+
+                                         26
+    Proof: If λ := λ(G) > 0 then by Corollary 5.10 we have that ord∞ (ωn (λ))+1
+is the left derivative of δn (r). Since δn is concave up at λ (Remark 5.15 (ii)),
+we conclude that
+                               ord∞ (ωn (λ)) < mn − 1.
+By hypothesis we have p δn−1 (λ) = δn (λ) = mn λ < p/(p − 1). Therefore [34],
+Proposition 4.3 (ii) shows that
+                                                     c dt
+                        C(ωn (λ)) = ωn−1 (λ) =               ,
+                                                  tmn−1 +1
+for some c ∈ k. It follows that
+                                       cp dt
+                              ωn (λ) =        + df,
+                                      tmn +1
+for some f ∈ κλ . Note that, by Corollaries 5.10 and 5.14,
+             ord0 (ωn (λ)) = −mn − 1,      ordx̄ (ωn (λ)) ≥ 0 ∀ x̄ 6= 0.
+We may therefore assume that f is a polynomial in t−1 of degree < mn and
+without constant term.
+   By Lemma 6.12, there exists G′ ∈ Gn such that
+                        G′ /G ≡ 1 − ps F      (mod (K× )p ),
+where vλ (F ) = 0, where [F ]λ = f , and where s := p/(p − 1) − mn λ. Replacing
+G by the polynomial G′ has the effect of adding ψ := K1 (G′ /G) to χ. Using
+Proposition 5.16, we see that
+                         δψ (λ) = p/(p − 1) − s = δn (λ).
+Therefore, Proposition 5.8 shows that the effect on ωn (λ) is addition of −df and
+the result is that
+                            ord∞ (ωn (λ)) = mn + 1.
+We conclude, using Corollary 5.10, that λ(G′ ) < λ(G).                         ✷
+
+Remark 6.14 An important reason we must assume that B(χn−1 ) ∈ D(rn−1 )
+is to ensure that no branch point of χn−1 has valuation less than λ. If there were
+such a branch point, then ord∞ (ωn (λ)) above could be negative, which would
+allow f not to be a polynomial in t−1 , which would prevent us from applying
+Lemma 6.12.
+
+6.4 The minimal depth Swan conductor We continue with the notation
+of §6.3, as well as the assumption that mn = pmn−1 and all ai = 1 for i ≥ 1.
+To finish the proof of Part (A) from §6.1, we must show that the function
+λ : Gn → Q≥0 defined in §6.3 takes the value 0 for some χ ∈ Gn . By Proposition
+6.13, the existence of such a χ is established by the following proposition.
+
+Proposition 6.15 The function χ 7→ λ(χ) takes a minimal value on Gn .
+   The rest of §6.4 is devoted to the proof of this proposition.
+
+                                         27
+6.4.1   A lemma from rigid analysis
+The following lemma, which is an easy consequence of the maximum modulus
+principle, is a crucial ingredient in the proof of Proposition 6.15.
+
+Lemma 6.16 Let X = Spm(A) be an affinoid domain over K and f1 , . . . , fn ∈
+A analytic functions on X. Then the function
+                                             p
+                     φ : X → R, φ(x) := max i |fi (x)|
+                                                   1≤i≤n
+
+takes a minimal value. Equivalently, the function
+
+                                               v(fi (x))
+                                 x 7→ min
+                                          i        i
+takes a maximal value on X.
+   Proof: Let B/A be a finite ring extension which contains elements gi ∈ B
+such that gii = fi , for i = 1, . . . , n. Then B is again an affinoid K-algebra, and
+the induced morphism q : Y := Spm(B) → X is finite and surjective. For any
+point y ∈ Y we have
+                                φ(q(y)) = max |gi (x)|.
+                                              1≤i≤n
+
+So by [4], Lemma 7.3.4/7, the function φ ◦ q takes its minimal value on Y . Since
+q is surjective, this shows that φ takes its minimal value on X.               ✷
+
+
+6.4.2   An affinoid containing Gn
+Let G be the set of all polynomials of the form
+                                    N1
+                                    Y
+                               G=        (1 − xi T −1 ),
+                                    i=1
+
+where xi ∈ K̄ has valuation rn−1 and where the residue classes of xi /prn−1 in k
+are all distinct. Given G ∈ G, we may assume (after passing to a finite extension
+of K) that x1 , . . . , xN1 ∈ K. In this way, we can consider G as a subset of affine
+N1 -space over K via the coordinates xi and G as a K-rational point. It is clear
+that G is an affinoid subdomain of (AN     1 an
+                                          K ) . We identify elements of G with the
+characters χ that they give rise to (§6.1).
+    Recall that it is a consequence of Proposition 6.4 (iv) that Gn ⊆ G. In
+particular,
+                              Gn = {G ∈ G | [G]rn−1 = g},
+where g is the unique solution of Equation (20) guaranteed by Theorem 6.6. As
+a rigid analytic space, Gn is isomorphic to the open unit polydisk. The idea of
+the proof is to show that λ(G) takes a minimal value on G, and that the point
+where this minimum is achieved must lie in Gn .
+
+
+                                              28
+6.4.3
+Let φn−1 : Yn−1 → X be the Galois cover corresponding to the character χn−1 .
+By our induction hypothesis, it has good reduction and is totally ramified above
+                                                           −1
+T = 0. It follows that the rigid analytic subspace C := φn−1  (D) ⊆ Yn−1 is an
+open disk and contains the unique point yn−1 ∈ Yn−1 above T = 0. We choose
+a parameter T̃ for the disk C such that T̃ (yn−1 ) = 0. Then
+                              n−1
+                      T = T̃ p      u(T̃ ),   with u(T̃ ) ∈ R[[T̃ ]]× .
+
+We conclude that for r > 0 the inverse image of the closed disk D(r) ⊂ D defined
+by the condition v(T ) ≥ r is the closed disk C(r̃) defined by v(T̃ ) = r̃ := p−n+1 r.
+Set r̃n−1 := p−n+1 rn−1 . Let Kn−1 denote the function field of Yn−1 .
+      Let us fix, for the moment, χ ∈ G such that χp = χn−1 . Let χ̃ := χ|Kn−1 ∈
+    1
+Hp (Kn−1 ) denote the restriction of χ to Kn−1 . If χ corresponds to a cover
+Y → X, then χ̃ corresponds to the cover Y → Yn−1 . If χ ∈ Gn , then in analogy
+to λ(χ), we write λ(χ̃) for the minimum r̃ ∈ [0, r̃n−1 ] such that δχ̃ is linear on
+[r̃, r̃n−1 ]. If χ ∈ G\Gn , then we define λ(χ̃) = r̃n−1 .
+
+Lemma 6.17
+  (i) For χ ∈ Gn , we have λ(χ̃) = p−n+1 λ(χ).
+ (ii) Let
+                                                   n−1
+                                                   X
+                            m̃ = pn mn−1 −               mi (p − 1)pi−1 .
+                                                   i=1
+
+        Then p ∤ m̃ and the character χ̃ ∈ Hp1 (Kn−1 ) satisfies the conditions (a),
+                                                                        an
+        (b), and (c) of §5.5 (with respect to m̃, the open disk C ⊂ Yn−1    and the
+        family of subdisks C(r̃), r̃ ∈ [0, r̃n−1 ]).
+(iii) If λm̃ (χ̃) is as in Proposition 5.19, and if we set r0 in Proposition 5.19
+      equal to r̃n−1 , then λ(χ̃) = λm̃ (χ̃) for all χ ∈ G.
+   Proof: For r > 0 we systematically use the notation r̃ := p−n+1 r. Then the
+valuation vr̃ on Kn−1 (corresponding to the Gauss norm on C(r̃)) is the unique
+extension of vr . By [34], §7.1 we have
+
+                δχ̃ (r̃) = ψKn−1 /K (δχ (r))
+                                           p−1                    p − 1
+                         = δχ (r) − δ1 (r) n−1 + . . . + δn−1 (r)       ,
+                                           p                        p
+where ψ is the inverse Herbrand function ([31], IV, §3). Since all the characters
+χi (1 ≤ i < n) have good reduction and their branch points are contained in
+D(rn−1 ), it follows from Remark 5.15 (ii) that each δi (1 ≤ i < n) is linear of
+slope mi on the interval [0, rn−1 ]. Therefore, we have
+                                                m̃
+                         δχ̃ (r̃) = δχ (r) + ( n−1 − pmn−1 )r.
+                                              p
+
+                                              29
+Thus, the left slope of δχ̃ at r̃ is equal to pn−1 c + m̃ − pn mn−1 , where c is the
+left-slope of δχ at r. Part (i) follows immediately. Part (ii) follows from the
+fact that c ≤ mn = pmn−1 . Part (iii) also follows from this fact, along with
+Proposition 5.9 and the fact that swχ (rn−1 , ∞) = pmn−1 iff χ ∈ Gn .             ✷
+   Explicitly, the character χ̃ is the Kummer class of the element
+                          1/pn−1     1/pn−2               1/p
+                   F := G1         G2         · . . . · Gn−1 G ∈ K×
+                                                                  n−1 .
+
+We write F as a power series in the parameter T̃ :
+                                              ∞
+                                              X
+                                 F =1+              aℓ T̃ −ℓ
+                                              ℓ=1
+
+Note that, since G1 , . . . , Gn are fixed, F is uniquely determined by the choice
+of G. So we may consider the coefficients aℓ as functions on the space G. It is
+easy to see that the aℓ are analytic functions on G which are bounded by 1. In
+fact, aℓ is a polynomial in the coordinates xi with coefficients in R.
+
+6.4.4
+We continue with the proof of Proposition 6.15. Let χ0 ∈ Gn be an arbitrary lift
+lying in the residue class determined by the reduction g. From the discussion
+at the beginning of §6.3, it follows that λ(χ0 ) < rn−1 . We may therefore choose
+a rational number s ∈ (λ(χ0 ), rn−1 ). Recall from §6.4.3 that χ̃ is the restriction
+of χ to the function field Kn−1 of Yn−1 . Then by Lemma 6.17 we have
+
+                             λ(χ̃) < s̃ := p1−n s < r̃n−1 .
+
+We also choose an integer N such that
+                                             p
+                              Np ≥                       .
+                                     (p − 1)(r̃n−1 − s̃)
+
+Compare with (5).
+
+Lemma 6.18 There exists a finite cover G ′ → G and analytic functions b1 , . . . , bN
+on G ′ with the following property. Set
+                                              N
+                                              X
+                                 H := 1 +           bj T̃1−j
+                                              j=1
+
+and write
+                                              ∞
+                                              X
+                                F − Hp =             cℓ T̃1−ℓ ,
+                                              ℓ=1
+
+where the cℓ are now analytic functions on G ′ . Then:
+  (i) For all ℓ ≥ 1 and all points x ∈ G ′ we have v(cℓ (x)) ≥ r0 ℓ.
+
+                                          30
+ (ii) We have cpℓ = 0 for ℓ ≤ N .
+    Proof: By Lemma 5.17 and Remark 5.18, there are finitely many solutions
+for the bj at each point in G and the solutions vary analytically as the aℓ vary
+in G. This proves the lemma.                                                  ✷
+
+
+6.4.5
+We can now complete the proof of Proposition 6.15. Let m̃ be as in Lemma
+6.17, and define the function µm̃ : G ′ → R by the formula
+                              v(cm̃ (x)) − v(cℓ (x))                    
+           µm̃ (x) := max {                          | 1 ≤ ℓ < m̃} ∪ {0} .
+                                      m̃ − ℓ
+Let χ ∈ G, write χ̃ := χ|Kn−1 for its restriction to the function field of Yn−1 ,
+and let x ∈ G ′ be an arbitrary point above χ. By Lemma 6.18, we can apply
+Proposition 5.19 to compare µm̃ (x) to λm̃ (χ̃), which by Lemma 6.17 is equal to
+λ(χ̃). We conclude that µm̃ (x) < s̃ if and only if λ(χ̃) < s̃. Moreover, if this
+is the case then we have µm̃ (x) = λ(χ̃). Note also that in any case we have
+λ(χ) = pn−1 λ(χ̃) when χ ∈ Gn .
+    We apply these arguments twice. Firstly, let χ0 ∈ Gn be the character with
+λ(χ0 ) < s from the beginning of §6.4.4. Let χ′0 ∈ G ′ be a point above χ0 . Then
+µm̃ (χ′0 ) < s̃.
+    It follows from Lemma 6.16 that the function µm takes a minimum on G ′ .
+Let x ∈ G ′ be a point where this minimum is achieved, and let χ ∈ G be the
+corresponding lift. We have µm̃ (x) ≤ µm̃ (χ′0 ) < s̃. Since
+
+                          λm̃ (χ̃) = µm̃ (x) < s < r̃n−1
+
+we see that χ ∈ Gn . Applying the above arguments a second time, we conclude
+that λ(χ) = pn−1 µm̃ (x), and that this is actually the minimal value of the
+function λ : Gn → R. This completes the proof of Proposition 6.15.        ✷
+   Combining Propositions 6.11, 6.13, and 6.15 finishes the proof of Part (A)
+from §6.1. So there is a polynomial Gmin ∈ Gn giving rise to a character χmin
+with good reduction and upper ramification breaks (m1 , . . . , mn−1 , pmn−1 ) at
+the ramification point.
+
+6.5 Beyond minimality We now prove Part (B) from §6.1. Maintain the
+notation of the previous parts of §6. Let Gmin ∈ Gn be such that its correspond-
+ing character χmin has good reduction χ̄min . Such a Gmin exists by Part (A).
+Note that Gmin is a polynomial in 1 + T −1 m[T −1 ] of degree mn−1 (p − 1).
+    Recall that χ̄n is our original character, with upper ramification breaks
+(m1 , . . . , mn ), and that mn is not necessarily equal to pmn−1 . Furthermore,
+we saw in §2 that χ̄n corresponds (upon completion at t = 0) to a (truncated)
+Witt vector wn := (f1 , . . . , fn ) ∈ Wn (k((t))), and we may assume that each fi
+is a polynomial in k[t−1 ], all of whose terms have prime-to-p degree. Then (2)
+shows that mn = max(pmn−1 , deg(fn )). On the other hand, χ̄min has upper
+
+                                         31
+ramification breaks (m1 , . . . , mn−1 , pmn−1 ), and corresponds to a Witt vector
+wmin := (f1 , . . . , fn−1 , fmin), where fmin ∈ k[t−1 ] has degree < pmn−1 and only
+terms of prime-to-p degree. Subtracting Witt vectors yields
+
+                        wn − wmin = (0, . . . , 0, fn − fmin ).                (21)
+
+Let f = fn − fmin , which has degree ≤ mn , and let F ∈ T −1 R[T −1 ] be such
+that deg F = deg f , v0 (F ) = 0, and [F ]0 = f .
+
+Proposition 6.19 After a possible finite extension of K, there exists ǫ ∈ Q>0 ,
+as well as Gn ∈ 1 + T −1 m[T −1 ] of degree at most mn − mn−1 and H ∈ 1 +
+T −1 m[T −1 ] such that (H, Gn ) is a solution to
+                                       p                  p
+               Gmin H p − Gn ≡ −p p−1 F          (mod p p−1 +ǫ R[T −1 ]).
+
+    Proof: This follows immediately from Corollary 7.16, substituting mn and
+rn for m′n and rn′ .                                                      ✷
+
+Proposition 6.20 Suppose that there is no integer a satisfying
+                                                          
+           mn                      mn           mn
+               − mn−1 < a ≤                         − mn−1 .                   (22)
+            p                  mn − mn−1         p
+Then we can find H and Gn as in Corollary 7.16 such that vrn (Gn − 1) > 0,
+               1
+where rn = mn (p−1) . Thus all zeroes of Gn lie in the open disk D(rn ).
+
+   Proof: This follows immediately from Proposition 7.17, substituting mn
+and rn for m′n and rn′ .                                               ✷
+
+Proposition 6.21 There is a character χn whose (good) reduction is χ̄n , such
+that B(χn ) ⊆ D. If there is no a ∈ Z satisfying (22), then B(χn ) ⊆ D(rn ),
+               1
+where rn = mn (p−1) .
+
+    Proof: The character χn will correspond to Gn , in the notation of Proposi-
+tion 6.19. From that proposition, we have
+                       Gn                 p     F
+                           H −p = 1 + p (p−1)          =: F̃ .                 (23)
+                      Gmin                    Gmin H p
+                    p
+Now, v0 (F̃ − 1) = p−1 and [F̃ − 1]0 = f , which is not a pth power. Thus,
+Proposition 5.16 shows that if χF̃ = K1 (F̃ ) ∈ Hp1 (K), then δχF̃ (0) = 0 and the
+reduction χ̄F̃ corresponds to the Artin-Schreier extension given by y p − y = f .
+                           n−1
+Thus if χ′F̃ = Kn (F̃ p ) ∈ Hp1n (K), then we also have δχ′ (0) = 0 and the
+                                                               F̃
+reduction χ̄′F̃ corresponds to the same extension, which is encoded by the Witt
+vector (0, . . . , 0, f ).
+   On the other hand, note that χmin corresponds to the element
+                                    n−2    n−1                 n
+                      G1 Gp2 · · · Gpn−1 Gpmin ∈ K× /(K× )p ,
+
+                                           32
+whereas the character χn coming from Gn corresponds to the element
+                                       n−2   n−1                  n
+                        G1 Gp2 · · · Gpn−1 Gpn     ∈ K× /(K× )p .
+By (23), we have χmin χ′F̃ = χn as elements of Hp1n (K). By Proposition 5.8
+(iv), we have that χ̄min χ̄′F̃ is the reduction of χn . Since χ̄′F̃ corresponds to the
+Witt vector (0, . . . , 0, f ), it follows from (21) that the reduction of χn is, in fact,
+χ̄n . Since Gn is a polynomial of degree ≤ mn − mn−1 in T −1 , we have that
+|B(χn )| ≤ mn + 1. By Corollary 5.12 (i), we have equality, and thus χn has
+good reduction χ̄n , proving the first assertion of the proposition. The second
+assertion then follows immediately from Proposition 6.20.                              ✷
+  Proposition 6.21 completes the proof of Part (B), and Theorem 3.4 follows
+immediately.
+
+Remark 6.22 Example 7.18 shows that it is possible for the result of Propo-
+sition 6.20 not to hold when there is an a ∈ Z satisfying (22) (in particular, we
+take p = 5, n = 3, (m1 , m2 , m3 ) = (1, 5, 34), and a = 2). When this is the case,
+the branch locus of χn generated above does not lie in the disk D(rn ).
+
+
+7     Proofs of technical results
+In this section, we give the proofs of Theorem 6.6, Lemma 6.12, and Propositions
+6.19 and 6.20. In fact, we will prove Theorem 6.6 and Lemma 6.12 in somewhat
+more generality. All the proofs are related to each other and will share much
+notation.
+    Throughout §7, we will use notation parallel to that used in §6. Let (m1 , . . . , mn )
+be a sequence of positive integers such that p ∤ m1 , that mi ≥ pmi−1 for
+                                                                               1
+1 ≤ i ≤ n, and that if p|mi , then mi = pmi−1 . For 1 ≤ i ≤ n, set ri = mi (p−1)       .
+Write N = mn − mn−1 . Let N1 and N2 be nonnegative integers such that
+N1 + N2 = N and p|N2 . Lastly, let m be the minimal mi such that mn−1 is a
+pth power times mi . Set ν = n − 1 − i. Thus, mn−1 = mpν .
+
+7.1   Arbitrary types          We work under two helpful assumptions.
+
+Assumption 7.1 There exist a0 , a1 , . . . , aN1 ∈ Z and x̄1 , . . . , x̄N1 ∈ k × with
+p|a0 , with 0 < ai < p for i ≥ 1, and with x̄i 6= x̄j , such that the differential form
+                         ν                                        N1
+                         X         j                              Y
+        ω := dg/g − m          t−mp −1 dt,        with g := ta0         (1 − x̄i t−1 )ai ,
+                         j=0                                      i=1
+
+satisfies ord∞ (ω) = mn − N2 − 1 = N1 + mn−1 − 1 (cf. (17)).
+   To formulate the second assumption we need more notation. We have, by
+(19), that
+                      N1                ∞  N1
+                     X   ai x̄i t−2 dt X  X            
+                                                     ℓ+1 −ℓ−2
+             dg/g =                   =        a i x̄i    t   dt.
+                     i=1
+                         1 − x̄i t−1       i=1
+                                             ℓ=0
+
+
+                                             33
+Assumption 7.1 is therefore equivalent to the system of equations
+                              (
+               X
+                        ℓ+1      m, ℓ = mpj − 1, 0 ≤ j ≤ ν
+                   ai x̄i =
+                 i
+                                 0, otherwise,
+
+for ℓ = 0, . . . , mn − N2 − 2 = N1 + mn−1 − 2. The Jacobi matrix of this system
+of equation at the point (x̄i ) is the (N1 + mn−1 − 1, N1 )-matrix
+
+                                    (ℓ + 1)ai x̄ℓi ℓ,i
+                                                  
+
+over k. The rows of this matrix corresponding to an index ℓ with ℓ ≡ −1
+(mod p) vanish. Crossing out these trivial rows we obtain the matrix
+
+                          (ℓ + 1)ai x̄ℓi ℓ6≡−1(mod p),i .
+                                        
+
+For our key result, Lemma 7.4, we need this matrix to be invertible; this is the
+case if and only if the matrix
+
+                             A := x̄ℓi ℓ6≡−1(mod p),i
+                                      
+                                                                            (24)
+
+is invertible.
+
+Assumption 7.2 The matrix A in (24) is invertible.
+
+Remark 7.3 Note that a trivial necessary condition for Assumption 7.2 is that
+A is a square matrix. This is not in general true. For instance, if m = 1, so
+that mn−1 = pn−2 , then A is square if and only if
+
+                     pn−1 − pn−2 − p < N1 ≤ pn−1 − pn−2 .
+
+    Fix g as in Assumption 7.1, and assume Assumption 7.2. In the field K(T ),
+set T̃ = p−rn−1 T . Let Gn denote the family of polynomials in R[T −1 ] of the
+form
+                                 YN1
+                            G=       (1 − xi T̃ −1 )ai ,
+                                   i=1
+
+such that xi reduces to x̄i . In particular, for any G ∈ Gn , we have [G]rn−1 =
+t−a0 g. Lastly, let m′ = N1 + mn−1 .
+
+Lemma 7.4 Under Assumptions 7.1 and 7.2, let G ∈ Gn , and let J ∈ 1 +
+T̃ −1 m[T̃ −1 ].
+  (i) There exists a unique G′ ∈ Gn and a unique polynomial I ∈ 1+ T̃ −p m[T̃ −p ]
+      of degree ≤ m′ − 1 in T̃ −1 such that
+                               G′                       ′
+                                  I ≡J        (mod T̃ −m ).
+                               G
+                               ′                                ′
+      If J ≡ 1 (mod pσ , T̃ −m ) for σ ∈ Q>0 , then vrn−1 ( GG − 1) ≥ σ and
+      vrn−1 (I − 1) ≥ σ.
+
+                                         34
+                   p
+ (ii) Let 0 < s < p−1 be a rational number. After a possible finite extension of
+      K, there exists G′ ∈ Gn and a polynomial H ∈ 1 + T̃ −1 m[T̃ −1 ] of degree
+      ≤ [(m′ − 1)/p] such that we have
+
+                                 G′ p                                      ′
+                                   H ≡J                  (mod ps , T̃ −m ).
+                                 G
+                                    ′              p
+      If J ≡ 1 (mod pσ , T̃ −m ) for some 0 < σ < p−1 , then we can choose G′
+                                        ′
+      and H such that vrn−1 ( GG − 1) ≥ σ and vrn−1 (H p − 1) ≥ σ.
+   Proof: By assumption we have
+                                            N1
+                                            Y
+                                 G=               (1 − xi T̃ −1 )ai ,
+                                            i=1
+
+and where xi ∈ R is a lift of x̄i . We set
+                              N1
+                              Y
+                       G′ =         (1 − x′i T̃ −1 )ai ,      x′i := xi + zi ,
+                              i=1
+
+and where the zi are for the moment considered as indeterminates. We also set
+                                              [(m′ −1)/p]
+                                                    X
+                               I := 1 +                      bj T̃ −pj ,
+                                                    j=1
+
+for another system of indeterminates bj . Write
+                                                         ∞
+                                    G′       X
+                                       I =1+   cℓ T̃ −ℓ ,
+                                    G
+                                                       ℓ=1
+
+where cℓ is a formal power series in (zi , bj ). A simple computation shows that
+
+                              ∂cℓ
+                                  |z =b =0 = ai xℓ−1
+                                                 i
+                              ∂zi i j
+                                             (                                        (25)
+                              ∂cℓ                1, ℓ = pj
+                                  |z =b =0 =
+                              ∂bj i j            0, ℓ 6= pj.
+
+The congruence
+                                    G′                      ′
+                                       I ≡ J (mod T̃ −m )                             (26)
+                                    G
+corresponds to a system of m′ − 1 equations (one equation for each monomial
+cℓ T̃ −ℓ, ℓ = 1, . . . , m′ −1) in the indeterminates (zi , bj ). The Jacobi matrix of this
+system of equations is invertible over R if and only if its reduction is invertible
+over k. From (25) it is easy to see that this is true iff the matrix A from (24)
+is invertible, which is the case by Assumption 7.2. We conclude that (26) has a
+
+                                                    35
+unique solution with zi , bj ∈ m. In fact, by the effective Hensel’s Lemma, v(zi )
+and v(bj ) are all at least as large as vrn−1 (J − 1). This proves (i).
+    To prove (ii), we will build G′ and H through successive approximation. Let
+                   P[(m′ −1)/p]
+G′1 and I1 = 1 + j=1            bj,1 T̃ −pj be the unique solution guaranteed by (i).
+   G′                     ′
+So G1 I1 ≡ J (mod T̃ −m ). Set
+                                          [(m′ −1)/p]
+                                                         1/p
+                                             X
+                              H1 := 1 +                 bj,1 T̃ −j
+                                             j=1
+
+                                                   G′
+for any choice of pth roots, and set J1 := G1 H1p . Since H1p ≡ I1 (mod p), we
+                               ′                            P[(m′ −1)/p]
+have that JJ1 ≡ 1 (mod p, T̃ −m ). Now, let G′2 and I2 = 1 + j=1         bj,2 T̃ −pj
+be the unique solution to
+                               G′2      J                       ′
+
+                                 ′ I2 ≡        (mod T̃ −m )
+                               G1       J1
+                                                                                        ′
+guaranteed by (i). Note that, since the coefficients of JJ1 (mod T̃ −m ) have
+valuation at least 1, Part (i) gives that v(bj,2 ) ≥ 1 for all j. Let
+                                          [(m′ −1)/p]
+                                                         1/p
+                                             X
+                              H2 := 1 +                 bj,2 T̃ −j .
+                                             j=1
+
+Then H2p ≡ I2 (mod p1+1/p ). Thus
+    G′2            G′       G′       J
+        (H1 H2 )p = 2′ H2p · 1 H1p ≡
+                                                                                    ′
+                                        · J1 ≡ J               (mod p1+1/p , T̃ −m ).           (27)
+    G              G1        G       J1
+    We can repeat this process for all i ∈ N, letting G′i and Ii be the unique
+solution to
+                         G′i        J                ′
+                              Ii ≡        (mod T̃ −m )
+                        G′i−1      Ji−1
+guaranteed by (i), and constructing Hi from Ii in the same manner as H1
+                    G′                         Pi−1             G′i
+and H2 . Set Ji = Gi (H1 · · · Hi )p . If γi =         j
+                                                j=1 1/p , then G′   Hip ≡ Ji−1
+                                                                           J
+                                                                              i−1
+(mod pγi ). Analogously to (27), one derives
+    G′i                   G′       G′
+        (H1 · · · Hi )p = ′ i Hip · i−1 (H1 · · · Hi−1 )p ≡ J
+                                                                                            ′
+                                                                       (mod pγi , T̃ −m ).
+    G                    Gi−1       G
+             p
+Since s < p−1   , we have that γi > s for large enough i. Setting G′ = G′i and
+H = (H1 · · · Hi ) for such an i gives the desired solution to part (ii).
+   To check the last statement of part (ii), it suffices to show that vrn−1 (Hip −
+1) ≥ σ for all i ∈ N. Since vrn−1 (I1 − 1) ≥ σ by (i), we have vrn−1 (H1p − 1) ≥ σ
+                            p
+(here we use that σ < p−1       to estimate the cross terms). Since part (i) also
+             G′
+shows vrn−1 ( G1 − 1) ≥ σ, we see that vrn−1 (J1 − 1) ≥ σ. An easy induction now
+shows that vrn−1 (Hip − 1) ≥ σ for all i.                                     ✷
+
+
+                                             36
+Corollary 7.5 Under Assumptions 7.1 and 7.2, let G ∈ Gn , let r ∈ Q∩(0, rn−1 ),
+and let f ∈ t−1 k[t−1 ] be a polynomial of degree < m′ = mn−1 + N1 without
+constant term. Fix some s ∈ Q with
+                                                           p
+                               m′ (rn−1 − r) ≤ s ≤            .
+                                                          p−1
+
+Then there exists G′ ∈ Gn , a polynomial H ∈ 1 + T −1 R[T −1 ], and F ∈ K such
+       ′
+that GG H p = 1 − ps F with vr (F ) = 0 and [F ]r = f .
+    Proof: Let F ′ be a polynomial in T −1 of the same degree as f such that
+vr (F ′ ) = 0 and [F ′ ]r = f . Now, vrn−1 (ps F ′ ) = s − deg(f )(rn−1 − r), which is
+                                                                                  p
+positive by our assumptions. Choose σ such that s − (rn−1 − r) < σ < p−1             .
+                                 ′
+Then Lemma 7.4(ii) yields G and H such that
+
+                       G′ p                                         ′
+                         H ≡ 1 − ps F ′              (mod pσ , T̃ −m ).
+                       G
+Lemma 7.4(ii) also allows us to assume that
+
+                              G′ p
+                    vrn−1 (     H − 1) ≥ s − deg(f )(rn−1 − r).
+                              G
+                       ′
+    If F is such that GG H p = 1−ps F , then it suffices to show that vr (F −F ′ ) > 0.
+Write ps F −ps F ′ as a power series ∞            −j
+                                                     . For j < m′ , we have v(αj ) ≥ σ.
+                                    P
+                                        j=0 αj T̃
+             ′
+For j ≥ m , we have v(αj ) ≥ s − deg(f )(rn−1 − r). In both cases, we have
+v(αj ) + j(rn−1 − r) > s, which shows that vr (ps F − ps F ′ ) > s, and thus
+vr (F − F ′ ) > 0.                                                                  ✷
+
+
+7.2 Specialization to the context of Theorem 6.6 and Lemma 6.12
+Maintain the notation of §7.1. In this section, we show that Assumptions 7.1
+and 7.2 are satisfied in the situations of §6. In particular, we want to show that
+there is a g satisfying Assumption 7.1 in the form
+                                           N1
+                                           Y
+                                g = t−N2         (1 − x̄i t−1 ).                  (28)
+                                           i=1
+
+Such a solution (where a0 = −N2 and ai = 1 for i > 1) is called a solution with
+simple type. In the situation where we only look for solutions with simple type,
+(20) can be rewritten as
+                                    ν
+                                    X            j               cdt
+                  ω := dg/g − m           t−mp −1 dt =                     ,      (29)
+                                    j=0
+                                                             tN +mn−1 +1 g
+
+where c 6= 0. Recall that N = mn − mn−1 ≥ mn−1 (p − 1) and that mn 6≡ 0
+(mod p) if the inequality is strict.
+
+
+                                            37
+Lemma 7.6 Suppose g is of simple type as in (28). Then g satisfies (29) (and
+thus (20)) if and only if it satisfies Assumption 7.1.
+   Proof: The “only if” direction is immediate from the right hand side of
+(29). To prove the “if” direction, suppose that g is of simple type and satisfies
+Assumption 7.1. Then ω has a zero of order mn−1 + N1 − 1 at ∞, simple poles
+at all the N1 zeroes of g, a pole of order mn−1 + 1 at 0, and no other poles.
+Thus, ω can have no other zeroes. So the differential forms on each side of (29)
+have the same divisor, and we can choose c to get our desired equality.       ✷
+
+Theorem 7.7 Assume that m = 1 (i.e. (m1 , . . . , mn−1 ) = (1, p, . . . , pn−2 =
+pν )). Then (29) has a unique solution g ∈ k(t). This solution is of the form
+(28), with pairwise distinct x̄i ∈ k, and where
+
+             pν+1 − pν − p < N1 ≤ pν+1 − pν ,       N1 ≡ N    (mod p)
+
+   Proof: We rewrite (29) as the nonhomogenous linear differential equation
+                                ν
+                                X        j               ν
+                                      t−p −1 dt = ct−N −p −1 dt
+                                               
+                     dg − g ·                                                   (30)
+                                j=0
+
+                                                             P∞
+and we first look for solutions in k((t)) of the form g = i=−N αi ti . We obtain
+a system of linear equations in the coefficients αi . In degree −N − pν − 1, we
+obtain α−N = −c, and for i ≥ 1 we get a linear expression for α−N +i in terms
+of α−N , . . . , α−N +i−1 . In other words, (30) has a unique solution of the form
+g = −ct−N + . . . ∈ k((t)). We also observe that the linear equations become
+periodic in i, as soon as i ≥ pν , which means that the coefficients of g (which
+only take values in Fp ) are also eventually periodic. This means that g is actually
+a rational function in t, i.e. g ∈ k(t) (as if P is the period of the coefficients of
+g, then one can write an equation relating g and tP g). Now we can use (29) to
+see that
+                     ord0 (g) = −N, ordx̄ (g) ∈ {0, 1}, x̄ 6= 0, ∞.             (31)
+It follows that g ∈ k[t, t−1 ] is a Laurent polynomial with leading term −ct−N
+with only simple zeroes outside of t = 0, ∞. Set
+
+                                  N2 := ord∞ (g)                                (32)
+
+and N1 := N − N2 . Then g is of the form (28). It remains to see that N1 is as
+claimed in the theorem.
+    Let ω denote the differential form in (29). By (32) we have
+
+                      ord∞ (ω) = pν − 1 + N1 ≥ pν − 1 ≥ 0,                      (33)
+
+which implies that res∞ (ω) = res∞ (dg/g) = 0. We conclude that N2 ≡ 0
+(mod p) and hence N1 ≡ N (mod p). It remains to prove the inequality for N1
+stated in the theorem.
+
+
+                                          38
+   First assume ν = 0. Then ord∞ (ω) = N1 . Also, C(ω) = dg/g = ω + t−2 dt.
+Thus, either N1 = 0 or ord∞ C(ω) = 0. But it is easy to see that if ord∞ C(ω) = 0
+and ord∞ (ω) ≥ 0, then ord∞ ω < p. Thus 0 ≤ N1 < p, which is exactly the
+condition of the theorem.
+   Now assume ν ≥ 1. Set
+                                                N1
+                                                Y
+                         h := t−N2 g −1 =            (1 − x̄i t−1 )−1 .
+                                                i=1
+
+Since N2 ≡ 0 (mod p), h satisfies the differential equation
+                                 ν
+                                 X        j                ν
+                                       t−p −1 dt = ct−N1 −p −1 h2 dt
+                                                
+                    dh + h ·                                                                (34)
+                                 j=0
+
+which is derived from (30). If we write h = 1 + b1 t−1 + b2 t−2 + . . . and plug
+this into (34), we see that the coefficients b1 , . . . , bp−1 satisfy the simple linear
+equations
+                    b1 = 1, 2b2 = b1 , . . . , (p − 1)bp−1 = bp−2 .
+We conclude that bi = 1/i! 6= 0 for i = 0, 1, . . . , p − 1. Write N1 = pM − a with
+0 ≤ a < p and M ∈ Z. Then
+                        ν                           ν−1
+          ω = ct−N1 −p −1 h dt = c(t−M−p                  )p (ta + b1 ta−1 + . . .) dt/t,
+from which we see that
+                                         ν−1                1/p
+                C(ω) = c1/p · t−M−p            (b1/p
+                                                 a   + bp+a t−1 + . . .) dt/t.
+Since ba 6= 0, it follows that
+                             ord∞ C(ω) = M + pν−1 − 1.                                      (35)
+In particular, this and (33) show that ord∞ C(ω) < ord∞ ω. Therefore, the
+equality                                  ν
+                            C(ω) = ω + t−p −1 dt.
+shows that
+                                  ord∞ C(ω) = pν − 1.                                       (36)
+Combining (35) and (36) we conclude that M = pν − pν−1 and hence
+                            N1 = pM − a = pν+1 − pν − a.
+This completes the proof of the theorem.                                                     ✷
+
+Corollary 7.8 If m|N , then (29) has a unique solution g(t) ∈ k(t). In this
+case, the solution is given by g(t) = h(tm ), where h(t) is the solution to (30)
+with N replaced by N ′ := N/m and c replaced by c′ := c/m. In particular,
+g(t) ∈ k[t−1 ] is of simple type, and of degree N in t−1 . Furthermore, m|N1 and
+we have
+         mn−1 (p − 1) − mp < N1 ≤ mn−1 (p − 1),                    N1 ≡ N      (mod p).
+
+
+                                               39
+    Proof: Equation (29) can be rewritten as
+                                  ν
+                                  X         j
+                                        t−mp −1 dt = ct−N −mn−1 −1 dt,
+                                                  
+                  dg − g · m ·                                                          (37)
+                                  j=0
+
+Since g(t) = h(tm ), we have dg = mtm−1 dh(tm ). By definition, h satisfies
+                                 ν
+                                 X         j              ′  ν
+                                        t−p −1 dt = c′ t−N −p −1 dt.
+                                                 
+                      dh − h ·                                                          (38)
+                                  j=0
+
+Multiplying (38) by t, substituting tm for t on both sides, and then multiplying
+by mt yields (29). This shows that g(t) is as in the corollary. Then g is unique
+because its Laurent series coefficients can be calculated by recursion. The prop-
+erties of N1 follow easily.                                                    ✷
+
+
+Remark 7.9 Suppose g ∈ k[t−1 ] is a solution to (29), thus (37). Let c̄i be the
+coefficient of t−i in g (with c̄i = 0 if i < 0). Then (37) in degree −i − 1 gives
+the equation
+                                                         (
+                                                          −c i = N + mn−1
+          ic̄i + m(c̄i−m + c̄i−pm + · · · + c̄i−pν m ) =                     (39)
+                                                          0  otherwise.
+
+    Corollary 7.8 proves Theorem 6.6. Since m|mn−1 by definition and N =
+mn − mn−1 , we have that mn = pmn−1 implies m|N , and thus that the solution
+g to (29) guaranteed by Corollary 7.8 satisfies Assumption 7.1.
+
+Lemma 7.10 If g is a solution to (29) with simple type, and we further assume
+that mn = pmn−1 , then Assumption 7.2 holds as well.
+   Proof: Corollary 7.8 shows that N1 = mn−1 (p − 1). One then sees that the
+matrix A in (24) is square. We show that ker(A) = 0. Suppose ~v ∈ ker(A) is
+non-zero, and let ~x be the vector (x̄1 , . . . , x̄n ). Then, if ǫ2 = 0, the vector ~x + ǫ~v
+must also satisfy Assumption 7.1, and thus, by Lemma 7.6, ~x + ǫ~v must satisfy
+(37) (equivalent to (29)). Now, we claim that replacing ~x with ~x + ǫ~v replaces
+g with g + ǫh(~v ), where h(~v ) is a nonzero polynomial in t−1 . Given the claim,
+                                                                    j
+Equation (37) then implies that dh − h · m · ( νj=0 t−mp −1 dt) = 0, or that
+                                                        P
+
+                                         ν
+                                        X      j
+                               dh/h = m(   t−mp −1 dt).
+                                            j=0
+
+But the right-hand side is not logarithmic, as it has a multiple pole at t = 0.
+This is a contradiction.
+   To prove the claim, we must show that h(~v ) is nonzero. If ~ej is the jth
+                                              QN1
+standard basis vector, then h(~ej ) = t−N2 −1  i=1 (1 − x̄i t
+                                                              −1
+                                                                 ) /(1 − x̄j t−1 ). In
+
+
+                                             40
+particular, x̄i is a zero of h(~ej ) for all i 6= j, but not when i = j. But then no
+h(~ej ) can be a linear combination of the h(~ei ) with i 6= j, because that would
+imply that x̄j is a zero of h(~ej ). Thus h(~v ) 6= 0 for ~v 6= 0.                ✷
+
+Corollary 7.11 Lemma 6.12 holds.
+    Proof: If mn = pmn−1 , then Corollary 7.8 and Lemma 7.10 guarantee
+that there is a unique g satisfying (29) (thus Assumption 7.1) and Assumption
+7.2, and that N2 = 0. By Lemma 7.6, the family Gn from §7.1 (in particular,
+Corollary 7.5) is the same as the family defined in Definition 6.7. Then Lemma
+6.12 follows from Corollary 7.5, noting that, since N = N1 = mn−1 (p − 1), we
+have m′ = mn = pmn−1 in Corollary 7.5.                                      ✷
+
+Remark 7.12 Suppose m = 1, so that mn−1 = pν−2 . Then the condition
+pn−1 − pn−2 − p < N1 ≤ pn−1 − pn−2 from Theorem 7.7 is exactly the same as
+the necessary condition for the matrix A in (24) to be square (Remark 7.3), and
+thus it is necessary in order for Assumption 7.2 to be satisfied. So if g satisfies
+Assumption 7.1, even if g does not have simple type, we still must have the
+same bounds on N1 in order to proceed with any proof that uses Assumption
+7.2, which is essential for our proof of Lemma 6.12. The importance of bounds
+on N1 was shown in Example 6.9 and Remark 6.10.
+
+7.3 An invertible matrix We give a result (Lemma 7.14) that will be used
+in §7.4. Assume that mn = pmn−1 , and that g is a simple type solution to (29).
+By Corollary 7.8, we have N1 = N = mn−1 (p − 1), and N2 = 0. Maintain the
+notation Gn from §7.1. Recall that T̃ = p−rn−1 T . Recall also that, if Γ ∈ Gn ,
+then Γ ∈ 1 + T̃ −1 R[T̃ −1 ] has degree mn−1 (p − 1) and simple zeroes.
+    Let V ∼
+          = Rmn−1 be the free R-module of polynomials of the form
+                                mn−1
+                                X
+                                       bj T̃ −pj (bj ∈ R),
+                                 j=1
+
+and W ∼
+      = Rmn−1 be the free R-module of polynomials of the form
+                               pmn−1
+                                 X
+                                            aj T̃ −j (aj ∈ R).
+                           j=mn−1 (p−1)+1
+
+For Γ ∈ Gn , consider the linear map L : V → W defined by
+
+                                   LΓ (J) = (ΓJ)tr ,
+
+where (·)tr truncates a polynomial in T̃ −1 to preserve only the terms of degree
+mn−1 (p − 1) + 1 through pmn−1 , inclusive. Let AΓ ∈ Mmn−1 (R) be the matrix
+of this linear map, relative to the input basis T̃ −p , . . . , T̃ −pmn−1 , and the output
+
+
+
+                                            41
+basis T̃ −(mn−1(p−1)+1) , . . . , T̃ −pmn−1 . If ci is the coefficient of T̃ −i in Γ (with
+ci = 0 for i < 0), then the matrix AΓ is given by
+                                                                            
+                 cmn−1 (p−1)−p+1     cmn−1 (p−1)−2p+1     ···    c−mn−1 +1
+                                                                          
+            cmn−1 (p−1)−p+2         cmn−1 (p−1)−2p+2     ···    c−mn−1 +2 
+                                                                          
+      AΓ =          ..                      ..           ..         ..
+                                                                                    (40)
+                                                             .
+                                                                          
+           
+                     .                       .                       .    
+                                                                           
+               cpmn−1 −p                cpmn−1 −2p        ···       c0
+
+Lemma 7.13 For any Γ ∈ Gn , the matrix AΓ above lies in GLmn−1 (R).
+    Proof: We note that AΓ lying in GLmn−1 (R) is equivalent to the reduction
+ĀΓ of AΓ lying in GLmn−1 (k), which is equivalent to the linear transformation
+given by ĀΓ being surjective. Since ĀΓ does not depend on the choice of Γ ∈ Gn ,
+it suffices to show that, for any w ∈ W , there exists some Γ ∈ Gn and some v ∈ V
+such that LΓ (v) = w. Consequently, it suffices exhibit an R-basis w1 , . . . , wmn−1
+of W such that each wi is in the image of some LΓ .
+    Take any G ∈ Gn , and let
+
+                   wi′ = (T̃ −(mn−1 (p−1)+i) G)tr ,   1 ≤ i ≤ mn−1 .
+
+One easily sees that the wi′ form an R-basis of W . If i = mn−1 , take wmn−1 =
+ ′
+wm n−1
+       = T̃ −pmn−1 . Then, wi = LΓ (T̃ −pmn−1 ), regardless of Γ.
+   Now, suppose 1 ≤ i < mn−1 . For any small ǫ ∈ Q>0 , let r ∈ Q be such that
+
+                              (mn−1 − i)(rn−1 − r) = ǫ
+
+(we choose ǫ small enough so that r > 0). If s = pmn−1 (rn−1 − r), then the
+monomial
+                 F = p(mn−1 (p−1)+i)(r−rn−1 ) T̃ −(mn−1 (p−1)+i)
+satisfies [F ]r = t−(mn−1 (p−1)+i) and (ps F G)tr = pǫ wi′ . By Lemma 7.4(i) with
+J = 1 + ps F , there is a unique solution (G′ , I) to
+
+                        G′ I − G ≡ ps F G (mod T̃ −pmn−1 ),
+                                           Pmn−1 −1
+where G′ ∈ Gn and I is of the form 1 + j=1           bj T̃ −pj , with all bj ∈ m. Then
+                    ǫ ′
+LG′ (I − 1) = p wi + cwmn−1 , with c ∈ R and I − 1 ∈ V . By continuity and
+the linearity of LG′ , it follows that there exists c′ ∈ R and v ∈ V such that
+LG′ (v) = wi′ + c′ wmn−1 . If wi = wi′ + c′ wmn−1 , then wi is in the image of LG′ .
+Since w1 , . . . , wmn−1 form a basis of W , we are done.                           ✷
+
+Lemma 7.14 Let α = (mn − p[ mpn ]). Let C ∈ Mmn−1 (R) be the matrix with
+Cij = cmn−1 (p−1)−pj+i+α . Then C ∈ GLmn−1 (R).
+
+
+
+
+                                           42
+    Proof: It suffices to show that the reduction C of C to Mmn−1 (k) is invert-
+ible. For all j, let cj be the reduction of cj to k. These are the coefficients of
+t−j in g (see Remark 7.9).
+    By Lemma 7.13, the reduction A of AΓ in (40) to Mmn−1 (k) is invertible.
+Notice that A satisfies Aij = cmn−1 (p−1)−pj+i . Thus, up to reordering rows, the
+matrix C is derived from the matrix A by replacing each of the first α rows
+R1 , . . . , Rα of A with rows R1′ , . . . , Rα
+                                              ′
+                                                , such that each entry cℓ in Ri is replaced
+                     ′
+by cℓ+mn−1 in Ri .
+    Now, setting i = l + mn−1 in (39), we obtain that the cl satisfy the recursion
+                       m
+ cℓ+mn−1 = −                (cℓ+mn−1 −m + cℓ+mn−1 −pm + · · · + cℓ+mn−1 −pν m ), (41)
+                   ℓ + mn−1
+so long as p ∤ ℓ + mn−1 . Since 0 ≤ α < p, we see that in the first α rows of A,
+no cl appears with p|ℓ + mn−1 , so (41) holds. All entries of R1 are of the form
+cℓ , with ℓ ≡ 1 − mn−1 (mod p), so (41) shows that R1′ is a linear combination
+of the rows of A, where the coefficient of R1 is the unit − m1 . So replacing R1
+         ′
+with R1 gives a matrix A1 such that det(A1 ) = −m det(A). In particular, A1
+is invertible. For the same reasons, replacing the row R2 of A1 with R2′ gives a
+matrix A2 which is again invertible. Repeating this process a total of α times
+yields an invertible matrix Aα . Since C is obtained from Aα by reordering rows,
+it is also invertible.
+                                                                              ✷
+
+7.4 Proof of Propositions 6.19 and 6.20 Maintain the notation and
+assumptions of §7.3. Let Gmin ∈ Gn . Note that Gmin ∈ R[T̃ −1 ] has degree
+mn − mn−1 = mn−1 (p − 1). Let m′n ≥ mn = pmn−1 , with m′n prime to p unless
+m′n = mn . Let F ∈ T −1 R[T −1 ] have degree ≤ m′n .
+   In order to prove Proposition 6.19, we begin by trying to find polynomials
+I and G′n in R[T ] such that
+                                           p                       p
+                  Gmin I − G′n ≡ −p p−1 F              (mod p p−1 +ǫ R[T −1 ])        (42)
+for some ǫ > 0, with I having only monomials of degree divisible by p and G′n
+having degree at most m′n − mn−1 . Consider instead the congruence
+                                       p                               ′
+                 Gmin I − G′n ≡ −p p−1 F             (mod T̃ −mn −1 K[T̃ −1 ]).       (43)
+Since F has degree at most m′n in T̃ −1 , we look for I of the form
+                                               m′
+                                           [ pn ]
+                                           X
+                                    I=               bi T̃ −pi .
+                                               i=0
+
+Being able to choose G′n affords us some freedom; we may choose the coefficients
+            m′
+bi for i ≤ pn − mn−1 at will. This is because the terms in Gmin I to which
+these bi contribute have degree at most m′n − mn−1 . As in §7.3, write Gmin =
+Pmn−1 (p−1)
+   i=0       ci T̃ −i , with ci = 0 for i not between 0 and mn−1 (p − 1).
+
+                                                 43
+Proposition 7.15 After a possible finite extension
+                                             p
+                                                    of K, there exists a solution
+                                                              ′
+(I, G′n ) to the equation Gmin I − G′n ≡ −p p−1 F (mod T̃ −mn −1 K[T̃ −1]) as de-
+scribed above with coefficients in K. Furthermore, a solution exists with b0 = 1,
+                    m′                        p       m′n
+bi = 0 for 1 ≤ i ≤ pn − mn−1 , and v(bi ) ≥ p−1  − mn−1 (p−1)   for all other i.
+                                                                       m′n
+     Proof: We take b0 = 1 and bi = 0 for 1 ≤ i ≤                       p − mn−1 . We rewrite (42)
+as                                  p                                        ′
+           Gmin (I − 1) − G′n ≡ p p−1 F − Gmin                  (mod T̃ −mn −1 K[T̃ −1 ]).
+This is a system of m′n + 1 equations (corresponding to the terms of degree 0
+through m′n ) in m′n + 1 variables (corresponding to the coefficients c0 through
+cm′n −mn−1 of G′n and b m′n           through b m′n of I). Let E be the matrix
+                          [ p ]−mn−1 +1                         [ p ]
+representing this system. We will show that E ∈ GLm′n +1 (R). Let the columns
+of E correspond to the variables just listed, and let the rows of E correspond
+to degrees 0 through m′n , in order. Then E can be written as a block matrix,
+                                                   
+                                 −Im′n −mn−1 +1 B
+                        E=                         ,                     (44)
+                                        0        C
+where Im′n −mn−1 +1 is the identity matrix of size m′n − mn−1 + 1. Since the
+entries of B and C lie in R, being coefficients of Gmin , we see that showing
+that E ∈ GLm′n +1 (R) is equivalent to showing that C ∈ GLmn−1 (R). Now,
+                                                                                 m′
+the ijth entry of C is cℓ , with ℓ = m′n − mn−1 + i − p([ pn ] − mn−1 + j) =
+                                        m′
+mn−1 (p − 1) − pj + i + (m′n − p[ pn ]). By Lemma 7.14, the matrix C lies in
+GLmn−1 (R), thus so does E.
+                                            p                          m′              m′n
+     Lastly, we show that we have v(bi ) ≥ p−1 − mn−1 (p−1)
+                                                      n
+                                                            for all i >                 p −mn−1 .
+                                                                        p
+Since F ∈ R[T −1], the coefficient of T̃ −i in −p p−1 F has valuation at least
+ p        i                                        ′     −1
+p−1 − mn−1 (p−1) . Since F has degree at most mn in T̃      , all coefficients of
+     p
+                                                          p                       m′
+−p p−1 F (in terms of T̃ ) have valuation at least p−1          − mn−1 (p−1)
+                                                                        n
+                                                                             . The bi in
+                                                           −1
+question are given as entries of the column vector E ~v , where ~v is the     p
+                                                                                  column
+                                                                     ′
+vector whose entries are the coefficients of 1, T̃ −1 , . . . , T̃ −mn in −p p−1 F . Since
+E −1 has entries in R, we are done.                                                     ✷
+     We now prove Proposition 6.19.
+
+Corollary 7.16 Let
+                                             m′
+                                          [ pn ]
+                                             X
+                                    I=             bi T̃ −pi
+                                             i=0
+
+be the solution to (43) found in Proposition 7.15. If
+                                             m′
+                                         [ pn ]
+                                                       1/p
+                                          X
+                                  H=               bi        T̃ −i ,
+                                          i=0
+
+
+                                                  44
+for any choice of pth roots, then there exists (after a possible finite extension of
+K) Gn ∈ R[T −1 ] of degree at most m′n − mn−1 such that (H, Gn ) is a solution
+to                                    p               p
+                Gmin H p − Gn ≡ −p p−1 F (mod p p−1 +ǫ R[T −1 ])
+for some ǫ ∈ Q>0 . Furthermore, H and Gn lie in 1 + T −1 m[T −1 ].
+                                                                              ′
+                                                                   Pp[ mpn ]
+    Proof: Working in terms of T̃ , we have that H p − I =           i=1     pai T̃ −i ,
+                                           p       m′n
+where for all i, v(ai ) ≥ minj (v(bj )) ≥ p−1 − mn−1 (p−1) . Since Gmin ∈ R[T̃ −1 ],
+it follows that
+                                    ′
+                                  mn
+                                  X                           ′
+                        p
+               Gmin (H − I) ≡           ei T̃ −i   (mod T̃ −mn−1 R[T̃ −1]),
+                                  i=1
+
+                    p          m′                                     Pm′n −mn−1
+where v(ei ) ≥ 1 + p−1 − mn−1 (p−1)
+                              n
+                                    for all i. Set Gn = G′n +           i=1           ei T̃ −i ,
+                                                                                         p
+where G′n is as in Proposition 7.15. We must show that Gmin H p −Gn ≡ −p p−1 F
+         p
+(mod p p−1 +ǫ R[T −1 ]) for small enough ǫ ∈ Q>0
+   If 0 ≤ i ≤ m′n − mn−1 , then the terms involving T̃ −i (and thus T −i ) agree
+                                       p
+exactly for Gmin H p − Gn and −p p−1 F by construction.
+   If m′n − mn−1 + 1 ≤ i ≤ m′n , then the terms involving T̃ −i (or T −i ) agree
+                              p
+exactly for Gmin I and −p p−1 F (Gn and G′n have no terms of these degrees). So
+                                             p
+the coefficient of T̃ −i in Gmin H p − Gn + p−1 F is ei , which has valuation at least
+                                                                                  p
+     p         m′
+1 + p−1 − mn−1 (p−1)
+                n
+                     . Thus the coefficient of T −i in Gmin H p − Gn + p p−1 F has
+valuation at least
+             p      m′n            i          p   p−2    p
+      1+        −            +             >    +     ≥     ,
+           p − 1 mn−1 (p − 1) mn−1 (p − 1)   p−1 p−1    p−1
+
+so the desired congruence holds for these terms.               p
+    For i > m′n , the coefficient of T̃ −i in Gmin H p −Gn +p p−1 F (which is the same
+                                                                      p         m′n
+as in Gmin H p , as F is of degree ≤ m′n ) has valuation at least p−1    − mn−1 (p−1) .
+                                           −i
+So the corresponding coefficient of T has valuation at least
+
+                      p      m′n            i          p
+                         −            +             >     ,
+                    p − 1 mn−1 (p − 1) mn−1 (p − 1)   p−1
+
+proving the desired congruence.
+   To prove the last assertion, note that any non-constant coefficient of H is of
+          1/p                     p       m′n             m′
+the form bi T̃ i , with v(bi ) ≥ p−1 − mn−1 (p−1) and i > pn − mn−1 . It follows
+                1/p
+easily that v(bi ) + irn−1 > 0. Thus, when H is written in terms of T −1 , all
+non-constant coefficients have positive valuation. The same is then true for Gn .
+                                                                              ✷
+   We examine our solution above in greater detail to prove Proposition 6.20.
+
+
+
+                                             45
+Proposition 7.17 Let Gn and H be as in Corollary 7.16. Suppose that there
+is no integer a satisfying
+
+               m′n                    m′n
+                                             ′        
+                                               mn
+                   − mn−1 < a ≤                   − mn−1 .           (45)
+                p                 m′n − mn−1    p
+                                                             1
+Then vrn′ (H − 1) > 0 and vrn′ (Gn − 1) > 0, where rn′ = m′ (p−1) . Thus all zeroes
+                                                          n
+                                ′
+of Gn lie in the open disk D(rn ).
+    Proof: Since vrn′ (Gmin −1) > 0, we need only show that vrn′ (H −1) > 0. Let
+         ′
+T ′ = p−rn T . Writing H − 1 as i γi (T ′ )−i , we see from Proposition 7.15 and
+                                 P
+                                                     m′                     m′
+the definition of H that γi is nonzero only when [ pn ] − mn−1 + 1 ≤ i ≤ [ pn ].
+                   m′
+In particular, i > pn − mn−1 . Furthermore, if bi is the coefficient of T̃ −pi in I
+(Proposition 7.15), then by the definition of H (Corollary 7.16), we have
+                                                                
+                          v(bi )            1             1
+               v(γi ) =          +i               − ′
+                            p         mn−1 (p − 1) mn (p − 1)
+                                        m′n
+                                                            
+                            1                     i        i
+                      ≥           1−          +        − ′
+                          p−1         pmn−1     mn−1     mn
+                  ′
+           m′        m
+If i > m′ −mnn−1 ( pn − mn−1 ), then v(γi ) > 0, and we are done.                ✷
+         n
+
+
+
+
+Example 7.18 We give a counterexample to Proposition 7.17 when there is an
+a satisfying (45). Let p = 5, n = 3, (m1 , m2 , m3 ) = (1, 5, 34), and F = T −34 .
+Take Gmin ∈ G3 as above. Then the matrix C from (44) becomes
+                                                    
+                            c20 c15 c10 c5 c0
+                                                    
+                          c21 c16 c11 c6 c1 
+                                                    
+                                                    
+                          c22 c17 c12 c7 c2 
+                                                    
+                                                    
+                          c23 c18 c13 c8 c3 
+                                                    
+                                                    
+                            c24 c19 c14 c9 c4
+
+Now, based on (39) and the fact that c0 must be 1, one can calculate that the
+reduction of this matrix to M5 (k) is
+                                               
+                                   4 0 0 0 1
+                                               
+                                 0 1 1 1 1 
+                                               
+                                               
+                           C= 0 0 4 2 3 
+                                               
+                                               
+                                 0 0 0 1 1 
+                                               
+                                               
+                                   0 0 0 0 4
+
+
+                                        46
+      −1
+and C has a nonzero entry in the upper righthand corner (easily checked using
+the adjoint formula for the inverse).                 
+                                                  −I30    BC −1
+   Now, if E is as in (44), then E −1 =                          . We calculate the
+                                                    0      C −1
+coefficient b2 of T̃ −10 in I (from Proposition 7.15). It is the entry of E −1~v
+(see end of proof of Proposition 7.15) corresponding to the top row w     ~ of C −1
+                           −1
+(i.e., the row (0|w)
+                  ~ of E ). Here ~v is a vector whose only nonzero entry is in
+the last position, and is the coefficient of T̃ −34 in 55/4 F , which has valuation
+5          1         9           −1
+4 − 34( 5(4) ) = − 20 . Since C     has an entry of valuation zero in the upper
+                                             9
+righthand corner, we see that v(b2 ) = − 20    . If T ′ = 5−r3 T = 5r2 −r3 T̃ , then if we
+                                                                       9
+                      ′
+write I in terms of T , the coefficient of (T )′ −10
+                                                      has valuation − 20 + 10       10
+                                                                             20 − 34(4) =
+ 1    10                              ′ −10         p
+20 − 136 < 0. The coefficient of (T )         in H has the same valuation, as does
+the coefficient of (T ′ )−10 in Gmin H p , as does the coefficient of (T ′ )−10 in G3 .
+So the zeroes of G3 do not all lie in the disk D(r3 ). In fact, using the Newton
+                                                                    1
+polygon, one can show that 10 zeroes of G3 have valuation 200         .
+
+
+References
+ [1] Kai Arzdorf and Stefan Wewers. A local proof of the semistable reduction
+     theorem. preprint, 2011.
+ [2] José Bertin. Obstructions locales au relèvement de revêtements galoisiens
+     de courbes lisses. C. R. Acad. Sci. Paris Sér. I Math., 326(1):55–58, 1998.
+ [3] José Bertin and Ariane Mézard. Déformations formelles des revêtements
+     sauvagement ramifiés de courbes algébriques. Invent. Math., 141(1):195–
+     238, 2000.
+ [4] Siegfried Bosch, Ulrich Güntzer, and Reinhold Remmert.              Non-
+     Archimedean analysis, volume 261 of Grundlehren der Mathematis-
+     chen Wissenschaften [Fundamental Principles of Mathematical Sciences].
+     Springer-Verlag, Berlin, 1984. A systematic approach to rigid analytic ge-
+     ometry.
+ [5] Siegfried Bosch and Werner Lütkebohmert. Stable reduction and uni-
+     formization of abelian varieties. II. Invent. Math., 78(2):257–297, 1984.
+ [6] Siegfried Bosch and Werner Lütkebohmert. Formal and rigid geometry. I.
+     Rigid spaces. Math. Ann., 295(2):291–317, 1993.
+ [7] Irene Bouw and Stefan Wewers. Group actions on curves and the lifting
+     problem. Course notes for the Arizona Winter School, 2012, available at
+     http://swc.math.arizona.edu/aws/2012.
+ [8] Louis Brewis.        Ramification theory of the p-adic open
+     disc and the lifting problem.          Ph.D. Thesis, available at
+     http://webdoc.sub.gwdg.de/ebook/dissts/Ulm/Brewis2009.pdf.
+
+                                           47
+ [9] Louis Hugo Brewis and Stefan Wewers. Artin characters, Hurwitz trees
+     and the lifting problem. Math. Ann., 345(3):711–730, 2009.
+[10] Ted Chinburg, Robert Guralnick, and David Harbater. Oort groups and
+     lifting problems. Compos. Math., 144(4):849–866, 2008.
+[11] Helmut P. Epp. Eliminating wild ramification. Invent. Math., 19:235–249,
+     1973.
+[12] Marco A. Garuti. Prolongement de revêtements galoisiens en géométrie
+     rigide. Compositio Math., 104(3):305–331, 1996.
+[13] Marco A. Garuti. Linear systems attached to cyclic inertia. In Arithmetic
+     fundamental groups and noncommutative algebra (Berkeley, CA, 1999),
+     volume 70 of Proc. Sympos. Pure Math., pages 377–386. Amer. Math. Soc.,
+     Providence, RI, 2002.
+[14] Barry Green. Realizing deformations of curves using Lubin-Tate formal
+     groups. Israel J. Math., 139:139–148, 2004.
+[15] Barry Green and Michel Matignon. Liftings of Galois covers of smooth
+     curves. Compositio Math., 113(3):237–272, 1998.
+[16] Barry Green and Michel Matignon. Order p automorphisms of the open
+     disc of a p-adic field. J. Amer. Math. Soc., 12(1):269–303, 1999.
+[17] David Harbater. Moduli of p-covers of curves. Comm. Algebra, 8(12):1095–
+     1122, 1980.
+[18] Kazuya Kato. Vanishing cycles, ramification of valuations, and class field
+     theory. Duke Math. J., 55(3):629–659, 1987.
+[19] Nicholas M. Katz. Local-to-global extensions of representations of funda-
+     mental groups. Ann. Inst. Fourier (Grenoble), 36(4):69–106, 1986.
+[20] Serge Lang. Algebra, volume 211 of Graduate Texts in Mathematics.
+     Springer-Verlag, New York, third edition, 2002.
+[21] Qing Liu. Algebraic geometry and arithmetic curves, volume 6 of Oxford
+     Graduate Texts in Mathematics. Oxford University Press, Oxford, 2002.
+     Translated from the French by Reinie Erné, Oxford Science Publications.
+[22] Masayoshi Nagata. Local rings. Robert E. Krieger Publishing Co., Hunt-
+     ington, N.Y., 1975. Corrected reprint.
+[23] Andrew Obus. The (local) lifting problem for curves. Preprint, 2011,
+     arXiv:1105.1530.
+[24] Frans Oort.    Some questions in algebraic geometry.         Available at
+     http://www.staff.science.uu.nl/∼oort0109/.
+
+
+
+                                      48
+[25] Frans Oort. Lifting algebraic curves, abelian varieties, and their endo-
+     morphisms to characteristic zero. In Algebraic geometry, Bowdoin, 1985
+     (Brunswick, Maine, 1985), volume 46 of Proc. Sympos. Pure Math., pages
+     165–195. Amer. Math. Soc., Providence, RI, 1987.
+[26] Frans Oort, Tsutomi Sekiguchi, and Noriyuki Suwa. On the deformation of
+     Artin-Schreier to Kummer. Ann. Sci. École Norm. Sup. (4), 22(3):345–375,
+     1989.
+[27] Florian Pop. Lifting of curves: The Oort conjecture. preprint, 2012,
+     arXiv:1203.1867.
+[28] Tsutomi Sekiguchi and Noriyuki Suwa. On the unified Kummer-Artin-
+     Schreier-Witt theory. Chuo Math. preprint series, 1994.
+[29] Tsutomi Sekiguchi and Noriyuki Suwa. On the unified Kummer-Artin-
+     Schreier-Witt theory. Laboratoire de Mathématiques Pures de Bordeaux
+     preprint series, 1999.
+[30] Tsutomu Sekiguchi and Noriyuki Suwa. A note on extensions of algebraic
+     and formal groups. IV. Kummer-Artin-Schreier-Witt theory of degree p2 .
+     Tohoku Math. J. (2), 53(2):203–240, 2001.
+[31] Jean-Pierre Serre. Corps locaux. Hermann, Paris, 1968. Deuxième édition,
+     Publications de l’Université de Nancago, No. VIII.
+[32] Dajano Tossici. Models of µp2 ,K over a discrete valuation ring. J. Algebra,
+     323(7):1908–1957, 2010. With an appendix by Xavier Caruso.
+
+[33] Stefan Wewers. Swan conductors on the boundary of Lubin-Tate spaces.
+     preprint, 2005, arXiv:math.NT/0511434.
+[34] Stefan Wewers. Fiercely ramified cyclic extensions of p-adic fields with
+     residue field of dimension one. Preprint, 2010, arXiv:1104.3785v1.
+[35] Ernst Witt. Zyklische Körper und Algebren der Charakteristik p vom Grad
+     pn . J. Reine Angew. Math., 176:126–140, 1937.
+[36] Oscar Zariski and Pierre Samuel. Commutative algebra. Vol. II. Springer-
+     Verlag, New York, 1975. Reprint of the 1960 edition, Graduate Texts in
+     Mathematics, Vol. 29.
+
+
+
+
+                                       49
+

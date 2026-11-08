@@ -13,7 +13,7 @@ G-action having potentially good reduction at p:
 Theorem G predicts: a partition exists iff p = 3m - 1 and {x, y, z} = {m, p, p m}.
 Also records whether any representation has p^2 dividing a denominator (for the memo).
 
-Usage: python3 scripts/z65_lift_goodred_check.py [PMAX]
+Usage: python3 scripts/z65_lift_goodred_check.py [PMAX] [NUM=4]   (NUM=8: the F2 twin, KT3; Mordell prediction then not applicable)
 """
 import sys
 from fractions import Fraction
@@ -28,21 +28,46 @@ def primes_upto(n):
     return [i for i in range(n + 1) if s[i]]
 
 
-def reps(p):
-    """All x <= y <= z with 4/p = 1/x + 1/y + 1/z."""
+def factor(n):
+    f = {}
+    d = 2
+    while d * d <= n:
+        while n % d == 0:
+            f[d] = f.get(d, 0) + 1
+            n //= d
+        d += 1
+    if n > 1:
+        f[n] = f.get(n, 0) + 1
+    return f
+
+
+def divisors_from(f):
+    ds = [1]
+    for q, e in f.items():
+        ds = [d * q ** k for d in ds for k in range(e + 1)]
+    return ds
+
+
+def reps(p, num=4):
+    """All x <= y <= z with num/p = 1/x + 1/y + 1/z (integer arithmetic, divisor method)."""
     out = []
-    t = Fraction(4, p)
-    x = p // 4 + 1
-    while Fraction(3, x) >= t:
-        r = t - Fraction(1, x)
-        if r > 0:
-            ylo = max(x, -(-r.denominator // r.numerator))  # ceil(1/r)
-            y = ylo
-            while Fraction(2, y) >= r:
-                s = r - Fraction(1, y)
-                if s > 0 and s.numerator == 1 and s.denominator >= y:
-                    out.append((x, y, s.denominator))
-                y += 1
+    x = p // num + 1
+    while 3 * p >= num * x:
+        a, b = num * x - p, p * x  # 1/y + 1/z = a/b
+        f = factor(p)
+        for q, e in factor(x).items():
+            f[q] = f.get(q, 0) + e
+        f2 = {q: 2 * e for q, e in f.items()}
+        for d in divisors_from(f2):  # (a y - b)(a z - b) = b^2, d = a y - b <= b
+            if d > b or (d + b) % a:
+                continue
+            y = (d + b) // a
+            e2 = b * b // d
+            if (e2 + b) % a:
+                continue
+            z = (e2 + b) // a
+            if x <= y <= z:
+                out.append((x, y, z))
         x += 1
     return out
 
@@ -83,20 +108,21 @@ def cluster_ok(triple, p):
 
 def main():
     pmax = int(sys.argv[1]) if len(sys.argv) > 1 else 600
+    num = int(sys.argv[2]) if len(sys.argv) > 2 else 4
     nrep = 0
     p2 = []
     survivors = []
     for p in primes_upto(pmax):
         if p < 5:
             continue
-        for tr in reps(p):
+        for tr in reps(p, num):
             nrep += 1
             if any(e % (p * p) == 0 for e in tr):
                 p2.append((p, tr))
             g = cluster_ok(tr, p)
             if g:
                 survivors.append((p, tr, g))
-    print(f"primes 5..{pmax}: {nrep} representations of 4/p checked")
+    print(f"numerator {num}; primes 5..{pmax}: {nrep} representations of {num}/p checked")
     print(f"representations with p^2 | some denominator: {len(p2)}; first few: {p2[:5]}")
     print(f"triples admitting a good-reduction cluster partition: {len(survivors)}")
     bad = []

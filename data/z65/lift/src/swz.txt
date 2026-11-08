@@ -1,0 +1,2040 @@
+                                                   THE HURWITZ EXISTENCE PROBLEM IN PRIME
+                                                                   DEGREE
+
+                                                               JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+arXiv:2609.20572v1 [math.AG] 17 Sep 2026
+
+
+
+
+                                                    Abstract. Let p be a prime. We prove that every compatible branch
+                                                    datum of degree p over the sphere is realizable by a connected branched
+                                                    cover. The three-point case is constructed in residue characteristic p.
+                                                    Henrio’s moment theorem supplies the distinct-point moment solutions
+                                                    from which we construct a special primitive tail for each prescribed par-
+                                                    tition; a second application underlies the new tail required by a positive
+                                                    source genus. These tails are joined by a logarithmic deformation da-
+                                                    tum and embedded in one subgroup of Sp containing a common regular
+                                                    subgroup of order p. Wewers’s lifting theorem produces a three-point
+                                                    Galois cover in characteristic zero. The quotient by a point stabilizer has
+                                                    degree p and the prescribed three ramification profiles. The fusion and
+                                                    realization results of Edmonds–Kulkarni–Stong then give the assertion
+                                                    for an arbitrary number of branch values. As consequences, the con-
+                                                    nected prime-degree Hurwitz potential has full support on the Riemann–
+                                                    Hurwitz locus, every corresponding connected relative Gromov–Witten
+                                                    invariant of P1 is nonzero, the two-relative-point disconnected sector
+                                                    with even completed-cycle orders at most p is strictly positive subject
+                                                    to the dimension constraint, and the connected transposition sector is
+                                                    strictly positive.
+
+
+
+
+                                                                             1. Introduction
+                                             For a partition Λ = (e1 , . . . , er ) ⊢ d, define its defect by
+                                                                                            r
+                                                                                            X
+                                                                        v(Λ) = d − r =            (ej − 1).
+                                                                                            j=1
+
+                                           A branch datum of degree d over the sphere is a finite ordered family of
+                                           nonidentity partitions Λ1 , . . . , Λk ⊢ d. It is compatible with an orientable
+                                           source of genus g if
+                                                                          k
+                                                                          X
+                                           (1.1)                                v(Λi ) = 2d − 2 + 2g.
+                                                                          i=1
+
+
+                                              Date: September 18, 2026.
+                                              2020 Mathematics Subject Classification. Primary 14H30; Secondary 11G20, 14N35,
+                                           20B25, 30F10.
+                                              Key words and phrases. branched cover, Hurwitz existence problem, prime degree,
+                                           stable reduction, deformation datum, Hurwitz space, relative Gromov–Witten invariant.
+                                                                                        1
+2                  JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+                                                                P
+Indeed, the Riemann–Hurwitz formula reads 2 − 2g = 2d −            i,j (eij − 1),
+and the inner sum is v(Λi ).
+
+
+Theorem 1.1. Let p be a prime. Every branch datum of degree p satisfying
+(1.1) is realized by a connected branched cover Σg → S 2 .
+
+
+   The assertion was formulated by Edmonds–Kulkarni–Stong [8, p. 787].
+Chenakkod–Faraco–Gupta [6, Corollary 9.6] prove the case in which all but
+one profile are pure cycles. Ciliberto–Knutsen–Torelli [7, Theorem 0.1] give
+an alternative proof of the subcase in which every profile is pure-cycle, with
+prescribed branch points. Further partial results and structural criteria ap-
+pear in [16, 1, 15, 21]. Wang et al. give a complete nonredundant enumera-
+tion of non-realizable partition triples through degree 31 and thereby verify
+the prime-degree conjecture for primes below 32 [20]. As a dated record of
+the state of the problem, Meng–Wei–Zhou described the prime-degree con-
+jecture as unresolved in May 2026 [13, Introduction]. A subsequent criterion
+of Wei treats a specified composite-degree three-profile family [22].
+   The proof uses stable reduction in residue characteristic p. Henrio’s mo-
+ment criterion [10, Definition 3.14 and Proposition 3.16(b)] supplies pair-
+wise distinct points satisfying the required moment equations. We use these
+points to construct primitive tails with arbitrary prescribed tame profiles.
+We assemble these tails into a special G-deformation datum in Wewers’s
+sense and then apply Wewers’s lifting theorem [18, 19] to obtain a three-
+point cover in characteristic zero. Bouw [3, Section 3, especially the con-
+struction preceding Lemma 3.2 and Lemma 3.2] constructs primitive tails
+with a prescribed finite tame profile in the range in which its length is at
+most (p + 1)/2. Common-p-cycle assemblies followed by a point-stabilizer
+quotient occur for pure-cycle genus-zero data in [9, Construction 4.2.3 and
+Propositions 4.2.4–4.2.5]. Prescribed-type deformation data and the corre-
+sponding local lifting problem are treated in [5]; related four-point calcula-
+tions appear in [4]. For g = 1, the invariant 1 + 2/(p − 1) of the one-point
+construction below is the invariant in [3, Proposition 3.3]; Bouw proves that
+proposition by a quadratic base change.
+   After proving Theorem 1.1, we give two moduli-theoretic consequences.
+First, every compatible prime-degree passport determines a nonzero Hur-
+witz cycle with full support over the configuration space of its branch val-
+ues. Second, the Gromov–Witten/Hurwitz correspondence of Okounkov–
+Pandharipande [14] converts the main theorem into positivity statements
+for relative stationary invariants of P1 . With no stationary insertions, their
+theorem identifies the connected relative virtual degree with the connected
+Hurwitz number for every passport. With insertions, the nonnegative non-
+constant coefficients of even completed cycles give a strictly positive two-
+relative-point disconnected sector when their orders are at most p and the
+                       HURWITZ EXISTENCE IN PRIME DEGREE                              3
+
+dimension constraint holds. In the transposition direction, where no com-
+pletion correction occurs, taking the logarithm gives a strictly positive con-
+nected sector. The ordinary fundamental cycle of a Hurwitz stack and the
+virtual class of the relative stable-map compactification are kept distinct.
+
+                2. Branched covers and permutation data
+Definition 2.1. Let X and B be closed connected oriented surfaces. An
+orientation-preserving branched cover f : X → B of degree d is a continuous
+surjection for which every point x ∈ X has oriented local coordinates in
+which f is z 7→ z ex for an integer ex ≥ 1. The integer ex is the local degree.
+If f −1 (b) = {x1 , . . . , xr }, then
+                              prof b (f ) = (ex1 , . . . , exr ) ⊢ d
+is the ramification profile above b. A branch value is a point for which at
+least one exj exceeds 1. A branch datum is realized if its entries, with their
+multiplicities, are the profiles over the branch values of such a cover with
+connected source.
+  Let b1 , . . . , bk be distinct points of P1 (C), put U = P1 − {b1 , . . . , bk }, and
+choose positively oriented peripheral loops γi with γ1 · · · γk = 1.
+Theorem 2.2 (Hurwitz monodromy criterion). Let Λi ⊢ d. There exists
+a connected degree-d branched cover of P1 (C) with branch values bi and
+profiles Λi if and only if there are permutations σi ∈ Sd such that
+                           type(σi ) = Λi ,          σ1 · · · σk = 1,
+and ⟨σ1 , . . . , σk ⟩ is transitive on {1, . . . , d}.
+Proof. Fix a point u ∈ U and label its fiber by {1, . . . , d}. Path lifting defines
+a homomorphism ρ : π1 (U, u) → Sd . A connected covering has transitive
+monodromy: two labels lie in the same orbit precisely when their points in
+the fiber lie in the same connected component of the covering space. The
+presentation
+                     π1 (U, u) = ⟨γ1 , . . . , γk | γ1 · · · γk = 1⟩
+gives ρ(γ1 ) · · · ρ(γk ) = 1. If a cycle of ρ(γi ) has length e, the corresponding
+component above a small punctured disk about bi is the connected degree-e
+cover of that punctured disk. Completing it by one point gives the local
+model z 7→ z e . Hence the cycle lengths are the local degrees.
+   Conversely, permutations satisfying the product relation define a homo-
+morphism from the displayed presentation to Sd . The standard covering-
+space construction gives a degree-d covering of U , and transitivity makes it
+connected. For every cycle of length e in σi , attach a disk to the associated
+boundary component by the map z 7→ z e . The result is a closed oriented sur-
+face and an orientation-preserving branched cover with the required profiles.
+This is the form of the Hurwitz criterion used in [8, Lemma 2.1].                □
+4                  JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+Lemma 2.3 (Profiles in an intermediate quotient). Let Y → B be a con-
+nected G-Galois cover of smooth curves over an algebraically closed field, let
+H ≤ G, and put X = Y /H. Fix a point y ∈ Y and let I ≤ G be its inertia
+group. The points of X above the image of y correspond to the I-orbits on
+G/H. The local degree at the point corresponding to the orbit of gH is
+                               [I : I ∩ gHg −1 ],
+which is the cardinality of that orbit. If the ramification is tame, then I is
+cyclic and the profile of X → B is the cycle partition of any generator of I
+acting on G/H.
+Proof. The points of X above the chosen point of B are indexed by the
+double cosets I\G/H, equivalently by the I-orbits on G/H. The stabilizer
+in I of gH is
+                      {i ∈ I : igH = gH} = I ∩ gHg −1 .
+The orbit–stabilizer formula gives the displayed index. The same index is the
+ramification index in the corresponding intermediate extension of complete
+local fields. In the tame case I is cyclic. A generator has one cycle on
+each I-orbit and the length of that cycle is the orbit cardinality, so its cycle
+partition is the ramification profile.                                        □
+Lemma 2.4 (Normal closure over an étale locus). Let U be a connected
+normal curve over a field and let V → U be a connected finite étale cover.
+If L is the normal closure of the finite extension k(V )/k(U ), then the nor-
+malization of U in L is finite étale over U .
+Proof. Finite étale covers of U are closed under fiber products, open-and-
+closed subschemes, and connected components. Choose the finitely many
+k(U )-embeddings of k(V ) into a fixed separable closure of k(U ). The com-
+positum of their images is L. The normalization of U in this compositum is
+a connected component of an iterated fiber product of copies of V over U .
+That iterated fiber product is finite étale over U , and so is each connected
+component. Hence the normalization in L is finite étale over U .            □
+Lemma 2.5 (The normalizer of a regular subgroup). Let p be prime and
+let P ≤ Sp be generated by a p-cycle. Then
+                    CSp (P ) = P,      NSp (P ) = P ⋊ F×
+                                                       p.
+For every divisor m of p − 1, the quotient NSp (P )/P has a unique subgroup
+of order m, and all complements of P in its inverse image are conjugate by
+an element of P .
+Proof. Identify the set of letters with the additive group of Fp . For b ∈ Fp ,
+write τb (x) = x + b; then P = {τb : b ∈ Fp }. If a permutation f centralizes
+P and c = f (0), then
+                     f (b) = f (τb (0)) = τb (f (0)) = b + c
+for every b. Hence f = τc ∈ P , which proves CSp (P ) = P .
+                   HURWITZ EXISTENCE IN PRIME DEGREE                          5
+
+  Suppose next that f normalizes P . Conjugation by f induces an auto-
+morphism of the cyclic group P . There is therefore a unique a ∈ F×
+                                                                  p such
+           −1
+that f τb f = τab for all b. If c = f (0), then
+                  f (b) = f (τb (0)) = (f τb f −1 )(c) = ab + c.
+Thus f is affine. Conversely, every map x 7→ ax + c with a ̸= 0 normalizes
+P , so NSp (P ) = P ⋊ F×
+                       p.
+   The quotient NSp (P )/P is the cyclic group F× p . Consequently it has a
+unique subgroup Am of order m for every m | p − 1. Let H be a complement
+to P in P ⋊ Am . Projection to Am restricts to an isomorphism H → Am .
+If m = 1, then H is trivial. If m > 1, choose a generator of H and write it
+as x 7→ ax + c, where a has order m and hence a ̸= 1. It fixes the unique
+point x0 = c/(1 − a). Conjugating by the translation x 7→ x − x0 carries this
+generator to x 7→ ax and carries H to the standard complement Am . Hence
+any two complements are conjugate by an element of P .                     □
+
+                3. Reduction to three branch values
+ Let p be odd, and let Λi ⊢ p be nonidentity partitions, none equal to [p].
+Write ri = ℓ(Λi ). For three branch values, compatibility is
+(3.1)                     r1 + r2 + r3 = p + 2 − 2g.
+Each 2 ≤ ri ≤ p − 1. Since the left side of (3.1) is odd, it is at least 7, and
+therefore
+                                        p−5
+(3.2)                          0≤g≤          .
+                                          2
+   We use the following five results of Edmonds–Kulkarni–Stong. They are
+stated in the form needed below. If A is a partition, its defect is denoted by
+v(A), and a permutation belongs to A when its cycle partition is A.
+Proposition 3.1 (EKS fusion and realization results). Let p be an odd
+integer and let A, B be partitions of p.
+    (1) If v(A) + v(B) ≤ p − 1, there are α ∈ A and β ∈ B such that
+        v(αβ) = v(A) + v(B).
+    (2) If v(A) + v(B) is even and at least p + 1, there are α ∈ A and β ∈ B
+        such that αβ is a p-cycle.
+    (3) If v(A) + v(B) is odd and at least p, there are α ∈ A and β ∈ B such
+        that αβ has cycle partition [p − 1, 1].
+    (4) Every compatible degree-p branch datum containing [p] is realizable.
+    (5) Every compatible degree-p branch datum containing [p − 1, 1] is real-
+        izable.
+Proof. Part (1) is Lemma 4.2 on pp. 781–782 of [8], part (2) is Corollary 4.4
+on p. 782, and part (3) is Lemma 4.5 on pp. 782–783. In Lemma 4.5 the
+alternative partition [p/2, p/2] occurs only in even degree and is therefore
+absent here. Parts (4) and (5) are Propositions 5.2 and 5.3 on pp. 784–785;
+all exceptional cases in Proposition 5.3 have even degree.                 □
+6                  JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+Lemma 3.2 (Insertion of a factorization). Let c1 , . . . , cn ∈ Sp satisfy
+                 c1 · · · cn = 1,   ⟨c1 , . . . , cn ⟩ is transitive.
+Fix an index i. Let α, β ∈ Sp and suppose that αβ is conjugate to ci . Then
+there is u ∈ Sp for which replacing ci by the two consecutive factors uαu−1
+and uβu−1 produces a product-one tuple that still generates a transitive sub-
+group.
+Proof. Choose u ∈ Sp such that uαβu−1 = ci . The product of the two
+inserted factors is
+                      (uαu−1 )(uβu−1 ) = uαβu−1 = ci .
+Consequently the product of the expanded tuple equals the product of the
+original tuple and is therefore 1. Let H ′ be the subgroup generated by the
+expanded tuple. It contains every cj with j ̸= i, and it contains ci as the
+product of the two inserted factors. Hence ⟨c1 , . . . , cn ⟩ ≤ H ′ . A group
+containing a transitive subgroup is transitive, so H ′ is transitive.       □
+Lemma 3.3 (EKS interface). Suppose that every compatible triple as above
+is realizable. Then every compatible branch datum of odd prime degree is
+realizable.
+Proof. We reconstruct the reduction in [8, Sections 4–5], including its con-
+nectedness argument. We use strong induction on the number k of genuine
+branch partitions. Compatibility is impossible for k ≤ 1, since every parti-
+tion has branching at most p − 1 < 2p − 2. If k = 2, compatibility forces
+g = 0 and both entries to be [p]; inverse p-cycles realize them. If k = 3,
+Proposition 3.1(4) applies when one entry is [p], and otherwise the residual
+three-point hypothesis applies. More generally, Proposition 3.1(4) realizes
+any compatible datum containing [p]. We may therefore assume k ≥ 4 and
+that no entry is [p].
+   Suppose first that two entries A, B satisfy
+                           s := v(A) + v(B) ≤ p − 1.
+Proposition 3.1(1) gives α ∈ A, β ∈ B such that v(αβ) = s. Replace A, B
+by the type C of αβ. Because A and B are nonidentity partitions, v(A) ≥ 1
+and v(B) ≥ 1. Hence v(C) = s ≥ 2, so C is also a nonidentity partition.
+The new datum has k − 1 entries and exactly the same total branching,
+hence the same genus. By induction it has a transitive product-one tuple.
+Lemma 3.2 replaces its C-element by conjugates of α, β without changing
+the product-one relation or transitivity. Thus the expanded tuple realizes
+the original datum connectedly.
+  It remains to consider k ≥ 4 when every pair satisfies v(Ai ) + v(Aj ) ≥ p.
+Choose A, B, put
+                                              X
+                  s = v(A) + v(B),       R=        v(C).
+                                                  C̸=A,B
+                   HURWITZ EXISTENCE IN PRIME DEGREE                           7
+
+At least two entries remain, so the pairwise hypothesis gives R ≥ p. If s is
+even, then it has the parity of p + 1 and is at least p + 1. Proposition 3.1(2)
+chooses α, β with product a p-cycle. Replace A, B by [p]. Here R is even;
+since p is odd, R ≥ p + 1, and the reduced total branching is
+                              R + (p − 1) ≥ 2p.
+Define the temporary source genus by
+                     R + (p − 1) − (2p − 2)    R−p+1
+                g′ =                         =          ≥ 1.
+                               2                     2
+The numerator is even because R is even and p is odd. Thus g ′ ∈ Z≥1 and
+the reduced total branching is 2p−2+2g ′ . The reduced datum is compatible
+and contains [p], so Proposition 3.1(4) realizes it.
+   If s is odd, then s ≥ p and s − p is even. Put q = (s − p)/2 ∈ Z≥0 , so
+that s = p + 2q. Proposition 3.1(3) chooses α, β whose product has type
+[p − 1, 1]. Now R is odd, hence R ≥ p, and the reduced total branching is
+                            R + (p − 2) ≥ 2p − 2.
+Define the temporary genus by
+                        R + (p − 2) − (2p − 2)    R−p
+                  g′ =                         =          ≥ 0.
+                                  2                  2
+Here R − p is even because both R and p are odd. Thus g ′ ∈ Z≥0 and the
+reduced total branching is 2p−2+2g ′ . The reduced datum is compatible and
+contains [p − 1, 1], so Proposition 3.1(5) realizes it. In each high-pair case,
+Lemma 3.2 expands the selected product and restores the original profiles,
+product-one relation, and transitivity. Although a high-pair replacement
+changes the intermediate total branching and genus, the final expanded tuple
+has the original total and therefore the prescribed genus.
+  Identity partitions 1p were excluded from branch data at the outset. If an
+externally marked list contains one, deleting it changes neither the product,
+the generated subgroup, nor Riemann–Hurwitz, and reinserting it adds only
+an unramified marked target point. This proves the lemma.                    □
+  The case p = 2 will be treated at the end. We now prove the residual
+three-point assertion uniformly for odd p.
+
+           4. Deformation data, tail covers, and lifting
+   Throughout the characteristic-p construction in the next five sections, k
+is an algebraically closed field of characteristic p > 0. In the applications of
+Henrio’s theorem we take k = Fp .
+Definition 4.1 (Deformation datum). Let X be a smooth projective con-
+nected curve over k. A deformation datum of type (H, χ) over X is a pair
+(Z, ω) consisting of a connected tame H-Galois cover Z → X, with p ∤ |H|,
+and a nonzero meromorphic differential ω on Z such that
+                          h∗ ω = χ(h)ω      (h ∈ H),
+8                    JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+where χ : H → F×   p is a character. The datum is logarithmic if ω = du/u
+for a rational function u ∈ k(Z)× . Only logarithmic deformation data will
+be used below.
+   For τ ∈ X, choose ξ ∈ Z above τ and set
+                                                                hτ
+               mτ = |Hξ |,        hτ = ordξ (ω) + 1,     στ =      .
+                                                                mτ
+The point τ is critical if (mτ , hτ ) ̸= (1, 1).
+Lemma 4.2 (Independence of the point above τ ). The integers mτ , hτ and
+the rational number στ in Definition 4.1 do not depend on the chosen point
+ξ above τ .
+Proof. Let ξ ′ be another point above τ . Since Z → X is a connected H-
+Galois cover, H acts transitively on the geometric fiber above τ . Choose
+a ∈ H with a(ξ) = ξ ′ . Then
+                                   Hξ′ = aHξ a−1 ,
+so the two stabilizers have the same order. Moreover, a∗ ω = χ(a)ω, and
+multiplication of a differential by the nonzero scalar χ(a) does not change
+its order. Pullback by the isomorphism a gives
+                        ordξ′ (ω) = ordξ (a∗ ω) = ordξ (ω).
+Thus mτ and hτ are independent of ξ, and so is στ = hτ /mτ .               □
+Lemma 4.3 (Signature identity). For a deformation datum over a curve
+X of genus gX ,
+                      X
+                           (στ − 1) = 2gX − 2.
+                           τ critical
+
+Proof. Put n = |H|. The fiber of Z → X above τ has n/mτ points. At
+each of these points the order of ω is hτ − 1. The degree of the divisor of a
+meromorphic differential therefore gives
+                                    X n
+                         2gZ − 2 =         (hτ − 1).
+                                     τ
+                                        mτ
+Because Z → X is tame, Riemann–Hurwitz gives
+                                     X n
+              2gZ − 2 = n(2gX − 2) +       (mτ − 1).
+                                     τ
+                                        mτ
+Subtract the second ramification sum from the first equality and divide by
+n. The summand at τ becomes
+                  hτ − 1 m τ − 1      hτ
+                         −         =     − 1 = στ − 1.
+                    mτ        mτ      mτ
+Noncritical points have (mτ , hτ ) = (1, 1) and contribute zero, which proves
+the formula.                                                               □
+                    HURWITZ EXISTENCE IN PRIME DEGREE                              9
+
+Definition 4.4 (Special deformation datum). A logarithmic deformation
+datum (Z, ω) over P1k is special if every critical invariant satisfies στ < 2
+and στ ̸= 1, and exactly three critical points satisfy στ < 1. If B indexes
+the critical points, put
+                         Bwild = {j ∈ B : σj = 0},
+                           Bprim = {j ∈ B : 0 < σj < 1},
+                           Bnew = {j ∈ B : 1 < σj < 2},
+                            B0 = Bwild ∪ Bprim .
+Thus |B0 | = 3. It is normalized if the three points indexed by B0 are 0, 1, ∞.
+The three kinds of indices are called wild, primitive, and new, respectively.
+Definition 4.5 (Pointed tail cover). Let G be finite. A G-cover means
+a finite generically separable map f¯ : Ȳ → X̄ with a G-action on Ȳ and
+quotient Ȳ /G = X̄; the source is allowed to be disconnected. A G-tail cover
+is a G-cover with X̄ ≃ P1k which is wildly ramified above a distinguished
+point ∞ ¯ with inertia order pm, where p ∤ m, and whose restriction to X̄ −
+{∞}¯ is tame and branched at at most one point. A pointing consists of a
+point η above ∞ ¯ and a complement H ≤ Iη such that Iη = Iη,1 ⋊ H, where
+Iη,1 ≃ Cp . Write m = |H|, let h be the unique lower jump of Iη,1 , and put
+σ = h/m. The tail is special if σ < 2, σ ̸= 1, and its affine restriction is
+étale whenever σ > 1. It is primitive if σ < 1 and new if σ > 1. The ordered
+pair (m, h) is called the integer type of the pointed tail and is denoted by
+type(f ).
+  Definitions 4.1–4.5 are [19, Definitions 1.5, 2.7, 2.9, and 2.10].
+Definition 4.6 (Special G-deformation datum). Fix a finite group G, a
+subgroup
+                  G0 = P ⋊ H0 ≤ G,    P = ⟨α⟩ ≃ Cp ,
+and the actual conjugation character
+                     χ0 : H0 −→ F×
+                                 p,          hαh−1 = αχ0 (h) .
+A special G-deformation datum consists of the following objects.
+   (1) A normalized special deformation datum (Z0 , ω0 ) of type (H0 , χ0 ),
+       with critical points (τj )j∈B and integer types (mj , hj ).
+   (2) For every j ∈ B − Bwild , a point ξj ∈ Z0 above τj .
+   (3) For every j ∈ B −Bwild , a subgroup Gj ≤ G and a connected pointed
+       Gj -tail (fj : Yj → P1 , ηj , Hj ).
+These objects are required to satisfy
+                           G = ⟨G0 , Gj : j ∈ B − Bwild ⟩,
+and, for every j ∈ B − Bwild ,
+ type(fj ) = (mj , hj ),      Iηj = P ⋊ Hj ,      Hj = StabH0 (ξj ) = H0 ∩ Iηj .
+  This is [19, Definition 2.13].
+10                  JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+Lemma 4.7 (Tame inertia under lifting). Let R be a complete discrete valu-
+ation ring with algebraically closed residue field of characteristic p, and let D
+be a formal disk over R with a section xR . Let E → D be the unique tame lift
+of a finite G-equivariant cover of the special fiber which is étale away from
+the specialization of xR . If T ≤ G is the inertia group at that point, then
+the generic inertia group along xR is conjugate to T . Its generators differ
+from generators of T by powers prime to |T |. Consequently, for every finite
+G-set Ω, the orbit partition of a local inertia generator on Ω is unchanged
+by the lift. If the special-fiber cover is étale, its unique tame lift is étale.
+Proof. After strict henselization at the section, a connected tame local cover
+of ramification index e has the form
+                       Rsh [[t]] −→ Rsh [[s]],    t = use ,
+where u is a unit and p ∤ e. The tame fundamental group is procyclic.
+Because e is invertible and the ring is strictly henselian, Hensel’s lemma
+gives an eth root of u; after replacing s by that root times s, the equation is
+t = se . Reduction induces a bijection between the eth roots of unity in Rsh
+and those in its residue field. Thus the same element
+                                    s 7−→ ζe s
+generates the special and generic inertia groups. Changing either chosen
+generator replaces it by its ath power for some a ∈ (Z/eZ)× . On a finite G-
+set, a generator and such a power generate the same cyclic subgroup; hence
+they have the same orbits, and on each orbit both act as a cycle whose
+length is the orbit cardinality. Their cycle partitions are therefore equal.
+When e = 1, the local equation is t = s and the extension is étale. Applying
+this argument to every connected component proves the statement.           □
+Theorem 4.8 (Lifting interface). Let p be odd and let k be algebraically
+closed of characteristic p. Let G ≤ Sp satisfy p∥|G|. Fix a regular subgroup
+P = Cp ≤ G and an actual complement H0 ≤ NSp (P ) such that
+                              G0 = P ⋊ H0 ≤ G.
+Let χ0 : H0 ,→ Aut(P ) = F×    p be the character induced by conjugation. Let
+a special G-deformation datum in the sense of Definition 4.6 be given. As-
+sume that its central deformation datum is logarithmic, has no wild critical
+point, and hence has exactly three primitive critical points. Then it defines
+a connected special stable G-map, and that map is the stable reduction of
+a characteristic-zero three-point G-cover. Moreover, on every primitive tail
+the marked tame restriction away from the wild attachment point is pre-
+served by the lift; in particular, its finite tame inertia action on every G-set
+is preserved. A new tail creates no additional horizontal branch point.
+Proof. Let X0 = P1k . Attach a copy Xj = P1k to X0 by identifying the
+distinguished point ∞j ∈ Xj with τj ∈ X0 . Denote the resulting nodal
+                     HURWITZ EXISTENCE IN PRIME DEGREE                            11
+
+curve by X̄. The logarithmic datum determines the central inseparable cover
+Y0 → X0 used in [19, Definitions 2.14–2.15]. Form the induced G-curves
+                          IndG
+                             G0 (Y0 )          and   IndG
+                                                        Gj (Yj )
+
+for all j. At the node above τj = ∞j , the equalities Iηj = P ⋊ Hj and
+Hj = H0 ∩ Iηj identify the two induced G-orbits with the same stabilizer.
+They therefore give a G-equivariant gluing. The connected components of
+the resulting source are permuted by the subgroup generated by G0 and all
+Gj . This subgroup is G, so the source is connected. Thus Definitions 2.14–
+2.15 of [19] give a connected special stable G-map Ȳ → X̄.
+   Corollary 4.6 of [19] lifts every such special map to a three-point G-cover.
+More precisely, in the proof of Theorem 4.5 in [19, Section 4.2.3], Wewers
+deletes the wild attachment point from a tail, passes to the resulting induced,
+possibly disconnected, affine tame cover, and uses its unique tame lift over
+the corresponding formal disk; the lift is unramified away from the horizontal
+section. Lemma 4.7 shows that, at a primitive tail, the finite tame inertia
+subgroup and its orbit partition on every G-set are preserved. At a new tail
+the affine special-fiber cover is étale, so its unique tame lift is étale and gives
+no horizontal ramification. Wewers marks the base by B0 = Bprim ∪ Bwild .
+In the present hypotheses Bwild = ∅ and |Bprim | = 3, so the generic cover
+has exactly those three branch sections.                                           □
+
+              5. Primitive tails with prescribed profile
+Theorem 5.1 (Henrio’s moment criterion). Let r be an integer with 2 ≤
+r ≤ p. Let e1 , . . . , er ∈ F×
+                              p satisfy
+                                      X
+                                        ej = 0.
+                                           j
+
+Suppose that no nonempty proper subcollection of the ej has sum zero. Then
+there are pairwise distinct a1 , . . . , ar ∈ Fp such that
+                        r
+                              ej aqj = 0
+                        X
+(5.1)                                           (1 ≤ q ≤ r − 2).
+                        j=1
+
+Proof. Call a set partition of {1, . . . , r} adapted if the sum of the ej over
+each of its
+         P blocks is zero in Fp . The one-block set partition is adapted
+because j ej = 0. If an adapted partition had at least two blocks, any
+one of its blocks would be a nonempty proper subcollection with sum zero,
+contrary to the hypothesis. Hence the one-block partition is the unique
+adapted partition and, in particular, the unique maximal adapted partition
+in the terminology of Henrio.
+   Set mH = r − 1. Since r ≤ p, one has mH < p and therefore
+                                                            
+                                                          mH
+         1 ≤ mH ≤ p − 1,       gcd(mH , p) = 1,                + 1 = 1,
+                                                           p
+12                   JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+which is the number of blocks of the unique maximal adapted partition.
+Thus every hypothesis in Henrio’s terminology [10, Definition 3.14 and
+Proposition 3.16(b)] is satisfied. That proposition gives pairwise distinct
+coordinates satisfying the moment equations for 1 ≤ q ≤ mH − 1 = r − 2
+with p ∤ q. The final condition is automatic because 1 ≤ q ≤ r−2 < p. When
+r = 2, this range of integers q is empty; the conclusion of the proposition is
+then precisely the existence of two distinct coordinates.                   □
+Lemma 5.2 (Moments and a derivative identity). Let k be a field, let
+a1 , . . . , ar ∈ k be pairwise distinct, and let e1 , . . . , er be positive integers
+whose images in k are nonzero. Put
+                           Yr                       Y r
+                   A(y) =     (y − aj ),    P (y) =       (y − aj )ej .
+                         j=1                                  j=1
+
+If
+                        r
+                              ej aqj = 0
+                        X
+                                                  (0 ≤ q ≤ r − 2),
+                        j=1
+then there is a scalar c ∈ k × such that
+                                     Yr
+                            ′
+                          P (y) = c     (y − aj )ej −1 .
+                                           j=1
+
+Proof. The product rule gives
+                                
+                  r
+                  Y                                                 r
+                                                                    X          Y
+      P ′ (y) =  (y − aj )ej −1  S(y),                S(y) =            ej          (y − aℓ ).
+                  j=1                                               j=1        ℓ̸=j
+
+In the Laurent-series field k((y −1 )),
+                                                                   
+                           r                            r
+                  S(y)             ej
+                                                              ej aqj  y −q−1 .
+                           X                  X         X
+                       =                =           
+                  A(y)           y − aj
+                           j=1                q≥0       j=1
+
+The assumed moments show that the right side belongs to y −r k[[y −1 ]]. Since
+A is monic of degree r, the product S = A(S/A) belongs to k[[y −1 ]]. It is
+also a polynomial in y, so it is constant. For every i,
+                                    Y
+                         S(ai ) = ei (ai − aℓ ) ̸= 0.
+                                           ℓ̸=i
+
+Thus the constant c = S is nonzero, and the product-rule identity gives the
+asserted formula.                                                        □
+Lemma 5.3 (Henrio polynomial). Let Λ = (e1 , . . . , er ) ⊢ p with 2 ≤ r ≤
+p − 1. Over k = Fp there are distinct a1 , . . . , ar and a polynomial
+                                            r
+                                            Y
+                                PΛ (y) =          (y − aj )ej
+                                            j=1
+                    HURWITZ EXISTENCE IN PRIME DEGREE                           13
+
+such that
+                                   r
+                                   Y
+                     PΛ′ (y) = c       (y − aj )ej −1 ,       c ̸= 0.
+                                   j=1
+
+Consequently PΛ : P1 → P1 is a separable degree-p cover with exactly two
+branch values: profile Λ over 0, and one totally wildly ramified point over
+∞.
+Proof. Regard the positive integers ej < p as elements of F×     p . Their total
+is zero, while no nonempty proper subcollection has zero sum. Theorem 5.1
+gives distinct aj satisfying (5.1). The zeroth moment also vanishes because
+P
+     e = p = 0 in k. Lemma 5.2 now gives (5.3). The degree of PΛ is
+Pj j
+   j ej = p, and its derivative is nonzero, so the induced extension of function
+fields is separable. At y = aj one has
+                   PΛ (y) = (y − aj )ej uj (y),           uj (aj ) ̸= 0.
+Thus the local degree is ej and the image is zero. If a finite point b is distinct
+from every aj , then PΛ′ (b) ̸= 0, so the morphism is unramified at b. Finally,
+with the parameter s = 1/y at infinity, ord∞ (PΛ ) = −p. Therefore infinity
+is the unique point above infinity and has ramification index p. Since r < p,
+at least one ej exceeds one, so zero is a genuine branch value. The two
+branch values are exactly 0 and ∞, with the stated profiles.                    □
+Lemma 5.4 (Local conductor and character). Let K be a complete dis-
+cretely valued field with algebraically closed residue field k of characteristic
+p, and let E/K be a totally ramified separable extension of degree p. Let
+L/K be its Galois closure. Suppose that the inertia group of L/K, acting
+on the p K-embeddings of E in L, is
+                  I = P ⋊ H ≤ Sp ,            P = Cp ,       H = Cm ,
+and that P has unique lower jump h. Put M = LP . If πM is a uniformizer
+of M , define the tame parameter character by
+                                                2
+                 a(πM ) ≡ ψ(a)πM          (mod πM )           (a ∈ H).
+Let dloc = vE (DE/K ) be the exponent of the different. If χ : H → Aut(P ) is
+the conjugation character, then
+                                
+                               h
+          dloc = (p − 1) 1 +       ,    χ = ψ εh for ε ∈ {1, −1}.
+                              m
+If the natural action is faithful, then χ is faithful and gcd(h, m) = 1.
+Proof. Fix a prime ℓ ̸= p. Let A = Qℓp be the permutation representation
+on the p embeddings and put V = A/Qℓ 1. If a subgroup is transitive on
+the p letters, its invariant subspace in A consists precisely of the constant
+vectors. Both I and its regular subgroup P are transitive, so V I = V P = 0.
+14                 JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+The lower ramification groups are I0 = I, Is = P for 1 ≤ s ≤ h, and trivial
+thereafter. The Artin conductor formula
+                                      X |Is |
+                  a(V ) = codim V I +           codim V Is
+                                          |I0 |
+                                           s≥1
+
+therefore gives
+                                h                                
+                                X |P |                          h
+            a(V ) = (p − 1) +             (p − 1) = (p − 1) 1 +     .
+                                      |I|                       m
+                                s=1
+The representation A is the induced representation attached to the degree-
+p subextension. If dE/K denotes the discriminant ideal, the conductor–
+discriminant formula gives
+                                a(A) = vK (dE/K ).
+The different and discriminant ideals satisfy
+                            dE/K = NE/K (DE/K ).
+Since E/K is totally ramified, its residue degree f (E/K) equals one; hence
+                   vK (dE/K ) = f (E/K)vE (DE/K ) = dloc .
+Since A = Qℓ 1 ⊕ V and the trivial summand has conductor zero, a(A) =
+a(V ). This proves the different formula. Fix the convention for the con-
+jugation character and the tame parameter character used in [19, Lemma
+2.12]. Equivariance of its local Artin–Schreier normal form gives the second
+equality in (5.4); the sign ε records the character convention. The character
+ψ has order m because H is the tame inertia quotient. Moreover, an element
+in ker χ centralizes the regular p-cycle; since CSp (P ) = P and H ∩ P = 1,
+faithfulness of the permutation action forces ker χ = 1. Hence χ has order
+m. The order of ψ ±h is m/ gcd(m, h). The equality χ = ψ ±h therefore
+implies m/ gcd(m, h) = m, or gcd(h, m) = 1.                                □
+Lemma 5.5 (Primitive-tail verification). The connected Galois closure of
+PΛ is a connected pointed special primitive tail. In its faithful natural action
+GΛ ≤ Sp , the inertia at infinity is
+                  IΛ = P ⋊ HΛ ,          P = Cp ,    HΛ = CmΛ ,
+and, if hΛ is the positive lower jump,
+    hΛ     r−1                     p−1                            r−1
+         =       ,     mΛ =                     ,     hΛ =                     .
+   mΛ      p−1                gcd(p − 1, r − 1)              gcd(p − 1, r − 1)
+Its unique finite tame inertia has complete cycle partition Λ in the same
+natural p-letter action.
+Proof. Take the normal closure as a field and denote its smooth projective
+Galois cover by fΛ : YΛ → P1 . Its source is connected and its Galois group
+acts faithfully on the p embeddings because an automorphism acting trivially
+on every embedding fixes the normal closure. The cover PΛ is étale away
+                    HURWITZ EXISTENCE IN PRIME DEGREE                           15
+
+from 0, ∞; Lemma 2.4, applied to that open curve, shows that its normal
+closure does not add branch points there. At 0 all local indices ej are prime
+to p, and a compositum of tame local extensions is tame. Choose a point η of
+the connected normal closure above infinity and write Iη for its inertia group.
+In the degree-p quotient there is a unique point above infinity. Lemma 2.3
+therefore shows that the decomposition group at η has a single orbit on the
+p embeddings, so it is transitive. Since the constant field k is algebraically
+closed, all residue extensions are trivial; hence decomposition equals inertia
+and Iη is transitive. The orbit of a letter under Iη has cardinality p, so p
+divides |Iη |. Because Iη ≤ Sp and vp (p!) = 1, a Sylow p-subgroup has order
+p; it is generated by a p-cycle and is therefore a regular P = Cp . Inertia
+theory over an algebraically closed residue field makes the tame quotient
+Iη /P cyclic. Since its order is prime to p, Schur–Zassenhaus supplies a
+complement HΛ = CmΛ with Iη = P ⋊ HΛ . Thus (fΛ , η, HΛ ) is a connected
+pointed tail cover.
+   At the point aP j the tame different exponent is ej − 1. Hence the total
+finite different is j (ej − 1) = p − r. Riemann–Hurwitz on PΛ : P1 → P1
+says that the total different has degree 2p − 2, so the different exponent at
+infinity is 2p − 2 − (p − r) = p + r − 2. Lemma 5.4 gives
+                                                    
+                                                  hΛ
+                        p + r − 2 = (p − 1) 1 +        ,
+                                                  mΛ
+and subtraction and division by p − 1 give hΛ /mΛ = (r − 1)/(p − 1). The
+character argument in that lemma shows gcd(hΛ , mΛ ) = 1. Hence the re-
+duced numerator and denominator of this rational number are the actual
+local integers, namely the two integers in (5.5). Since 2 ≤ r ≤ p − 1, one has
+0 < hΛ /mΛ < 1. Together with the single finite tame branch point (which is
+genuine because r < p, so some ej > 1), this is exactly a special primitive tail
+under [19, Definitions 2.9–2.10]. Finally, apply Lemma 2.3 to the degree-p
+quotient at zero. Its points above zero have local degrees e1 , . . . , er , so a
+generator of the tame inertia has exactly these cycle lengths in the natural
+p-letter action. This proves the complete profile assertion.                   □
+
+                     6. The positive-genus new tail
+Lemma 6.1 (Hyperelliptic new tail). Assume g > 0. There is a connected
+pointed special new tail whose natural degree-p quotient has genus g and is
+étale over A1 . If its inertia at infinity is P ⋊ Hg and hg is the positive lower
+jump, then, with
+                                dg = gcd(p − 1, 2g),
+its actual local data are
+                   p−1                 p − 1 + 2g            hg           2g
+     |Hg | = mg =         ,     hg =              ,    σg =      =1+           .
+                      dg                   dg                mg         p−1
+The character Hg → Aut(P ) is the faithful multiplier character in the nat-
+ural embedding in Sp .
+16                   JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+Proof. The residual bound (3.2) gives p ≥ 7, 0 < 2g ≤ p − 5, and
+                     p−1
+                 n=        − g ≥ 2,      ρg = (2n , 12g+1 ) ⊢ p.
+                       2
+The displayed family is a partition because 2n + (2g + 1) = p. Its length is
+n + 2g + 1 = (p + 1)/2 + g, so its length minus one is (p − 1)/2 + g ≤ p − 3.
+A nonempty proper subcollection of its parts has a positive integral sum
+strictly smaller than p, and therefore does not sum to zero in Fp . Theorem
+5.1 applies and supplies pairwise distinct bj , ck such that
+         n
+         Y                          2g+1
+                                     Y
+H(x) =       (x − bj ),   f (x) =         (x − ck ),   R = H 2 f,   R′ = cH,   c ̸= 0.
+         j=1                        k=1
+
+Indeed, the zeroth moment is the sum of the parts of ρg , hence is p = 0 in
+k. Lemma 5.2 applied to the exponents of ρg gives the derivative identity:
+a root bj has exponent 2 and contributes one factor to the derivative, while
+a root ck has exponent 1 and contributes none.
+   The roots ck are distinct, so f is squarefree. Because p is odd, the affine
+curve y 2 = f (x) is smooth. Its smooth projective model
+                                    Cg : y 2 = f (x)
+is connected because f is not a square. The double cover x : Cg → P1x is
+ramified at the 2g + 1 roots of f and at infinity. It therefore has 2g + 2
+simple ramification points, and Riemann–Hurwitz gives
+                    2g(Cg ) − 2 = 2(−2) + (2g + 2) = 2g − 2.
+Thus g(Cg ) = g. Odd degree gives a unique point Q over infinity. Put
+u = H(x)y. Cancelling H from R′ = cH gives 2H ′ f + Hf ′ = c, and hence
+                                              Hf ′      c dx
+                          du = H ′ y dx +          dx =      .
+                                              2y        2 y
+At an affine point with y ̸= 0, the function x is a local parameter and dx/y
+is nonzero. At a point (ck , 0), the squarefreeness of f gives f ′ (ck ) ̸= 0; the
+function y is a local parameter and differentiating y 2 = f (x) gives
+                                     dx   2 dy
+                                        = ′    ,
+                                      y  f (x)
+which is again regular and nonzero. At the unique point Q over infinity, the
+degree-two map x and the equation y 2 = f (x) give
+                     ordQ (x) = −2,        ordQ (y) = −(2g + 1).
+Since p is odd, the coefficient 2 is nonzero in k. Differentiating the leading
+term of a function with a pole of order 2 therefore gives
+                                    ordQ (dx) = −3.
+Hence
+                     ordQ (dx/y) = −3 + (2g + 1) = 2g − 2.
+                    HURWITZ EXISTENCE IN PRIME DEGREE                            17
+
+There are no other zeros or poles, so div(dx/y) = (2g − 2)Q. Equation
+(6) and c ̸= 0 show that du is nonzero and has no zero at an affine point.
+Therefore the morphism defined by u is separable and unramified over the
+affine line. Moreover
+                       ordQ (u) = −(2n + 2g + 1) = −p.
+Thus u has the unique pole divisor pQ. A nonconstant rational function
+on a smooth projective curve defines a finite morphism whose degree is the
+degree of its pole divisor. Hence u defines a finite separable morphism of
+degree p,
+                               u : Cg −→ P1u
+whose affine restriction is finite and unramified. A finite separable unram-
+ified morphism between smooth curves is étale. The pole divisor pQ also
+shows that Q is its sole point over infinity, with ramification index p.
+    Take the connected function-field normal closure and call its natural group
+Gg ≤ Sp . Lemma 2.4 shows that normal closure does not introduce ramifi-
+cation over A1 . Choose a point η over infinity. By Lemma 2.3, the unique
+point of the degree-p quotient over infinity makes its decomposition group
+transitive on the p embeddings. Because k is algebraically closed, decompo-
+sition equals inertia. Its order is divisible by p; since vp (p!) = 1, its Sylow
+p-subgroup has order p and is generated by a p-cycle, hence is a regular
+P = Cp . The tame inertia quotient is cyclic, and Schur–Zassenhaus gives a
+complement Hg . This makes the normal closure a connected pointed Gg -tail
+in the precise sense of [19, Definition 2.9].
+    The map (6) is étale away from infinity. Its sole different exponent is
+therefore determined by Riemann–Hurwitz:
+                             2g − 2 = p(−2) + d∞ ,
+so d∞ = 2g + 2p − 2. Lemma 5.4 gives
+                                                   
+                                                 hg
+                       2g + 2p − 2 = (p − 1) 1 +      .
+                                                 mg
+Solving this equality gives hg /mg = 1 + 2g/(p − 1). Its faithful-character
+conclusion shows gcd(hg , mg ) = 1, so the reduced numerator and denomina-
+tor are exactly the integers in (6.1). Finally (3.2) gives 1 < σg < 2, while the
+affine restriction is étale. Therefore [19, Definition 2.10] calls this a special
+new tail. Under the identification of the p letters with Fp , the regular sub-
+group P acts by translations. Lemma 2.5 identifies the conjugation action
+of Hg on P with its multiplier in F× p . Its kernel would centralize P and meet
+P trivially, so the same lemma shows that the character is faithful.            □
+
+                   7. The central logarithmic datum
+Definition 7.1 (Cyclic special degeneration datum). Let m > 1 divide p−1,
+let χ : Cm ,→ F×                                         1
+               p be faithful, and let τ1 , . . . , τr ∈ P (k) be pairwise distinct.
+18                 JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+Choose integers
+                                                r
+                                                X
+                         0 < aj < m,                  aj = m,
+                                                j=1
+
+and assume that
+                              gcd(m, a1 , . . . , ar ) = 1.
+Let Z → P1k be the connected cyclic cover of degree m with these Kummer
+exponents, the deck action being chosen so that the Kummer coordinate has
+character χ. Put
+                                             m            aj
+                 cj = gcd(m, aj ),   mj = ,         aj = ,
+                                                    e
+                                             cj           cj
+                                                                    P
+and let Pj be the reduced divisor above τj . Choose νj ∈ {0, 1} with j νj =
+r − 3.
+   A cyclic special degeneration datum is a nonzero element of
+                                   H 0 (Z, Ω1Z/k )χ
+which, denoted by ω, satisfies
+                                    r
+                                    X
+(7.1)                  div(ω) =                    aj − 1)Pj ,
+                                          (mj νj + e
+                                    j=1
+(7.2)                    C(ω) = ω,
+where C is the Cartier operator.
+   The numerical, divisor, and Cartier conditions are those of [18, Defini-
+tion 3.1 and equations (29)–(30)]; the connectedness condition needed for a
+deformation datum has been imposed explicitly.
+Lemma 7.2 (Kummer fibers and critical types). In Definition 7.1, the fiber
+above τj has exactly cj points, each of ramification index mj . If Q is one of
+these points, there are local parameters t at τj and s at Q such that
+                  t = smj ,       zj = uj seaj ,       uj ∈ k[[s]]× ,
+where zj differs from a Kummer generator by a power of t and a unit. The
+critical type of a special degeneration datum at τj is
+                                                      hj       aj
+                  hj = mj νj + e
+                               aj ,          σj =        = νj + .
+                                                      mj       m
+The stabilizer of Q in Cm is the unique subgroup of order mj , and the char-
+acter at that stabilizer is the restriction of χ.
+Proof. Choose a parameter t at τj . After multiplying the Kummer generator
+by an integral power of t, its completed local equation is
+                       zjm = taj v(t),         v(t) ∈ k[[t]]× .
+                    HURWITZ EXISTENCE IN PRIME DEGREE                          19
+
+The integer m is prime to p, and k is algebraically closed. Hensel’s lemma
+therefore supplies an mth root of v(t); division by that root reduces the
+equation to zjm = taj . Write m = cj mj and aj = cj e
+                                                    aj . Then
+                                    Y mj
+                        zjm − taj =      zj − ζteaj .
+                                                   
+
+                                     ζ cj =1
+
+There are cj factors. Since gcd(mj , e aj ) = 1, the normalization of each factor
+is one formal disk, and after multiplying zj by a constant it has a parameter
+s satisfying t = smj and zj = seaj . This proves the fiber and ramification
+assertions.
+   The coefficient of Q in (7.1) is mj νj + eaj − 1. Adding one and dividing by
+mj gives (7.2). The stabilizer order equals the ramification index because the
+residue field is algebraically closed. The group Cm is cyclic, so it has a unique
+subgroup of that order. The character statement follows by restricting the
+character of the deck action.                                                  □
+Theorem 7.3 (Cartier identities and logarithmic criterion). Let K0 be a
+function field of one variable over an algebraically closed field of charac-
+teristic p. For f ∈ K0 and a rational differential η, the Cartier operator
+satisfies
+                              C(f p η) = f C(η).
+Moreover,
+                                    du
+                C(η) = η    ⇐⇒      η=  for some u ∈ K0× .
+                                     u
+The Cartier operator commutes with pullback by an isomorphism of smooth
+curves over the ground field.
+Proof. The semilinearity formula and the identities C(dv) = 0 and C(dv/v) =
+dv/v are recorded in [18, equations (40)–(42)]. The logarithmic Cartier crite-
+rion is the statement immediately preceding [18, Definition 3.1]; equivalently,
+it is the equality
+                   ker(C − 1 : Ω1K0 −→ Ω1K0 ) = d log(K0× ).
+                    ∼
+Finally, if φ : K0 −→ K1 is induced by an isomorphism of smooth curves,
+applying φ∗ to the three displayed Cartier identities characterizes the Cartier
+operator on K1 . Hence φ∗ C = Cφ∗ .                                          □
+Lemma 7.4 (From degeneration data to deformation data). A cyclic special
+degeneration datum is a logarithmic special deformation datum. Its primitive
+critical points are precisely the three points with νj = 0, and its new critical
+points are precisely the points with νj = 1.
+Proof. Theorem 7.3 and (7.2) make the datum logarithmic. Lemma 7.2 gives
+σj = νj + aj /m. Since 0 < aj < m, this invariant lies in (0, 1) when νj = 0
+and in (1, 2) when νj = 1. Because every νj is zero or one and their sum is
+r − 3, exactly three are zero. Away from the τj , the cover is unramified and
+20                  JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+(7.1) gives order zero for ω, so the type is (1, 1) and the point is not critical.
+These facts verify Definition 4.4.                                              □
+Theorem 7.5 (Wewers’s cyclic-cover calculations). Let m >
+                      ×
+                                                            P1 divide p − 1,
+let χ : Cm ,→ Fp be faithful, and let 0 < aj < m satisfy j aj = m and
+gcd(m, a1 , . . . , ar ) = 1.
+    (1) For every ordered tuple of pairwise distinct points τ1 , . . . , τr , let Z
+        be the associated connected cyclic cover. Then
+                          dimk H 0 (Z, Ω1Z/k )χ = r − 2,
+         and the Cartier operator is bijective on
+                                                P this eigenspace.
+     (2) Suppose r = 4. Fix νj ∈ {0, 1} with j νj = 1, reorder the indices
+         so that ν1 = 1, and put α = (p − 1)/m. Let the ordered branch points
+         and the differential vary. Modulo Cm -equivariant isomorphism and
+         multiplication of the differential by an element of F×p , there are ex-
+         actly αa1 −1 cyclic special degeneration data with these fixed integers
+         and this fixed character.
+Proof. For Part (1), choose a projective coordinate change carrying none of
+the τj to infinity. In that affine coordinate, the assertion is Lemma 1.4(ii),(iv)
+of Wewers [18]. Pullback by the coordinate change identifies the connected
+cyclic covers and their χ-eigenspaces, and Theorem 7.3 shows that it also
+identifies their Cartier operators. This proves the stated coordinate-free
+form.
+   The count in Part (2), with the faithful character fixed, is [18, Proposi-
+tion 3.8]. The equivalence relation is the one in the opening paragraph of
+[18, Section 3.5]. After fixing three ordered branch points at 0, 1, ∞, the
+fourth is a variable cross-ratio; it is not fixed in the count.                 □
+Lemma 7.6 (Cartier rescaling). Let L be a one-dimensional k-space of
+differentials preserved bijectively by Cartier. For every nonzero ω ∈ L, there
+is λ ∈ k × such that C(λω) = λω.
+Proof. Write C(ω) = cω with c ∈ k × . Choose λ ∈ k × with λp−1 = cp , and
+choose ρ ∈ k × with ρp = λ. The p−1 -semilinearity of Cartier gives
+                       C(λω) = C(ρp ω) = ρC(ω) = ρcω.
+The scalar equation and λ = ρp imply (ρp−1 )p = cp . Frobenius is injective
+on the field k, so ρp−1 = c and ρc = ρp = λ. This proves the assertion. □
+
+     Put
+                                         ri − 1
+                                  σi =          .
+                                         p−1
+Equation (3.1) becomes
+                                                     2g
+                           σ1 + σ 2 + σ 3 = 1 −         .
+                                                    p−1
+                       HURWITZ EXISTENCE IN PRIME DEGREE                                21
+
+  Put Ai = ri − 1 for 1 ≤ i ≤ 3. If g = 0, set J = {1, 2, 3}. If g > 0, set
+A4 = 2g and J = {1, 2, 3, 4}. In both cases define
+                                             p−1            Aj
+(7.3)        D = gcd p − 1, (Aj )j∈J ,             , M= aj =    .
+                                                D            D
+Define νi = 0 for 1 ≤ i ≤ 3, and define ν4 = 1 when g > 0.
+Lemma 7.7 (Arithmetic of the central exponents). The preceding integers
+satisfy
+(7.4)                   M > 1,   0 < aj < M (j ∈ J),
+                       X                           
+(7.5)                    aj = M,    gcd M, (aj )j∈J = 1.
+                       j∈J
+
+For j ∈ J, put
+                                           M                 aj
+        cj = gcd(M, aj ),          mj =       ,       aj =
+                                                      e         ,   hj = mj νj + e
+                                                                                 aj .
+                                           cj                cj
+Then
+                                                   hj         Aj
+(7.6)                 gcd(mj , e
+                               aj ) = 1,              = νj +     ,
+                                                  mj         p−1
+(7.7)                                    lcmj∈J mj = M.
+For 1 ≤ i ≤ 3 one has
+                                                                               
+                                        p−1               ri − 1
+(7.8)          (mi , hi ) =                         ,                               .
+                                  gcd(p − 1, ri − 1) gcd(p − 1, ri − 1)
+If g > 0, then
+                                                                       
+                                           p−1          p − 1 + 2g
+(7.9)             (m4 , h4 ) =                       ,                      .
+                                       gcd(p − 1, 2g) gcd(p − 1, 2g)
+Proof. Equation (3.1) gives
+                         3
+                         X               3
+                                         X
+                                  Ai =         (ri − 1) = p − 1 − 2g.
+                         i=1             i=1
+                   P
+For g = 0 this is j∈J Aj = p−1; for g > 0 the additional definition A4 = 2g
+      the same equality. Since Aj = Daj and p − 1 = DM , division by D
+gives P
+gives j aj = M .
+   For 1 ≤ i ≤ 3, the inequalities 2 ≤ ri ≤ p − 1 give 0 < Ai < p − 1. If
+g > 0, then (3.2) gives 0 < A4 = 2g ≤ p − 5 < p − 1. Division by the positive
+integer D yields 0 < aj < M , and hence M > 1.
+   Let q = gcd(M, (aj )j∈J ). Then Dq divides DM = p − 1 and every Daj =
+Aj . The definition of D implies Dq | D, so q = 1. This proves (7.5).
+Moreover,
+             gcd(p − 1, Aj ) = gcd(DM, Daj ) = D gcd(M, aj ) = Dcj .
+22                 JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+Dividing this equality into p − 1 and Aj gives
+                          p−1                               Aj
+               mj =                   ,       aj =                     .
+                      gcd(p − 1, Aj )                  gcd(p − 1, Aj )
+                                              e
+
+These fractions are reduced, which proves (7.6), (7.8), and (7.9).
+  It remains to prove (7.7). Fix a prime ℓ and write b = vℓ (M ). Then
+                          vℓ (mj ) = b − min{b, vℓ (aj )}.
+Taking the maximum over j gives
+                                        
+               vℓ (lcmj∈J mj ) = b − min b, min vℓ (aj )
+                                                  j∈J
+                                                              
+                                    = b − vℓ gcd(M, (aj )j∈J ) = b.
+Thus the least common multiple and M have the same valuation at every
+prime and are equal.                                               □
+
+   Fix a regular p-cycle subgroup P ≤ Sp . Let H0 be the unique multi-
+plier subgroup of F×p of order M , regarded as the standard complement in
+                 ×
+NSp (P ) = P ⋊ Fp . Let
+
+                           χ0 : H0 ,→ Aut(P ) = F×
+                                                 p
+
+be its actual conjugation character.
+
+7.1. Genus zero. Assume g = 0. Let Z0 be the smooth projective normal-
+ization of
+(7.10)                         z M = xa1 (x − 1)a2 ,
+and let H0 act by fixing x and by h∗ z = χ0 (h)z.
+Lemma 7.8. The curve Z0 is connected and the map Z0 → P1k has degree
+M.
+Proof. Put F = xa1 (x − 1)a2 . If F were an ℓth power in k(x) for a prime
+ℓ | M , every valuation of F would be divisible by ℓ. The valuations at 0, 1,
+and infinity are
+                   a1 ,      a2 ,       −(a1 + a2 ) = a3 − M.
+Thus ℓ would divide M, a1 , a2 , a3 , contradicting (7.5). The Kummer irre-
+ducibility criterion therefore shows that T M − F is irreducible over k(x). Its
+function-field extension has degree M , and its smooth projective normaliza-
+tion is connected.                                                           □
+
+     Define
+                                             dx
+(7.11)                              ω=z            .
+                                          x(x − 1)
+                   HURWITZ EXISTENCE IN PRIME DEGREE                         23
+
+Lemma 7.9 (Divisor of the genus-zero differential). If Pi is the reduced fiber
+above 0, 1, or infinity according as i = 1, 2, 3, then
+                                        3
+                                        X
+                             div(ω) =          ai − 1)Pi .
+                                              (e
+                                        i=1
+
+The differential is nonzero, regular, and belongs to the χ0 -eigenspace.
+
+Proof. Lemma 7.2 gives ci points above the ith branch point, each of ram-
+ification index mi . Let Q lie above 0 and choose its local parameter s.
+Then
+           ordQ (x) = m1 ,     ordQ (z) = e
+                                          a1 ,      ordQ (dx) = m1 − 1,
+while x−1 is a unit. Hence ordQ (ω) = e a1 −1. Above 1, the same calculation
+with x − 1 in place of x gives ordQ (ω) = ea2 − 1.
+   Above infinity put t = x−1 and z3 = tz. Since a1 + a2 + a3 = M , equation
+(7.10) becomes
+                                                          z3 dt
+                   z3M = ta3 (1 − t)a2 ,         ω=−             .
+                                                        t(1 − t)
+At a point Q above infinity,
+
+           ordQ (t) = m3 ,    ordQ (z3 ) = e
+                                           a3 ,      ordQ (dt) = m3 − 1.
+
+It follows that ordQ (ω) = ea3 − 1. At any other point, the covering is étale,
+z, x, x − 1 are units, and a translate of x is a local parameter; hence ω has
+order zero. This proves the divisor formula. Its coefficients are nonnegative,
+so ω is regular. Finally h∗ z = χ0 (h)z while h fixes x, and therefore h∗ ω =
+χ0 (h)ω.                                                                     □
+
+Proposition 7.10 (Central datum in genus zero). There is a normalized
+logarithmic special deformation datum of type (H0 , χ0 ) whose three critical
+points are 0, 1, ∞ and whose invariants are σi = (ri − 1)/(p − 1).
+
+Proof. Here r = 3, so Theorem 7.5(1) says that the χ0 -eigenspace is one-
+dimensional and Cartier is bijective on it. Lemma 7.9 gives a nonzero differ-
+ential ω in this line. Lemma 7.6 gives λ ∈ k × with C(λω) = λω. Multiplica-
+tion by λ changes neither the divisor nor the character, so (Z0 , λω) satisfies
+Definition 7.1 with ν1 = ν2 = ν3 = 0. Lemma 7.4 makes it a normalized
+logarithmic special deformation datum. Lemmas 7.2 and 7.7 give
+                                ai    Ai   ri − 1
+                         σi =      =     =        .
+                                M    p−1   p−1
+                                                                             □
+
+7.2. Positive genus. Assume g > 0.
+24                      JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+Proposition 7.11 (Central datum in positive genus). There is a normalized
+logarithmic special deformation datum of type (H0 , χ0 ) with three primitive
+critical points 0, 1, ∞ having invariants
+                               ri − 1
+                          σi =            (1 ≤ i ≤ 3),
+                                p−1
+and one new critical point having invariant
+                                           2g
+                                σ4 = 1 +       .
+                                          p−1
+Proof. Reorder the four indices by putting
+        (b1 , b2 , b3 , b4 ) = (a4 , a1 , a2 , a3 ),       (ϵ1 , ϵ2 , ϵ3 , ϵ4 ) = (1, 0, 0, 0).
+Lemma 7.7 verifies the hypotheses of Theorem 7.5(2). In the notation of
+that theorem, α = (p − 1)/M = D. The number of equivalence classes is
+                        αb1 − 1 = Da4 − 1 = A4 − 1 = 2g − 1.
+Since g > 0, this integer is at least one. Choose one representative with
+ordered branch points τ1′ , τ2′ , τ3′ , τ4′ . The point τ1′ has ϵ1 = 1; the other three
+have ϵj = 0.
+  There is a unique projective transformation u ∈ PGL2 (k) such that
+                      u(τ2′ ) = 0,          u(τ3′ ) = 1,         u(τ4′ ) = ∞.
+Transport the cyclic cover, its H0 -action, and its differential along u. Pull-
+back by an isomorphism commutes with taking divisors and with the Cartier
+operator, so the transported objects still satisfy (7.1) and (7.2) with the
+same character. Rename the transported primitive points as 0, 1, ∞ and
+the transported new point as τ4 . Lemma 7.4 gives a normalized logarithmic
+special deformation datum. Finally, Lemmas 7.2 and 7.7 give
+            ai   ri − 1                                  a4          2g
+      σi =     =            (1 ≤ i ≤ 3),      σ4 = 1 +      =1+         .
+           M     p−1                                     M          p−1
+                                                                            □
+
+         8. Assembly in one permutation group and lifting
+Lemma 8.1 (Simultaneous group and character alignment). For j ∈ J,
+the natural tail groups may be embedded as subgroups Gj ≤ Sp so that they
+contain the same regular subgroup P , their inertia groups are P ⋊ Hj with
+Hj ≤ H0 , and their conjugation characters are the restrictions of the single
+character χ0 : H0 → Aut(P ). With
+                       G0 = P ⋊ H0 ,              G = ⟨G0 , Gj : j ∈ J⟩,
+the group G is transitive and p∥|G|.
+Proof. For 1 ≤ i ≤ 3, comparison of (5.5) with (7.8) shows that the order
+of the tame complement of the ith primitive tail is the central integer mi .
+When g > 0, comparison of (6.1) with (7.9) gives the same assertion for the
+                    HURWITZ EXISTENCE IN PRIME DEGREE                          25
+
+new tail. We use mj for this common integer. By (7.7), every mj divides
+M.
+   The wild inertia subgroup of each natural tail group is generated by a
+p-cycle. Conjugating its embedding in Sp identifies that subgroup with the
+fixed P . The full inertia group normalizes P , so its tame complement maps
+injectively to NSp (P )/P ≃ F×  p . The cyclic group H0 has a unique subgroup
+of order mj ; denote it by Hj . Lemma 2.5 permits a further conjugation by an
+element of P that identifies the tail complement with this literal subgroup
+Hj . Transport the marked point ηj and the chosen complement together
+with the cover; this changes neither the pointed-tail isomorphism class nor
+its integer type.
+   For h ∈ Hj , both the tail character and χ0 |Hj are defined by the same
+equality
+                          hxh−1 = xχ0 (h)      (x ∈ P ).
+Thus the characters agree element by element.
+   The group G contains the transitive subgroup P , and is therefore tran-
+sitive. It is a subgroup of Sp and contains an element of order p. Since
+vp (p!) = 1, one has p | |G| and p2 ∤ |G|.                              □
+Lemma 8.2 (Stabilizers on the central cyclic cover). Let ξj ∈ Z0 lie over
+the critical point τj . Then
+          StabH0 (ξj ) = Hj ,     Iηj = P ⋊ Hj ,      H0 ∩ Iηj = Hj .
+Proof. The inertia order of the cyclic cover at τj is M/ gcd(M, aj ) = mj .
+Since H0 is cyclic, it has exactly one subgroup of that order, namely Hj .
+This proves the first equality. The second equality is part of the pointed-tail
+construction after Lemma 8.1. For the third, let x ∈ H0 ∩ (P ⋊ Hj ). In
+the semidirect product P ⋊ H0 , the element x has two expressions, namely
+x = 1 · x and x = qh with q ∈ P and h ∈ Hj . Uniqueness of a semidirect-
+product expression gives q = 1 and x = h ∈ Hj . This proves H0 ∩ Iηj ⊆ Hj ;
+the reverse inclusion is immediate.
+                                                                             □
+Proposition 8.3 (Construction of the special G-deformation datum). Let
+G0 , the tail groups Gj , and G be chosen as in Lemma 8.1. If g = 0, use the
+central datum of Proposition 7.10 and the three primitive tails of Lemma
+5.5. If g > 0, use the central datum of Proposition 7.11, the same three
+primitive tails, and the new tail of Lemma 6.1. Choose a point ξj of the
+central cyclic cover above every critical point τj . These objects form a special
+G-deformation datum in the sense of Definition 4.6. Its central datum is
+logarithmic, has no wild critical point, and has exactly three primitive critical
+points. Moreover, G ≤ Sp is transitive and p∥|G|.
+Proof. We verify the clauses of Definition 4.6 in their stated order. If g =
+0, Proposition 7.10 provides a normalized logarithmic special deformation
+datum of type (H0 , χ0 ). If g > 0, Proposition 7.11 provides such a datum.
+26                  JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+In both cases, for 1 ≤ i ≤ 3 its invariant is
+                                         ri − 1
+                                  σi =          .
+                                         p−1
+The inequalities 2 ≤ ri ≤ p − 1 imply 0 < σi < 1. If g > 0, the fourth
+invariant is
+                                           2g
+                                σ4 = 1 +       .
+                                          p−1
+Equation (3.2) gives 0 < 2g < p − 1, and hence 1 < σ4 < 2. Thus there are
+exactly three primitive points, there is one new point precisely when g > 0,
+and there is no wild point.
+   Lemma 5.5 supplies a connected pointed primitive tail for each of the first
+three points. For those three points, Lemma 7.7, together with (5.5), shows
+that the tail type equals the central type. When g > 0, Lemma 6.1 supplies
+the connected pointed new tail for the fourth point, and (6.1) together with
+(7.9) gives the equality of its two integer types.
+   Lemma 8.1 embeds all these tail groups in one literal group G ≤ Sp ,
+identifies their wild inertia subgroup with the same P , and identifies their
+complements with subgroups Hj ≤ H0 having the actual character χ0 |Hj .
+By definition of G in that lemma,
+                             G = ⟨G0 , Gj : j ∈ J⟩.
+Lemma 8.2 gives, for every j ∈ J,
+               Iηj = P ⋊ Hj ,      Hj = StabH0 (ξj ) = H0 ∩ Iηj .
+These are all the compatibility equalities in Definition 4.6. Finally, Lemma
+8.1 proves that G is transitive and that p∥|G|.                            □
+Lemma 8.4 (Geometric connectedness and profiles under change of field).
+Let L be a field of characteristic zero, let f : X → P1L be a finite morphism
+from a smooth projective curve, and let b1 , . . . , bs ∈ P1 (L) be distinct. Sup-
+pose that, after base change to one algebraically closed extension Ω/L, the
+curve XΩ is connected, the map fΩ has degree d, is étale away from the bi ,
+and has profile Λi above bi . Then X is geometrically connected. For every
+algebraically closed extension Ω′ /L, the map fΩ′ has degree d, is étale away
+from the bi , and has profile Λi above bi .
+Proof. Fix an algebraic closure L of L inside Ω. If XL were disconnected,
+it would admit a nontrivial open and closed decomposition. Base change
+of that decomposition along the faithfully flat extension Ω/L would discon-
+nect XΩ . Therefore XL is connected, which is the definition of geometric
+connectedness.
+   Because X is smooth and geometrically connected, it is integral. A finite
+dominant morphism from an integral curve to the regular curve P1L is finite
+locally free: at a point of the target, its direct image is a finite torsion-free
+module over a discrete valuation ring, and every such module is free. The
+                   HURWITZ EXISTENCE IN PRIME DEGREE                          27
+
+rank can be computed after the faithfully flat extension Ω/L, where it is d.
+Thus every base change of f has degree d.
+   Put U = P1L − {b1 , . . . , bs }. The morphism f −1 (U ) → U becomes étale
+after the faithfully flat extension Ω/L. Since being étale is local for the
+faithfully flat topology on source and target, it is already étale over L. It
+remains étale after every base change, so no additional branch value can
+occur over Ω′ .
+   For each i, let
+                         Ai = H 0 X ×P1 Spec L, O ,
+                                                     
+                                         L
+
+where Spec L → P1L is the point bi . This is a finite L-algebra of dimension
+d. Over L, it has a canonical product decomposition into its Artinian local
+factors,                               Y
+                        Ai ⊗L L =              Ai,x .
+                                     x∈f −1 (bi )(L)
+The ramification index at x equals dimL Ai,x : after choosing uniformizers on
+the two smooth curves, the completed local map has the form t = usex with
+u a unit, and the fiber local ring has length ex . Choose an L-embedding
+L ,→ Ω′ ; it exists because Ω′ is algebraically closed. If B is one of the
+Artinian local factors Ai,x and m is its maximal ideal, then B/m = L and m
+is nilpotent. For every algebraically closed extension E/L, the ideal m ⊗L E
+is nilpotent and the quotient of B ⊗L E by this ideal is E. Hence B ⊗L E
+is again local, and its dimension over E equals dimL B. Apply this first to
+E = Ω and then to E = Ω′ . The geometric points above bi and the lengths
+of their local fiber rings are therefore indexed by the same factors and have
+the same multiset over both fields. Since this multiset is Λi over Ω, it is Λi
+over Ω′ .                                                                   □
+Theorem 8.5 (The residual three-point case). Let p be odd. Let Λ1 , Λ2 , Λ3 ⊢
+p be nonidentity partitions, none equal to [p], and suppose that (3.1) holds.
+Then there is a connected degree-p cover of P1 (C) with these three profiles.
+Proof. Proposition 8.3 verifies every hypothesis of Theorem 4.8. Hence there
+is a connected three-point G-cover over an algebraically closed field K of
+characteristic zero,
+                                   F : Y −→ P1K .
+After composing F with a projective automorphism of its target, label its
+three branch values by 0, 1, and ∞ in the order of the three primitive tails.
+   Fix a letter α and let Gα be its stabilizer. The natural map G/Gα →
+{1, . . . , p}, gGα 7→ g(α), is a G-equivariant bijection. Therefore [G : Gα ] =
+p, and
+                              fK : X = Y /Gα −→ P1K
+has degree p. The smooth curve Y is connected and hence integral. Its
+finite quotient by Gα is integral; after taking the smooth projective model,
+which does not alter its function field or the finite map to P1K , the curve X
+is smooth, projective, and connected.
+28                  JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+    Let Ti ≤ Gi be the tame inertia subgroup at the finite branch point of
+the ith primitive tail, and choose a generator ti ∈ Ti . Lemma 5.5 states
+that ti has cycle lengths ei1 , . . . , eiri in the natural p-letter action. Wewers’s
+formal construction uses the unique tame lift of the induced affine tail cover.
+Lemma 4.7 therefore preserves the conjugacy class of the cyclic inertia sub-
+group and preserves the cycle partition of a generator on every G-set. Under
+the displayed G-equivariant bijection, its action on G/Gα has the same cycle
+lengths as its action on the p letters. Lemma 2.3 now gives profile Λi for fK
+over the ith branch value. The affine part of the new tail, when present, is
+étale; Lemma 4.7 shows that its lift is also étale. Theorem 4.8 has exactly
+the three primitive horizontal branch sections. Passing to an intermediate
+quotient cannot introduce a branch point, so fK has no other branch value.
+    The total ramification contribution is
+             X ri
+             3 X
+                       (eij − 1) = 3p − (r1 + r2 + r3 ) = 2p − 2 + 2g.
+             i=1 j=1
+
+Riemann–Hurwitz gives 2g(X) − 2 = −2p + (2p − 2 + 2g) = 2g − 2, and
+hence g(X) = g.
+  The curve X, the finite morphism fK , and the three labeled target points
+are objects of finite presentation. Consequently, they descend to a finitely
+generated subfield L ⊂ K over Q:
+                       fL : XL −→ P1L ,       fL ⊗L K ≃ fK .
+Finiteness and smoothness descend along the faithfully flat extension K/L;
+projectivity follows because fL is finite and its target is projective. Apply
+Lemma 8.4 with Ω = K and (b1 , b2 , b3 ) = (0, 1, ∞). It shows that XL is
+geometrically connected and that degree, absence of other branch values,
+and all three complete profiles persist after every algebraically closed base
+change from L.
+   Choose a transcendence basis t1 , . . . , tn of L/Q. There are algebraically
+independent complex numbers z1 , . . . , zn , so the assignment ti 7→ zi embeds
+Q(t1 , . . . , tn ) into C. The extension of L over this rational function field
+is finite. Since C is algebraically closed, the embedding extends to an em-
+bedding L ,→ C. Lemma 8.4, now with Ω′ = C, proves that fL ⊗L C is
+connected of degree p, is branched only at 0, 1, ∞, and has profiles Λ1 , Λ2 , Λ3 .
+This is the required complex cover.                                             □
+
+          9. Completion of the proof and boundary cases
+    Theorem 8.5 and Lemma 3.3 prove Theorem 1.1 for odd primes. It re-
+mains to treat p = 2. The only nonidentity partition of 2 is [2], and its ram-
+ification defect is one. If the branch datum has k branch points, Riemann–
+Hurwitz is
+                                 2 − 2g = 4 − k,
+                      HURWITZ EXISTENCE IN PRIME DEGREE                                 29
+
+so k = 2 + 2g is even. Assign the transposition τ = (12) to every branch
+point. Then
+                               τ k = (τ 2 )k/2 = 1,
+and the subgroup generated by the assigned permutations is ⟨τ ⟩ = S2 , which
+is transitive on two letters. The Hurwitz monodromy criterion, Theorem 2.2,
+produces the required connected cover. This completes the proof in every
+prime degree.
+
+           10. Applications to Hurwitz spaces and relative
+                         Gromov–Witten theory
+   We first record the consequence of Theorem 1.1 for ordinary connected
+Hurwitz numbers. We then place the corresponding Hurwitz loci in rel-
+ative stable-map spaces. The last part of the section uses the Gromov–
+Witten/Hurwitz correspondence to obtain a strict positivity theorem for
+standard relative descendent invariants.
+10.1. Full support of the connected Hurwitz potential. For a parti-
+tion Λ ⊢ d, let CΛ ⊂ Sd be the corresponding conjugacy class. For ordered
+partitions Λ = (Λ1 , . . . , Λk ) of d, define the connected Hurwitz number by
+                                      
+          ◦                       1
+        Hg,d (Λ1 , . . . , Λk ) = # (σ1 , . . . , σk ) : σi ∈ CΛi , σ1 · · · σk = 1,
+                                 d!
+(10.1)                                                                                   
+                                                         ⟨σ1 , . . . , σk ⟩ is transitive .
+
+The subscript g means that the Riemann–Hurwitz equality
+                            k
+                            X               
+(10.2)                            d − ℓ(Λi ) = 2d − 2 + 2g
+                            i=1
+holds; the number is set equal to zero when this equality does not hold.
+Formula (10.1) is the groupoid cardinality of the covers with fixed ordered
+branch values. Indeed, simultaneous conjugation by Sd changes the labeling
+of a generic fiber, and the stabilizer of a tuple is the automorphism group
+of the associated cover.
+Corollary 10.1 (Prime-degree support saturation). Let p be prime, let g ≥
+0, and let Λ1 , . . . , Λk ⊢ p be nonidentity partitions. Then
+                                                 k
+                                                 X
+             ◦
+                                                                  
+(10.3)      Hg,p (Λ1 , . . . , Λk ) > 0   ⇐⇒            p − ℓ(Λi ) = 2p − 2 + 2g.
+                                                  i=1
+
+Proof. If the Hurwitz number is positive, one of the tuples in (10.1) exists.
+The associated cover satisfies Riemann–Hurwitz, and hence the equality on
+the right of (10.3). Conversely, that equality says precisely that the ordered
+family is a compatible branch datum of degree p and genus g. Theorem 1.1
+realizes it by a connected cover. The Hurwitz monodromy criterion gives a
+transitive tuple, so the set counted in (10.1) is nonempty.                  □
+30                   JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+   The support statement may be expressed as an identity for a gener-
+ating series without losing the ordering of the branch values. For Λ =
+(1m1 2m2 · · · ), put              Y
+                            z(Λ) =    ama ma !.
+                                             a≥1
+For each branch-value slot i, introduce an independent family of variables
+ (i)
+PΛ , indexed by the nonidentity partitions of p, and set
+                                                                            k  (i)
+                 ◦
+                         X        X
+                                              ◦
+                                                                            Y PΛ
+(10.4)          Fp,k =                       Hg,p (Λ1 , . . . , Λk )u2g−2            i
+                                                                                           .
+                                                                                  z(Λi )
+                         g≥0 Λ1 ,...,Λk ⊢p                                  i=1
+                               Λi ̸=1p
+The alphabets are independent because a passport remembers which profile
+belongs to which branch value. Corollary 10.1 gives the exact equality
+(10.5)
+                                          g ≥ 0, Λi ⊢ p, Λi ̸= 1p , 
+                                                                     
+                 
+                                                                     
+           ◦                              k
+   Supp(Fp,k )=     (g, Λ1 , . . . , Λk ) X                            ,
+                 
+                                            p − ℓ(Λi ) = 2p − 2 + 2g 
+                                                                      
+                                                i=1
+and every coefficient on this support is a positive rational number. Identity
+partitions may be allowed as dummy unramified slots, provided they are
+deleted before the support is recorded.
+10.2. Hurwitz cycles over the moduli of branch values. Let
+         Uk = Conf ord 1                            1 k
+                   k (P ) = {(b1 , . . . , bk ) ∈ (P ) : bi ̸= bj for i ̸= j}
+be the ordered configuration space. Let HΛ◦ be the complex Hurwitz stack
+
+of connected degree-p covers with ordered branch values and with profile Λi
+above the ith value. There is a branch morphism
+                                         ◦
+                                   br : HΛ −→ Uk .
+The analytic and algebraic constructions of this morphism, together with
+the admissible-cover compactification used below, are reviewed in [17, Sec-
+tion 2.5, Proposition 3.2, Theorem 4.11, Remark 4.15(i), and Section 5].
+The cited statements are formulated first for Galois covers; Section 2.5 ex-
+plains the corresponding non-Galois and ordered variants used here. For the
+compactification in the non-Galois case we use the stable Hurwitz stack of
+[2, Sections 6.3 and 6.6, especially Theorem 6.3.1 and Proposition 6.6.12];
+we take its ordered base change and the open-and-closed locus with the
+prescribed local profiles.
+Proposition 10.2 (Full support over the branch configuration space). As-
+sume that Λ satisfies (10.2). The coarse branch morphism is finite, étale,
+and surjective. The Deligne–Mumford stack morphism br is proper with
+finite geometric fibers and is analytically an orbifold covering. Its stack-
+theoretic weighted degree is
+                            h◦Λ = Hg,p
+                                   ◦
+                                       (Λ1 , . . . , Λk ) > 0,
+                    HURWITZ EXISTENCE IN PRIME DEGREE                          31
+
+and, with rational coefficients,
+                                    ◦
+(10.6)                        br∗ [HΛ ] = h◦Λ [Uk ].
+Here (10.6) is an equality in Ak (Uk )Q . If k ≥ 3, put
+                              red
+                                    ◦           
+                            HΛ    = HΛ   / PGL2 .
+Its coarse branch morphism to M0,k is finite and surjective, while the stack
+morphism has weighted degree h◦Λ . Decompose HΛ     red into its finitely many
+
+open-and-closed strata indexed by the non-Galois monodromy types m =
+(G, H, ξ) that occur. For every such type and every irreducible component,
+take its reduced closure in the corresponding ordered Bertin–Romagny stable
+                                                                           dom
+Hurwitz stack and then take the stack-theoretic normalization. Define HΛ
+to be the disjoint union of these normalizations. Thus all monodromy types
+occurring on the open Hurwitz stack are included, and no component disjoint
+from that open stack is added. Then the proper branch morphism br satisfies
+                        dom
+(10.7)            br∗ [HΛ ] = h◦Λ [M 0,k ]     in Ak−3 (M 0,k )Q .
+Proof. Fix a point of Uk and a system of peripheral loops. By Theorem 2.2,
+the fiber of the branch morphism is the finite groupoid of transitive tuples
+of the prescribed cycle types, modulo simultaneous conjugation. When the
+branch values move in a sufficiently small simply connected open subset of
+Uk , the loops move by isotopy and the tuple is transported uniquely. Thus
+the stack morphism is locally an orbifold covering, and its coarse morphism
+is locally a finite covering. Analytically continuing around a loop in Uk gives
+the usual braid action on the finite set of Nielsen tuples.
+    Corollary 10.1 gives at least one tuple. The same tuple, together with
+peripheral loops around any other ordered configuration, defines a cover by
+Theorem 2.2. Hence every fiber is nonempty and the branch morphism is
+surjective. Its stack-theoretic degree is the sum of 1/| Aut(f )| over one fiber,
+which is exactly (10.1). This proves (10.6).
+    For k ≥ 3, an automorphism of P1 fixing the ordered branch configura-
+tion is the identity, so quotienting source and target by PGL2 preserves the
+                                                                  dom
+generic stack-theoretic weighted degree. By construction, HΛ is proper
+and generically finite of that degree over M 0,k . Proper pushforward of
+the stack-theoretic, ordinary non-virtual fundamental class of this Deligne–
+Mumford stack therefore gives its generic weighted degree times the funda-
+mental class of M 0,k , proving (10.7) in rational Chow theory.                □
+10.3. The relative stable-map stratum. Fix (b1 , . . . , bk ) ∈ Uk , set D =
+b1 + · · · + bk , and write Λi = (ei1 , . . . , eiri ). Let
+                                        k
+                                        X
+                                   R=         ri .
+                                        i=1
+
+Consider relative stable maps to (P1 , D) of degree p and genus g, with R
+relative markings whose contact orders over bi are ei1 , . . . , eiri . Expanded
+32                        JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+relative stable maps and their proper moduli spaces are constructed in [11];
+the stationary relative theory in the notation used below is recalled in [14,
+Section 1.2].
+Proposition 10.3 (Interior nonemptiness at expected dimension zero). If p
+is prime and the profiles satisfy (10.2), then the relative stable-map space has
+virtual complex dimension zero and contains a point represented by a finite
+map from a smooth connected curve. If the k target points vary, the cor-
+responding open Hurwitz locus has dimension k; after quotienting by PGL2
+for k ≥ 3, it has dimension k − 3 and dominates M0,k .
+Proof. The logarithmic tangent bundle has degree
+                                    deg TP1 (− log D) = 2 − k.
+The expected-dimension formula for maps to the logarithmic curve (P1 , D),
+with the R relative markings included, gives
+                   vdimC = (1 − g)(1 − 3) + p deg TP1 (− log D) + R
+                            = 2g − 2 + p(2 − k) + R.
+Since
+                           k
+                           X            
+                                  p − ri = kp − R = 2p − 2 + 2g,
+                           i=1
+the displayed virtual dimension is zero. Theorem 1.1 supplies a connected
+cover with precisely the required contact orders. It determines a point in the
+open substack where the source is smooth and the stable map is finite. Al-
+lowing the ordered target points to move adds k parameters, and quotienting
+by the three-dimensional group PGL2 leaves dimension k − 3. Dominance
+is Proposition 10.2.                                                        □
+
+10.4. Relative virtual nonvanishing for every passport. We use the
+partition convention for relative conditions: relative roots of equal contact
+order are not individually labeled. To make the normalization explicit, write
+                        k Y
+                        Y                                          k Y
+                                                                   Y
+                 GΛ =             Sma (Λi ) ,       AΛ = |GΛ | =              ma (Λi )!.
+                        i=1 a≥1                                    i=1 a≥1
+       rel,lab
+If M             denotes Jun Li’s stack with the relative roots individually labeled,
+set
+                                       rel,part     rel,lab    
+                                   M              = M        /GΛ .
+Define the connected relative invariant
+                                        Z
+                                  ◦,P1
+(10.8)          ⟨Λ1 , . . . , Λk ⟩g,p =   rel,part
+                                                                              1.
+                                                     [Mg    (P1 ,D;p,Λ)]vir
+
+The virtual class and the relative degeneration formula are constructed in
+[12]. Proposition 10.3 shows that the integral has virtual dimension zero.
+                    HURWITZ EXISTENCE IN PRIME DEGREE                                            33
+
+Theorem 10.4 (Relative Gromov–Witten nonvanishing). Let p be prime
+and let Λ = (Λ1 , . . . , Λk ) be a compatible ordered family of nonidentity par-
+titions of p. Then
+                                            1
+(10.9)            ⟨Λ1 , . . . , Λk ⟩◦,P    ◦
+                                    g,p = Hg,p (Λ1 , . . . , Λk ) > 0.
+
+Proof. Okounkov–Pandharipande define the Gromov–Witten theory of a
+smooth target curve relative to an arbitrary finite set of target points, with
+one partition of the degree prescribed at each point [14, Section 1.2]. Their
+relative Gromov–Witten/Hurwitz correspondence is
+          * n                           +•X
+            Y
+(10.10)        τma (ω), η1 , . . . , ηs
+            a=1                                 d
+                             1                                                           
+                    = Qn                  Hd•X (m1 + 1), . . . , (mn + 1), η1 , . . . , ηs ,
+                         a=1 ma !
+where • denotes the disconnected theory [14, Theorem 1]. Set n = 0, take
+X = P1 , d = p, and ηi = Λi . No completed cycle occurs, so (10.10) is the
+equality of the disconnected relative invariant and the disconnected Hurwitz
+number with the prescribed profiles.
+   To extract the connected coefficient without merging the k relative condi-
+                                                  (i) (i)
+tions, introduce a separate alphabet x(i) = (x1 , x2 , . . .) for every relative
+                         (i)   Q    (i)
+target point and write xΛ = j xλj . In the unlabeled partition convention
+set
+                                         k
+                                                 !
+                                                                      1
+                                            xΛi ⟨Λ1 , . . . , Λk ⟩•,P
+                                             (i)
+                       X       X         Y
+             •               d
+            Zrel = 1 +    q                                       d     ,
+                       d>0           Λ1 ,...,Λk ⊢d    i=1
+                                                      k
+                                                                   !
+                                                             (i)
+                       X                 X            Y
+             •
+            ZH =1+           q   d
+                                                            xΛi        Hd• (Λ1 , . . . , Λk ).
+                       d>0           Λ1 ,...,Λk ⊢d    i=1
+
+The specialization n = 0 of Theorem 1 gives Zrel • = Z • in exactly these
+                                                          H
+partition variables. The sums include identity partitions: a connected com-
+ponent of a disconnected  cover can be unramified over some relative target
+point. If C = cα=1 Cα , the disconnected arithmetic-genus convention of
+                 `
+[14, Section 0.2] gives
+                                                    c
+                                                    X                
+                        2g(C) − 2 =                       2g(Cα ) − 2 .
+                                                    α=1
+
+Thus the genus selected by the zero-dimensional constraint is compatible
+with disjoint union.
+   We now use the standard connected/disconnected exponential identity in
+relative Gromov–Witten theory. In the two-relative-point notation of [14,
+equations (4.1)–(4.2)], it states that the free energy of connected relative
+invariants is the logarithm of the disconnected partition function. The same
+34                   JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+identity applies to any finite set of relative target points: disjoint union con-
+catenates the partition at each target point, and the independent alphabets
+record those concatenations separately. This use of the exponential identity
+does not assert that a fixed expanded-target moduli stack is literally a Carte-
+sian product of connected moduli stacks; it is the connected/disconnected
+identity for the relative virtual theory used in the cited correspondence. On
+the Hurwitz side the ordinary groupoid exponential formula gives the same
+statement, including the quotient weights for repeated connected compo-
+nents. Consequently
+                                        (i)                                     1
+                                                      = ⟨Λ1 , . . . , Λk ⟩◦,P
+                             Y
+                                                  •
+                      [q p             xΛi ] log Zrel                     g,p ,
+                               i
+                                         (i)
+                               Y
+                           p                      •    ◦
+                      [q               xΛi ] log ZH = Hg,p (Λ1 , . . . , Λk ).
+                                   i
+
+Equality of the two logarithms proves (10.9); no additional z(Λi ) or automor-
+phism factor occurs because both sides already use the same groupoid and
+partition normalization. Corollary 10.1 makes the common value strictly
+positive.                                                                   □
+
+  With individually labeled relative roots, the exact conversion is
+           Z
+                                                  ◦,P1      ◦
+(10.11)       rel,lab
+                      1 = A Λ ⟨Λ 1 , . . . , Λ k ⟩g,p = AΛ Hg,p (Λ1 , . . . , Λk ).
+               [M       ]vir
+
+Indeed, the quotient map
+                                               rel,lab         rel,part
+                                       q:M               −→ M
+
+is a finite étale GΛ -torsor of degree AΛ . The quotient obstruction theory
+pulls back along q, and therefore
+                                         rel,lab vir             rel,part vir
+                             q∗ [M              ]      = AΛ [M            ] .
+                               Q
+There is no additional factor eij in (10.11); contact-order products enter
+the gluing factors in degeneration formulas, not the passage from labeled
+roots to the partition convention. Since AΛ > 0, nonvanishing is indepen-
+dent of the labeling convention.
+   Theorem 10.4 uses a comparison theorem, not only nonemptiness of the
+open Hurwitz locus. Nodal sources, contracted components, expanded tar-
+gets, and rubber components can occur on the boundary of the relative com-
+pactification. The theorem does not assert that this boundary is empty, that
+its individual contributions vanish, or that the virtual class equals the ordi-
+nary fundamental class of the Hurwitz-space closure. It asserts the equality
+of their total virtual degree with the weighted Hurwitz count.
+                      HURWITZ EXISTENCE IN PRIME DEGREE                                          35
+
+10.5. Completed cycles and a positive disconnected stationary sec-
+tor. Let ω ∈ H 2 (P1 , Q) be the point class. For λ, µ ⊢ p, write
+                         *      n
+                                               +•,P1
+                               Y
+                           λ      τri −1 (ω) µ
+                                     i=1                       g,p
+
+for the possibly disconnected degree-p stationary invariant relative to 0 and
+∞, with relative profiles λ and µ. Here g is the arithmetic genus: if the
+source has connected components of genera g1 , . . . , gc , then
+                                          c
+                                          X
+                                    g=           gj − c + 1,
+                                          j=1
+
+so g may be negative. For partitions Θ1 , . . . , Θs ⊢ p and an integer h, define
+         •                          1
+(10.12) Hh,p (Θ1 , . . . , Θs ) =      # {(σ1 , . . . , σs ) : σi ∈ CΘi ,       σ1 · · · σs = 1} ,
+                                    p!
+provided
+                           s
+                           X               
+(10.13)                          p − ℓ(Θi ) = 2p − 2 + 2h;
+                           i=1
+
+otherwise set it equal to zero. No transitivity condition is imposed.
+                                                                    P If the
+associated cover has connected components C1 , . . . , Cc , then h = j g(Cj )−
+c + 1, so negative h is allowed. Every number in (10.12) is nonnegative and,
+for h ≥ 0,
+                       •                         ◦
+(10.14)               Hh,p (Θ1 , . . . , Θs ) ≥ Hh,p (Θ1 , . . . , Θs ).
+  We recall the exact form of the completed-cycle expansion needed for the
+positivity argument. For a partition η, possibly empty, put
+                                                       
+          (p)      p−|η|                m1 (η) + p − |η|
+        ηe = η ∪ 1       ,   Bp (η) =                      (|η| ≤ p).
+                                             m1 (η)
+Put Bp (η) = 0 when |η| > p. In particular, Bp (∅) = 1. The factor Bp (η) is
+the multiplicity in the extended Hurwitz convention of [14, equation (0.5)].
+Define
+                                    sinh(z/2)
+                             S(z) =              .
+                                       z/2
+The completed r-cycle is
+                                    X
+(10.15)                       (r) =    ρr,η (η),
+                                                 η
+
+where
+                                    Q
+                                        j ηj
+                                                                            Y
+(10.16)          ρr,η = (r − 1)!               [z r+1−|η|−ℓ(η) ]S(z)|η|−1        S(ηj z).
+                                     |η|!
+                                                                            j
+36                     JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+For the empty partition the empty products are one, so
+                                                 1
+(10.17)                 ρr,∅ = (r − 1)![z r+1 ]      .
+                                                S(z)
+These are equations (0.21)–(0.22) of [14]. Since S(z) has nonnegative coef-
+ficients, (10.16) implies
+(10.18)                   ρr,η ≥ 0         (η ̸= ∅),            ρr,(r) = 1.
+Moreover, 1/S(z) is an even series. Hence
+(10.19)                         r even            =⇒      ρr,∅ = 0.
+  For completeness, we spell out the arithmetic-genus grading in the dis-
+connected correspondence. If ρri ,ηi ̸= 0, set
+                                                                         n
+                   ri + 1 − |ηi | − ℓ(ηi )                               X                    
+(10.20)       ai =                         ,              h(η) = g −           ai + ℓ(ηi ) − 1 .
+                             2
+                                                                         i=1
+The vanishing condition implicit in (10.16) makes ai a nonnegative integer.
+The integer h(η) need not be nonnegative because it is the arithmetic genus
+of a possibly disconnected source. A direct calculation gives
+                       (p)                                             
+(10.21)        p − ℓ(e
+                     ηi ) = |ηi | − ℓ(ηi ) = ri − 1 − 2 ai + ℓ(ηi ) − 1 .
+Thus a term indexed by η has covering genus h(η).
+Proposition 10.5 (Disconnected completed-cycle expansion). Suppose
+                                       n
+                                       X
+(10.22)      (p − ℓ(λ)) + (p − ℓ(µ)) +   (ri − 1) = 2p − 2 + 2g.
+                                                          i=1
+Then the disconnected relative Gromov–Witten/Hurwitz correspondence is
+(10.23)
+ *      n
+                              +•,P1
+       Y
+   λ      τri −1 (ω)      µ
+        i=1                    g,p
+                                         n
+                                                             !
+             1          X                Y
+                                                                 •
+                                                                        
+                                                                                  (p)
+                                                                                                    
+     = Qn                                      ρri ,ηi Bp (ηi ) Hh(η),p   λ, µ, ηe1 , . . . , ηen(p) .
+        i=1 (ri − 1)! η1 ,...,ηn         i=1
+                          |ηi |≤p
+
+An identity profile 1p in the Hurwitz number is a dummy unramified con-
+dition and is deleted. Equation (10.21) verifies directly that each ordinary
+Hurwitz number on the right has the arithmetic genus displayed in (10.23).
+It also prevents the completed-cycle genus grading from being confused with
+the genus of every individual ordinary-cover term.
+Proof. Theorem 1 of [14] gives
+    *                    +•,P1
+         Y                                             1            1
+                                                               Hp•,P λ, µ, (r1 ), . . . , (rn ) .
+                                                                                               
+      λ     τri −1 (ω) µ       =Q
+              i                      p             i (ri − 1)!
+                    HURWITZ EXISTENCE IN PRIME DEGREE                                37
+
+Expanding every completed cycle by (10.15) gives a multilinear sum of or-
+dinary ramification conditions. Equation (0.5) of the cited paper replaces
+                                       (p)
+a condition ηi of size at most p by ηei and multiplies its ordinary Hurwitz
+number by Bp (ηi ). Conditions of size greater than p vanish. This proves all
+coefficients in (10.23).
+   It remains to identify the arithmetic genus. Riemann–Hurwitz for a pos-
+sibly disconnected degree-p cover gives
+                                                  X                  
+          2h − 2 + 2p = (p − ℓ(λ)) + (p − ℓ(µ)) +      |ηi | − ℓ(ηi ) .
+                                                                    i
+
+Subtract this equality from (10.22) and use (10.21). The result is h =
+h(η). Because the source may be disconnected, this arithmetic genus can
+be negative and no such term may be discarded.                        □
+Theorem 10.6 (Disconnected positivity for even completed cycles). Let p
+be prime, let g ≥ 0, let λ, µ ⊢ p, and let r1 , . . . , rn be even integers with
+2 ≤ ri ≤ p. Suppose (10.22) holds. Then
+                     *       n
+                                            +•,P1
+                            Y
+(10.24)                λ       τri −1 (ω) µ          > 0.
+                                  i=1                      g,p
+
+More precisely,
+            *      n
+                                             +•,P1
+                   Y
+(10.25)        λ         τri −1 (ω)      µ
+                   i=1                        g,p
+                      1        ◦
+                                   λ, µ, (r1 , 1p−r1 ), . . . , (rn , 1p−rn ) > 0,
+                                                                             
+               ≥Q             Hg,p
+                  i (ri − 1)!
+where identity profiles on the right are deleted.
+Proof. Condition (10.22) is Riemann–Hurwitz for the principal passport
+(10.26)              λ,      µ,       (r1 , 1p−r1 ), . . . , (rn , 1p−rn ).
+Indeed, the defect of (ri , 1p−ri ) is ri − 1. Delete λ or µ from the list if it
+is 1p . The remaining profiles are a compatible prime-degree branch datum,
+and Theorem 1.1 gives
+                   ◦
+                       λ, µ, (r1 , 1p−r1 ), . . . , (rn , 1p−rn ) > 0.
+                                                                 
+(10.27)          Hg,p
+   Expand the left side of (10.24) by (10.23). Because every ri is even,
+(10.19) removes every term in which some ηi is empty. All remaining com-
+pletion coefficients are nonnegative by (10.18); the factors Bp (ηi ) are posi-
+tive integers, and ordinary disconnected Hurwitz numbers are nonnegative
+groupoid cardinalities. Consequently every summand is nonnegative.
+   Choose ηi = (ri ) for every i. Then ai = 0, ℓ(ηi ) = 1, h(η) = g, Bp ((ri )) =
+1, and ρri ,(ri ) = 1. The corresponding summand Qis the disconnected Hurwitz
+number for the principal passport divided by i (ri − 1)!. It is at least the
+38                   JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+positive connected contribution in (10.27), by (10.14). This proves (10.25),
+and hence strict positivity.                                              □
+   Proposition 10.5 is not a termwise formula for connected invariants. Tak-
+ing the logarithm of the full disconnected partition function produces con-
+nected cumulants. A correction profile ηi can meet several connected compo-
+nents of an ordinary Hurwitz cover, while the corresponding relative compo-
+nent can join those components. Thus the logarithm is a sum over connected
+incidence graphs; it cannot be obtained by replacing H • by H ◦ in (10.23).
+   The case of simple stationary insertions contains no completion correction
+at all.
+Corollary 10.7 (The transposition sector). Let p be prime, let g ≥ 0, and
+let λ, µ ⊢ p. If
+                     N = 2g − 2 + ℓ(λ) + ℓ(µ) ≥ 0,
+then
+                              ◦,P1     ◦
+                 λ τ1 (ω)N µ g,p = Hg,p    λ, µ, (2, 1p−2 )N > 0.
+                                                            
+(10.28)
+Proof. Here (10.22) is exactly the definition of N . Okounkov–Pandharipande
+note that the transposition is the unique cycle requiring no completion:
+(2) = (2). We spell out the connected extraction so that no termwise con-
+nected completed-cycle formula is being used. Introduce variables
+                         q,    x,
+                             t1 , t2 , . . . , s1 , s2 , . . . ,
+                 Q            Q
+and write tα = j tαj and sβ = j sβj , and form
+                                          X xm                         1
+                                                    ⟨α |τ1 (ω)m |β⟩•,P
+                     X     X
+            •
+          ZGW =1+       qd       tα sβ                             d     ,
+                                               m!
+                         d>0        α,β⊢d           m≥0
+                                                    X xm
+                                                               Hd•,ext α, β, (2)m .
+                         X          X
+               •
+                               qd
+                                                                                 
+              ZH =1+                        tα sβ
+                                                          m!
+                         d>0        α,β⊢d           m≥0
+
+Here the arithmetic genus in every coefficient is the one forced by Riemann–
+Hurwitz. The superscript ext denotes the extended Hurwitz convention of
+equation (0.5) in the cited paper: in degree d ≥ 2, the condition (2) is padded
+to (2, 1d−2 ), while a term with d < 2 and m > 0 vanishes. Theorem 1 of
+[14], together with (2) = (2), gives ZGW •    = ZH•.
+
+   Multiplication of tα and sβ concatenates the profiles under disjoint union.
+The stack weights give the exponential formula, so log ZGW    •   generates con-
+                                      •
+nected stable maps, whereas log ZH generates connected, equivalently tran-
+sitive, Hurwitz covers; compare equations (4.1)–(4.2) of the cited paper.
+Equality of the coefficients of q p tλ sµ xN /N ! proves the equality in (10.28).
+The definition of N is Riemann–Hurwitz for that passport, and Theorem 1.1
+gives strict positivity after identity profiles are deleted.                   □
+Example 10.8. Take
+     p = 7,     g = 1,         λ = (6, 1),           µ = (4, 3),         (r1 , r2 ) = (4, 2).
+                      HURWITZ EXISTENCE IN PRIME DEGREE                               39
+
+The defects satisfy
+ (7 − 2) + (7 − 2) + (4 − 1) + (2 − 1) = 5 + 5 + 3 + 1 = 14 = 2 · 7 − 2 + 2.
+Theorem 10.6 gives
+                                                         1
+                       ⟨(6, 1) | τ3 (ω)τ1 (ω)| (4, 3)⟩•,P
+                                                      1,7 > 0.
+
+More precisely, the principal term alone gives the lower bound
+                                   1    1 ◦
+ ⟨(6, 1) | τ3 (ω)τ1 (ω)| (4, 3)⟩•,P        H1,7 (6, 1), (4, 3), (4, 13 ), (2, 15 ) > 0.
+                                                                                  
+                                1,7 ≥
+                                        3!
+  Finally, define the relative partition function
+                                      *                      +•,P1
+                            X                     X
+(10.29)     τP1 (x, t, s) =      tλ sµ λ exp       xj τj (ω) µ     ,
+                             |λ|=|µ|                   j≥0
+           Q
+where tλ = i tλi and similarly for sµ . Okounkov–Pandharipande prove that
+τP1 (x, t, s) is the n = 0 member of a sequence {τP1 (x, t, s, n)}n∈Z forming a
+2-Toda tau-function, and that log τP1 generates the connected invariants [14,
+Section 4, especially equations (4.1)–(4.2) and Theorem 4]. Theorem 10.6
+therefore identifies a strictly positive family of coefficients in the degree-p
+part of its n = 0 member: the two relative states are arbitrary partitions of
+p, and every stationary index j = ri − 1 is odd with ri ≤ p, subject only to
+(10.22). Corollary 10.7 gives, in addition, a strictly positive degree-p family
+in the connected free energy log τP1 along the transposition direction x1 .
+   The parity hypothesis in Theorem 10.6 is essential for this argument. For
+an odd completed cycle, the coefficient of the empty partition in (10.17)
+need not vanish and can have either sign. Thus Corollary 10.1 does not by
+itself imply nonvanishing of every stationary Gromov–Witten invariant. It
+gives full support in the ordinary ramification basis, while Theorem 10.6 is
+the sector in the completed-cycle basis where all boundary corrections have
+a controlled sign.
+
+Acknowledgments. The authors acknowledge ChatGPT’s assistance in
+the initial exploration of the proof of Theorem 1.1. Inspired by interactions
+with the authors in September 2026, they rigorously developed and verified
+the argument, assuming full responsibility for the paper.
+   J.S. is especially grateful to Prof. Bin Xu, who first introduced him to the
+prime-degree conjecture in 2016, when he was a Ph.D. student. Since then,
+he has continued to think about the problem and possible approaches to its
+resolution. He also thanks Michael Zieve for a very helpful discussion of the
+problem during Zieve’s visit to the University of Science and Technology of
+China. J.S. further extends his sincere thanks to Qing Chen, Weibo Fu, Mao
+Sheng, and Xiaotao Sun for valuable conversations throughout the extended
+gestation period of this work.
+40                   JIJIAN SONG, HAILIN WEN, ZEBAO ZHANG
+
+                                    References
+ [1] F. Baroni and C. Petronio, Solution of the Hurwitz problem with a length-2
+     partition, Illinois J. Math. 68 (2024), no. 3, 479–511.
+     https://doi.org/10.1215/00192082-11417175
+ [2] J. Bertin and M. Romagny, Champs de Hurwitz, Mém. Soc. Math. Fr. (N.S.)
+     nos. 125–126 (2011), 219 pp. https://doi.org/10.24033/msmf.437
+ [3] I. I. Bouw, Covers of the affine line in positive characteristic with prescribed
+     ramification, in WIN—Women in Numbers: Research Directions in Number Theory,
+     Fields Inst. Commun. 60, Amer. Math. Soc., Providence, RI, 2011, 193–200.
+     https://doi.org/10.1090/fic/060/09
+ [4] I. I. Bouw and B. Osserman, Some 4-point Hurwitz numbers in positive
+     characteristic, Trans. Amer. Math. Soc. 363 (2011), no. 12, 6685–6711.
+     https://doi.org/10.1090/S0002-9947-2011-05347-X
+ [5] I. I. Bouw, S. Wewers, and L. Zapponi, Deformation data, Belyi maps, and the local
+     lifting problem, Trans. Amer. Math. Soc. 361 (2009), no. 12, 6645–6659.
+     https://doi.org/10.1090/S0002-9947-09-04773-4
+ [6] S. Chenakkod, G. Faraco, and S. Gupta, Translation surfaces and periods of
+     meromorphic differentials, Proc. London Math. Soc. (3) 124 (2022), no. 4, 478–557.
+     https://doi.org/10.1112/plms.12432
+ [7] C. Ciliberto, A. L. Knutsen, and S. Torelli, On the Hurwitz existence problem for
+     branched covers of the projective line, arXiv:2604.18782v2 (2026).
+     https://arxiv.org/abs/2604.18782
+ [8] A. L. Edmonds, R. S. Kulkarni, and R. E. Stong, Realizability of branched coverings
+     of surfaces, Trans. Amer. Math. Soc. 282 (1984), no. 2, 773–790.
+     https://doi.org/10.2307/1999265
+ [9] M. Eskin, Stable reduction of three-point covers, Ph.D. thesis, Universität Ulm,
+     2015. https://d-nb.info/1074196244/34
+[10] Y. Henrio, Arbres de Hurwitz et automorphismes d’ordre p des disques et des
+     couronnes p-adiques formels, Ph.D. thesis, Université Bordeaux I, 1999;
+     arXiv:math/0011098v1 (2000). https://arxiv.org/abs/math/0011098
+[11] J. Li, Stable morphisms to singular schemes and relative stable morphisms, J.
+     Differential Geom. 57 (2001), no. 3, 509–578.
+     https://doi.org/10.4310/jdg/1090348132
+[12] J. Li, A degeneration formula of GW-invariants, J. Differential Geom. 60 (2002),
+     no. 2, 199–293. https://doi.org/10.4310/jdg/1090351102
+[13] Y. Meng, Z. Wei, and C. Zhou, Existence of branched covers S 2 → S 2 with
+     prescribed branching data, Topology Appl. 384 (2026), Art. 109793.
+     https://doi.org/10.1016/j.topol.2026.109793
+[14] A. Okounkov and R. Pandharipande, Gromov–Witten theory, Hurwitz theory, and
+     completed cycles, Ann. of Math. (2) 163 (2006), no. 2, 517–560.
+     https://doi.org/10.4007/annals.2006.163.517
+[15] F. Pakovich, Hurwitz existence problem and fiber products, arXiv:2408.10874v2
+     (2024; revised 2025). https://arxiv.org/abs/2408.10874
+[16] M. A. Pascali and C. Petronio, Branched covers of the sphere and the prime-degree
+     conjecture, Ann. Mat. Pura Appl. (4) 191 (2012), no. 3, 563–594.
+     https://doi.org/10.1007/s10231-011-0197-y
+[17] M. Romagny and S. Wewers, Hurwitz spaces, in Groupes de Galois arithmétiques et
+     différentiels, Sémin. Congr. 13, Soc. Math. France, Paris, 2006, 313–341.
+     https://smf.emath.fr/publications/espaces-de-hurwitz
+[18] S. Wewers, Reduction and lifting of special metacyclic covers, Ann. Sci. Éc. Norm.
+     Supér. (4) 36 (2003), no. 1, 113–138.
+     https://doi.org/10.1016/S0012-9593(03)00004-1
+                     HURWITZ EXISTENCE IN PRIME DEGREE                              41
+
+[19] S. Wewers, Three point covers with bad reduction, J. Amer. Math. Soc. 16 (2003),
+     no. 4, 991–1032. https://doi.org/10.1090/S0894-0347-03-00435-1
+[20] Y. Wang, B. Li, Y. Zhou, Z. Wei, Y. Ye, Y. Shi, and B. Xu, The Hurwitz existence
+     problem and the prime-degree conjecture: a computational perspective,
+     arXiv:2512.06545v2 (2025; revised 9 December 2025).
+     https://arxiv.org/abs/2512.06545
+[21] Z. Wei, Structure and realizability for rational maps, arXiv:2511.06784v2 (2025;
+     revised 18 May 2026). https://arxiv.org/abs/2511.06784
+[22] Z. Wei, A realizability criterion for rational maps with three branch points,
+     arXiv:2607.00818v2 (2026). https://arxiv.org/abs/2607.00818
+
+
+Jijian Song
+Center for Applied Mathematics and KL-AAGDM
+Tianjin University
+Tianjin 300072 China
+jijian.song@tju.edu.cn
+
+Hailin Wen
+Wu Wen-Tsun Key Laboratory of Math, USTC, CAS
+School of Mathematical Sciences
+University of Science and Technology of China
+Hefei 230026 China
+wenhailin@mail.ustc.edu.cn
+
+Zebao Zhang
+Mathematical Science Research Center
+Chongqing University of Technology
+Chongqing 400054 China
+zhangzebao@cqut.edu.cn
+

@@ -1,0 +1,2250 @@
+                                                      THREE POINT COVERS WITH BAD REDUCTION
+arXiv:math/0205026v2 [math.AG] 10 Jan 2003
+
+
+
+
+                                                                                 STEFAN WEWERS
+
+
+                                                     Abstract. We study Galois covers of the projective line branched at three
+                                                     points with bad reduction to characteristic p, under the condition that p
+                                                     strictly divides the order of the Galois group. As an application of our re-
+                                                     sults, we prove that the field of moduli of such a cover is at most tamely
+                                                     ramified at p.
+
+
+
+
+                                                                                  Introduction
+                                             Ramified primes in the field of moduli. Let f : Y → X = P1C be a three
+                                             point cover, i.e. a finite cover of the Riemann sphere branched at 0, 1 and ∞. The
+                                             ‘obvious direction’ of Belyi’s Theorem states that f can be defined over a number
+                                             field. Therefore, the absolute Galois group of Q acts on the set of isomorphism
+                                             classes of all three point covers, and we can associate to f the number field K such
+                                             that Gal(Q̄/K) is the stabilizer of the isomorphism class of f . The number field
+                                             K is called the field of moduli of f . Very little is known about the correspondence
+                                             between three point covers and their associated field of moduli. One of the most
+                                             general things that we know about K is given by the following theorem of Beck-
+                                             mann [Bec89]. Let G be the monodromy group of f . Then the extension K/Q is
+                                             unramified outside the set of primes diving the order of G. This result is related to
+                                             the fact that f has good reduction at each prime ideal of K dividing such primes
+                                             p.
+                                                 A recent theorem of Raynaud [Ray99] gives a partial converse to Beckmann’s
+                                             Theorem. Suppose that the prime p strictly divides the order of G, i.e. that p2
+                                             does not divide |G|. Let p be a prime ideal of K dividing p and suppose that the
+                                             ramification index e(p/p) is strictly smaller than the number of conjugacy classes
+                                             in G of elements of order p. Then f has potentially good reduction at p.
+                                                 The proof of this theorem depends on an analysis of the stable reduction of
+                                             f : Y → X at p. If f does not have potentially good reduction at p then this analysis
+                                             yields a certain lower bound for the ramification index e(p/p). The theorem follows
+                                             from this bound. We remark that this sort of result is not restricted to three point
+                                             covers, but extends, under certain conditions, to covers of more general curves X.
+                                             The essential condition here is that p strictly divides the order of G.
+                                                 In [Wew] the author has continued Raynaud’s study of the stable reduction, and
+                                             the present paper is a further continuation of this work. Our results yield an upper
+                                             bound for the ramification index of p in the field of moduli of certain three point
+                                             covers. For instance, we prove the following theorem.
+
+
+                                               2000 Mathematics Subject Classification. Primary 14H30, 11G20.
+                                               Key words and phrases. Three point cover, stable reduction, field of moduli.
+                                                                                           1
+2                                     STEFAN WEWERS
+
+
+Theorem 1. Let f : Y → P1 be a three point cover, with monodromy group G and
+field of moduli K. Let p be a prime which strictly divides the order of G. Then p
+is at most tamely ramified in the extension K/Q.
+   In fact we obtain a formula for the ramification index e(p/p) in terms of the
+stable reduction of f : Y → X at p. This formula shows that e(p/p) is prime to p
+and gives an upper bound.
+   In contrast to the theorem of Raynaud mentioned above, our results are very
+particular to three point covers. They depend in an essential way on the fact that
+three point covers are ‘rigid’ objects, i.e. do not admit any nontrivial deformation.
+
+Stable reduction. Let R be a complete discrete valuation ring, with residue field
+k of characteristic p > 0 and fraction field K of characteristic zero. Let fK : YK →
+XK := P1K be a three point cover defined over K. We assume that fK is Galois, with
+Galois group G. In order to prove results such as Theorem 1, this is no restriction.
+After replacing the field K by a finite extension, we may assume that YK has a
+semistable model YR over R such that the ramification points of fK specialize to
+pairwise distinct smooth points on the special fiber. Among all semistable models
+with this property, we let YR be the minimal one. The action of G extends to YR ;
+let XR := YR /G denote the quotient. This is a semistable model of P1K over R.
+Therefore, the special fiber X̄ := XR ⊗R k is a tree of curves of genus zero. The
+map fR : YR → XR is called the stable model of the Galois cover fK . Its restriction
+to the special fiber f¯ : Ȳ → X̄ is called the stable reduction of fK .
+   We say that the cover fK : YK → XK has good reduction if the curves XR and
+YR are smooth over R. If this is the case, then the stable reduction f¯ : Ȳ → X̄ = P1k
+is a three point Galois cover in characteristic p. If fK does not have good reduction
+we say that it has bad reduction. Our first main result is a structure theorem for
+the stable reduction f¯ : Ȳ → X̄ in the case of bad reduction.
+Theorem 2. Suppose that p strictly divides the order of G and that the cover
+fK : YK → XK has bad reduction. Then the following holds (compare with Figure
+1).
+    (1) The curve X̄ consists of one central component X̄0 , canonically isomorphic
+        to P1k , and r ≥ 1 tails X̄1 , . . . , X̄r , each of which intersects X̄0 in one point.
+    (2) Let Ȳ0 be a irreducible component of Ȳ lying above the central component
+        X̄0 . Then the map Ȳ0 → X̄0 induced from f¯ is the composition of a purely
+        inseparable map Ȳ0 → Z̄0 of degree p and a Galois cover Z̄0 → X̄0 .
+    (3) For j = 1, . . . , r, let Ȳj be an irreducible component of Ȳ lying over the tail
+        X̄j . Then the map Ȳj → X̄j induced by f¯ is a Galois cover, ramified at
+        most at two points. More precisely, Ȳj → X̄j is wildly ramified at the point
+        where X̄j intersects X̄0 and is tamely ramified at any point which is the
+        specialization of one of the K-points 0, 1 or ∞.
+   Part (1) is the essential statement and depends on the assumption that fK is a
+three point cover. Part (2) and (3) follow from (1), using the results of [Ray99] and
+the assumption that p strictly divides the order of G.
+   Under the additional assumption that all the ramification indices of fK are prime
+to p, Theorem 2 (1) can be deduced from the results of [Wew], via Raynaud’s
+construction of the auxiliary cover (see the introduction of [Wew]). The proof of
+the general case given in the present paper is based on a generalization of the
+                     THREE POINT COVERS WITH BAD REDUCTION                            3
+
+
+
+
+           Ȳ           ..               ..               ..
+                         .                .     ···        .
+
+
+
+
+            ❄                    r   r
+                                                ···
+           X̄                r                                 X̄0 = P1k
+                             0   1   ∞
+
+
+
+
+                Figure 1. The stable reduction of a three point cover
+
+
+methods of [Wew]. This generalization avoids the assumption on the ramification
+indices and the use of the auxiliary cover.
+
+Lifting of special G-maps. The stable reduction of a three point Galois cover
+fK : YK → XK := P1K is, by definition, a finite map f¯ : Ȳ → X̄ between semistable
+curves over the residue field k, together with an action of a finite group G on Ȳ
+which commutes with f¯. In the case of bad reduction, the curves X̄ and Ȳ are both
+singular, and the map f¯ is inseparable over some of the irreducible components of
+X̄. This suggests the following question. Given a map f¯ : Ȳ → X̄ of the sort we
+have just described, does it occur as the stable reduction of a three point Galois
+cover fK : YK → XK in characteristic zero? If this is the case then we say that
+fK : YK → XK is a lift of f¯ : Ȳ → X̄.
+    Theorem 2 gives a list of necessary conditions on f¯ for the existence of a lift
+(under the condition that p strictly divides the order of the group G). There is
+one extra condition on f¯ which we have omitted from the statement of Theorem
+2, but which plays a central role in this paper. This additional condition is the
+existence of a certain differential form ω0 on the curve Z̄0 which is ‘compatible’
+with f¯ (see Theorem 2 (2) for the definition of Z̄0 ). For instance, ω0 is logarithmic,
+i.e. of the form du/u, and it is an eigenvector under the action of the Galois group
+of the cover Z̄0 → X̄0 . Moreover, the divisor of zeroes and poles of ω0 is related
+to and determined by the map f¯ and the action of G on Ȳ . The existence and
+the basic properties of ω0 follow from work of Green–Matignon [GM99] and Henrio
+[Hen00]. In some sense, ω0 carries infinitesimal information about the action of G
+on Ȳ which ‘got lost’ by reduction to characteristic p. Following [Wew], we call
+(Z̄0 , ω0 ) a special deformation datum. (Actually, in [Wew] we assume that ω0 has
+no poles. This is true if and only if all the ramification indices of the three point
+cover fK : YK → XK are prime to p.)
+    In the present paper we define the notion of a special G-map. This is a map
+f¯ : Ȳ → X̄ between semistable curves in characteristic p together with an action
+of a finite group G on Ȳ satisfying certain conditions. Essentially, these conditions
+say that f¯ satisfies the conclusion of Theorem 2 and that there exists a special
+4                                 STEFAN WEWERS
+
+
+deformation datum (Z̄0 , ω) which is ‘compatibel’ with f¯ : Ȳ → X̄ and the action
+of G on Ȳ . Our second main result can be stated as follows.
+Theorem 3. Let f¯ : Ȳ → X̄ be a special G-map, defined over an algebraically
+closed field k of characteristic p > 0. Let K0 denote the fraction field of the ring of
+Witt vectors over k. Then the following holds.
+    (1) There exists a lift of f¯, i.e. a three point Galois cover fK : YK → XK whose
+         stable reduction is isomorphic to f¯ : Ȳ → X̄.
+    (2) Each lift of f¯ : Ȳ → X̄ can be defined over a finite extension K/K0 which
+         is at most tamely ramified.
+   We actually prove more, namely we determine the set of isomorphism classes
+of all lifts of f¯, together with the action of Gal(K̄0 /K0 ) on this set, in terms of
+certain numerical invariants attached to f¯. From this more precise result one can
+deduce an upper bound for the degree of the minimal extension K/K0 over which
+a given lift of f¯ can be defined. In any case, Theorem 1 follows from Theorem 2
+and Theorem 3 by a straightforward argument.
+   Part (1) of Theorem 3, i.e. the mere existence of a lift, follows already from the
+results of [Wew] (assuming that ω0 has no poles). Part (2) is more difficult and needs
+new methods. The key step in the proof of (2) is the study of the deformation theory
+of a certain curve with group scheme action associated to the special deformation
+datum (Z̄0 , ω0 ). A detailed exposition of this deformation theory can be found in
+[Wew02].
+    This paper is divided into four sections. The first section contains the general
+theory of stable reduction of Galois covers, the monodromy action and deformation
+data. In §2 we apply this theory to the case of three point cover and prove our
+first main result, which essentially corresponds to Theorem 1 above. We also define
+the notion of a special G-map. In §3 we apply the deformation theory of [Wew02]
+in order to lift a special deformation datum to an auxiliary cover with certain
+good properties. This is preparatory work for §4, where we prove the lifting result
+corresponding to Theorem 3. At the end of §4 we draw some conclusions from this
+result, concerning the field of moduli, and we give some examples.
+
+Acknowledgments. This work grew out of discussions with Michel Raynaud on
+my previous paper [Wew]. I would like to thank him heartily for his critical remarks
+and encouragement. The final version of this paper was written while I was a guest
+of the Max–Planck–Institut in Bonn.
+
+                 1. The stable reduction of Galois covers
+   Let K be a field of characteristic zero equipped with a complete discrete valuation
+whose residue field k is algebraically closed and has characteristic p > 0. Let
+f : Y → X be a Galois cover of smooth projective curves over K. In this section
+we define and study the stable reduction of f . We make two crucial assumptions
+on the reduction of f . First, we assume that the marked curve (X, S) (where S
+is the branch locus of f ) has good reduction. Second, we assume that f has mild
+reduction, a property which is automatically verified if p strictly divides the order
+of the Galois group of f .
+   We start by recalling some results of Raynaud [Ray99] on the structure of f¯ :
+Ȳ → X̄. Then we attach to each irreducible component of X̄ where the stable
+                    THREE POINT COVERS WITH BAD REDUCTION                             5
+
+
+reduction f¯ : Ȳ → X̄ is inseparable a so-called deformation datum. This datum
+encodes infinitesimal information on the action of the Galois group of f : Y → X.
+The deformation data attached to the individual components of X̄ are related by
+certain compatibility conditions. The existence of a set of compatible deformation
+data imposes strong restrictions on the map f¯ : Ȳ → X̄. In this section, we content
+ourself with working out those restrictions which are of a purely combinatorial
+nature. For instance, we obtain a new proof of Raynaud’s vanishing cycle formula
+[Ray99].
+   Most of the results of this section are already present in [Wew], in a special case.
+
+1.1. The stable model and the monodromy action.
+
+1.1.1. The following notation is fixed throughout §1 and §2. Let R0 be a complete
+discrete valuation ring, with quotient field K0 of characteristic 0 and residue field
+k of characteristic p > 0. We assume that k is algebraically closed. We fix an
+algebraic closure K̄ of K0 .
+   Let (X0 , S0 ) be a smooth stably marked curve over R0 . Since R0 is strictly
+henselian this implies that S0 = { xR0 ,j | j ∈ B0 }, where xR0 ,j : Spec R0 → X0 are
+pairwise distinct sections, indexed by a finite set B0 . If K/K0 is a field extension
+then we write XK and SK instead of X0 ⊗R0 K and S0 ⊗R0 K. If K = K̄ then we
+simply write X and S instead of XK̄ or SK̄ . The elements of S are denoted by xj ,
+j ∈ B0 . In §2 we will consider the case X0 = P1R0 and S0 = {0, 1, ∞}.
+   Let G be a finite group and f : Y → X a G-cover of X with branch locus S.
+We consider the set of ramification points of the cover f as a marking on Y ; this
+makes Y a stably marked curve. Let K be a finite extension of K0 and R the ring
+of integers of K. A model of f over K is a G-cover fK : YK → XK such that
+f = fK ⊗K K̄. A good model of f over K is a model which extends to a finite and
+tame cover fR : YR → X0 ⊗R0 R, ramified along S0 ⊗R0 R and étale everywhere else.
+We say that f has good reduction if there exists a good model over some extension
+K/K0 . If f does not have good reduction, we say that it has bad reduction.
+   The following is well known, see [Bec89]. If f has good reduction then there
+exists a good model fK0 : YK0 → XK0 of f over K0 , unique up to isomorphism.
+Moreover, if p does not divide the order of the Galois group G, then f : Y → X
+has good reduction.
+
+1.1.2. From now on, we assume that f : Y → X has bad reduction. Note that this
+implies that p divides the order of G. If K/K0 is a sufficiently large finite extension,
+then there exists a model fK : YK → XK of f over K such that YK extends to a
+stably marked curve YR over R. In particular, YR is a semistable model of YK over
+R such that the ramification points of the cover fK specialize to pairwise disjoint,
+smooth points on the special fiber Ȳ := YR ⊗ k.
+   Since the stably marked model is unique, the action of the group G on YK
+extends to YR . Let XR := YR /G be the quotient; then XR is a semistable curve
+over R with generic fiber XK , see [Ray90], Appendix. Moreover, the branch points
+xj of fK specialize to pairwise distinct smooth points x̄j on the special fiber X̄ :=
+XR ⊗ k. We consider X̄ as a marked semistable curve (note, however, that X̄ is
+not stably marked). By [Knu83], there exists a canonical contraction morphism
+qR : XR → X0 ⊗R0 R. Let X̄ denote the special fiber of XR . There is a unique
+irreducible component of X̄ on which the induced map q̄ : X̄ → X̄0 := X0 ⊗R0 k
+6                                 STEFAN WEWERS
+
+
+is an isomorphism. We may and will identify this component with X̄0 . All other
+components of X̄ are of genus 0 and are contracted by q̄ to a closed point of X̄0 .
+Definition 1.1. The natural map fR : YR → XR is called the stable model of the
+Galois cover fK . The induced map f¯ : Ȳ → X̄ on the special fibers is called the
+stable reduction of fK . The component X̄0 of X̄ is called the original component.
+   It is clear that the stable model is ‘stable’ under extension of the field K. In
+particular, the stable reduction does not depend on the choice of K. We remark that
+the stable model defined above differs slightly from the model used in [Ray99]. This
+difference is not essential, but certain results of [Ray99] have to be reformulated.
+This is done in Lemma 1.4 below.
+
+1.1.3. For an element σ ∈ Gal(K̄/K0 ) we denote by σ f : σ Y → σ X = X the
+conjugate G-cover. Let Γin be the subgroup of Gal(K̄/K0 ) consisting of all elements
+σ such that f ∼= σ f , as G-covers. Similarly, let Γab be the subgroup of Gal(K̄/K0 )
+consisting of elements σ such that σ f ∼= f as mere covers. Set
+                                      in                    ab
+                         K in := K̄ Γ ,      K ab := K̄ Γ .
+The field K in (resp. K ab ) is the field of moduli of the G-cover f (resp. of the mere
+cover f ), relative to the extension K̄/K0 . See [DD97] for more details.
+   Let K/K0 be a Galois extension such that f has stable reduction over K, and
+let fR : YR → XR be the stable model. Also, let σ ∈ Γab . By definition of Γab , there
+                                               ∼
+exists a σ-linear automorphism κK,σ : YK → YK which normalizes the action of G
+                                                            ∼
+and induces the canonical σ-linear automorphism XK → XK . The automorphism
+κK,σ is unique up to composition with an element of G. It extends to a σ-linear
+                             ∼                   ∼
+automorphism κR,σ : YR → YR . Let κ̄σ : Ȳ → Ȳ be the restriction of κR,σ to the
+special fiber. This is a k-linear automorphism which normalizes the action of G. It
+is uniquely determined by σ ∈ Γab , up to composition with an element of G. We
+obtain a continuous homomorphism
+                             κ̄ab : Γab −→ Autk (Ȳ )/G,
+which we shall call the (absolute) monodromy action. Note that κ̄σ induces an
+automorphism of X̄ which is the identity on the original component. It follows
+from [DD97] that the set of K ab -models of the mere cover f is in bijection with
+the set of homomorphisms Γab → Autk (Ȳ ) which lift κ̄ab . If a model fK ab of f is
+specified, we will sometimes consider κ̄ab as a homomorphism Γab → Autk (Ȳ ).
+   Let AutG (Ȳ ) denote the group of k-linear automorphisms of Ȳ which commute
+with the G-action, and let CG denote the center of G. The restriction of κ̄ab to Γin
+yields a homomorphism
+                            κ̄in : Γin −→ AutG (Ȳ )/CG ,
+called the inner monodromy action. Similar to what we stated above, K in -models
+of the G-cover f correspond one-to-one to lifts of κ̄in to a homomorphism Γin →
+AutG (Ȳ ).
+                                                                 σ ∈ G, and set
+   Let Γst denote the subgroup of Γab of elements σ such that κ̄ab
+            st
+K := K̄ Γ . One shows that K st /K0 is the smallest extension over which f has
+  st
+
+
+stable reduction. Compare with [Ray99], §2.2.
+
+1.2. Mild reduction.
+                    THREE POINT COVERS WITH BAD REDUCTION                               7
+
+
+1.2.1. Let f : Y → X be a G-cover as in §1.1. We assume that f has bad
+reduction and denote by f¯ : Ȳ → X̄ its stable reduction. If η is a point on Ȳ
+(closed or generic), we denote by Gη (resp. Iη ) the corresponding decomposition
+(resp. inertia) group. By definition, Gη is the set of elements of G which stabilize
+η, and Iη is the normal subgroup of Gη consisting of elements which act trivially
+on the residue field k(η).
+Definition 1.2. We say that f : Y → P1 has mild reduction it has bad reduction
+and if the following two conditions hold for all points η ∈ Ȳ . Firstly, the p-part of
+Iη has at most order p. Secondly, if Iη 6= 1 then the order of Gη /Iη is prime to p.
+   If f : Y → X has bad reduction and p strictly divides the order of the Galois
+group G, then the reduction of f is automatically mild. From now on, let us assume
+that f : Y → X has mild reduction.
+1.2.2. Let us denote by (X̄v ) the family of irreducible components of the curve X̄.
+Definition 1.3. A component X̄v of X̄ which is not the original component and
+which is connected to the rest of X̄ in a single point is called a tail. The point
+where a tail X̄v meets the rest of X̄ is denoted by ∞v . If a tail X̄v contains one of
+the points x̄j , j ∈ B0 , then X̄v is called primitive. Otherwise, the tail X̄v is called
+new. A component X̄v which is not a tail is called an interior component.
+     For each component X̄v of X̄, we choose an irreducible component Ȳv of Ȳ above
+X̄v . We write Gv for the decomposition group of Ȳv and Iv for the inertia group of
+Ȳv .
+Lemma 1.4 (Raynaud). Suppose that f : Y → P1 has mild reduction. Then the
+following holds.
+     (1) If X̄v is a tail, then the inertia group Iv is trivial. In other words, the map
+         Ȳv → X̄v is a Galois cover, with Galois group Gv . If X̄v is a primitive
+         tail and contains the point x̄j , j ∈ B0 , then the cover Ȳv → X̄v is wildly
+         ramified at ∞v , tamely ramified at x̄j and étale everywhere else. If X̄v is a
+         new tail, then Ȳv → X̄v is wildly ramified at ∞v and étale everywhere else.
+     (2) If X̄v is not a tail, then the inertia group Iv is cyclic of order p. The cover
+                                                                                      (p)
+         Ȳv → X̄v factors through the k-linear Frobenius map F : Ȳv → Z̄v := Ȳv .
+         The resulting map Z̄v → X̄v is a Galois cover, with Galois group Hv :=
+         Gv /Iv . It is étale outside the set of points which are either singular points
+         of X̄ or belong to the set {x̄j | j ∈ B0 }.
+     (3) For j ∈ B0 , let nj be the ramification index of f : Y → X in xj . Suppose
+         that nj is prime to p. Then the specialization x̄j of xj lies on a primitive
+         tail X̄v , and the ramification index of Ȳv → X̄v at x̄j is nj .
+     (4) With the same notation as in (3), suppose that nj = pn′j . Then x̄j lies on
+         a component X̄v which is not a tail. Moreover, the Galois cover Z̄v → X̄v
+         has ramification index n′j at x̄j .
+Proof. This is essentially proved in [Ray99], §2 and §3. There are two points where
+our assumptions differ from the assumptions made in [Ray99]. Firstly, it is assumed
+in [Ray99] that p exactly divides the order of G. However, one only needs that f
+has mild reduction. The second point is that (3) becomes false if we replace our
+definition of the stable reduction with the definition used in [Ray99]. It is proved
+in [BW00], Lemma 2.1.1 that (3) holds if we define f¯ as in Definition 1.1.       
+8                                   STEFAN WEWERS
+
+
+1.3. Deformation data.
+1.3.1. A priori, our definition of a deformation datum is independent of the study
+of stable reduction. So the following notation replaces, during §1.3.1, the notation
+introduced so far. Let p be a prime number, k an algebraically closed field of
+characteristic p and X a smooth projective and irreducible curve over k.
+Definition 1.5. A deformation datum over X is a pair (Z, ω), where Z → X is a
+tame (connected) Galois cover and ω is a meromorphic differential form on Z such
+that the following holds.
+    (1) The order of the Galois group H = Gal(Z/X) is prime to p.
+    (2) We have
+                         β ∗ ω = χ(β) · ω,      for all β ∈ H,
+                           ×
+        where χ : H → Fp is a character with values in the prime field Fp .
+    (3) The differential ω is either logarithmic (i.e. of the form ω = du/u) or exact
+        (i.e. ω = du). In the first case, the deformation datum (Z, ω) is called
+        multiplicative, in the second case it is called additive.
+The pair (H, χ) is called the type of the deformation datum (Z, ω).
+  Let ξ ∈ Z be a closed point and τ ∈ X its image. Denote the stabilizer of ξ by
+Hξ ⊂ H. We attach to the triple (Z, ω, τ ) the following three invariants:
+(1)          mτ := |Hξ |,       hτ := ordξ (ω) + 1,       στ := hτ /mτ .
+It is clear that mτ , hτ and στ depend only on τ but not on ξ, and that (mτ , hτ ) =
+(1, 1) for all but a finite number of points τ ∈ X. If (mτ , hτ ) 6= (1, 1) then τ is
+called a critical point for the deformation datum (Z, ω).
+   Given a deformation datum (Z, ω), we often use the following or a similar no-
+tation. Let (τj )j∈J be the family of critical points for (Z, ω), indexed by the finite
+set J. For j ∈ J, we write mj , hj and σj instead of mτj , hτj and στj . The data
+(mj ; hj )j∈B is called the signature of the deformation datum (Z, ω). A straightfor-
+ward computation shows that
+                                X
+(2)                                (σj − 1) = 2gX − 2.
+                              j∈J
+
+(where gX denotes the genus of the curve X).
+Remark 1.6. Let Z̃ := Z/ Ker(χ). It is easy to see that ω descents to a differential
+ω̃ on Z̃ and that (Z̃, ω̃) is again a deformation datum, with critical points τj and
+invariants
+                       mj                     hj              h̃j
+           m̃j =              ,     h̃j =            , σ̃j =       = σj .
+                   | Ker(χ)|               | Ker(χ)|          m̃j
+1.3.2. Let us now return to our original notation, concerning the Galois cover
+f : Y → X and its stable reduction f¯ : Ȳ → X̄. Let X̄v be an interior component
+of X̄ (see Definition 1.3). Following [Hen00] and [Saı̈01], we define a deformation
+datum (Z̄v , ωv ) over X̄v , as follows.
+   Choose an irreducible component Ȳv of Ȳ above X̄v . By Lemma 1.4 (2), the
+inertia group Iv of Ȳv is cyclic of order p and the quotient group Hv := Gv /Iv is
+of prime-to-p order. Moreover, the cover Ȳv → X̄v is the composition of a purely
+inseparable cover Ȳv → Z̄v of degree p and an Hv -Galois cover Z̄v → X̄v . Let
+Ŷv := Spec ÔYR ,v be the completion of YR at the generic point of the component
+                     THREE POINT COVERS WITH BAD REDUCTION                                  9
+
+
+Ȳv ; thus ÔYR ,v is a complete discrete valuation ring with residue field k(Ȳv ). The
+action of Iv on YR induces an action on Ŷv . Let Ẑv := Ŷv /Iv be the quotient; we
+have Ẑv = Spec A for a complete discrete valuation ring A with residue field k(Z̄v ).
+We may assume that the field K contains the pth roots of unity. Let us choose
+an isomorphism Iv ∼     = µp (K) between Iv and the group of pth roots of unity. By
+[Ray99], §1.2.1, the map Ŷv → Ẑv is a torsor under a finite flat R-group scheme G of
+rank p, such that G ⊗R K = µp acts on Ŷv ⊗R K via the isomorphism Iv ∼          = µp (K).
+By Kummer theory, the µp -torsor Ŷv ⊗R K → Ẑv ⊗R K is given by a Kummer
+equation y p = u, with u ∈ A.
+     To define the differential ωv , we have to distinguish two cases. First, let us
+assume that G ⊗R k ∼    = µp . This happens if and only if we may choose the Kummer
+equation y p = u such that the residue ū of u is not a pth power. In this case,
+we set ωv := dū/ū and we say that the cover f has multiplicative reduction at Ȳv .
+Otherwise G ⊗R k ∼    = αp and we say that f has additive reduction at Ȳv . In this case
+we can choose the equation y p = u such that u = 1 + π p w, with π ∈ R, w ∈ A and
+0 < vR (π) < vR (p)/(p − 1), and such that the residue w̄ of w is not a pth power.
+We set ωv := dw̄. It is clear that ωv depends on the choice of the isomorphism
+Iv ∼ = µp (K). Indeed, composing this isomorphism with the automorphism ζp 7→ ζpa
+(where a ∈ F×                                                          ×
+               p ) amounts to multiplying ωv by a. Let χv : Hv → Fp be the character
+describing the action of Hv on Iv by conjugation. It is clear that β ∗ ωv = χv (β) · ωv
+for all β ∈ Hv .
+     We have defined the differential ωv over the generic point of Z̄v . However, we
+can extend this definition to a neighborhood of any point of Z̄ which lies over
+a smooth point of X̄. To be more precise, let τ ∈ X̄v be a closed point which
+is smooth in X̄ and choose points η ∈ Ȳv and ξ ∈ Z̄v above τ . Let Ŷη be the
+completion of YR at η and Ẑξ = Ŷη /Iv . Then Ŷη ⊗R k = Spec ÔȲv ,η ∼     = k[[y]] and
+                     ∼
+Ẑξ = Spec ÔZ̄v ,ξ = k[[z]]. As above, the action of Iv on Ŷη gives rise to a differential
+ωξ of the field Frac(ÔZ̄v ,ξ ) ∼
+                                = k((z)). One checks easily that ωξ is the pullback of
+ωv to the completion of Z̄v at ξ. Now the local definition of ωξ shows the following.
+The differential ωv does not vanish at ξ. Moreover, if ωv has a pole at ξ, then
+this pole is simple, ωξ is logarithmic and the point τ ∈ X̄v is the specialization
+of a branch point of f with ramification index divisible by p. We summarize the
+discussion in the next proposition.
+
+Proposition 1.7. Over each interior component X̄v we obtain a deformation da-
+tum (Z̄v , ωv ), with the following properties. If τ ∈ X̄v is a critical point for (Z̄v , ωv )
+then one of the following two statements holds.
+    (1) The point τ ∈ X̄v is a singular point of X̄.
+    (2) The point τ is the specialization of a point xj ∈ S0 at which the cover f
+        has ramification of order divisible by p.
+In Case (1), we have στ 6∈ {0, 1}. In Case (2), we have στ = 0 and (Z̄v , ωv ) is
+multiplicative.
+
+1.3.3. By Proposition 1.7, the stable reduction f¯ : Ȳ → X̄ of a G-cover f :
+Y → X with mild reduction is naturally equipped with a collection of deformation
+data (Z̄v , ωv ). These deformation data are related among each other by certain
+compatibility conditions. To formulate these conditions, let τ be a singular point of
+10                                 STEFAN WEWERS
+
+
+X̄, and let X̄v1 , X̄v2 be the two components of X̄ which intersect in τ . For i = 1, 2,
+we define a pair (mi , hi ) as follows.
+      • If X̄vi is an interior component, we define (mi , hi ) as the pair of invariants
+        attached to (Z̄vi , ωvi , τ ).
+      • Suppose that X̄vi = X̄j is a tail of X̄. Let η ∈ Ȳj be a point lying above τ
+        and let Iη ⊂ G be the inertia group at η. We define mi as the order of the
+        maximal prime-to-p quotient of Iη . Furthermore, we let hi be the conductor
+        of Iη , i.e. the unique integer such that |Iη,hi | = p and Iη,hi +1 = {1}. (Here
+        (Iη,ν )ν≥0 denotes the filtration of higher ramification groups.)
+Proposition 1.8. We have m1 = m2 and h1 = −h2 .
+Proof. The equality m1 = m2 is trivial. Let Ŷ := Spec ÔYR ,η be the completion
+of YR at η. The R-scheme Ŷ is a formal annulus and is acted upon by Iη . The
+invariants h1 and h2 can be defined purely in terms of this local action, and the
+equality h1 = −h2 is proved in [Hen00], Proposition 1.10. (In [Hen00], the invariant
+h is called −m.)                                                                  
+
+Remark 1.9. It seems plausible that the existence of a set of deformation data
+satisfying these compatibility conditions gives a necessary and sufficient condition
+for a map f¯ : Ȳ → X̄ between semistable curves to occur as the stable reduction of
+a Galois cover between smooth curves in characteristic 0. That this is true for three
+point covers is proved in §4. In the case of p-cyclic covers, results in this direction
+are obtained in [Hen00] and [Saı̈01].
+1.4. The vanishing cycle formula. The vanishing cycle formula, proved by Ray-
+naud in [Ray99], is the key formula which controls the (local) invariants describing
+the bad reduction occuring over the tails by a global expression. In this subsection
+we give another proof. The main observation is that (2) gives a ‘local’ vanishing
+cycle formula for each interior component of X̄. The global vanishing cycle for-
+mula is then easily obtained from its local version using the compatibility relation
+of Proposition 1.8 and induction over the tree of components of X̄. We use this
+occasion to set up some more notation which may seem at bit technical at first but
+will pay off in §2.1.
+
+1.4.1. Recall that an unordered graph is given by a quintupel (V, E, s, t, ¯). Here
+V is the set of vertices, E is the set of (ordered) edges, s, t : E → V are the source
+                                    ∼
+and the target map, and E → E, e 7→ ē, is a fixed point free involution of E such
+that s(ē) = t(e) for all e ∈ E.
+    Let T ′ = (V ′ , E ′ , s, t, ¯) be the dual graph of the semistable curve X̄. Thus,
+a vertex v ∈ V ′ corresponds to an irreducible component X̄v of X̄, and an edge
+e ∈ E ′ corresponds to a triple (x̄, v1 , v2 ) such that the (distinct) components X̄v1
+and X̄v2 intersect in the (singular) point x̄. Let Bwild ⊂ B0 be the set of indices
+j such that ramification index of the Galois cover f : Y → X at xj is divisible by
+p. We define T = (V, E, s, t, ¯) as the unordered graph obtained from T ′ by adding
+a vertex for each point xj with j ∈ Bwild . More precisely, V := V ′ ∪ Bwild and a
+vertex j ∈ Bwild is connected to the vertex v ∈ V ′ by an edge e ∈ E if and only
+if the point xj ∈ S0 specializes to the component X̄v . Note that T is a connected
+tree. Also, to each edge e of T corresponds a closed point x̄e ∈ X̄, as follows. If
+the edge e joins two vertices v2 , v2 ∈ V ′ then x̄e is the point where X̄v1 intersects
+                     THREE POINT COVERS WITH BAD REDUCTION                               11
+
+
+X̄v2 . If e joins two vertices j ∈ Bwild and v ∈ V ′ then x̄e := x̄j ∈ X̄v is the point to
+which xj specializes.
+   We consider the vertex v0 corresponding to the original component X̄v0 as the
+root of the tree T . Also, we denote by B the set of leaves of T , i.e. the set of vertices
+v ∈ V − {v0 } which are adjacent to a unique vertex v ′ . Thus, a vertex v ∈ Vint :=
+V − B corresponds to an interior component X̄v . By definition, Bwild ⊂ B. An
+element j in Bprim = B0 − Bwild corresponds to a ramification point xj of f of order
+prime-to-p. By Lemma 1.4, xj specializes to a point x̄j on a primitive tail X̄v . The
+resulting map Bprim → B is clearly injective. Therefore, we may and will consider
+B0 = Bprim ∪ Bwild as a subset of B. Then Bnew := B − B0 is the set of leaves
+corresponding to the new tails of X̄.
+
+1.4.2. We shall now attach integers me , he and a rational number σe to each edge
+e of the tree T . Suppose first that v := s(e) is an interior vertex. Let (Z̄v , ωv )
+be the deformation datum over X̄v , as defined in §1.3.2. Note that x̄e ∈ X̄v is a
+critical point for (Z̄v , ωv ), by Proposition 1.7. We define the numbers me , he and
+σe as the invariants attached to the triple (Z̄v , ωv , x̄e ). If v := s(e) is a leaf of T ,
+then we set me := mē , he := −hē and σe := −σē . Equation (2) and Proposition
+1.8 imply the following.
+Proposition 1.10. For all interior vertices v of T we have
+                           X
+(3)                             (σe − 1) = 2gv − 2
+                               s(e)=v
+
+(where gv is the genus of X̄v ). Furthermore, for all edges e of T we have
+(4)                                     σe + σē = 0.
+   For each leaf j ∈ B, let ej be the unique edge with target j. We set mj := mej ,
+hj := mej and σj := σej . If j 6∈ Bwild then mj is the prime-to-p part of the
+ramification index of the Galois cover Ȳj → X̄j at x̄e = ∞j and hj is the conductor
+of the wild ramification in that point, see Proposition 1.8. Therefore, the rational
+number σj = hj /mj is the ramification invariant introduced in [Ray99], §1.1. It
+is equal to the jump in the filtration of higher ramification groups for the branch
+point ∞j ∈ X̄j , with respect to the upper numbering, see [Ser68]. Note that we
+have defined σj = 0 for j ∈ Bwild . We shall call the tuple (σj )j∈B the signature of
+the stable reduction f¯ : Ȳ → X̄. It is shown in [Ray99] that σj > 1 for j ∈ Bnew .
+Moreover, we have the following.
+Corollary 1.11 (The vanishing cycle formula). The signature (σj )j∈B of f¯ verifies
+
+                    X                X
+(5)                          σj +            (σj − 1) = 2gX − 2 + |B0 |.
+                   j∈Bprim          j∈Bnew
+
+Proof. This is proved in [Ray99], §3.4. Here is another proof, using Proposition
+1.10. Let T0 ⊂ T1 ⊂ . . . ⊂ Tn be a chain of subtrees of T such that T0 = {v0 },
+Ti = Ti−1 ∪ {vi } and Tn = T − B. Let EiPdenote the set of edges of T such that
+s(e) ∈ Ti and t(e) 6∈ Ti . We claim that e∈Ei (σe − 1) = 2gX − 2 holds for all
+0 ≤ i ≤ n. Indeed, Proposition 1.10 shows that the claim is true for i = 0 and then,
+by induction, for all i. For i = n, the claim is equivalent to (5).               
+12                                 STEFAN WEWERS
+
+
+                      2. The case of three point covers
+   In this section we apply the results of the last section to the case of three point
+covers. In §2.1 we prove our first main result, which essentially states that the
+stable reduction of a three point cover with mild reduction is as simple as possible.
+The basic idea underlying the proof of this result is that f¯ : Ȳ → X̄, together with
+the associated deformation data, should be a ‘rigid’ objects, i.e. should not allow
+any nontrivial deformation. This imposes strong restrictions on the deformation
+data (Z̄v , ωv ) attached to f¯. We verify these restrictions coming from rigidity only
+indirectly, using the local and global vanishing cycle formulas. A key lemma from
+[Wew] shows that f¯ can support no additive deformation datum, and only a single
+multiplicative one. To make this proof work one has to exclude two exceptional
+cases, see §2.1.1. This is somewhat annoying but not serious, because all our final
+results apply to these exceptional cases as well.
+   In §2.2 we define the notion of a special G-deformation datum. To such an object
+we can associate a map f¯ : Ȳ → X̄ which looks as if it were the stable reduction of
+a three point G-cover, and which we call a special G-map.
+
+2.1. The structure of f¯.
+
+2.1.1. We continue with the notation introduced in §1. In addition, we assume
+that X0 = P1R0 and S0 = {0, 1, ∞}. Note that the right hand side of (5) is equal to
+1.
+Definition 2.1. We say that the stable reduction of f is exceptional if one of the
+following two cases occurs.
+     (1) We have Bprim = {j0 }, Bnew = ∅ and σj0 = 1.
+     (2) We have Bprim = ∅, Bnew = {j0 } and σj0 = 2.
+Proposition 2.2. Let f : Y → X = P1K̄ be a Galois cover ramified at {0, 1, ∞},
+with exceptional reduction. Then the curve X̄ consists only of the original compo-
+nent X̄0 and the unique tail X̄j0 .
+Proof. We will prove the proposition only for Case (2) of Definition 2.1 and leave
+Case (1) to the reader. Let T ′ be the dual graph of the curve X̄, considered as a
+subtree of T . By assumption, T ′ has a unique leaf j0 . Therefore, T ′ is simply a
+chain going from the root v0 to j0 . Let v be the unique vertex of T ′ adjacent to
+the leaf j0 and let e be the edge with source v and target j0 . This means that the
+interior component X̄v intersects the unique (new) tail X̄j0 in the point x̄e . We have
+to show that v = v0 , i.e. that X̄v is the original component X̄0 . So, let us assume
+that v 6= v0 . Then there exists a unique edge e′ 6= e with source v, corresponding to
+a point x̄e′ where X̄v intersects another component X̄v′ . Let us first suppose that
+there exists another edge e′′ (of the tree T ) with source v besides e and e′ . Then
+t(e′′ ) ∈ Bwild , i.e. the point x̄e′′ is the specialization of a branch point of f with
+ramification index divisible by p. Since X̄v is not the original component, there can
+be at most one branch point specializing to X̄v . Therefore, e, e′ , e′′ are the only
+edges with source v. Since σe = 2 and σe′′ = 0, (3) shows that σe′ = −1. This
+means that the differential ωv has a pole of order ≥ 2 at each point of Z̄v lying
+above x̄e′ . This shows that ωv cannot be logarithmic. On the other hand, ωv has a
+simple pole at each point above x̄e′′ , so ωv cannot be exact. This is a contradiction.
+We may therefore assume that e and e′ are the only edges with source v. It follows
+                     THREE POINT COVERS WITH BAD REDUCTION                            13
+
+
+that the cover Z̄v → X̄v is ramified at most at two points; in particular, the genus
+of Z̄v and therefore the genus of Ȳv as well, is zero. Moreover, Ȳv intersects the
+rest of Ȳ in two points and no ramification point specializes to Ȳv . Thus, the ‘three
+point condition’ does not hold for Ȳ , in contradiction with the definition of the
+stable model in §1.1. The proposition follows.                                        
+Remark 2.3. It may happen that the Galois cover f : Y → X has bad reduction but
+that the curve Y has good reduction. If this is the case then the stable reduction
+of f is exceptional.
+2.1.2. For the rest of §2.1 we assume that the reduction of f is not exceptional.
+The vanishing cycle formula (5), together with the inequalities σj > 0 for j ∈ Bprim
+and σj > 1 for j ∈ Bnew , immediately imply the inequalities
+(6)           0 < σj < 1       for j ∈ Bprim ,    1 < σj < 2 for j ∈ Bnew .
+Moreover, |Bprim ∪ Bnew | ≥ 2. For an edge e of T we define νe := ⌊ σe ⌋ to be the
+largest integer less than or equal to the rational number σe . Note that we have
+σe = νe + hσe i, where hσe i ≥ 0 denotes the fractional part of σe . For a leaf j ∈ B,
+we write νj := ⌊ σj ⌋. By (6) we have νj = 0 for j ∈ B0 and νj = 1 for j ∈ Bnew .
+Since |B0 | = 3, the vanishing cycle formula (5) implies
+                                    X
+(7)                                     hσj i = 1.
+                                        j∈B
+              ′
+Recall that T denotes the dual graph of the curve X̄, considered as subtree of T .
+Let E ′ denote the set of edges of T ′ . Moreover, let Eint
+                                                        ′
+                                                            ⊂ E ′ be the set of edges
+connecting two interior vertices.
+Proposition 2.4.
+   (1) For all edges e ∈ E ′ we have νe + νē = −1.
+   (2) For all interior vertices v ∈ Vint we have
+                 X                             X
+                      hσe i = 1      and           (νe − 1) = −3.
+                  s(e)=v                           s(e)=v
+
+Proof. For e ∈ E ′ define
+                           de := hσe i + hσē i − 1 = −νe − νē − 1.
+The last equality follows from (4). Clearly, de = dē , de ∈ {−1, 0} and de = −1 if
+and only if σe ∈ Z. For v ∈ Vint define
+                                 X                  X
+                  cv := −1 +          hσe i = −3 +        (νe − 1).
+                                    s(e)=v                  s(e)=v
+
+The last equality is a consequence of (3). It is easy to see that cv ∈ {−1, 0, 1, . . .}
+and that cv = −1 if and only if de = −1 for all e ∈ E ′ such that s(e) = v. We have
+to show that de = cv = 0.
+    It is convenient to introduce the following terminology. A vertex v of T is said to
+precede an edge e (notation: v ≺ e) if v lies in the connected component of T − {e}
+which contains s(e). An edge e′ is said to precede another edge e (notation: e′ ≺ e)
+if t(e′ ) ≺ e. Note that ‘≺’ is a partial order on the set E of edges.
+    Suppose that there exists an edge e ∈ E ′ with de 6= 0. We may suppose that
+e is minimal with this property, i.e. de′ = 0 for all edges e′ ∈ E ′ which precede e.
+We claim that cv ≥ 0 for all v ∈ Vint which preceed e. Indeed, since X̄ has at least
+14                                STEFAN WEWERS
+
+
+two tails, there exist at least two (distinct) edges in E ′ with target v. At least one
+of them precedes e. Hence there exists an edge e′ ∈ E ′ with de′ = 0 and t(e) = v.
+This proves the claim. As a consequence, we obtain the inequality
+                 X                          X                   X
+       0 ≤              cv = hσe i + (              de′ ) + (         hσj i ) − 1
+              v ∈ Vint                 e′ ∈ Eint
+                                             ′
+                                                           j∈B
+                                          ′
+               v≺e                      e ≺e               j≺e
+(8)                                     X
+                           = hσe i + (        hσj i ) − 1.
+                                         j∈B
+                                         j≺e
+Since the curve X̄ has at least two tails, there exists j ∈ Bprim ∪ Bnew such that j
+does not precede e. Moreover σj > 0. Therefore, (8) implies hσe i > 0. But this is a
+contradiction to the assumption de 6= 0. We conclude that de = 0 for all e ∈ E ′ . It
+remains to prove cv = 0 for all v ∈ Vint . The same argument we used above together
+with de = 0 for all e ∈ E ′ shows that cv ≥ 0 for all v ∈ Vint . Now the proposition
+follows from      X               X              X
+                        cv = (         de ) + (     hσj i ) − 1 = 0.
+                  v∈Vint           ′
+                                e∈Eint          j∈B
+
+                                                                                     
+Lemma 2.5. Suppose that f¯ is not exceptional, and let e be an edge of T . Then
+                                    −2 ≤ νe ≤ 1.
+Moreover, νe ≥ 0 if and only if the root v0 precedes e. In particular, if v is an
+interior vertex unequal to v0 then there exists a unique edge e with source v such
+that νe < 0.
+Proof. (Compare to [Wew], Lemma 2.6.) Using Proposition 2.4 and induction in
+the tree T one shows that
+                           νe = 1 − | { j ∈ B0 | j > e } |.
+Note that |B0 | = 3 and that the root v0 is the median of the set of leaves B0 . The
+lemma follows immediately.                                                        
+2.1.3. We can now prove our first main result. It applies in particular if p strictly
+divides the order of G.
+Theorem 2.6. Let f : Y → X = P1K̄ be a Galois cover ramified at {0, 1, ∞}, with
+bad reduction. If f has mild reduction (Definition 1.2) then the curve X̄ consists
+only of the original component X̄0 and the tails X̄j , j ∈ Bprim ∪ Bnew .
+Proof. If Bwild = ∅ then this follows from [Wew], Theorem 2.1, using Raynaud’s
+construction of the auxiliary cover. The proof we give below follows the same lines,
+but avoids the construction of the auxiliary cover.
+   We prove the theorem by contradiction. Assume that there exists an interior
+vertex v of T other than the root v0 . By Proposition 2.2, the reduction of f is not
+exceptional. We may assume that v is adjacent to the root v0 , i.e. there exists an
+edge e0 with source v and target v0 . This means that the component X̄v intersects
+the original component X̄0 in the point x̄e0 . Let (Z̄v , ωv ) be the deformation datum
+over X̄v as defined in §1.3.2. For the rest of this proof, e runs over the set of edges
+                    THREE POINT COVERS WITH BAD REDUCTION                             15
+
+                                              P                P
+with source v. By Proposition 2.4 we have e hσe i = 1 and e (νe − 1) = −3. Also,
+Lemma 2.5 implies that −2 ≤ νe ≤ 1 for all e and νe < 0 if and only if e = e0 . In
+this situation, [Wew], Lemma 2.8 says that ωv cannot be exact (actually, in [Wew]
+one assumes that the type of (Z̄v , ωv ) has an injective character χv ; the general case
+follows from Remark 1.6). Therefore, ωv is logarithmic. On the other hand, since
+νe0 < 0, the differential has a pole of order ≥ 2 at each point of Z̄v lying above
+x̄e0 . Therefore, ωv cannot be logarithmic. This gives the desired contradiction and
+proves the theorem.                                                                    
+2.2. Special G-deformation data. In this section we define special G-deformation
+data. To a special G-deformation datum we then associate a special G-map f¯ : Ȳ →
+X̄. Briefly, a special G-map is a map between semistable curves over k which looks
+like the stable reduction of a three point G-cover with mild reduction.
+
+2.2.1. Let k be an algebraically closed field of characteristic p > 0 and X̄ a smooth
+projective curve over k of genus 0. Let (Z̄, ω) be a deformation datum over X̄, of
+type (H, χ). As usual, we denote by (τj )j∈B the set of critical points for (Z̄, ω).
+Also, for j ∈ B we denote by mj , hj and σj the invariants attached to (Z̄, ω, τj ).
+See §1.3.
+Definition 2.7. The deformation datum (Z̄, ω) is called special if for all j ∈ B
+we have σj < 2 and σj 6= 1 and if there exists a subset B0 ⊂ B with exacly three
+elements such that σj < 1 if and only if j ∈ B0 .
+Remark 2.8. In case the character χ is injective and σj > 0 we recover the definition
+of a special deformation datum given in [Wew].
+   In the following we assume that (Z̄, ω) is special. Let Bwild (resp. Bprim , resp.
+Bnew ) denote the set of all indices j ∈ B such that σj = 0 (resp. 0 < σj < 1, resp.
+1 < σj < 2). Then B0 = Bwild ∪ Bprim , and it follows from (3) that
+                                    X
+(9)                                     hσj i = 1.
+                                    j∈B
+
+We call the special deformation datum (Z̄, ω) normalized if X̄ = P1k and {τj | j ∈
+B0 } = {0, 1, ∞}.
+   Their connection to three point covers suggests that special deformation data
+are ‘rigid’ objects, i.e. there should not exist any nontrivial families of special de-
+formation data. This is indeed true; a precise statement is formulated and proved
+in [Wew02], §5.4. See also §3 below.
+
+2.2.2. In this subsection, X̄ will denote a smooth projective curve over k of genus
+0, together with a distinguished closed point ∞
+                                              ¯ ∈ X̄. We also fix a finite group G.
+Definition 2.9. A G-tail cover is a (not necessarily connected) G-cover f¯ : Ȳ → X̄
+such that the following holds.
+    (1) The cover f¯ is wildly ramified above ∞,
+                                               ¯ of order pm with (p, m) = 1.
+    (2) The restriction of f¯ to X̄ − {∞}
+                                       ¯ is tame and branched at most at one point.
+A pointed G-tail cover is a G-tail cover together with a point η ∈ Ȳ above ∞     ¯
+and a subgroup H of the inertia group Iη such that Iη = Iη,1 ⋊ H. An (outer)
+                                                                       ∼
+automorphism of a pointed G-tail cover is an automorphism γ : Ȳ → Ȳ which
+normalizes the action of G (and hence induces an automorphism of X̄), centralizes
+16                                 STEFAN WEWERS
+
+
+the action of H ⊂ G and fixes the point η. Such an automorphism is called inner
+if it centralizes the action of G.
+   Let (f¯ : Ȳ → X̄, η, H) be a pointed G-tail cover. By Condition (1), Iη,1 is cyclic
+of order p and H cyclic of order prime-to-p. Let m denote the order of H and h the
+conductor of Iη,1 . The pair (mj , hj ) is called the ramification type and the rational
+number σ := h/m the ramification invariant of f¯. Note that h > 0 and (h, p) = 1.
+Moreover, m|(p − 1)h, by the Hasse–Arf Theorem (see [Ser68], IV §3).
+Definition 2.10. A tail cover f¯ : Ȳ → X̄ is called special if the following two
+conditions hold.
+    (1) We have σ < 2 and σ 6= 1.
+    (2) If σ > 1 then the restriction of f¯ to X̄ − {∞}
+                                                     ¯ is étale.
+                                            ¯
+If σ < 1 then we say that the tail cover f is primitive, otherwise we say that it is
+new.
+   By [Ray99], Proposition 1.1.6, the converse of Condition (2) holds automatically:
+if σ < 1 then there exists a unique point 0̄ ∈ X̄ − {∞}  ¯ above which f¯ is tamely
+ramified. The reason is this: if f¯ were étale over X̄ − {∞}¯ and σ < 1, then the
+Riemann–Hurwitz formula would produce a negative number for the genus of Ȳ .
+   It is clear from the results of §2.1 that the tail covers obtained from the stable
+reduction of a three point Galois cover are special (provided that the reduction is
+not exceptional). We can therefore expect that a special tail cover f¯ : Ȳ → X̄ is
+‘rigid’. In fact, using the methods of [BM00] one can show that the curve Ȳ does
+not admit any nontrivial G-equivariant deformations. What is more important for
+us is that all special G-tail covers with a given ramification type (m, h) are ‘locally
+isomorphic’, in the following sense.
+Definition 2.11. Let (f¯1 : Ȳ1 → X̄, η1 , H) and (f¯2 : Ȳ2 → X̄, η2 , H) be two
+pointed G-tail covers with the same subgroup H ⊂ G and the same ramification
+type (m, h). Let X̄∞   ¯ denote the generic point of the completion of X̄ at ∞   ¯ and
+        ¯ := Ȳi ×X̄ X̄∞
+set Ȳi,∞                                                  ¯        ¯
+                        ¯ . A local isomorphism between f1 and f2 is a G-equivariant
+isomorphism
+                                                 ∼
+                                  ϕ∞ ¯ : Ȳ1,∞
+                                             ¯  −→ Ȳ2,∞¯
+with the following properties.
+                                              ∼
+    (1) The automorphism ψ∞       ¯ : X̄∞ ¯ → X̄∞ ¯ induced by ϕ∞ ¯ extends to a global
+                                  ∼
+          automorphism ψ : X̄ → X̄ (which necessarily fixes ∞).  ¯
+    (2) We have ϕ∞                                 ¯
+                      ¯ (η1 ) = η2 . Moreover, if f1 is ramified at 0̄1 ∈ X̄ − {∞}
+                                                                                ¯ then
+           ¯
+          f2 is also ramified at some point 0̄2 ∈ X̄ − {∞},
+                                                          ¯ and the automorphism ψ
+          in (1) can be chosen in such a way that ψ(0̄1 ) = 0̄2 .
+Lemma 2.12. All special pointed G-tail covers with given ramification type (m, h)
+and subgroup H ⊂ G are locally isomorphic.
+Proof. This is a special case of the results of [Pri02], §4. For the convenience of the
+reader, we sketch a proof.
+   Let (f¯ : Ȳ → X̄, η, H) be a special pointed G-tail cover, of ramification type
+(m, h). We will show that f¯ : Ȳ → X̄ is uniquely determined, up to local isomor-
+phism, by the datum (G, H, m, h). First of all, by the definition of local isomor-
+phism it suffices to look at tail covers f¯ which are totally ramified above ∞.  ¯ In
+other words, we may assume that G = I ⋊ H, where I ⊂ G is cyclic of order p and
+                    THREE POINT COVERS WITH BAD REDUCTION                               17
+
+
+H is cyclic of order m. Second, we shall assume that the tail cover f¯ is new. Hence
+we can write h = m + a, with 0 < a < m. Note that m|a(p − 1) and that a is prime
+to p. We will indicate later how to modify the proof in the case that f¯ is primitive.
+   Let x be a global coordinate for X̄ ∼= P1k such that X̄∞ ¯ = Spec k((x
+                                                                            −1
+                                                                               )). By
+                                                ¯ → X̄∞
+elementary Galois theory, the localized cover Ȳ∞      ¯ is given by two equations
+
+(10)            z m = x,        y p − y = z a (b0 x + b1 + b2 x−1 + . . .),
+with bi ∈ k and b0 6= 0. The action of G on Ȳ∞¯ is given as follows. We may choose
+a generator α of I ∼
+                   = Z/p such that α∗ z = z and α∗ y = y + 1. Furthermore, for any
+β ∈ H we have β ∗ z = ψ(β) · z and β ∗ y = χ(β) · y, where ψ : H → F̄×p is a character
+of order m such that χ = ψ a . See e.g. [Pri02], Lemma 1.4.1.
+   A local isomorphism amounts to a change of coordinates
+(11)      x 7→ c(x + d),        z 7→ c1/m z(1 + dx−1 )1/m ,         y 7→ y + g,
+                                       a
+where c, d ∈ k, c 6= 0 and g = z (e1 x + e2 x + . . .) ∈ k[[z −1 ]]. An easy
+                                             −1         −2
+
+computation shows that for a suitable choice of the constants c and d, and after
+transforming the equations (10) by the change of coordinate (11), we may assume
+that b0 = 1 and b1 = 0. It is also easy to see that we may choose e1 , e2 , . . . in such
+a way that
+(12)                     g p − g = −z a (b2 x−1 + b3 x−2 + . . .)
+(here we use that m|a(p − 1)). With this choice, equations (10) becomes
+                              z m = x,       yp − y = z h,
+which visibly depends only on the ramification type (m, h). This proves the lemma
+for a new tail cover f¯. The proof for a primitive tail cover is similar. The main
+difference is that we are only allowed to do a homothety x 7→ cx instead of a
+general affine transformation x 7→ c(x + d). However, since 0 < h < m the proof
+goes through.                                                                   
+2.2.3. As before, k denotes an algebraically closed field and G a finite group.
+Suppose we are given the following data.
+      • A subgroup G0 ⊂ G, of the form G0 = I0 ⋊ H0 , where I0 ⊂ G0 is cyclic of
+        order p and H0 ⊂ G0 is of prime-to-p order. Let χ0 : H0 → F×           p denote the
+        character defined by the rule βαβ −1 = αχ0 (β) , where α ∈ I0 , β ∈ H0 .
+      • A normalized special deformation datum (Z̄0 , ω0 ) over X̄0 := P1k of type
+        (H0 , χ0 ). Let (τj )j∈B denote the set of critical points, mj , hj and σj the
+        invariants attached to (Z̄0 , ω0 , τj ).
+      • For all j ∈ B − Bwild a point ξj ∈ Z̄0 above τj ∈ X̄0 .
+      • For all j ∈ B − Bwild a subgroup Gj ⊂ G and a connected pointed Gj -tail
+        cover (f¯j : Ȳj → X̄j , ηj , Hj ).
+By abuse of notation, we shall write (Z̄0 , ω0 ; f¯j ) to denote all of the data introduced
+above.
+Definition 2.13. The datum (Z̄0 , ω0 ; f¯j ) is called a special G-deformation datum
+if the following conditions hold.
+     (1) The group G is generated by its subgroups G0 and Gj .
+     (2) The tail cover f¯j : Ȳj → X̄j has ramification of type (mj , hj ). Moreover,
+                       Iηj = I0 ⋊ Hj ,     and Hj = H0 ∩ Iηj .
+18                                  STEFAN WEWERS
+
+
+   It is clear from the results of §2.1 that the stable reduction of a three point cover
+with mild reduction gives rise to a special G-deformation datum. To make this
+statement more precise, we introduce the following terminology.
+Definition 2.14. A stable G-map over a scheme S is a homomorphism f : Y → X
+of marked semistable curves over S together with an S-linear action of G on Y such
+that Y is stably marked and f commutes with the G-action. Two stable G-maps
+                                                                             ∼
+fi : Yi → Xi are said to be isomorphic if there exist isomorphisms ϕ : Y1 → Y2
+and ψ : X1 → X2 of marked curves such that f2 ◦ ϕ = ψ ◦ f1 and such that ϕ is
+G-equivariant.
+   If f : Y → X is a G-cover over K̄, as in §1.1, then we may consider the stable
+reduction f¯ : Ȳ → X̄ of f as a stable G-map over k.
+   Fix a special G-deformation datum (Z̄0 , ω0 ; Ȳj ). We will show that (Z̄0 , ω0 ; Ȳj )
+gives rise to a stable G-map f¯ : Ȳ → X̄ over k. Define
+                                          ` a
+                             X̄ := ( X̄0        X̄j ) /∼ .
+                                                 j
+
+Here the equivalence relation ‘∼’ identifies the critical point τj ∈ X̄0 with the
+distinguished point ∞  ¯ j ∈ X̄j . The topological space X̄ carries a unique structure
+of a semistable k-curve such that X̄0 and X̄j are the irreducible components of
+X̄. We define marked points x̄j on X̄ (indexed by the set B0 = Bprim ∪ Bwild ), as
+follows. For j ∈ Bprim we let x̄j ∈ X̄j be the unique tame branch point of the tail
+cover f¯j (see the remark after Definition 2.10). For j ∈ Bwild we set x̄j := τj .
+   To define the curve Ȳ , let Ȳ0 be the smooth projective curve with function field
+k(Z̄0 )1/p . The action of H0 on Z̄0 extends uniquely to an action on Ȳ0 . We let G0
+act on Ȳ0 via the quotient map G0 → H0 . Furthermore, we define
+                                              ` a
+                       Ȳ := ( IndG G0 (Ȳ0 )     IndGGj (Ȳj ) ) /∼ .
+                                                 j
+
+Here the equivalence relation ‘∼’ is defined as follows: for η ′ ∈ IndG        G0 (Ȳ0 ) and
+η ′′ ∈ IndG
+          Gj (Ȳj ) we have η ′
+                                ∼ η ′′
+                                       if and only  if there exists an element α ∈ G such
+          ′                                        ′′
+that α(η ) ∈ Ȳ0 lies above ξj ∈ Z̄0 and α(η ) = ηj ∈ Ȳj . (This is an equivalence
+relation because of Condition (2) of Definition 2.13.) Again, Ȳ carries a canonical
+structure of a semistable curve over k. It follows from Condition (1) of Definition
+2.13 that Ȳ is connected. Let f¯ : Ȳ → X̄ be the unique map which commutes with
+the natural G-action on Ȳ and whose restriction to Ȳ0 (resp. to Ȳj ) is equal to f¯0
+(resp. to f¯j ). The marked points of Ȳ are, by definition, those which lie over a
+marked point of X̄. Thus, a point on Ȳ is marked either if it is the G-translate of
+a ramification point of a tail cover f¯j or if it is a G-translate of a point on Ȳ0 which
+lies above a wild critical point. One checks that f¯ : Ȳ → X̄ is a stable G-map. We
+call X̄0 = P1k the original component of f¯.
+Definition 2.15. A stable G-map f¯ : Ȳ → X̄ over k is called special if there exists
+a special G-deformation datum (Z̄0 , ω0 ; Ȳj ) such that f¯ is isomorphic to the stable
+G-map constructed above.
+     We can summarize the results of §1 and §2.1 as follows.
+Proposition 2.16. Let f : Y → X = P1K̄ be a G-Galois cover branched at 0, 1
+and ∞,
+     ¯ with mild reduction. Then the stable reduction of f is either exceptional or
+special.
+                    THREE POINT COVERS WITH BAD REDUCTION                               19
+
+
+   In §4.1 we will prove the ‘converse’ of this proposition: every special G-map
+arises as the stable reduction of a three point cover f : Y → X = P1K̄ with mild
+reduction.
+
+2.2.4. Let us fix a special G-deformation datum (Z̄0 , ω0 ; Ȳj ) and let f¯ : Ȳ → X̄
+be the associated special G-map. Let us denote by Aut0G (f¯) the group of automor-
+phisms of the special G-map f¯ which induce the identity on the original component
+X̄0 . If f¯ is the stable reduction of a three point G-cover f : Y → X then the image
+of the inner monodromy action κ̄in associated to f is contained in Aut0G (f¯)/CG .
+We are interested in a description of Aut0G (f¯) in terms of the special deformation
+datum (Z̄0 , ω0 ; Ȳj ).
+
+Lemma 2.17. There is a natural bijection between the group Aut0G (f¯) and the set
+                                                  ∼
+of tuples (γ0 ; γj ), where γ0 ∈ G and γj : Ȳj → Ȳj is an (outer) automorphism of the
+pointed Gj -tail cover (f¯j , ηj , Hj ) (see Definition 2.9) such that the following holds.
+    (1) The element γ0 ∈ G normalizes I0 and centralizes H0 .
+    (2) The equation
+                          γ0−1 ◦ α ◦ γ0 = γj ◦ α ◦ γj−1
+        holds for all α ∈ Gj and j 6∈ Bwild .
+                   ∼
+Proof. Let γ : Ȳ → Ȳ be an element of Aut0G (f¯). It is clear that we can find an
+element γ0 ∈ G such that γ0−1 ◦ γ induces the identity on Ȳ0 . It is also clear that
+γ0 normalizes G0 and that conjugation by γ0 induces the identity on G0 /I0 ∼    = H0 .
+Since the order of H0 is prime to p, the Schur–Zassenhaus Theorem implies that
+the subgroup γ0 H0 γ0−1 ⊂ G0 is conjugate to H0 by an element of G0 . Using the
+fact that the action of H0 on I0 is irreducible, one shows that there exists a unique
+element α ∈ I0 such that
+                              γ0 ◦ β ◦ γ0−1 = α−1 ◦ β ◦ α
+for all β ∈ H0 . After replacing γ0 by α ◦ γ0 , we may thus assume that γ0 centralizes
+H0 . For all j 6∈ Bwild , set γj := γ0−1 ◦ γ|Ȳj . One easily checks that γj is an (outer)
+automorphism of the pointed Gj -tail cover (f¯j , ηj , Hj ) and that the tuple (γ0 ; γj )
+satisfies Condition (1) and (2).
+   Conversely, given a tuple (γ0 ; γj ) such that (1) and (2) hold, we define an auto-
+                   ∼
+morphism γ : Ȳ → Ȳ of f¯, as follows. If y is a point on Ȳ0 and α is an element of
+G, we set
+                                  γ(α(y)) := α ◦ γ0 (y).
+This is well defined because of Condition (1). If y is a point on Ȳj and α ∈ G, we
+set
+                            γ(α(y)) := α ◦ γ0 ◦ γj (y).
+This is well defined because γ ◦ γj commutes with Gj , by Condition (2). Moreover,
+the two definitions respect the equivalence relation ‘∼’ used in the definition of Ȳ
+                                                     ∼
+in §2.2.3. Hence we obtain an automorphism γ : Ȳ → Ȳ , which is easily seen to be
+                   0 ¯
+an element of AutG (f ). This proves the lemma.                                    
+
+  The association γ 7→ γ0 is a group homomorphism Aut0G (f¯) → G. Let us denote
+by n the order of the image of this homomorphism in G/CG . Note that n|(p − 1).
+20                                 STEFAN WEWERS
+
+
+Let us denote by AutG (f¯j ) the group of inner automorphisms of the pointed Gj -tail
+covers (f¯j , ηj , Hj ). The lemma shows that
+                                                     Y
+                         | Aut0G (f¯)| = n · |CG | ·   | AutG (f¯j )|.
+                                               j ∈B
+                                                 / wild
+
+Remark 2.18. Suppose that the character χ : H0 → F×   p is injective. (In particular,
+H0 is cyclic). Then the integer n defined above is a multiple of
+                                   n′ := gcdj (mj ).
+In fact, let γ be an element of H0 which is contained in the stabilizer Hj of ξj ,
+for all j ∈ Bprim ∪ Bnew . Then the tuple (γ0 ; γj ) with γj := γ0−1 |Ȳj represents an
+element of Aut0G (f¯) which does not lie in CG and which acts trivially on the vertical
+components of Ȳ .
+
+                              3. The auxiliary cover
+    Let (Z̄, ω) be a special deformation datum of type (H, χ). By a lift of (Z̄, ω) we
+mean a Galois cover f : Y → X = P1 with Galois group G := Z/p ⋊χ H such that
+the deformation datum occuring over the original component of the stable reduction
+of f is equal to (Z̄, ω). As we will see below, such a lift is uniquely determined by
+the deformation datum (Z̄, ω) and the set of branch points (xj ) of f (which lift the
+critical points (τj ) of (Z̄, ω)).
+    Following [Wew], we say that the lift f : Y → X is special if the stable reduction
+of f is as simple as possible, i.e. if the curve X̄ is a comb. For instance, if f : Y → X
+is the auxiliary cover associated to a three point cover with mild reduction, then f
+is special by Theorem 2.6 (note that f is in general not a three point cover itself).
+    In [Wew] we showed that a lift f of (Z̄, ω) is special if each branch point of
+f is ‘sufficiently closed’ to a K0 -rational point. The main result of this section –
+Theorem 3.9 – says that the converse is true as well. This theorem will play a
+crucial role in §4.
+    The proof of Theorem 3.9 relies on the results of [Wew02], which concern the
+deformation theory of a certain curve with group scheme action associated to (Z̄, ω).
+The connection is as follows. If f : Y → X is a lift of the deformation datum (Z̄, ω)
+then there exist a certain natural R-model fR : YR → XR = P1R (which is not the
+stable model) such that the G-action on Y extends to an action of the group scheme
+G := µp ⋊ H on YR . The special fiber Ȳ of YR is a singular curve with an action of
+G; it depends on (Z̄, ω) but not on the lift f : Y → X. Therefore, a lift of (Z̄, ω) is
+the same thing as an equivariant deformation of Ȳ .
+
+3.1. The G-cover associated to a multiplicative deformation datum.
+
+3.1.1. Throughout this section, we fix an odd prime p and an algebraically closed
+field k of characteristic p. We denote by W (k) the ring of Witt vectors over k.
+    Let X̄ be a smooth projective curve over k and let (Z̄, ω) be a multiplicative
+deformation datum over X̄ of type (H, χ), see Definition 1.5. In this section we
+show that (Z̄, ω) corresponds naturally to a (not necessarily smooth) curve Ȳ over
+k together with an action of a certain group scheme G such that X̄ = Ȳ /G.
+    We define G as a group scheme over W (k), as follows. If R is a W (k)-algebra, an
+element of G(R) is given by a tuple (ζ, β), where ζ ∈ R satisfies ζ p = 1 and β ∈ H.
+                    THREE POINT COVERS WITH BAD REDUCTION                              21
+
+
+Multiplication is defined as follows:
+                                                        χ(β1 )
+                        (ζ1 , β1 ) · (ζ2 , β2 ) := (ζ1 ζ2        , β1 β2 ).
+In other words: G is the semidirect product µp ⋊ H determined by the action of H
+on µp via χ. If R is a W (k)-algebra and Y a scheme over R, we say that G acts on
+Y if we are given an R-linear action of G ⊗ R on Y .
+   Let (τj )j∈B be the set of critical points for the deformation datum (Z̄, ω). For
+j ∈ B, let mj , hj be the invariants attached to (Z̄, ω, τj ), see §1.3. A critical point
+τj is called a tame (resp. wild) branch point if mj > 1 (resp. if hj = 0). We denote
+by Btame and Bwild the corresponding subsets of B and set Bram := Btame ∪ Bwild . In
+general we have Btame ∩ Bwild 6= ∅ and Bram 6= B.
+   Let Ū ⊂ X̄ be the complement of the wild branch points and let V̄ ⊂ Z̄ be its
+inverse image. Then ω is a regular and logarithmic differential form on V̄ . Let
+W̄ → V̄ be the corresponding µp -torsor, see e.g. [Mil80], p. 129. The definition
+of W̄ is roughly the following. Locally on V̄ we can write ω = du/u for a unit u.
+Then y p = u is a local equation for the µp -torsor W̄ → V̄ .
+Proposition 3.1. Let Ȳ be the projective compactification of W̄ such that the
+complement Ȳ − W̄ is contained in the smooth locus of Ȳ . The action of µp on W̄
+extends uniquely to an action of G on Ȳ such that Z̄ = Ȳ /µp and X̄ = Ȳ /G.
+Proof. Let λ : µp × W̄ → W̄ denote the action of µp on W̄ . We have to show that
+λ extends to all of Ȳ . Let η ∈ Ȳ − W̄ be a point in the complement of W̄ and let
+ξ ∈ Z̄ be its image. By construction, the point ξ lies above a wild critical point
+τj , so ω has a simple pole at ξ. Write ω = a du/u, where u is a regular function
+in a neighborhood of ξ with a simple zero at ξ and a ∈ F×     p is the residue of ω at
+ξ. By definition of Ȳ there exists a rational function y on Ȳ such that y p = u and
+λ∗ y = ζ b ⊗ y, for some b ∈ F×p . It follows also from the definition of Ȳ that η is a
+smooth point of Ȳ . Therefore, the integral equation y p = u shows that y ∈ OȲ ,η .
+Moreover, since u has a simple zero at ξ, we have OȲ ,η = OZ̄,ξ [y | y p = u]. This
+shows that the action λ extends to Ȳ . It is obviously that this extension is unique.
+    It remains to show that λ extends to an action of G on Ȳ which induces the
+canonical action of H on Z̄. But this is clear from the rule β ∗ ω = χ(β) · ω and the
+definition of Ȳ .                                                                    
+   The map Ȳ → X̄ together with the action of G on Ȳ will be called the G-cover
+associated to (Z̄, ω). Note that the curve Ȳ is integral and has isolated, ‘cusp-like’
+singularities precisely above the critical points which are not wild branch points,
+see [Ray90].
+3.1.2. Let Ck be the category of Noetherian Artinian local W (k)-algebras with
+residue field k. An equivariant deformation of Ȳ over R ∈ Ck is a deformation Y
+of the curve Ȳ over R together with an action of G on Y such that the natural
+isomorphism Ȳ ∼ = Y ⊗R k is G-equivariant. Let Def (Ȳ , G) denote the functor
+which associates to a ring R ∈ Ck the set of isomorphism classes of equivariant
+deformations of Ȳ over R.
+   Given an equivariant deformation YR of Ȳ , we denote by ZR := YR /µp and
+XR := YR /G the quotient schemes by µp and G, respectively. The R-curve XR
+(resp. ZR ) is a smooth deformation of the curve X̄ (resp. Z̄). The association
+YR 7→ XR gives rise to a morphism of deformation functors Def (Ȳ , G) → Def (X̄).
+22                                  STEFAN WEWERS
+
+
+Here Def (X̄) denotes the functor which classifies deformations of X̄. Let us write
+Def (X̄; τj | j ∈ Bram ) for the functor which classifies deformations of the pointed
+curve (X̄; τj | j ∈ Bram ). We claim that the morphism Def (Ȳ , G) → Def (X̄) factors
+in a natural way over the forgetful morphism Def (X̄; τj | j ∈ Bram ) → Def (X̄),
+thus inducing a morphism
+(13)                   Def (Ȳ , G) −→ Def (X̄; τj | j ∈ Bram ).
+    Let YR be an equivariant deformation of Ȳ and set XR := YR /G, ZR := YR /µp .
+To prove the claim we have to endow, in a functorial way, the curve XR with
+sections τj,R : Spec R → XR lifting the branch points τj , for all j ∈ Bram . It is clear
+that the natural map ZR → XR is a tame H-Galois cover lifting Z̄ → X̄. By the
+theory of tame ramification, the branch divisor of ZR → XR consists of sections
+τj,R : Spec R → XR lifting the tame branch points τj ∈ X̄, for all j ∈ Btame . Now
+let j ∈ Bwild and choose a point ξ ∈ Z̄ above τj . We can write ω = du/u with
+ordξ (u) = 1. By construction, the restriction of Ȳ → Z̄ to a neighborhood of ξ is a
+µp -cover given by the Kummer equation y p = u. Hence the deformation YR → ZR
+is, locally around ξ, still a µp -cover given by a Kummer equation y p = uR , where
+uR lifts u. The equation uR = 0 defines a section ξR : Spec R → ZR lifting ξ. We
+define τj,R : Spec R → XR as the image of ξR . Using the H-action, it is easy to see
+that our two definitions of τj,R agree if j ∈ Btame ∩ Bwild . This proves the claim.
+    We say that YR → XR is a deformation of the G-cover Ȳ → X̄, and we call the
+tuple (τj,R )j∈Bram the branch locus of YR → XR . It is clear that a deformation of
+the G-cover Ȳ → X̄ is the same thing as an equivariant deformation of Ȳ .
+3.2. The case of a special deformation datum.
+3.2.1. We continue with the notation of §3.1. In addition, we assume from now
+on that the deformation datum (Z̄, ω) is special, see Definition 2.7. We use the
+notation Bprim , Bnew and B0 as in §2.2.1. It follows immediately from the definitions
+that we have Btame = Bprim ∪ Bnew and Bwild = B0 − Bprim . In particular, we
+have Btame ∩ Bwild = ∅ and B = Bram . Furthermore, we assume that the special
+deformation datum (Z̄, ω) is normalized, i.e. we have X̄ = P1k and {τj | j ∈ B0 } =
+{0, 1, ∞}.
+   Let YR → XR be a deformation of the G-cover Ȳ → X̄ with branch locus
+(τj,R )j∈B . There exists a unique isomorphism XR ∼       = P1R which reduces to the
+                   1
+identity on X̄ = Pk and such that { τj,R | j ∈ B0 } = {0, 1, ∞}. Hence we may and
+will identify XR with P1R and the sections τj,R , for j ∈ Bnew , with the corresponding
+elements of R. A B-tuple (τj,R ) of R-points of XR = P1R such that τj,R lifts τj for
+all j ∈ B and { τj,R | j ∈ B0 } = {0, 1, ∞} is called a normalized B-tuple over R.
+Proposition 3.2. The morphism of deformation functors
+                             Def (Ȳ , G) −→ Def (X̄; τj )
+is an isomorphism. In other words: given R ∈ Ck and a normalized B-tuple (τj,R )
+over R, there exists a deformation YR → XR = P1R of the G-cover Ȳ → X̄ = P1k
+with branch locus (τj,R ). Moreover, YR → XR is unique up to unique isomorphism.
+Proof. This is a special case of [Wew02], Theorem 5.7.                                   
+   For j ∈ Bnew , let Tj be an indeterminate; set R̃ := W (k)[[ Tj | j ∈ Bnew ]]. For
+j ∈ Bnew , let [τj ] ∈ W (k) denote the Teichmüller lift of τj (in fact, any lift of τj to
+                    THREE POINT COVERS WITH BAD REDUCTION                             23
+
+
+an element of W (k) would do as well). Let (τ̃j ) be the normalized B-tuple over R̃
+which has τ̃j = [τj ]+ Tj for j ∈ Bnew . Let X denote the formal completion along the
+special fiber of the projective line over R̃. It is clear that for any R ∈ Ck there is a
+one-to-one correspondence between local W (k)-algebra homomorphism R̃ → R and
+normalized B-tuples over R. Therefore, (X ; τ̃j ) is the universal formal deformation
+of the pointed curve (X̄; τj ). Hence Proposition 3.2 implies:
+Corollary 3.3. Let Y → X be the (unique) formal deformation of the G-cover Ȳ →
+X̄ with branch locus (τ̃j ). Then Y is a universal formal equivariant deformation of
+Ȳ .
+3.2.2. For j ∈ B, we denote by X̂j the completion of X̄ at τj and set Ŷj := Ȳ ×X̄ X̂j .
+The action of G on Ȳ induces an action on Ŷj such that X̂j = Ŷj /G. Given a
+deformation YR → XR of the G-cover Ȳ → X̄, we denote by X̂j,R the completion of
+XR at τj and set Ŷj,R := X̂j ×XR X̂j,R . Then Ŷj,R is a G-equivariant deformation
+of Ŷj . The association YR 7→ (Ŷj,R )j∈B defines a morphism of deformation functors
+                                               Y
+(14)                    Φ : Def (Ȳ , G) −→          Def (Ŷj , G),
+                                               j∈B
+
+Here Def (Ŷj , G) denotes the deformation functor which classifies G-equivariant for-
+mal deformations of Ŷj . Following [BM00], we call Φ the local-global morphism.
+Proposition 3.4.      (1) The functor Def (Ŷj , G) admits a miniversal deforma-
+      tion over the ring
+                           (
+                               W (k),             for j ∈ B0 ,
+                  R̃j :=
+                               W (k)[[tj ]],      for j ∈ Bnew .
+        Here tj is an indeterminate.
+    (2) The local-global morphism Φ is an isomorphism. Therefore,
+                      R̃ ∼ b W (k) R̃j = W (k)[[ tj | j ∈ Bnew ]].
+                         = ⊗
+    (3) For every j ∈ Bnew there exists a unit wj ∈ R̃ such that
+                                tj ≡ wj Tj    (mod p).
+Proof. Assertion (1) and (2) are a special case of [Wew02], Theorem 5.11. Assertion
+(3) corresponds to [Wew02], Proposition 5.14.                                     
+3.2.3. Let Y → X be the universal deformation over R̃ of the G-cover Ȳ → X̄, as
+defined in §3.2.1. Fix an index j ∈ Bnew . We denote by X̂j the completion of X at τj
+and set Ŷj := Y ×X X̂j . Being an equivariant deformation of Ŷj over R̃, Ŷj is induced
+from the miniversal deformation of Proposition 3.4 via a homomorphism of W (k)-
+algebras ϕj : R̃j → R̃. The homomorphism ϕj is unique up to an automorphism of
+W (k)-algebra R̃j . Since ϕj is injective by Proposition 3.4 (2), we may identify the
+ring R̃j with the image of ϕj . By Proposition 3.4 (1) the ring R̃j is a formal power
+series over W (k) in one variable tj . It is clear that Assertion (3) of Proposition 3.4
+does not depend on the choice of the parameter tj as long as R̃j ∼    = W (k)[[tj ]].
+   The quotient Z := Y/µp is a formal H-equivariant deformation of Z̄. Let us
+choose a point ξ ∈ Z̄ above τj and denote by Ẑj the completion of Z at ξj . Since
+24                                 STEFAN WEWERS
+
+
+Z is formally smooth over R̃ we have Ẑj = Spec R̃[[z]] for some parameter z. We
+may assume
+(15)                         β ∗ z ≡ χj (β) · z    (mod p),
+                                                                                h
+for all β ∈ Hj and some character χj : Hj → k × . Actually, we have χj j = χ|Hj .
+(Of course, we could have choosen z in such a way that the above congruence would
+become an equality in R̃[[z]], but this would give a stronger restriction on the choice
+of z than we are are willing to make.)
+   The natural map Y → Z is a µp -torsor in a neighborhood of ξ. Therefore, the
+pullback to the completion Ẑj is defined by a Kummer equation
+                                            X
+(16)                            yp = u =         cµ z µ ,
+                                             µ≥0
+
+with cµ ∈ R̃ and c0 ∈ R̃× . The unit u ∈ R̃[[z]]× is unique up to a pth power. As we
+have already remarked above, the µp -torsor Ŷj → Ẑj is the pullback of a µp -torsor
+defined over R̃j . In other words, we can choose the parameter z and the Kummer
+equation (16) in such a way that all coefficients cµ lie in R̃j ⊂ R̃. In the following,
+we will assume that cµ ∈ R̃j and we pretend that Ŷj → Ẑj is actually defined over
+R̃j .
+Lemma 3.5. Let aj := hj − mj . We may choose the parameter z, the Kummer
+equation (16) and a parameter tj for R̃j such that
+                u ≡ 1 + tj z aj + z h j     mod ( p, tj z aj +1 , z hj +1 ).
+Proof. Given an element c ∈ R̃j , we write c′ (resp. c̄) for the image of c in R′ :=
+                                                                ×
+R̃j /(p) (resp. in k = R̃j /(p, tj )). We claim that c′0 ∈ (R′ )p . To prove this claim,
+let β be a generator of Hj ∼  = Z/mj and 0 < a < p an integer such that a ≡ χ(β)
+mod p. The subgroup scheme Gj := µp · Hj ⊂ G acts on Ŷj , extending the action
+of Hj on Ẑj given by (15). Therefore, there exists a unit w ∈ R̃j [[z]]× such that
+β ∗ y = wy a . Taking pth powers on both sides we obtain β ∗ u = wp ua . Using (15)
+shows that c01−a is congruent to a pth power modulo p. Since σj = hj /mj is not an
+integer, we have a 6≡ 1 mod p. The claim follows. In particular, after multiplying
+u with a pth power in R̃j [[z]] we may assume that c′0 = 1. We may also assume
+that c′µ = 0 whenever p|µ.
+    Let ω ′ := du′ /u′ . This is a logarithmic differential which lifts ω from Ẑj to
+Ẑj ⊗ R′ ; it classifies the µp -torsor Ŷj ⊗ R′ → Ẑj ⊗ R′ up to isomorphism. Since
+the action of µp on Ŷj extends to an action of Gj , we have β ∗ ω ′ = χ(β) · ω ′ for all
+β ∈ Hj . This and (15) shows that
+                                       X
+                               ω′ =         b′µ z µmj +aj −1 dz
+                                     µ≥0
+                                          a
+with b′µ ∈ R′ (note that 0 < aj < mj and χj j = χ|Hj ). Since ω has a zero of exact
+order hj − 1 at ξj , we have b̄0 = 0 and b̄1 6= 0. After a short computation, we
+conclude that c′µ = 0 for 0 < µ < aj and c̄µ = 0 for aj < µ < hj .
+   So far, we have shown that
+               u ≡ 1 + ctj z aj + z hj        mod ( p, tj z aj +1 , z hj +1 )
+                    THREE POINT COVERS WITH BAD REDUCTION                                 25
+
+
+for some element c ∈ R̃j . It remains to prove that c̄ 6= 0. For then we can replace
+tj by c−1 tj and obtain the desired congruence. Let k[ǫ] be the ring of dual numbers
+over k and κ : Rj → k[ǫ] the unique W (k)-algebra homomorphism with κ(tj ) = ǫ.
+We can write
+                                             X                    X
+            κ(u) = ū + ǫ · v̄ = (1 + z hj +    c̄µ z µ ) + ǫ · (   d¯µ z µ ),
+                                                  µ≥hj                   µ≥aj
+
+with c̄µ , d¯µ ∈ k. We have to show that d¯aj 6= 0.
+   By the proof of [Wew02], Lemma 5.12, there exists an Hj -invariant derivation
+of k[[z]][z −1 ]
+                                          d   z 1−mj                           d
+            θj = (ē0 + ē1 x + . . .)      =        ( ē0 + ē1 z mj + . . .)
+                                         dx     mj                             dz
+(which is the same thing as a derivation of k[[x]], with x := z mj ) such that the
+following holds:
+     (a) v̄ = θj (ū),
+     (b) we have ē0 = 0 if and only if the pullback of Ŷj via the homomorphism
+         κ : R̃j → k[ǫ] is the trivial deformation of Ŷj .
+                                            d
+In fact, the class of θj modulo k[[x]] x dx   represents the isomorphism class of the
+equivariant deformation Ŷj ⊗ k[ǫ], via a certain isomorphism
+                          Ext1 (Ω , O )τ ∼
+                             G    Ȳ     Ȳ  = T
+                                              j      /x · T
+                                                     X̄,τj    ,  X̄,τj
+
+see [Wew02], §5.3. But since Ŷj is a miniversal deformation of Ŷj and κ is not
+constant, Ŷj ⊗ k[ǫ] must be nontrivial. Therefore,
+                                          hj ē0
+                                   d¯aj =        6= 0.
+                                           mj
+This proves the lemma.                                                                    
+Corollary 3.6. We may choose the parameter z and the Kummer equation (16)
+in such a way that
+              u ≡ 1 + wj Tj z aj + z hj           mod ( p2 , Tj z aj +1 , z hj +1 ).
+for some unit wj ∈ R̃× .
+Proof. It follows from Proposition 3.4 (3) and Lemma 3.5 that we may assume
+          u ≡ 1 + wj Tj z aj + z hj + p · v           mod ( p2 , Tj z aj +1 , z hj +1 )
+for a unit wj ∈ R̃ and some v ∈ R̃[[z]]. Replacing the parameter z by z ′ :=
+z − pv(hj + aj wj Tj )−1 , we obtain the stronger congruence, modulo p2 .  
+3.3. The stable reduction of the auxiliary cover.
+3.3.1. Let k be an algebraically closed field of characteristic p > 0 and let (Z̄, ω) be
+a normalized special deformation datum over X̄ := P1k of type (H, χ). Let Ȳ → X̄
+be the G-cover associated to (Z̄, ω), as defined in §3.1.1. Let K0 denote the fraction
+field of W (k) and let K/K0 be a finite extension. We assume that K contains the
+pth roots of unity. The integral closure R of W (k) inside K is a complete mixed
+characteristic discrete valuation ring with residue field k.
+    Let (τj,R ) be a normalized B-tuple over R, see §3.2.1. By Corollary 3.3 there
+exists a unique formal deformation YR → XR = P1R of the G-cover Ȳ → X̄ with
+26                                  STEFAN WEWERS
+
+
+branch locus (τj,R ). By Grothendieck’s Existence Theorem, this formal deformation
+is effective, i.e. we may regard YR → XR as a finite morphism of schemes over R.
+Write YK → XK = P1K for the generic fiber of YR → XR and xj := τj,K for the
+K-rational point on XK corresponding to the section τj,R , for j ∈ B. Let
+                              G := G(K) ∼ = Z/p ⋊χ H
+be the group of K-rational points of G. The group G acts on YK , and it is easy to
+see that YK → XK is a G-Galois cover with branch locus (xj ). The ramification
+index of this cover at the branch point xj is equal to mj for j ∈ Btame = Bprim ∪Bnew
+and equal to p for j ∈ Bwild . Write Y → X := P1K̄ for the pullback of YK → XK to
+K̄.
+Definition 3.7. The G-cover f : Y → X is called the lift of the special deformation
+datum (Z̄, ω) with branch locus (xj ).
+     This definition is justified by the next proposition.
+Proposition 3.8. Let G′ be a finite group, isomorphic to the semi-direct product
+Z/p ⋊ H determined by the character χ. Let W → X be a G′ -Galois cover. Then
+W → X and Y → X are isomorphic as mere covers if and only if the following
+conditions hold.
+   (1) The branch locus of W → X is equal to {xj | j ∈ B}.
+   (2) The cover W → X has bad reduction and the deformation datum occuring
+        over the original component of the stable reduction is isomorphic to (Z̄, ω).
+Proof. Let W → X be a G′ -Galois cover satisfying Conditions (1) and (2) of the
+proposition. After replacing K by a larger field, if necessary, we may suppose
+that W → X has a model WK → XK over K which extends to a stable model
+WRst → XR   st
+               . Let WR denote the normalization of XR = P1R in the function field of
+WK . We obtain a canonical map WRst → WR which is an isomorphism except in the
+singular points of W̄ . By Condition (2), the action of G′ on W̄ has a kernel I ′ ✁ G′ ,
+cyclic of order p. By the assumption on G′ and W → X, we have G′ /I ′ ∼      = H and
+there exists a finite map W̄ → Z̄, purely inseparable of degree p and H-equivariant.
+Clearly, the isomorphism G′ /I ′ ∼ = H extends to an isomorphism G′ ∼   = G.
+    Let G be the schematic closure of G′ = Aut(WK /XK ) inside the R-group scheme
+          ′
+
+Aut(WR /XR ). By [Ray74], G ′ is a finite flat group scheme over R with generic fiber
+G′ . We claim that the isomorphism G′ ∼   = G chosen above extends to an isomorphism
+G′ ∼= G ⊗W (k) R of R-group schemes. Indeed, it suffices to show that the closure of
+I ′ inside G ′ is isomorphic to µp (because then G ′ is the minimal prolongation of G′
+over R, see [Ray74]). Therefore, the claim follows from Condition (2).
+    It is no loss of generality to identify G ′ with G ⊗W (k) R. So G acts on W̄ such
+that Z̄ = W̄ /µp and X̄ = W̄ /G. Moreover, the restriction of the map W̄ → Z̄ to
+a sufficiently small open subset is a µp -cover corresponding to the differential ω.
+                                                                   ∼
+We conclude that there exists a G-equivariant isomorphism W̄ → Ȳ , see the proof
+of Proposition 3.1. Via this isomorphism, we may regard WR as an equivariant
+deformation of Ȳ . By Condition (1), the two G-covers YR → XR ad WR → XR
+have the same branch locus (τj,R ). Hence the proposition follows from Corollary
+3.3.                                                                                 
+3.3.2. Let (τj,R ) be a normalized B-tuple over R, xj := τj,K ∈ X := P1K̄ , and
+let Y → X be the lift of (Z̄, ω) with branch locus (xj ). After replacing K by a
+                   THREE POINT COVERS WITH BAD REDUCTION                             27
+
+
+finite extension, we may assume that the natural K-model YK → XK extends to
+the stable model YRst → XR st
+                              . We denote by Ȳ st → X̄ st the stable reduction and by
+x̄j ∈ X̄ the specialization of the branch point xj . The stable model is obtained as
+        st
+
+
+a blow-up of the natural R-model YR → XR , i.e. we have a commutative diagram
+                                   YRst −−−−→ XR   st
+
+                                                 
+                                                 
+(17)                                y             y
+                                     YR −−−−→ XR
+in which the vertical arrows are modifications which are isomorphisms away from
+the critical points of X̄ resp. the singular points of Ȳ . In particular, the map
+X̄ st → X̄ = P1 induces an isomorphism between X̄ and the original component
+X̄0 of X̄ st , and contracts all other components to one of the critical points τj ,
+j ∈ Bprim ∪ Bnew . By construction of YR , the deformation datum over X̄0 ∼    = X̄
+associated to Ȳ st → X̄ st is isomorphic to (Z̄, ω).
+    Here is the main result of this section.
+Theorem 3.9. The following two conditions are equivalent:
+  (1) The curve X̄ st consists only of the original component X̄0 and, for each
+      j ∈ Btame , a tail X̄j which contains x̄j and intersects X̄0 ∼
+                                                                   = X̄ in τj .
+  (2) For all j ∈ Bnew we have
+                                             p mj
+                      val(τj,R − [τj ]) ≥            · val(p).
+                                          (p − 1) hj
+        (Recall that [τj ] ∈ W (k) ⊂ R denotes the Teichmüller lift of τj .)
+Remark 3.10. Under the additional assumption Bwild = ∅, the implication ‘(2) ⇒
+(1)’ is already proved in [Wew].
+Proof. The element τj,R − [τj ] ∈ R is the image of the parameter Tj (defined in
+§3.2.2) under the classifying morphism R̃ → R of the equivariant deformation YR .
+By abuse of notation, we write Tj := τj,R − [τj ] as an element of R.
+   Let us first prove the implication ‘(2) ⇒ (1)’, i.e. we assume that (1) holds. To
+find the modification YRst → YR which leads to the stably marked model of YR , it
+suffices to consider the completion of YR at a singular point of Ȳ . Let ηj ∈ Ȳ be
+one of the singular points, lying above the critical point τj ∈ X̄ for j ∈ Btame . Let
+ξj ∈ Z̄ be the image of ηj . Let ŶR,j denote the completion of YR at ηj and ẐR,j the
+completion of ZR at ξj . Condition (1) of the theorem means that the germ ŶR,j
+has potentially good reduction. We can write ẐR,j = Spec R[[z]]. The µp -torsor
+ŶR,j → ẐR,j is given by a Kummer equation y p = u, with u ∈ R[[z]]× .
+   Let us first treat the case j ∈ Bnew . By Lemma 3.5 we may assume that
+(18)      y p = u ≡ 1 + wj Tj z aj + z hj       mod ( p2 , Tj z aj +1 , z hj +1 ),
+with wj ∈ R× . We also may assume that R contains an element λ such that
+λhj (p−1) = −p. Let y = 1 + λhj y ′ and z = λp z ′ . The new coordinates y ′ and z ′
+give rise to a diagram
+                                 ′             ′
+                              YR,j    −−−−→ ZR,j
+                                             
+                                             
+                                 y            y
+                                  ŶR,j −−−−→ ẐR,j
+28                                        STEFAN WEWERS
+
+
+in which the vertical arrows are blow-ups centered in the closed point of the germs
+ŶR,j and ẐR,j , respectively. Let Ȳj′ (resp. Z̄j′ ) be the exceptional divisor of these
+blowups. The curve Z̄j′ is a projective line with parameter z ′ . To obtain the
+equation for the cover Ȳj′ → Z̄j′ , rewrite (18) in terms of z ′ and y ′ , subtract 1,
+divide by λphj and reduce modulo the maximal ideal of R. Using the assumption
+(p − 1)hj val(Tj ) ≥ pmj val(p), one obtains an Artin-Schreier equation
+                                p                     a         h
+(19)                          y ′ − y ′ = w̄j z ′ j + z ′ j
+with conductor hj . It follows that Ȳj′ is smooth and that YR,j
+                                                             ′
+                                                                 is a semistable model
+of the germ ŶR,j . In other words, the germ ŶR,j has potentially good reduction.
+See e.g. [Ray99], Lemme 4.3.3 or [Leh01], §3. We conclude that Condition (1) holds
+for the given index j ∈ Bnew .
+   Condition (1) holds for j ∈ Bprim as well, without any assumption. Indeed, if
+j ∈ Bprim then 0 < hj < mj . An easy version of the proof of Lemma 3.5 shows
+that (for the right choice of parameter z) the µp -torsor YR,j → ZR,j is given by a
+Kummer equation of the form
+                      y p = u ≡ 1 + z hj              mod ( p2 , z hj +1 ).
+After a change of coordinate y = 1 + λhj y ′ and z ′ = λp z ′ we again find an Artin–
+Schreier equation with conductor hj , which shows that the germ ŶR,j has potentially
+good reduction. This finishes the proof of the implication ‘(2) ⇒ (1)’.
+   It remains to prove the implication ‘(1) ⇒ (2)’. Suppose that Condition (2) is
+violated for some j ∈ Bnew . We may also assume that R contains an element λ with
+λpmj = Tj . After substituting y = 1 + λhj y ′ and z = λp z ′ into (18) and reducing
+modulo the maximal ideal of R, we find that the cover Ȳj′ → Z̄j′ has equation
+                                      p           a         h
+                                 y′       = w̄j z ′ j + z ′ j .
+It follows that the cover Ȳj′ → Z̄j′ is an αp -torsor (away from the point z ′ = ∞)
+corresponding to the exact differential ω ′ = d(w̄j z ′ aj + z ′ hj ). The differential ω ′
+has a zero of order aj − 1 at z ′ = 0 and mj further simple zeros. Above each point
+where ω ′ has a zero, Ȳj′ has a singularity. We conclude that the germ ŶR,j does
+not have potentially good reduction. In other words, Condition (1) of Theorem 3.9
+does not hold. This finishes the proof of Theorem 3.9.                                  
+   The proof shows that, if both the conditions of the theorem hold, then the closed
+rigid disk
+                                             p mj                    rig
+             Dj := { x | val(x − [τj ]) ≥             · val(p) } ⊂ XK
+                                          (p − 1) hj
+is equal to the set of points on XK which specialize to the tail X̄j ⊂ XR
+                                                                        st
+                                                                           . We remark
+                              pmj
+at this point that, since (p−1)hj < 1 for j ∈ Bnew , the family of disks (Dj )j∈B is
+independent of the choice of (τj,R ), as long as Condition (2) of Theorem 3.9 holds.
+3.3.3. Let us now assume that the branch points xj of the lift f : Y → X of
+(Z̄, ω) are all K0 -rational. This is equivalent to the condition that τj,R ∈ W (k).
+Then Condition (2) of Theorem 3.9 is automatically verified. Moreover, the cover
+f : Y → X has a natural model fK0 : YK0 → XK0 = P1K0 over K0 (which is not
+Galois, since K0 does not contain the pth roots of unity). Let
+                           κ̄ab : Gal(K̄/K0 ) −→ Autk (Ȳ st )
+                       THREE POINT COVERS WITH BAD REDUCTION                            29
+
+
+be the absolute monodromy action associated to the K0 -model fK0 of f , see §1.1.3.
+The goal of this subsection is to describe this action in detail.
+   First some notation. Let Ȳ0 be the unique irreducible component of Ȳ st which lies
+above the original component X̄0 ⊂ X̄ st . We may identify Ȳ0 with the normalization
+of Ȳ or, what amounts to the same thing, the smooth projective model of the
+function field k(Z̄)1/p . Let us choose, for all j ∈ Btame , a point ηj ∈ Ȳ0 above
+τj ∈ X̄. We denote by ξj ∈ Z̄ the image of ηj , by Hj ⊂ H the stabilizer of ξj and
+by I ⊂ G the cyclic subgroup of order p. Set Gj := I · Hj ⊂ G. Let Ȳj ⊂ Ȳ st (resp.
+X̄j ⊂ X̄ st ) be the component which intersects Ȳ0 in ηj (resp. intersects X̄ in τj ).
+By Theorem 3.9, X̄ st = X̄ ∪ ∪j X̄j . Furthermore, the proof of the theorem shows
+that (Ȳj → X̄j , ηj , Hj ) is a pointed Gj -tail cover with ramification type (mj , hj )
+which is totally ramified above τj ∈ X̄j , see §2.2.2.
+   Let us denote by Aut0k (Ȳ st ) the group of k-linear automorphisms of Ȳ st which
+normalize the action of G, commute with the action of H ⊂ G and induce the
+identity on Ȳ0 . Similarly, let Aut0k (Ȳj ) denote the group of (outer) automorphisms
+of the pointed Gj -tail cover f¯j . Recall that these are k-linear automorphisms of Ȳj
+which normalize the action of Gj , commute with the action of Hj ⊂ Gj and fix the
+point ηj . For each j we have a natural homomorphism
+(20)                              Aut0k (Ȳ st ) −→ Aut0k (Ȳj ).
+Let α be a generator of I ✁ G. For ϕ ∈ Aut0k (Ȳ ) we have ϕ ◦ α ◦ ϕ−1 = αρ for some
+ρ ∈ F×
+     p ; this defines a character
+
+(21)                                    ρ : Aut0k (Ȳ ) −→ F×
+                                                            p.
+
+Similarly, one defines characters ρj : Aut0k (Ȳj ) → F× p for all j ∈ Btame . The composi-
+tion of ρ with κ̄ab is the cyclotomic character modulo p. The kernel of the character
+ρ is the subgroup Aut0G (Ȳ st ) ⊂ Aut0k (Ȳ st ) of automorphisms which commute with
+the G-action. Compare with §2.2.4.
+Proposition 3.11.             (1) We have a canonical isomorphism
+                                                Y
+           Aut0k (Ȳ st )   ∼
+                            = { (ρ; ϕj ) ∈ F×     Aut0k (Ȳj ) | ρ = ρj (ϕj ) ∀j }.
+                                            p ×
+                                                    j
+
+    (2) The group       Aut0k (Ȳj )
+                                is cyclic of order (p − 1)hj . Therefore, the group
+           0                          Q
+        Autk (Ȳ ) has order (p − 1) j hj .
+                st
+
+
+    (3) The restriction of κ̄ab to the component Ȳj is a surjective homomorphism
+                                                       0
+                                 j : Gal(K̄/K0 ) −→ Autk (Ȳj ).
+                               κ̄ab
+    (4) The image of κ̄ab is a cyclic subgroup of Aut0k (Ȳ st ), of order
+                                       N := (p − 1) · lcmj (hj ).
+Proof. Part (1) is left to the reader. We also leave it to the reader to check that
+the image of the monodromy action κ̄ab is contained in Aut0k (Ȳ st ).
+   The explicit description of the change of coordinates y = 1 + λhj y ′ , z = λp z ′
+in the proof of Theorem 3.9 shows that the restriction of κ̄ab to Ȳj is cyclic of
+order (p − 1)hj (it corresponds to the cyclic Galois extension K0 (λ)/K0 where
+λ(p−1)hj = −p). In particular, the group Aut0k (Ȳj ) has a cyclic subgroup of order
+(p − 1)hj . Therefore, in order to prove the proposition it suffices to show that the
+group Aut0k (Ȳj ) has exact order (p − 1)hj .
+30                                  STEFAN WEWERS
+
+
+     First, we claim that Aut0k (Ȳj ) is cyclic. Indeed, the natural action of Aut0k (Ȳj )
+on Ȳj descents to a faithful action on the quotient X̄j = Ȳj /Gj which fixes the
+two points τj and x̄j . But X̄j has genus 0, so the claim follows. Now assume that
+Aut0k (Ȳj ) has order (p − 1)hj n. Let ϕ ∈ Aut0k (Ȳj ) be an element of order hj n. Since
+ϕ lies in the kernel of the character ρj it commutes with the action of Gj on Ȳj . Let
+Ȳj′ := Ȳj /hϕi → X̄j′ := X̄j /hϕi be the induced Gj -cover. Recall that the action of
+I∼ = Z/p on Ȳj has conductor hj at the point ηj . Let ηj′ denote the image of ηj on
+   ′
+Ȳj . A classical calculation (see e.g. [Ray99], Lemme 1.1.2) shows that the action of
+I on Ȳj′ has conductor 1/n at ηj′ . We conclude that n = 1. This finishes the proof
+of the proposition.                                                                      
+
+   The proposition implies that the G-cover f : Y → X has stable reduction over
+the unique tame extension K st /K0 of degree N .
+
+
+             4. Construction of three point covers by lifting
+    Let f¯ : Ȳ → X̄ be a special G-map, see Definition 2.15. A lift of f¯ is a three
+point G-cover with stable reduction f¯. Let L(f¯) denote the set of isomorphism
+classes of all lifts of f¯. The Galois group Gal(K̄/K0 ) acts on L(f¯) in a natural
+way. In this section we determine the structure of L(f¯) as a Gal(K̄/K0 )-set. In
+particular, we prove that L(f¯) is nonempty and that the action of Gal(K̄/K0 ) is
+tamely ramified.
+    At the end, we derive various consequences of the above result, concerning the
+field of moduli of three point covers, and we discuss a aprticular class of examples,
+called genus zero dessins of prime degree.
+
+4.1. The set of lifts of f¯.
+
+4.1.1. Let k be an algebraic closure of the finite field Fp , W (k) the ring of Witt
+vectors over k and K0 the fraction field of W (k). We fix an algebraic closure K̄ of
+K0 . In this section, K/K0 always denotes a finite field extension contained in K̄
+and R denotes the ring of integers of K. Let (Z̄0 , ω0 ; Ȳj ) be a special G-deformation
+datum and let f¯ : Ȳ → X̄ be the associated special G-map, see §2.2.
+
+Definition 4.1. A lift of f¯ over R is a stable G-map fR : YR → XR over R (see
+Definition 2.14), together with an isomorphism f¯ ∼  = fR ⊗R k of stable G-maps
+                                 ∼
+and an isomorphism XR ⊗R K → (P1K , {0, 1, ∞}) of marked curves. Given a lift
+fR : YR → XR , we will usually identify f¯ with the special fiber of fR and P1K with
+the general fiber of XR . Two lifts fR : YR → XR and fR′ : YR′ → XR     ′
+                                                                           over R are
+                                                             ∼
+said to be isomorphic if there exists an isomorphism fR → fR′ of stable G-maps
+which induces the identity on the special fiber and on XK = XK    ′
+                                                                    = P1K .
+
+    If fR : YR → XR is a lift of f¯, then the general fiber fK : YK → XK = P1K
+of fR is a three point G-cover and fR is its stable model. In particular, fK has
+mild reduction and f¯ is the stable reduction of fK . If fR and fR′ are isomorphic
+                                     ∼
+lifts of f¯ then the isomorphism fR → fR′ is unique. (This is a general property of
+deformations of stably marked curves, see [Knu83].)
+                    THREE POINT COVERS WITH BAD REDUCTION                             31
+
+
+4.1.2. Let L(f¯, K) denote the set of isomorphism classes of lifts of f¯ over R, the
+ring of integers of K. If K ′ /K is a finite extension then we have a natural inclusion
+L(f¯, K) ֒→ L(f¯, K ′ ). Let
+                                 L(f¯) := ∪K L(f¯, K)
+be the union, taken over all finite extensions K/K0 contained in K̄. It is clear that
+L(f¯) is a finite set. A priori, L(f¯) may be empty; we will see later that it is not.
+   There is a natural continuous action of Gal(K̄/K0 ) on L(f¯) from the left, defined
+as follows. Let fR : YR → XR be a lift of f¯ over R, the ring of integers of K, and
+let σ ∈ Gal(K̄/K0 ). We may assume that K/K0 is Galois. Let σ fR : σ YR → σ XR
+                                                             ∼
+be the pullback of fR by the automorphism σ̃ : Spec R → Spec R induced by σ.
+Since σ induces the identity on the residue field k, we have a canonical isomorphism
+           ∼
+fR ⊗R k → σ fR ⊗R k. We may therefore consider σ fR as a deformation of f¯. This
+defines the action of Gal(K̄/K0 ) on L(f¯).
+   Recall that Aut0G (f¯) was defined in §2.2.4 as the group of automorphisms of
+ ¯
+f which induce the identity on the original component. There is a natural right
+action of Aut0G (f¯) on L(f¯), defined as follows. If γ ∈ Aut0G (f¯) and fR : YR → XR
+is a lift of f¯, then we define fRγ as the stable G-map fR : YR → XR together with
+                       ∼                                                  ∼
+the isomorphism Ȳ → YR ⊗R k which is the composition with γ : Ȳ → Ȳ with the
+                              ∼
+canonical isomorphism Ȳ → YR ⊗R k. This defines an action of Aut0G (f¯) on L(f¯)
+from the right which commutes with the action of Gal(K̄/K0 ). We define
+                              L̃(f¯) := L(f¯)/ Aut0G (f¯).
+It is clear that elements of L̃(f¯) correspond naturally to isomorphism classes of
+three point G-covers f : Y → X whose stable reduction is isomorphic to f¯. By
+definition we have:
+Proposition 4.2. Let fR : YR → XR be a lift of f¯ and denote by f : Y → X the
+geometric generic fiber of fR .
+   (1) The stabilizer in Gal(K̄/K0 ) of fR , considered as an element of L(f¯), is
+                 f , as defined in §1.1.3.
+       equal to Γst
+   (2) The stabilizer in Gal(K̄/K0 ) of fR , considered as an element of L̃(f¯), is
+                 f , as defined in §1.1.3.
+       equal to Γin
+
+4.1.3. The auxiliary cover. Let fR : YR → XR be a lift of f¯. For j ∈ Bprim ∪Bnew , let
+         rig
+D j ⊂ XK     denote the closed rigid disk corresponding to the tail X̄j . By definition,
+a K-rational point x ∈ Dj specializes to a point x̄ ∈ X̄j . In particular, for j ∈ Bprim
+the branch point xj ∈ {0, 1, ∞} of f lies on Dj . Note that the model XR of
+XK = P1K is uniquely determined by the family of disks (Dj )j . A priori, the disks
+Dj (and therefore the model XR ) may depend on the lift fR . We are now going to
+show that they are in fact independent of fR . This is an important steps towards
+our main result.
+   Let us choose, for all j ∈ Bnew , a K-rational point xj ∈ Dj . We call these points
+the auxiliary branch points. By [Ray99], §3.2, the choice of the auxiliary branch
+points yields a certain G0 -cover f aux : Y aux → X, called the auxiliary cover of f . By
+definition, f aux has branch locus {xj | j ∈ B} and the same type of bad reduction
+as f . To be more precise, let X̂R denote the formal completion of XR along X̄
+and let Dj ⊂ X̂R , for j ∈ Bprim ∪ Bnew , denote the open subset corresponding to
+X̄j − {τj } ⊂ X̄, i.e. Dj is the closed formal disk whose generic fiber is Dj . Let
+32                                    STEFAN WEWERS
+
+
+U ◦ ⊂ X̂R denote the open subset corresponding to X̄ − ∪j X̄j ⊂ X̄. Finally, let
+Xj denote the completion of XR at τj ∈ X̄ and set U := U ◦ ∪ ∪j Xj . Recall that
+part of our special G-deformation datum (Z̄0 , ω0 ; Ȳj ) is a subgroup G0 = I0 · H0 .
+The auxiliary cover of the lift fR : YR → XR is a G0 -cover f aux : Y aux → X,
+characterized by the following properties, see [Ray99], §3.2.
+    (a) The cover f aux has a stable model fRaux : YRaux → XR     aux
+                                                                      over R. Moreover,
+        we have a (unique) isomorphism XR ∼          X
+                                                   = R aux
+                                                           extending  the identity on the
+        generic fiber.
+    (b) For j 6∈ Bwild , the restriction of fRaux to the formal disk Dj is a tame cover
+        of formal schemes, ramified along the closure of xj in Dj .
+    (c) There exists a G-equivariant isomorphism
+(22)                       ŶR × U ∼
+                                X̂R
+                                               G
+                                       = Ind (Ŷ aux × U)
+                                               G0   R     X̂R
+         of formal U-schemes.
+It follows that the branch locus of f aux : Y aux → X is precisely the set of points
+{xj | j ∈ B}.
+Proposition 4.3.         (1) The cover f aux is the (unique) lift of (Z̄0 , ω0 ) with branch
+       points (xj ), see §3.3.1. In particular, as a mere cover, f aux does not depend
+       on the lift fR of f¯.
+   (2) The disks Dj are independent of the lift fR : YR → XR . Moreover, each
+       disk Dj contains a K0 -rational point.
+Proof. It follows immediately from Property (c) that the deformation datum over
+the original component associated to the stable reduction of f aux can be identified
+with (Z̄0 , ω0 ). Hence (1) follows from Proposition 3.8. By Property (a), the cover
+f aux satisfies Condition (1) of Theorem 3.9. Therefore, (2) follows from Theorem
+3.9.                                                                               
+  We remark that the proof of Proposition 4.3 is the only place where we use the
+subtle implication ‘(1)⇒(2)’ of Theorem 3.9.
+4.2. Patching data. Lifting the special G-map f¯ to a three point G-cover f :
+Y → X can be done in three steps. The first step consists in lifting the tail covers
+f¯j : Ȳj → X̄j to Galois covers Ej → Dj of the formal disks Dj corresponding to
+Dj ⊂ X. Since the restriction of f¯j to X̄j − {τj } is tame, such a lift exists and is
+unique. The second step consists in lifting the (inseparable) cover Ȳ0 → X̄0 to a
+Galois cover V → U, where U is the ‘formal neighborhood’ of X̂R − ∪j Dj defined
+in §4.1.3. The existence and uniqueness of such a lift follows from the results of
+§3.1. In the third step we patch the covers Ej → Dj and V → U together along the
+boundaries Bj of the disks Dj and obtain the desired G-cover f : Y → X. Unlike
+the first two steps, the third step is not unique; it depends on the choice of what
+we call a patching datum for f¯. The construction we have just sketched amounts
+to the existence of a bijection
+                                          ∼
+                                  L(f¯) −→ P (f¯)
+between the set of lifts of f¯ and the set P (f¯) of all patching data. Essentially
+by construction, this bijection is Gal(K̄/K0 )-invariant. Moreover, the results of
+§3.3.3 can be used to determine the complete structure of P (f¯) as Gal(K̄/K0 )-set.
+Intuitively, the Galois group Gal(K̄/K0 ) acts on P (f¯) by ‘Dehn-twists’ along the
+boundaries Bj .
+                       THREE POINT COVERS WITH BAD REDUCTION                               33
+
+
+4.2.1. For each index j ∈ B, let us now choose, once and for all, a K0 -rational
+point xj ∈ X such that the closure of xj in X0 = P1W (k) intersects the special
+fiber X̄0 = P1k in the critical point τj . As usual, we assume that xj ∈ {0, 1, ∞}
+for j ∈ B0 . Let f † : Y † → X = P1K̄ be the lift of the special deformation datum
+(Z̄0 , ω0 ) with branch points (xj )j∈B , see §3.3. By definition, f † is a G† -cover,
+where G† := µp (K̄) ⋊ H0 . If fR is a lift of f¯, then Proposition 4.3 shows that f †
+is isomorphic, as a mere cover, to the auxiliary cover f aux associated to fR . In the
+following, we will not identify f † with f aux , because we want to emphasize the fact
+that such an identification is not canonical.
+    Let K/K0 be a finite extension over which f † has stable reduction and let fR† :
+  †
+YR → XR     †
+              (resp. f¯† : Ȳ † → X̄ † ) denote the stable model (resp. the stable reduction)
+of f . By Theorem 3.9, the curve X̄ † consists of the original component X̄0 = P1k
+      †
+
+
+and the tails X̄j† , where j runs over the set Bprim ∪ Bnew . Moreover, the deformation
+datum over the original component associated to f¯† is canonically isomorphic to
+(Z̄0 , ω0 ). We may and will identify the (unique) component Ȳ0† of Ȳ † over the
+original component with the distinguished component Ȳ0 of Ȳ (by definition, Ȳ0 =
+  1/p
+Z̄0 , see §2.2.3). Recall that we have distinguished points ηj ∈ Ȳ0 above τj ∈ X̄0 ;
+they are part of the G-deformation datum (Z̄0 , ω0 ; Ȳj ). For j 6∈ Bwild we let Ȳj†
+denote the irreducible component of Ȳ † which intersects Ȳ0 in ηj . Write ηj† ∈ Ȳj†
+for the point where Ȳj† intersects Ȳ0 . Let G†j ⊂ G† be the subgroup generated by
+µp (K̄) and Hj . One checks that (f¯j† : Ȳj† → X̄j† , ηj† , Hj ) is a pointed G†j -tail cover
+with ramification type (mj , hj ), totally ramified above τj . See §2.2.2.
+    Let Aut0k (Ȳ † ) denote the group of k-linear automorphisms of Ȳ † which normalize
+the action of G† , commute with the action of H0 ⊂ G† and restrict to the identity
+on Ȳ0 . We have seen in §3.3.3 that the absolute monodromy action on f¯† is a
+homomorphism
+                             κ̄† : Gal(K̄/K0 ) −→ Aut0k (Ȳ † ).
+Similarly, let Aut0k (Ȳj† ) denote the group of k-linear automorphisms of Ȳj† which
+normalize the action of G†j , commute with the action of Hj ⊂ G†j and fix the
+point ηj . By Proposition 3.11, the group Aut0k (Ȳj† ) is cyclic of order (p − 1)hj ;
+furthermore, restricting κ̄† to Ȳj† yields a surjective homomorphism
+
+                     κ̄†j : Gal(K̄/K0 ) −→ Aut0k (Ȳj† ) ∼
+                                                         = Z/(p − 1)hj .
+
+                                                             †
+4.2.2. Fix j 6∈ Bwild . We denote by X̄j,∞       ¯ (resp. X̄j,∞¯ ) the generic point of the
+                                                   †
+completion of the tail X̄j (resp. the tail X̄j ) at the point τj . We set Ȳj,∞       ¯ :=
+Ȳj ×X̄j X̄j,∞        †
+             ¯ and Ȳj,∞  := Ȳ †
+                                  ×   † X̄
+                                           †
+                                               .  Let  Pj (f¯) be the set of pairs (λ, ϕ∞¯)
+                        ¯      j    X̄j    j,∞
+                                             ¯
+consisting of the following objects:
+                 ∼
+      • λ : G† → G0 is an isomorphism which induces the identity on H0 , and
+                 G           ∼    G         †
+      • ϕ∞               ¯ ) → IndG† ,λ (Ȳj,∞
+          ¯ : IndGj (Ȳj,∞                    ¯ ) is a G-equivariant isomorphism such
+                                        j
+         that the following holds.
+                                     †
+          (1) We have ϕ∞  ¯ (ηj ) = ηj .
+                                                           ∼   †
+          (2) The induced isomorphism ψ∞                 ¯ → X̄j,∞
+                                                 ¯ : X̄j,∞       ¯ extends to an isomor-
+                              ∼    †
+              phism ψ : X̄j → X̄j .
+          (3) If j ∈ Bprim then ψ(x̄j ) = x̄†j .
+34                                       STEFAN WEWERS
+
+                                                                                     ∼
+         (The notation ‘IndG
+                           G† ,λ
+                                 ’ means that we embed G†j into G via λ : G† → G0 ⊂
+                               j
+         G.)
+The group Aut0k (Ȳj† ) acts on the set Pj (f¯) from the left, as follows. Let (λ, ϕ∞
+                                                                                    ¯ ) be
+                                                                             ∼
+an element of Pj (f¯) and γ an element of Aut0k (Ȳj† ). Let inn(γ −1 ) : G† → G† denote
+the unique automorphism of G† which sends an element α ∈ I † to γ −1 ◦ α ◦ γ and
+induces the identity on H0 ⊂ G† . Set λ′ := λ ◦ inn(γ −1 ). One checks that γ extends
+uniquely to a G-equivariant isomorphism
+                                                 ∼
+                          γ̃ : IndG    (Ȳ † ) −→ IndG
+                                  G† ,λ j            G† ,λ′
+                                                            (Ȳj† ).
+                                     j                      j
+
+
+Let ϕ′∞ ¯ be the composition of ϕ∞    ¯ with the local isomorphism induced by γ̃. Then
+(λ′ , ϕ′∞                        ¯                                  0     †          ¯
+        ¯ ) is an element of Pj (f ). This defines the action of Autj (Ȳj ) on Pj (f ). It is
+easy to see that this action makes Pj (f¯) a principal homogeneous Autk (Ȳj )-space.
+                                                                               0   †
+
+
+Via the monodromy action κ̄†j , we obtain a transitive Galois action of Gal(K̄/K0 )
+on Pj (f¯).
+   Define
+                   P (f¯) := { (λ; ϕj,∞¯ ) | (λ, ϕj,∞
+                                                              ¯
+                                                    ¯ ) ∈ Pj (f ) ∀j }.
+
+An element of P (f¯) is called a patching datum. The actions of the groups Aut0k (Ȳj† )
+on Pj (f¯) extend uniquely to an action of Aut0k (Ȳ † ) on P (f¯) (use Proposition 3.11
+(1)). Again, this action is transitive and fixed point free. We consider P (f¯) as a
+Gal(K̄/K0 )-set, via the monodromy action κ̄† .
+                                                                        Q
+Proposition 4.4. The set P (f¯) of patching data has exactly (p−1)· j hj elements.
+The Gal(K̄/K0 )-orbits have length
+                                   N := (p − 1) · lcmj (hj ).
+In particular, the action of Gal(K̄/K0 ) on P (f¯) is tamely ramified.
+Proof. By Proposition 3.11 and the freeness of the action of Aut0k (Ȳ † ) on P (f¯), it
+suffices to show that P (f¯) is nonempty. But this follows from Lemma 2.12.           
+
+4.2.3. We shall now define a Gal(K̄/K0 )-equivariant map
+(23)                                     L(f¯) −→ P (f¯),
+as follows. Let fR : YR → XR be a lift of f¯. Let f aux : Y aux → X be the auxiliary
+cover associated to f and the set (xj )j∈B . Let fRaux : YRaux → XR denote the
+stable model of the auxiliary cover f aux . By Proposition 4.3 (1), there exists a
+                                      ∼
+K-linear isomorphism ϕK : YKaux → YK† which induces the identity on XK . By the
+                                                                                        ∼
+uniqueness of the stable model, ϕK extends to an isomorphism ϕR : YRaux → YR† .
+                ∼
+Let ϕ̄ : Ȳ aux → Ȳ † denote the restriction of ϕR to the special fiber. After composing
+ϕK with an element of G† , we may assume that ϕK commutes with the action of H0
+(which is a subgroup of G0 and G† ) and that ϕ̄ induces the identity on Ȳ0 (which
+is a component of Ȳ aux and Ȳ † ). Note that this determines ϕK uniquely. Let
+         ∼
+λ : G0 → G† be the isomorphism α 7→ ϕK ◦ α ◦ ϕ−1      K . Fix j 6∈ Bwild . Let Ȳj
+                                                                                  aux
+                                                                                       denote
+the component of Ȳ     aux
+                            which intersects Ȳ0 in ηj , and set Ȳj,∞
+                                                                    aux
+                                                                      ¯ := Ȳj
+                                                                              aux
+                                                                                  × X̄j X̄j,∞
+                                                                                            ¯.
+The isomorphism (22) induces a G-equivariant isomorphism
+                                               ∼
+(24)                        IndG                 G
+                                       ¯ ) −→ IndG0 (Ȳj,∞
+                               Gj (Ȳj,∞
+                                                        aux
+                                                          ¯ ).
+                     THREE POINT COVERS WITH BAD REDUCTION                                35
+
+                 G        ∼        G     †
+Let ϕj,∞                 ¯ ) → IndG† (Ȳj,∞
+          ¯ : IndGj (Ȳj,∞                 ¯ ) be the composition of this isomorphism with
+the isomorphism induced by ϕ̄. By construction, the tuple (λ; ϕj,∞          ¯ ) is a patching
+datum. This defines the map (23).
+     We claim that (23) is Gal(K̄/K0 )-equivariant. Indeed, for any σ ∈ Gal(K̄/K0 ),
+we may identify the auxiliary cover of the twisted cover σ fR := fR ⊗σR R with the
+                                                                             σ       ∼
+σ-twist σ (fRaux ) := fRaux ⊗σR R of the auxiliary cover of fR . Let κ†R,σ : (YR† ) → YR† be
+                                                                       σ      ∼
+the unique extension of the canonical K-linear isomorphism YK† → YK† induced
+                            †
+from the K0 -model YK0 . The restriction of κR,σ to the special fiber is equal to
+κ̄† (σ), i.e. the monodromy action of σ on Ȳ † . The composition ϕ′R := κ†R,σ ◦ ϕR
+is the unique isomorphism which induces an H0 -equivariant isomorphism of mere
+           aux ∼  †
+covers fK      = fK  and whose restriction to the special fiber is the identity on Ȳ0 . It
+follows that the map (23) maps the class of the twisted lift σ fR to the image of
+                                                  0
+(λ; ϕj,∞ ¯ ) under the action of κ̄ (σ) ∈ Autk (Ȳ ). This proves the claim that (23) is
+                                     †                †
+
+
+Gal(K̄/K0 )-equivariant.
+Theorem 4.5. The map (23) is an isomorphism of Gal(K̄/K0 )-sets.
+Proof. We will show that (23) is an isomorphism by constructing an inverse P (f¯) →
+L(f¯). Let (λ; ϕ̄j,∞         ¯
+                    ¯ ) ∈ P (f ) be a patching datum. We have to construct a lift
+                    ¯
+fR : YR → XR of f which is mapped to (λ; ϕ̄j,∞   ¯ ) by (23).
+                                                         ∼    †
+    By definition, the local isomorphism ψ̄j,∞        ¯ → X̄j,∞
+                                              ¯ : X̄j,∞         ¯ extends to a global
+                          ∼
+isomorphism ψ̄j : X̄j → X̄j . Moreover, if j ∈ Bprim then ψj (x̄j ) = x̄†j . Let
+                                †
+
+        ∼
+ψ̄ : X̄ → X̄ † denote the isomorphism which is equal to the identity on the original
+                                                                                †
+component and which is equal to ψ̄j on the tails. We define XR := XR              as a
+marked curve over R. However, we identify the special fiber of XR with X̄ via the
+isomorphism ψ̄.
+    Let X̂R denote the formal completion of XR along X̄. For j 6∈ Bwild , let Dj ⊂ X̂R
+be the open formal subscheme corresponding to X̄j − {τj } ⊂ X̄ and let Xj be the
+completion of XR at τj . Let U ◦ ⊂ X̂R be the open formal subscheme corresponding
+to X̄0 − {τj | j ∈ Bprim ∪ Bnew } ⊂ X̄. Let U denote the disjoint union of U ◦ with all
+the Xj . The fiber product
+                        Bj := U ×X̂R Dj ∼
+                                        = Spec R[[T ]]{T −1}
+is the ‘boundary’ of the formal disk Dj . Its special fiber Bj ⊗R k is canonically
+isomorphic to X̄j,† ∞
+                    ¯ and isomorphic to X̄j,∞
+                                            ¯ via ψ̄j,∞
+                                                      ¯ . Define
+
+                               V := IndG        †
+                                       G† ,λ (ŶR ×X̂R U).
+
+Furthermore, let Ej → Dj be the (unique) tame lift of the (not necessarily con-
+nected) G-cover
+                                                           ψ̄j
+                Ȳ ×X̄ (X̄j − {τj }) −→ X̄j − {τj } −→ X̄j† − {τj }
+which is unramified away from the section xj,R : Spec R → Dj . The local isomor-
+phism ϕj,∞¯ yields a G-equivariant isomorphism
+                                            ϕ̄j,∞
+    (Ej ×Dj Bj ) ⊗R k ∼
+                      = IndG                 G               ∼
+                                                ¯      †
+                                   ¯ ) −→ IndG† ,λ (Ȳj,∞
+                           Gj (Ȳj,∞                     ¯ ) = (V ×U Bj ) ⊗R k
+
+of étale X̄j,† ∞
+                ¯ -schemes. It lifts canonically to a G-equivariant isomorphism
+                                                    ∼
+                              ϕj : Ej ×Dj Bj −→ V ×U Bj
+36                                STEFAN WEWERS
+
+
+of étale formal Bj -schemes. By a theorem of Ferrand–Raynaud [FR70] (see also
+[Pri00]), there exists a formal X̂R -scheme Y with G-action such that Ej = Y ×X̂R
+Dj and V = Y ×X̂R U. By Grothendieck’s Existence Theorem, Y is the formal
+completion of a projective R-curve YR . By construction, the natural map fR :
+YR → XR is a lift of f¯ which is mapped by (23) to the patching datum (λ; ϕ̄j,∞
+                                                                              ¯ ).
+This completes the proof of the theorem.                                        
+4.3. Some applications of Theorem 4.5. Let k be an algebraically closed field
+of characteristic p > 0. We denote by K0 the fraction field of W (k) and by K̄ an
+algebraic closure of K0 . Theorem 4.5 together with Proposition 4.4 implies:
+Corollary 4.6. Let f¯ : Ȳ → X̄ be a special G-map defined over k. Then there
+exists a three point G-cover f : Y → X := P1K̄ whose stable reduction is isomorphic
+to f¯.
+   This corollary is used in [BW02] to determine the stable reduction of all three
+point covers with Galois group PSL2 (p). In particular, this gives a new proof for
+the result of Deligne–Rapoport on the reduction of the modular curves X0 (p) and
+X1 (p).
+   In addition to the existence of three point covers with given stable reduction,
+Theorem 4.5 and Proposition 4.4 yield interesting arithmetic information about a
+given three point cover.
+Corollary 4.7. Let f : Y → X = P1K̄ be a three point Galois cover with mild
+reduction. Let (mj , hj )j∈B be the signature of the stable reduction of f . The cover
+f has stable reduction over the unique tame extension K st /K0 of degree
+                             N := (p − 1) · lcm (hj ).
+                                              j6∈Bwild
+
+In particular, any three point Galois cover f : Y → X whose degree is not divisible
+by p2 can be defined over a tame extension of K0 .
+Proof. Let fR : YR → XR be a stable model of f and f¯ : Ȳ → X̄ the stable
+reduction. If f¯ is not exceptional, then the corollary follows from Proposition 3.11
+and Theorem 4.5. We may therefore assume that f¯ is exceptional. We will also
+assume that we are in Case (2) of Definition 2.1, leaving Case (1) for the reader.
+By Proposition 2.2, the curve X̄ consists of the original component and a single
+new tail X̄j0 .
+   Let fRaux : YRaux → XR denote the auxiliary cover associated to fR , see §4.1.3. The
+Galois group of fRaux is a subgroup G0 ⊂ G, which is a direct product G0 = I0 × H0 .
+Here I0 ∼= Z/p is the inertia group of a component Ȳ0 of Ȳ over X̄0 and H0 is the
+                                    (p)
+Galois group of the cover Z̄0 = Ȳ0 → X̄0 . Let WR := YRaux /H0 . Then WR → XR
+is a stable model of the p-cyclic Galois cover WK → XK = P1K , which is ramified
+at 0, 1 and ∞. Therefore, the curve WK has an equation of the form
+                             y p = f (x) := c xa (x − 1)b ,
+with integers a, b such that a, b, a+b 6≡ 0 mod p and a unit c ∈ R× . After enlarging
+the field K if necessary and a change of coordinates we may assume that c ∈ W (k)×
+and f (a/(a + b)) ∈ (W (k)× )p . It is known from [CM88] (see also [Leh01]) that the
+model XR which leads to the stable reduction of WK → XK is the blowup of P1R
+in the disk
+                                             a        p val p
+                      D := { x | val(x −        ) ≥            }.
+                                           a+b       2(p − 1)
+                    THREE POINT COVERS WITH BAD REDUCTION                            37
+
+
+Moreover, the stable model WR → XR descents to a stable model over the ring
+                                          a 1/p
+            R′ := W (k)[ p1/2(p−1) , f (      ) ] = W (k)[ p1/2(p−1) ].
+                                         a+b
+Note that the (admissible) H0 -cover Ȳ aux → W̄ := WR ⊗R k is ramified at the
+unique singular point of W̄ of order m = h/2. Therefore, the stable model fRaux :
+YRaux → XR descents to a stable model over the ring R′′ := W (k)[p1/h(p−1) ]. Using
+the method of the proof of Theorem 4.5, it is not hard to show that fR : YR → XR
+descents to a stable model over R′′ . This finishes the proof of the corollary.   
+   The last corollary can be refined in order to obtain a formula for the ramification
+index of the field of moduli of a three point cover in terms of its stable reduction.
+Corollary 4.8. Let f¯ : Ȳ → X̄ be a special G-map, with signature (mj , hj )j∈B .
+Let P ⊂ G denote a p-Sylow of G and let n := [NG (P ) : CG (P )] be the index of
+the centralizer of P inside the normalizer of P . Recall that L̃(f¯) denotes the set of
+isomorphism classes of three point G-covers defined over K̄ whose stable reduction
+is isomorphic to f¯. There exists a positive integer n′ dividing n which depends only
+on f¯ such that
+                                    p−1 Y             hj
+                         |L̃(f¯)| =                        ¯ .
+                                     n′           | Aut G (fj )|
+                                          j6∈B
+                                             wild
+
+Let f : Y → X be a lift of f¯. Then the field of moduli K in of f (relative to the
+extension K̄/K0 ) is the unique tame extension of K0 of degree
+                                 p−1              hj
+                         N ′ :=         lcm                  .
+                                  n′ j6∈Bwild | AutG (f¯j )|
+Proof. We have seen in §4.1.2 that L̃(f¯) = L(f¯)/ Aut0G (f¯). Moreover, the stabilizer
+in Aut0G (f¯) of any element of L(f¯) is equal to CG . Let n′ be the order of the image
+of the homomorphism Aut0G (f¯) → G/CG which is defined by Lemma 2.17. It is
+easy to see that n′ divides n. We see that Corollary 4.8 follows from Proposition
+3.11, Theorem 4.5 and Lemma 2.17.                                                    
+4.4. Genus zero dessins of degree p. Let p be a prime and G ⊂ Sp be a primitive
+transitive permutation group of degree p. We write N ⊂ G for the stabilizer of 1.
+Let f : Y → X := P1Q̄ be a three point Galois cover, with Galois group G. Then
+g : Z := Y /N → X is a three point cover of degree p, and f : Y → X is the Galois
+closure of g. We make the following assumptions.
+Assumption 4.9.      (1) The subgroup N ⊂ G is self-normalizing and G is
+       center-free.
+   (2) The curve Z has genus 0.
+   The first assumption is made only for simplicity. It ensures that the G-cover
+f : Y → X and the (non-Galois) cover g : Z → X have the same field of moduli,
+and that this field of moduli is also the minimal field of definition for both covers,
+see e.g [DD97]. The second assumption is more restrictive and implies that the
+stable reduction of f : Y → X to characteristic p is rather easy to describe.
+   Let K be the field of moduli of f : Y → X, relative to the extension Q̄/Q. Let p
+be a prime ideal of K dividing p. There exists a finite extension K ′ /K and a prime
+p′ of K ′ over p such that f has a K ′ -model fK ′ : YK ′ → XK ′ which extends to a
+stable model over the local ring OK ′ ,p′ . Let f¯ : Ȳ → X̄ be the stable reduction of
+38                                    STEFAN WEWERS
+
+
+fK′
+     at p′ . One checks that f¯ : Ȳ → X̄ depends only on the field K and the prime
+p. Hence we may call f¯ : Ȳ → X̄ the stable reduction of f : Y → X at p.
+    Let us assume that f : Y → X has bad reduction at p. Note that p strictly
+divides the order of G. Therefore, by Theorem 2.6 the stable reduction f¯ : Ȳ → X̄
+is a special G-map, associated to a special G-deformation datum (Z̄0 , ω0 ; Ȳj ), see
+§2.2.3. In the following, we use freely the notation introduced in §2.2.3.
+Lemma 4.10.        (1) The character χ : H0 → F×        p is injective. In particular,
+          ∼
+       H0 = Z/m with m|(p − 1).
+   (2) There are no new tails.
+   (3) For j ∈ Bprim , let xj ∈ {0, 1, ∞} denote the branch point of f : Y → X
+       which specializes to the primitive tail X̄j . The ramification invariant of the
+       primitive tail cover f¯j : Ȳj → X̄j is given by the formula
+                                           |g −1 (xj )| − 1
+                                   σj =                     .
+                                                p−1
+Proof. Part (1) is an immediate consequence of the fact that the p-cyclic subgroup
+I0 of Sp is self-centralizing.
+   To prove (2), suppose that fj : Ȳj → X̄j is a new tail, with Galois group Gj . Let
+Nj := N ∩ Gj and Z̄j := Ȳj /Nj . It follows from Assumption 4.9 (2) that the curve
+Z̄j has genus 0. Since N has index p in G and Gj contains a p-Sylow of G, the
+index of Nj in Gj is also p. We see that ḡj : Z̄j → X̄j is a cover of degree p between
+curves of genus 0, totally branched at ∞        ¯ j ∈ X̄j and étale elsewhere. This means
+that in suitable coordinates ḡj is given by a monic polynomial q ∈ k[z] of degree p
+such that the derivative q ′ has degree 0. Hence q = z p + az + b, and after a further
+normalization we get q = z p − z. It follows that the tail cover f¯j : Ȳj → X̄j is an
+Artin–Schreier cover with conductor 1, i.e. σj = 1. This contradicts the results of
+§2. We conclude that f¯ : Ȳ → X̄ has no new tails, proving (2).
+   For j ∈ Bprim , let ḡj : Z̄j → X̄j be as before. The same argument as before shows
+that ḡj is a cover between smooth curves of genus 0 of degree p, totally ramified
+at ∞¯ j ∈ X̄j . But now ḡj is tamely ramified at x̄j and étale over X̄j − {∞      ¯ j , x̄j }
+(recall that x̄j ∈ X̄j denotes the specialization of the branch point xj ∈ {0, 1, ∞}).
+Since the stable model of f is a tame cover in a neighborhood of X̄j − {∞           ¯ j } we
+have |ḡj−1 (x̄j )| = |g −1 (xj )|. Now (3) follows from a calculation with the Riemann–
+Hurwitz formula and the fact that g(Z̄j ) = 0. See e.g. [BP], Lemma 2.3.1.                  
+   The lemma shows that the signature of f¯ : Ȳ → X̄ is a tripel (σ1 , σ2 , σ3 ) of
+rational numbers, with σj = hj /mj , 0 ≤ hj < mj and (hj , mj ) = 1. It satisfies the
+vanishing cycle formula
+(25)                                σ1 + σ2 + σ3 = 1.
+The special deformation datum (Z̄0 , ω0 ) is essentially determined by the signature.
+Indeed, the curve Z̄0 is isomorphic to the smooth projective model of the plane
+curve with equation
+(26)                               z m = xh1 (x − 1)h2 ,
+where m is the least common multiple of the mj , and the differential ω0 has the
+form
+                                        z dx
+(27)                         ω0 = ǫ            ,
+                                      x(x − 1)
+                    THREE POINT COVERS WITH BAD REDUCTION                               39
+
+
+for some ǫ ∈ F×  p . Conversely, given a tripel (σ1 , σ2 , σ3 ) satisfying all of the above
+conditions, one checks that (26) and (27) define a special deformation datum
+(Z̄0 , ω0 ). Therefore, the existence of a special deformation datum with a given
+signature imposes no restriction on the stable reduction f¯ : Ȳ → X̄.
+Example 4.11. Let p = 7 and G := S7 . Suppose furthermore that the branch
+cycle description of the cover g : Z → X is (6, 6, 2-2) (each entry designates a
+conjugacy class of S7 , e.g. ‘2-2’ denotes the product of two 2-cycles). From the
+table computed by Malle [Mal94] we see that there are exactly 4 non-isomophic
+three point covers with monodromy group S7 and this branch cycle description.
+Moreover, the absolute Galois group Gal(Q̄/Q) permutes these four covers transi-
+tively, with permutation group S4 . Therefore, the field of moduli of the G-cover
+f : Y → X is a degree 4 extension K/Q.
+    Let p be a prime ideal of K over 7. Suppose that f : Y → X has bad reduction
+at p and let f¯ : Ȳ → X̄ denote the stable reduction. It follows from Lemma 4.10
+(3) that the signature of f¯ is equal to (1/6, 1/6, 2/3). For j = 1, 2, the Riemann–
+Hurwitz formula implies that the Galois group Gj of the primitive tail cover f¯j :
+Ȳj → X̄j is isomorphic to the semi-direct product 7 : 6. It follows that Ȳj → X̄j is
+given by the two equations
+(28)                           z 6 = x,        y 7 − y = z.
+The third tail cover f¯3 : Ȳ3 → X̄3 has inertia invariant σ3 = 2/3 and branch cycle
+description 2-2 at the tame branch point. We say that f¯3 is a primitive tail cover
+of type (2/3, 2-2). The Galois group G3 of f¯3 is a subgroup of A7 containing a
+semidirect product 7 : 3 and a permutation of type 2-2. By elementary group
+theory, G3 is isomorphic to A7 or to L2 (7) := PSL2 (7).
+   It is a priori not clear how many non-isomorphic primitive tail covers of type
+(2/3, 2-2) exist, and what their Galois groups are. We claim that there exists in
+fact a unique primitive tail cover of type (2/3, 2-2), with Galois group L2 (7). The
+existence of one such cover is proved in [BW02]. (It is obtained by reducing a
+certain three point cover with Galois group L2 (7).) To prove uniqueness, we use
+our lifting result, Theorem 4.5.
+   Given f¯3 : Ȳ3 → X̄3 as above, one shows that there exists, up to isomorphism,
+a unique special G-map f¯ : Ȳ → X̄ with signature (1/6, 1/6, 2/3) whose third tail
+cover is isomorphic to f¯3 : Ȳ3 → X̄3 . By Corollary 4.8 there exist exactly
+                                                 12
+                                N ′ :=                     ¯
+                                          n′ · | Aut   G3 (f3 )|
+
+nonisomorphic three point covers f ′ : Y ′ → X ′ whose stable reduction (at a given
+prime p̃ of Q̄) is isomorphic to f¯. Moreover, all of these covers are conjugate under
+the action of the inertia group of p̃. Using Lemma 2.17, Remark 2.18 and Equation
+(28) one shows that n′ = 3. Thus, N ′ is equal to either 2 or 4.
+   As we have mentioned before, all three point covers with Galois group S7 and
+branch cycle description (6, 6, 2-2) are conjugate. Hence we may assume that f = f ′ .
+We conclude that for each primitive tail cover f¯3 of type (2/3, 2-2) there exists a
+prime p in K above 7 with e(p/7) ∈ {2, 4}. This prime p is uniquely determined
+by the property that the stable reduction of f : Y → X at p has a primitive tail
+cover isomorphic to f¯3 . By Malle’s table, we have 7 = p21 p2 p3 in K. Therefore, our
+analysis of the stable reduction implies:
+40                                   STEFAN WEWERS
+
+
+     • The cover f : Y → X has bad reduction at p1 and good reduction at p2
+        and p3 . The stable reduction of f : Y → X at p1 occurs after an extension
+        which is ramified at p1 of order 2.
+     • There exists a unique primitive tail cover of type (2/3, 2-2). Its Galois
+        group is L2 (7).
+We remark that good reduction at p2 and p3 does not follow from the results of
+[Ray99], because S7 has only one conjugacy class of elements of order 7.
+Example 4.12. As before, let p = 7 and G = S7 . But now suppose that the
+branch cycle description of the cover f : Y → X is (2-3, 2-3, 7). By Malle’s table
+there are 9 such covers, up to isomorphism. Note that they all have bad reduction
+to characteristic 7, because of the ramification index 7.
+    It follows from Lemma 4.10 (3) that the signature of f¯ : Ȳ → X̄ is equal to
+(1/2, 1/2, 0). For j = 1, 2, the Galois group Gj of the tail cover f¯j : Ȳj → X̄j
+contains a 7-cycle and a 2-cycle. Hence, by a theorem of Jordan we have Gj = S7 .
+    We claim that there exists, up to isomorphism, a unique primitive tail cover
+f¯1 : Ȳ1 → X̄1 of type (1/2, 2-3) with Galois group S7 . We have already shown its
+existence. To prove uniqueness, we use again Theorem 4.5.
+    Let us choose a point η1 ∈ Ȳ1 above the wild branch point ∞          ¯ 1 ∈ X̄1 . Since
+σ1 = 1/2 the inertia group at η1 is a dihedral group G0 = I0 ⋊ H0 , with |I0 | = 7
+and H0 = |2|. Recall that the triple (f¯1 , η1 , H0 ) is called a pointed S7 -tail cover.
+Let f¯2 : Ȳ2 → X̄2 be a copy of the S7 -tail cover f¯1 . It is easy to see that there are
+exactly three points on Ȳ2 above ∞      ¯ 2 with inertia group G0 . Let η2 be one of them.
+Then (f¯2 , η2 , H0 ) is another pointed S7 -tail cover. It is isomorphic to (f¯1 , η1 , H0 )
+(by an isomorphism commuting with the action of S7 ) if and only if η1 = η2 . Finally,
+let (Z̄0 , ω0 ) be the (unique) special deformation datum with signature (1/2, 1/2, 0).
+One checks that (Z̄0 , ω0 , Ȳ1 , Ȳ2 ) gives rise to a special G-deformation datum and
+hence to a special G-map f¯ : Ȳ → X̄, see §2.2.3. Moreover, by varying the point η2
+we obtain exactly three non-isomorphic special G-maps with signature (1/2, 1/2, 0)
+and whose primitive tail covers are both isomorphic to f¯1 : Ȳ1 → X̄1 .
+    Choose one of the three special G-maps f¯ : Ȳ → X̄ constructed from f¯1 :
+Ȳ1 → X̄1 . By Corollary 4.8 there exist exactly N ′ = 6/n′ non-isomorphic three
+point covers f ′ : Y ′ → X with Galois group S7 whose stable reduction (at a given
+place p̃ above 7) is isomorphic to f¯. Moreover, they form a single orbit under the
+action of the inertia group at p̃. Using Remark 2.18 we see that 2|n′ . Using the
+fact that S7 has no outer automorphism one further shows that n′ = 2 and hence
+N ′ = 3. Therefore, for each primitive tail cover f¯1 : Ȳ1 → X̄1 we obtain, by our
+lifting result, exactly 9 non-isomorphic three point covers with Galois group S7
+and branch cycle description (2-3, 2-3, 7). However, there are only 9 such covers
+altogether. This proves that f¯1 : Ȳ1 → X̄1 is indeed unique, up to isomorphism.
+As a by-product, we have also shown that the absolute ramification index of any
+prime ideal p dividing 7 in the field of moduli of f : Y → X is equal to 3.
+    By [Mal94] the set of 9 isomorphism classes form two Galois orbits, of length 3
+and 6 respectively, corresponding to extensions K1 /Q and K2 /Q. In K1 we have
+7 = p31 and in K2 we have 7 = p32 p33 . This confirms our prediction.
+Remark 4.13. One can use Malle’s table [Mal94] to verify our results in many
+more examples. In particular, one gets a numerical verification of Theorem 1 of
+the Introduction for all genus zero dessins of degree ≤ 10. One also sees that the
+condition that p strictly divides the order of G is necessary for Theorem 1 to hold.
+                      THREE POINT COVERS WITH BAD REDUCTION                                   41
+
+
+For instance, one finds several three point covers of degree n ≥ 10, with monodromy
+group Sn or An , such that 5 is wildly ramified in the field of moduli.
+Remark 4.14. The relation between the existence of three point covers with bad
+reduction on the one hand and tail covers with low ramification invariant on the
+other hand is exploited more systematically in [BP]. In [Zap02] Zapponi studies
+the stable reduction of genus zero dessins of degree p which are totally ramified at
+one point, by analyzing the defining equation. His results confirm our results on
+dessins of genus 0.
+
+                                        References
+[Bec89]  S. Beckmann, Ramified primes in the field of moduli of branched coverings of curves, J.
+         of Algebra 125 (1989), 236–255.
+[BM00] J. Bertin and A. Mézard, Déformations formelles des revêtements sauvagement ramifiés
+         de courbes algébriques, Invent. Math. 141 (2000), 195–238.
+[BP]     I.I. Bouw and R.J Pries, Rigidity, reduction, and ramification, To appear in Math. Ann.
+[BW00] I.I. Bouw and S. Wewers,                Reduction of covers and Hurwitz spaces,
+         arXiv:math.AG/0005120, 2000.
+[BW02] I.I. Bouw and S. Wewers, Stable reduction of modular curves, arXiv:math.AG/0210363,
+         2002.
+[CM88] R. Coleman and W. McCallum, Stable reduction of Fermat curves and Jacobi sum Hecke
+         characters, J. Reine Angew. Math. 385 (1988), 41–101.
+[DD97] P. Dèbes and J.-C. Douai, Algebraic covers: Field of moduli versus field of definition,
+         Ann. Sci. École Norm. Sup. 30 (1997), 303–338.
+[FR70] D. Ferrand and M. Raynaud, Fibres formelles d’un anneau local noethérien, Ann. Sci.
+         École Norm. Sup. 3 (1970), 295–311.
+[GM99] B. Green and M. Matignon, Order p automorphisms of the open disc of a p-adic field,
+         J. AMS 12 (1999), no. 1, 269–303.
+[Hen00] Y. Henrio, Arbres de Hurwitz et automorphismes d’ordre p des disques et des couronnes
+         p-adic formels, To appear in: Comp. Math., available at arXiv:math.AG/0011098, 2000.
+[Knu83] F.F. Knudsen, The projectivity of the moduli space of stable curves, II, Math. Scand.
+         52 (1983), 161–199.
+[Leh01] C. Lehr, Reduction of p-cyclic covers, Manuscripta Math. 106 (2001), 151–175.
+[Mal94] G. Malle, Fields of definition of some three point ramified field extensions, The
+         Grothendieck Theory of Dessins d’Enfants (L. Schneps, ed.), London Math. Soc. Lecture
+         Note Series, no. 200, Cambridge Univ. Press, 1994, pp. 147–168.
+[Mil80] J.S. Milne, étale cohomology, Princeton Univ. Press, 1980.
+[Pri00] R.J. Pries, Construction of covers with formal and rigid geometry, Courbes semi-stables
+         et groupe fondamental en géométrie algébrique (J.-B. Bost, F. Loeser, and M. Raynaud,
+         eds.), Progress in Math., no. 187, Birkhäuser, 2000, pp. 157–167.
+[Pri02] R.J. Pries, Families of wildly ramified covers of curves, Amer. J. Math. 124 (2002),
+         no. 4, 737–768.
+[Ray74] M. Raynaud, Schéma en groupes de type (p, . . . , p), Bull. Soc. Math. Fr. 102 (1974),
+         241–280.
+[Ray90] M. Raynaud, p-groupes et réduction semi-stable des courbes, Grothendieck Festschrift
+         III (P. Cartier, ed.), Progress in Math., no. 88, Birkhäuser, 1990, pp. 179–197.
+[Ray99] M. Raynaud, Spécialisation des revêtements en caractéristique p > 0, Ann. Sci. École
+         Norm. Sup. 32 (1999), no. 1, 87–126.
+[Saı̈01] M. Saı̈di, Torsors under finite and flat group schemes of rank p with Galois action,
+         arXiv:math.AG/0106246, 2001.
+[Ser68] J.-P. Serre, Corps locaux, Hermann, 1968.
+[Wew]    S. Wewers, Reduction and lifting of special metacyclic covers, arXiv:math.AG/0105052,
+         to appear in: Ann. Sci. École Norm. Sup.
+[Wew02] S. Wewers,         Formal deformations of curves with group scheme action,
+         arXiv:math.AG/0212145, 2002.
+[Zap02] L. Zapponi, The arithmetic of prime degree trees, Int. Math. Res. Not. 4 (2002), 211–219.
+42                                 STEFAN WEWERS
+
+
+     Mathematisches Institut, Beringstr. 1, 53115 Bonn, Germany
+     E-mail address: wewers@math.uni-bonn.de
+

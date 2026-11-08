@@ -1,0 +1,64 @@
+numerator 8; primes 5..1500: 4965 representations of 8/p checked
+representations with p^2 | some denominator: 0; first few: []
+triples admitting a good-reduction cluster partition: 39
+  p=7 triple=(2, 2, 7) partitions=[[[0, 2], [1]], [[1, 2], [0]]] mordell=False
+  p=13 triple=(2, 13, 26) partitions=[[[1, 2], [0]]] mordell=False
+  p=41 triple=(6, 41, 246) partitions=[[[1, 2], [0]]] mordell=False
+  p=83 triple=(12, 83, 996) partitions=[[[1, 2], [0]]] mordell=False
+  p=97 triple=(14, 97, 1358) partitions=[[[1, 2], [0]]] mordell=False
+  p=139 triple=(20, 139, 2780) partitions=[[[1, 2], [0]]] mordell=False
+  p=167 triple=(24, 167, 4008) partitions=[[[1, 2], [0]]] mordell=False
+  p=181 triple=(26, 181, 4706) partitions=[[[1, 2], [0]]] mordell=False
+  p=223 triple=(32, 223, 7136) partitions=[[[1, 2], [0]]] mordell=False
+  p=251 triple=(36, 251, 9036) partitions=[[[1, 2], [0]]] mordell=False
+  p=293 triple=(42, 293, 12306) partitions=[[[1, 2], [0]]] mordell=False
+  p=307 triple=(44, 307, 13508) partitions=[[[1, 2], [0]]] mordell=False
+  p=349 triple=(50, 349, 17450) partitions=[[[1, 2], [0]]] mordell=False
+  p=419 triple=(60, 419, 25140) partitions=[[[1, 2], [0]]] mordell=False
+  p=433 triple=(62, 433, 26846) partitions=[[[1, 2], [0]]] mordell=False
+  p=461 triple=(66, 461, 30426) partitions=[[[1, 2], [0]]] mordell=False
+  p=503 triple=(72, 503, 36216) partitions=[[[1, 2], [0]]] mordell=False
+  p=587 triple=(84, 587, 49308) partitions=[[[1, 2], [0]]] mordell=False
+  p=601 triple=(86, 601, 51686) partitions=[[[1, 2], [0]]] mordell=False
+  p=643 triple=(92, 643, 59156) partitions=[[[1, 2], [0]]] mordell=False
+  p=727 triple=(104, 727, 75608) partitions=[[[1, 2], [0]]] mordell=False
+  p=769 triple=(110, 769, 84590) partitions=[[[1, 2], [0]]] mordell=False
+  p=797 triple=(114, 797, 90858) partitions=[[[1, 2], [0]]] mordell=False
+  p=811 triple=(116, 811, 94076) partitions=[[[1, 2], [0]]] mordell=False
+  p=839 triple=(120, 839, 100680) partitions=[[[1, 2], [0]]] mordell=False
+  p=853 triple=(122, 853, 104066) partitions=[[[1, 2], [0]]] mordell=False
+  p=881 triple=(126, 881, 111006) partitions=[[[1, 2], [0]]] mordell=False
+  p=937 triple=(134, 937, 125558) partitions=[[[1, 2], [0]]] mordell=False
+  p=1021 triple=(146, 1021, 149066) partitions=[[[1, 2], [0]]] mordell=False
+  p=1049 triple=(150, 1049, 157350) partitions=[[[1, 2], [0]]] mordell=False
+  p=1063 triple=(152, 1063, 161576) partitions=[[[1, 2], [0]]] mordell=False
+  p=1091 triple=(156, 1091, 170196) partitions=[[[1, 2], [0]]] mordell=False
+  p=1217 triple=(174, 1217, 211758) partitions=[[[1, 2], [0]]] mordell=False
+  p=1231 triple=(176, 1231, 216656) partitions=[[[1, 2], [0]]] mordell=False
+  p=1259 triple=(180, 1259, 226620) partitions=[[[1, 2], [0]]] mordell=False
+  p=1301 triple=(186, 1301, 241986) partitions=[[[1, 2], [0]]] mordell=False
+  p=1399 triple=(200, 1399, 279800) partitions=[[[1, 2], [0]]] mordell=False
+  p=1427 triple=(204, 1427, 291108) partitions=[[[1, 2], [0]]] mordell=False
+  p=1483 triple=(212, 1483, 314396) partitions=[[[1, 2], [0]]] mordell=False
+primes p=2 mod 3 in range: 122; primes with a survivor: 39; equal: False
+NON-MORDELL SURVIVORS (would kill Theorem G arithmetic): 39
+    (7, (2, 2, 7), [[[0, 2], [1]], [[1, 2], [0]]])
+    (13, (2, 13, 26), [[[1, 2], [0]]])
+    (41, (6, 41, 246), [[[1, 2], [0]]])
+    (83, (12, 83, 996), [[[1, 2], [0]]])
+    (97, (14, 97, 1358), [[[1, 2], [0]]])
+    (139, (20, 139, 2780), [[[1, 2], [0]]])
+    (167, (24, 167, 4008), [[[1, 2], [0]]])
+    (181, (26, 181, 4706), [[[1, 2], [0]]])
+    (223, (32, 223, 7136), [[[1, 2], [0]]])
+    (251, (36, 251, 9036), [[[1, 2], [0]]])
+    (293, (42, 293, 12306), [[[1, 2], [0]]])
+    (307, (44, 307, 13508), [[[1, 2], [0]]])
+    (349, (50, 349, 17450), [[[1, 2], [0]]])
+    (419, (60, 419, 25140), [[[1, 2], [0]]])
+    (433, (62, 433, 26846), [[[1, 2], [0]]])
+    (461, (66, 461, 30426), [[[1, 2], [0]]])
+    (503, (72, 503, 36216), [[[1, 2], [0]]])
+    (587, (84, 587, 49308), [[[1, 2], [0]]])
+    (601, (86, 601, 51686), [[[1, 2], [0]]])
+    (643, (92, 643, 59156), [[[1, 2], [0]]])
