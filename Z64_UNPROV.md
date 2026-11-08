@@ -1,4 +1,4 @@
-# Z64_UNPROV — can unprovability of ES be proved? (checkpoint 1)
+# Z64_UNPROV — can unprovability of ES be proved? Verdict: strengthened (logic). Square classes are unprovable in normal open induction (+GCD); PA/ZFC independence is not a realistic target; no HOT LEAD
 
 Status: z64 lane UNPROV (brief `z52bbriefs/z64_lanes.md` §UNPROV; common rules `z58_lanes.md`, `z53_depth.md`).
 **ES is OPEN. Nothing here proves or disproves ES, (MS), or any case of them.** Internal, unrefereed.
@@ -275,10 +275,228 @@ ES(n)) for a numeral N₀, and the finitely many standard n < N₀ are settled b
 ES on residue classes mod 840, polynomial identities already prove. For a general modulus, ET Prop 1.9 lists the classes
 solvable by polynomials; Thm A excludes the unit-square classes; classes in neither family are not settled here.
 
-## 4–7. TODO (after checkpoint)
-PA/ZFC; bounded arithmetic; barrier reading; proof complexity; GCD strengthening.
+## 4. Strong theories (PA, ZFC): what "ES is unprovable" would entail
 
-## 8. Verdict (checkpoint)
-**Strengthened (logic).** New theorem: square classes are not provable in normal open induction (Thm A). This is the
-first formal-system unprovability result for ES at *primes*, and it is unconditional (B1 Thm C needed Hypothesis H).
-Exact mod-840 dichotomy (Thm A + B). It does not bear on the truth of ES.
+**Proposition 4.1 (PROVED; standard metamathematics, Σ₁-completeness and Gödel II as in any textbook, e.g. Hájek–Pudlák,
+*Metamathematics of First-Order Arithmetic*, Ch. I; theorem numbers not re-checked).** Let T ⊇ Q be a consistent
+recursively axiomatised theory and S ⊇ IΣ₁ a metatheory.
+* (a) ES is Π⁰₁. Over Q it is equivalent to ∀n ≥ 2 ∃x, y, z ≤ 2n⁴ (4xyz = n(xy + yz + zx)): for x ≤ y ≤ z one has
+  x ≤ 3n/4, y ≤ 2nx and z ≤ nxy ≤ 2n⁴ (`BRAINSTORM/logic_weak_arithmetic.md` §1).
+* (b) If ES is false, then Q ⊢ ¬ES, by Σ₁-completeness (`Z58_LOGIC` Prop 2.1(b)). Formalised: S ⊢ ¬ES → Pr_Q(⌜¬ES⌝).
+* (c) Hence S ⊢ "T ⊬ ¬ES" implies S ⊢ ES. In particular, a proof that ES is independent of T, carried out in S, contains
+  a proof of ES in S.
+* (d) S ⊢ "T ⊬ ES" implies S ⊢ Con(T), since an inconsistent T proves everything (formalised in S). So by Gödel II,
+  S ≠ T. Any metatheory proving "PA ⊬ ES" proves Con(PA).
+* (e) PA ⊬ ES iff some model of PA contains a non-standard n ≥ 2 with no x, y, z ≤ 2n⁴ in the model solving 4/n.
+  This is completeness, using (a).
+So "ES is independent of PA" is a strictly stronger target than "ES is true": it needs a proof of ES (in S ⊋ PA) *and*
+a proof that no PA-proof exists.
+
+**What is known about independence of natural Π₁ sentences (literature; see `data/z64/unprov/lit_independence.md`).**
+* *Consistency statements and machines.* Con(T) and Gödel sentences are Π₁. O'Rear's 748-state Turing machine halts iff
+  ZF is inconsistent, so its non-halting is a Π₁ sentence independent of ZF if ZF is consistent. Source: Aaronson,
+  *The Busy Beaver Frontier*, Theorem 7, quoted verbatim in `lit_independence.md` §4 (VERIFIED, with Aaronson's caveat
+  "assuming O'Rear's construction is sound").
+* *Matiyasevich (MRDP).* Every Π₁ sentence, Con(ZFC) included, is equivalent to the unsolvability of some Diophantine
+  equation. So "Diophantine" is no protection against independence; the equations produced encode proof predicates.
+* *Combinatorial independence.* Paris–Harrington, Goodstein and Kirby–Paris hydra are Π⁰₂ (standard classification;
+  `lit_independence.md` §1 PARTLY). Their unprovability comes from fast-growing witness functions. Friedman's finite
+  combinatorial Π⁰₁ statements tied to large-cardinal consistency were *not* verified at theorem level here
+  (`lit_independence.md` §2: NOT FOUND); no claim is made about them.
+
+**Assessment.**
+* ES has no growth mechanism: its witness is polynomially bounded and Δ₀-definable ((a)). So the Paris–Harrington route
+  (a provably-total-function argument) is unavailable in principle.
+* Every verified independent Π₁ sentence above encodes consistency or a proof predicate. We know of no route by which
+  a sentence like ES could imply Con(PA) or any other statement unprovable in PA.
+* The heuristic picture (≍ log²p expected certificates per prime; FRONTIER §1) also points the other way.
+* So **"PA ⊬ ES" or "ZFC ⊬ ES" is not a realistic research target.** It is at least as hard as proving ES ((c)), and
+  no mechanism for it is visible.
+
+## 5. Weak theories: the ladder
+
+| theory | ES[non-square classes] | ES_prime[unit-square classes] | status / pointer |
+|---|---|---|---|
+| Q (Robinson) | each true instance ES(n̄) provable (Σ₁-completeness) | each instance provable | no induction; uniform statements not considered |
+| IOpen = OI | **provable** for every class solvable by polynomials, in particular all r ∉ 𝔐 mod 840 | **unprovable** | Thm B, Cor C; Thm A |
+| NOI (+ PD, cofinal primes) | provable | **unprovable** | Thm A, §2.6 |
+| NOI + GCD (+ PD) | provable | **unprovable** | Thm A′ |
+| IOpen + Bez | provable | **OPEN** | §6: the arc criterion isolates what a counter-model needs |
+| IE₁ (⊢ IOpen + Bez, Smith 1992) | provable | **OPEN** | IE₁ has no recursive nonstandard models (Wilmers, cited in BO §1); a counter-model cannot be a BO-type recursive construction |
+| IΔ₀, IΔ₀ + exp | provable | **OPEN**; unprovability out of reach | Assessment: no natural true Π₁ number-theoretic statement is known to be unprovable in IΔ₀. IΔ₀ ⊢ "infinitely many primes" is itself a well-known open problem; IΔ₀ + WPHP(Δ₀) proves it (Paris–Wilkie–Woods 1988, as reported in Jeřábek's introduction, `Z58_LOGIC` lit_verify item 11) |
+| S¹₂ / PV | provable (the Thm B identities are S¹₂-provable) | **OPEN**; S¹₂ ⊢ ES_prime ⟹ polynomial-time "ES-solution or nontrivial factor" algorithm | Buss witnessing; `Z58_LOGIC` Thm 3.1 transferred verbatim |
+| T¹₂ | provable | OPEN; T¹₂ ⊢ ES_prime ⟹ the search is in PLS (Buss–Krajíček Thm 5.3) | `Z58_LOGIC` §3 |
+| S²₂ and above | provable | OPEN; witnessing gives nothing (the search is already in FP^NP) | `Z58_LOGIC` §3 |
+| PA, ZFC | provable | OPEN; independence would imply ES (§4) | Prop 4.1 |
+| Presburger / Skolem arithmetic | — | — | ES is not expressible (needs both + and · on variables) |
+
+**Proposition 5.1 (PROVED relative to Buss's witnessing theorem; the S¹₂ row).** If S¹₂ ⊢ ES_prime[r mod q], then
+some polynomial-time algorithm, on every input n ≡ r (mod q), n ≥ 2, outputs an ES solution of n or a nontrivial
+factorisation of n.
+*Proof.* `Z58_LOGIC` Thm 3.1, verbatim with Hit replaced by the polynomial-time predicate 4xyz = n(xy + yz + zx). The
+witness bound is x, y, z ≤ 2n⁴ (Prop 4.1(a)). ∎
+*Reading.*
+* Assume ES. Then this "solution-or-factor" search is a total NP search problem. If P = NP it lies in FP.
+* So a proof of S¹₂ ⊬ ES_prime[r mod q] that goes through witnessing (by showing the search is not in FP) would prove
+  P ≠ NP.
+* A model-theoretic proof, like Thm A for OI, would not obviously do so. But no BO-style explicit models of S¹₂ are
+  available. The S¹₂ question is therefore, in practice, the search-complexity question of `Z58_LOGIC` §5.
+
+**"Which weak theory is the first that could prove ES?" (answer, scoped).**
+* *Lower bound (PROVED).* It must exceed NOI + GCD + PD + cofinal primes (Thm A′). Equivalently, a proof of ES at primes
+  of any square class must use a principle failing in M_ϕ. Candidates: Bezout identities, LNP/induction for formulas
+  with quantifiers (bounded existential and beyond), counting (Count₂-type principles give quadratic reciprocity
+  for non-standard moduli: Jeřábek, `Z58_LOGIC` lit_verify item 5), or the existence of many divisors of n + u.
+* *Upper bound.* Not known: no theory is known to prove ES (ES is open). Assessment: an elementary proof, if one
+  exists, would plausibly be formalisable in IΔ₀ + exp (Friedman's grand conjecture, `Z58_LOGIC` lit_verify item 8,
+  is the general version of this expectation). So the honest window is "strictly above NOI + GCD, at most IΔ₀ + exp
+  (if ES has an elementary proof)".
+* The first genuinely open rung is **IOpen + Bez** (and IE₁).
+
+## 6. Barrier reading
+
+**6.1 What Theorem A rules out (Assessment, made precise by the theorem).** NOI + GCD proves everything that follows
+from the following tools, applied a fixed finite number of times:
+* ring identities with rational coefficients (division by standard integers);
+* Euclidean division by arbitrary, also non-standard, elements;
+* integer parts of real algebraic functions of the data (Shepherdson's criterion);
+* case splits on residues modulo standard numbers;
+* open induction, gcds, and integral closure;
+* "every element has an irreducible divisor".
+None of these can prove ES at the primes of a square class. This turns three earlier results into one unconditional
+formal-system theorem:
+* the procedural barrier B1 (FRONTIER §3; `POINTWISE_SIZE.md` Thm M, Thm C *conditional on Hypothesis H*);
+* Mordell–Schinzel (polynomial identities fail on square classes; ET p. 8);
+* the T1 slogan "a mechanism must contain a step false at n = m²".
+
+The model M_ϕ realises Hypothesis H internally: its primes are generic. In ℕ, H is what makes formal runs at
+square-mimicking points actual (Thm M); in M_ϕ that genericity is built in, so no hypothesis is needed.
+
+**Proposition 6.2 (arc criterion; PROVED, by the proof of §2.5).** Let M ⊨ OI and n ∈ M, n > 0. Assume that for every
+finite G ⊂ M there are an interval I ⊃ [0, ∞) and a ring homomorphism ψ: ℤ[G ∪ {n}] → C^ω(I) such that:
+* ψ(g) ≢ 0 and ψ(g) has the M-sign of g for all large s (g ≠ 0);
+* ψ(g)(0) ∈ ℤ for g ∈ G;
+* ψ(n) > 0 on [0, ∞) and ψ(n)(0) = m² for an odd m;
+* gcd(ψ(g)(0), m) = 1 for each g ∈ G that n does not divide in M.
+Then M ⊨ ¬ES★(n), and if n is prime in M, M ⊨ ¬ES(n). If M is a GCD domain and n is prime, the last condition can be
+dropped: ET's Type I/II parametrisation (Props 2.2, 2.6) goes through in any GCD domain, so the solution yields positive
+a, b, c, d, e ∈ M with ce = a + b and 4abd = ne + 1 (resp. n + e). Positivity propagates along the arc for this system
+too: at the largest zero, 4abd = ne + 1 ≥ 1 forces a, b, d > 0, and then ce = a + b forces c, e > 0. ET §4 shows
+directly that this system has no positive integer solution with n = m² odd.
+*Proof of the GCD step.* With x = ndx′, y = dy′, z = dz′ and gcd(x′, y′, z′) = 1, the relation 4dx′y′z′ = y′z′ + nx′y′ +
+nx′z′ gives x′ | y′z′, y′ | x′z′, z′ | x′y′, using gcd(y′, n) = gcd(z′, n) = 1, which holds since n is prime and n ∤ y′, z′.
+In a GCD domain, gcd(a, bc) | gcd(a, b)gcd(a, c), and coprime divisors multiply. So x′ = ab, y′ = ac, z′ = bc up to
+units, with a = gcd(x′, y′), b = gcd(x′, z′), c = gcd(y′, z′). The rest is ET's algebra. ∎
+
+*Reading.* The arc criterion says what a counter-model for a stronger theory needs: finitely generated pieces that are
+"free enough" to have integer points at odd squares, connected analytically to the order at infinity. A theory
+proves ES on square classes only if its axioms force Diophantine relations among the finitely many elements involved,
+and these relations must have **no** integer points at odd squares.
+* Bezout identities ug + vh = 1, two-square representations n = a² + b², and Fermat-type relations all have integer
+  points at suitable odd squares. Heuristically, then, they do not obstruct arcs. Note that M_ϕ itself violates the
+  two-squares principle TS ("every prime ≡ 1 (mod 4) is a sum of two squares"): in ℚ[β], a² + b² with a, b
+  nonconstant has even degree ≥ 2, since the top forms cannot cancel over ℝ, so a² + b² = β₁ is impossible. So TS is
+  another principle a proof could use. The arc criterion suggests it is not the decisive one.
+* The ES/Type I/II relations have none, by T1.
+CONJECTURE (T1 meta-principle for theories): IOpen + Bez + {every prime ≡ 1 (mod 4) is a sum of two squares} ⊬
+ES_prime[r mod q] for unit-square classes. Not proved: it needs a model construction that closes under Bezout
+coefficients while keeping the arc property (§9).
+
+**6.3 Other barrier formalisations asked for (Assessment).**
+* "Proofs using only local data": captured by Thm A. M_ϕ has exactly the residue ring of a square-mimicking point, and
+  every congruence fact of the class holds in it.
+* "Proofs using only multiplicative functions / bounded-order character sums": these are analytic, not first-order
+  arithmetic. They have no natural formal system smaller than PA. Their barrier statements remain the scoped theorems of
+  FRONTIER §3 (B1, B6, the bounded-order inverse lemma). We did not find a formal system that captures them without
+  also capturing analysis.
+
+## 7. Proof complexity
+
+**Proposition 7.1 (PROVED; standard).** Every true instance ES(n̄) has a proof of length poly(log n) in any theory with
+binary numerals that verifies multiplication tables (e.g. PV, S¹₂, Q with efficient numerals). Exhibit the witness of
+O(log n) bits (Prop 4.1(a)) and verify the equation by school arithmetic. So no superpolylogarithmic lower bound on
+instance proofs can hold.
+*Consequences (Assessment).*
+* The difficulty of ES is uniformity, not length. Thm A is a uniformity statement: NOI proves each ES(p̄) in poly(log p)
+  steps, but proves no single sentence covering all primes of a square class.
+* Proof-complexity questions about ES are therefore about the *search problem*: its TFNP class (FP? PLS? PPA?). Through
+  witnessing these correspond to provability in S¹₂, T¹₂, …, and they have no unconditional answers for non-black-box
+  problems.
+* The propositional "ES below 2^k" is not a natural tautology family: it is ∀n ∃w, i.e. Π₂^p.
+
+## 8. Verdict, screens, proposed FRONTIER text, bottom line
+
+**Verdict: strengthened (logic side); narrowed (strong-theory side).** No bearing on the truth of ES; no HOT LEAD.
+
+What was proved:
+* **Thm A / A′ (new).** For every primitive unit-square class r mod q, NOI + GCD + PD (+ cofinal primes) ⊬
+  ES_prime[r mod q]. Also NOI ⊬ (MS★), (MS); this answers `Z58_LOGIC` §6.1 "Open" and
+  `BRAINSTORM/logic_weak_arithmetic.md` §5 (IOpen ⊬ ES_prime).
+  * The counterexamples are infinite primes at square-mimicking profinite points.
+  * The proof transfers T1 into the model by analytic arcs (Lemmas 2.3, 2.4) and uses no hypothesis.
+* **Thm B + Cor C.** IOpen proves ES on every class solvable by polynomials. Mod 840 this gives an exact dichotomy:
+  IOpen proves ES on all classes outside 𝔐, and NOI proves it on no class of 𝔐 (at primes). CERTIFIED re-verification
+  of Mordell's covering.
+* **Prop 4.1.** Independence of ES from PA/ZFC would imply ES and Con(PA). There is no growth mechanism.
+* **Prop 5.1.** The S¹₂ route goes through search complexity (P ≠ NP for the witnessing route).
+* **Prop 6.2 (arc criterion).** States exactly what a counter-model for a stronger theory needs.
+* **Prop 7.1.** Instances have poly(log n) proofs; the difficulty is uniformity.
+
+What is out of reach (Assessment, with reasons):
+* "PA ⊬ ES" / "ZFC ⊬ ES": strictly harder than ES (Prop 4.1), and no mechanism is visible.
+* "IΔ₀ ⊬ ES": no explicit nonstandard models; nothing comparable is known for any natural statement.
+* "S¹₂ ⊬ ES": via witnessing it needs a hardness result implying P ≠ NP.
+
+**Hard screens (FRONTIER §4).**
+* *T1 squares.* Built in: Thm A *is* T1 lifted to a theory. It covers exactly the classes containing unit squares.
+* *8/131, numerator 8.* Thm A(iii) applies verbatim to R₈ and to every (★)-sub-line (subsets of R vanish at squares).
+  Nothing here distinguishes C odd from C even; nothing is falsified.
+* *Tied modulus (B2).* Not addressed. Assessment: in M_ϕ the integers n + u are "generic": their standard divisors avoid
+  the hit classes by the Jacobi mechanism, and their non-standard divisors are absent. So B2 fails there. A proof of
+  B2-positivity must use a principle false in M_ϕ (§5 list).
+* *Fixed p.* Not applicable: no pointwise or averaged positivity is claimed.
+
+**Proposed FRONTIER text** (do not edit FRONTIER here).
+* §3, new barrier entry (after B1):
+  > **B1-formal — square classes are unprovable in normal open induction** (`Z64_UNPROV.md` Thms A, A′, B; PROVED
+  > relative to Berarducci–Otero JSL 1996 Thms 4.2–4.3 and ET Prop 1.6).
+  > * For every primitive unit-square class r mod q, IOpen + normality + GCD + "every element has an irreducible
+  >   divisor" does not prove "ES holds at every prime ≡ r (mod q)". Conversely, IOpen proves ES on every class solvable
+  >   by polynomials, so mod 840 it proves exactly Mordell's theorem.
+  > * Also IOpen ⊬ (MS) (answers `Z58_LOGIC` §6.1).
+  > * Model: BO's recursive normal model with residues ϕ(β) at a square-mimicking point. Its infinite primes are
+  >   counterexamples, by analytic arcs to integer points at odd squares plus T1.
+  > * This is the unconditional formal-system version of B1 Thm C, which was conditional on H.
+  > * Rules out: proofs formalisable with identities, floors of algebraic functions, Euclidean division, residues,
+  >   open induction, gcds.
+  > * Does NOT rule out: Bezout-level divisor arithmetic (IE₁), quantified induction, counting/reciprocity for
+  >   non-standard moduli.
+  > * Open: IOpen + Bez ⊬ ES_prime[square class] (the arc criterion, Prop 6.2, isolates what is needed).
+* §6 dead ends, one line:
+  > "Prove ES is independent of PA/ZFC": would prove ES plus Con(PA) (`Z64_UNPROV` Prop 4.1); no mechanism; not a target.
+
+**Bottom line.**
+* *Can unprovability of ES be proved?* For strong theories, no realistic route exists. An independence proof would
+  contain a proof of ES, and ES has no consistency-strength or fast-growth mechanism.
+* For weak theories, yes, and this lane proves the first such result at *primes*. Normal open induction, even with
+  gcds and prime divisors, cannot prove ES on any square class.
+* The result is exactly the odd-square obstruction lifted to a formal theory. It is unconditional and sharp at
+  modulus 840: IOpen proves precisely Mordell's classes.
+* "ES is unprovable in T" remains a realistic research target only for T between NOI + GCD and IE₁. The next rung is
+  IOpen + Bezout, where the arc criterion says what a counter-model must look like.
+* This is logic, not progress on ES. It formally certifies that any proof must use divisor-richness or counting
+  principles which the generic-prime models violate. That is B2 seen from proof theory.
+
+## 9. Open problems (precise)
+* **(O1) IOpen + Bez ⊬ ES_prime[r mod q] for unit-square r?** A Bezout model with the arc property (Prop 6.2) would
+  settle it. Candidate: iterate the BO step with Bezout steps adjoining u, (1 − ug)/h for coprime pairs (g, h). The
+  coordinate rings are then A¹-bundles over the previous stage, and arcs extend along the fibres. Not done: the
+  integral-part, discreteness and GCD bookkeeping are unverified.
+* **(O2) IE₁.** Any counter-model is non-recursive (Wilmers). Does IE₁ prove ES on some square class? Expected no.
+* **(O3) Non-square classes outside ET's families** (general modulus): IOpen-provable or not? Thm A needs integer points
+  at odd squares. A class with no square needs a different ES-free Diophantine target.
+* **(O4) T1 meta-principle for theories (CONJECTURE, §6).**
+
+## 10. Review log and replay
+(Hostile internal review: pending.)
+Replay: `uv run --with sympy python scripts/z64_unprov_mordell840.py` → `data/z64/unprov/mordell840.txt`.
