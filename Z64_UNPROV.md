@@ -261,6 +261,37 @@ across ℓ, Σ diverges; Borel–Cantelli II). But every odd such ℓ is ≡ 1 (
 a₁ ≡ 1 (mod 8). So every standard divisor d of n + 1 has odd part ≡ 1 (mod 4) and 2-part ≤ 2. Hence d ≢ 3 (mod 4), and d is
 never a u = 1 hit. This is T1's Jacobi mechanism seen inside the model.
 
+### 2.8 All true Diophantine non-existence facts hold in M_ϕ (PROVED)
+
+Let Th_∀(ℤ) be the set of universal sentences in the *ring* language {0, 1, +, −, ·} (no ≤) that are true in ℤ. It
+contains every true statement "the system P₁ = … = P_r = 0 has no integer solution", more generally every true
+∀x̄ ⋁_j (P_j(x̄) ≠ 0 ∨ …), and every instance of FLT, Catalan, unsolvable norm equations, etc.
+
+**Theorem A″.** Every model M_ϕ of §§2.1, 2.7 (any residues a_i ∈ Ẑ) satisfies Th_∀(ℤ). Hence, for every primitive
+unit-square class r mod q, **NOI + PD + Th_∀(ℤ) ⊬ ES_prime[r mod q]**, and NOI + GCD + PD + Th_∀(ℤ) ⊬ ES_prime[r mod q].
+
+*Proof.* Let θ = ∀x̄ ψ(x̄), with ψ quantifier-free in the ring language, true in ℤ. Suppose M_ϕ ⊨ ¬ψ(X̄) for some X̄ ∈ M^k,
+with all X_j ∈ ℚ[β₁..β_K].
+* Let P₁, …, P_r be the polynomials in the atoms of ψ, and Q_j := P_j(X̄(β)) ∈ ℚ[β]. Let J be the set of j with Q_j ≠ 0.
+* By (F4) there is D such that X̄(b) ∈ ℤ^k for every b ∈ ℤ^K with b_i ≡ a_i (mod D).
+* The polynomial ∏_{j∈J} Q_j is nonzero, so it does not vanish on the whole coset a + Dℤ^K. Pick b in the coset with
+  Q_j(b) ≠ 0 for all j ∈ J.
+* For j ∉ J, Q_j(b) = 0, since Q_j = 0 identically. So the integer tuple X̄(b) gives every atom the same truth value as
+  X̄ does in M, and ℤ ⊨ ¬ψ(X̄(b)). This is a contradiction. ∎
+
+*Readings.*
+* (PROVED) Shepherdson's model fails Th_∀(ℤ): x = √2·t, y = t give x² = 2y² with y ≠ 0. The BO-type models are much
+  closer to ℤ. They satisfy every true universal ring statement, and still not ES on square classes.
+* (CONDITIONAL on ES being true, on MRDP being provable in IΔ₀ + exp, and on Lagrange's four-square theorem being
+  provable there. The first is Gaifman–Dimitracopoulos 1982, as quoted in `lit_independence.md` §3, PARTLY verified;
+  the second is standard and not checked.) Matiyasevich gives a polynomial P_ES with ES ⟺ ∀z̄ ∈ ℤ: P_ES(z̄) ≠ 0 =: U_ES,
+  using four squares for the ℕ-variables. This equivalence is then provable in IΔ₀ + exp. If ES is true, U_ES
+  ∈ Th_∀(ℤ), so M_ϕ ⊨ U_ES ∧ ¬ES(n). Hence IOpen + U_ES ⊬ ES although IΔ₀ + exp ⊢ U_ES ↔ ES. At the level of open
+  induction the *formulation* of ES matters: the Diophantine-universal form is "free", the unit-fraction form is not.
+* What a proof must use is therefore not any stock of true Diophantine non-existence facts. It is an existence
+  principle, a divisor or solution that some axiom forces to exist, applied to non-standard data. Examples are Bezout
+  coefficients, least-number principles, and counting. This sharpens the §5 list.
+
 ## 3. Theorem B: what IOpen does prove
 
 **Theorem B (PROVED; elementary).** If a primitive class r mod q is solvable by polynomials, with P₁, P₂, P₃ positive
@@ -348,6 +379,7 @@ a proof that no PA-proof exists.
 | IOpen = OI | **provable** for every class solvable by polynomials, in particular all r ∉ 𝔐 mod 840 | **unprovable** | Thm B, Cor C; Thm A |
 | NOI (+ PD, cofinal primes) | provable | **unprovable** | Thm A, §2.5 Remark, §2.6 |
 | NOI + GCD (+ PD) | provable | **unprovable** | Thm A′ |
+| NOI + PD + Th_∀(ℤ) (all true universal ring sentences) | provable | **unprovable** | Thm A″ |
 | IOpen + Bez | provable | **OPEN** | §6: the arc criterion isolates what a counter-model needs |
 | IE₁ (⊢ IOpen + Bez, Smith 1992) | provable | **OPEN** | IE₁ has no recursive nonstandard models (Wilmers, cited in BO §1); a counter-model cannot be a BO-type recursive construction |
 | IΔ₀, IΔ₀ + exp | provable | **OPEN**; unprovability out of reach | Assessment: no natural true Π₁ number-theoretic statement is known to be unprovable in IΔ₀. IΔ₀ ⊢ "infinitely many primes" is itself a well-known open problem; IΔ₀ + WPHP(Δ₀) proves it (Paris–Wilkie–Woods 1988, as reported in Jeřábek's introduction, `Z58_LOGIC` lit_verify item 11) |
@@ -370,7 +402,8 @@ witness bound is x, y, z ≤ 2n⁴ (Prop 4.1(a)). ∎
   available. The S¹₂ question is therefore, in practice, the search-complexity question of `Z58_LOGIC` §5.
 
 **"Which weak theory is the first that could prove ES?" (answer, scoped).**
-* *Lower bound (PROVED).* It must exceed both NOI + GCD + PD (Thm A′) and NOI + PD + cofinal primes (Thm A). Equivalently, a proof of ES at primes
+* *Lower bound (PROVED).* It must exceed both NOI + GCD + PD + Th_∀(ℤ) (Thms A′, A″) and NOI + PD + cofinal primes +
+  Th_∀(ℤ) (Thms A, A″). Equivalently, a proof of ES at primes
   of any square class must use a principle failing in M_ϕ. Candidates: Bezout identities, LNP/induction for formulas
   with quantifiers (bounded existential and beyond), counting (Count₂-type principles give quadratic reciprocity
   for non-standard moduli: Jeřábek, `Z58_LOGIC` lit_verify item 5), or the existence of many divisors of n + u.
