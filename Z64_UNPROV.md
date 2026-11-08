@@ -8,12 +8,13 @@ induction*, JSL 61 (1996) 1228–1241 (author PDF archived as `data/z64/unprov/b
 full; cited below as BO with their lemma/theorem numbers).
 
 **Headline (PROVED, relative to BO Lemmas 2.4, 2.6–2.9, 4.1, the stage Claim and Thm 4.2, and ET Prop 1.6).** *For every primitive residue class r mod q that is
-a unit square mod q, normal open induction does not prove "ES holds at every prime ≡ r (mod q)".* Together with
+a unit square mod q, normal open induction does not prove "ES holds at every prime ≡ r (mod q)"*. This stays true after
+adding gcds, "every element has an irreducible divisor", and all true universal ring sentences about ℤ (Thms A′, A″). Together with
 Mordell's identities this decides open-induction provability class by class mod 840: IOpen proves ES on every class
 outside 𝔐 = {1, 121, 169, 289, 361, 529}, and normal IOpen proves it at primes of no class in 𝔐. It also answers the
 open question of `Z58_LOGIC.md` §6.1: IOpen ⊬ (MS★) and IOpen ⊬ (MS). The counterexamples are infinite *primes* whose
 residue in Ẑ is a square-mimicking unit; the proof transfers the odd-square obstruction T1 (ET Prop 1.6) into the model by
-an analytic interpolation argument. No Hypothesis H is used: in the model the generic primality H supplies is built in.
+an analytic interpolation argument. No Hypothesis H is used (metaphorically, the model's generic primes play H's role).
 
 ## 0. Falsifier table (mandatory)
 
