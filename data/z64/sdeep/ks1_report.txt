@@ -1,0 +1,75 @@
+PARI stack size set to 200000000 bytes, maximum size set to 200003584
+# primes 37116 range 17 1999993
+# inv (2/p)4     defined  37116  mean 0.500
+# inv p==1(16)   defined  37116  mean 0.501
+# inv (3/p)4     defined  18507  mean 0.500
+# inv (5/p)4     defined  18509  mean 0.502
+# inv (7/p)4     defined  18495  mean 0.501
+# inv (11/p)4    defined  18535  mean 0.504
+# inv (13/p)4    defined  18495  mean 0.502
+# inv h(-4p)/4   defined  37116  mean 0.501
+# inv h(-4p)/8   defined  18508  mean 0.499
+# inv h(-8p)/4   defined  37116  mean 0.500
+# inv h(-8p)/8   defined  18555  mean 0.504
+# inv h(-3p)/2   defined  37116  mean 0.501
+# inv h(-3p)/4   defined  18507  mean 0.500
+# inv (3/p)      defined  37116  mean 0.501
+# inv (5/p)      defined  37116  mean 0.501
+# inv (7/p)      defined  37116  mean 0.502
+# inv (11/p)     defined  37116  mean 0.501
+# inv (13/p)     defined  37116  mean 0.502
+# inv p==1(32)   defined  37116  mean 0.251
+# non-abelian invariants (incl. pairwise products): 66
+# (2/p)4     abelian-predictability (mod 1680 / 18480): 0.514 0.558
+# (3/p)4     abelian-predictability (mod 1680 / 18480): 0.513 0.558
+# (5/p)4     abelian-predictability (mod 1680 / 18480): 0.515 0.559
+# (7/p)4     abelian-predictability (mod 1680 / 18480): 0.511 0.559
+# (11/p)4    abelian-predictability (mod 1680 / 18480): 0.527 0.561
+# (13/p)4    abelian-predictability (mod 1680 / 18480): 0.531 0.591
+# h(-4p)/4   abelian-predictability (mod 1680 / 18480): 0.514 0.558
+# h(-4p)/8   abelian-predictability (mod 1680 / 18480): 0.528 0.594
+# h(-8p)/4   abelian-predictability (mod 1680 / 18480): 0.514 0.558
+# h(-8p)/8   abelian-predictability (mod 1680 / 18480): 0.532 0.593
+# h(-3p)/4   abelian-predictability (mod 1680 / 18480): 0.513 0.558
+# abelian-predictable features (acc>=0.99 mod 1680): 258 of 368
+# (gain, acc(f xor rho | p mod 1680), acc(f | p mod 1680), n, feature, rho) top 25
++0.0132 0.5326 0.5195   9200  u<=16:S_t                    (5/p)4*h(-3p)/4
++0.0132 0.5326 0.5195   9200  u<=16:S_t                    (3/p)4*(5/p)4
++0.0108 0.5356 0.5248   9188  u<=16:S_t                    (7/p)4*h(-4p)/8
++0.0106 0.5325 0.5220   9194  u<=16:cell(t2,12)            (7/p)4*(11/p)4
++0.0098 0.5375 0.5277   9272  all:cell(t0,03)              h(-4p)/8*h(-8p)/8
++0.0094 0.5258 0.5165   9197  all:cell(t3,23)              (5/p)4*(7/p)4
++0.0082 0.5311 0.5229   9179  all:cell(t1,03)              (7/p)4*h(-3p)/4
++0.0082 0.5311 0.5229   9179  all:cell(t1,03)              (3/p)4*(7/p)4
++0.0080 0.5348 0.5269   9272  u<=16:cell(t2,12)            h(-4p)/8*h(-8p)/8
++0.0074 0.5315 0.5241   9272  u<=16:S_t                    h(-4p)/8*h(-8p)/8
++0.0073 0.5279 0.5206  18495  all:S_t                      (7/p)4
++0.0073 0.5310 0.5237   9180  all:cell(t2,03)              (5/p)4*(13/p)4
++0.0073 0.5319 0.5246   9188  all:cell(t3,03)              (7/p)4*(13/p)4
++0.0072 0.5459 0.5387   9214  all:Ntot                     (11/p)4*(13/p)4
++0.0071 0.5307 0.5236   9207  u<=16:S_t                    h(-4p)/8*h(-3p)/4
++0.0071 0.5307 0.5236   9207  u<=16:S_t                    (3/p)4*h(-4p)/8
++0.0070 0.5329 0.5259   9272  u<=8:S_A                     h(-4p)/8*h(-8p)/8
++0.0070 0.5311 0.5242   9188  all:cell(t0,03)              (7/p)4*(13/p)4
++0.0069 0.5336 0.5267  18495  u<=16:S_t                    (2/p)4*(13/p)4
++0.0069 0.5336 0.5267  18495  u<=16:S_t                    (13/p)4*h(-8p)/4
++0.0069 0.5336 0.5267  18495  u<=16:S_t                    (13/p)4*h(-4p)/4
++0.0065 0.5448 0.5383   9239  all:cell(t3,03)              (11/p)4*h(-8p)/8
++0.0064 0.5241 0.5177  18495  all:cell(t0,12)              (7/p)4*h(-8p)/4
++0.0064 0.5241 0.5177  18495  all:cell(t0,12)              (7/p)4*h(-4p)/4
++0.0064 0.5241 0.5177  18495  all:cell(t0,12)              (2/p)4*(7/p)4
+# max accuracy of (feature xor non-abelian rho) from p mod 1680: 0.9981; pairs reaching 0.99 with gain > 4 sigma over the abelian fit: 0; max gain 2.52 sigma
+# KS1 verdict: DEAD (no non-abelian parity law on this dictionary; every >=0.99 pair is already an abelian law)
+# top 10 by accuracy (acc(f xor rho), base acc(f), gain)
+0.9981 0.9981 +0.0000  18507  u<=4:S_u                     (3/p)4*h(-3p)/4
+0.9978 0.9978 +0.0000  18507  u<=4:Ntot                    (3/p)4*h(-3p)/4
+0.9978 0.9978 +0.0000  18507  u<=4:Npos                    (3/p)4*h(-3p)/4
+0.9268 0.9268 +0.0000  18507  t<=2:Ntot                    (3/p)4*h(-3p)/4
+0.9156 0.9156 +0.0000  18507  t<=4:cell(t2,03)             (3/p)4*h(-3p)/4
+0.9156 0.9156 +0.0000  18507  t<=3:cell(t2,03)             (3/p)4*h(-3p)/4
+0.9156 0.9156 +0.0000  18507  t<=3:Nneg                    (3/p)4*h(-3p)/4
+0.9156 0.9156 +0.0000  18507  t<=2:cell(t2,03)             (3/p)4*h(-3p)/4
+0.9156 0.9156 +0.0000  18507  t<=2:S_u                     (3/p)4*h(-3p)/4
+0.9156 0.9156 +0.0000  18507  t<=2:Nneg                    (3/p)4*h(-3p)/4
+# abelian-predictable features that are NOT near-constant (feature, mean parity, acc mod 1680, acc mod 18480)
+#   u<=4:Nneg                    0.501 1.0000 1.0000
