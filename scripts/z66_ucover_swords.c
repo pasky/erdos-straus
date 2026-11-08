@@ -21,6 +21,12 @@ typedef long long ll;
 
 static ll ipow(ll b, int e) { ll r = 1; while (e-- > 0) r *= b; return r; }
 static ll isqrt_ll(ll x) { ll r = (ll)sqrtl((long double)x); while (r * r > x) r--; while ((r + 1) * (r + 1) <= x) r++; return r; }
+static void pr128(i128 x) {   /* print a signed 128-bit integer in decimal */
+    char b[64]; int i = 63; b[i] = 0; int neg = x < 0; if (neg) x = -x;
+    do { b[--i] = (char)('0' + (int)(x % 10)); x /= 10; } while (x);
+    if (neg) b[--i] = '-';
+    fputs(b + i, stdout);
+}
 static ll md(i128 x, ll m) { ll r = (ll)(x % m); return r < 0 ? r + m : r; }
 
 static ll ELL; static int K; static ll N;
@@ -38,7 +44,7 @@ static void w1_try(ll X, ll t, ll s) {
     /* sanity: t u - 1 = N A' */
     if ((i128)t * u - 1 != (i128)N * Ap) { fprintf(stderr, "W1 sanity\n"); exit(2); }
     ll rho = md(-u, N);
-    printf("W1 %lld %lld %lld %lld\n", rho, t, (ll)u, Ap);
+    printf("W1 %lld %lld ", rho, t); pr128(u); printf(" %lld\n", Ap);
 }
 
 static void enum_w1(void) {
@@ -89,7 +95,7 @@ static void w2_try(ll M1, ll M2, ll s, ll X, ll Y) {
     if (B8 == 0) vB = 3; else { while (B8 % 2 == 0) { B8 /= 2; vB++; } }
     int good = (vA + vB >= 3);
     ll rho = md(-(u + v), N);
-    printf("W2 %lld %lld %lld %d\n", rho, (ll)u, (ll)v, good);
+    printf("W2 %lld ", rho); pr128(u); printf(" "); pr128(v); printf(" %d\n", good);
 }
 
 static void enum_w2(void) {

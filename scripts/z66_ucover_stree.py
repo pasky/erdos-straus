@@ -101,9 +101,10 @@ def main():
     ok = []
     for g0 in sorted(mass):
         exact = mass[g0] - removed[g0]           # exact rational
-        lb = mpf(exact.numerator) / mpf(exact.denominator) - tail  # tail is an upper endpoint; compare rigorously below
-        # rigorous comparison: exact > tail  <=>  exact.numerator > tail * exact.denominator (tail upper endpoint)
-        surv = mpf(exact.numerator) > tail * mpf(exact.denominator) * (1 + mpf(10) ** -30)
+        m_, e_ = mpf(tail).man_exp              # tail upper endpoint as an exact dyadic rational
+        tail_frac = Fraction(int(m_)) * (Fraction(2) ** int(e_))
+        lb = exact - tail_frac                     # exact rational lower bound
+        surv = lb > 0
         print(f"branch g0={g0}: exact mass {float(mass[g0]):.6f}, removed (levels {K1+1}..{K2}) {float(removed[g0]):.6f} "
               f"(exact sum), tail <= {float(tail):.3e}; lower bound {float(lb):.6f} -> {'SURVIVES' if surv else 'undecided'}")
         if surv:

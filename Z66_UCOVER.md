@@ -38,8 +38,8 @@ Lemma 2.8, §§3, 10), and on `Z64_SDEEPF.md` (cited SDEEPF: Thm 2.1, Prop 3.5, 
   * Every prime ℓ ≥ 10⁵ has such profiles (explicit bound 0.366 < 1/2 on the caught mass).
   * Hence, e.g., {n ≡ 1 (840), n ≡ 2 or 6 (mod 11)} is not finitely coverable by good words. This is the (S)-version
     of K, and here it is proved.
-  * SDEEPF's four classes n ≡ 6 (7) are not settled: their profiles need two small primes, where the explicit tail is
-    too weak.
+  * SDEEPF's four classes n ≡ 6 (7) are not settled: their profiles need non-trivial components at **at least two**
+    small primes (825 at three, and 265, 321 also need a non-unit component), where the explicit tail is too weak.
 
 ## 0. Falsifier table (mandatory)
 
@@ -316,7 +316,8 @@ with X₀ = √(2N) + 2, R = √(N + X₀) + 2, S = √(N/2) + 3, R_r = √(2N) 
   * The script asserts cand ≤ the majorant at every computed level with N ≥ 10⁵.
 * *Cross-check* (`scripts/z66_ucover_sbrute.py`, files `sbrute_17_3e4.txt`, `sbrute_11_1e5.txt`, `sbrute_13_1e5.txt`).
   Direct Jacobi on large integer representatives:
-  * ℓ = 17, A, uv ≤ 3·10⁴, k ≤ 3: brute ⊆ exact, and all 79 exact events in range are found;
+  * ℓ = 17, A, uv ≤ 3·10⁴, k ≤ 3: brute ⊆ exact, and all 79 exact good rows in range are found (79 rows incl. non-unit ρ; 61 rows / 38 distinct keys
+    after unit filtering);
   * ℓ = 11, 13, A, uv ≤ 10⁵, k ≤ 4: brute ⊆ exact, and all 95 resp. 77 exact events in range are found.
   * Good W2 events at non-unit ρ (ℓ | ρ) occur. They are irrelevant for unit g and are discarded.
   * No good event at a quadratic residue occurs.
@@ -351,7 +352,9 @@ with X₀ = √(2N) + 2, R = √(N + X₀) + 2, S = √(N/2) + 3, R_r = √(2N) 
   I-1 family, whose events at level k sit on the 4-variable ΣII at n ≈ ℓ^{2k}.
 * SDEEPF's four classes 265, 321, 769, 825 mod 840 (n ≡ 6 mod 7) are **not** settled here.
   * Non-residue profiles e_{7,g} are caught at level 1, since they lie in the covered class 601.
-  * Those classes need profiles non-trivial at two small primes (e.g. 769 needs π₅ ≡ 4, π₇ ≡ 6). There the explicit
+  * Those classes need profiles non-trivial at **at least two** small primes. 769 needs π₅ ≡ 4, π₇ ≡ 6. 825 needs
+    three: residues (0, 0, 6) at (3, 5, 7). 265 and 321 also need a non-unit component (π₅ ≡ 0 resp. π₃ ≡ 0). For
+    769 the explicit
     tail Σ_{j,k}(j + 1)(k + 1)√(5^j 7^k) log/(φ(5^j)φ(7^k)) is too large unless events are computed to about 10¹⁵.
 
 ## 7. Verdict, screens, proposed FRONTIER text, bottom line
@@ -372,8 +375,10 @@ What it buys:
 **Hard screens (FRONTIER §4).**
 * *T1 squares.* Square profiles are in U (input). The new elements are non-squares whose deviation from the square 1
   sits at one prime. Every caught residue is a non-residue (Lemma 1 parity), which is T1's footprint.
-* *8/131, numerator 8.* Not applicable (no positivity claim). The method transfers to any numerator with a Prop 1.9
-  analogue (ET Remark 1.10). Not done.
+* *8/131, numerator 8.* Not applicable (no positivity claim). Extending the method to other numerators is an
+  unproved possibility. It would need suitable solution counts and a square-type obstruction; a family classification
+  alone is not enough (for numerator 1, x = y = z = 3n covers every class, squares included). ET Remark 1.10 does not
+  supply this. Not done.
 * *Tied modulus (B2).* Not moved. Theorem T says B2 cannot be bypassed by identities even on non-square classes.
 * *Fixed p.* Not applicable.
 
@@ -444,7 +449,18 @@ Findings and fixes:
 * **(9) MINOR.** F4 row wording; "astronomically large" ℓ₀ labelled Assessment; O1 and O3 qualified; "finitely
   coverable" used consistently.
 
-Cross-model review: PENDING.
+**Cross-model review** (Astra, `data/z66/xreview/REVIEW_UCOVER.md`): ACCEPT-WITH-FIXES. The central theorems
+survive, and the reviewer verified the ET §3 transfer in the PDF and reproduced the certificates independently. Fixes
+applied:
+* (1) The four unresolved (S) classes need **at least two** non-trivial prime components, not exactly two: 825 needs
+  three, and 265, 321 need a non-unit component.
+* (2) `z66_ucover_swords.c` now prints W1/W2 parameters u, v in full 128-bit decimal. Earlier versions truncated them
+  to signed 64-bit, e.g. u = N(N + 2) for N = 11¹¹. Residues and goodness bits were always computed in 128-bit; the
+  certificates were rerun and are unchanged.
+* (3) The "transfers to any numerator" remark is downgraded to an unproved possibility.
+* Hardening: `z66_ucover_stree.py` now compares exact rationals. The interval upper endpoint of the tail is converted
+  exactly from its dyadic mantissa and exponent, and the ineffective 10⁻³⁰ factor is removed. The 79-row (S)
+  cross-check count is clarified as including non-unit rows.
 
 **Replay** (each under `ulimit -v 4000000`, `timeout 1800`; all runs take seconds to minutes):
 ```
