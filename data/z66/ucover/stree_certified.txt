@@ -1,600 +1,600 @@
 ### ell=17 K1=5 K2=9
-level 1: good caught residues 4, candidates scanned 184, B_up 340
-level 2: good caught residues 0, candidates scanned 1116, B_up 1683
-level 3: good caught residues 44, candidates scanned 7562, B_up 9952
-level 4: good caught residues 0, candidates scanned 47291, B_up 59262
-level 5: good caught residues 122, candidates scanned 281875, B_up 339044
-level 6: good caught residues 0, candidates scanned 1589102, B_up 1860604
-level 7: good caught residues 178, candidates scanned 8598513, B_up 9863461
-level 8: good caught residues 0, candidates scanned 45025308, B_up 50858171
-level 9: good caught residues 330, candidates scanned 229867494, B_up 256431875
+level 1: good caught residues 4, candidates scanned 184
+level 2: good caught residues 0, candidates scanned 1116
+level 3: good caught residues 44, candidates scanned 7562
+level 4: good caught residues 0, candidates scanned 47291
+level 5: good caught residues 122, candidates scanned 281875
+level 6: good caught residues 0, candidates scanned 1589102
+level 7: good caught residues 178, candidates scanned 8598513
+level 8: good caught residues 0, candidates scanned 45025308
+level 9: good caught residues 330, candidates scanned 229867494
 exact tree to level 5: 329990 survivors; branch masses 3:0.061624, 5:0.061844, 6:0.061624, 7:0.061844
-explicit tail bound (k > 9): 9.362e-04
-branch g0=3: exact mass 0.061624, removed (levels 6..9) <= 0.000000, tail <= 9.36e-04; lower bound 0.060687 -> SURVIVES
-branch g0=5: exact mass 0.061844, removed (levels 6..9) <= 0.000000, tail <= 9.36e-04; lower bound 0.060908 -> SURVIVES
-branch g0=6: exact mass 0.061624, removed (levels 6..9) <= 0.000000, tail <= 9.36e-04; lower bound 0.060687 -> SURVIVES
-branch g0=7: exact mass 0.061844, removed (levels 6..9) <= 0.000000, tail <= 9.36e-04; lower bound 0.060908 -> SURVIVES
+rigorous tail bound (k > 9): 9.9478e-04
+branch g0=3: exact mass 0.061624, removed (levels 6..9) 0.000000 (exact sum), tail <= 9.948e-04; lower bound 0.060629 -> SURVIVES
+branch g0=5: exact mass 0.061844, removed (levels 6..9) 0.000000 (exact sum), tail <= 9.948e-04; lower bound 0.060850 -> SURVIVES
+branch g0=6: exact mass 0.061624, removed (levels 6..9) 0.000000 (exact sum), tail <= 9.948e-04; lower bound 0.060629 -> SURVIVES
+branch g0=7: exact mass 0.061844, removed (levels 6..9) 0.000000 (exact sum), tail <= 9.948e-04; lower bound 0.060850 -> SURVIVES
 ell=17: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [3, 5, 6, 7]
 ### ell=19 K1=4 K2=9
-level 1: good caught residues 5, candidates scanned 207, B_up 355
-level 2: good caught residues 0, candidates scanned 1260, B_up 1888
-level 3: good caught residues 45, candidates scanned 9100, B_up 11989
-level 4: good caught residues 0, candidates scanned 61248, B_up 76032
-level 5: good caught residues 113, candidates scanned 385915, B_up 461325
-level 6: good caught residues 0, candidates scanned 2301563, B_up 2680686
-level 7: good caught residues 219, candidates scanned 13168728, B_up 15038210
-level 8: good caught residues 0, candidates scanned 72920632, B_up 82031484
-level 9: good caught residues 297, candidates scanned 393635931, B_up 437499131
+level 1: good caught residues 5, candidates scanned 207
+level 2: good caught residues 0, candidates scanned 1260
+level 3: good caught residues 45, candidates scanned 9100
+level 4: good caught residues 0, candidates scanned 61248
+level 5: good caught residues 113, candidates scanned 385915
+level 6: good caught residues 0, candidates scanned 2301563
+level 7: good caught residues 219, candidates scanned 13168728
+level 8: good caught residues 0, candidates scanned 72920632
+level 9: good caught residues 297, candidates scanned 393635931
 exact tree to level 4: 27056 survivors; branch masses 2:0.054632, 3:0.054940, 10:0.054632, 13:0.054940
-explicit tail bound (k > 9): 5.403e-04
-branch g0=2: exact mass 0.054632, removed (levels 5..9) <= 0.000003, tail <= 5.40e-04; lower bound 0.054088 -> SURVIVES
-branch g0=3: exact mass 0.054940, removed (levels 5..9) <= 0.000003, tail <= 5.40e-04; lower bound 0.054396 -> SURVIVES
-branch g0=10: exact mass 0.054632, removed (levels 5..9) <= 0.000003, tail <= 5.40e-04; lower bound 0.054088 -> SURVIVES
-branch g0=13: exact mass 0.054940, removed (levels 5..9) <= 0.000003, tail <= 5.40e-04; lower bound 0.054396 -> SURVIVES
+rigorous tail bound (k > 9): 5.7392e-04
+branch g0=2: exact mass 0.054632, removed (levels 5..9) 0.000003 (exact sum), tail <= 5.739e-04; lower bound 0.054055 -> SURVIVES
+branch g0=3: exact mass 0.054940, removed (levels 5..9) 0.000003 (exact sum), tail <= 5.739e-04; lower bound 0.054363 -> SURVIVES
+branch g0=10: exact mass 0.054632, removed (levels 5..9) 0.000003 (exact sum), tail <= 5.739e-04; lower bound 0.054055 -> SURVIVES
+branch g0=13: exact mass 0.054940, removed (levels 5..9) 0.000003 (exact sum), tail <= 5.739e-04; lower bound 0.054363 -> SURVIVES
 ell=19: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 3, 10, 13]
 ### ell=23 K1=4 K2=9
-level 1: good caught residues 7, candidates scanned 208, B_up 382
-level 2: good caught residues 0, candidates scanned 1585, B_up 2307
-level 3: good caught residues 49, candidates scanned 12702, B_up 16526
-level 4: good caught residues 0, candidates scanned 94886, B_up 116554
-level 5: good caught residues 177, candidates scanned 660051, B_up 781631
-level 6: good caught residues 0, candidates scanned 4336491, B_up 5008889
-level 7: good caught residues 235, candidates scanned 27312683, B_up 30961271
-level 8: good caught residues 0, candidates scanned 166432227, B_up 186018220
-level 9: good caught residues 699, candidates scanned 988776303, B_up 1092453803
+level 1: good caught residues 7, candidates scanned 208
+level 2: good caught residues 0, candidates scanned 1585
+level 3: good caught residues 49, candidates scanned 12702
+level 4: good caught residues 0, candidates scanned 94886
+level 5: good caught residues 177, candidates scanned 660051
+level 6: good caught residues 0, candidates scanned 4336491
+level 7: good caught residues 235, candidates scanned 27312683
+level 8: good caught residues 0, candidates scanned 166432227
+level 9: good caught residues 699, candidates scanned 988776303
 exact tree to level 4: 48346 survivors; branch masses 5:0.045111, 7:0.045197, 10:0.045197, 14:0.045111
-explicit tail bound (k > 9): 2.107e-04
-branch g0=5: exact mass 0.045111, removed (levels 5..9) <= 0.000002, tail <= 2.11e-04; lower bound 0.044898 -> SURVIVES
-branch g0=7: exact mass 0.045197, removed (levels 5..9) <= 0.000003, tail <= 2.11e-04; lower bound 0.044983 -> SURVIVES
-branch g0=10: exact mass 0.045197, removed (levels 5..9) <= 0.000003, tail <= 2.11e-04; lower bound 0.044983 -> SURVIVES
-branch g0=14: exact mass 0.045111, removed (levels 5..9) <= 0.000002, tail <= 2.11e-04; lower bound 0.044898 -> SURVIVES
+rigorous tail bound (k > 9): 2.2368e-04
+branch g0=5: exact mass 0.045111, removed (levels 5..9) 0.000002 (exact sum), tail <= 2.237e-04; lower bound 0.044885 -> SURVIVES
+branch g0=7: exact mass 0.045197, removed (levels 5..9) 0.000003 (exact sum), tail <= 2.237e-04; lower bound 0.044970 -> SURVIVES
+branch g0=10: exact mass 0.045197, removed (levels 5..9) 0.000003 (exact sum), tail <= 2.237e-04; lower bound 0.044970 -> SURVIVES
+branch g0=14: exact mass 0.045111, removed (levels 5..9) 0.000002 (exact sum), tail <= 2.237e-04; lower bound 0.044885 -> SURVIVES
 ell=23: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [5, 7, 10, 14]
 ### ell=29 K1=4 K2=8
-level 1: good caught residues 6, candidates scanned 236, B_up 418
-level 2: good caught residues 0, candidates scanned 2060, B_up 2955
-level 3: good caught residues 46, candidates scanned 18964, B_up 24412
-level 4: good caught residues 0, candidates scanned 160873, B_up 195379
-level 5: good caught residues 128, candidates scanned 1259793, B_up 1477753
-level 6: good caught residues 0, candidates scanned 9307188, B_up 10658350
-level 7: good caught residues 292, candidates scanned 65849398, B_up 74091500
-level 8: good caught residues 0, candidates scanned 450827537, B_up 500420139
+level 1: good caught residues 6, candidates scanned 236
+level 2: good caught residues 0, candidates scanned 2060
+level 3: good caught residues 46, candidates scanned 18964
+level 4: good caught residues 0, candidates scanned 160873
+level 5: good caught residues 128, candidates scanned 1259793
+level 6: good caught residues 0, candidates scanned 9307188
+level 7: good caught residues 292, candidates scanned 65849398
+level 8: good caught residues 0, candidates scanned 450827537
 exact tree to level 4: 194648 survivors; branch masses 2:0.035714, 3:0.035587, 8:0.035587, 10:0.035587, 11:0.035587, 12:0.035629, 15:0.035714, 17:0.035629
-explicit tail bound (k > 8): 3.033e-04
-branch g0=2: exact mass 0.035714, removed (levels 5..8) <= 0.000000, tail <= 3.03e-04; lower bound 0.035411 -> SURVIVES
-branch g0=3: exact mass 0.035587, removed (levels 5..8) <= 0.000000, tail <= 3.03e-04; lower bound 0.035283 -> SURVIVES
-branch g0=8: exact mass 0.035587, removed (levels 5..8) <= 0.000000, tail <= 3.03e-04; lower bound 0.035283 -> SURVIVES
-branch g0=10: exact mass 0.035587, removed (levels 5..8) <= 0.000000, tail <= 3.03e-04; lower bound 0.035283 -> SURVIVES
-branch g0=11: exact mass 0.035587, removed (levels 5..8) <= 0.000000, tail <= 3.03e-04; lower bound 0.035283 -> SURVIVES
-branch g0=12: exact mass 0.035629, removed (levels 5..8) <= 0.000000, tail <= 3.03e-04; lower bound 0.035326 -> SURVIVES
-branch g0=15: exact mass 0.035714, removed (levels 5..8) <= 0.000000, tail <= 3.03e-04; lower bound 0.035411 -> SURVIVES
-branch g0=17: exact mass 0.035629, removed (levels 5..8) <= 0.000000, tail <= 3.03e-04; lower bound 0.035326 -> SURVIVES
+rigorous tail bound (k > 8): 3.2311e-04
+branch g0=2: exact mass 0.035714, removed (levels 5..8) 0.000000 (exact sum), tail <= 3.231e-04; lower bound 0.035391 -> SURVIVES
+branch g0=3: exact mass 0.035587, removed (levels 5..8) 0.000000 (exact sum), tail <= 3.231e-04; lower bound 0.035263 -> SURVIVES
+branch g0=8: exact mass 0.035587, removed (levels 5..8) 0.000000 (exact sum), tail <= 3.231e-04; lower bound 0.035263 -> SURVIVES
+branch g0=10: exact mass 0.035587, removed (levels 5..8) 0.000000 (exact sum), tail <= 3.231e-04; lower bound 0.035263 -> SURVIVES
+branch g0=11: exact mass 0.035587, removed (levels 5..8) 0.000000 (exact sum), tail <= 3.231e-04; lower bound 0.035263 -> SURVIVES
+branch g0=12: exact mass 0.035629, removed (levels 5..8) 0.000000 (exact sum), tail <= 3.231e-04; lower bound 0.035306 -> SURVIVES
+branch g0=15: exact mass 0.035714, removed (levels 5..8) 0.000000 (exact sum), tail <= 3.231e-04; lower bound 0.035391 -> SURVIVES
+branch g0=17: exact mass 0.035629, removed (levels 5..8) 0.000000 (exact sum), tail <= 3.231e-04; lower bound 0.035306 -> SURVIVES
 ell=29: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 3, 8, 10, 11, 12, 15, 17]
 ### ell=31 K1=4 K2=8
-level 1: good caught residues 7, candidates scanned 236, B_up 430
-level 2: good caught residues 0, candidates scanned 2241, B_up 3176
-level 3: good caught residues 63, candidates scanned 21398, B_up 27313
-level 4: good caught residues 0, candidates scanned 187211, B_up 226602
-level 5: good caught residues 121, candidates scanned 1515884, B_up 1773954
-level 6: good caught residues 0, candidates scanned 11583653, B_up 13236413
-level 7: good caught residues 267, candidates scanned 84744573, B_up 95170939
-level 8: good caught residues 0, candidates scanned 599991353, B_up 664787941
+level 1: good caught residues 7, candidates scanned 236
+level 2: good caught residues 0, candidates scanned 2241
+level 3: good caught residues 63, candidates scanned 21398
+level 4: good caught residues 0, candidates scanned 187211
+level 5: good caught residues 121, candidates scanned 1515884
+level 6: good caught residues 0, candidates scanned 11583653
+level 7: good caught residues 267, candidates scanned 84744573
+level 8: good caught residues 0, candidates scanned 599991353
 exact tree to level 4: 237212 survivors; branch masses 3:0.033195, 6:0.033160, 11:0.033195, 12:0.033160, 13:0.033160, 17:0.033195, 21:0.033195, 26:0.033160
-explicit tail bound (k > 8): 2.260e-04
-branch g0=3: exact mass 0.033195, removed (levels 5..8) <= 0.000000, tail <= 2.26e-04; lower bound 0.032968 -> SURVIVES
-branch g0=6: exact mass 0.033160, removed (levels 5..8) <= 0.000000, tail <= 2.26e-04; lower bound 0.032934 -> SURVIVES
-branch g0=11: exact mass 0.033195, removed (levels 5..8) <= 0.000000, tail <= 2.26e-04; lower bound 0.032968 -> SURVIVES
-branch g0=12: exact mass 0.033160, removed (levels 5..8) <= 0.000000, tail <= 2.26e-04; lower bound 0.032934 -> SURVIVES
-branch g0=13: exact mass 0.033160, removed (levels 5..8) <= 0.000000, tail <= 2.26e-04; lower bound 0.032934 -> SURVIVES
-branch g0=17: exact mass 0.033195, removed (levels 5..8) <= 0.000000, tail <= 2.26e-04; lower bound 0.032968 -> SURVIVES
-branch g0=21: exact mass 0.033195, removed (levels 5..8) <= 0.000000, tail <= 2.26e-04; lower bound 0.032968 -> SURVIVES
-branch g0=26: exact mass 0.033160, removed (levels 5..8) <= 0.000000, tail <= 2.26e-04; lower bound 0.032934 -> SURVIVES
+rigorous tail bound (k > 8): 2.4072e-04
+branch g0=3: exact mass 0.033195, removed (levels 5..8) 0.000000 (exact sum), tail <= 2.407e-04; lower bound 0.032953 -> SURVIVES
+branch g0=6: exact mass 0.033160, removed (levels 5..8) 0.000000 (exact sum), tail <= 2.407e-04; lower bound 0.032919 -> SURVIVES
+branch g0=11: exact mass 0.033195, removed (levels 5..8) 0.000000 (exact sum), tail <= 2.407e-04; lower bound 0.032954 -> SURVIVES
+branch g0=12: exact mass 0.033160, removed (levels 5..8) 0.000000 (exact sum), tail <= 2.407e-04; lower bound 0.032919 -> SURVIVES
+branch g0=13: exact mass 0.033160, removed (levels 5..8) 0.000000 (exact sum), tail <= 2.407e-04; lower bound 0.032919 -> SURVIVES
+branch g0=17: exact mass 0.033195, removed (levels 5..8) 0.000000 (exact sum), tail <= 2.407e-04; lower bound 0.032954 -> SURVIVES
+branch g0=21: exact mass 0.033195, removed (levels 5..8) 0.000000 (exact sum), tail <= 2.407e-04; lower bound 0.032953 -> SURVIVES
+branch g0=26: exact mass 0.033160, removed (levels 5..8) 0.000000 (exact sum), tail <= 2.407e-04; lower bound 0.032919 -> SURVIVES
 ell=31: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [3, 6, 11, 12, 13, 17, 21, 26]
 ### ell=37 K1=4 K2=7
-level 1: good caught residues 8, candidates scanned 264, B_up 463
-level 2: good caught residues 0, candidates scanned 2753, B_up 3849
-level 3: good caught residues 60, candidates scanned 28978, B_up 36789
-level 4: good caught residues 0, candidates scanned 279340, B_up 335520
-level 5: good caught residues 184, candidates scanned 2475422, B_up 2876986
-level 6: good caught residues 0, candidates scanned 20673608, B_up 23486190
-level 7: good caught residues 326, candidates scanned 165316677, B_up 184669782
+level 1: good caught residues 8, candidates scanned 264
+level 2: good caught residues 0, candidates scanned 2753
+level 3: good caught residues 60, candidates scanned 28978
+level 4: good caught residues 0, candidates scanned 279340
+level 5: good caught residues 184, candidates scanned 2475422
+level 6: good caught residues 0, candidates scanned 20673608
+level 7: good caught residues 326, candidates scanned 165316677
 exact tree to level 4: 505346 survivors; branch masses 2:0.027737, 5:0.027757, 6:0.027676, 8:0.027717, 13:0.027676, 14:0.027717, 15:0.027757, 19:0.027737, 20:0.027676, 31:0.027676
-explicit tail bound (k > 7): 5.163e-04
-branch g0=2: exact mass 0.027737, removed (levels 5..7) <= 0.000000, tail <= 5.16e-04; lower bound 0.027221 -> SURVIVES
-branch g0=5: exact mass 0.027757, removed (levels 5..7) <= 0.000000, tail <= 5.16e-04; lower bound 0.027241 -> SURVIVES
-branch g0=6: exact mass 0.027676, removed (levels 5..7) <= 0.000000, tail <= 5.16e-04; lower bound 0.027160 -> SURVIVES
-branch g0=8: exact mass 0.027717, removed (levels 5..7) <= 0.000000, tail <= 5.16e-04; lower bound 0.027200 -> SURVIVES
-branch g0=13: exact mass 0.027676, removed (levels 5..7) <= 0.000000, tail <= 5.16e-04; lower bound 0.027160 -> SURVIVES
-branch g0=14: exact mass 0.027717, removed (levels 5..7) <= 0.000000, tail <= 5.16e-04; lower bound 0.027200 -> SURVIVES
-branch g0=15: exact mass 0.027757, removed (levels 5..7) <= 0.000000, tail <= 5.16e-04; lower bound 0.027241 -> SURVIVES
-branch g0=19: exact mass 0.027737, removed (levels 5..7) <= 0.000000, tail <= 5.16e-04; lower bound 0.027221 -> SURVIVES
-branch g0=20: exact mass 0.027676, removed (levels 5..7) <= 0.000000, tail <= 5.16e-04; lower bound 0.027160 -> SURVIVES
-branch g0=31: exact mass 0.027676, removed (levels 5..7) <= 0.000000, tail <= 5.16e-04; lower bound 0.027160 -> SURVIVES
+rigorous tail bound (k > 7): 5.5257e-04
+branch g0=2: exact mass 0.027737, removed (levels 5..7) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.027184 -> SURVIVES
+branch g0=5: exact mass 0.027757, removed (levels 5..7) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.027205 -> SURVIVES
+branch g0=6: exact mass 0.027676, removed (levels 5..7) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.027124 -> SURVIVES
+branch g0=8: exact mass 0.027717, removed (levels 5..7) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.027164 -> SURVIVES
+branch g0=13: exact mass 0.027676, removed (levels 5..7) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.027124 -> SURVIVES
+branch g0=14: exact mass 0.027717, removed (levels 5..7) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.027164 -> SURVIVES
+branch g0=15: exact mass 0.027757, removed (levels 5..7) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.027205 -> SURVIVES
+branch g0=19: exact mass 0.027737, removed (levels 5..7) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.027184 -> SURVIVES
+branch g0=20: exact mass 0.027676, removed (levels 5..7) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.027124 -> SURVIVES
+branch g0=31: exact mass 0.027676, removed (levels 5..7) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.027124 -> SURVIVES
 ell=37: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 5, 6, 8, 13, 14, 15, 19, 20, 31]
 ### ell=41 K1=3 K2=7
-level 1: good caught residues 6, candidates scanned 290, B_up 483
-level 2: good caught residues 0, candidates scanned 3048, B_up 4307
-level 3: good caught residues 48, candidates scanned 34695, B_up 43725
-level 4: good caught residues 0, candidates scanned 352355, B_up 421089
-level 5: good caught residues 202, candidates scanned 3286948, B_up 3805926
-level 6: good caught residues 0, candidates scanned 28904718, B_up 32730841
-level 7: good caught residues 390, candidates scanned 243299198, B_up 271057812
+level 1: good caught residues 6, candidates scanned 290
+level 2: good caught residues 0, candidates scanned 3048
+level 3: good caught residues 48, candidates scanned 34695
+level 4: good caught residues 0, candidates scanned 352355
+level 5: good caught residues 202, candidates scanned 3286948
+level 6: good caught residues 0, candidates scanned 28904718
+level 7: good caught residues 390, candidates scanned 243299198
 exact tree to level 3: 23512 survivors; branch masses 3:0.025000, 6:0.024955, 7:0.024955, 11:0.025000, 12:0.024970, 13:0.024970, 14:0.025000, 15:0.025000, 17:0.024985, 19:0.024970, 22:0.024955, 24:0.024970, 28:0.024955, 29:0.024985
-explicit tail bound (k > 7): 3.458e-04
-branch g0=3: exact mass 0.025000, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024654 -> SURVIVES
-branch g0=6: exact mass 0.024955, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024610 -> SURVIVES
-branch g0=7: exact mass 0.024955, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024610 -> SURVIVES
-branch g0=11: exact mass 0.025000, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024654 -> SURVIVES
-branch g0=12: exact mass 0.024970, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024624 -> SURVIVES
-branch g0=13: exact mass 0.024970, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024624 -> SURVIVES
-branch g0=14: exact mass 0.025000, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024654 -> SURVIVES
-branch g0=15: exact mass 0.025000, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024654 -> SURVIVES
-branch g0=17: exact mass 0.024985, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024639 -> SURVIVES
-branch g0=19: exact mass 0.024970, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024624 -> SURVIVES
-branch g0=22: exact mass 0.024955, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024609 -> SURVIVES
-branch g0=24: exact mass 0.024970, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024624 -> SURVIVES
-branch g0=28: exact mass 0.024955, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024609 -> SURVIVES
-branch g0=29: exact mass 0.024985, removed (levels 4..7) <= 0.000000, tail <= 3.46e-04; lower bound 0.024639 -> SURVIVES
+rigorous tail bound (k > 7): 3.7001e-04
+branch g0=3: exact mass 0.025000, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024630 -> SURVIVES
+branch g0=6: exact mass 0.024955, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024585 -> SURVIVES
+branch g0=7: exact mass 0.024955, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024585 -> SURVIVES
+branch g0=11: exact mass 0.025000, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024630 -> SURVIVES
+branch g0=12: exact mass 0.024970, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024600 -> SURVIVES
+branch g0=13: exact mass 0.024970, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024600 -> SURVIVES
+branch g0=14: exact mass 0.025000, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024630 -> SURVIVES
+branch g0=15: exact mass 0.025000, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024630 -> SURVIVES
+branch g0=17: exact mass 0.024985, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024615 -> SURVIVES
+branch g0=19: exact mass 0.024970, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024600 -> SURVIVES
+branch g0=22: exact mass 0.024955, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024585 -> SURVIVES
+branch g0=24: exact mass 0.024970, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024600 -> SURVIVES
+branch g0=28: exact mass 0.024955, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024585 -> SURVIVES
+branch g0=29: exact mass 0.024985, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.700e-04; lower bound 0.024615 -> SURVIVES
 ell=41: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [3, 6, 7, 11, 12, 13, 14, 15, 17, 19, 22, 24, 28, 29]
 ### ell=43 K1=3 K2=7
-level 1: good caught residues 7, candidates scanned 291, B_up 493
-level 2: good caught residues 0, candidates scanned 3266, B_up 4538
-level 3: good caught residues 63, candidates scanned 37654, B_up 47371
-level 4: good caught residues 0, candidates scanned 391793, B_up 467829
-level 5: good caught residues 187, candidates scanned 3747387, B_up 4332785
-level 6: good caught residues 0, candidates scanned 33758321, B_up 38172681
-level 7: good caught residues 289, candidates scanned 291001401, B_up 323819126
+level 1: good caught residues 7, candidates scanned 291
+level 2: good caught residues 0, candidates scanned 3266
+level 3: good caught residues 63, candidates scanned 37654
+level 4: good caught residues 0, candidates scanned 391793
+level 5: good caught residues 187, candidates scanned 3747387
+level 6: good caught residues 0, candidates scanned 33758321
+level 7: good caught residues 289, candidates scanned 291001401
 exact tree to level 3: 25854 survivors; branch masses 2:0.023797, 3:0.023784, 5:0.023771, 7:0.023784, 8:0.023771, 12:0.023797, 18:0.023797, 22:0.023797, 26:0.023771, 27:0.023771, 29:0.023784, 30:0.023758, 33:0.023758, 37:0.023784
-explicit tail bound (k > 7): 2.872e-04
-branch g0=2: exact mass 0.023797, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023509 -> SURVIVES
-branch g0=3: exact mass 0.023784, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023497 -> SURVIVES
-branch g0=5: exact mass 0.023771, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023484 -> SURVIVES
-branch g0=7: exact mass 0.023784, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023497 -> SURVIVES
-branch g0=8: exact mass 0.023771, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023484 -> SURVIVES
-branch g0=12: exact mass 0.023797, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023509 -> SURVIVES
-branch g0=18: exact mass 0.023797, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023509 -> SURVIVES
-branch g0=22: exact mass 0.023797, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023509 -> SURVIVES
-branch g0=26: exact mass 0.023771, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023484 -> SURVIVES
-branch g0=27: exact mass 0.023771, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023484 -> SURVIVES
-branch g0=29: exact mass 0.023784, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023497 -> SURVIVES
-branch g0=30: exact mass 0.023758, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023471 -> SURVIVES
-branch g0=33: exact mass 0.023758, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023471 -> SURVIVES
-branch g0=37: exact mass 0.023784, removed (levels 4..7) <= 0.000000, tail <= 2.87e-04; lower bound 0.023497 -> SURVIVES
+rigorous tail bound (k > 7): 3.0723e-04
+branch g0=2: exact mass 0.023797, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023489 -> SURVIVES
+branch g0=3: exact mass 0.023784, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023476 -> SURVIVES
+branch g0=5: exact mass 0.023771, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023464 -> SURVIVES
+branch g0=7: exact mass 0.023784, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023476 -> SURVIVES
+branch g0=8: exact mass 0.023771, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023464 -> SURVIVES
+branch g0=12: exact mass 0.023797, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023489 -> SURVIVES
+branch g0=18: exact mass 0.023797, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023489 -> SURVIVES
+branch g0=22: exact mass 0.023797, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023489 -> SURVIVES
+branch g0=26: exact mass 0.023771, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023464 -> SURVIVES
+branch g0=27: exact mass 0.023771, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023464 -> SURVIVES
+branch g0=29: exact mass 0.023784, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023476 -> SURVIVES
+branch g0=30: exact mass 0.023758, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023451 -> SURVIVES
+branch g0=33: exact mass 0.023758, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023451 -> SURVIVES
+branch g0=37: exact mass 0.023784, removed (levels 4..7) 0.000000 (exact sum), tail <= 3.072e-04; lower bound 0.023476 -> SURVIVES
 ell=43: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 3, 5, 7, 8, 12, 18, 22, 26, 27, 29, 30, 33, 37]
 ### ell=47 K1=3 K2=7
-level 1: good caught residues 11, candidates scanned 305, B_up 512
-level 2: good caught residues 0, candidates scanned 3654, B_up 5005
-level 3: good caught residues 99, candidates scanned 44065, B_up 55009
-level 4: good caught residues 0, candidates scanned 479106, B_up 569323
-level 5: good caught residues 155, candidates scanned 4786410, B_up 5518205
-level 6: good caught residues 0, candidates scanned 45089385, B_up 50858166
-level 7: good caught residues 291, candidates scanned 406381968, B_up 451243155
+level 1: good caught residues 11, candidates scanned 305
+level 2: good caught residues 0, candidates scanned 3654
+level 3: good caught residues 99, candidates scanned 44065
+level 4: good caught residues 0, candidates scanned 479106
+level 5: good caught residues 155, candidates scanned 4786410
+level 6: good caught residues 0, candidates scanned 45089385
+level 7: good caught residues 291, candidates scanned 406381968
 exact tree to level 3: 26456 survivors; branch masses 5:0.021710, 10:0.021710, 11:0.021710, 13:0.021690, 15:0.021680, 19:0.021710, 22:0.021680, 26:0.021680, 29:0.021690, 30:0.021710, 33:0.021710, 38:0.021680
-explicit tail bound (k > 7): 2.030e-04
-branch g0=5: exact mass 0.021710, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021507 -> SURVIVES
-branch g0=10: exact mass 0.021710, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021507 -> SURVIVES
-branch g0=11: exact mass 0.021710, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021507 -> SURVIVES
-branch g0=13: exact mass 0.021690, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021487 -> SURVIVES
-branch g0=15: exact mass 0.021680, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021477 -> SURVIVES
-branch g0=19: exact mass 0.021710, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021507 -> SURVIVES
-branch g0=22: exact mass 0.021680, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021477 -> SURVIVES
-branch g0=26: exact mass 0.021680, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021477 -> SURVIVES
-branch g0=29: exact mass 0.021690, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021487 -> SURVIVES
-branch g0=30: exact mass 0.021710, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021507 -> SURVIVES
-branch g0=33: exact mass 0.021710, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021507 -> SURVIVES
-branch g0=38: exact mass 0.021680, removed (levels 4..7) <= 0.000000, tail <= 2.03e-04; lower bound 0.021477 -> SURVIVES
+rigorous tail bound (k > 7): 2.1715e-04
+branch g0=5: exact mass 0.021710, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021492 -> SURVIVES
+branch g0=10: exact mass 0.021710, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021492 -> SURVIVES
+branch g0=11: exact mass 0.021710, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021492 -> SURVIVES
+branch g0=13: exact mass 0.021690, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021473 -> SURVIVES
+branch g0=15: exact mass 0.021680, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021463 -> SURVIVES
+branch g0=19: exact mass 0.021710, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021492 -> SURVIVES
+branch g0=22: exact mass 0.021680, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021463 -> SURVIVES
+branch g0=26: exact mass 0.021680, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021463 -> SURVIVES
+branch g0=29: exact mass 0.021690, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021473 -> SURVIVES
+branch g0=30: exact mass 0.021710, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021492 -> SURVIVES
+branch g0=33: exact mass 0.021710, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021492 -> SURVIVES
+branch g0=38: exact mass 0.021680, removed (levels 4..7) 0.000000 (exact sum), tail <= 2.172e-04; lower bound 0.021463 -> SURVIVES
 ell=47: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [5, 10, 11, 13, 15, 19, 22, 26, 29, 30, 33, 38]
 ### ell=53 K1=3 K2=7
-level 1: good caught residues 10, candidates scanned 329, B_up 540
-level 2: good caught residues 0, candidates scanned 4163, B_up 5715
-level 3: good caught residues 72, candidates scanned 54028, B_up 67305
-level 4: good caught residues 0, candidates scanned 626471, B_up 741878
-level 5: good caught residues 206, candidates scanned 6657294, B_up 7645688
-level 6: good caught residues 0, candidates scanned 66608946, B_up 74886378
-level 7: good caught residues 424, candidates scanned 637604191, B_up 705959395
+level 1: good caught residues 10, candidates scanned 329
+level 2: good caught residues 0, candidates scanned 4163
+level 3: good caught residues 72, candidates scanned 54028
+level 4: good caught residues 0, candidates scanned 626471
+level 5: good caught residues 206, candidates scanned 6657294
+level 6: good caught residues 0, candidates scanned 66608946
+level 7: good caught residues 424, candidates scanned 637604191
 exact tree to level 3: 44910 survivors; branch masses 2:0.019210, 3:0.019224, 5:0.019224, 8:0.019224, 12:0.019217, 14:0.019224, 18:0.019224, 19:0.019224, 20:0.019224, 22:0.019210, 23:0.019197, 27:0.019210, 30:0.019197, 31:0.019217, 32:0.019224, 41:0.019210
-explicit tail bound (k > 7): 1.271e-04
-branch g0=2: exact mass 0.019210, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019083 -> SURVIVES
-branch g0=3: exact mass 0.019224, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019097 -> SURVIVES
-branch g0=5: exact mass 0.019224, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019097 -> SURVIVES
-branch g0=8: exact mass 0.019224, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019097 -> SURVIVES
-branch g0=12: exact mass 0.019217, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019090 -> SURVIVES
-branch g0=14: exact mass 0.019224, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019097 -> SURVIVES
-branch g0=18: exact mass 0.019224, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019097 -> SURVIVES
-branch g0=19: exact mass 0.019224, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019097 -> SURVIVES
-branch g0=20: exact mass 0.019224, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019097 -> SURVIVES
-branch g0=22: exact mass 0.019210, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019083 -> SURVIVES
-branch g0=23: exact mass 0.019197, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019069 -> SURVIVES
-branch g0=27: exact mass 0.019210, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019083 -> SURVIVES
-branch g0=30: exact mass 0.019197, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019069 -> SURVIVES
-branch g0=31: exact mass 0.019217, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019090 -> SURVIVES
-branch g0=32: exact mass 0.019224, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019097 -> SURVIVES
-branch g0=41: exact mass 0.019210, removed (levels 4..7) <= 0.000000, tail <= 1.27e-04; lower bound 0.019083 -> SURVIVES
+rigorous tail bound (k > 7): 1.3595e-04
+branch g0=2: exact mass 0.019210, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019074 -> SURVIVES
+branch g0=3: exact mass 0.019224, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019088 -> SURVIVES
+branch g0=5: exact mass 0.019224, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019088 -> SURVIVES
+branch g0=8: exact mass 0.019224, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019088 -> SURVIVES
+branch g0=12: exact mass 0.019217, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019081 -> SURVIVES
+branch g0=14: exact mass 0.019224, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019088 -> SURVIVES
+branch g0=18: exact mass 0.019224, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019088 -> SURVIVES
+branch g0=19: exact mass 0.019224, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019088 -> SURVIVES
+branch g0=20: exact mass 0.019224, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019088 -> SURVIVES
+branch g0=22: exact mass 0.019210, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019074 -> SURVIVES
+branch g0=23: exact mass 0.019197, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019061 -> SURVIVES
+branch g0=27: exact mass 0.019210, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019074 -> SURVIVES
+branch g0=30: exact mass 0.019197, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019061 -> SURVIVES
+branch g0=31: exact mass 0.019217, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019081 -> SURVIVES
+branch g0=32: exact mass 0.019224, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019088 -> SURVIVES
+branch g0=41: exact mass 0.019210, removed (levels 4..7) 0.000000 (exact sum), tail <= 1.360e-04; lower bound 0.019074 -> SURVIVES
 ell=53: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 3, 5, 8, 12, 14, 18, 19, 20, 22, 23, 27, 30, 31, 32, 41]
 ### ell=59 K1=3 K2=6
-level 1: good caught residues 9, candidates scanned 337, B_up 566
-level 2: good caught residues 0, candidates scanned 4749, B_up 6437
-level 3: good caught residues 89, candidates scanned 65129, B_up 80569
-level 4: good caught residues 0, candidates scanned 796726, B_up 939221
-level 5: good caught residues 167, candidates scanned 8931227, B_up 10223464
-level 6: good caught residues 0, candidates scanned 94296511, B_up 105719051
+level 1: good caught residues 9, candidates scanned 337
+level 2: good caught residues 0, candidates scanned 4749
+level 3: good caught residues 89, candidates scanned 65129
+level 4: good caught residues 0, candidates scanned 796726
+level 5: good caught residues 167, candidates scanned 8931227
+level 6: good caught residues 0, candidates scanned 94296511
 exact tree to level 3: 69572 survivors; branch masses 2:0.017231, 6:0.017236, 8:0.017231, 10:0.017236, 11:0.017236, 13:0.017217, 14:0.017222, 18:0.017236, 23:0.017236, 24:0.017222, 30:0.017231, 31:0.017231, 32:0.017222, 33:0.017231, 34:0.017231, 37:0.017231, 38:0.017222, 40:0.017231, 43:0.017236, 50:0.017217
-explicit tail bound (k > 6): 5.138e-04
-branch g0=2: exact mass 0.017231, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016718 -> SURVIVES
-branch g0=6: exact mass 0.017236, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016723 -> SURVIVES
-branch g0=8: exact mass 0.017231, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016718 -> SURVIVES
-branch g0=10: exact mass 0.017236, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016723 -> SURVIVES
-branch g0=11: exact mass 0.017236, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016723 -> SURVIVES
-branch g0=13: exact mass 0.017217, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016703 -> SURVIVES
-branch g0=14: exact mass 0.017222, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016708 -> SURVIVES
-branch g0=18: exact mass 0.017236, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016723 -> SURVIVES
-branch g0=23: exact mass 0.017236, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016723 -> SURVIVES
-branch g0=24: exact mass 0.017222, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016708 -> SURVIVES
-branch g0=30: exact mass 0.017231, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016718 -> SURVIVES
-branch g0=31: exact mass 0.017231, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016718 -> SURVIVES
-branch g0=32: exact mass 0.017222, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016708 -> SURVIVES
-branch g0=33: exact mass 0.017231, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016718 -> SURVIVES
-branch g0=34: exact mass 0.017231, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016718 -> SURVIVES
-branch g0=37: exact mass 0.017231, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016718 -> SURVIVES
-branch g0=38: exact mass 0.017222, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016708 -> SURVIVES
-branch g0=40: exact mass 0.017231, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016718 -> SURVIVES
-branch g0=43: exact mass 0.017236, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016723 -> SURVIVES
-branch g0=50: exact mass 0.017217, removed (levels 4..6) <= 0.000000, tail <= 5.14e-04; lower bound 0.016703 -> SURVIVES
+rigorous tail bound (k > 6): 5.5262e-04
+branch g0=2: exact mass 0.017231, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016679 -> SURVIVES
+branch g0=6: exact mass 0.017236, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016684 -> SURVIVES
+branch g0=8: exact mass 0.017231, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016679 -> SURVIVES
+branch g0=10: exact mass 0.017236, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016684 -> SURVIVES
+branch g0=11: exact mass 0.017236, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016684 -> SURVIVES
+branch g0=13: exact mass 0.017217, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016664 -> SURVIVES
+branch g0=14: exact mass 0.017222, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016669 -> SURVIVES
+branch g0=18: exact mass 0.017236, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016684 -> SURVIVES
+branch g0=23: exact mass 0.017236, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016684 -> SURVIVES
+branch g0=24: exact mass 0.017222, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016669 -> SURVIVES
+branch g0=30: exact mass 0.017231, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016679 -> SURVIVES
+branch g0=31: exact mass 0.017231, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016679 -> SURVIVES
+branch g0=32: exact mass 0.017222, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016669 -> SURVIVES
+branch g0=33: exact mass 0.017231, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016679 -> SURVIVES
+branch g0=34: exact mass 0.017231, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016679 -> SURVIVES
+branch g0=37: exact mass 0.017231, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016679 -> SURVIVES
+branch g0=38: exact mass 0.017222, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016669 -> SURVIVES
+branch g0=40: exact mass 0.017231, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016679 -> SURVIVES
+branch g0=43: exact mass 0.017236, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016684 -> SURVIVES
+branch g0=50: exact mass 0.017217, removed (levels 4..6) 0.000000 (exact sum), tail <= 5.526e-04; lower bound 0.016664 -> SURVIVES
 ell=59: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 6, 8, 10, 11, 13, 14, 18, 23, 24, 30, 31, 32, 33, 34, 37, 38, 40, 43, 50]
 ### ell=61 K1=3 K2=6
-level 1: good caught residues 8, candidates scanned 345, B_up 575
-level 2: good caught residues 0, candidates scanned 4963, B_up 6680
-level 3: good caught residues 94, candidates scanned 68716, B_up 85198
-level 4: good caught residues 0, candidates scanned 858160, B_up 1010583
-level 5: good caught residues 208, candidates scanned 9783455, B_up 11188639
-level 6: good caught residues 0, candidates scanned 105039846, B_up 117667243
+level 1: good caught residues 8, candidates scanned 345
+level 2: good caught residues 0, candidates scanned 4963
+level 3: good caught residues 94, candidates scanned 68716
+level 4: good caught residues 0, candidates scanned 858160
+level 5: good caught residues 208, candidates scanned 9783455
+level 6: good caught residues 0, candidates scanned 105039846
 exact tree to level 3: 81800 survivors; branch masses 2:0.016662, 6:0.016649, 7:0.016640, 8:0.016662, 10:0.016658, 11:0.016644, 17:0.016649, 18:0.016649, 21:0.016653, 23:0.016662, 24:0.016658, 28:0.016658, 31:0.016662, 32:0.016653, 33:0.016662, 35:0.016640, 37:0.016662, 43:0.016658, 44:0.016658, 50:0.016644, 51:0.016649, 55:0.016658
-explicit tail bound (k > 6): 4.588e-04
-branch g0=2: exact mass 0.016662, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016203 -> SURVIVES
-branch g0=6: exact mass 0.016649, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016190 -> SURVIVES
-branch g0=7: exact mass 0.016640, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016181 -> SURVIVES
-branch g0=8: exact mass 0.016662, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016203 -> SURVIVES
-branch g0=10: exact mass 0.016658, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016199 -> SURVIVES
-branch g0=11: exact mass 0.016644, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016185 -> SURVIVES
-branch g0=17: exact mass 0.016649, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016190 -> SURVIVES
-branch g0=18: exact mass 0.016649, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016190 -> SURVIVES
-branch g0=21: exact mass 0.016653, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016194 -> SURVIVES
-branch g0=23: exact mass 0.016662, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016203 -> SURVIVES
-branch g0=24: exact mass 0.016658, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016199 -> SURVIVES
-branch g0=28: exact mass 0.016658, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016199 -> SURVIVES
-branch g0=31: exact mass 0.016662, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016203 -> SURVIVES
-branch g0=32: exact mass 0.016653, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016194 -> SURVIVES
-branch g0=33: exact mass 0.016662, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016203 -> SURVIVES
-branch g0=35: exact mass 0.016640, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016181 -> SURVIVES
-branch g0=37: exact mass 0.016662, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016203 -> SURVIVES
-branch g0=43: exact mass 0.016658, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016199 -> SURVIVES
-branch g0=44: exact mass 0.016658, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016199 -> SURVIVES
-branch g0=50: exact mass 0.016644, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016185 -> SURVIVES
-branch g0=51: exact mass 0.016649, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016190 -> SURVIVES
-branch g0=55: exact mass 0.016658, removed (levels 4..6) <= 0.000000, tail <= 4.59e-04; lower bound 0.016199 -> SURVIVES
+rigorous tail bound (k > 6): 4.9343e-04
+branch g0=2: exact mass 0.016662, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016169 -> SURVIVES
+branch g0=6: exact mass 0.016649, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016155 -> SURVIVES
+branch g0=7: exact mass 0.016640, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016146 -> SURVIVES
+branch g0=8: exact mass 0.016662, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016169 -> SURVIVES
+branch g0=10: exact mass 0.016658, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016164 -> SURVIVES
+branch g0=11: exact mass 0.016644, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016151 -> SURVIVES
+branch g0=17: exact mass 0.016649, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016155 -> SURVIVES
+branch g0=18: exact mass 0.016649, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016155 -> SURVIVES
+branch g0=21: exact mass 0.016653, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016160 -> SURVIVES
+branch g0=23: exact mass 0.016662, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016169 -> SURVIVES
+branch g0=24: exact mass 0.016658, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016164 -> SURVIVES
+branch g0=28: exact mass 0.016658, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016164 -> SURVIVES
+branch g0=31: exact mass 0.016662, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016169 -> SURVIVES
+branch g0=32: exact mass 0.016653, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016160 -> SURVIVES
+branch g0=33: exact mass 0.016662, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016169 -> SURVIVES
+branch g0=35: exact mass 0.016640, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016146 -> SURVIVES
+branch g0=37: exact mass 0.016662, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016169 -> SURVIVES
+branch g0=43: exact mass 0.016658, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016164 -> SURVIVES
+branch g0=44: exact mass 0.016658, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016164 -> SURVIVES
+branch g0=50: exact mass 0.016644, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016151 -> SURVIVES
+branch g0=51: exact mass 0.016649, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016155 -> SURVIVES
+branch g0=55: exact mass 0.016658, removed (levels 4..6) 0.000000 (exact sum), tail <= 4.934e-04; lower bound 0.016164 -> SURVIVES
 ell=61: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 6, 7, 8, 10, 11, 17, 18, 21, 23, 24, 28, 31, 32, 33, 35, 37, 43, 44, 50, 51, 55]
 ### ell=67 K1=3 K2=6
-level 1: good caught residues 9, candidates scanned 355, B_up 599
-level 2: good caught residues 0, candidates scanned 5480, B_up 7415
-level 3: good caught residues 65, candidates scanned 80916, B_up 99693
-level 4: good caught residues 0, candidates scanned 1057647, B_up 1241616
-level 5: good caught residues 213, candidates scanned 12638188, B_up 14418906
-level 6: good caught residues 0, candidates scanned 142270028, B_up 159005741
+level 1: good caught residues 9, candidates scanned 355
+level 2: good caught residues 0, candidates scanned 5480
+level 3: good caught residues 65, candidates scanned 80916
+level 4: good caught residues 0, candidates scanned 1057647
+level 5: good caught residues 213, candidates scanned 12638188
+level 6: good caught residues 0, candidates scanned 142270028
 exact tree to level 3: 107698 survivors; branch masses 2:0.015148, 3:0.015145, 5:0.015145, 7:0.015148, 8:0.015152, 11:0.015141, 12:0.015148, 13:0.015145, 18:0.015145, 20:0.015148, 27:0.015145, 28:0.015148, 30:0.015145, 31:0.015145, 34:0.015148, 38:0.015145, 41:0.015145, 42:0.015152, 45:0.015145, 46:0.015145, 48:0.015148, 51:0.015145, 57:0.015148, 61:0.015141
-explicit tail bound (k > 6): 3.336e-04
-branch g0=2: exact mass 0.015148, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014814 -> SURVIVES
-branch g0=3: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=5: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=7: exact mass 0.015148, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014814 -> SURVIVES
-branch g0=8: exact mass 0.015152, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014818 -> SURVIVES
-branch g0=11: exact mass 0.015141, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014808 -> SURVIVES
-branch g0=12: exact mass 0.015148, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014814 -> SURVIVES
-branch g0=13: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=18: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=20: exact mass 0.015148, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014814 -> SURVIVES
-branch g0=27: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=28: exact mass 0.015148, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014814 -> SURVIVES
-branch g0=30: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=31: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=34: exact mass 0.015148, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014814 -> SURVIVES
-branch g0=38: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=41: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=42: exact mass 0.015152, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014818 -> SURVIVES
-branch g0=45: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=46: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=48: exact mass 0.015148, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014814 -> SURVIVES
-branch g0=51: exact mass 0.015145, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014811 -> SURVIVES
-branch g0=57: exact mass 0.015148, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014814 -> SURVIVES
-branch g0=61: exact mass 0.015141, removed (levels 4..6) <= 0.000000, tail <= 3.34e-04; lower bound 0.014808 -> SURVIVES
+rigorous tail bound (k > 6): 3.5878e-04
+branch g0=2: exact mass 0.015148, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014789 -> SURVIVES
+branch g0=3: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=5: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=7: exact mass 0.015148, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014789 -> SURVIVES
+branch g0=8: exact mass 0.015152, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014793 -> SURVIVES
+branch g0=11: exact mass 0.015141, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014783 -> SURVIVES
+branch g0=12: exact mass 0.015148, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014789 -> SURVIVES
+branch g0=13: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=18: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=20: exact mass 0.015148, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014789 -> SURVIVES
+branch g0=27: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=28: exact mass 0.015148, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014789 -> SURVIVES
+branch g0=30: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=31: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=34: exact mass 0.015148, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014789 -> SURVIVES
+branch g0=38: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=41: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=42: exact mass 0.015152, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014793 -> SURVIVES
+branch g0=45: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=46: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=48: exact mass 0.015148, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014789 -> SURVIVES
+branch g0=51: exact mass 0.015145, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014786 -> SURVIVES
+branch g0=57: exact mass 0.015148, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014789 -> SURVIVES
+branch g0=61: exact mass 0.015141, removed (levels 4..6) 0.000000 (exact sum), tail <= 3.588e-04; lower bound 0.014783 -> SURVIVES
 ell=67: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 3, 5, 7, 8, 11, 12, 13, 18, 20, 27, 28, 30, 31, 34, 38, 41, 42, 45, 46, 48, 51, 57, 61]
 ### ell=71 K1=3 K2=6
-level 1: good caught residues 13, candidates scanned 372, B_up 615
-level 2: good caught residues 0, candidates scanned 5875, B_up 7910
-level 3: good caught residues 73, candidates scanned 89406, B_up 109851
-level 4: good caught residues 0, candidates scanned 1203347, B_up 1409892
-level 5: good caught residues 191, candidates scanned 14802890, B_up 16863180
-level 6: good caught residues 0, candidates scanned 171570267, B_up 191491117
+level 1: good caught residues 13, candidates scanned 372
+level 2: good caught residues 0, candidates scanned 5875
+level 3: good caught residues 73, candidates scanned 89406
+level 4: good caught residues 0, candidates scanned 1203347
+level 5: good caught residues 191, candidates scanned 14802890
+level 6: good caught residues 0, candidates scanned 171570267
 exact tree to level 3: 110886 survivors; branch masses 7:0.014283, 11:0.014286, 13:0.014286, 14:0.014286, 17:0.014283, 21:0.014280, 22:0.014286, 23:0.014280, 26:0.014286, 28:0.014283, 31:0.014286, 33:0.014283, 34:0.014280, 39:0.014283, 41:0.014286, 42:0.014286, 44:0.014280, 46:0.014283, 51:0.014283, 55:0.014286, 61:0.014283, 66:0.014286
-explicit tail bound (k > 6): 2.741e-04
-branch g0=7: exact mass 0.014283, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014009 -> SURVIVES
-branch g0=11: exact mass 0.014286, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014012 -> SURVIVES
-branch g0=13: exact mass 0.014286, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014012 -> SURVIVES
-branch g0=14: exact mass 0.014286, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014012 -> SURVIVES
-branch g0=17: exact mass 0.014283, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014009 -> SURVIVES
-branch g0=21: exact mass 0.014280, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014006 -> SURVIVES
-branch g0=22: exact mass 0.014286, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014012 -> SURVIVES
-branch g0=23: exact mass 0.014280, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014006 -> SURVIVES
-branch g0=26: exact mass 0.014286, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014012 -> SURVIVES
-branch g0=28: exact mass 0.014283, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014009 -> SURVIVES
-branch g0=31: exact mass 0.014286, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014012 -> SURVIVES
-branch g0=33: exact mass 0.014283, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014009 -> SURVIVES
-branch g0=34: exact mass 0.014280, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014006 -> SURVIVES
-branch g0=39: exact mass 0.014283, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014009 -> SURVIVES
-branch g0=41: exact mass 0.014286, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014012 -> SURVIVES
-branch g0=42: exact mass 0.014286, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014012 -> SURVIVES
-branch g0=44: exact mass 0.014280, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014006 -> SURVIVES
-branch g0=46: exact mass 0.014283, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014009 -> SURVIVES
-branch g0=51: exact mass 0.014283, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014009 -> SURVIVES
-branch g0=55: exact mass 0.014286, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014012 -> SURVIVES
-branch g0=61: exact mass 0.014283, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014009 -> SURVIVES
-branch g0=66: exact mass 0.014286, removed (levels 4..6) <= 0.000000, tail <= 2.74e-04; lower bound 0.014012 -> SURVIVES
+rigorous tail bound (k > 6): 2.9467e-04
+branch g0=7: exact mass 0.014283, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013988 -> SURVIVES
+branch g0=11: exact mass 0.014286, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013991 -> SURVIVES
+branch g0=13: exact mass 0.014286, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013991 -> SURVIVES
+branch g0=14: exact mass 0.014286, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013991 -> SURVIVES
+branch g0=17: exact mass 0.014283, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013988 -> SURVIVES
+branch g0=21: exact mass 0.014280, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013985 -> SURVIVES
+branch g0=22: exact mass 0.014286, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013991 -> SURVIVES
+branch g0=23: exact mass 0.014280, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013985 -> SURVIVES
+branch g0=26: exact mass 0.014286, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013991 -> SURVIVES
+branch g0=28: exact mass 0.014283, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013988 -> SURVIVES
+branch g0=31: exact mass 0.014286, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013991 -> SURVIVES
+branch g0=33: exact mass 0.014283, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013988 -> SURVIVES
+branch g0=34: exact mass 0.014280, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013985 -> SURVIVES
+branch g0=39: exact mass 0.014283, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013988 -> SURVIVES
+branch g0=41: exact mass 0.014286, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013991 -> SURVIVES
+branch g0=42: exact mass 0.014286, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013991 -> SURVIVES
+branch g0=44: exact mass 0.014280, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013985 -> SURVIVES
+branch g0=46: exact mass 0.014283, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013988 -> SURVIVES
+branch g0=51: exact mass 0.014283, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013988 -> SURVIVES
+branch g0=55: exact mass 0.014286, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013991 -> SURVIVES
+branch g0=61: exact mass 0.014283, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013988 -> SURVIVES
+branch g0=66: exact mass 0.014286, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.947e-04; lower bound 0.013991 -> SURVIVES
 ell=71: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [7, 11, 13, 14, 17, 21, 22, 23, 26, 28, 31, 33, 34, 39, 41, 42, 44, 46, 51, 55, 61, 66]
 ### ell=73 K1=3 K2=6
-level 1: good caught residues 8, candidates scanned 367, B_up 623
-level 2: good caught residues 0, candidates scanned 6143, B_up 8159
-level 3: good caught residues 100, candidates scanned 93890, B_up 115075
-level 4: good caught residues 0, candidates scanned 1279537, B_up 1498345
-level 5: good caught residues 258, candidates scanned 15966485, B_up 18176019
-level 6: good caught residues 0, candidates scanned 187663197, B_up 209316986
+level 1: good caught residues 8, candidates scanned 367
+level 2: good caught residues 0, candidates scanned 6143
+level 3: good caught residues 100, candidates scanned 93890
+level 4: good caught residues 0, candidates scanned 1279537
+level 5: good caught residues 258, candidates scanned 15966485
+level 6: good caught residues 0, candidates scanned 187663197
 exact tree to level 3: 149138 survivors; branch masses 5:0.013881, 7:0.013881, 10:0.013884, 11:0.013886, 13:0.013884, 14:0.013881, 15:0.013884, 17:0.013886, 20:0.013886, 21:0.013881, 22:0.013884, 26:0.013881, 28:0.013886, 30:0.013878, 31:0.013881, 33:0.013881, 39:0.013884, 40:0.013878, 42:0.013878, 43:0.013886, 44:0.013881, 45:0.013884, 47:0.013881, 51:0.013876, 56:0.013878, 59:0.013881, 60:0.013886, 63:0.013876
-explicit tail bound (k > 6): 2.494e-04
-branch g0=5: exact mass 0.013881, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013632 -> SURVIVES
-branch g0=7: exact mass 0.013881, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013632 -> SURVIVES
-branch g0=10: exact mass 0.013884, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013634 -> SURVIVES
-branch g0=11: exact mass 0.013886, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013637 -> SURVIVES
-branch g0=13: exact mass 0.013884, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013634 -> SURVIVES
-branch g0=14: exact mass 0.013881, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013632 -> SURVIVES
-branch g0=15: exact mass 0.013884, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013634 -> SURVIVES
-branch g0=17: exact mass 0.013886, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013637 -> SURVIVES
-branch g0=20: exact mass 0.013886, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013637 -> SURVIVES
-branch g0=21: exact mass 0.013881, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013632 -> SURVIVES
-branch g0=22: exact mass 0.013884, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013634 -> SURVIVES
-branch g0=26: exact mass 0.013881, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013632 -> SURVIVES
-branch g0=28: exact mass 0.013886, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013637 -> SURVIVES
-branch g0=30: exact mass 0.013878, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013629 -> SURVIVES
-branch g0=31: exact mass 0.013881, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013632 -> SURVIVES
-branch g0=33: exact mass 0.013881, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013632 -> SURVIVES
-branch g0=39: exact mass 0.013884, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013634 -> SURVIVES
-branch g0=40: exact mass 0.013878, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013629 -> SURVIVES
-branch g0=42: exact mass 0.013878, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013629 -> SURVIVES
-branch g0=43: exact mass 0.013886, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013637 -> SURVIVES
-branch g0=44: exact mass 0.013881, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013632 -> SURVIVES
-branch g0=45: exact mass 0.013884, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013634 -> SURVIVES
-branch g0=47: exact mass 0.013881, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013632 -> SURVIVES
-branch g0=51: exact mass 0.013876, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013626 -> SURVIVES
-branch g0=56: exact mass 0.013878, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013629 -> SURVIVES
-branch g0=59: exact mass 0.013881, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013632 -> SURVIVES
-branch g0=60: exact mass 0.013886, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013637 -> SURVIVES
-branch g0=63: exact mass 0.013876, removed (levels 4..6) <= 0.000000, tail <= 2.49e-04; lower bound 0.013626 -> SURVIVES
+rigorous tail bound (k > 6): 2.6815e-04
+branch g0=5: exact mass 0.013881, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013613 -> SURVIVES
+branch g0=7: exact mass 0.013881, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013613 -> SURVIVES
+branch g0=10: exact mass 0.013884, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013616 -> SURVIVES
+branch g0=11: exact mass 0.013886, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013618 -> SURVIVES
+branch g0=13: exact mass 0.013884, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013616 -> SURVIVES
+branch g0=14: exact mass 0.013881, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013613 -> SURVIVES
+branch g0=15: exact mass 0.013884, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013616 -> SURVIVES
+branch g0=17: exact mass 0.013886, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013618 -> SURVIVES
+branch g0=20: exact mass 0.013886, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013618 -> SURVIVES
+branch g0=21: exact mass 0.013881, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013613 -> SURVIVES
+branch g0=22: exact mass 0.013884, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013616 -> SURVIVES
+branch g0=26: exact mass 0.013881, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013613 -> SURVIVES
+branch g0=28: exact mass 0.013886, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013618 -> SURVIVES
+branch g0=30: exact mass 0.013878, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013610 -> SURVIVES
+branch g0=31: exact mass 0.013881, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013613 -> SURVIVES
+branch g0=33: exact mass 0.013881, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013613 -> SURVIVES
+branch g0=39: exact mass 0.013884, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013616 -> SURVIVES
+branch g0=40: exact mass 0.013878, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013610 -> SURVIVES
+branch g0=42: exact mass 0.013878, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013610 -> SURVIVES
+branch g0=43: exact mass 0.013886, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013618 -> SURVIVES
+branch g0=44: exact mass 0.013881, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013613 -> SURVIVES
+branch g0=45: exact mass 0.013884, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013616 -> SURVIVES
+branch g0=47: exact mass 0.013881, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013613 -> SURVIVES
+branch g0=51: exact mass 0.013876, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013608 -> SURVIVES
+branch g0=56: exact mass 0.013878, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013610 -> SURVIVES
+branch g0=59: exact mass 0.013881, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013613 -> SURVIVES
+branch g0=60: exact mass 0.013886, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013618 -> SURVIVES
+branch g0=63: exact mass 0.013876, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.682e-04; lower bound 0.013608 -> SURVIVES
 ell=73: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [5, 7, 10, 11, 13, 14, 15, 17, 20, 21, 22, 26, 28, 30, 31, 33, 39, 40, 42, 43, 44, 45, 47, 51, 56, 59, 60, 63]
 ### ell=79 K1=3 K2=6
-level 1: good caught residues 11, candidates scanned 384, B_up 646
-level 2: good caught residues 0, candidates scanned 6627, B_up 8910
-level 3: good caught residues 75, candidates scanned 107378, B_up 131314
-level 4: good caught residues 0, candidates scanned 1524962, B_up 1781102
-level 5: good caught residues 339, candidates scanned 19802290, B_up 22490910
-level 6: good caught residues 0, candidates scanned 242098133, B_up 269552437
+level 1: good caught residues 11, candidates scanned 384
+level 2: good caught residues 0, candidates scanned 6627
+level 3: good caught residues 75, candidates scanned 107378
+level 4: good caught residues 0, candidates scanned 1524962
+level 5: good caught residues 339, candidates scanned 19802290
+level 6: good caught residues 0, candidates scanned 242098133
 exact tree to level 3: 174710 survivors; branch masses 3:0.012818, 6:0.012816, 7:0.012821, 12:0.012816, 14:0.012814, 15:0.012821, 17:0.012814, 24:0.012818, 27:0.012816, 28:0.012814, 29:0.012821, 30:0.012821, 33:0.012816, 34:0.012821, 37:0.012818, 41:0.012816, 43:0.012816, 47:0.012818, 48:0.012814, 53:0.012818, 54:0.012816, 56:0.012818, 57:0.012821, 58:0.012821, 60:0.012816, 61:0.012821, 66:0.012816, 68:0.012816
-explicit tail bound (k > 6): 1.908e-04
-branch g0=3: exact mass 0.012818, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012628 -> SURVIVES
-branch g0=6: exact mass 0.012816, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012626 -> SURVIVES
-branch g0=7: exact mass 0.012821, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012630 -> SURVIVES
-branch g0=12: exact mass 0.012816, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012626 -> SURVIVES
-branch g0=14: exact mass 0.012814, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012624 -> SURVIVES
-branch g0=15: exact mass 0.012821, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012630 -> SURVIVES
-branch g0=17: exact mass 0.012814, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012624 -> SURVIVES
-branch g0=24: exact mass 0.012818, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012628 -> SURVIVES
-branch g0=27: exact mass 0.012816, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012626 -> SURVIVES
-branch g0=28: exact mass 0.012814, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012624 -> SURVIVES
-branch g0=29: exact mass 0.012821, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012630 -> SURVIVES
-branch g0=30: exact mass 0.012821, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012630 -> SURVIVES
-branch g0=33: exact mass 0.012816, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012626 -> SURVIVES
-branch g0=34: exact mass 0.012821, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012630 -> SURVIVES
-branch g0=37: exact mass 0.012818, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012628 -> SURVIVES
-branch g0=41: exact mass 0.012816, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012626 -> SURVIVES
-branch g0=43: exact mass 0.012816, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012626 -> SURVIVES
-branch g0=47: exact mass 0.012818, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012628 -> SURVIVES
-branch g0=48: exact mass 0.012814, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012624 -> SURVIVES
-branch g0=53: exact mass 0.012818, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012628 -> SURVIVES
-branch g0=54: exact mass 0.012816, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012626 -> SURVIVES
-branch g0=56: exact mass 0.012818, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012628 -> SURVIVES
-branch g0=57: exact mass 0.012821, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012630 -> SURVIVES
-branch g0=58: exact mass 0.012821, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012630 -> SURVIVES
-branch g0=60: exact mass 0.012816, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012626 -> SURVIVES
-branch g0=61: exact mass 0.012821, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012630 -> SURVIVES
-branch g0=66: exact mass 0.012816, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012626 -> SURVIVES
-branch g0=68: exact mass 0.012816, removed (levels 4..6) <= 0.000000, tail <= 1.91e-04; lower bound 0.012626 -> SURVIVES
+rigorous tail bound (k > 6): 2.0511e-04
+branch g0=3: exact mass 0.012818, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012613 -> SURVIVES
+branch g0=6: exact mass 0.012816, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012611 -> SURVIVES
+branch g0=7: exact mass 0.012821, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012615 -> SURVIVES
+branch g0=12: exact mass 0.012816, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012611 -> SURVIVES
+branch g0=14: exact mass 0.012814, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012609 -> SURVIVES
+branch g0=15: exact mass 0.012821, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012615 -> SURVIVES
+branch g0=17: exact mass 0.012814, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012609 -> SURVIVES
+branch g0=24: exact mass 0.012818, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012613 -> SURVIVES
+branch g0=27: exact mass 0.012816, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012611 -> SURVIVES
+branch g0=28: exact mass 0.012814, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012609 -> SURVIVES
+branch g0=29: exact mass 0.012821, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012615 -> SURVIVES
+branch g0=30: exact mass 0.012821, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012615 -> SURVIVES
+branch g0=33: exact mass 0.012816, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012611 -> SURVIVES
+branch g0=34: exact mass 0.012821, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012615 -> SURVIVES
+branch g0=37: exact mass 0.012818, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012613 -> SURVIVES
+branch g0=41: exact mass 0.012816, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012611 -> SURVIVES
+branch g0=43: exact mass 0.012816, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012611 -> SURVIVES
+branch g0=47: exact mass 0.012818, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012613 -> SURVIVES
+branch g0=48: exact mass 0.012814, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012609 -> SURVIVES
+branch g0=53: exact mass 0.012818, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012613 -> SURVIVES
+branch g0=54: exact mass 0.012816, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012611 -> SURVIVES
+branch g0=56: exact mass 0.012818, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012613 -> SURVIVES
+branch g0=57: exact mass 0.012821, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012615 -> SURVIVES
+branch g0=58: exact mass 0.012821, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012615 -> SURVIVES
+branch g0=60: exact mass 0.012816, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012611 -> SURVIVES
+branch g0=61: exact mass 0.012821, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012615 -> SURVIVES
+branch g0=66: exact mass 0.012816, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012611 -> SURVIVES
+branch g0=68: exact mass 0.012816, removed (levels 4..6) 0.000000 (exact sum), tail <= 2.051e-04; lower bound 0.012611 -> SURVIVES
 ell=79: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [3, 6, 7, 12, 14, 15, 17, 24, 27, 28, 29, 30, 33, 34, 37, 41, 43, 47, 48, 53, 54, 56, 57, 58, 60, 61, 66, 68]
 ### ell=83 K1=3 K2=6
-level 1: good caught residues 9, candidates scanned 402, B_up 661
-level 2: good caught residues 0, candidates scanned 7113, B_up 9416
-level 3: good caught residues 83, candidates scanned 117047, B_up 142605
-level 4: good caught residues 0, candidates scanned 1701404, B_up 1984218
-level 5: good caught residues 253, candidates scanned 22646637, B_up 25692226
-level 6: good caught residues 0, candidates scanned 283854306, B_up 315698029
+level 1: good caught residues 9, candidates scanned 402
+level 2: good caught residues 0, candidates scanned 7113
+level 3: good caught residues 83, candidates scanned 117047
+level 4: good caught residues 0, candidates scanned 1701404
+level 5: good caught residues 253, candidates scanned 22646637
+level 6: good caught residues 0, candidates scanned 283854306
 exact tree to level 3: 220392 survivors; branch masses 2:0.012192, 5:0.012195, 6:0.012193, 8:0.012192, 13:0.012192, 14:0.012193, 15:0.012192, 18:0.012193, 19:0.012195, 20:0.012188, 22:0.012192, 24:0.012193, 32:0.012192, 34:0.012192, 35:0.012195, 42:0.012192, 43:0.012192, 45:0.012193, 46:0.012192, 47:0.012192, 50:0.012195, 52:0.012192, 53:0.012192, 54:0.012188, 56:0.012192, 57:0.012193, 58:0.012188, 60:0.012193, 67:0.012193, 72:0.012192, 73:0.012188, 74:0.012192
-explicit tail bound (k > 6): 1.614e-04
-branch g0=2: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=5: exact mass 0.012195, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012034 -> SURVIVES
-branch g0=6: exact mass 0.012193, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012032 -> SURVIVES
-branch g0=8: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=13: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=14: exact mass 0.012193, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012032 -> SURVIVES
-branch g0=15: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=18: exact mass 0.012193, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012032 -> SURVIVES
-branch g0=19: exact mass 0.012195, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012034 -> SURVIVES
-branch g0=20: exact mass 0.012188, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012027 -> SURVIVES
-branch g0=22: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=24: exact mass 0.012193, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012032 -> SURVIVES
-branch g0=32: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=34: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=35: exact mass 0.012195, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012034 -> SURVIVES
-branch g0=42: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=43: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=45: exact mass 0.012193, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012032 -> SURVIVES
-branch g0=46: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=47: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=50: exact mass 0.012195, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012034 -> SURVIVES
-branch g0=52: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=53: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=54: exact mass 0.012188, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012027 -> SURVIVES
-branch g0=56: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=57: exact mass 0.012193, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012032 -> SURVIVES
-branch g0=58: exact mass 0.012188, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012027 -> SURVIVES
-branch g0=60: exact mass 0.012193, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012032 -> SURVIVES
-branch g0=67: exact mass 0.012193, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012032 -> SURVIVES
-branch g0=72: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
-branch g0=73: exact mass 0.012188, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012027 -> SURVIVES
-branch g0=74: exact mass 0.012192, removed (levels 4..6) <= 0.000000, tail <= 1.61e-04; lower bound 0.012030 -> SURVIVES
+rigorous tail bound (k > 6): 1.7348e-04
+branch g0=2: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=5: exact mass 0.012195, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012022 -> SURVIVES
+branch g0=6: exact mass 0.012193, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012020 -> SURVIVES
+branch g0=8: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=13: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=14: exact mass 0.012193, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012020 -> SURVIVES
+branch g0=15: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=18: exact mass 0.012193, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012020 -> SURVIVES
+branch g0=19: exact mass 0.012195, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012022 -> SURVIVES
+branch g0=20: exact mass 0.012188, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012015 -> SURVIVES
+branch g0=22: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=24: exact mass 0.012193, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012020 -> SURVIVES
+branch g0=32: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=34: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=35: exact mass 0.012195, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012022 -> SURVIVES
+branch g0=42: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=43: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=45: exact mass 0.012193, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012020 -> SURVIVES
+branch g0=46: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=47: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=50: exact mass 0.012195, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012022 -> SURVIVES
+branch g0=52: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=53: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=54: exact mass 0.012188, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012015 -> SURVIVES
+branch g0=56: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=57: exact mass 0.012193, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012020 -> SURVIVES
+branch g0=58: exact mass 0.012188, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012015 -> SURVIVES
+branch g0=60: exact mass 0.012193, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012020 -> SURVIVES
+branch g0=67: exact mass 0.012193, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012020 -> SURVIVES
+branch g0=72: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
+branch g0=73: exact mass 0.012188, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012015 -> SURVIVES
+branch g0=74: exact mass 0.012192, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.735e-04; lower bound 0.012018 -> SURVIVES
 ell=83: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 5, 6, 8, 13, 14, 15, 18, 19, 20, 22, 24, 32, 34, 35, 42, 43, 45, 46, 47, 50, 52, 53, 54, 56, 57, 58, 60, 67, 72, 73, 74]
 ### ell=89 K1=3 K2=6
-level 1: good caught residues 10, candidates scanned 425, B_up 683
-level 2: good caught residues 0, candidates scanned 7659, B_up 10180
-level 3: good caught residues 102, candidates scanned 131792, B_up 160219
-level 4: good caught residues 0, candidates scanned 1986145, B_up 2311024
-level 5: good caught residues 226, candidates scanned 27375733, B_up 31002964
-level 6: good caught residues 0, candidates scanned 355351428, B_up 394619522
+level 1: good caught residues 10, candidates scanned 425
+level 2: good caught residues 0, candidates scanned 7659
+level 3: good caught residues 102, candidates scanned 131792
+level 4: good caught residues 0, candidates scanned 1986145
+level 5: good caught residues 226, candidates scanned 27375733
+level 6: good caught residues 0, candidates scanned 355351428
 exact tree to level 3: 269248 survivors; branch masses 3:0.011362, 6:0.011364, 7:0.011361, 12:0.011362, 13:0.011362, 14:0.011361, 15:0.011364, 19:0.011358, 23:0.011364, 24:0.011362, 26:0.011362, 27:0.011364, 28:0.011359, 29:0.011359, 30:0.011362, 31:0.011364, 33:0.011364, 35:0.011359, 37:0.011361, 43:0.011359, 46:0.011364, 48:0.011362, 51:0.011361, 52:0.011362, 54:0.011356, 56:0.011358, 60:0.011364, 61:0.011356, 62:0.011358, 63:0.011358, 65:0.011358, 70:0.011361, 75:0.011358, 77:0.011361
-explicit tail bound (k > 6): 1.274e-04
-branch g0=3: exact mass 0.011362, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011235 -> SURVIVES
-branch g0=6: exact mass 0.011364, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011236 -> SURVIVES
-branch g0=7: exact mass 0.011361, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011233 -> SURVIVES
-branch g0=12: exact mass 0.011362, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011235 -> SURVIVES
-branch g0=13: exact mass 0.011362, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011235 -> SURVIVES
-branch g0=14: exact mass 0.011361, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011233 -> SURVIVES
-branch g0=15: exact mass 0.011364, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011236 -> SURVIVES
-branch g0=19: exact mass 0.011358, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011230 -> SURVIVES
-branch g0=23: exact mass 0.011364, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011236 -> SURVIVES
-branch g0=24: exact mass 0.011362, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011235 -> SURVIVES
-branch g0=26: exact mass 0.011362, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011235 -> SURVIVES
-branch g0=27: exact mass 0.011364, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011236 -> SURVIVES
-branch g0=28: exact mass 0.011359, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011232 -> SURVIVES
-branch g0=29: exact mass 0.011359, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011232 -> SURVIVES
-branch g0=30: exact mass 0.011362, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011235 -> SURVIVES
-branch g0=31: exact mass 0.011364, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011236 -> SURVIVES
-branch g0=33: exact mass 0.011364, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011236 -> SURVIVES
-branch g0=35: exact mass 0.011359, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011232 -> SURVIVES
-branch g0=37: exact mass 0.011361, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011233 -> SURVIVES
-branch g0=43: exact mass 0.011359, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011232 -> SURVIVES
-branch g0=46: exact mass 0.011364, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011236 -> SURVIVES
-branch g0=48: exact mass 0.011362, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011235 -> SURVIVES
-branch g0=51: exact mass 0.011361, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011233 -> SURVIVES
-branch g0=52: exact mass 0.011362, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011235 -> SURVIVES
-branch g0=54: exact mass 0.011356, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011229 -> SURVIVES
-branch g0=56: exact mass 0.011358, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011230 -> SURVIVES
-branch g0=60: exact mass 0.011364, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011236 -> SURVIVES
-branch g0=61: exact mass 0.011356, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011229 -> SURVIVES
-branch g0=62: exact mass 0.011358, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011230 -> SURVIVES
-branch g0=63: exact mass 0.011358, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011230 -> SURVIVES
-branch g0=65: exact mass 0.011358, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011230 -> SURVIVES
-branch g0=70: exact mass 0.011361, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011233 -> SURVIVES
-branch g0=75: exact mass 0.011358, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011230 -> SURVIVES
-branch g0=77: exact mass 0.011361, removed (levels 4..6) <= 0.000000, tail <= 1.27e-04; lower bound 0.011233 -> SURVIVES
+rigorous tail bound (k > 6): 1.3692e-04
+branch g0=3: exact mass 0.011362, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011225 -> SURVIVES
+branch g0=6: exact mass 0.011364, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011227 -> SURVIVES
+branch g0=7: exact mass 0.011361, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011224 -> SURVIVES
+branch g0=12: exact mass 0.011362, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011225 -> SURVIVES
+branch g0=13: exact mass 0.011362, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011225 -> SURVIVES
+branch g0=14: exact mass 0.011361, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011224 -> SURVIVES
+branch g0=15: exact mass 0.011364, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011227 -> SURVIVES
+branch g0=19: exact mass 0.011358, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011221 -> SURVIVES
+branch g0=23: exact mass 0.011364, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011227 -> SURVIVES
+branch g0=24: exact mass 0.011362, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011225 -> SURVIVES
+branch g0=26: exact mass 0.011362, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011225 -> SURVIVES
+branch g0=27: exact mass 0.011364, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011227 -> SURVIVES
+branch g0=28: exact mass 0.011359, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011222 -> SURVIVES
+branch g0=29: exact mass 0.011359, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011222 -> SURVIVES
+branch g0=30: exact mass 0.011362, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011225 -> SURVIVES
+branch g0=31: exact mass 0.011364, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011227 -> SURVIVES
+branch g0=33: exact mass 0.011364, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011227 -> SURVIVES
+branch g0=35: exact mass 0.011359, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011222 -> SURVIVES
+branch g0=37: exact mass 0.011361, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011224 -> SURVIVES
+branch g0=43: exact mass 0.011359, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011222 -> SURVIVES
+branch g0=46: exact mass 0.011364, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011227 -> SURVIVES
+branch g0=48: exact mass 0.011362, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011225 -> SURVIVES
+branch g0=51: exact mass 0.011361, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011224 -> SURVIVES
+branch g0=52: exact mass 0.011362, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011225 -> SURVIVES
+branch g0=54: exact mass 0.011356, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011220 -> SURVIVES
+branch g0=56: exact mass 0.011358, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011221 -> SURVIVES
+branch g0=60: exact mass 0.011364, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011227 -> SURVIVES
+branch g0=61: exact mass 0.011356, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011220 -> SURVIVES
+branch g0=62: exact mass 0.011358, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011221 -> SURVIVES
+branch g0=63: exact mass 0.011358, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011221 -> SURVIVES
+branch g0=65: exact mass 0.011358, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011221 -> SURVIVES
+branch g0=70: exact mass 0.011361, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011224 -> SURVIVES
+branch g0=75: exact mass 0.011358, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011221 -> SURVIVES
+branch g0=77: exact mass 0.011361, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.369e-04; lower bound 0.011224 -> SURVIVES
 ell=89: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [3, 6, 7, 12, 13, 14, 15, 19, 23, 24, 26, 27, 28, 29, 30, 31, 33, 35, 37, 43, 46, 48, 51, 52, 54, 56, 60, 61, 62, 63, 65, 70, 75, 77]
 ### ell=97 K1=3 K2=6
-level 1: good caught residues 8, candidates scanned 434, B_up 711
-level 2: good caught residues 0, candidates scanned 8492, B_up 11210
-level 3: good caught residues 96, candidates scanned 152117, B_up 184940
-level 4: good caught residues 0, candidates scanned 2402666, B_up 2788492
-level 5: good caught residues 240, candidates scanned 34570770, B_up 39077956
-level 6: good caught residues 0, candidates scanned 468632486, B_up 519488762
+level 1: good caught residues 8, candidates scanned 434
+level 2: good caught residues 0, candidates scanned 8492
+level 3: good caught residues 96, candidates scanned 152117
+level 4: good caught residues 0, candidates scanned 2402666
+level 5: good caught residues 240, candidates scanned 34570770
+level 6: good caught residues 0, candidates scanned 468632486
 exact tree to level 3: 376286 survivors; branch masses 5:0.010416, 7:0.010417, 10:0.010414, 13:0.010414, 14:0.010417, 15:0.010414, 17:0.010413, 19:0.010414, 20:0.010414, 21:0.010414, 23:0.010416, 26:0.010416, 28:0.010416, 29:0.010414, 30:0.010412, 34:0.010414, 37:0.010414, 38:0.010416, 39:0.010416, 40:0.010413, 41:0.010414, 42:0.010416, 45:0.010416, 46:0.010414, 51:0.010413, 52:0.010416, 55:0.010412, 56:0.010416, 57:0.010416, 59:0.010416, 60:0.010411, 67:0.010416, 68:0.010414, 69:0.010416, 71:0.010414, 74:0.010416, 76:0.010411, 78:0.010413, 80:0.010416, 87:0.010414
-explicit tail bound (k > 6): 9.518e-05
-branch g0=5: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=7: exact mass 0.010417, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010321 -> SURVIVES
-branch g0=10: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=13: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=14: exact mass 0.010417, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010321 -> SURVIVES
-branch g0=15: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=17: exact mass 0.010413, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010318 -> SURVIVES
-branch g0=19: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=20: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=21: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=23: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=26: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=28: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=29: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=30: exact mass 0.010412, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010317 -> SURVIVES
-branch g0=34: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=37: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=38: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=39: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=40: exact mass 0.010413, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010318 -> SURVIVES
-branch g0=41: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=42: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=45: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=46: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=51: exact mass 0.010413, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010318 -> SURVIVES
-branch g0=52: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=55: exact mass 0.010412, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010317 -> SURVIVES
-branch g0=56: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=57: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=59: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=60: exact mass 0.010411, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010316 -> SURVIVES
-branch g0=67: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=68: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=69: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=71: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
-branch g0=74: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=76: exact mass 0.010411, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010316 -> SURVIVES
-branch g0=78: exact mass 0.010413, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010318 -> SURVIVES
-branch g0=80: exact mass 0.010416, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010320 -> SURVIVES
-branch g0=87: exact mass 0.010414, removed (levels 4..6) <= 0.000000, tail <= 9.52e-05; lower bound 0.010319 -> SURVIVES
+rigorous tail bound (k > 6): 1.0227e-04
+branch g0=5: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=7: exact mass 0.010417, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010314 -> SURVIVES
+branch g0=10: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=13: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=14: exact mass 0.010417, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010314 -> SURVIVES
+branch g0=15: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=17: exact mass 0.010413, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010311 -> SURVIVES
+branch g0=19: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=20: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=21: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=23: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=26: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=28: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=29: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=30: exact mass 0.010412, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010310 -> SURVIVES
+branch g0=34: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=37: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=38: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=39: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=40: exact mass 0.010413, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010311 -> SURVIVES
+branch g0=41: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=42: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=45: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=46: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=51: exact mass 0.010413, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010311 -> SURVIVES
+branch g0=52: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=55: exact mass 0.010412, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010310 -> SURVIVES
+branch g0=56: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=57: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=59: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=60: exact mass 0.010411, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010309 -> SURVIVES
+branch g0=67: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=68: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=69: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=71: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
+branch g0=74: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=76: exact mass 0.010411, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010309 -> SURVIVES
+branch g0=78: exact mass 0.010413, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010311 -> SURVIVES
+branch g0=80: exact mass 0.010416, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010313 -> SURVIVES
+branch g0=87: exact mass 0.010414, removed (levels 4..6) 0.000000 (exact sum), tail <= 1.023e-04; lower bound 0.010312 -> SURVIVES
 ell=97: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [5, 7, 10, 13, 14, 15, 17, 19, 20, 21, 23, 26, 28, 29, 30, 34, 37, 38, 39, 40, 41, 42, 45, 46, 51, 52, 55, 56, 57, 59, 60, 67, 68, 69, 71, 74, 76, 78, 80, 87]
 ### ell=101 K1=3 K2=6
-level 1: good caught residues 12, candidates scanned 458, B_up 725
-level 2: good caught residues 0, candidates scanned 8892, B_up 11728
-level 3: good caught residues 134, candidates scanned 163337, B_up 197816
-level 4: good caught residues 0, candidates scanned 2627323, B_up 3045276
-level 5: good caught residues 254, candidates scanned 38577498, B_up 43560013
-level 6: good caught residues 0, candidates scanned 533592099, B_up 591001485
+level 1: good caught residues 12, candidates scanned 458
+level 2: good caught residues 0, candidates scanned 8892
+level 3: good caught residues 134, candidates scanned 163337
+level 4: good caught residues 0, candidates scanned 2627323
+level 5: good caught residues 254, candidates scanned 38577498
+level 6: good caught residues 0, candidates scanned 533592099
 exact tree to level 3: 387550 survivors; branch masses 2:0.009999, 3:0.010000, 7:0.009999, 8:0.009996, 10:0.009997, 11:0.009999, 12:0.009996, 15:0.009998, 18:0.009999, 26:0.009997, 27:0.009998, 28:0.009998, 29:0.009999, 32:0.009996, 34:0.010000, 35:0.009997, 38:0.009996, 39:0.009999, 40:0.009999, 41:0.009995, 42:0.010000, 44:0.009994, 46:0.009999, 48:0.009999, 51:0.009999, 53:0.009999, 55:0.009996, 57:0.009999, 59:0.009996, 60:0.009996, 61:0.009999, 62:0.009994, 69:0.009995, 73:0.009999, 83:0.009998, 89:0.010000, 90:0.009996, 91:0.009997
-explicit tail bound (k > 6): 8.300e-05
-branch g0=2: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=3: exact mass 0.010000, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009917 -> SURVIVES
-branch g0=7: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=8: exact mass 0.009996, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009913 -> SURVIVES
-branch g0=10: exact mass 0.009997, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009914 -> SURVIVES
-branch g0=11: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=12: exact mass 0.009996, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009913 -> SURVIVES
-branch g0=15: exact mass 0.009998, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009915 -> SURVIVES
-branch g0=18: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=26: exact mass 0.009997, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009914 -> SURVIVES
-branch g0=27: exact mass 0.009998, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009915 -> SURVIVES
-branch g0=28: exact mass 0.009998, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009915 -> SURVIVES
-branch g0=29: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=32: exact mass 0.009996, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009913 -> SURVIVES
-branch g0=34: exact mass 0.010000, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009917 -> SURVIVES
-branch g0=35: exact mass 0.009997, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009914 -> SURVIVES
-branch g0=38: exact mass 0.009996, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009913 -> SURVIVES
-branch g0=39: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=40: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=41: exact mass 0.009995, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009912 -> SURVIVES
-branch g0=42: exact mass 0.010000, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009917 -> SURVIVES
-branch g0=44: exact mass 0.009994, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009911 -> SURVIVES
-branch g0=46: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=48: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=51: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=53: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=55: exact mass 0.009996, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009913 -> SURVIVES
-branch g0=57: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=59: exact mass 0.009996, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009913 -> SURVIVES
-branch g0=60: exact mass 0.009996, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009913 -> SURVIVES
-branch g0=61: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=62: exact mass 0.009994, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009911 -> SURVIVES
-branch g0=69: exact mass 0.009995, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009912 -> SURVIVES
-branch g0=73: exact mass 0.009999, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009916 -> SURVIVES
-branch g0=83: exact mass 0.009998, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009915 -> SURVIVES
-branch g0=89: exact mass 0.010000, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009917 -> SURVIVES
-branch g0=90: exact mass 0.009996, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009913 -> SURVIVES
-branch g0=91: exact mass 0.009997, removed (levels 4..6) <= 0.000000, tail <= 8.30e-05; lower bound 0.009914 -> SURVIVES
+rigorous tail bound (k > 6): 8.9185e-05
+branch g0=2: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=3: exact mass 0.010000, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009911 -> SURVIVES
+branch g0=7: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=8: exact mass 0.009996, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009907 -> SURVIVES
+branch g0=10: exact mass 0.009997, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009908 -> SURVIVES
+branch g0=11: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=12: exact mass 0.009996, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009907 -> SURVIVES
+branch g0=15: exact mass 0.009998, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009909 -> SURVIVES
+branch g0=18: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=26: exact mass 0.009997, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009908 -> SURVIVES
+branch g0=27: exact mass 0.009998, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009909 -> SURVIVES
+branch g0=28: exact mass 0.009998, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009909 -> SURVIVES
+branch g0=29: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=32: exact mass 0.009996, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009907 -> SURVIVES
+branch g0=34: exact mass 0.010000, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009911 -> SURVIVES
+branch g0=35: exact mass 0.009997, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009908 -> SURVIVES
+branch g0=38: exact mass 0.009996, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009907 -> SURVIVES
+branch g0=39: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=40: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=41: exact mass 0.009995, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009906 -> SURVIVES
+branch g0=42: exact mass 0.010000, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009911 -> SURVIVES
+branch g0=44: exact mass 0.009994, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009905 -> SURVIVES
+branch g0=46: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=48: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=51: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=53: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=55: exact mass 0.009996, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009907 -> SURVIVES
+branch g0=57: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=59: exact mass 0.009996, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009907 -> SURVIVES
+branch g0=60: exact mass 0.009996, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009907 -> SURVIVES
+branch g0=61: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=62: exact mass 0.009994, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009905 -> SURVIVES
+branch g0=69: exact mass 0.009995, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009906 -> SURVIVES
+branch g0=73: exact mass 0.009999, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009910 -> SURVIVES
+branch g0=83: exact mass 0.009998, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009909 -> SURVIVES
+branch g0=89: exact mass 0.010000, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009911 -> SURVIVES
+branch g0=90: exact mass 0.009996, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009907 -> SURVIVES
+branch g0=91: exact mass 0.009997, removed (levels 4..6) 0.000000 (exact sum), tail <= 8.919e-05; lower bound 0.009908 -> SURVIVES
 ell=101: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): [2, 3, 7, 8, 10, 11, 12, 15, 18, 26, 27, 28, 29, 32, 34, 35, 38, 39, 40, 41, 42, 44, 46, 48, 51, 53, 55, 57, 59, 60, 61, 62, 69, 73, 83, 89, 90, 91]

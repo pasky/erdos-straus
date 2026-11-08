@@ -4,10 +4,9 @@ For levels k <= K2 the good caught residues rho mod ell^k are computed exactly b
 * Levels k <= K1: exact survivor tree S_k (non-residues g mod ell^k none of whose truncations is caught).
 * Levels K1 < k <= K2: for each surviving branch g0 mod ell, subtract the Haar mass 1/phi(ell^k) of every caught
   cylinder lying over S_{K1} in that branch (sub-additivity: an upper bound for the mass removed).
-* Levels k > K2: subtract the explicit bound TAIL = sum_{k>K2} B(ell^k, k)/phi(ell^k), where B(N, k) is the number of
-  candidates the enumeration of z66_ucover_swords.c scans at level k (an upper bound for the number of events, hence
-  for the number of caught residues), bounded analytically by B_ratio below.  The sum is evaluated to k = KMAX with the
-  remainder bounded by a geometric series.
+* Levels k > K2: subtract a rigorous upper bound (interval arithmetic) for sum_{k>K2} B(ell^k, k)/phi(ell^k), where
+  B(N, k) bounds the number of candidates z66_ucover_swords.c's algorithm scans at level k (hence the number of events
+  and of caught residues); see tail_upper.  Masses and removals are exact fractions.
 A branch g0 whose final lower bound is > 0 contains some g with e_{ell,g} in no good-word class (compactness: the caught
 set is a countable union of cylinders; positive remaining mass means non-empty complement).
 Usage: uv run python scripts/z66_ucover_stree.py ELL K1 K2 [binary]
@@ -35,27 +34,32 @@ def caught(binary, ell, k):
     return res, cand
 
 
-def B_ratio(ell, k):
-    """B_up(ell^k, k) / ell^k, evaluated without forming ell^k as a float.  B_up is an analytic upper bound for
-    the number of candidates scanned by z66_ucover_swords.c at level k (N = ell^k):
-    W1: sum_{X<=X0} 2(R/X+1) + sum_{z<=Z}(S/z+1);  W2 (k+1 splits): sum_{s<=s0} 2(R/s+1) + 2 sum_{z<=Z'}(Rr/z+1),
-    X0 = s0 = isqrt(2N)+2, R = isqrt(N+X0)+1, S = Z = isqrt(N/2)+3, Rr = isqrt(2N)+4, Z' = isqrt(N/2)+4;
-    harmonic sums bounded by 1 + ln(x)."""
-    lnN = k * math.log(ell)
-    x = math.exp(-lnN / 2)          # N^{-1/2}
-    # quantities divided by N: sqrt(c N)/N = sqrt(c) x ; constants/N = c x^2
-    X0 = math.sqrt(2) * x + 2 * x * x            # X0 / N
-    lnX0 = 0.5 * (math.log(2) + lnN) + 1e-9 + math.log1p(2 / math.sqrt(2) * x)  # ln X0 (upper bound)
-    R = x * math.sqrt(1 + X0) + 2 * x * x       # R / N, R = sqrt(N + X0) + 2
-    S = x / math.sqrt(2) + 3 * x * x            # S / N
-    lnS = 0.5 * (lnN - math.log(2)) + math.log1p(3 * math.sqrt(2) * x)
-    # products like R*(1+lnX0): (R/N)*(1+lnX0) is (R(1+lnX0))/N; S*(1+lnS)/N similar; but S/z sums: S/N*(1+lnS)
-    w1 = 2 * R * (1 + lnX0) + 2 * X0 + S * (1 + lnS) + S
-    Rr = math.sqrt(2) * x + 4 * x * x
-    Z2 = x / math.sqrt(2) + 4 * x * x
-    lnZ2 = 0.5 * (lnN - math.log(2)) + math.log1p(4 * math.sqrt(2) * x)
-    w2 = 2 * R * (1 + lnX0) + 2 * X0 + 2 * Rr * (1 + lnZ2) + 2 * Z2
-    return w1 + (k + 1) * w2
+def tail_upper(ell, K2):
+    """Rigorous upper bound (mpmath interval arithmetic) for sum_{k>K2} B(ell^k, k)/phi(ell^k).
+
+    Majorant (Z66_UCOVER.md Lemma S2'): for N >= 10^5 the candidate count of z66_ucover_swords.c satisfies
+        B(N, k) <= sqrt(N) (k + 2) (2.44 ln N + 10.15),
+    so  B/phi(ell^k) <= T_k := ell/(ell-1) (k+2)(2.44 k ln(ell) + 10.15) ell^{-k/2}.
+    The sum over k > K2 is evaluated exactly-interval to k = K3 and the rest bounded by T_{K3+1}/(1 - rho) with
+    rho = (1 + 1/(K3+3)) (1 + 2.44 ln(ell)/(2.44 (K3+1) ln(ell) + 10.15)) ell^{-1/2} >= T_{k+1}/T_k (k > K3)."""
+    from mpmath import iv
+    iv.dps = 40
+    L = iv.mpf(ell)
+    lnl = iv.log(L)
+
+    def T(k):
+        return L / (L - 1) * (k + 2) * (iv.mpf("2.44") * k * lnl + iv.mpf("10.15")) * L ** (-iv.mpf(k) / 2)
+
+    assert ell ** (K2 + 1) >= 10 ** 5, "majorant needs N >= 1e5"
+    K3 = K2 + 200
+    tot = iv.mpf(0)
+    for k in range(K2 + 1, K3 + 1):
+        tot += T(k)
+    rho = (1 + iv.mpf(1) / (K3 + 3)) * (1 + iv.mpf("2.44") * lnl / (iv.mpf("2.44") * (K3 + 1) * lnl + iv.mpf("10.15"))) \
+        * L ** iv.mpf("-0.5")
+    assert rho.b < 1
+    tot += T(K3 + 1) / (1 - rho)
+    return tot.b  # upper endpoint (an mpf)
 
 
 def main():
@@ -65,10 +69,13 @@ def main():
     for k in range(1, K2 + 1):
         E[k], cand = caught(binary, ell, k)
         N = ell ** k
-        print(f"level {k}: good caught residues {len(E[k])}, candidates scanned {cand}, B_up {B_ratio(ell, k) * N:.0f}",
+        print(f"level {k}: good caught residues {len(E[k])}, candidates scanned {cand}",
               flush=True)
-        assert cand <= B_ratio(ell, k) * N, "analytic candidate bound violated"
-    # exact tree to K1
+        if N >= 10 ** 5:
+            assert cand <= math.isqrt(N + 1) * (k + 2) * (2.44 * math.log(N) + 10.15), "majorant violated"
+    # exact tree to K1 (integer counts; masses as exact fractions)
+    from fractions import Fraction
+    from mpmath import mpf
     S = [g for g in range(1, ell) if pow(g, (ell - 1) // 2, ell) == ell - 1 and g not in E[1]]
     Q = ell
     for k in range(2, K1 + 1):
@@ -76,33 +83,30 @@ def main():
         Q *= ell
         S = [g for g in S if g not in E[k]]
     phiK1 = ell ** (K1 - 1) * (ell - 1)
-    mass = {}
+    cnt = {}
     for g in S:
-        mass[g % ell] = mass.get(g % ell, 0.0) + 1.0 / phiK1
+        cnt[g % ell] = cnt.get(g % ell, 0) + 1
+    mass = {g0: Fraction(c, phiK1) for g0, c in cnt.items()}
     Sset = set(S)
     print(f"exact tree to level {K1}: {len(S)} survivors; branch masses " +
-          ", ".join(f"{g0}:{m:.6f}" for g0, m in sorted(mass.items())))
-    removed = {g0: 0.0 for g0 in mass}
+          ", ".join(f"{g0}:{float(m):.6f}" for g0, m in sorted(mass.items())))
+    removed = {g0: Fraction(0) for g0 in mass}
     for k in range(K1 + 1, K2 + 1):
         phik = ell ** (k - 1) * (ell - 1)
         for r in E[k]:
             if r % (ell ** K1) in Sset:
-                removed[r % ell] += 1.0 / phik
-    # tail
-    KMAX = 400
-    tail = 0.0
-    for k in range(K2 + 1, KMAX + 1):
-        tail += B_ratio(ell, k) * ell / (ell - 1)
-    # remainder k > KMAX: B_up(N,k)/phi <= C k^2 ell^{-k/2} with ratio < 1/2 for these k; bound by twice last term
-    last = B_ratio(ell, KMAX) * ell / (ell - 1)
-    tail += 2 * last
-    print(f"explicit tail bound (k > {K2}): {tail:.3e}")
+                removed[r % ell] += Fraction(1, phik)
+    tail = tail_upper(ell, K2)
+    print(f"rigorous tail bound (k > {K2}): {float(tail):.4e}")
     ok = []
     for g0 in sorted(mass):
-        lb = mass[g0] - removed[g0] - tail
-        print(f"branch g0={g0}: exact mass {mass[g0]:.6f}, removed (levels {K1+1}..{K2}) <= {removed[g0]:.6f}, "
-              f"tail <= {tail:.2e}; lower bound {lb:.6f} -> {'SURVIVES' if lb > 0 else 'undecided'}")
-        if lb > 0:
+        exact = mass[g0] - removed[g0]           # exact rational
+        lb = mpf(exact.numerator) / mpf(exact.denominator) - tail  # tail is an upper endpoint; compare rigorously below
+        # rigorous comparison: exact > tail  <=>  exact.numerator > tail * exact.denominator (tail upper endpoint)
+        surv = mpf(exact.numerator) > tail * mpf(exact.denominator) * (1 + mpf(10) ** -30)
+        print(f"branch g0={g0}: exact mass {float(mass[g0]):.6f}, removed (levels {K1+1}..{K2}) {float(removed[g0]):.6f} "
+              f"(exact sum), tail <= {float(tail):.3e}; lower bound {float(lb):.6f} -> {'SURVIVES' if surv else 'undecided'}")
+        if surv:
             ok.append(g0)
     print(f"ell={ell}: branches g0 mod ell proved to contain U_S-profiles e_(ell,g): {ok}")
 
