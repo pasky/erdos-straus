@@ -441,7 +441,7 @@ exists.
   generation; used only in a remark).
 
 ## 9. Review log
-* **Hostile reviewer subagent: could not run.** Three attempts (`subagent` deep mode ×2, `review` tool ×3,
+* **Hostile reviewer subagent: could not run.** Six attempts (`subagent` deep mode ×3, `review` tool ×3, the last after a 10-min wait,
   2026-11-08) failed with "authentication token has expired". This is an infrastructure failure, not a skipped step.
   **An independent hostile review of this memo is still owed** (cross-model or re-run of the deep subagent).
 * **Author's structured self-review** (`data/z65/lift/REVIEW_INTERNAL.md`, clearly labelled as such) was done in its

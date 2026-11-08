@@ -1,4 +1,4 @@
-# Z65_LIFT — internal review (AUTHOR SELF-REVIEW; the hostile-reviewer subagent could not run: auth token expired ×5)
+# Z65_LIFT — internal review (AUTHOR SELF-REVIEW; the hostile-reviewer subagent could not run: auth token expired ×6)
 
 Verdict (self): ACCEPT-WITH-FIXES. An independent hostile review is still owed.
 
