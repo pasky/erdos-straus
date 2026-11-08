@@ -7,28 +7,35 @@ cited LOGIC2) and Elsholtz–Tao (`sources/elsholtz-tao-1107.1010.pdf`, cited ET
 Lemma 2.8, §§3, 10), and on `Z64_SDEEPF.md` (cited SDEEPF: Thm 2.1, Prop 3.5, Thm 3.6) for §6.
 
 **Results in one paragraph.**
-* (i) **Lemma 1 (PROVED).** The family classes containing a profile e_{ℓ,g} (g at the prime ℓ, 1 at every other
-  prime) are described by three explicit Diophantine "event" equations, one per level k (ℓ-valuation of the modulus).
-  Four of ET's seven families are redundant here. Every level has finitely many events, and they embed into ℕ-points of
-  ET's varieties ΣI_{ℓ^k}, ΣII_{ℓ^k}, ΣII_{ℓ^{K′}} (K′ ≤ 2k − 1).
+* (i) **Lemma 1 (PROVED).** Which family classes contain a profile e_{ℓ,g} (g at the prime ℓ, 1 at every other
+  prime)? Up to inclusion of cylinders, three explicit Diophantine "event" equations decide it, per level k (the
+  ℓ-valuation of the modulus).
+  * The generators are I-1 (A), the pair I-4/II-1 (E/D: one parameter set, two residues) and II-2 (F).
+  * I-2, I-3 and II-3 add nothing.
+  * Every level has finitely many generators. They embed into ℕ-points of ET's varieties ΣI_{ℓ^k}, ΣII_{ℓ^k} and
+    ΣII_{ℓ^{K′}} (K′ ≤ 2k − 1).
 * (ii) **Theorem T (PROVED relative to ET §3's counting).** The set of g ∈ ℤ_ℓ^× with e_{ℓ,g} ∉ U has Haar measure
-  ≤ ℓ^{−2/5+o(1)}. So for all large primes ℓ, e_{ℓ,g} ∈ U for most non-squares g. **U ⊋ (Ẑ^×)²: Q_U (LOGIC2 O7′) is
+  ≤ ℓ^{−2/5+o(1)}. So for all large primes ℓ, e_{ℓ,g} ∈ U for a proportion 1 − o(1) (as ℓ → ∞) of the non-squares g. **U ⊋ (Ẑ^×)²: Q_U (LOGIC2 O7′) is
   answered negatively.** By LOGIC2 Thm D, for large ℓ all but O(ℓ^{3/5+o(1)}) of the non-square classes
   {n ≡ 1 (mod 840), n ≡ g₀ (mod ℓ)} are not finite unions of family classes, and NOI does not prove ES at their large
   primes (Cor T.1: Mordell–Schinzel beyond squares). The threshold ℓ₀ is effective but not computed.
 * (iii) **Small ℓ (CERTIFIED to the stated levels; EVIDENCE beyond).**
-  * ℓ = 11, 13: every e_{ℓ,g} is caught at level 1.
+  * ℓ = 11, 13: every **non-residue** profile e_{ℓ,g} is caught at level 1.
   * Every prime 17 ≤ ℓ ≤ 101 keeps surviving non-square branches through level 2 (ℓ ≤ 101), level 3 (ℓ ≤ 53) and
-    level 4 (ℓ ≤ 23). The surviving mass stabilises, e.g. 0.0848 for ℓ = 17 at level 4.
-* (iv) **The brief's K = {1 mod 840, (n/11) = −1}.** Profiles that are 1 away from 11 die at level 1. Two-prime
-  profiles (g at 11, h at 13) survive in exactly two branches, (g, h) ≡ (2, 2), (6, 7) mod (11, 13), through levels
-  (11², 13³) and (11³, 13²) (EVIDENCE: two A-splits skipped per run, so these counts are upper bounds).
-  K ∩ U ≠ ∅ stays a CONJECTURE.
+    level 4 (ℓ ≤ 23). The surviving mass changes little at the last computed levels, e.g. 0.0856 → 0.0848 for ℓ = 17
+    from level 3 to level 4.
+* (iv) **The brief's K = {1 mod 840, (n/11) = −1}.** Non-residue profiles that are 1 away from 11 die at level 1.
+  Two-prime profiles (g at 11, h at 13) were checked against all seven families literally (modulus ≤ 10⁶) plus the
+  exact A/E/F two-prime events. They survive only over (g, h) ≡ (2, 2) mod (11, 13), through levels (11³, 13²) and
+  (11², 13³). This is EVIDENCE: the counts are upper bounds, and K ∩ U ≠ ∅ stays a CONJECTURE.
+  * The first version of this section also kept (6, 7). The internal review found the II-3 class −1215 mod 21736 that
+    kills it.
 * (v) **(S)-families (PROVED, computer-assisted).** For SDEEPF's good-word coverings the analogue is decided
   rigorously, because words are 3-variable objects with explicit √N·log N counts.
   * For ℓ = 11, 13 and every prime 17 ≤ ℓ ≤ 101, every non-residue branch g₀ mod ℓ that survives level 1 contains
-    profiles in no good-word class (for ℓ = 11: g₀ ∈ {2, 6}).
-  * Every prime ℓ ≥ 10⁵ has such profiles (explicit bound).
+    profiles in no good-word class (for ℓ = 11: g₀ ∈ {2, 6}). The certificate uses exact fractions and an
+    interval-arithmetic tail.
+  * Every prime ℓ ≥ 10⁵ has such profiles (explicit bound 0.366 < 1/2 on the caught mass).
   * Hence, e.g., {n ≡ 1 (840), n ≡ 2 or 6 (mod 11)} is not finitely coverable by good words. This is the (S)-version
     of K, and here it is proved.
   * SDEEPF's four classes n ≡ 6 (7) are not settled: their profiles need two small primes, where the explicit tail is
@@ -43,7 +50,7 @@ This lane is about coverings by polynomial identities; it proposes no positivity
 | **F1 odd squares** | The square profiles are in U (ET Prop 1.6). Every caught residue found is a quadratic non-residue mod ℓ (checked; PROVED via the Jacobi characters in Lemma 1), as F1 requires. |
 | **F2 C-even / numerator 8** | Not applicable: no positivity claim. The covering question is posed for ET's Prop 1.9 families of the numerator-4 equation only. |
 | **F3 composites** | Profiles are units of Ẑ (prime-like); nothing about composites. |
-| **F4 known zeros** | Not applicable (no positivity claim). Integer profiles are impossible (Ẑ^× ∩ ℚ = {±1}). |
+| **F4 known zeros** | Not applicable (no positivity claim). No integer n > 1 is a unit profile: the rational unit profiles are ±1, and e_{ℓ,1} = 1 is the square used throughout. |
 
 **Pre-registered kill test (K1, checkpoint 1).** The route "e_{ℓ,g} ∈ U for non-residues g" dies if, for every tested
 prime ℓ ≥ 17, all non-residue branches of the ℓ-adic survivor tree are caught by level 3, or if the caught mass per
@@ -67,13 +74,20 @@ level does not decrease. **Result: passed.**
 
 ## 2. Lemma 1 (reduction to three event equations; PROVED)
 
-Let ℓ be an odd prime, k ≥ 1, N := ℓ^k. e_{ℓ,g} lies in a family class whose modulus has ℓ-valuation k iff
-g ≡ ρ (mod ℓ^k) for a residue ρ ∈ E_k(ℓ) produced by one of:
+Let ℓ be an odd prime, k ≥ 1, N := ℓ^k. Call **generators of level k** the residues ρ mod ℓ^k produced by (F),
+pure (E/D) and (A) below, and let E_k^{red}(ℓ) be their set.
+* (a) Every generator cylinder {g ≡ ρ mod ℓ^k} is the catch set of a family class whose modulus has ℓ-valuation k.
+* (b) Conversely, the catch set {g : e_{ℓ,g} ∈ class} of every family class whose modulus has ℓ-valuation k ≥ 1 is
+  contained in a generator cylinder of some level ≤ k. Mixed I-4/II-1 classes are exactly where the level drops.
+
+Hence {g : e_{ℓ,g} ∉ U} = ∪_k ∪_{ρ ∈ E_k^{red}} (ρ + ℓ^kℤ_ℓ). The generators are produced by:
 * **(F)** a, c, d ≥ 1, ℓ ∤ acd, 4acd − 1 = N f′, ℓ ∤ f′, f′ | a + c:  ρ = −a/c (mod N).
 * **(E/D)** a′, b′, c, D ≥ 1, ℓ ∤ a′b′, c(4a′b′D − 1) = a′ + N b′, ℓ ∤ e := 4a′b′D − 1:  ρ = −e and ρ = −1/e.
 * **(A)** k₁ + k₂ = k, k₂ ≥ 1 odd, a′, d′, C ≥ 1, ℓ ∤ a′d′, f := 4a′d′C − 1 dividing 4ℓ^{2k₁+k₂}a′²d′ + 1:  ρ = −f.
 
-(The E-equation with the ℓ-power split between a and b gives sub-cylinders of the pure case; see §2.2.)
+(The E-equation with the ℓ-power split between a and b, k₁, k₂ ≥ 1, gives sub-cylinders of pure cylinders of lower
+level; see §2.1. Such "mixed" residues can be new **at their own level**: e.g. ℓ = 23, a = 23, b = 23²·7, e = 27 catches
+12140 mod 23³, which no level-3 generator catches. The exact-level tables of §3 therefore list mixed events too.)
 Every caught ρ is a quadratic non-residue mod ℓ, and F- and E-events occur only for odd k.
 
 *Proof sketch (full proof in §2.1).* Family by family (ET Prop 1.9 notation):
@@ -174,10 +188,12 @@ are reversible). ∎
 | 101 | 20/50 | 0.300, 0.290 |
 
 (All 20 primes 17 ≤ ℓ ≤ 101 at level 2: `tree_k2_17_101.txt`; level 3: `tree_k3_17_31.txt`, `tree_k3_37_53.txt`;
-level 4: `tree_k4_17_23.txt`.) The mass caught at level k falls quickly: for ℓ = 17 it is 0.375, 0.169, 0.065, 0.0072
-at k = 1, 2, 3, 4. The events found at level k are a few hundred, against ℓ^k residues.
+level 4: `tree_k4_17_23.txt`.) The mass of the level-k event set (before removing what earlier levels already caught) falls quickly: for ℓ = 17 it is
+0.375, 0.169, 0.065, 0.0072 at k = 1, 2, 3, 4. The new loss of surviving mass is 0.375, 0.0294, 0.0099, 0.0009. The
+events found at level k are a few hundred, against ℓ^k residues.
 
-EVIDENCE (not proof) that e_{17,g} ∈ U for a set of g of mass about 0.08. The tail beyond the computed level is not
+EVIDENCE (not proof) that e_{17,g} ∈ U for a set of g of mass about 0.08. This is a finite-level observation, not a
+statement about the limit. The tail beyond the computed level is not
 bounded explicitly, for the reason given after Theorem T.
 
 ## 4. Theorem T: U contains non-square profiles (PROVED, relative to ET §3)
@@ -198,8 +214,8 @@ Let P_I(n) := #(ℕ⁶ ∩ ΣI_n) and P_II(n) := #(ℕ⁶ ∩ ΣII_n).
 In particular, for every sufficiently large prime ℓ (effectively computable, not computed), μ_ℓ < 1/2, so **e_{ℓ,g} ∈ U
 for a set of non-squares g of positive measure, and U ⊋ (Ẑ^×)²**: Q_U has a negative answer.
 
-*Proof.* By Lemma 1 and §2.1, C_ℓ is the union over k of the cylinders {g ≡ ρ mod ℓ^k}, ρ ∈ E_k, each of measure
-1/φ(ℓ^k), and the I-4/II-1 cylinders with both k₁, k₂ ≥ 1 lie inside pure ones. By §2.2 the residues of level k number
+*Proof.* By Lemma 1, C_ℓ is the union over k of the generator cylinders {g ≡ ρ mod ℓ^k}, ρ ∈ E_k^{red}, each of
+measure 1/φ(ℓ^k). The mixed I-4/II-1 cylinders lie inside pure ones of lower level and need not be counted. By §2.2 the residues of level k number
 at most P_I(ℓ^k) (F), 2P_II(ℓ^k) (E/D pure; two residues per point) and Σ_{K′} P_II(ℓ^{K′}) (A). Let η_ℓ := sup_{n≥ℓ} η(n) → 0.
 For η_ℓ ≤ 1/20: the F-term is ≤ ℓ^{(3/5+η_ℓ)k}/φ(ℓ^k) ≤ 2ℓ^{−0.35k}; the E-term ≤ 4ℓ^{−0.55k}; the A-term
 ≤ 2k·ℓ^{0.45(2k−1)−k} = 2k·ℓ^{−0.1k−0.45}. Summing over k ≥ 1 gives μ_ℓ ≪ ℓ^{−0.35}, and the k = 1 terms dominate,
@@ -219,32 +235,46 @@ inside C_ℓ. For any other non-residue g₀ pick g ∈ (g₀ + ℓℤ_ℓ) \ C_
 Thm D applies. ∎
 
 *Remarks.*
-* "Sufficiently large" is effective in principle (ET's divisor-bound constants), but the explicit ℓ₀ is astronomically
-  large. The computations of §3 indicate that already every ℓ ≥ 17 tested works (EVIDENCE only, since the tail beyond the
+* "Sufficiently large" is effective in principle (ET's divisor-bound constants). No ℓ₀ was computed; that it is very
+  large is an Assessment. The computations of §3 indicate that already every ℓ ≥ 17 tested works (EVIDENCE only, since the tail beyond the
   computed levels is not bounded explicitly).
-* For ℓ = 11 and 13 every e_{ℓ,g} is caught at level 1 (CERTIFIED), so Theorem T is not about small ℓ. The brief's K
+* For ℓ = 11 and 13 every non-residue profile e_{ℓ,g} is caught at level 1 (CERTIFIED), so Theorem T is not about small ℓ. The brief's K
   needs two-prime profiles (§5).
 * The A-family needs the Type II exponent 2/5: its level-k events live on ΣII_{ℓ^{K′}} with K′ up to 2k − 1, and
   2·(2/5) < 1. A bound of strength n^{1/2} (divisor-in-progression counting) would not suffice for the A-tail; this is
   why the theorem is not made explicit here.
 ## 5. The brief's K = {n ≡ 1 (840), (n/11) = −1}
 
-* **Single prime (CERTIFIED).** The level-1 events for ℓ = 11 catch all five non-residues. 7, 8, 10 are caught by
-  events whose moduli have no factor 13 (moduli 11, 44, 55, 176; `data/z66/ucover` level-1 list). 2 and 6 are caught **only** by the
-  II-2 classes n ≡ −64 and n ≡ −324 mod 143 = 11·13 (F-events (a, c, d) = (4, 9, 1), (9, 4, 1)), which require π ≡ 1 mod 13.
-* **Two-prime profiles** (`scripts/z66_ucover_levels2.c`, `scripts/z66_ucover_ktree.py`): π = (g at 11, h at 13, 1
-  elsewhere) lies in K iff g is a non-residue mod 11. Events at all levels (11^{k′}, 13^{j′}) ≤ (11^K, 13^J) were
-  enumerated by the two-prime form of Lemma 1, with every prime of S = {11, 13} split between the parameters.
-  * (K, J) = (2, 2): 74/8580 of the K-box survives.
-  * (2, 3): 802/111540. (3, 2): 594/94380.
-  * In all three, survivors lie only over (g, h) ≡ (2, 2) or (6, 7) mod (11, 13); h must be a non-residue mod 13 too.
-  * Two A-splits with N₁²N₂ > 10⁹ were skipped in each of the (2, 3), (3, 2) runs, so these survivor counts are upper
-    bounds for those levels.
-  * Data: `ktree_3_2.txt`, `ktree_2_3.txt`.
-* **Status.** CONJECTURE (K ∩ U ≠ ∅), with this EVIDENCE plus Theorem T's mechanism. A proof needs an explicit tail
-  bound at the fixed primes 11 and 13. The A-family's events at level k live on ΣII at n up to N², so this needs an
-  explicit Type II count of strength n^{θ}, θ < 1/2 (ET's 2/5 with explicit divisor-bound constants). Not done here.
-  Covering K by finitely many family classes is likewise not excluded.
+* **Single prime (CERTIFIED).** The level-1 generators for ℓ = 11 catch all five non-residues.
+  * 7, 8, 10 are caught by generators whose moduli have no factor 13 (moduli 11, 44, 55, 176).
+  * Among the generators, 2 and 6 are caught only by the II-2 classes n ≡ −64, −324 mod 143 = 11·13 (F-events
+    (a, c, d) = (4, 9, 1), (9, 4, 1)). These require π ≡ 1 mod 13. Other ET classes catch them too, e.g. II-3
+    n ≡ −207 mod 2288, but they are contained in these on the profiles e_{11,g}.
+* **Two-prime profiles.** π = (g at 11, h at 13, 1 elsewhere) lies in K iff g is a non-residue mod 11. Lemma 1 does
+  **not** extend verbatim to two primes: different primes of S = {11, 13} can sit on opposite sides of the coprime
+  pairs in I-2, I-3, II-3. The internal review found the II-3 class a = 11, d = 2, e = 13·19, i.e. n ≡ −1215 mod 21736.
+  It catches the whole branch (g, h) ≡ (6, 7) at level (1, 1), and the first version of this section had missed it.
+  So the evidence now comes from two enumerators combined:
+  * `scripts/z66_ucover_kbrute.py`: a literal enumeration of **all seven** families with modulus ≤ 10⁶;
+  * `scripts/z66_ucover_levels2.c`: the exact two-prime A/E/F events (A-splits with N₁²N₂ ≤ 10⁹).
+
+  Survivors of the K-box (`kbrute_1e6.txt`):
+
+  | level | survivors |
+  |---|---|
+  | (11², 13²) | 37/8580 |
+  | (11³, 13²) | 269/94380 |
+  | (11², 13³) | 397/111540 |
+
+  All survivors lie over (g, h) ≡ (2, 2) mod (11, 13), so h is a non-residue mod 13 too. These are upper bounds: classes
+  with larger moduli and the mixed-support A/E/F analogues beyond 10⁶ are not seen. (`ktree_*.txt` are the earlier,
+  incomplete A/E/F-only runs, kept for the record.)
+* **Status.** CONJECTURE (K ∩ U ≠ ∅); EVIDENCE as above, together with Theorem T's mechanism. A proof needs two things:
+  * the full two-prime reduction (all seven families with mixed supports);
+  * an explicit tail at the fixed primes 11 and 13. The I-1 events live on ΣII at n up to N², so this needs an explicit
+    Type II count of strength n^{θ} with θ < 1/2.
+
+  Neither is done. Covering K by finitely many family classes is not excluded either.
 
 ## 6. (S)-families (SDEEPF): the same question, decided
 
@@ -253,8 +283,8 @@ Thm D applies. ∎
   and W2 = fixed (u, v) (class n ≡ −(u + v) mod uv, good iff 8 | (n + t)(n + u + v), t = (n + u + v)/uv).
 * Fixed (t, v) is W1 after u ↔ v. These are all the polynomial word families: tuv − u − v = n forces exactly one of
   t, u, v to have degree 1 in n.
-* U_S := profiles π ∈ Ẑ, π ≡ 1 (mod 4), in no good-word class. By compactness, a class is a finite union of
-  good-word classes (SDEEPF-type covering) iff its closure misses U_S. Square profiles lie in U_S (SDEEPF Prop 3.5).
+* U_S := profiles π ∈ Ẑ, π ≡ 1 (mod 4), in no good-word class. By compactness, a class is *finitely coverable* (contained
+  in the union of finitely many good-word classes, as in SDEEPF Thm 3.6) iff its closure misses U_S. Square profiles lie in U_S (SDEEPF Prop 3.5).
 
 **Lemma S1 (event equations; PROVED).** e_{ℓ,g} lies in a good class:
 * W1(t, u) iff A = ℓ^k A′ (ℓ ∤ A′), A′ | u + 1, g ≡ −u (mod ℓ^k) and (g/ℓ)^k = −1. For n ≡ e_{ℓ,g} mod 8A,
@@ -274,8 +304,15 @@ with X₀ = √(2N) + 2, R = √(N + X₀) + 2, S = √(N/2) + 3, R_r = √(2N) 
   t ≥ X − 1 forces s ≤ √(N/2) + 2 and X | N + s with cofactor z ≤ √(N/2) + 1: this is the (z, s) scan.
 * *Completeness* (W2). If s ≤ X₀, then min(X, Y) ≤ √(N + s). If s > X₀, the smaller factor r < s equals its least
   residue, s | M + r, r ≤ √(2N) + 1, and the cofactor (u′ or v′) is ≤ √(N/2) + 1.
-* Each candidate yields at most one event.
-* The script asserts cand ≤ B at every computed level.
+* Each candidate yields at most one event. The C program is an implementation for 64/128-bit ranges, and its runs
+  stay below 2·10¹² · small factors. The bound B is a statement about the same algorithm over the integers, so it
+  holds at every level.
+* **Lemma S2′ (majorant; PROVED).** For N ≥ 10⁵: B(N, k) ≤ (k + 2)√N(2.44 ln N + 10.15).
+  * Proof: X₀ ≤ 1.4207√N, R ≤ 1.01√N, S, Z′ ≤ 0.72√N, R_r ≤ 1.43√N.
+  * 1 + ln X₀ ≤ 1.3512 + ½ ln N, and 1 + ln S, 1 + ln Z′ ≤ 1 + ½ ln N.
+  * So the W1 bracket is ≤ √N(1.37 ln N + 7.02) and the W2 bracket is ≤ √N(2.44 ln N + 9.88).
+  * Hence B/φ(ℓ^k) ≤ T_k := ℓ/(ℓ−1)·(k + 2)(2.44 k ln ℓ + 10.15)ℓ^{−k/2}.
+  * The script asserts cand ≤ the majorant at every computed level with N ≥ 10⁵.
 * *Cross-check* (`scripts/z66_ucover_sbrute.py`, files `sbrute_17_3e4.txt`, `sbrute_11_1e5.txt`, `sbrute_13_1e5.txt`).
   Direct Jacobi on large integer representatives:
   * ℓ = 17, A, uv ≤ 3·10⁴, k ≤ 3: brute ⊆ exact, and all 79 exact events in range are found;
@@ -289,18 +326,21 @@ with X₀ = √(2N) + 2, R = √(N + X₀) + 2, S = √(N/2) + 3, R_r = √(2N) 
   g₀ ∈ {2, 6}; ℓ = 13: {2, 7}; ℓ = 17: {3, 5, 6, 7}; full lists in the data). Then g₀ + ℓℤ_ℓ contains g with
   e_{ℓ,g} ∈ U_S. Hence for every q prime to ℓ the non-square class {n ≡ 1 (mod q), n ≡ g₀ (mod ℓ)} is **not finitely
   coverable by good words**. No SDEEPF-type covering can prove (S) on it.
-* (b) The same holds for every prime ℓ ≥ 10⁵ and a set of non-residues g of positive measure: Σ_k B(ℓ^k, k)/φ(ℓ^k)
-  ≤ 0.31 < 1/2, and the bound decreases in ℓ.
-* (c) For ℓ = 3, 5, 7 every e_{ℓ,g} is caught at level 1.
+* (b) The same holds for every prime ℓ ≥ 10⁵ and a set of non-residues g of positive measure.
+  * Σ_k T_k(10⁵) ≤ 0.3655 < 1/2 (interval arithmetic, `scripts/z66_ucover_sbound.py 100000`).
+  * Each T_k is decreasing in ℓ: d/dℓ[(2.44k ln ℓ + 10.15)ℓ^{−k/2}] has the sign of 2.44 − (2.44k ln ℓ + 10.15)/2,
+    which is < 0; and ℓ/(ℓ − 1) decreases.
+* (c) For ℓ = 3, 5, 7 every non-residue profile e_{ℓ,g} is caught at level 1.
 
 *Proof of (a).*
 * The good caught residues are computed exactly for k ≤ K₂ (ℓ^{K₂} ≤ 2·10¹²).
 * The survivor tree is computed exactly to level K₁ (ℓ^{K₁} ≤ 2·10⁶).
 * Levels K₁ < k ≤ K₂: in each branch subtract 1/φ(ℓ^k) per caught cylinder over S_{K₁} (sub-additivity).
-* Levels k > K₂: subtract Σ_{k>K₂} B(ℓ^k, k)/φ(ℓ^k). This is summed to k = 400, and the rest is bounded by twice the
-  last term (ratio < 1/2).
-* Every listed branch keeps a lower bound ≥ 0.0099 (worst case over all ℓ and branches; tail ≤ 9.4·10⁻⁴). For example
-  ℓ = 11: 0.0956 per branch.
+* Levels k > K₂: subtract Σ_{k>K₂} T_k (Lemma S2′). This is evaluated in mpmath interval arithmetic to k = K₂ + 200,
+  and the rest is bounded by T_{K₂+201}/(1 − ρ) with an explicit ratio bound ρ < 1.
+* Masses and removals are exact fractions, and the final comparison is rigorous.
+* Every listed branch keeps a lower bound ≥ 0.0099 (worst case over all ℓ and branches). The tail is ≤ 1.07·10⁻³ for
+  every ℓ ≥ 11 (≤ 5.5·10⁻³ for ℓ = 3, which has no claimed branch). For example ℓ = 11 gives 0.0956 per branch.
 * An open union of cylinders of total mass below the branch mass cannot cover the branch. ∎
 
 *Reading.*
@@ -309,7 +349,7 @@ with X₀ = √(2N) + 2, R = √(N + X₀) + 2, S = √(N/2) + 3, R_r = √(2N) 
 * For the ET families the same mechanism works (Theorem T) but is explicit only for large ℓ. The obstruction is the
   I-1 family, whose events at level k sit on the 4-variable ΣII at n ≈ ℓ^{2k}.
 * SDEEPF's four classes 265, 321, 769, 825 mod 840 (n ≡ 6 mod 7) are **not** settled here.
-  * e_{7,g} is caught at level 1, since it lies in the covered class 601.
+  * Non-residue profiles e_{7,g} are caught at level 1, since they lie in the covered class 601.
   * Those classes need profiles non-trivial at two small primes (e.g. 769 needs π₅ ≡ 4, π₇ ≡ 6). There the explicit
     tail Σ_{j,k}(j + 1)(k + 1)√(5^j 7^k) log/(φ(5^j)φ(7^k)) is too large unless events are computed to about 10¹⁵.
 
@@ -325,7 +365,8 @@ What it buys:
 * So Mordell's program (finite identity coverings) is blocked not only at the 6 square classes mod 840 but at
   non-square classes too. The obstruction is not just "the class contains squares".
 * The uncovered profiles found are 1 at all but one prime: they look like the square 1 everywhere except at one
-  prime ℓ, where they are a non-residue.
+  prime ℓ, where they are a non-residue. Not all such profiles are uncovered: e.g. for ℓ ≡ 3 (mod 4) the F-event
+  a = c = 1, d = (ℓ + 1)/4 catches g ≡ −1. For large ℓ, though, the uncovered ones have proportion 1 − o(1).
 
 **Hard screens (FRONTIER §4).**
 * *T1 squares.* Square profiles are in U (input). The new elements are non-squares whose deviation from the square 1
@@ -338,20 +379,23 @@ What it buys:
 **Proposed FRONTIER text** (do not edit FRONTIER here).
 > *(z66 UCOVER.)* Q_U answered: the set U of unit profiles in no ET Prop 1.9 family class is strictly larger than
 > (Ẑ^×)² (`Z66_UCOVER.md` Thm T, PROVED relative to ET §3's ΣI/ΣII point counts). The profiles e_{ℓ,g} (g at ℓ, 1
-> elsewhere) are caught by family classes only through three event equations (Lemma 1), with ≤ ℓ^{3k/5+o(k)} events at
-> level k. Hence for large ℓ almost every g works. By Thm D, most non-square classes {1 mod 840, g₀ mod ℓ} are
+> elsewhere) are caught by family classes only through three generator equations (Lemma 1). At level k these live on
+> ΣI_{ℓ^k} (II-2), ΣII_{ℓ^k} (I-4/II-1) and ΣII_{ℓ^{K′}}, K′ ≤ 2k − 1 (I-1). ET's counts n^{3/5+o(1)}, n^{2/5+o(1)}
+> and 2·(2/5) < 1 then give caught mass ≤ ℓ^{−2/5+o(1)}, so for large ℓ a proportion 1 − o(1) of non-residues g works. By Thm D, most non-square classes {1 mod 840, g₀ mod ℓ} are
 > NOI-unprovable and beyond every finite identity covering ("Mordell–Schinzel beyond squares"; ℓ₀ effective, not
-> computed). Explicitly: ℓ = 11, 13 fail at level 1; 17 ≤ ℓ ≤ 101 survive to the computed levels (EVIDENCE). The brief's
-> K = {1 mod 840, (n/11) = −1} remains CONJECTURE: two-prime survivors at (11, 13) ≡ (2, 2), (6, 7) to level ≈ 11³·13².
+> computed). Explicitly: for ℓ = 11, 13 every non-residue profile fails at level 1; 17 ≤ ℓ ≤ 101 survive to the
+> computed levels (EVIDENCE). The brief's K = {1 mod 840, (n/11) = −1} remains CONJECTURE: two-prime survivors only at
+> (11, 13) ≡ (2, 2), to level 11³·13² (all seven families, modulus ≤ 10⁶; upper bounds).
 > For SDEEPF's (S)-word coverings the analogue is PROVED explicitly (Thm S): e.g. {1 mod 840, n ≡ 2, 6 mod 11} is not
 > finitely coverable by good words. SDEEPF's four classes n ≡ 6 (7) are still open.
 
 **Bottom line.**
-* Identity coverings fail beyond the squares. For every large prime ℓ, profiles that are the square 1 at every prime
-  but ℓ, and a non-residue at ℓ, avoid all of Elsholtz–Tao's polynomial families. So ES on such non-square classes is
-  out of reach of Mordell's method and of normal open induction.
-* The proof is a measure count: each family meets these profiles only through ES-type equations at n = ℓ^k, which have
-  ≪ n^{3/5} solutions.
+* Identity coverings fail beyond the squares. For every large prime ℓ, most profiles that are the square 1 at every
+  prime but ℓ, and a non-residue at ℓ, avoid all of Elsholtz–Tao's polynomial families. So ES on such non-square
+  classes is out of reach of Mordell's method and of normal open induction.
+* The proof is a measure count. The families meet these profiles only through ES-type equations on ΣI/ΣII at
+  n = ℓ^k (II-2, I-4/II-1) or n ≤ ℓ^{2k−1} (I-1). Their ℕ-points number n^{3/5+o(1)} resp. n^{2/5+o(1)} (ET §3), and
+  2·(2/5) < 1.
 * For the analogous (S)-coverings the same is proved explicitly by computer for every prime 17 ≤ ℓ ≤ 101 (and ℓ = 11,
   13).
 * The specific K at 11 and SDEEPF's four classes stay open. They need explicit tails at fixed small primes.
@@ -359,26 +403,58 @@ What it buys:
 
 ## 8. Open problems
 * **O1.** Explicit ℓ₀ in Theorem T. This needs an explicit Type II count P_II(n) ≤ C n^{θ}, θ < 1/2, for the I-1 events
-  (ΣII at n = ℓ^{2k−1}). With it, the single-ℓ computations of §3 would become proofs (e.g. ℓ = 17).
+  (ΣII at n = ℓ^{2k−1}). With good enough constants, and possibly deeper enumeration, the single-ℓ computations of §3 could become proofs
+  (e.g. ℓ = 17).
 * **O2.** The brief's K at 11 (two-prime tail at 11, 13), and SDEEPF's four classes n ≡ 6 (7) (two-prime tail at 5, 7).
-* **O3.** The exact shape of U ∩ {e_{ℓ,g}}: is it a Cantor set of positive measure for every ℓ ≥ 17? Is the surviving
-  mass m_ℓ → 1/2 as ℓ → ∞ (Theorem T says yes)?
+* **O3.** The exact shape of U ∩ {e_{ℓ,g}}: is it a Cantor set of positive measure for every ℓ ≥ 17? Theorem T gives that the surviving **non-square** mass m_ℓ tends to 1/2 (the total surviving mass to 1) as ℓ → ∞.
+  What is m_ℓ for small ℓ?
 * **O4.** Does U contain profiles that are non-squares at infinitely many primes? (Not examined.)
 
 
 ## 9. Review log and replay
 
-Internal hostile review: see below (filled after the review).
+**Internal hostile review** (deep-mode subagent; `data/z66/ucover/internal_review.md`). Verdict on the first version:
+REJECT as written. The central Theorem T was judged salvageable and essentially correct. It checked ET §3 and Lemma 2.8
+in the PDF: the counts hold for all ℕ-points without coprimality. It reran the scripts and found no provider error.
+Findings and fixes:
+* **(1) MAJOR.** The two-prime K-enumeration missed mixed-support families; the II-3 class −1215 mod 21736 kills the
+  advertised (6, 7) branch.
+  * Fixed: §5 was rewritten. Added `scripts/z66_ucover_kbrute.py` (all seven families literally, modulus ≤ 10⁶, plus
+    the A/E/F events). Only the (2, 2) branch survives (upper bounds), and K stays CONJECTURE.
+* **(2) MAJOR.** Lemma 1's exact-level "iff" was false for mixed I-4/II-1 classes (example ℓ = 23, residue 12140 mod
+  23³).
+  * Fixed: Lemma 1 is restated with generators. Every catch set lies in a generator cylinder of level ≤ k, and the
+    union over levels is unchanged. Theorem T uses only the generators.
+* **(3) MAJOR.** Quantifiers: "every e_{ℓ,g}" → "every non-residue profile"; "almost every g" → "a proportion
+  1 − o(1) as ℓ → ∞". The bottom line now says "most" and gives the counterexample g ≡ −1 for ℓ ≡ 3 (4).
+* **(4) MAJOR.** The FRONTIER text quoted ℓ^{3k/5} events; it now names the three varieties and the I-1 scale
+  ℓ^{2k−1}.
+* **(5) MAJOR.** Theorem S's certificate used floating point, which underflowed (B_ratio(101, 400) = 0), and the
+  stated ratio < 1/2 failed for ℓ = 3.
+  * Fixed: masses and removals are now exact fractions. The tail uses the explicit majorant of Lemma S2′, evaluated in
+    mpmath interval arithmetic, with a proved geometric remainder. S(b) has its own interval-certified bound
+    (0.3655 at ℓ = 10⁵) and a monotonicity proof.
+  * All certified runs were redone. Same branches survive; worst lower bound 0.0099.
+* **(6) MINOR.** The tail figure now covers ℓ = 11, 13 (≤ 1.07·10⁻³).
+* **(7) MINOR.** §3 now separates the level-k event mass from the new loss of surviving mass. "Stabilises" was
+  replaced by a finite-level observation.
+* **(8) MINOR.** "Only II-2 classes" is now "among the generators", with the II-3 class −207 mod 2288 noted. The family
+  bookkeeping is explicit in the header.
+* **(9) MINOR.** F4 row wording; "astronomically large" ℓ₀ labelled Assessment; O1 and O3 qualified; "finitely
+  coverable" used consistently.
+
+Cross-model review: PENDING.
 
 **Replay** (each under `ulimit -v 4000000`, `timeout 1800`; all runs take seconds to minutes):
 ```
 gcc -O2 -o /tmp/zlev  scripts/z66_ucover_levels.c
 gcc -O2 -o /tmp/zlev2 scripts/z66_ucover_levels2.c
 gcc -O2 -o /tmp/zsw   scripts/z66_ucover_swords.c -lm
-uv run --with sympy python scripts/z66_ucover_brute.py 17 100000      # = brute_17_1e5.txt (also 11, 13, 47)
-uv run python scripts/z66_ucover_tree.py 17 4                         # = tree_k4_17_23.txt (ET, single prime)
-uv run python scripts/z66_ucover_ktree.py 3 2 1000000000              # = ktree_3_2.txt (ET, K-question)
-uv run --with sympy python scripts/z66_ucover_sbrute.py 17 30000 30000 # = sbrute_17_3e4.txt
-uv run python scripts/z66_ucover_stree.py 11 6 11                     # = stree_certified_small.txt block ell=11
-uv run python scripts/z66_ucover_stree.py 17 4 9                      # = stree_certified.txt block ell=17
+uv run --with sympy python scripts/z66_ucover_brute.py 17 100000         # = brute_17_1e5.txt (also 11, 13, 47)
+uv run python scripts/z66_ucover_tree.py 17 4                            # = tree_k4_17_23.txt (ET, single prime)
+uv run --with sympy python scripts/z66_ucover_kbrute.py 1000000 3 2 1    # = kbrute_1e6.txt (K-question)
+uv run --with sympy python scripts/z66_ucover_sbrute.py 17 30000 30000   # = sbrute_17_3e4.txt (also 11, 13 at 1e5)
+uv run --with mpmath python scripts/z66_ucover_stree.py 11 6 11          # = stree_certified_small.txt, block ell=11
+uv run --with mpmath python scripts/z66_ucover_stree.py 17 4 9           # = stree_certified.txt, block ell=17
+uv run --with mpmath python scripts/z66_ucover_sbound.py 100000          # Theorem S(b): 0.3655 < 1/2
 ```

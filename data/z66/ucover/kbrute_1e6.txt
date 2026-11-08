@@ -1,0 +1,6 @@
+# MMAX=1000000: 534 brute cylinders, 1489 with levels2 events
+survivors at (11^2,13^2): 37/8580;  by (g mod 11 -> h mod 13): {2: [2]}
+# MMAX=1000000: 1000 brute cylinders, 4331 with levels2 events
+survivors at (11^3,13^2): 269/94380;  by (g mod 11 -> h mod 13): {2: [2]}
+# MMAX=1000000: 840 brute cylinders, 3805 with levels2 events
+survivors at (11^2,13^3): 397/111540;  by (g mod 11 -> h mod 13): {2: [2]}

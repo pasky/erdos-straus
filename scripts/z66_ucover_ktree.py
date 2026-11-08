@@ -23,7 +23,7 @@ def main():
         for j in range(0, J + 1):
             if k + j == 0:
                 continue
-            r = subprocess.run(["/tmp/zlev2", "11", str(k), "13", str(j), mcap], capture_output=True, text=True)
+            r = subprocess.run(["/tmp/zlev2", "11", str(k), "13", str(j), mcap], capture_output=True, text=True, check=True)
             skipped += [l for l in r.stderr.splitlines() if "SKIPPED" in l]
             cyl = set()
             for line in r.stdout.splitlines():
