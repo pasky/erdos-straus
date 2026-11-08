@@ -1,0 +1,2 @@
+done pmax=100000 primes_without_cyclic_realisation=0: []
+all-mode: TypeII solutions=217781 Harvey-realisable=217781

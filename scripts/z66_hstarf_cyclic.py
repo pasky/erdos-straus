@@ -3,7 +3,7 @@
 Harvey's criterion for signature (0; m1,m2,m3) and G = Z_N: lcm of any two periods = N (= lcm of all three),
 and if N is even, the number of periods divisible by 2^{v2(N)} is even.
 Also brute-force verifies the criterion for small N by searching alpha,beta in Z/N (cross-check).
-usage: uv run scripts/z66_hstarf_cyclic.py PMAX [--verify VMAX]
+usage: uv run scripts/z66_hstarf_cyclic.py PMAX [--verify VMAX] [--all]
 """
 import sys
 from math import gcd
@@ -47,20 +47,27 @@ def brute_cyclic(x, y, z, N):
 
 def main():
     pmax = int(sys.argv[1]); verify = int(sys.argv[sys.argv.index('--verify') + 1]) if '--verify' in sys.argv else 0
-    bad = []; stats = {}
+    allmode = '--all' in sys.argv   # check Harvey for EVERY Type II solution (not just the first)
+    bad = []; stats = {}; ntrip = 0; nharv = 0
     for p in primerange(5, pmax + 1):
         if p % 4 != 1: continue
         tr = type2_triples(p)
         ok = None
         for (a, b, c, d, x, y, z) in tr:
             N = harvey(x, y, z)
-            if N:
-                ok = (a, b, c, d, x, y, z, N); break
+            if allmode:
+                ntrip += 1
+                if N: nharv += 1
+                else: print("HARVEY_FAIL", p, (a, b, c, d))
+            if N and ok is None:
+                ok = (a, b, c, d, x, y, z, N)
+                if not allmode: break
         if ok is None:
             bad.append(p); print("NO_CYCLIC", p, "n_typeII_triples", len(tr), tr[:3])
         elif verify and ok[7] <= verify:
             a, b, c, d, x, y, z, N = ok
             if not brute_cyclic(x, y, z, N): print("HARVEY_MISMATCH", p, ok)
     print(f"done pmax={pmax} primes_without_cyclic_realisation={len(bad)}: {bad[:30]}")
+    if allmode: print(f"all-mode: TypeII solutions={ntrip} Harvey-realisable={nharv}")
 
 main()
