@@ -1,0 +1,2 @@
+primes 5..2000 with fpt_p(x^d+y^d+z^d) != 4/p for d=(p+1)/2: []
+examples: [(5, Fraction(4, 5)), (13, Fraction(4, 13)), (409, Fraction(4, 409))]

@@ -353,6 +353,25 @@ Then char-p construction + lifting could attack realisability of 𝒟(p), as in 
   answer from a fixed family with bounded group would give polynomial-type identities, which are barred on unit-square
   classes (Elsholtz–Tao Prop 1.6, T1). So 𝒟(p) must grow with p, as SWZ's S_p does.
 
+### 5.4 The other EQUIV rows in characteristic p (brief item (2); short)
+* **E4 (lct) has a genuine char-p analogue, the F-pure threshold, and it is a T1-blind relaxation (PROVED from
+  Hernández, arXiv:1112.2425 Thm 3.1, ✔).**
+  * Hernández Thm 3.1: fpt(x^a + y^b + z^c) = ∑⟨1/d⟩_L + 1/p^L, where L is the last digit position (base p,
+    non-terminating expansions) at which the digits of 1/a, 1/b, 1/c add without carrying.
+  * For every prime p ≥ 5, take a = b = c = (p+1)/2. Then 1/d = 0.1 (p−2) … in base p, the first digits add to
+    3 ≤ p − 1, and the second digits add to 3(p − 2) > p − 1. So L = 1 and fpt_p = 3/p + 1/p = **4/p**. Checked exactly for all primes 5 ≤ p < 2000
+    (`scripts/z65_lift_fpt_check.py` → `data/z65/lift/fpt_check.txt`, CERTIFIED).
+  * So the char-p version of "4/p is a threshold of a Brieskorn–Pham germ" holds at every prime, uniformly. Its lct
+    is 6/(p+1) ≠ 4/p. fpt does not lift (fpt ≤ lct, with equality only for p in suitable residue classes), and the
+    statement is blind to the arithmetic of ES.
+  * This illustrates in one line why char-p analogues of the dictionary rows relax away the content.
+* **E2 (stacky line P(u, B), O(p) ≅ ω ⊗ π*O(4C))** is a degree identity, valid verbatim in every characteristic.
+  Char p adds nothing.
+* **E5/E6 (Seifert manifolds, lens spaces, plumbings)** are topological; their algebraic avatars are E3/E11 (covers),
+  treated above.
+* **E9/E10 (ray classes, ℤ[√−p])**: reduction mod p is the Frobenius dictionary already covered by
+  Z60_RAYCLASS.
+
 ## 6. Kill tests (pre-registered at checkpoint 1, commit 4c2ebc54d) — outcomes
 * **KT1 (kill Theorem G): PASSED.** 0 non-Mordell survivors among 11 800 representations (p ≤ 1500); G2 checked
   exactly on the converse example. (CERTIFIED / PROVED)
@@ -407,6 +426,7 @@ exists.
 * ✔ Obus, *Lifting of curves with automorphisms*, arXiv:1703.01191v2: Thm 1.15 (Oort conjecture, [OW14], [Pop14]),
   §5.1 (local Oort groups; SOS89 for v_p ≤ 1), Prop 6.2 (different criterion, [GM98 I 3.4]).
 * ✔ (abstract/title only) Obus–Wewers arXiv:1203.5057; Pop arXiv:1203.1867.
+* ✔ Hernández, *F-invariants of diagonal hypersurfaces*, arXiv:1112.2425v1: Def 2.1, 2.3, 2.5, Thm 3.1.
 * V2 (textbook, not re-read): Serre *Local Fields* IV §1–2 (ramification groups, I = P ⋊ C_m, Prop 9 character
   relation); Liu §9.3 (minimal models); smooth proper base change; Lefschetz fixed-point formula; Macbeath (PSL₂
   generation; used only in a remark).
