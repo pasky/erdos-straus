@@ -99,8 +99,9 @@ needs an error ≪ log² n: B3's scale constraint (FRONTIER §3) applies verbati
 condition was true by construction ((i) is immediate), so KS2 is a recorded scoped no-go, not an experiment: the
 word region is a union of one-point-thick hyperbolas (i), and the completion only re-expresses each per-t divisor
 problem. The Salié identity (twisted Kloosterman sums are sums over square roots mod n) converts a χ_n-weighted count
-over a *thick* region into an unweighted count on a conic, but no thick region whose points are all words (or a
-positive majorant supported on words) exists. *Scope:* this rules out completion over regions of the (A, A*)-plane;
+over a *thick* region into an unweighted count on a conic, but (Assessment) no region of positive area whose
+modular-hyperbola points are all words (or a positive majorant supported on words) is known, and by (i) any region
+meets the words only along single hyperbolas AA* = tn + 1. *Scope:* this rules out completion over regions of the (A, A*)-plane;
 it does not rule out high-multiplicity encodings (B3, Remark 2.4).
 
 ## 3. Kill tests (registered at checkpoint 1) — outcomes
