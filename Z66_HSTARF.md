@@ -221,6 +221,19 @@ and "construct in characteristic p, then lift" does not apply to REAL(p) as it d
   naive abelian problem HAS solutions ((3,18,18) and (10,25,50)), but they violate the prime-like refinement
   (third period not coprime to n) — which is why REAL(n) carries that refinement for composite n.
 * `scripts/z66_hstarf_cyclic.py`: Harvey's criterion holds for every Type II triple, p < 3·10⁵ (785 696 triples).
+* `scripts/z66_hstarf_jacobi.py`: (ab/p) = (q₁/p) = (jd/p) = −1 on all 31 745 Type II solutions with p ≤ 2·10⁴
+  (Prop. 5.2); the mirror equation 4abcd + a + b = p has no solution for 7 primes ≤ 2·10⁴ (5, 13, 17, 97, …).
+* `scripts/z66_hstarf_depth.c` (`data/z66/hstarf/depth_2e6.txt`, `depth_1e8.txt`): for EVERY prime p ≡ 1 (4),
+  p ≤ 10⁸ (2 880 504 primes), the Type II solution with the smallest product m = ad has m ≤ 25; the records are
+  m = 1 (p = 5), 2 (13), 4 (193), 25 (p = 3361: (a,b,c,d) = (5,34,1,5)) and no new record up to 10⁸; mean of the
+  minimal m is 1.245. Cross-checked with an independent sympy enumeration at 14 primes near 10⁸.
+  **EVIDENCE (not a theorem):** "every prime p ≡ 1 (4) satisfies one of the 87 conditions
+  '4a²d + p has a divisor ≡ −1 (mod 4ad)', ad ≤ 25". Heuristically the number of failures below X is of order
+  X/(log X)^{1+D} with D = Σ_{ad ≤ 25} 1/φ(4ad) ≈ 6, i.e. O(1) below 10⁸ but unbounded, so this finite covering is
+  expected to fail eventually (like HC(p) ≤ 64); it is NOT proposed as a theorem, only as the measured search depth.
+* `data/z66/hstarf/typeII_zero_all_1e7.txt`: scan of composites n ≡ 1 (4) up to the 1800 s timeout (range reached
+  is printed in the file's last `done` line, or inferred from its last entry); the non-square exceptions found are
+  listed in §4 addendum below.
 
 ## §5 Proof attempts (what was tried, what is PROVED, where it breaks)
 

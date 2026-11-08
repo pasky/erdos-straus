@@ -1,0 +1,5 @@
+record ad=1 at p=5 (a=1 d=1 q1=3 c=1)
+record ad=2 at p=13 (a=1 d=2 q1=7 c=1)
+record ad=4 at p=193 (a=2 d=2 q1=15 c=1)
+record ad=25 at p=3361 (a=5 d=5 q1=99 c=1)
+done N=100000000 primes=2880504 max_min_ad=25 max_min_q1=33332807 mean_min_ad=1.245
