@@ -25,7 +25,8 @@ N₋(n), N₊(n) = numbers of words with χ_n(A) = −1, +1. Counts "per pair" a
 
 * **(S) (CONJECTURE; HJ_DEEP §3).** For every non-square n ≡ 1 (mod 4) with L₃(n) ≠ ∅ there is a word with
   χ_n(A) = −1. At primes p ≡ 1 (4), p > 5: (S)(p) ⟹ ES(p) (DK Thm 4.5); L₃(p) ≠ ∅ is automatic (bsG_primes_trivial).
-* **Sign dictionary (PROVED, prior work).** χ_n(A) = χ_n(uv) (A ≡ u·v⁻¹ mod n); = (−u/A) = (−t/A) for odd A
+* **Sign dictionary (PROVED, prior work).** χ_n(A) = χ_n(uv) when gcd(uv, n) = 1, automatic at primes (A ≡ u·v⁻¹ mod n; fails at composites, e.g.
+  n = 21, (3,3,3): χ(A) = (8/21) = −1, χ(uv) = 0); = (−u/A) = (−t/A) for odd A
   (n ≡ −u mod A and reciprocity); = −1 iff 4 divides one of t,u,v,A,A* (DK Thm 4.5 / §8.1; elementary proofs in
   FOREST_CONNECTIVITY Thm 2.1 and FOREST_DEEP_FABLE Thm A; endpoint form mod 8: FOREST_DEEP_FABLE Thm B).
 * **Target of this lane** (brief): Σ_{A∈L₃(n)} (1 − χ_n(A)) > 0 — find structure on L₃(n) that a character can see;
@@ -43,7 +44,12 @@ If gcd(tr γ + 2, n) = 1 then (d/n) = ((tr γ + 2)/n); if gcd(tr γ − 2, n) = 
 *Proof.* ad ≡ 1 (mod n), so tr γ ± 2 ≡ d + d⁻¹ ± 2 = (d ± 1)²·d⁻¹ (mod n); take Jacobi symbols. ∎
 *For words.* γ_w = [[A, t],[n, A*]] ∈ SL₂(ℤ) ∩ Γ₀(n) and tr γ_w + 2 = A + A* + 2 = t(u+v). Hence
 **χ_n(A) = (t(u+v)/n) = ((t(u+v) − 4)/n)** whenever these are coprime to n. CERTIFIED on every word (u < v) of every
-prime p ≡ 1 (8), p ≤ 2·10⁶ (37 116 primes; `scripts/z64_sdeep_words.c`, 0 failures). *Class-invariance (corrected after review).* Write s = tr γ_w = A + A* = t(u+v) − 2 and f_w = [n, A* − A, −t]
+prime p ≡ 1 (8), p ≤ 2·10⁶ (37 116 primes; `scripts/z64_sdeep_words.c`, 0 failures). *Prior setup (credit).* γ_w, the form f_w and its discriminant s² − 4, and the box picture on the modular hyperbola
+used in Prop 4 are WINDMILL_REDUCTION §5.2–5.3; only the identity χ_n(A) = ((s+2)/n) is new here. *Relation to
+BRAINSTORM/y1_gamma8_trace Fact G2* (χ is not an SL₂(ℤ)-class function of M_w = S_vS_tS_u, trace n − t; its
+counterexample crosses n mod 4, n = 37 vs 39): no contradiction — (a) below is a positive genus-character statement
+for the different matrix γ_w on n ≡ 1 (4) with s ≢ 0 (4), and sharpens G2's reading.
+*Class-invariance (corrected after review).* Write s = tr γ_w = A + A* = t(u+v) − 2 and f_w = [n, A* − A, −t]
 (discriminant D = s² − 4; primitive at primes). (a) **s ≢ 0 (mod 4): the sign is an invariant of the proper
 SL₂(ℤ)-class of f_w (PROVED, classical genus argument).** Put D₁ = ε(s+2) with ε = ±1 such that D₁ ≡ 1 (mod 4) if s is
 odd (possible since s+2 ≡ s−2 mod 4), and D₁ = s + 2 ≡ 0 (mod 4) if s ≡ 2 (mod 4). Then D₁ is a discriminant, D₁ ∣ D,
@@ -123,7 +129,9 @@ it does not rule out high-multiplicity encodings (B3, Remark 2.4).
   (almost all are identically zero: cells that never occur); among the remaining 110 (≈ 90 distinct), the maximal accuracy of f ⊕ ρ is 0.9981, reached only on
   the domain (3/p) = 1 where (3/p)₄ ⊕ h(−3p)/4 is constant and the feature is already abelian (gain 0); the largest
   gain of any pair is 2.5σ (nominal σ = 0.5/√n; ≈ 2.9 with the empirical null spread ≈ 0.43/√n) at M = 1680 and +0.011 at M = 13440 (of 7 260 pairs; noise); 0 pairs reach 0.99 with a
-  gain > 4σ at either modulus. One non-trivial abelian parity law appears: the number of −1 pairs
+  gain > 4σ at either modulus. Literal registration note: one pair reached 0.9981 ≥ 0.99, which triggered the
+  registered *survive* clause ("examine exceptions"); examination showed ρ = (3/p)₄·h(−3p)/4 is constant on its domain
+  (a dictionary redundancy) and the feature already abelian there (gain 0), and only then was the DEAD verdict issued. One non-trivial abelian parity law appears: the number of −1 pairs
   with min(u,v) ≤ 4 is odd iff (3/p) = −1 (p ≡ 17 mod 24, already a Mordell class).
 * **Verdict: KS1 fired — NAP dead on this dictionary.** Scope: parities of the listed sub-counts versus the listed
   invariants and their pairwise products, p ≤ 2·10⁶. Not tested: mod-4 or mod-8 laws, weighted sub-counts, other
@@ -162,7 +170,8 @@ DK 10.2). Hardest among p ≡ 1 (8) ≤ 2·10⁶: 21841 (1 −1 pair of 10; leas
 "(S) with a prime certificate": some −1 pair has A or A* prime (equivalently: some n + u has a *prime* factor
 q ≡ −1 (mod u), 2u − 1 ≤ q ≤ (n+u)/2, with the right cell). `scripts/z64_sdeep_primeA.c` →
 `data/z64/sdeep/primeA_2e7.txt`: among the 317 477 primes p ≡ 1 (8), p ≤ 2·10⁷, it fails only at **20521, 21841,
-589681**. The mean number of prime-certificate −1 pairs is ≈ c(p)·log p with c = 0.81, 0.89, 0.94, 0.97 in the decades
+589681**. Failure means every −1 pair has both A and A* composite. The mean (over primes p ≡ 1 (8) in each decade) number of
+prime-certificate −1 pairs is ≈ c(p)·log p with c = 0.81, 0.89, 0.94, 0.97 in the decades
 10⁴, 10⁵, 10⁶, 10⁷; the measured c(p) is ≤ 0.97 everywhere; extrapolations give c∞ ≈ 1.2–1.3 (fit c∞ − b/log p) or ≈ 1.5–1.6 (other
 fits, smaller residuals) — model-dependent. *Assessment:* in a Poisson model the failure probability is ≈ p^{−c},
 so prime-only (S) is expected to have finitely many exceptions only if c∞ > 1 (for c ≤ 1 the expected number of
@@ -238,7 +247,7 @@ products (CLASS_FORCING §6 "full factor multiset"); mod-4/8 (not mod-2) laws of
 * Fixed p: no averaging used; but no pointwise mechanism found.
 
 ## 8. Proposed FRONTIER text (do NOT edit FRONTIER here)
-*§6 / z64 block (SDEEP, `Z64_SDEEP.md`):* Conjecture (S) as a character-value problem. PROVED (new): for γ ∈ Γ₀(n),
+*§6 / z64 block (SDEEP, `Z64_SDEEP.md`; setup γ_w / f_w / modular-hyperbola box from WINDMILL_REDUCTION §5.2–5.3):* Conjecture (S) as a character-value problem. PROVED (new): for γ ∈ Γ₀(n),
 (d/n) = ((tr γ ± 2)/n), so the sign of a word is (t(u+v)/n) (trace form; a genus-character value of the form class when
 tr ≢ 0 (mod 4), not class-invariant when tr ≡ 0 (mod 4) — Z2825). Restating DEDEKIND_ES §8.1: the sign on L₃(n) is the n-free mod-4
 cell function, so on n with L₃(n) ≠ ∅, (S) ⟺ the integral points of tuv − u − v = n escape the five cells C₊ (T1: at
@@ -280,3 +289,14 @@ hostile brief (report `/tmp/z64_sdeep_review.md`, not committed). 0 FATAL, 5 MAJ
   run after review: `data/z64/sdeep/ks0_screens_full.txt`, no failure.
 The reviewer independently re-ran all computations (words/KS1 byte-identical; decider vs independent brute force to
 20 000 and PARI on sample rows; prime-A census) and re-derived Lemmas 1–2, Prop 3, Prop 4 (i) and the §4(a) algebra.
+
+## 11. Cross-model review (`data/z64/xreview/REVIEW_SDEEP.md`: ACCEPT-WITH-FIXES) — fixes applied
+The reviewer (Opus standing in; independent PARI/sympy scripts) reproduced Lemma 1 (265 362 words), the class-invariance
+claim and Z2825 pair, Lemma 2 (1 280 cells mod 16, 375 274 words), KS0 (all 357 screen rows, 14 full and 400 early
+rows), KS1 (byte-identical report), the u ≤ 4 abelian law and the prime-A failures ≤ 7·10⁵. Required fixes applied:
+(1) sign dictionary χ_n(A) = χ_n(uv) now requires gcd(uv, n) = 1 (counterexample n = 21, (3,3,3));
+(2) WINDMILL_REDUCTION §5.2–5.3 credited for γ_w / f_w / the modular-hyperbola box (§2, §8), and Lemma 1(a) related to
+y1_gamma8_trace Fact G2 (different matrix; G2's counterexample crosses n mod 4; no contradiction);
+(3) KS1: stated that the registered survive clause was triggered (0.9981) and resolved as a constant-ρ redundancy
+with gain 0 before the DEAD verdict;
+(4) prime-A: decade means are over p ≡ 1 (8); failure ⟺ every −1 pair has A and A* composite.
