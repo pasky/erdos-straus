@@ -17,6 +17,19 @@ Falsifiers to be answered at the end (§F):
 
 Status key: PROVED / CONDITIONAL (on what) / CERTIFIED (computation) / EVIDENCE.
 
+**Summary of results (no proof of (S); no HOT LEAD).**
+* Thm 2.1 (PROVED): for a word (t,u,v) of n ≡ 1 (4), (A/n) = −1 ⇔ 8 | (n+t)(n+u+v). So (S) is a purely
+  2-adic statement about the solutions of n + u + v = tuv (verified on all 4.1·10⁹ words of n ≤ 10⁸).
+* Thm 3.1 (PROVED): (S) for n ≡ 5 (8) [word (3,3,(n+3)/8)], n ≡ 2 (3) [((n+7)/12, 4, 3)], n ≡ 3 (9)
+  [((n+15)/36, 3, 12)].
+* Thm 3.7 (PROVED + CERTIFIED): Mordell-type covering — (S) holds for all non-square n ≡ 1 (4) outside 28
+  explicit classes mod 840 (the 24 odd-square classes, provably irreducible by finite coverings, Prop. 3.5,
+  plus four classes with n ≡ 6 (7)); 77 universal words, two independent checkers.
+* Thm 4.1 (PROVED given Landau): counterexamples to (S) up to x number ≪ x/√log x; Thm 4.2 (given a
+  textbook sieve bound): ≪_B x (log x)^{−B} for every B.
+* §5: why the remaining classes are ES-hard (words are sparse "divisor-in-a-residue-class" objects; the
+  only global input is the non-triviality of (·/n), which no finite covering or fixed-level family can use).
+
 ## §1 Setup and basic identities (PROVED)
 
 Throughout n ≡ 1 (mod 4), t, u, v ≥ 2, n = tuv − u − v, A := tu − 1, B := tv − 1.
@@ -214,7 +227,8 @@ the 13 742 classes lying over 𝔈 (output `cover2_1441440.txt`). `scripts/z64_s
 independently re-verifies, with direct Jacobi evaluation only, that for each of the 312 312 classes mod L
 not over 𝔈 one of the 77 listed words applies with (A/n) = −1 on two representatives (`cover_check.txt`),
 and that the word exists for n ≥ 24529. (3) The same computation with L = 2⁵·3³·5·7²·11·13 = 30 270 240
-(`cover2_30270240.txt`) leaves exactly the same 28 classes uncovered. ∎
+(`cover2_30270240.txt`), with L = 2⁵·3²·5·7·11·13·17 and with L = 2⁵·3²·5·7·11·13·19 leaves exactly the
+same 28 classes uncovered (coverage inside them rises, e.g. to 96 % in class 769, but never to 100 %). ∎
 *Remarks.* (i) This is the (S)-analogue of Mordell's reduction of Erdős–Straus to the six classes 𝔐 =
 {1, 121, 169, 289, 361, 529}; (S) is harder: the 24 odd-square classes are irreducible by any finite
 covering (Prop. 3.5), and the four classes n ≡ 6 (7) above are irreducible by the 2⁵·3³·5·7²·11·13
