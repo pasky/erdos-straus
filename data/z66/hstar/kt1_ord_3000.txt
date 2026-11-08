@@ -1,0 +1,6 @@
+primes p=1 (4), 5<=p<=3000: 211; representations: 8334
+reps with an entry p*k (k>=2, p∤k): p=1 (12): 3478, p=5 (12): 4856
+reps WITHOUT such an entry that are Mordell triples (m,p,pm), 3m-1=p: 0
+reps WITHOUT such an entry, NOT Mordell (Lemma Ord counterexamples): 0
+reps with p^2 | an entry: 0
+KT1: PASSED
