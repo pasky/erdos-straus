@@ -131,8 +131,8 @@ So (S) is open only for **n ≡ 1 (mod 24)** and for **n ≡ 9 (mod 24) with n �
 2 ≤ u ≤ (A+1)/2 and (−u/A) = −1. Then every n ≡ 1 (mod 4) with n ≡ −u (mod A) and n ≥ 2A − u has the good
 word ((A+1)/u, u, (n+u)/A). (Lemma 1.1(e).) Examples: A = 5, u ∈ {2, 3}: n ≡ 3, 2 (mod 5); A = 7, u ∈ {2, 4}:
 n ≡ 5, 3 (mod 7); A = 11, u ∈ {3, 4}: n ≡ 8, 7 (mod 11); A = 13, u ∈ {2, 7}: n ≡ 11, 6 (mod 13). The class
-n ≡ 6 (mod 7) (where (7/n) = −1) is NOT of this form for A = 7 (it would need u = 1); the smallest universal
-word there is A = 63, u = 8: n ≡ 55 (mod 63).
+n ≡ 6 (mod 7) (where (7/n) = −1) is NOT of this form for A = 7 (it would need u = 1); among denominators
+A ≡ 0 (mod 7) the first universal word inside n ≡ 6 (mod 7) is A = 63, u = 8: n ≡ 55 (mod 63).
 
 **Proposition 3.2 (the "4 | u" family is always good; PROVED).** Let u ≡ 0 (mod 4), v ≡ 3 (mod 4), and
 n ≡ −(u+v) (mod uv) with n ≥ 2uv − u − v. Then t := (n+u+v)/(uv) ≥ 2 is an integer, (t, u, v) is a
@@ -234,3 +234,79 @@ escape_counts.txt).** Among the 1 248 419 non-square n ≡ 1 (8), n ≤ 10⁷: 3
 The fractions decrease with x as the theorems predict (e.g. (1)–(6): 1.77 %, 1.28 %, 0.86 % at
 x = 10⁵, 10⁶, 10⁷) — logarithmically slowly. Every escaping n still has a good word (crit8 run), of
 course with larger (u, v, t).
+
+## §5 What a proof of (S) must do (structural reformulation; honest assessment)
+
+By Theorem 2.1, (S) is *equivalent* to the following purely 2-adic/divisor statement:
+
+> **(S′)** If n ≡ 1 (mod 4) is not a square and n + u + v = tuv has a solution t, u, v ≥ 2, then it has
+> one with 8 | (n + t)(n + u + v).
+
+For n ≡ 1 (mod 8) the condition reads 8 | (t + 1)(u + v + 1). In the (W_u) parametrisation, for
+n ≡ 1 (mod 8): a word (u, A | n+u, A ≡ −1 mod u) is good iff (−u/A′) = −1 where A′ is the odd part of A
+(Lemma 1.1(e) plus (2/n) = 1). So (S) for n ≡ 1 (mod 8) says: *for some u, n + u has a divisor
+A ≡ −1 (mod u) in the range [2u−1, (n+u)/2] whose odd part is a non-residue for the character (−u/·)* —
+equivalently, **n is a quadratic non-residue modulo some word denominator A** ((A/n) = (n/A) for odd A).
+So (S) is a "least non-residue"-type statement restricted to the sparse set of word denominators: the
+set W(n) of denominators has ≍ (log n)² elements on average, and a counterexample would be an n for
+which (·/n) is trivial on all of W(n) — exactly the behaviour of squares (Cor. 2.2).
+
+Why the obvious routes stop (all three observations PROVED above or classical):
+1. Finite residue-class coverings (universal words, Prop. 3.1′/3.2) cannot work on classes where n is a
+   square modulo the relevant moduli (Prop. 3.5) — the Jacobi-language form of Schinzel's obstruction.
+   Numerically (§6) 170 of the 210 classes mod 840 have bounded minimal good denominator up to 2·10⁷
+   (plausibly finitely covered), 40 do not; the worst are the classes 3 | n, n ≡ 1 (8).
+2. Fixed-level families (t fixed: factorisations of tn + 1; or u fixed: divisors of n + u) give good
+   words exactly when a shifted/multiplied n has a prime factor in a prescribed class (Prop. 3.3). For a
+   *single* n nothing forces such a prime factor; on average the failure set has density (log x)^{−δ}
+   (§4). Unboundedly many families → density (log x)^{−∞} (Thm 4.2), still not emptiness.
+3. The Jacobi value of a word is 2-adically determined (Thm 2.1), so no analytic "sign cancellation"
+   argument over words is available: for a given n all words could a priori sit in bad classes, and the
+   only global input distinguishing n from a square is the non-triviality of (·/n), which must be
+   transported to the sparse set W(n). Pell/Vieta-type involutions on words do not exist (the equation
+   is linear in each of t, u, v; for fixed t it is a divisor problem).
+Conclusion (honest): I did not find a proof of (S) for the classes n ≡ 1, 9, 33 (mod 72); the results
+proved here are Theorems 2.1, 3.1, Props. 3.1′–3.5, Thm 4.1, and Thm 4.2 conditional on a textbook sieve
+bound. No HOT LEAD.
+
+## §6 EVIDENCE (all CERTIFIED by the listed scripts; data in data/z64/sdeepf/)
+
+* `crit8_2e7.txt`: all 674 224 160 words of all n ≤ 2·10⁷: criterion of Thm 2.1 exact; (S) holds for every
+  non-square n ≤ 2·10⁷ having a word; squares never have good words.
+* `flags_2e6.bin` + `z64_sdeepf_families.c` output (run log in this memo's commit message history / rerun
+  `./families 2000000 25`): among 249 292 non-square n ≡ 1 (8), n ≤ 2·10⁶ with words, the number lacking a
+  good word in a given sub-family: 4 | t: 472; 4 | u or 4 | v: 54 (incl. primes 13, 193, 2521, 21841,
+  66529); t ≡ 3 (4) with u or v even: 1297; t ≡ 2 (4) with u or v ≡ 3 (4): 4826; t ≡ −n (8): 477;
+  u = 4 or v = 4 exactly: 85 102; t = 4: 97 861. So (F2) no single sub-family is universal, but the
+  union of the "always good" families 4|t, 4|u, 4|v, t ≡ 3 (4) & uv even, t ≡ 2 (4) & (u or v ≡ 3 (4)),
+  t ≡ −n (8) is the whole GOOD set and is never empty when words exist (n ≤ 2·10⁷).
+* `f4_witnesses.txt`: explicit good words for all 14 primes of star_prime_zeros, all 38 of gstar_zeros,
+  all 12 of r8_zeros_1e10 (found by direct Jacobi evaluation, sub-family-free search), and for 284/285
+  composites of composite_zeros_le8e6 — the exception n = 105 has no word at all (vacuous for (S)).
+* `escape_counts.txt`: §4 — fraction of n ≡ 1 (8) escaping the explicit criteria: 0.86 % for (1)–(6) at
+  10⁷, decreasing with x.
+* `minA_mod840_2e7.txt`: per class r mod 840 the largest minimal good denominator. Bounded (≤ 100) for 170
+  classes; largest values: r = 681: 13 967 (n = 3 561 441), 345: 9392, 225: 8039, 105: 4639, 609: 4234 —
+  all with 3 | r, r ≡ 1 (8); Mordell's classes 𝔐 = {1, 121, 169, 289, 361, 529}: 1519, 1356, 905, 804,
+  1154, 779. The 3 | n classes are the hardest for length-3 words (for n ≡ 9 (24) the universal word
+  ((n+5)/6, 3, 2) does not exist and ((n+15)/36, 3, 12) needs 3 ∥ n).
+
+## §F Falsifiers (re-stated)
+
+* **F1 (odd squares).** Theorem 2.1 is valid for squares and yields Cor. 2.2: squares have no good words
+  at all. Every statement proved here uses non-squareness exactly where it must: Theorem 3.1(a) via
+  n ≡ 5 (8) (squares are 1 mod 8), (b) via n ≡ 2 (3), (c) via 3 ∥ n; Prop. 3.3 via the existence of a
+  prime factor in a non-residue class of n+u / tn+1 (for n = m² every prime factor q of m² + u has
+  (−u/q) = +1, of tm² + 1 has (−t/q) = +1, so the hypotheses are never met); Thm 4.1/4.2 bound a set that
+  contains the squares (upper bounds only). No argument here claims (S) for a class containing squares.
+* **F2 (sub-families).** Checked on both screen files (§6, `f4_witnesses.txt`, `families` output): the
+  always-good sub-families 4|t, 4|u, t ≡ 3 (4)&uv even, … each miss some screened primes (e.g. 4|t misses
+  409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201; "4|u or 4|v"
+  misses none of the screened primes but misses the primes 13, 193, 2521, 21841, 66529). No theorem above
+  asserts universality of a sub-family; Theorems 3.1(a–c) are statements about residue classes with
+  explicit witnesses, valid for every n in the class (checked numerically to 2·10⁷ as part of crit8).
+* **F3 (composites).** Nothing uses primality. Theorem 3.1 and Props. 3.1′–3.3 hold for all n ≡ 1 (4) in
+  the stated classes, composite or not; Thm 4.1/4.2 count all n. The only composite-specific phenomenon
+  is wordlessness (n = 105), which makes (S) vacuous there.
+* **F4.** All 14 + 38 primes satisfy (S) with explicit witnesses (`f4_witnesses.txt`), e.g. 409:
+  found by the search; 564661441: (2, 7, 43435496), A = 13, (13/564661441) = −1.
