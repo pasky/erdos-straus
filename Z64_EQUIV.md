@@ -7,8 +7,8 @@ and access dates in `data/z64/equiv/sources/*.md`, gathered by three research su
 marked ✔).
 
 **Verdict: narrowed.** No HOT LEAD. One genuinely new precedent class for the Z63 catalogue (prime-degree Hurwitz
-existence, a claimed 2026 theorem proved in residue characteristic p), a proved dictionary of fourteen cross-field
-equivalences with their native tools screened, and a scoped explanation of why every *formula-level* dictionary is
+existence, a claimed 2026 theorem proved in residue characteristic p), a dictionary of fourteen cross-field rows (ten
+proved equivalences, one proved implication chain, three quoted rows) with their native tools screened, and a scoped explanation of why every *formula-level* dictionary is
 circular.
 
 ## 0. Bottom line
@@ -22,9 +22,9 @@ circular.
    * For **every** composite degree there is an explicit non-realisable datum (EKS Prop. 5.7).
    * Some families are realisable exactly at the degrees x² + y² (Petronio's survey, Thm 3.13). These contain all
      primes ≡ 1 (4) and fail on a density-1 set of degrees.
-   Z63 also omitted, or listed only implicitly, five further classes that the repository knows elsewhere: Elkies-type
-   sign forcing, Legendre's negative Pell, the Holzer/Minkowski O(1) window, realisation theorems
-   (Deuring–Waterhouse), and finite-criterion universality (15/290). §3.1 tabulates them with sources.
+   Z63 also omitted classes that the repository knows elsewhere: Elkies-type sign forcing, Legendre's negative Pell,
+   realisation theorems (Deuring–Waterhouse) and finite-criterion universality (15/290). The Holzer/Minkowski O(1)
+   window is a sharper row of a class Z63 already has (A6). §3.1 tabulates them with sources.
 2. **None of the prime-exact mechanisms transfers** (§3.3; Assessment, with one CONDITIONAL lemma). Each uses
    primality at a step ES has no counterpart for:
    * a geometric statement over an algebraically closed field of characteristic p (Hurwitz);
@@ -33,24 +33,27 @@ circular.
 
    ES needs a ℤ-point (an arithmetic witness). Lemma H (CONDITIONAL on the SWZ theorem): no family of branch data has
    prime-degree realisability equivalent to R(p) ≥ 1. The revised gap statement is in §3.4.
-3. **Fourteen equivalences, proved with exact quantifiers** (§4). They span:
+3. **Fourteen dictionary rows** (§4): ten equivalences proved with exact quantifiers (E1–E10), one proved
+   implication chain (E11) and three quoted rows (E12–E14). They span:
    * numerical semigroups (k-Frobenius numbers);
    * stacky curves;
-   * Riemann surfaces and 2-orbifolds (new Lemma A: ES(n) ⟺ some (X, G) has |G|(n − 4) = n(2g − 2), for every odd
-     n ≥ 5);
+   * Riemann surfaces and 2-orbifolds (Lemma A: ES(n) ⟺ some (X, G) has |G|(n − 4) = n(2g − 2), for every odd
+     n ≥ 5. The triangle-orbifold form is known (Z0153, MathOverflow 267209). New here: the automorphism form and
+     the exclusion of every signature other than r = 3);
    * singularity theory (lct);
    * pretzel links and Seifert manifolds;
-   * lens spaces and definite fillings (new: the C = 1 line of (★) is the line whose plumbing contains a (−4) vertex,
-     i.e. a rational-blowdown configuration of Aceto–McCoy–Park);
-   * Lorenzini's critical polynomial (the critical-group pairing *is* the (S) sign);
+   * lens spaces and definite fillings (new: the (★) chains whose canonical plumbing is not b₂-minimal in the sense
+     of Aceto–McCoy–Park are exactly those with C = 1, a *middle* (−4) vertex, or u = 4 or B = 4, an end (−4)
+     vertex);
+   * Lorenzini's critical polynomial (the critical-group discriminant form *is* the (S) sign);
    * SL₂(ℤ), Farey edges and toral automorphisms;
    * cyclotomic Frobenius classes and ℤ[√−p] ideals;
    * Fermat-curve quotients (new: (★) triples are lcm-balanced and always cyclically realisable);
    * q-series;
    * TFNP.
    Each comes with its catalogue ID where one exists (`ES_CONNECTIONS_TODO.md`).
-4. **Why they are circular** (§5; PROVED in the scoped sense stated there, plus an Assessment). Every native existence
-   tool met falls into one of four types:
+4. **Why they are circular** (§5; Assessment, with two PROVED pieces: the type-I observation and Lemma R). Every
+   native existence tool met falls into one of four types:
    * (I) realisation from parameter data: the data are the certificate;
    * (II) universality or density theorems, which hold only after a relaxation that is T1-blind or averaged
      (Lemma R: each proved relaxation holds at odd squares or is only an average);
@@ -68,21 +71,25 @@ circular.
 An *equivalence* is the same statement in other coordinates, so it inherits F1–F4 verbatim. The screens therefore bite
 on the **native tool** of the target field. Column entries say what the field's best native tool does on each screen.
 
-| row (§4) | F1 odd squares | F2 C-even / 8/131 | F3 composites | F4 known zeros | verdict |
+Convention for the cells: a "type I" tool needs the certificate as input, so on every screen it returns exactly the
+truth value of the target, with no independent force. "blind" means the tool's hypotheses do not depend on the
+screened property, so applied verbatim it would prove the target on the screened set too, where the target is false.
+
+| row (§4) | F1 odd squares | F2 C-even / 8/131 | F3 composites (285 R-zeros; Z₇; 4545) | F4 known zeros (14 (★), 38 𝔊*) | verdict |
 |---|---|---|---|---|---|
-| E1 k-Frobenius | inverse theorems (Rosales: every g is a 3-generator Frobenius number; odd g = F(2, g+2)) are input-blind, true at m² | level k ≡ 3 (4) is not controlled by any inverse theorem | input-blind | no tool sees them | circular / relaxation |
-| E3 orbifold χ, Aut(X) | ES itself holds at m² (no T1 for ES); realisation (Selberg/Fox) needs the signature = certificate | — | — | — | circular (I) |
-| E4 lct | 4/n ∈ lct(ℂ²) for all n ≥ 6 (Lemma R(b)), so the full lct statement is true at squares and everywhere | — | — | — | relaxation (II) |
-| E5 pretzel / Seifert | invariants are computed from (x, y, z) | — | — | — | circular (I) |
-| E6 lens space / plumbing (S) | the Jacobi −1 class is empty at m² (statement-level F1); Donaldson/HF tools are obstructions | C = 1 ↔ (−4) vertex; C even not distinguished | — | — | obstruction (III) |
-| E7 Lorenzini (W)/(S) | (W) is true at m² ≥ 25 (T1-blind); Wang–Lu density theorem is averaged | — | (W) exceptions finite (to 10⁹) | — | relaxation (II) |
-| E8 SL₂ / Farey / cat map | structure of SL₂(ℤ) is p-blind | — | — | — | circular (I) |
-| E9–E10 ray class / ℤ[√−p] | genus layer free (SPARKS9); class-level forcing not available | — | — | — | covered (IV, RAYCLASS) |
-| E11 Fermat quotients | genus formula only | — | — | — | circular (I) |
-| E12 q-series | Thm K; coefficient positivity not available pointwise | — | — | — | covered (AUTOMORPH) |
-| E13 Hurwitz / dessins | uniform data ↔ signature | — | — | — | circular (I) |
-| E14 TFNP | totality by a syntactic principle ⟹ a parity/pigeonhole/potential argument, screened in Z62/Z61 | — | — | — | covered |
-| §3.3 Hurwitz prime degree (precedent) | composite degrees fail (EKS 5.7); ES's square failures have no Hurwitz counterpart | — | Lemma H: prime-degree realisability carries no (★) information (CONDITIONAL) | — | no transfer |
+| E1 k-Frobenius | inverse theorems (Rosales Thm 1.11; odd g = F(2, g+2)) hold at m²: blind (Lemma R(c)) | no inverse theorem controls k mod 4, let alone the parity of C = (k+1)/4 | inverse theorems are primality-blind | no tool output distinguishes them | circular / relaxation (II) |
+| E3 orbifold χ, Aut(X) | ES has no T1, so nothing to screen; the (★)-version would need the signature (uBC, pBC, puC) = certificate | numerator 8: the same Lemma A for 8/n (casework changes only in r = 4, 5) | Selberg's lemma is input-blind | type I | circular (I) |
+| E4 lct | 4/m² ∈ lct(ℂ²): blind (Lemma R(b)) | the diagonal stratum for 8/131 is empty (8/131 has no 3-term representation), but the full lct statement holds there: blind | blind | blind | relaxation (II) |
+| E5 pretzel / Seifert | invariants are computed from (x, y, z) | type I | type I | type I | circular (I) |
+| E6 lens space / plumbing | statement-level: no Jacobi −1 class at m². Tools (Donaldson, d, Lisca, AMP) are obstructions; Lisca's rational balls *exist* at squares | the C = 1 / end-4 non-minimality locus (AMP) is one parity class of C; C even is not otherwise seen | obstruction tools are not primality-specific | no obstruction applies to an absent chain | obstruction (III) |
+| E7 Lorenzini (W)/(S) | (W) holds at m² for 3 ∤ m (PROVED) and for all odd 25 ≤ m² < 10⁹ (census, EVIDENCE): blind. Wang–Lu density is averaged | the critical-group sign law (A/p) = −(−1/p) on Type II words is numerator-blind | (W) is false only on E_W (conjecturally), so the (W) tools are blind on the 285 | blind | relaxation (II) |
+| E8 SL₂ / Farey / cat map | SL₂(ℤ) structure is p-blind | type I | type I | type I | circular (I) |
+| E9–E10 ray class / ℤ[√−p] | genus layer free (SPARKS9 Prop 2.2); class-level forcing not available | covered in RAYCLASS | covered | covered | covered (IV) |
+| E11 Fermat quotients | genus formula only | type I | type I | type I | circular (I) |
+| E12 q-series | Thm K is T1-exact; single-coefficient positivity is not available | covered (AUTOMORPH) | covered | covered | covered |
+| E13 Hurwitz / dessins | uniform data = signature | type I | type I | type I | circular (I) |
+| E14 TFNP | a syntactic totality proof is a parity / pigeonhole / potential argument (Z62 P0, Z61) | covered | covered | covered (Z62: uniform parity refuted by the 14 zeros) | covered |
+| §3.3 Hurwitz prime degree (precedent) | composite degrees fail (EKS 5.7); ES's square failures have no Hurwitz counterpart | — | Lemma H: prime-degree realisability carries no (★) information (CONDITIONAL) | R(409) = 0 while every degree-409 datum is realisable (SWZ) | no transfer |
 
 No row survives all four screens with a working native tool. **No HOT LEAD.**
 
@@ -112,8 +119,9 @@ holds, the row says so.
   Most of these were never *proved* as equivalences with exact quantifiers. The z52d avenue layer judged them
   "circular" item by item, without a stated reason.
 * The prime-degree Hurwitz theorem, Aceto–McCoy–Park's definite-filling classification and rational blowdown are
-  absent from the repository: `git grep` finds 0 hits for "rational blow", "Aceto", "Wewers" and "prime-degree
-  conjecture" outside this lane.
+  absent from the repository: `git grep` finds 0 substantive hits for "rational blow", "Aceto", "Wewers" and
+  "prime-degree conjecture" outside this lane. (One stray substring match for "Aceto" in a JSON file; one citation
+  of Obus–Wewers in `sources/lorenzini/`.)
 * Z63_PRECEDENT's table was never cross-checked against those classes.
 
 Closed items (z53 brief list, FRONTIER §6) are not redone.
@@ -138,7 +146,7 @@ against a fresh literature pass. Sources: `data/z64/equiv/sources/precedent_nt.m
 | (RT) realisation theorems | Waterhouse, Ann. Sci. ÉNS 2 (1969) Thm 4.1: for q = p every \|t\| ≤ 2√p is a Frobenius trace | V | P1, P4; P3 fails (CM lifting) | power (≍ H(t² − 4p) ≈ √p) | primality makes "every t" clean (prime powers restrict p \| t) | Deuring: 98 hits, never as a precedent row |
 | (FC) finite-criterion universality | 15-theorem (Bhargava, Contemp. Math. 272, Thm 1); 290-theorem (Bhargava–Hanke preprint, Thm 1) | V | P1, P3, P4 (290: unpublished); fails P2 | power (r_Q(n) ≈ n^{1−ε}) | none; needs ≥ 4 variables (ternary forms are never universal) | catalogue tag FIFTEEN only |
 | (RG) unipotent rigidity | Oppenheim (Margulis); polynomial rate only for algebraic ternary forms (Lindenstrauss–Mohammadi–Wang–Yang arXiv:2305.18271 Thm 1.1) | V/V2 | P1 (qualitative), P3, P4; fails P2 | power | irrationality of Q | no |
-| (EF) Egyptian-fraction Fourier / constructive | Croot, Annals 157 (2003); Bloom (arXiv 2021) Thms 2–3; Liu–Sawhney (arXiv 2024) Thms 1.1–1.3; Graham, J. Austral. Math. Soc. 3 (1963) Thm 1 (every n > 77); Breusch/Stewart (odd denominators; via Graham, Proc. LMS 14 (1964)) | V | P1 for a prescribed set or colouring; P3, P4; fail P2 | exponential / thick | none (density or colour classes) | Croot/Bloom cited 190/172 times, not as Z63 rows |
+| (EF) Egyptian-fraction Fourier / constructive | Croot, Annals 157 (2003); Bloom (arXiv 2021) Thms 2–3; Liu–Sawhney (arXiv 2024) Thms 1.1–1.3; Graham, J. Austral. Math. Soc. 3 (1963) Thm 1 (every n > 77); Breusch/Stewart (odd denominators; via Graham, Proc. LMS 14 (1964)) | V (Breusch/Stewart V2) | P1 for a prescribed set or colouring; P3, P4; fail P2 | exponential / thick | none (density or colour classes) | Croot/Bloom cited 190/172 times, not as Z63 rows |
 | (open, H-tier) | Lehmer: τ(n) ≠ 0 (open; verified n < 8.16·10²³, Derickx–van Hoeij–Zeng arXiv:1312.6819 Cor 1.2); Hadamard conjecture (smallest open order 2396 per Egan–Kotsireas–London–Ó Catháin arXiv:2610.27175 §4; V, recent survey, not re-checked by me) | V | — | Lehmer: a *non-existence* conjecture (expected number of zeros finite) | — | Lehmer: Mahler-measure sense only |
 
 *Reading (Assessment).*
@@ -157,8 +165,8 @@ against a fresh literature pass. Sources: `data/z64/equiv/sources/precedent_nt.m
   results of Edmonds–Kulkarni–Stong then give the assertion for an arbitrary number of branch values."
 * **Where primality enters.**
   * Lemma 2.5: for P ≤ S_p generated by a p-cycle, C_{S_p}(P) = P and N_{S_p}(P) = P ⋊ 𝔽_p^×.
-  * The lifting interface (Thm 4.8) works over an algebraically closed k of characteristic p, with G ≤ S_p,
-    p ∥ |G| and a regular subgroup P = C_p.
+  * The lifting interface (Thm 4.8, stated for odd p) works over an algebraically closed k of characteristic p, with
+    G ≤ S_p, p ∥ |G| and a regular subgroup P = C_p.
   * So the degree p is used three ways: as a characteristic, as the order of a regular subgroup, and through the
     affine normaliser.
 * **Composite failure.** EKS 1984 p. 774: "If d is not prime, then there exists 𝒟 ∈ A(d) which is not the branch data
@@ -195,6 +203,10 @@ with deg 𝒟(d) = d. Then the statement "𝒟(p) is realisable ⟺ R(p) ≥ 1, 
 
 *Proof.* By SWZ every 𝒟(p) is realisable, while R(409) = 0 (FRONTIER §2.1, CERTIFIED). ∎
 
+*Scope.* The lemma is deliberately weak. It concerns only families with degree exactly p, and it uses only the
+conclusion of SWZ (SWZ Thm 4.8 is stated for odd p; p = 2 is handled separately in their §8). For data in which all
+but one profile is a pure cycle it is unconditional, by Chenakkod–Faraco–Gupta Cor 9.6 as cited by SWZ (V2).
+
 So prime-degree realisability carries no (★) information. A transfer would have to use the *mechanism* (characteristic
 p, regular C_p), not the theorem. The table's first row says why the mechanism does not reach ℤ-points.
 
@@ -218,7 +230,8 @@ count) by an argument that uses primality only through such a structure. B2's ce
 
 ## 4. The equivalence table (ranked) and proofs
 
-**Ranking.** Rows are ranked by how much a field-native tool could plausibly do. A row ranks higher if the target
+**Ranking.** (Falsifier behaviour of each row's native tools: §1 table.) Rows are ranked by how much a field-native
+tool could plausibly do. A row ranks higher if the target
 field (a) has an active community working on exactly the transported question, and (b) has a non-trivial structure
 theory for the transported objects. Pure relabellings rank lowest. "Type" refers to the tool classes of §5:
 * I = realisation from data (circular);
@@ -228,8 +241,8 @@ theory for the transported objects. Pure relabellings rank lowest. "Type" refers
 
 | rank | ID | equivalence (proved in §4.x) | field | native tool(s) | might / might not apply | type | catalogue |
 |---|---|---|---|---|---|---|---|
-| 1 | E7 | (W)(n) ⟺ n ∈ d_{A₃}(ℤ³_{≥2}) (Lorenzini's critical polynomial of the path A₃); **(S)(n) ⟺ some x ∈ ℤ³_{≥2} with d_{A₃}(x) = n has critical-group discriminant form ⟨A/n⟩ of Jacobi symbol −1**; CONV-II(n) ⟺ some multiple cn is a formal A₃-value with middle weight ≡ 0 (mod 4c) | graph theory (arithmetical/critical structures) | Lorenzini Prop 6.3 (congruence slices); Wang–Lu EJC 33(3) #P3.80 Thm 5 (density 1 for every graph, via Dirichlet + AP unions) | active published open question ((W) = Lorenzini Ex. 6.2(a)), but the proved tools are fixed-pair slices (HJ_DEEP Lemma 3.2 bars finite coverings) and density | II | HJ_DEEP §3 (W); the pairing reading is new |
-| 2 | E6 | (S)(p) ⟺ ∃ q, (q/p) = −1, such that L(p, q) bounds the negative-definite linear plumbing with **three** spheres of Euler numbers ≤ −2 (HJ length 3); its boundary linking form has Legendre class (q/p). **The C = 1 line of (★) (with u, B ≥ 2) = the chains (−v, −4, −u): the middle vertex is configuration (a) of Aceto–McCoy–Park, so these L(p, 4u − 1) are not b₂-minimal.** Relaxation T(p): "∃ q, (q/p) = −1, L(p, q) bounds some smooth negative-definite X with b₂ ≤ 3" is implied by (S)(p) and also by length-≤ 2 chains, which are not ES certificates, so T carries no ES content | low-dimensional topology | Donaldson diagonalisation, Heegaard Floer d-invariants, Lisca (b₂ = 0), Greene changemakers, AMP / Fung–Park forbidden configurations | all are **obstructions** (non-existence) or classifications of minimality; existence comes from Kirby constructions, i.e. from words. Lisca is the topological mirror of T1 (rational balls exist only over squares) | III | DEDEKIND_ES, bsA_lens_*; the AMP / rational-blowdown reading is new |
+| 1 | E7 | (W)(n) ⟺ n ∈ d_{A₃}(ℤ³_{≥2}) (Lorenzini's critical polynomial of the path A₃); **"L₃(n) contains a Jacobi −1 word" (= (W)(n) ∧ (S)(n), the DK five-slice form) ⟺ some x ∈ ℤ³_{≥2} with d_{A₃}(x) = n has critical-group discriminant form ⟨A/n⟩ of Jacobi symbol −1**; CONV-II(n) ⟺ some multiple cn is a formal A₃-value with middle weight ≡ 0 (mod 4c) | graph theory (arithmetical/critical structures) | Lorenzini Prop 6.3 (congruence slices); Wang–Lu EJC 33(3) #P3.80 Thm 5 (density 1 for every graph, via Dirichlet + AP unions) | active published open question ((W) = Lorenzini Ex. 6.2(a)), but the proved tools are fixed-pair slices (HJ_DEEP Lemma 3.2 bars finite coverings) and density | II | HJ_DEEP §3 (W); the pairing reading is new |
+| 2 | E6 | (W)(p) ∧ (S)(p) ⟺ ∃ q, (q/p) = −1, such that L(p, q) bounds the negative-definite linear plumbing with **three** spheres of Euler numbers ≤ −2 (HJ length 3); its boundary linking form has Legendre class (q/p). **The C = 1 line of (★) (with u, B ≥ 2) = the chains (−B, −4, −u): the middle vertex is configuration (a) of Aceto–McCoy–Park, so these L(p, 4u − 1) are not b₂-minimal. At primes, the non-b₂-minimal (★) chains are exactly those with C = 1 or 4 ∈ {u, B}.** Relaxation T(p): "∃ q, (q/p) = −1, L(p, q) bounds some smooth negative-definite X with b₂ ≤ 3" is implied by (W)∧(S)(p) and also by length-≤ 2 chains, which are not ES certificates (for p ≡ 5 (8) already b = 2 works), so T carries no ES content | low-dimensional topology | Donaldson diagonalisation, Heegaard Floer d-invariants, Lisca (b₂ = 0), Greene changemakers, AMP / Fung–Park forbidden configurations | all are **obstructions** (non-existence) or classifications of minimality; existence comes from Kirby constructions, i.e. from words. Lisca is the topological mirror of T1 (rational balls exist only over squares) | III | DEDEKIND_ES, bsA_lens_*; the AMP / rational-blowdown reading is new |
 | 3 | E1 | (★)(p) ⟺ p is the largest integer having exactly k representations by some numerical semigroup ⟨u, B⟩ with k ≡ 3 (mod 4) (generalised Frobenius number g_k = (k+1)uB − u − B) | numerical semigroups | Beck–Robins Thm 3; Popoviciu; inverse theorems (Rosales et al., Math. Scand. 94 (2004) Thm 1.11: every g is a 3-generator Frobenius number; odd g = F(2, g + 2)) | inverse results exist but only for relaxed shapes (3 generators, or k = 0); none controls k mod 4 | II | Z0394–Z0402 |
 | 4 | E3 | **Lemma A:** for every odd n ≥ 5, ES(n) ⟺ 4/n − 1 is the Euler characteristic of a closed orientable 2-orbifold ⟺ ∃ compact Riemann surface X (g ≥ 2) and finite G ≤ Aut(X) with \|G\|(n − 4) = n(2g − 2) | Riemann surfaces, Fuchsian groups | Riemann existence, Selberg's lemma / Fox, Kulkarni genus spectrum | realisation needs the signature, which is an Egyptian representation | I | Z0171, Z0417 (forms); Lemma A with the r = 4, 5 analysis is new |
 | 5 | E4 | ES(n) ⟺ 4/n = lct₀(x^a + y^b + z^c) for some a, b, c ≥ 1 (n ≥ 5) | singularity theory / birational geometry | Kollár (16.1), (3.2); ACC (Hacon–McKernan–Xu); Kuwata, Prokhorov | the full lct question is trivially true: 4/n ∈ lct(ℂ²) for all n ≥ 6 (Lemma R(b)); ES is the diagonal stratum, about which the field says nothing pointwise | II | Z0155 |
@@ -267,8 +280,8 @@ O(p) ≅ ω ⊗ π*O(4C) ⟺ p = 4CuB − u − B. ∎ (Catalogue Z0418; a degre
 *Proof.*
 * **(b) ⟺ (c).** If G acts on X then χ(X) = |G|·χ^orb(X/G) (Riemann–Hurwitz), so (c) gives χ^orb = −(n − 4)/n.
   Conversely, a closed orientable 2-orbifold with χ^orb < 0 is ℍ/Γ for a cocompact Fuchsian group Γ. Γ has a
-  torsion-free normal subgroup Γ′ of finite index (Selberg's lemma; Fox for triangle groups). Then X = ℍ/Γ′ and
-  G = Γ/Γ′ give (c).
+  torsion-free normal subgroup Γ′ of finite index (Selberg's lemma: Γ is a finitely generated subgroup of
+  PSL₂(ℝ), linear in characteristic 0). Then X = ℍ/Γ′ and G = Γ/Γ′ give (c).
 * **(a) ⟹ (b).** S²(x, y, z) has χ^orb = 1/x + 1/y + 1/z − 1. Cone orders equal to 1 are omitted.
 * **(b) ⟹ (a).** A genus-h orbifold with cone orders m_i ≥ 2 has χ = 2 − 2h − Σ(1 − 1/m_i). Setting χ = 4/n − 1:
   * h ≥ 2 is impossible.
@@ -285,10 +298,15 @@ O(p) ≅ ω ⊗ π*O(4C) ⟺ p = 4CuB − u − B. ∎ (Catalogue Z0418; a degre
       m₃ ≤ 11, so finitely many cases.
 
     The exhaustive enumeration (`scripts/z64_equiv_orbifold.py`, exact Fractions, CERTIFIED) gives the odd n
-    {15, 21, 23, 39, 45, 47, 75, 95, 105, 111, 115, 117, 119, 165, 273}. ES holds at each of them: all are below
+    {15, 21, 23, 39, 45, 47, 75, 95, 105, 111, 115, 117, 119, 165, 273}. Every reachable odd n is ≤ 6888 (attained in
+    the s < 0 cases), so the script's NMAX = 10⁵ is exhaustive. The internal review reran it with NMAX = 10⁸ and got
+    the same list. ES holds at each of them: all are below
     Salez's 10¹⁷, and `scripts/z64_equiv_orbifold.py` also prints an explicit 3-term representation for each.
 
-∎ *Corollary.* For primes p ≡ 1 (4) only r = 3 occurs: 4/p is never a two-term Egyptian fraction, and no such p
+∎ *Prior work.* (a) ⟺ (b) restricted to triangle orbifolds is catalogue item Z0153 / analogues-0153 (MathOverflow
+267209, quoted there). New here are the automorphism form (c) and the exclusion of every other signature.
+
+*Corollary.* For primes p ≡ 1 (4) only r = 3 occurs: 4/p is never a two-term Egyptian fraction, and no such p
 lies in the sporadic list. So (c) is ES(p) on the nose.
 
 **E4.** Kollár, arXiv:0805.0756 (16.1) (V by subagent): c₀(x^a + y^b + z^c) = min{1, 1/a + 1/b + 1/c}. For n ≥ 5,
@@ -307,14 +325,23 @@ without a theorem number. This is a relabelling.)
 * (iii) The Gram matrix M of E7 has (M⁻¹)₁₁ = A/p. So the linking form of L(p, A) on ℤ/p is ±A x²/p, whose isometry
   class for p ≡ 1 (4) is the Legendre class (A/p).
 
-Hence (S)(p) ⟺ ∃ q with (q/p) = −1 and len(p/q) = 3, i.e. L(p, q) = ∂X(p, q) with b₂ = 3.
+Hence "L₃(p) contains a Legendre −1 word" ⟺ ∃ q with (q/p) = −1 and len(p/q) = 3, i.e. L(p, q) = ∂X(p, q) with
+b₂ = 3. This is (W)(p) ∧ (S)(p), the DEDEKIND_ES five-slice form. (S) alone is an implication and holds vacuously
+where L₃ = ∅, e.g. at 5 and 105. The internal review flagged the earlier "(S) ⟺" as false.
 
 * **C = 1 line.** The (★) solutions with C = 1 and u, B ≥ 2 are exactly the length-3 chains with middle weight 4,
-  i.e. plumbings (−B, −4, −u) (u = 1 or B = 1 gives a formal word of HJ length 2). AMP Thm 1.1(iii)(a) is the single vertex of weight −4, and its (iv) lists X(4, 1). So these L(p, A)
-  admit negative-definite fillings with b₂(X) < 3 (✔ read).
-* **Relaxation T(p).** (S)(p) ⟹ T(p) is immediate from the plumbing. But T(p) also follows from any non-residue q with
+  i.e. plumbings (−B, −4, −u) (u = 1 or B = 1 gives a formal word of HJ length 2). AMP Thm 1.1(iii)(a) is the single
+  vertex of weight −4, and its (iv) lists X(4, 1) (✔ read). By AMP (i) ⟺ (iii), these L(p, A) admit negative-definite
+  fillings with b₂(X) < 3.
+* **Full non-minimality locus at primes.** A (★) chain (−B, −4C, −u) with u, B ≥ 2 and odd p contains an AMP
+  configuration iff C = 1 (middle −4) or 4 ∈ {u, B} (end −4). This uses the list (a)–(j) as transcribed in
+  `sources/equiv_lit.md`; only (a) was re-read by me. The configurations with a −2 or −3 middle vertex are impossible
+  because 4C ≥ 4. Two non-adjacent −2's or −3's would need u = B ∈ {2, 3}, giving p = 16C − 4 or 36C − 6, which is
+  even. The length-4 configurations do not fit in a 3-chain. Example: p = 89, (u, B, C) = (4, 3, 2), chain
+  (−3, −8, −4). **So the rational-blowdown reading is not specific to the C = 1 line.**
+* **Relaxation T(p).** (W)∧(S)(p) ⟹ T(p) is immediate from the plumbing. But T(p) also follows from any non-residue q with
   len(p/q) ≤ 2. For example p/q = [[a, b]] with p + 1 = ab and (b/p) = −1; such a q exists whenever p + 1 has a
-  divisor b ∈ [2, (p + 1)/2] with (b/p) = −1. Those chains are not ES certificates. So the topologically natural
+  divisor b ∈ [2, (p + 1)/2] with (b/p) = −1. For every p ≡ 5 (8), b = 2 already works, since (2/p) = −1. Those chains are not ES certificates. So the topologically natural
   relaxation loses the content. The ES content is "the *canonical* plumbing has exactly three vertices", a
   continued-fraction condition that smooth-topology tools see only through minimality criteria (AMP).
 * **Native tools** (Donaldson, d-invariants, Lisca, AMP, Fung–Park) are obstructions or minimality criteria. Lisca's
@@ -328,11 +355,13 @@ Hence (S)(p) ⟺ ∃ q with (q/p) = −1 and len(p/q) = 3, i.e. L(p, q) = ∂X(p
   det [[−1, 0], [t, −1]] = 1. So coker M ≅ ℤ/n is cyclic.
 * (M⁻¹)₁₁ = (tu − 1)/n = A/n (check (iv): 53 518 words). When gcd(A, n) = 1, e₁ has discriminant value A/n of order n.
   So e₁ generates, and the discriminant form is q(k·e₁) = k²A/n (mod 1).
-* Hence (S)(n) ⟺ some x with d_{A₃}(x) = n has critical-group discriminant form of Jacobi symbol (A/n) = −1. The
-  symbol does not depend on the generator, since (A/n) = (A*/n) by HJ_DEEP Prop 4.1.
+* Hence "L₃(n) contains a Jacobi −1 word" (= (W) ∧ (S) at n) ⟺ some x with d_{A₃}(x) = n has critical-group
+  discriminant form of Jacobi symbol (A/n) = −1. The symbol does not depend on the generator: q(k·g) = k²q(g) and
+  (k²/n) = 1. Reading the word backwards gives the same class, (A/n) = (A*/n) (HJ_DEEP Prop 4.1).
 * CONV-II and U₇ in this language. By HJ_DEEP Prop 2.1, Type II solutions at n are formal words K(a, 4cd, b) = cn
   (letters a, b ≥ 1). So CONV-II(n) ⟺ ∃ c ≥ 1 such that cn is a formal A₃-value with middle weight ≡ 0 (mod 4c).
-  U₇(n) ⟺ such a word has 8 | xy (Z60_LOPEZ Lemma 7; quoted, not re-proved).
+  U₇(n) ⟺ ∃ g ≥ 1 such that gn + 1 has a divisor ≡ −1 (mod lcm(8, g)) (Z60_LOPEZ Lemma 7(i); quoted, not
+  re-proved). It is the same A₃-value statement at gn with middle weight ≡ 0 (mod lcm(8, g)).
 
 ∎
 
@@ -363,7 +392,8 @@ Hence (S)(p) ⟺ ∃ q with (q/p) = −1 and len(p/q) = 3, i.e. L(p, q) = ∂X(p
 **E11 = Lemma F.** Let p be prime and (u, B, C) a (★) solution, with (x, y, z) = (uBC, pBC, puC) and N = puBC.
 * (a) lcm(x, y) = lcm(y, z) = lcm(z, x) = N.
 * (b) There are a, b, c ∈ ℤ/N with a + b + c = 0, gcd(a, N) = N/x = p, gcd(b, N) = N/y = u and gcd(c, N) = N/z = B.
-  Hence the cyclic cover y^N = t^a(1 − t)^b of ℙ¹ (a quotient of the Fermat curve F_N) has ramification indices
+  The cover is connected because gcd(a, b, N) divides gcd(p, u) = 1. Hence the cyclic cover y^N = t^a(1 − t)^b of ℙ¹
+  (a quotient of the Fermat curve F_N) has ramification indices
   x, y, z over 0, 1, ∞, and 2g − 2 = N(1 − 4/p) = uBC(p − 4).
 
 *Proof.*
@@ -392,7 +422,10 @@ or (x, y, z) produce the field object, and explicit formulas read the parameters
 tool met in this lane belongs to one of four types. The types are judged by what the tool takes as input and what
 it concludes.
 
-**Type I: realisation from parameter data.** Examples: Riemann existence; Selberg/Fox; Kirby/plumbing constructions;
+*Status of this section: the classification into four types is an **Assessment**. Only the type-I observation and
+Lemma R (with its consequence) are PROVED.*
+
+**Type I: realisation from parameter data.** Examples: Riemann existence; Selberg's lemma; Kirby/plumbing constructions;
 Waterhouse–Honda–Tate; Steinitz; Freedman; the CRT step of Lemma F. Such a theorem says "for every admissible datum
 δ there is an object O(δ)". In each row δ is the certificate itself:
 * the signature in E3/E13;
@@ -408,13 +441,16 @@ Prop 6.3 slices; Wang–Lu density; Kulkarni's genus spectrum; and Hurwitz reali
 relaxation is "drop the arithmetic".
 
 **Lemma R (T1-blindness of the proved relaxations).** Let m ≥ 3 be odd.
-* (a) (W) holds at m² for every m with 3 ∤ m: (t, u, v) = (2, 2, (m² + 2)/3). PROVED. It holds at every odd m² with
-  25 ≤ m² < 10⁹. CERTIFIED: HJ_DEEP's (W) census to 10⁹ has exception set E_W, which contains no square except 9;
-  `scripts/z64_equiv_wsquares.py` independently finds no exception among odd m ≤ 2000.
+* (a) (W) holds at m² for every m with 3 ∤ m: (t, u, v) = (2, 2, (m² + 2)/3). PROVED. For 3 | m, the evidence is
+  HJ_DEEP's census (EVIDENCE there; independently reproduced to 10⁹ by R174): its exception set below 10⁹ is E_W,
+  which contains no square except 9. `scripts/z64_equiv_wsquares.py` finds no exception among odd m ≤ 2000. Its
+  attempt at a finite fixed-pair cover of all odd squares fails; the uncovered residues are multiples of 3,
+  consistent with HJ_DEEP Lemma 3.2.
 * (b) 4/m² is the log canonical threshold of a plane-curve germ: 4/n = lct₀(x^a y^b (x + y³)) with n = 3a + b + 3,
   b ≤ a + 1 and a ≤ b + 3. This is Kollár's HT₂ formula (3.2) with (c₁, c₂) = (1, 3), V by subagent. I re-derived it
-  by the toric blow-up: the weight (3, 1) divisor gives 4/(3a + b + 3), which is ≤ 1/a and ≤ 1/b under the
-  constraints. The ranges cover every n ≥ 6. PROVED, relative to the standard lct formula for Newton-non-degenerate
+  by the toric computation. The rays (1, 0), (0, 1), (1, 1), (2, 1), (3, 1) give 1/a, 1/b, 2/(a + b + 1),
+  3/(2a + b + 2), 4/(3a + b + 3). Under b ≤ a + 1 and a ≤ b + 3 the last is the minimum. The internal review checked
+  this for all a, b < 60. The ranges cover every n ≥ 6. PROVED, relative to the standard lct formula for Newton-non-degenerate
   plane curves (Kollár Thm 15).
 * (c) m² is the Frobenius number of the two-generator semigroup ⟨2, m² + 2⟩ (Rosales et al. Lemma 1.1; check:
   2(m² + 2) − 2 − (m² + 2) = m²). PROVED.
@@ -442,6 +478,33 @@ input, squares included:
 
 Only this type can be non-circular. Every instance found here is already a repo target with its own screening memo.
 
+### 5.1 Push on the top-ranked rows E6/E7 at a single prime: the topological invariant of the sign
+
+**Question.** E6/E7 attach to p the canonical set Λ₃(p) of A with len(p/A) = 3, i.e. the lens spaces L(p, A) with a
+three-vertex canonical plumbing. Can a topological or Dedekind-sum invariant of L(p, A) do more than restate the
+Jacobi sign? In particular, can it separate the non-residue A from the residue A on Λ₃(p) at primes, as opposed to
+at odd squares?
+
+**Computation** (`scripts/z64_equiv_signclass.py` → `data/z64/equiv/signclass.txt`; exact).
+* (1) The Barkan–Hirzebruch–Zagier formula 12 n s(A, n) = A + A* + n·Σ(b_i − 3) holds for all 362 852 words with odd
+  n ≤ 20 000 and gcd(A, n) = 1. Specialised to length 3 it reads 12 n s(A, n) = t(u + v) − 2 + n(t + u + v − 9).
+* (2) Rademacher's congruence 12 n s(A, n) ≡ n + 1 − 2(A/n) (mod 8) holds on the same words.
+* (3) Combining (1) and (2): (A/n) is a polynomial function of the letters mod 8. The table matches the direct
+  Jacobi symbol on all 9 913 628 words with odd n ≤ 3·10⁵.
+* (4) The table is in fact a function of (t, u, v) mod 4. Its 20 sign −1 cells are listed in the data file.
+
+**Reading.** This is exactly DEDEKIND_ES Thm 4.5 / Cor 4.1 (the sign is a mod-4 function of the letters) and
+BRAINSTORM/bsA_wu_rokhlin_sign Thm W (the sign is the Wu square, equivalently the mod-8 Rokhlin invariant of the
+lens space). Here it is re-derived independently, through the Dedekind-sum (Casson–Walker / d-invariant) route.
+* At a single prime, the best topological invariant of L(p, A) reduces the (S) sign to a **fixed congruence class
+  of the plumbing weights mod 4**.
+* So "L₃(p) has a −1 word" ⟺ "p has a length-3 word in one of the fixed mod-4 cells". That is the five-slice problem
+  DK already screened (FRONTIER §2.1, (J)105: the five-slice BM main term 45/(8π²)).
+
+The topology contributes the T1-exactness (no word of an odd square lies in the −1 cells; Wu rigidity, Thm W2) and
+nothing on existence. **Outcome: no new information. The push confirms that the E6/E7 tools stop at the sign layer,
+as the type-III verdict predicts.**
+
 **Shape of an escaping equivalence (Assessment).** A useful new equivalence must
 * (i) attach to p a canonical object O(p) that exists unconditionally and also at m²;
 * (ii) have a structure theorem in its field forcing a sub-object S ⊂ O(p) that maps to a certificate;
@@ -454,7 +517,7 @@ arithmetic (§3.3). Of the rows above, only E6/E7 (Λ₃(p)) and E9/E10 have (i)
 
 | item | T1 squares | 8/131 | tied modulus | fixed p |
 |---|---|---|---|---|
-| E7 / E6 (Λ₃(p), critical-group sign) | built into the statement (Jacobi −1 is impossible at m²); the native relaxations are T1-blind (Lemma R) | the sign law (A/p) = −(−1/p) on Type II words is numerator-blind; C even vs C odd is invisible to the graph and the topology | the middle letter t = 4C is a vertex weight, and the tie is the same | yes (pointwise statements), but no forcing tool |
+| E7 / E6 (Λ₃(p), critical-group sign) | built into the statement (Jacobi −1 is impossible at m²); the native relaxations are T1-blind (Lemma R); the best invariant (Dedekind/Rokhlin, §5.1) reduces the sign to mod-4 cells | the sign law (A/p) = −(−1/p) on Type II words is numerator-blind; C even vs C odd is invisible to the graph and the topology | the middle letter t = 4C is a vertex weight, and the tie is the same | yes (pointwise statements), but no forcing tool |
 | (Ch) Hurwitz prime degree (precedent) | composite degrees fail; there is no square-specific failure | n/a | n/a (no modulus) | yes; but the witness is not arithmetic |
 | E3 (Lemma A) | ES itself has no T1 | 8/n analogue: 8/n − 1 as χ^orb is the same equivalence with 8 (Lemma A's proof is numerator-specific only in the r = 4, 5 casework) | not applicable (no modulus) | circular |
 
@@ -466,7 +529,9 @@ arithmetic (§3.3). Of the rows above, only E6/E7 (Λ₃(p)) and E9/E10 have (i)
 * Lemma A (orbifold χ and automorphism ratio ⟺ ES for every odd n ≥ 5);
 * Lemma F ((★) triples are lcm-balanced and cyclically realisable);
 * E7's identification of the (S) sign with the critical-group discriminant form;
-* E6's identification of the C = 1 line with AMP's (−4) configuration;
+* E6: at primes, the (★) chains whose canonical plumbing is not b₂-minimal (Aceto–McCoy–Park) are exactly those with
+  C = 1 or 4 ∈ {u, B};
+* §5.1: an independent Dedekind-sum derivation of DK Thm 4.5 (EVIDENCE + classical theorems; nothing new);
 * Lemma R (the proved relaxations are T1-blind).
 
 **Narrowed:**
@@ -483,19 +548,22 @@ arithmetic (§3.3). Of the rows above, only E6/E7 (Λ₃(p)) and E9/E10 have (i)
 >   C_p ≤ S_p);
 > * every composite degree has non-realisable data (EKS Prop 5.7).
 >
-> It is the one verified "true at every prime, false on explicit composites" existence result whose proof is not an
-> identity or a count. Primality acts on a geometric/group-theoretic object, and prime-degree realisability carries
-> no (★) information (Lemma H, conditional). Fourteen cross-field equivalences are proved in Z64_EQUIV §4, among them:
+> It is the one result of the shape "true at every prime, false on explicit composites" found here (claimed and
+> unrefereed) whose proof is neither an identity, nor a unit-group or norm-form argument (Legendre's negative Pell,
+> two squares), nor a count. Primality acts on a geometric/group-theoretic object, and prime-degree realisability carries
+> no (★) information (Lemma H, conditional). Z64_EQUIV §4 proves ten cross-field equivalences and one implication
+> chain, among them:
 > * ES(n) ⟺ some Riemann surface has an automorphism group with |G|(n − 4) = n(2g − 2) (n odd ≥ 5);
 > * the (S) sign = the critical-group discriminant form of Lorenzini's A₃;
-> * the C = 1 line = lens-space plumbings with a (−4) vertex (Aceto–McCoy–Park).
+> * at primes, the (★) chains with non-b₂-minimal lens-space plumbing (Aceto–McCoy–Park) are exactly C = 1 or
+>   4 ∈ {u, B}.
 >
 > Their native tools are realisation theorems (circular), T1-blind or averaged relaxations (Lemma R), or obstructions.
 > Only structure theorems on canonical p-objects (Γ₀(p), class groups, Λ₃(p)) can be non-circular; no new one was
 > found.
 
 **Bottom line.** Re-expressing ES, (★), (S), U₇ or CONV-II in other fields is easy, and the repo's catalogue already
-held most of the forms. This lane proved fourteen of them with exact ranges. Every native existence tool met is of
+held most of the forms. This lane proved ten equivalences and one implication chain with exact ranges. Every native existence tool met is of
 one of three kinds: it realises objects from the very data that constitute a certificate; it proves a relaxation
 that also holds at odd squares (or only on average); or it obstructs. The one genuinely new item is on the precedent
 side: prime-degree Hurwitz existence, a 2026 claimed theorem with ES's exact prime/composite shape, proved by
@@ -506,4 +574,45 @@ primes from squares. None was found.
 
 ## 8. Review log
 
-*(pending: internal hostile review by a deep-mode subagent; fixes and notes will be recorded here.)*
+**Internal hostile review** (deep-mode subagent, model anthropic/claude-opus-5-5, on commit 82051268d; the default
+`review` tool and the default deep model were unavailable because of a usage limit). Verdict: ACCEPT-WITH-FIXES, no
+FATAL.
+
+*Re-verified by the reviewer:*
+* Lemma A's full case analysis; the orbifold enumeration (rerun with NMAX = 10⁸, identical list; reachable n ≤ 6888);
+* Lemma F, including the bounds and ℓ = 2;
+* E1, E2, E5, E8, E9, E10;
+* the lct formula (all a, b < 60); (W) at squares for 3 ∤ m; E_W;
+* R(409) = 0;
+* the SWZ quotes (Thm 1.1, Lemma 2.5, Thm 4.8, abstract, acknowledgment), AMP Thm 1.1(iii)(a) and (iv), and the
+  Hadamard order 2396.
+
+*Findings and fixes:*
+1. MAJOR: "(S) ⟺ …" in E6/E7 was false, because (S) is an implication that holds vacuously where L₃ = ∅ (n = 5,
+   105). **Fixed:** E6/E7 now state "L₃(n) contains a Jacobi −1 word" = (W) ∧ (S).
+2. MAJOR: "C = 1 ⟺ plumbing contains a (−4) vertex" was false as an iff. Counterexample: p = 89, chain (−3, −8, −4).
+   **Fixed:** "middle (−4) vertex". Added the full non-minimality locus at primes, C = 1 or 4 ∈ {u, B}, with proof.
+3. MAJOR: "fourteen equivalences proved" was an overclaim. **Fixed:** ten proved equivalences (E1–E10), one
+   implication chain (E11), three quoted rows (E12–E14).
+4. MAJOR: the FRONTIER text called SWZ "the one verified …" result. **Fixed:** now "claimed, unrefereed", and unit
+   group / norm-form arguments are excluded explicitly.
+5. MAJOR: `sources/precedent_nt.md` had been committed empty. **Fixed:** committed.
+6. MAJOR: the four-type classification was presented as PROVED. **Fixed:** labelled Assessment; only the type-I
+   observation and Lemma R are PROVED.
+7. MAJOR: the brief was only partly met (no falsifier column, no single-prime push on E6/E7). **Fixed:** the §1 table
+   is rewritten with native-tool behaviour per screen, and §5.1 adds a concrete push (exact Dedekind-sum computation
+   on 9.9·10⁶ words). Its outcome is negative: it reproduces DK Thm 4.5.
+8. MINOR: Lemma R(b) re-derivation was incomplete. **Fixed:** all toric rays are listed.
+9. MINOR: (W)-at-squares labels. **Fixed:** PROVED for 3 ∤ m; census-backed EVIDENCE otherwise; E_W "conjecturally
+   complete".
+10. MINOR: the wsquares script's docstring and output overstated the covering. **Fixed:** the failure of the cover is
+    recorded.
+11. MINOR: orbifold script. **Fixed:** bound n ≤ 6888 stated, dead loop removed, Selberg's lemma alone used for
+    (b) ⟹ (c).
+12. MINOR: E7 generator independence and U₇ notation. **Fixed.**
+13. MINOR: novelty. "0 substantive hits" now, with the stray matches named. Lemma A's triangle-orbifold form is
+    credited to Z0153 / MathOverflow 267209.
+14. MINOR: §0 no longer counts Holzer as an omitted class. (EF) is marked V/V2.
+15. MINOR: Lemma H's scope is stated; SWZ Thm 4.8 is for odd p; the CFG Cor 9.6 subcase is unconditional.
+16. MINOR: T(p) holds trivially at p ≡ 5 (8) via b = 2. **Added.**
+17. MINOR: Lemma F connectedness (gcd(a, b, N) = 1). **Added.**
