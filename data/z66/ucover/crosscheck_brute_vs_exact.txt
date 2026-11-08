@@ -1,0 +1,24 @@
+11 1 exact 5 brute 5 brute-exact [] exact-brute 0 residues(should be 0): 0
+11 2 exact 29 brute 24 brute-exact [] exact-brute 5 residues(should be 0): 0
+11 3 exact 111 brute 61 brute-exact [] exact-brute 50 residues(should be 0): 0
+13 1 exact 6 brute 6 brute-exact [] exact-brute 0 residues(should be 0): 0
+13 2 exact 28 brute 28 brute-exact [] exact-brute 0 residues(should be 0): 0
+13 3 exact 206 brute 58 brute-exact [] exact-brute 148 residues(should be 0): 0
+17 1 exact 6 brute 6 brute-exact [] exact-brute 0 residues(should be 0): 0
+17 2 exact 46 brute 38 brute-exact [] exact-brute 8 residues(should be 0): 0
+17 3 exact 300 brute 62 brute-exact [] exact-brute 238 residues(should be 0): 0
+47 1 exact 17 brute 17 brute-exact [] exact-brute 0 residues(should be 0): 0
+47 2 exact 245 brute 16 brute-exact [] exact-brute 229 residues(should be 0): 0
+47 3 exact 671 brute 0 brute-exact [] exact-brute 671 residues(should be 0): 0
+11 1 exact events with modulus<=1e5: 25 missing in brute: 0
+11 2 exact events with modulus<=1e5: 36 missing in brute: 0
+11 3 exact events with modulus<=1e5: 182 missing in brute: 0
+13 1 exact events with modulus<=1e5: 12 missing in brute: 0
+13 2 exact events with modulus<=1e5: 40 missing in brute: 0
+13 3 exact events with modulus<=1e5: 104 missing in brute: 0
+17 1 exact events with modulus<=1e5: 16 missing in brute: 0
+17 2 exact events with modulus<=1e5: 50 missing in brute: 0
+17 3 exact events with modulus<=1e5: 106 missing in brute: 0
+47 1 exact events with modulus<=1e5: 120 missing in brute: 0
+47 2 exact events with modulus<=1e5: 20 missing in brute: 0
+47 3 exact events with modulus<=1e5: 0 missing in brute: 0
