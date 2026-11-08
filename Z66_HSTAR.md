@@ -56,7 +56,8 @@ CONDITIONAL (on what) / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Internal
 5. **Necessary conditions (§6).** A scheme for (★) extracting through an ES pair must use groups with p-elements
    centralised by prime-to-p elements (Ord). If its realisations have prime-to-p monodromy, char p adds no
    realisations (T). In the Wewers setting (three-point covers, p ∥ |G|) the signature is read off the char-p datum
-   (Z65 Prop O). ES pairs with p² | |G| exist (homology covers, §6), and there no lifting theory applies.
+   (Z65 Prop O). ES pairs with p² | |G| exist (homology covers, §6). The special-map / cyclic-Sylow results cited
+  here do not apply to them.
 
 **Verdict: NARROWED.** Useful centraliser obstruction, polynomial-extraction lemma, transparency in the prime-to-p and
 Wewers settings, reproducible census. No working new engine identified. Several broader extraction and lifting
@@ -80,6 +81,10 @@ the part that implies ES at primes.)
 Real(𝒟(p)) ≠ ∅.
 
 *Type I* (Z64_EQUIV §5): the engine realises data that already contain a certificate, e.g. a signature.
+
+*The definition is semantic, not a non-circularity criterion.* The tautological scheme 𝒟(n) = n, Real = Cert,
+ε = id qualifies. No effective extraction or complexity bound is required. All content lies in an engine proved
+independently of the certificate search.
 
 **Targets (brief).**
 * (a) Design an (H★) with 𝒟(p) fixed by p whose realisability fails at odd squares.
@@ -118,7 +123,7 @@ group theory, or a verified arithmetic Hurwitz theorem).
 |---|---|
 | **F1 odd squares** | Automatic for sound schemes (Remark 1.1); the screen bites on engines. SWZ's engine (degree p) does not apply at composite degree, so it passes F1 vacuously. But Theorem Ord shows that the groups it works in cannot carry ES pairs. The verified arithmetic families (CPZ, Petronio 3.13/3.14) are realisable at every admissible odd square (Lemma N), so they are T1-blind as degree-indexed data. Engines proving only existence of unrestricted (★)-solutions over unordered rings are T1-blind (Lemma Pos). No engine examined has a hypothesis that fails at m² *and* comes with a working extraction. |
 | **F2 C-even / numerator 8** | Theorem Ord_k (k ≥ 4, **p > k**) holds for 8/p (p > 8; note 8/7 = 1/2 + 1/2 + 1/7), so the centraliser obstruction is numerator-blind. Lemma 2V and Lemma K-block go through for the C-even sub-line with 4C → 8C′ (same proofs). T and DD are numerator-blind. No design distinguishes C odd from C even. |
-| **F3 composites** | Prime-degree engines see composites only through imprimitivity of the *degree* (Wei–Wu–Xu, Pervova–Petronio Thm 1.4). That is a different arithmetic event from R(n) = 0: 4545 and the 285 R-zeros have no special Hurwitz meaning. Block extraction yields *a* divisor of 4Cn + 1, not one in the class −1 (mod 4C) (dihedral family, KT3). |
+| **F3 composites** | Prime-degree engines see composites only through imprimitivity of the *degree* (Wei–Wu–Xu, Pervova–Petronio Thm 1.4). That is a different arithmetic event from R(n) = 0. *Assessment:* 4545 and the 285 R-zeros have no special Hurwitz meaning (not a proved universal negative). Block extraction yields *a* divisor of 4Cn + 1, not one in the class −1 (mod 4C) (dihedral family, KT3). |
 | **F4 known zeros** | All 14 (★)-zeros and 38 𝔊*-zeros are ≡ 1 (mod 12) (Z65_LIFT §1). Theorem Ord applies there: every ES pair needs an element of order pk, k ≥ 2. By Z65 Thm G every ES curve there has bad reduction. No engine examined proves anything at them. At a zero of the C = 1 line, 4n + 1 is a coprime sum of two squares, so the CPZ datum is realisable (Prop CPZ-T1). The converse does not hold. |
 
 **No HOT LEAD.**
@@ -215,8 +220,14 @@ them.
   p ↦ f(𝒟(p));
 * the engine contributes the existence of a realisation, i.e. a (possibly non-trivial) *proof* that the rule
   works;
-* if f ∘ 𝒟 is computable and total, correctness of the rule is a Π⁰₁ statement;
-* if f ∘ 𝒟 is polynomial in p on residue classes mod q, ET Prop 1.6 / T1 bars it on every square class mod q.
+* if f ∘ 𝒟 is computable and total, membership in 𝒫 is decidable and certificates are checkable, then
+  correctness of the rule is a Π⁰₁ statement;
+* if T is square-obstructed ((★), Type II, (S∃); **not** ES) and f ∘ 𝒟 is a polynomial identity in p on residue
+  classes mod q, with positive integral values on the whole class, then ET Prop 1.6 / T1 bars it on every square
+  class mod q.
+
+A data-determined output is a witness rule, not automatically a certificate supplied in the datum, and not
+automatically trivial.
 
 (A realisation-independent output need not be "supplied in the datum". DD only says that the scheme *is* a witness
 rule, so its content can be judged as such: WITNESS lane, z58.)
@@ -229,9 +240,11 @@ integer-valued polynomial rule giving positive certificates on a class gives the
 considered have monodromy inside AGL₁(𝔽_p) (σ_i : x ↦ a_i x + b_i, multipliers a_i with a₁a₂a₃ = 1). Up to
 simultaneous conjugation inside AGL₁ (which is also S_p-conjugacy here: a conjugator between two such transitive
 tuples normalises the common translation subgroup, the unique Sylow-p, hence lies in AGL₁), the transitive
-realisations are exactly:
-* **(no translation)** some a_i ≠ 1 with distinct fixed points: normal form σ₁ = a₁x, σ₂ = a₂x + 1 (if a₁, a₂ ≠ 1);
-  parameter (a₁, a₂);
+realisations are exactly as follows. The branch cycles are labelled and non-identity; the cases are stated after
+reordering where needed.
+* **(no translation)** all a_i ≠ 1, with σ₁, σ₂ having distinct fixed points. Moving the first fixed point to 0
+  and the second to 1 gives σ₂ = a₂x + (1 − a₂); a further scaling gives the normal form σ₁ = a₁x, σ₂ = a₂x + 1.
+  Parameter (a₁, a₂);
 * **(one multiplier 1)** a₁ = 1, i.e. σ₁ a translation (a p-cycle), normal form σ₁ = x + 1, σ₂ = a₂x; parameter a₂,
   with a₃ = a₂⁻¹;
 * **(all multipliers 1)** three translations x + 1, x + t, x − 1 − t with t ∉ {0, −1}: **p − 2 classes**, parameter t,
@@ -348,9 +361,9 @@ polynomial extractions covers the classes y ≡ 0 (mod M′)**: there p ≡ x² 
 (The same degree argument covers (S∃): tuv − u − v = x² + y². Its sign is a mod-8 cell condition on the letters
 (DK Thm 4.5), so it also reduces to fixed menus.)
 
-*Scope.* Non-polynomial extraction from (x, y) (continued fractions of x/y, factorisations of x ± y, …) is not
-excluded. It is no longer a realisation-theoretic step: it is ordinary arithmetic with the two-square representation
-as input.
+*Scope.* Lemma 2V needs an **identity** in ℚ[x, y] and **positive integral values on the whole residue coset** Λ.
+Non-polynomial extraction from (x, y) (continued fractions of x/y, factorisations of x ± y, …) is still an extraction
+map under §1. It is **not excluded**: D2 with general ε is unresolved, like D7 with general ε.
 
 ### 4.5 Lemma Pos (the unrestricted equation)
 
@@ -440,8 +453,8 @@ identified.
 |---|---|---|---|---|
 | D1n | degree 4Cp + 1 fixed-shape data; all covers; block size | Riemann existence / SWZ | **(b)**-type unsound; KT3 fired | Lemma K-block (n = 7, N = 29; dihedral n = 9, N = 37) |
 | D1e | as D1n, realisations equipped with a block system | — | **(u)** | needs an engine producing imprimitive realisations with d ≡ −1 (4C), i.e. a divisor of 4Cp + 1 in the class (Assessment: this is B2) |
-| D2 | CPZ datum at degree p; Lattès-type cover; (x, y) ↦ certificate | Fermat (CPZ) | **(b)** for polynomial ε; non-polynomial ε not a realisation step | Lemma 2V; Lemma N; Prop CPZ-T1 (one-way) |
-| D3 | A_N-data with odd-order inertia; covers; lifting invariant (±1) | Fried Thm 1.3 (r ≥ n ≥ 5: both invariants occur; V) | genus 0: **(a)** via DD; higher genus: **(u)** | genus-0 invariant data-determined, s = ∏_cycles (2/ℓ) (Fried Cor 2.3, V; Serre's formula, V2). Higher genus: no map from realisations to length-3 words or (u, B, C) is known; not excluded |
+| D2 | CPZ datum at degree p; Lattès-type cover; (x, y) ↦ certificate | Fermat (CPZ) | **(b)** for polynomial ε (under 2V's identity + full-coset positivity hypotheses); general ε: **(u)** | Lemma 2V; Lemma N; Prop CPZ-T1 (one-way) |
+| D3 | A_N-data with odd-order inertia; covers; lifting invariant (±1) | Fried Cor 2.3 (genus 0); Fried Thm 1.3 concerns only 3-cycle Nielsen classes with r ≥ n ≥ 5 (V) | genus 0: witness rule via DD (not automatically type I); higher genus: **(u)** | genus-0 invariant data-determined, s = ∏_cycles (2/ℓ) (Fried Cor 2.3, V; Serre's formula, V2). Higher genus: no map from realisations to length-3 words or (u, B, C) is known; not excluded |
 | D4 | K-curve Y with signature (x, y′, z′); G = C_p × K; Type II certificate from the signature | Riemann existence | **(a)** | Lemma Split: the certificate is the signature; for p ∤ \|K\| the K-part is prime-to-p, so Theorem T applies to it |
 | D5 | Γ₀(p)-dessin (PSL₂(ℤ) acting on P¹(𝔽_p)); closed path T^B R^{4C} T^u at 0; (u, B, C) | canonical object | **(u)** | loops exist for every (★)(kp) solution, k ≥ 1; k = 1 is a size condition that no bound in sight supplies. Not excluded. Z63_EUCLID covers the H₁ version |
 | D6 | CM curve E, End ⊇ ℤ[√(−Cp)], α = 1 + 2√(−Cp); factorisation α = ψ∘φ with deg φ ≡ −1 (4C) (φ anti-symplectic on E[4C]) | CM theory | **(a)** | a factor φ ↔ a divisor of 4Cp + 1 (E10); covered by Z60_RAYCLASS. Kani's reducibility criterion was NOT FOUND in source and is not used |
@@ -449,8 +462,9 @@ identified.
 | D8 | PSL₂(𝔽_q) / Conder / Macbeath generating triples | group generation | **(a)**; **(c)** at q = p | Corollary Ord kills q = p; for q ≠ p the signature is input |
 | D9 | quasi-p groups as Galois groups over A¹_{F̄_p} (Abhyankar–Raynaud–Harbater; V via Obus survey) | char-p existence | **(u)** (Assessment) | no route from an A¹-cover to a three-point ES pair is known; when a three-point lift with p ∥ \|G\| exists its signature is read off the char-p datum (Prop O) |
 
-**Lemma Split (PROVED).** Let p be an odd prime and K a finite group with p ∤ |K|. Every ES pair (X, G) at p with
-G = C_p × K is Type II. Such pairs correspond (up to an automorphism of C_p fixing the generator choice c₂ = 1) to
+**Lemma Split (PROVED).** Let p ≥ 5 be prime and K a finite group with p ∤ |K|. Consider ES pairs (X, G) at p with
+G = C_p × K that are **triangle covers**, i.e. X/G ≅ P¹ with three cone points. (For p ≡ 1 (4) this is automatic
+by Z64_EQUIV Lemma A's Corollary.) Every such pair is Type II. Such pairs correspond (up to an automorphism of C_p fixing the generator choice c₂ = 1) to
 K-curves Y = X/C_p → P¹ with marked points of orders (x, y′, z′) and a generating triple (k₁, k₂, k₃) of K of these
 orders, k₁k₂k₃ = 1, such that
 
@@ -472,9 +486,15 @@ generating triple (2, 115, 117) of orders (117, 234, 2): 409/117 + 1/234 + 1/2 =
 representation 4/409 = 1/117 + 1/95706 + 1/818, while R(409) = 0 (FRONTIER §2.1). So D4 extracts *Type II*
 certificates. Its (★)-extraction is defined only on the sub-family above.
 
-**KT2 outcome.** Five design classes are type I / unsound / blocked as scoped (D1n, D2-polynomial, D4, D6, D8, and
-D7 for ES-pair, data-determined and affine extraction). Five are **unresolved** (D1e, D3 higher genus, D5, D7 general,
-D9). **No design has a working engine.** The pre-registered strong outcome "every design in (a)–(c)" did *not* occur.
+**KT2 outcome.**
+* *Excluded as scoped* (type I / unsound / blocked): D1n; D2 with polynomial ε (2V hypotheses); D4; D6; D8; and D7
+  restricted to ES-pair, data-determined or affine extraction.
+* *Unresolved*: D1e, D2 with general ε, D3 in higher genus, D5, D7 with general ε, D9.
+
+The classifications in this catalogue are **Assessments** built on the scoped lemmas. They do not prove that all
+possible engines are dead.
+
+**No design has a working engine.** The pre-registered strong outcome "every design in (a)–(c)" did *not* occur.
 
 ## 6. Necessary conditions (scoped) and where the open space is
 
@@ -493,7 +513,9 @@ D9). **No design has a working engine.** The pre-registered strong outcome "ever
 
 Among the verified engines:
 * SWZ satisfies (v) (degree = p), but (i) excludes ES-pair extraction from its groups.
-* Wewers lifting reaches the cyclic Lemma-F covers, but under (iii) it only transports the signature.
+* Wewers lifting does **not** reach the cyclic Lemma-F covers. By Z65_LIFT Prop E their marked stable reduction is
+  exceptional (σ = 1 at the tame point), so they are not lifts of special G-maps. (The checkpoint version said the
+  opposite; that was wrong.) Prop O is used only within its own hypotheses.
 * CPZ / Petronio are realisable at admissible squares (Lemma N).
 
 **ES pairs outside the Wewers setting exist (PROVED; supplied by the reviewer).** Let (X, G) be an ES pair of genus
@@ -505,7 +527,8 @@ preserved.
 Example: at p = 5 the cyclic C₁₀ pair of signature (2, 5, 10) has genus 2. Its mod-5 homology cover has genus 626 and
 group order 6250 ⊇ (C₅)⁴, and 6250·(5 − 4) = 5·(2·626 − 2).
 
-So ES pairs with non-cyclic Sylow p-subgroups exist, and no lifting theory (Raynaud–Wewers–Obus) covers them. The
+So ES pairs with non-cyclic Sylow p-subgroups exist. The special-map / cyclic-Sylow results cited here
+(Raynaud–Wewers, Obus) do not apply to them; this is not a claim that no lifting theorem could. The
 signature, however, is still the original triple: such pairs give no new certificates.
 
 ### 6.1 Where characteristic p creates integers (Assessment)
@@ -555,7 +578,8 @@ of an element of order pk, or (★)-data directly. No such construction is known
   in groups with p-group centralisers; prime-to-p char-p constructions beyond Riemann existence; the Euclidean
   families as degree-indexed data.
 * *Unresolved:* block-equipped schemes, higher-genus lifting-invariant designs, the Γ₀(p)-dessin size bound, general
-  extraction from degree-p covers, Abhyankar-type constructions, and ES pairs outside the Wewers setting.
+  extraction from degree-p covers, non-polynomial extraction from two-square realisations, Abhyankar-type
+  constructions, and ES pairs outside the Wewers setting.
 
 **Proposed FRONTIER text (z66 block; not applied here).**
 > *(z66 HSTAR, `Z66_HSTAR.md`; internal.)* The missing lemma (H★) of Z65_LIFT was formalised as a sound realisation
@@ -566,11 +590,13 @@ of an element of order pk, or (★)-data directly. No such construction is known
 >   ES pair contains an element of order pk, and no group whose p-elements have p-group centralisers carries one:
 >   S_p, A_p, transitive groups of degree p, AGL₁(p), PSL₂(p). This is precisely the structure through which
 >   Song–Wen–Zhang's prime-degree engine uses primality.
-> * Prime-to-p realisation schemes gain no realisations from characteristic p (Grothendieck).
+> * Prime-to-p realisation schemes gain no realisations from characteristic p (Grothendieck). This is a statement
+>   about realisation sets, not a ban on new characteristic-p proofs.
 > * The verified arithmetic Hurwitz families (Corvaja–Petronio–Zannier, Petronio) realise norm conditions and are
 >   realisable at every admissible odd square. T1 is a norm statement (4Cm² + 1 = N(1 + 2m√−C)), and every failure
 >   of (★)_1(n) makes the CPZ datum at 4n + 1 realisable (one-way).
-> * Polynomial extraction from p = x² + y² gives only congruence menus.
+> * Polynomial identities in (x, y), p = x² + y², positive and integral on a full residue coset, give only
+>   congruence menus. Non-polynomial extraction is unresolved.
 > * Fixed-shape "naked" block data at degree 4Cn + 1 are realisable at prime 4Cn + 1 (dihedral family
 >   unconditionally; general shapes unconditionally to 31, conditionally on SWZ beyond), hence unsound.
 >
@@ -583,14 +609,16 @@ and is solvable by characteristic-p or group-theoretic methods. Soundness alone 
 scheme fail at squares, so the question is the engine. What is now proved:
 * The one engine whose hypotheses fail at squares for a structural reason, prime-degree Hurwitz (SWZ), works in
   groups whose p-elements are self-centralising, and no ES pair lives in such a group.
-* Prime-to-p constructions in characteristic p realise nothing new.
+* Prime-to-p constructions in characteristic p realise nothing new (as sets of realisations; new *proofs* are not
+  excluded).
 * The verified arithmetic Hurwitz families see *norms*. They are realisable at admissible squares, and they detect
   failures of (★)_1, not its solutions.
 * Naked block data detect *a* divisor, not one in the class −1 (mod 4C).
 
 What is not excluded: schemes whose realisations carry extra structure (block systems, lifting invariants in higher
-genus, size-bounded dessin loops), general extraction from degree-p covers, and constructions outside the Wewers
-setting. For none of these is a working engine known. This is a narrowing, not a closure.
+genus, size-bounded dessin loops), general extraction from degree-p covers, non-polynomial extraction from (x, y),
+and constructions outside the Wewers setting. The scheme definition is semantic (the tautological scheme
+𝒟(n) = n, Real = Cert, ε = id qualifies), so the content always lies in an independently proved engine. For none of these is a working engine known. This is a narrowing, not a closure.
 
 ## 8. Sources (✔ = re-read by me; V/V2 = verified by research subagent, see `data/z66/hstar/src/`)
 * ✔ Obus, *Lifting of curves with automorphisms*, arXiv:1703.01191v2 (Adv. Lect. Math. 46 (2019) 9–59): Thm 1.5
@@ -641,7 +669,24 @@ commits 60f4c4f56..e4b3b63c8). Verdict: MAJOR REVISION; no FATAL (ES/(MS) never 
 8. **MAJOR.** Lemma Split's "(★) is the cyclic case" was false (p = 409, K = C₂₃₄). → (★) is a proper sub-family;
    generator normalisation and trivial marked points specified.
 
-*Minor fixes:*
+**Cross-model review** (`data/z66/xreview/REVIEW_HSTAR.md`; verdict ACCEPT-WITH-FIXES; no provider errors).
+The reviewer independently re-derived Ord/Ord_k, Corollary Ord, Theorem T (against Obus), N, CPZ-T1, 2V, K-block,
+Split and the homology cover. It reproduced KT1 and the census (N = 4–8 byte-identical), plus an independent
+all-block-subsets check at N = 4–6. Fixed:
+1. **WRONG → fixed.** §6's "Wewers lifting reaches the cyclic Lemma-F covers" contradicted Z65 Prop E. It is
+   replaced by the correct statement: they are exceptional and are not lifts of special G-maps. "No lifting theory
+   covers non-cyclic Sylow" is narrowed to "the cited special-map/cyclic-Sylow results do not apply" (§0, §6).
+2. D2 with general (non-polynomial) ε is now **unresolved**. 2V's identity and full-coset positivity/integrality
+   hypotheses are carried into the scope, the catalogue and the FRONTIER text. T's "sets, not proofs" scope is added
+   to the bottom line and the FRONTIER text.
+3. DD: decidability and checkability for Π⁰₁; square-obstructed target and polynomial-identity hypotheses (not ES)
+   in the barrier bullet; "witness rule, not automatically a supplied certificate". Aff: labelled non-identity
+   cycles, all a_i ≠ 1 in the no-translation case, and the b₂ = 1 − a₂ → 1 normalisation. Split: p ≥ 5 and the
+   triangle hypothesis. D3: genus-0 sign via Fried Cor 2.3 is a witness rule; Thm 1.3 concerns only 3-cycle classes.
+4. The scheme definition is stated as semantic (with the tautological example). Catalogue/KT2 classifications are
+   labelled Assessment. F3's "no special Hurwitz meaning" is labelled Assessment. Verdict stays NARROWED.
+
+*Minor fixes (internal review):*
 * Lemma 2V: ties, even degrees, and removal of an impossible listed case.
 * p > k carried for numerator 8 (8/7 counterexample).
 * (S∃) defined separately from (S).
