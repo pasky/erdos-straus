@@ -14,6 +14,11 @@ instrumental.
 * Labels on every claim: PROVED / CONDITIONAL (on what) / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Internal
   review only; nothing is externally refereed.
 
+## Provider failures (user, 2026-11-08)
+* **Any auth / quota / provider error on a model (e.g. "authentication token has expired", "usage limit reached") must
+  be flagged to the user IMMEDIATELY, in its own message, before working around it.** Do not silently substitute
+  another model and mention it only in the end-of-wave report.
+
 ## Wave mechanics (z53–z58)
 * Briefs: `/home/pasky/projects/math/z52bbriefs/` — `z53_depth.md` (structured lane), `z55_tryhard.md` (unprimed
   "just prove it"), `xreview_z5N.md` (cross-model hostile review), `z5N_lanes.md` (lane file), `z58_summary.md`
