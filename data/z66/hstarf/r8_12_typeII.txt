@@ -1,0 +1,13 @@
+# Type II witness for each of the 12 R8-zero primes (data/z58/screens/r8_zeros_1e10.txt)
+p=10156800001 prime=1 witness (a,b,c,d)=(1,2770036364,3,1) check=1
+p=10243598993 prime=1 witness (a,b,c,d)=(1,3414532998,1,1) check=1
+p=10301993881 prime=1 witness (a,b,c,d)=(1,1288015354,605,2) check=1
+p=10529331121 prime=1 witness (a,b,c,d)=(1,1328023745,14,2) check=1
+p=10532106649 prime=1 witness (a,b,c,d)=(1,877701921,2774,3) check=1
+p=10553835713 prime=1 witness (a,b,c,d)=(1,3517945238,1,1) check=1
+p=10619482193 prime=1 witness (a,b,c,d)=(1,3539827398,1,1) check=1
+p=10663548737 prime=1 witness (a,b,c,d)=(1,3554516246,1,1) check=1
+p=10723946017 prime=1 witness (a,b,c,d)=(1,2681345934,1865,1) check=1
+p=10773657233 prime=1 witness (a,b,c,d)=(1,3591219078,1,1) check=1
+p=10868474401 prime=1 witness (a,b,c,d)=(1,2717270709,4466,1) check=1
+p=10917229157 prime=1 witness (a,b,c,d)=(1,3639076386,1,1) check=1

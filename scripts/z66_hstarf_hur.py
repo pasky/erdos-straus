@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """z66 HSTARF, Prop. 3.3: the non-Galois (Hurwitz-type) pull-back problem HUR(n) does not fail at n = 9.
-HUR(n): transitive (s0, s1, sinf) in S_N, s0*s1*sinf = 1, no cycle of s0 or sinf of length divisible by n,
+HUR(n): gcd(N,n)=1, transitive (s0, s1, sinf) in S_N, s0*s1*sinf = 1, every cycle of s0 and sinf of length coprime to n,
         l(s0) + l(sinf) + n*l(s1) = 4N     (l = number of cycles)   [Riemann-Hurwitz for the pull-back along z -> z^n]
 We search N = 8, n = 9 with s0 an 8-cycle (transitivity automatic).  Also reports n = 5, N = 2 (the Galois example).
 usage: uv run scripts/z66_hstarf_hur.py
 """
 from itertools import permutations
+from math import gcd
 
 def cycles(p):
     n = len(p); seen = [False] * n; out = []
@@ -32,7 +33,7 @@ def search(n, N, want=3):
         c1 = cycles(s1)
         sinf = inverse(compose(s0, s1))        # s0*s1*sinf = 1
         cinf = cycles(sinf)
-        if any(L % n == 0 for L in cinf): continue
+        if any(gcd(L, n) != 1 for L in cinf) or gcd(N, n) != 1: continue   # cycle lengths of s0 (N-cycle) and sinf coprime to n
         if 1 + len(cinf) + n * len(c1) == 4 * N:
             found.append((s1, c1, cinf))
             if len(found) >= want: break

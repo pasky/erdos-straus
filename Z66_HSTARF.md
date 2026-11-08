@@ -17,9 +17,13 @@ Let (★) be `4uBC − u − B = p` and let Type II(n) be `4abcd = a + b + nc` (
   fails, for n ≡ 1 (4), n ≤ 5 285 401, exactly at the odd squares and at 4545. (For composite n the equation is only
   the arithmetic content of REAL(n) up to the side condition gcd(abcd, n) = 1 — e.g. Type II(105) holds via
   (3,9,4,1) but REAL(105) fails; for primes there is no such gap, Lemma 2.4.) So a proof "for primes" of Type II must fail at 4545 and at
-  squares and nowhere else (below 5.28·10⁶) — a sharp test for any argument.
-* **(F4) 14 primes** ≤ 10¹⁰ with no (★)-solution (`star_prime_zeros.txt`). CERTIFIED (§4): every one of them has a
-  Type II solution with c ≥ 2 (e.g. p = 409: (a,b,c,d) = (1,117,2,1)). So the realisation problem survives F4.
+  squares — a sharp test for any argument (it need not succeed at every composite where Type II happens to hold).
+* **(F4) 14 primes** ≤ 10¹⁰ with no (★)-solution (`star_prime_zeros.txt`) **and the 38 primes with R_𝔊*(p) = 0**
+  (`gstar_zeros.txt`). CERTIFIED (§4): every one of the 14 has a Type II solution with c ≥ 2 (e.g. p = 409:
+  (a,b,c,d) = (1,117,2,1)); every one of the 38 has a Type II witness (`data/z66/hstarf/gstar38_typeII.txt`, e.g.
+  37: (1,5,2,2); 157: (1,45,2,1); 564661441: (3,49100995,2,1)); the 12 F2 primes too (`r8_12_typeII.txt`, e.g.
+  10156800001: (1,2770036364,3,1)). So the realisation problem survives F2 and F4 (for primes, gcd(abcd,p) = 1 is
+  automatic, Lemma 2.4, so these are REAL witnesses).
 
 Survival of all four with a proof would be a HOT LEAD. **No proof is claimed** (see §7–§8 for what was attempted and
 exactly where it fails).
@@ -175,8 +179,8 @@ d = 2^k d' with d' odd; if k ≥ 1 then q ≡ −1 (mod 8) and (2/q) = 1; and by
 Where primality enters any proof: for a prime p the same computation shows (p/q) = −1 for q = 4acd − 1, i.e. every
 Type II solution has q a quadratic NON-residue modulo p (equivalently q is a non-residue mod p since p ≡ 1 mod 4).
 A proof for primes must produce, for each p, a modulus q ≡ 3 (mod 4) with (q/p) = −1 and p in the sparse set
-S_q := {−a·c^{-1} mod q : ac | (q+1)/4} (§5). For p = m² the set of non-residues is empty — this is the only place
-the argument can use primality.
+S_q := {−a·c^{-1} mod q : ac | (q+1)/4} (§5). For p = m² the set of non-residues is empty. A non-trivial Jacobi character
+(·/p) is thus necessary input for any proof; it need not be the only use of primality.
 
 **Proposition 3.2 (PROVED). PSL₂(𝔽_p) never acts on a Riemann surface with |G|(p − 4) = p(2g − 2) and genus-0
 quotient** (any number r of branch points). Proof. The only element order of PSL₂(𝔽_p) divisible by p is p itself.
@@ -190,7 +194,8 @@ of orders 2, 5 with xy of order 10, signature (2, 5, 10), Σ = 4/5, genus 343 (c
 in the review). Moreover non-abelian groups can realise Type I signatures, which no abelian group can: PSL₂(𝔽₄₁)
 with x = [[0,1],[40,0]], y = [[0,6],[34,17]] has signature (2, 4, 20), Σ = 4/5, genus 3445, and 20 ∤ lcm(2, 4)
 (second review pass; both examples re-verified by `scripts/z66_hstarf_psl2.py`: orders and full generation by BFS). So the *signature* of a general action with |G|(p − 4) = p(2g − 2) is an ES triple of Type I
-or II; it is Type II (and then cyclically realisable) exactly when the action is abelian (Theorem 2.2). The
+or II; a signature admits an abelian (equivalently cyclic) realisation iff it is Type II (Theorem 2.2) — abelian ⇒
+Type II, but non-abelian actions can be Type II too (PSL₂(𝔽₁₉) above). The
 existence question is in every case the Diophantine one; Dickson's classification of subgroups is never needed.
 (Outlook, not pursued: a non-abelian realisation problem — e.g. groups ℤ_p ⋊ A or PSL₂(𝔽_ℓ) with ℓ ≡ ±1 (mod p) —
 could capture Type I as well and thus be equivalent to full ES(p); its square-failure property would then be lost.)
@@ -207,16 +212,17 @@ and Riemann–Hurwitz gives ℓ(σ₀) + ℓ(σ_∞) + n·ℓ(σ₁) = 4N (ℓ =
 so Y has genus 1 and ℓ(σ₀) + ℓ(σ_∞) + 9ℓ(σ₁) = 1 + 4 + 27 = 32 = 4N;
 the pulled-back curve has genus 1 + 8·5/2 = 21 and a ℤ₉-action. (The same script shows the Galois example for n = 5:
 N = 2, w² = z(z⁵ − 1).)
-Consequently HUR is strictly weaker than REAL and cannot be "the" realisation problem: the square obstruction is a
-property of the signature (unit-fraction) equation and is invisible to cycle-count combinatorics. (In particular the
+Consequently HUR (this relaxed cycle-count condition) is strictly weaker than REAL and cannot be "the" realisation
+problem: the square obstruction is a property of the signature (unit-fraction) equation and is invisible to this
+cycle-count condition (other Hurwitz-type formulations were not examined). (In particular the
 2026 prime-degree Hurwitz theorem cannot be transported directly.)
 
 **Proposition 3.4 (PROVED). Characteristic-p constructions have the wrong genus.** Let Y → ℙ¹ be a tame
-A-cover in characteristic p with orders (m₀, m₁, m_∞) and X → Y an A-equivariant Artin–Schreier ℤ_p-cover branched
-over the A-orbits above 0 and ∞ (conductors c₀, c_∞ ≥ 1). Then 2g(X) − 2 = p(2g(Y) − 2) + (p − 1)|A|((c₀+1)/m₀ +
-(c_∞+1)/m₁) > p(2g(Y) − 2) + (p − 1)|A|(1/m₀ + 1/m₁) = the characteristic-0 value. So for a FIXED tame signature
+A-cover in characteristic p with orders (m₀, m₁, m_∞) over t = 0, 1, ∞ and X → Y an A-equivariant Artin–Schreier
+ℤ_p-cover branched over the A-orbits above t = 0 and t = 1 (conductors c₀, c₁ ≥ 1). Then 2g(X) − 2 = p(2g(Y) − 2) +
+(p − 1)|A|((c₀+1)/m₀ + (c₁+1)/m₁) > p(2g(Y) − 2) + (p − 1)|A|(1/m₀ + 1/m₁) = the characteristic-0 value. So for a FIXED tame signature
 (m₀, m₁, m_∞) satisfying (E), the characteristic-p curve with the same group, quotient and branch locus has strictly
-larger genus than the characteristic-0 target (it would need c₀ = c_∞ = 0). This rules out the naive transport "same
+larger genus than the characteristic-0 target (it would need c₀ = c₁ = 0). This rules out the naive transport "same
 data in characteristic p, then lift"; it does not exclude other characteristic-p constructions with different
 ramification data, which were not explored.
 
@@ -231,10 +237,14 @@ ramification data, which were not explored.
     (`data/z66/hstarf/typeII_zero_all_1e6.txt`; 4545 re-checked by two independent enumerations). All other F3
     composites ≤ 10⁶ (187 of them) have Type II solutions (with c ≥ 2 by definition of F3).
   - F4: all 14 (★)-free primes have Type II solutions with c ≥ 2 (counts 7, 7, 10, 7, 39, 15, 21, 30, 32, 50, 45,
-    38, 78, 64 for the list in order).
+    38, 78, 64 for the list in order); all 38 𝔊*-zero primes and all 12 F2 primes have a Type II witness
+    (`t12 -first`, files `gstar38_typeII.txt`, `r8_12_typeII.txt`, each line re-checks 4abcd = a + b + pc).
 * `scripts/z66_hstarf_subfam.c` and ad-hoc checks: the sub-families fail individually —
-  a = 1 ("p + 4d has a divisor ≡ −1 mod 4d") fails at p = 2521, 66529 (exhaustive in d);
-  d = 1 ("(2a)² + p has a divisor ≡ −1 mod 4a") fails at 133 primes ≤ 3·10⁶ (first: 486781? — see file);
+  a = 1 ("p + 4d has a divisor ≡ −1 mod 4d") fails at p = 193, 2521, 66529 (exhaustive: d ≤ (p+2)/4 suffices since
+  for larger d the only candidate divisor is 4d − 1 | p + 1; the `subfam` scan with d ≤ 3000 missed 193 only because
+  of its cap — the ad-hoc exhaustive check `/tmp/a1`-style, now `-first`-independent, confirms 193);
+  d = 1 ("(2a)² + p has a divisor ≡ −1 mod 4a") fails at 133 primes ≤ 3·10⁶, the first being p = 13 (exhaustive
+  bound a ≤ √((p+2a)/4), i.e. a ≤ 867 for p ≤ 3·10⁶);
   c = 1 = (★) fails at the 14 F4 primes. So none of the three one-parameter sub-families suffices alone (their
   union, or some other proper sub-family, might — not tested beyond §4's depth statistic).
 * `scripts/z66_hstarf_abelian.py`: brute force over 2-generated abelian groups ℤ_m × ℤ_k (|G| ≤ 400) and generating
@@ -290,12 +300,13 @@ below p^{1/(4√e)+ε}, but nothing forces one of that shape.
 
 ### 5.2 The mirror class
 
-For (a, d) fixed let N = 4a²d + p. Divisors q > 1 of N with q ≡ +1 (mod 4ad) satisfy (q/p) = +1, those with
-q ≡ −1 (mod 4ad) satisfy (q/p) = −1 (same computation as in Prop. 5.2). Writing q = 4acd + 1 (c ≥ 1), q | N ⇔
+For (a, d) fixed with gcd(ad, p) = 1 (true for all Type II parameters, Lemma 2.4) let N = 4a²d + p. Divisors q > 1 of N
+with q ≡ +1 (mod 4ad) satisfy (q/p) = +1, those with q ≡ −1 (mod 4ad) satisfy (q/p) = −1 (same computation as in
+Prop. 5.2; for p | a the symbols can vanish, e.g. p = 5, a = 5, d = 1, N = 105, divisors 5 and 21). Writing q = 4acd + 1 (c ≥ 1), q | N ⇔
 q | pc − a, i.e. the mirror class corresponds to the equation 4abcd + a + b = pc with b ≥ 0 (b = 0 is the trivial
-family a = pc, q = N/p). **This gives no leverage** (PROVED-empty): on the divisors of a single integer N_{a,d} the
-symbol (q/p) is a function of q mod 4d only, i.e. it merely relabels the two classes; there is no range of q over
-which a character-sum bound (Pólya–Vinogradov/Burgess) could be applied. (The script `z66_hstarf_jacobi.py` also
+family a = pc, q = N/p). **Assessment (not a theorem): this gives no leverage here** — on the divisors of a single integer N_{a,d} the
+symbol (q/p) is a function of q mod 4d only, i.e. it merely relabels the two classes; I found no weighted or averaged
+divisor sum to which a character-sum bound (Pólya–Vinogradov/Burgess) applies with an adequate error term. (The script `z66_hstarf_jacobi.py` also
 tabulates the c = 1, b ≥ 1 sub-case 4abm + a + b = p, which has no solution for 7 primes ≤ 2·10⁴; this is only a
 curiosity.)
 
@@ -334,14 +345,16 @@ p ∈ S_q forces (q/p) = −1. Heuristically Σ_{q ≤ Q} |S_q|/q ≍ (log Q)³,
 "q divides pc + a with ac | (q+1)/4", i.e. a divisor-in-arithmetic-progression condition on the shifted numbers
 pc + a; for c = 1 it is "p + a has a divisor ≡ −1 (mod 4a)". So REAL(p) for all p is exactly the shifted-divisor
 problem that the analytic approaches attack; the geometric packaging (superelliptic curves w^N = z^α(z−1)^β with
-N | 4p·(gcd sums)) adds no new invariant. I found no route that avoids this reduction.
+N | 4p·(gcd sums)) adds no new invariant. I found no route that avoids this reduction (an assessment of the
+constructions tried, not a no-go theorem).
 
 ### 5.6 Partial results actually PROVED here (all classical in substance)
 
-For completeness, from Prop. 5.1 with small (a, d, j): REAL(p) holds for p ≡ 5 (mod 12) [(1,1,3)], p ≡ 13 (mod 24)
-[(1,2,3)], p ≡ 5 (mod 8) [(2,1,1)… precisely (a,b,c,d) = (2,1,1,(p+3)/8)], p ≡ 2 (mod 3) [(1,(p+1)/3,1,1)·… i.e.
-Y = ℙ¹], and whenever (p+1)/2 has a divisor ≡ 3 (mod 4), or p + 4 has a divisor ≡ 3 (mod 4), or p + 2 has a divisor
-≡ 7 (mod 8), or 2p + 1 = δk with δ ≡ 5, k ≡ 7 (mod 8) [the (★) family at u = 1, 2 and (a,d) = (1,1)].
+For completeness, from Prop. 5.1 with small (a, d, j): REAL(p) holds for p ≡ 5 (mod 12) [(a,d,j) = (1,1,3)],
+p ≡ 13 (mod 24) [(1,2,3)], p ≡ 7 (mod 8) [(2,1,1)], p ≡ 5 (mod 8) [(a,b,c,d) = (2,1,1,(p+3)/8)], p ≡ 2 (mod 3)
+[(a,b,c,d) = (1,(p+1)/3,1,1), Y = ℙ¹], and whenever (p+1)/2 has a divisor ≡ 3 (mod 4) [(★), u = 1], or p + 4 has a
+divisor ≡ 3 (mod 4) [(a,d) = (1,1)], or p + 2 has a divisor ≡ 7 (mod 8) [(★), u = 2], or 2p + 1 = δk with δ ≡ 5,
+k ≡ 7 (mod 8) [(a,b,c,d) = (1, δ, 2, (k+1)/8); this is a c = 2 solution, not (★): p = 409 has it but no (★)].
 None of these reaches the residue classes p ≡ 1, 121, 169, 289, 361, 529 (mod 840) in general, as expected.
 
 ## §6 Summary of the lane
@@ -354,8 +367,32 @@ non-Galois Hurwitz condition are each shown not to capture REAL(p) (other-charac
 with Type I signatures); an unconditional covering formulation p ≡ −(j + 4a²d) (mod 4adj).
 CERTIFIED: Type II for all p ≡ 1 (4) ≤ 2·10⁷; the four falsifiers behave as stated; sub-families (a=1, d=1, c=1)
 each fail somewhere; for n ≡ 1 (4), n ≤ 5 285 401, the Type II equation fails only at odd squares and at 4545.
-OPEN / NOT PROVED: REAL(p) for all large primes. No HOT LEAD. The honest conclusion is that every geometric or
-group-theoretic dressing of 4/p = 1/x + 1/y + 1/z with p | x, p | y collapses to the same shifted-divisor problem.
+OPEN / NOT PROVED: REAL(p) for all large primes. No HOT LEAD. The honest conclusion is that (assessment, not a no-go theorem) each of the geometric or
+group-theoretic dressings tried here of 4/p = 1/x + 1/y + 1/z with p | x, p | y collapses to the same shifted-divisor problem.
+
+## §7 Relation to prior repository work (as reported by the cross-model review; those memos were not read in this lane)
+
+The review states that Z64_EQUIV Lemma A already gives the automorphism/genus-ratio equivalence with ES and its
+Lemma F realises the (★) sub-family cyclically; that Z65_LIFT Prop E excludes abelian Type I actions and proves the
+cyclic p-Sylow structure, and its Prop O gives a scoped signature-transparency obstruction; and that Z57_BFII
+Lemma 1.1 / Prop 2.2 / Cor 2.3 / Prop 3.2 already contain the divisor forms, the S_q = −T_q description, the Jacobi
+obstruction with square failure and the finite-modulus barrier, with a census of all odd n ≤ 10⁷ showing 4545 as the
+sole non-square exception. Accordingly, the incremental content of this memo is: **cyclic sufficiency for every full
+Type II signature (Prop. 2.5)**, the explicit prime-to-p pull-back presentation REAL(p), the (ab/p) = −1 form of the
+obstruction, the scoped negative results (Props 3.2–3.4), and the depth statistic; the census and the obstruction are
+independent rediscoveries.
+
+## §8 Cross-model review (branch side-agent/z66-xrev-hstar, `data/z66/xreview/REVIEW_HSTARF.md`) — fixes applied
+
+Verdict ACCEPT-WITH-FIXES. Fixed: (1) the false converse "Type II iff abelian" (now: abelian/cyclic realisation iff
+Type II); (2) branch labels in Prop 3.4 (orbits above 0 and 1, conductors c₀, c₁); (3) coprimality hypothesis
+gcd(ad, p) = 1 in §5.2 and "PROVED-empty" downgraded to an assessment; (4) "and nowhere else" / "only place" primality
+rhetoric removed (§0, §3); (5) §5.6 parameter labels: (2,1,1) covers 7 (mod 8), the 2p + 1 = δk condition is the c = 2
+solution (1, δ, 2, (k+1)/8), not (★); (6) §4: d = 1 failures start at p = 13, a = 1 failures at 193 (exhaustive bounds
+stated); (7) the mandatory 38 𝔊*-zero screen added (38/38 witnesses) plus explicit witnesses for the 12 F2 primes;
+(8) HUR script now tests gcd(L, n) = 1 and gcd(N, n) = 1; (9) universal "every dressing collapses" statements marked
+as assessments; (10) §7 credits prior work as reported. Conclusion unchanged: equivalence established, existence
+unproved, no HOT LEAD.
 
 ## §9 Falsifiers re-stated
 
@@ -363,10 +400,13 @@ group-theoretic dressing of 4/p = 1/x + 1/y + 1/z with p | x, p | y collapses to
   the sharper (ab/p) = −1 of Prop. 5.2 is prime-only). Every argument in §5 either uses this Jacobi symbol explicitly or is a verbatim covering congruence
   that squares avoid; no argument for primes is claimed that would survive at squares.
 * **F2 (C-even sub-equation fails above 10¹⁰):** REAL(p) is equivalent to the FULL family (all a, b, c, d; all
-  parities), Theorem 2.2; the C-even/c = 1 sub-families are not what REAL(p) realises.
+  parities), Theorem 2.2; the C-even/c = 1 sub-families are not what REAL(p) realises; explicit full-family witnesses
+  for the 12 primes are in `data/z66/hstarf/r8_12_typeII.txt` (these are numerator-4 witnesses, not repairs of the
+  C-even sub-family).
 * **F3 (285 (★)-free composites):** the Type II equation (REAL's arithmetic content for primes; for composites REAL
   needs in addition gcd(abcd, n) = 1) has solutions for all of them below 5 285 401 except 4545, and fails at 4545 —
   so no claim of a proof "for all n ≡ 1 (4)" is made, and a proof for primes must fail at 4545 (and at squares) — §5.3.
-* **F4 (14 (★)-free primes ≤ 10¹⁰):** all 14 have Type II solutions with c ≥ 2 (§4), so REAL(p) holds for them.
+* **F4 (14 (★)-free primes ≤ 10¹⁰ and 38 𝔊*-zero primes):** all 14 have Type II solutions with c ≥ 2 and all 38 have
+  Type II witnesses (§4), so REAL(p) holds for them; likewise for the 12 F2 primes.
 
 Nothing in this memo proves the Erdős–Straus conjecture or any new case of it; the conjecture remains OPEN.

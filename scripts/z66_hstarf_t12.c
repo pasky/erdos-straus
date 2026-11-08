@@ -79,6 +79,14 @@ int main(int argc,char**argv){
         printf("done N=%llu tested=%ld typeII_zero=%ld star_zero(primes)=%ld both_zero=%ld\n",N,np,nz2,nzs,nz1);
         return 0;
     }
+    if(argc>=3 && !strcmp(argv[1],"-first")){ // print one Type II witness (smallest ad, then a, then q) per argument
+        for(int i=2;i<argc;i++){ u64 p=strtoull(argv[i],0,10); int found=0;
+            for(u64 m=1; !found && 4*m<=p+2*m; m++) for(u64 a=1; !found && a<=m; a++){ if(m%a) continue; u64 d=m/a; if(4*a*a*d>p+2*a) continue;
+                u64 n=4*a*d, N=4*a*a*d+p; u64 s=(u64)sqrtl((long double)N);
+                for(u64 r=1;r<=s && !found;r++) if(N%r==0){ u64 q=0; if((r+1)%n==0) q=r; else if((N/r+1)%n==0) q=N/r;
+                    if(q){ u64 c=(q+1)/n, b=(a+p*c)/q; printf("p=%llu prime=%d witness (a,b,c,d)=(%llu,%llu,%llu,%llu) check=%d\n",p,isprime(p),a,b,c,d,(4*a*b*c*d==a+b+p*c)); found=1; } } }
+            if(!found) printf("p=%llu NO_TYPEII\n",p); }
+        return 0; }
     for(int i=1;i<argc;i++){ u64 p=strtoull(argv[i],0,10); long st; long c2=count_t2(p,&st,0); long c1=(p<20000)?count_t1(p,0):-1;
         printf("p=%llu prime=%d typeII=%ld star=%ld typeI=%ld\n",p,isprime(p),c2,st,c1); }
     return 0;
