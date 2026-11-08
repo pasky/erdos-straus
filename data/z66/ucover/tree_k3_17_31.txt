@@ -1,0 +1,20 @@
+ell=17 k=1: |E_k|=6 |S_k|=2 surviving mass=0.125000 (non-residue mass 0.5); E_k mass=0.375000
+ell=17 k=2: |E_k|=46 |S_k|=26 surviving mass=0.095588 (non-residue mass 0.5); E_k mass=0.169118
+ell=17 k=3: |E_k|=300 |S_k|=396 surviving mass=0.085640 (non-residue mass 0.5); E_k mass=0.064879
+ell=17: sample survivors mod ell^3: [5, 294, 583, 872, 1450, 2028, 2317, 2606]
+ell=19 k=1: |E_k|=5 |S_k|=4 surviving mass=0.222222 (non-residue mass 0.5); E_k mass=0.277778
+ell=19 k=2: |E_k|=67 |S_k|=52 surviving mass=0.152047 (non-residue mass 0.5); E_k mass=0.195906
+ell=19 k=3: |E_k|=315 |S_k|=902 surviving mass=0.138812 (non-residue mass 0.5); E_k mass=0.048476
+ell=19: sample survivors mod ell^3: [2, 363, 724, 1085, 1446, 1807, 2168, 2529]
+ell=23 k=1: |E_k|=9 |S_k|=2 surviving mass=0.090909 (non-residue mass 0.5); E_k mass=0.409091
+ell=23 k=2: |E_k|=91 |S_k|=30 surviving mass=0.059289 (non-residue mass 0.5); E_k mass=0.179842
+ell=23 k=3: |E_k|=593 |S_k|=616 surviving mass=0.052930 (non-residue mass 0.5); E_k mass=0.050954
+ell=23: sample survivors mod ell^3: [5, 534, 1063, 1592, 2121, 2650, 3179, 3708]
+ell=29 k=1: |E_k|=8 |S_k|=6 surviving mass=0.214286 (non-residue mass 0.5); E_k mass=0.285714
+ell=29 k=2: |E_k|=54 |S_k|=152 surviving mass=0.187192 (non-residue mass 0.5); E_k mass=0.066502
+ell=29 k=3: |E_k|=388 |S_k|=4282 surviving mass=0.181841 (non-residue mass 0.5); E_k mass=0.016477
+ell=29: sample survivors mod ell^3: [2, 843, 1684, 2525, 3366, 4207, 5048, 5889]
+ell=31 k=1: |E_k|=11 |S_k|=4 surviving mass=0.133333 (non-residue mass 0.5); E_k mass=0.366667
+ell=31 k=2: |E_k|=125 |S_k|=86 surviving mass=0.092473 (non-residue mass 0.5); E_k mass=0.134409
+ell=31 k=3: |E_k|=481 |S_k|=2622 surviving mass=0.090947 (non-residue mass 0.5); E_k mass=0.016684
+ell=31: sample survivors mod ell^3: [3, 964, 1925, 2886, 3847, 4808, 5769, 6730]
