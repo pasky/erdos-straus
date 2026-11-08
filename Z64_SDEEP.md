@@ -215,8 +215,9 @@ products (CLASS_FORCING §6 "full factor multiset"); mod-4/8 (not mod-2) laws of
 ## 6. Verdict
 
 **NARROWED.** No HOT LEAD; ES and (S) remain open.
-* **PROVED:** Lemma 1 (trace form of the sign — new in the repo; certified on 37 116 primes) and its odd-trace
-  genus-character reading (relative to classical genus theory; even traces: not class-invariant, Z2825);
+* **PROVED:** Lemma 1 (trace form of the sign — new in the repo; certified on 37 116 primes) and its
+  class-invariance for traces s ≢ 0 (mod 4) (classical genus argument; certified for n < 3000; fails for s ≡ 0 mod 4,
+  Z2825);
   Lemma 2 (restatement of DK §8.1: on n with L₃(n) ≠ ∅, (S) ⟺ ML, 2-adic escape of integral points); Prop 3
   (whole-fibre χ_n data = congruence data; cf. CLASS_FORCING Thm 2.1); Prop 4 (i) (completion over the (A, A*)-plane
   meets words in one-point-thick hyperbolas); no polynomial word family for d·m² + k, k ≥ 0, in the two shapes of §4(a)
