@@ -242,7 +242,7 @@ ramification data, which were not explored.
 * `scripts/z66_hstarf_subfam.c` and ad-hoc checks: the sub-families fail individually —
   a = 1 ("p + 4d has a divisor ≡ −1 mod 4d") fails at p = 193, 2521, 66529 (exhaustive: d ≤ (p+2)/4 suffices since
   for larger d the only candidate divisor is 4d − 1 | p + 1; the `subfam` scan with d ≤ 3000 missed 193 only because
-  of its cap — the ad-hoc exhaustive check `/tmp/a1`-style, now `-first`-independent, confirms 193);
+  of its cap; `scripts/z66_hstarf_a1.c` is the exhaustive check, confirming 193, 2521, 66529);
   d = 1 ("(2a)² + p has a divisor ≡ −1 mod 4a") fails at 133 primes ≤ 3·10⁶, the first being p = 13 (exhaustive
   bound a ≤ √((p+2a)/4), i.e. a ≤ 867 for p ≤ 3·10⁶);
   c = 1 = (★) fails at the 14 F4 primes. So none of the three one-parameter sub-families suffices alone (their
