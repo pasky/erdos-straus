@@ -1,0 +1,11 @@
+K1: box DEG<=2, numerators<=2, denominators<=2, |const|<=4; 220 positive elements
+n = x+1: (*) solutions found: 0; ES solutions found: 0
+n = x^2+1: (*) solutions found: 0; ES solutions found: 0
+n = x/840*840+1 = 840x+1: (*) solutions found: 0; ES solutions found: 0
+n = CONTROL 8x+5: (*) solutions found: 4; ES solutions found: 0
+   (*) u=(1)x^0  B=(2)x^0 + (8/3)x^1  C=(1)x^0
+   (*) u=(1)x^0  B=(2)x^0  C=(1)x^0 + (1)x^1
+n = CONTROL x+2 (landing 2): (*) solutions found: 1; ES solutions found: 4
+   (*) u=(1)x^0  B=(1)x^0 + (1/3)x^1  C=(1)x^0
+   ES  x=(1)x^0 + (1/2)x^1  y=(2)x^0 + (1/2)x^1  z=(2)x^0 + (3/2)x^1 + (1/4)x^2
+   ES  x=(1)x^0 + (1/2)x^1  y=(2)x^0 + (1)x^1  z=(2)x^0 + (1)x^1
