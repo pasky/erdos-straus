@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Independent check of the Theorem 3.7 certificate data/z64/sdeepf/cover_words_1441440.txt.
+"""Independent check of the Theorem 3.6 certificate data/z64/sdeepf/cover_words_1441440.txt.
 For every class n0 mod L (n0 = 1 mod 4) not lying over the 28 excluded classes mod 840, find a listed word
 whose class contains n0 and whose Jacobi symbol is -1 on two representatives n0+L, n0+2L (direct Jacobi
-evaluation).  Periodicity mod L of the symbol on the class (memo, proof of Thm 3.7: period | 8A' for fixed A;
+evaluation).  Periodicity mod L of the symbol on the class (memo, proof of Thm 3.6: period | 8A' for fixed A;
 period | 8uv for fixed (u,v), the latter via Theorem 2.1) then gives the whole class.  Prints the words used."""
 import re, sys
 L = 1441440

@@ -22,7 +22,7 @@ Status key: PROVED / CONDITIONAL (on what) / CERTIFIED (computation) / EVIDENCE.
   2-adic statement about the solutions of n + u + v = tuv (verified on all 4.1·10⁹ words of n ≤ 10⁸).
 * Thm 3.1 (PROVED): (S) for n ≡ 5 (8) [word (3,3,(n+3)/8)], n ≡ 2 (3) [((n+7)/12, 4, 3)], n ≡ 3 (9)
   [((n+15)/36, 3, 12)].
-* Thm 3.7 (PROVED given Thm 2.1 + CERTIFIED): Mordell-type covering — (S) holds for all non-square n ≡ 1 (4)
+* Thm 3.6 (PROVED given Thm 2.1 + CERTIFIED): Mordell-type covering — (S) holds for all non-square n ≡ 1 (4)
   outside 28 explicit classes mod 840 (the 24 odd-square classes, which no finite covering can ever remove
   since each contains squares, Cor. 2.2; plus four classes with n ≡ 6 (7)); 57 explicit words, two
   covering checkers.
@@ -202,7 +202,7 @@ Consequently any proof of (S) must use words with unbounded denominators A and u
 (the classical Schinzel-type obstruction for Erdős–Straus, here in the Jacobi language). Words at a
 *fixed level t* (factorisations of tn + 1) are not residue-class objects and escape this remark.
 
-**Theorem 3.7 (Mordell-type covering for (S); PROVED, certificate CERTIFIED).** Let
+**Theorem 3.6 (Mordell-type covering for (S); PROVED, certificate CERTIFIED).** Let
   𝔈 := {1, 9, 25, 49, 81, 105, 121, 169, 225, 249, 265, 289, 321, 345, 361, 385, 441, 505, 529, 561, 585, 609,
         625, 681, 721, 729, 769, 825} ⊂ ℤ/840.
 Every n ≡ 1 (mod 4) with n mod 840 ∉ 𝔈 and n ≥ 24529 has a good word given by one of 57 explicit
@@ -235,7 +235,7 @@ re-verifies with an independent covering logic (direct Jacobi evaluation on two 
 the two scripts share only the Jacobi routine, which was checked against sympy) that for each of the
 312 312 classes mod L not over 𝔈 one of the listed words applies with (A/n) = −1, that 57 words suffice, and
 that the word exists for n ≥ 24529 (`cover_check.txt`). The extension from the representatives to the whole
-class mod L is the periodicity of (1); for the (u,v)-words this rests on Theorem 2.1 (so Theorem 3.7 is
+class mod L is the periodicity of (1); for the (u,v)-words this rests on Theorem 2.1 (so Theorem 3.6 is
 PROVED given Theorem 2.1, which is PROVED). (3) The same computation with L = 2⁵·3³·5·7²·11·13 = 30 270 240
 (`cover2_30270240.txt`), with L = 2⁵·3²·5·7·11·13·17 and with L = 2⁵·3²·5·7·11·13·19 leaves exactly the
 same 28 classes uncovered (coverage inside them rises, e.g. to 96 % in class 769, but never to 100 %). ∎
@@ -335,9 +335,9 @@ Why the obvious routes stop (all three observations PROVED above or classical):
    only global input distinguishing n from a square is the non-triviality of (·/n), which must be
    transported to the sparse set W(n). Pell/Vieta-type involutions on words do not exist (the equation
    is linear in each of t, u, v; for fixed t it is a divisor problem).
-Conclusion (honest): I did not find a proof of (S) for the 28 classes 𝔈 mod 840 of Theorem 3.7 (24 of
+Conclusion (honest): I did not find a proof of (S) for the 28 classes 𝔈 mod 840 of Theorem 3.6 (24 of
 which contain squares and are provably out of reach of finite coverings); the results proved here are
-Theorems 2.1, 3.1, 3.7, Props. 3.1′–3.5, Thm 4.1 (given Landau), and Thm 4.2 (given a textbook sieve
+Theorems 2.1, 3.1, 3.6, Props. 3.1′–3.5, Thm 4.1 (given Landau), and Thm 4.2 (given a textbook sieve
 bound). No HOT LEAD.
 
 ## §6 EVIDENCE (all CERTIFIED by the listed scripts; data in data/z64/sdeepf/)
@@ -357,7 +357,7 @@ bound). No HOT LEAD.
   composites of composite_zeros_le8e6 — the exception n = 105 has no word at all (vacuous for (S)).
 * `escape_counts.txt`: §4 — fraction of n ≡ 1 (8) escaping the explicit criteria: 0.86 % for (1)–(6) at
   10⁷, decreasing with x.
-* `cover*_*.txt`, `cover_words_1441440.txt`, `cover_check.txt`: the Theorem 3.7 covering (182/210 classes
+* `cover*_*.txt`, `cover_words_1441440.txt`, `cover_check.txt`: the Theorem 3.6 covering (182/210 classes
   mod 840 covered; the 28 uncovered are 𝔈; identical with the 21× larger modulus 30 270 240). With
   fixed-denominator words alone, 170/210 — exactly the 170 classes with bounded minimal good denominator in
   the next item.
@@ -382,7 +382,7 @@ bound). No HOT LEAD.
   409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201; "4|u or 4|v"
   misses none of the screened primes but misses the primes 13, 193, 2521, 21841, 66529). No theorem above
   asserts universality of a sub-family; Theorems 3.1(a–c) are statements about residue classes with
-  explicit witnesses, valid for every n in the class (checked numerically to 2·10⁷ as part of crit8).
+  explicit witnesses, valid for every n in the class (the words (8,3), (u,v) = (3,4), (3,12) are among the 57 of Theorem 3.6 and were evaluated by direct Jacobi on representatives of every class mod L; (S) itself is verified to 10⁸).
 * **F3 (composites).** Nothing uses primality. Theorem 3.1 and Props. 3.1′–3.3 hold for all n ≡ 1 (4) in
   the stated classes, composite or not; Thm 4.1/4.2 count all n. The only composite-specific phenomenon
   is wordlessness (n = 105), which makes (S) vacuous there.
