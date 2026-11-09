@@ -43,3 +43,5 @@ python3 scripts/z69_mine_phantom_an.py $T/phm3_H.jsonl --big 1e10 --did $T/phm3_
 python3 scripts/z69_mine_phantom_an.py $T/phm3_C.jsonl --big 1e10 > $D/phantom_match_C.txt
 # unconditional size-neighbour shuffle (descriptive only)
 timeout 1750 $PY scripts/z69_mine_scan.py $T/H.wit $T/H.feat.jsonl $T/C.wit $T/C.feat.jsonl $D/shuffle_scan.txt
+# period-length / Q-set normalisation of the hard-set CF deviations (reads the committed raw records)
+timeout 1700 python3 scripts/z69_mine_cfk_period.py $D/raw_ph3_H.jsonl.gz $D/raw_ph3_C.jsonl.gz > $D/cfk_period.txt

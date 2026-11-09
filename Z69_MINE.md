@@ -312,7 +312,7 @@ its phantoms).
 `ulimit -v 6000000`; `timeout` ≤ 1750). Engines: `z69_mine_W.c` (census, 9 s / 1 GB at 10⁸), `z69_mine_allwit.c`
 (per-prime witness lists; reads the first number of each input line), `z69_mine_scales.c` (clusters by scale / type),
 `z69_mine_tau.c`. Python: `z69_mine_{sets,feat,local,hvsE,chi,tau_an,scales_an,morph,nprule,redei,lemma43_check,
-phantom,phantom_an,scan}.py`. Committed outputs: `data/z69/mine/*.txt`, raw phantom records `raw_*.jsonl.gz`, witness
+phantom,phantom_an,scan,cfk_period}.py`. Committed outputs: `data/z69/mine/*.txt`, raw phantom records `raw_*.jsonl.gz`, witness
 lists `{H,CTRL}_witnesses.txt.gz`, census `W_1e7.tsv.gz`, hard list `Hlow_w030_1e8.txt`.
 
 ## 11. Review log
