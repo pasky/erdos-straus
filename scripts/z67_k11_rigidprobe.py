@@ -3,7 +3,8 @@
 Profile pi(q1, q2): pi_p = q2 for p in T = {2,3,5,7}, pi_p = q1 for every prime p >= 11, where q1 is a
 {2,3,5,7}-unit (so a unit at every p >= 11) and q2 = u/v a rational unit at 2,3,5,7 with q2 = 1 mod 840.
 pi lies in K-bar iff (q1/11) = -1.  A class r mod m (m = mT * m'', mT the {2,3,5,7}-part) contains pi iff
-r = q2 mod mT and r = q1 mod m''.  Lists every catching class found (family, parameters, modulus).
+r = q2 mod mT and r = q1 mod m''.  Prints the number of catching parameter/family occurrences, the number of distinct classes (m, r),
+and the first 12 occurrences (family, parameters, modulus, residue).
 Usage: uv run --with sympy python scripts/z67_k11_rigidprobe.py MMAX q1 q2 [q1 q2 ...]   (q as u/v)
 """
 import sys

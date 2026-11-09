@@ -41,9 +41,16 @@ def main():
     for p, k in zip(TP, e):
         LEVEL *= p ** k
     u, v = q1.numerator, q1.denominator
-    for p in range(2, 200):
-        if all(p % k for k in range(2, p)) and p not in TP and (u % p == 0 or v % p == 0):
-            sys.exit(f"q1={q1} is not a unit at {p} (outside T)")
+    if u == 0:
+        sys.exit("q1 must be nonzero")
+    ru, rv = abs(u), v
+    for p in TP:
+        while ru % p == 0:
+            ru //= p
+        while rv % p == 0:
+            rv //= p
+    if ru != 1 or rv != 1:
+        sys.exit(f"q1={q1} is not a T-unit (has a prime factor outside T)")
     if 11 not in TP and pow((u * pow(v, -1, 11)) % 11, 5, 11) != 10:
         print(f"# WARNING: q1={q1} is a quadratic RESIDUE mod 11: this slice is EMPTY in K-bar (control only)")
     cyl = {}
@@ -110,6 +117,8 @@ def main():
     for mt, R in cyl.items():
         alive &= ~np.isin(xs % mt, np.fromiter(R, dtype=np.int64))
     print(f"T-box survivors at LEVEL {LEVEL}: {alive.sum()}/{len(xs)} = {alive.mean():.4f}")
+    if "--cert" in sys.argv and alive.sum() != 0:
+        sys.exit(f"NOT COVERED: {alive.sum()} survivors; no certificate written")
     if "--cert" in sys.argv and alive.sum() == 0:
         # greedy subcover, written as "family params | m r" lines for the independent verifier
         left = np.ones(len(xs), dtype=bool)
