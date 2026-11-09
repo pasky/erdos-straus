@@ -28,44 +28,54 @@ def load(fn):
         recs.append(rec)
     return recs, cov, tot, ratios, ps
 
-def per_prime(recs):
-    """D[key][p] = (sum real indicators, sum mean-phantom indicators) over retained witnesses of p"""
-    D = collections.defaultdict(lambda: collections.defaultdict(lambda: [0.0, 0.0]))
+def available(rec, fam):
+    """a family is measured in a record unless it is size-sensitive and the real prime or a phantom is >= --big
+    (then CF/Pell data were not computed for that prime); applied symmetrically to real and phantoms"""
+    if fam not in SENS: return True
+    return rec['p'] < a.big and all(ph['q'] < a.big for ph in rec['ph'])
+
+def per_prime(recs, universe=None):
+    """D[key][p] = [sum real indicators, sum mean-phantom indicators, exposure (#records where key measurable)]
+    over the covered sampled witnesses of p (record-weighted: every covered witness record counts once)."""
+    if universe is None:
+        universe = set()
+        for rec in recs:
+            universe |= set(rec['real']) | {k for ph in rec['ph'] for k in ph['h']}
+    D = collections.defaultdict(lambda: collections.defaultdict(lambda: [0.0, 0.0, 0]))
     M = collections.defaultdict(lambda: [0.0, 0.0])
-    nw = collections.Counter()
     for rec in recs:
-        keys = set(rec['real']) | {k for ph in rec['ph'] for k in ph['h']}
-        if any(ph['q'] >= a.big for ph in rec['ph']):
-            keys = {k for k in keys if k.split(':')[0] not in SENS}
-        K = len(rec['ph']); nw[rec['p']] += 1
-        for k in keys:
+        K = len(rec['ph'])
+        for k in universe:
+            if not available(rec, k.split(':')[0]): continue
             rv = rec['real'].get(k, 0); pv = sum(ph['h'].get(k, 0) for ph in rec['ph']) / K
             M[k][0] += rv; M[k][1] += pv
-            D[k][rec['p']][0] += rv > 0
-            D[k][rec['p']][1] += sum(ph['h'].get(k, 0) > 0 for ph in rec['ph']) / K
-    return D, M, nw
+            e = D[k][rec['p']]
+            e[0] += rv > 0; e[1] += sum(ph['h'].get(k, 0) > 0 for ph in rec['ph']) / K; e[2] += 1
+    return D, M, universe
 
 recs, cov, tot, ratios, ps = load(a.file)
-D, M, nw = per_prime(recs)
+D, M, U = per_prime(recs)
+nw = collections.Counter(rec['p'] for rec in recs)
 ratios.sort()
 print('file %s  p >= %d  sampled witnesses %d, with phantoms %d (%d primes, p in [%d, %d])' % (
     a.file, a.pmin, sum(tot.values()), len(recs), len(nw), min(ps), max(ps)))
 print('phantom coverage by f/p:', {b: '%d/%d' % (cov[b], tot[b]) for b in ('<1e-3', '<1e-2', '<1/16', '>=1/16')},
       ' q/p: median %.3g, range [%.3g, %.3g]' % (ratios[len(ratios) // 2], ratios[0], ratios[-1]))
-print('%-12s %9s %10s %7s %8s %7s %5s' % ('fam:test', 'hitsR', 'hitsPh', 'witR', 'witPh', 'z', 'disc'))
+print('%-12s %9s %10s %7s %8s %7s %5s %6s' % ('fam:test', 'hitsR', 'hitsPh', 'witR', 'witPh', 'z', 'disc', 'expo'))
 for k in sorted(D):
-    dd = [r - ph for r, ph in D[k].values()]
+    dd = [r - ph for r, ph, e in D[k].values()]
     s = sum(dd); v = sum(x * x for x in dd); disc = sum(1 for x in dd if abs(x) > 1e-12)
     z = s / math.sqrt(v) if v > 0 else 0.0
-    R = sum(r for r, ph in D[k].values()); P = sum(ph for r, ph in D[k].values())
-    print('%-12s %9d %10.1f %7d %8.1f %+7.2f %5d%s' % (k, M[k][0], M[k][1], R, P, z, disc, '  <==' if abs(z) >= 4 else ''))
+    R = sum(v[0] for v in D[k].values()); P = sum(v[1] for v in D[k].values()); X = sum(v[2] for v in D[k].values())
+    if R == 0 and P == 0: continue
+    print('%-12s %9d %10.1f %7d %8.1f %+7.2f %5d %6d%s' % (k, M[k][0], M[k][1], R, P, z, disc, X, '  <==' if abs(z) >= 4 else ''))
 print('pooled over size-robust families %s (per-witness indicators, cluster delta-method 2 s.e.):' % (ROBUST,))
 for te in ('divf', 'divq', 'divxy', 'divz'):
     keys = [k for k in D if k.split(':')[0] in ROBUST and k.split(':')[1] == te]
     if not keys: continue
     Rp = collections.Counter(); Pp = collections.Counter()
     for k in keys:
-        for p, (r, ph) in D[k].items(): Rp[p] += r; Pp[p] += ph
+        for p, (r, ph, e) in D[k].items(): Rp[p] += r; Pp[p] += ph
     R = sum(Rp.values()); P = sum(Pp.values())
     if P == 0: continue
     ratio = R / P
@@ -73,16 +83,19 @@ for te in ('divf', 'divq', 'divxy', 'divz'):
     print('   %-6s real %8.1f phantom %8.1f ratio %.3f +- %.3f' % (te, R, P, ratio, 2 * se))
 if a.did:
     recs2, *_ = load(a.did)
-    D2, M2, nw2 = per_prime(recs2)
-    print('difference-in-differences vs %s: per-witness (real - phantom) rate, this file minus other; cluster s.e.' % a.did)
+    D2, M2, U2 = per_prime(recs2, U)
+    print('difference-in-differences vs %s: per-measured-record (real - phantom) indicator rate, this file minus other;'
+          ' exposures = records where the key is measurable; cluster (ratio-estimator) s.e.' % a.did)
     for k in sorted(set(D) & set(D2)):
         out = []
-        for DD, NW in ((D, nw), (D2, nw2)):
-            n = sum(NW.values())
-            dp = {p: DD[k][p][0] - DD[k][p][1] if p in DD[k] else 0.0 for p in NW}
-            m = sum(dp.values()) / n
-            var = sum((dp[p] - m * NW[p]) ** 2 for p in NW) / n ** 2
-            out.append((m, var))
+        for DD in (D, D2):
+            X = sum(v[2] for v in DD[k].values())
+            if X == 0: out.append((0.0, 0.0, 0)); continue
+            m = sum(v[0] - v[1] for v in DD[k].values()) / X
+            var = sum((v[0] - v[1] - m * v[2]) ** 2 for v in DD[k].values()) / X ** 2
+            out.append((m, var, X))
+        if out[0][2] == 0 or out[1][2] == 0: continue
         diff = out[0][0] - out[1][0]; se = math.sqrt(out[0][1] + out[1][1])
         z = diff / se if se > 0 else 0.0
-        print('   %-12s H %+.4f  C %+.4f  diff %+.4f  z %+.2f%s' % (k, out[0][0], out[1][0], diff, z, '  <==' if abs(z) >= 4 else ''))
+        print('   %-12s H %+.4f (n=%d)  C %+.4f (n=%d)  diff %+.4f  z %+.2f%s' % (
+            k, out[0][0], out[0][2], out[1][0], out[1][2], diff, z, '  <==' if abs(z) >= 4 else ''))

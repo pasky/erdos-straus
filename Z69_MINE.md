@@ -111,9 +111,9 @@ candidate, untested).
 (log f / log p ∈ [0, ¼], (¼, ½], (½, ¾], > ¾) and removing size (20 log-size bands, or log p and log²p) together with
 local structure (class means mod 15015 or 240240 within size bands, or a one-hot model ℓ < 100 + p mod 64), the
 four scale counts remain **positively** correlated (0.08–0.39; Var(Σ)/ΣVar = 1.42–1.45). By 2-adic pair type (0, 2, 4, 6)
-the raw counts are negatively correlated (types 2 vs 4/6: −0.13, −0.15; ratio 0.87 with size bands only), but after
-local conditioning the correlations are |ρ| ≤ 0.06 and the ratio is 0.96–1.05. So no negative dependence that a
-conservation identity would produce is visible *under this conditioning*; an identity involving data not conditioned on
+the raw counts are negatively correlated (types 2 vs 4/6: −0.11, −0.14; ratio 0.92; after size-only detrending −0.13,
+−0.15, ratio 0.87), but after local conditioning the correlations are |ρ| ≤ 0.06 (some weakly negative) and the ratio
+is 0.96–1.05. So no strong, robust compensation across these conditioning choices is visible; an identity involving data not conditioned on
 here (e.g. the tail of an L-value, a weighted count) is not excluded.
 
 (f) *Morphology of hard witnesses* (`morph.txt`; per witness, H-low p ≥ 10⁴ vs controls): min letter ≤ 2: 9.6 % vs
@@ -127,20 +127,23 @@ Data per prime (`z69_mine_feat.py`, `lite_feats` in `z69_mine_phantom.py`; PARI)
 p = e² − 2g² (least g); p = u² + 3v² (p ≡ 1 (3)); p = s² + 7t² ((p/7) = 1); h(−4p); n_p; nq₇ (least prime ≡ 7 (8) with
 (p/q) = −1); the CF of √p; the negative-Pell unit T² − pU² = −1 (reduced mod the moduli tested; recurrence checked
 against exact convergents). **Exact dictionary of the phantom tests** (`dictionary()` in `z69_mine_phantom.py`):
-G1 {a, b}; G2 |αa + βb| (0 ≤ α ≤ 3, |β| ≤ 3, coprime); G3 nine quadratic forms in (a, b); G4 six cubic/quartic Gaussian
+G1 {a, b}; G2 |αa + βb| (0 ≤ α ≤ 3, |β| ≤ 3, gcd(α, β) = 1, excluding (α, β) = (1, 0), (0, 1) and zero values;
+C2, E2 likewise); G3 nine quadratic forms in (a, b); G4 six cubic/quartic Gaussian
 expressions; C1, C2, E1, E2 the analogues for (c, d), (e, g); N37 (u, v), (s, t) and combinations with |coeff| ≤ 2;
 CL {h(−4p), h(−4p)/4, n_p, nq₇} (h(p), h(−8p) are **not** in the phantom tests — they appear only in the descriptive
 §3.1(b) and in the unconditional shuffle); CFq the **first 12 and middle 3** partial quotients, a₀ + k (|k| ≤ 3), the
 period L; QS the Q_i of the **first 4 000 period positions** (truncated for 505/840 H and 973/2 520 control primes);
-CFk / CFh: all convergent numerators / denominators of √p over the full period (counts of f | k_i, h_i);
+CFk / CFh: all convergent denominators k_i / numerators h_i of √p over the full period (counts of f | k_i, f | h_i);
 CFpA: convergent denominators of p/A, A ∈ {a, b, c, d, e, g}; PELL T, U, T ± 1, U ± 1, T ± U, T ± 2U.
 Relations with a witness f of p, word (x, y, z) = (r, (f+1)/r, (p+r)/f): divf f | v; divq q | v for a prime q | f,
 q ≥ 5; divxy x or y (≥ 5) | v; vdivxy v | f + 1; eqxyf v ∈ {x, y, f, f + 1}; divz, vdivz, eqz the same with z.
 
 **Estimand and controls.** For a fixed f, witness status is a function of p mod f; we ask whether *specified relation
 frequencies* between p's dictionary and its sampled witnesses differ from those of **phantom primes** sharing the local
-event. Sampling unit: a prime of the list, then ≤ cap of its witnesses uniformly at random (so prime–witness pairs are
-weighted by 1/min(W(p), cap), and hard-set selection is part of the H estimand). Phantom samplers:
+event. Sampling: every prime of the list with 10⁴ ≤ p ≤ 2·10¹⁰ (this cutoff skips 9 of the 849 H and 27 of the 2 547 control
+primes), then ≤ cap of its witnesses uniformly at random (each witness is included with probability min(W, cap)/W);
+the estimators are **record-weighted** over the covered sampled witnesses (a prime contributes as many records as it has
+covered sampled witnesses — up to 8 for H, 3 for controls), and the hard-set selection is part of the H estimand. Phantom samplers:
 (i) **same-size f-phantoms** p′ = p + 8jf, 1 ≤ |j| ≤ p/(16f) (so |p′ − p| ≤ p/2; f stays a witness with the same
 x, y). Impossible when f > p/16: those witnesses are **not covered** (coverage table below);
 (ii) **(x, z)-phantoms** p′ = p + 8jxz, |p′ − p| ≤ p/2, word (x, y + 8j, z) required canonical — for z-relations
@@ -151,7 +154,9 @@ selection biases these symbols; these phantoms are ~10³ times larger than p (me
 are dropped, and H is compared with the controls run through the *same* sampler (difference-in-differences).
 Statistics: per test, a cluster score z = Σ_p d_p / (Σ_p d_p²)^{1/2} with d_p = Σ_{sampled witnesses of p}
 (1[real hit] − mean over phantoms of 1[phantom hit]) (independent prime clusters; unreliable for very sparse keys —
-the number of discordant primes is printed); pooled ratios over the 11 size-robust families (G1–G4, C1, C2, E1, E2,
+the number of discordant primes is printed); a size-sensitive family is counted only in records where the real prime
+and all its phantoms are below the CF/Pell cutoff (exposures printed; in the matched runs PELL is measured on 1 487 of
+3 098 H and 2 101 of 4 628 control records); pooled ratios over the 11 size-robust families (G1–G4, C1, C2, E1, E2,
 N37, CL, PELL) with a cluster delta-method 2-s.e. interval. Runs process primes in random order; all five runs below
 completed. These are non-rejection results for the listed relations and samplers, not equivalence tests.
 
@@ -166,10 +171,20 @@ completed. These are non-rejection results for the listed relations and samplers
   f ≥ p/16): 35 z-relation tests, max |z| = 3.15 (CL vdivz: v | z for v ∈ {h(−4p), h/4, n_p, nq₇}); pooled divz
   1.011 ± 0.016. The apparent z-signals of the f-phantom design are therefore the confound described.
 * **Hard set, same-size f-phantoms** (`phantom_same_H.txt`; 4 197 covered witnesses, 822 primes): strong deviations,
-  e.g. letter-divides-coordinate G1 divxy +9.5, G3 divxy +12.6, N37 divq +14.9, CL divq +9.6; pooled divf 1.115 ± 0.063,
-  divq 1.049 ± 0.009, divxy 1.154 ± 0.019. Interpretation: the H primes have smooth representation coordinates
-  (b, d, g, v divisible by many small primes ⇔ χ_p(ℓ) = +1 for those ℓ) — the selection profile of §3.1(b) — which
-  same-size phantoms do not share.
+  e.g. letter-divides-coordinate G1 divxy +9.5, G3 divxy +12.6, N37 divq +14.9, CL divq +9.6, CFk divf +10.0, CFh divf
+  +8.9, QS divxy +19.5, QS eqxyf +11.4, CFpA divxy +5.7; pooled divf 1.115 ± 0.063, divq 1.049 ± 0.009, divxy
+  1.154 ± 0.019. Suggested reading: the H primes have a pseudo-square profile at small primes (§3.1(b)), which
+  same-size phantoms do not share; a prime ℓ can divide b, d, g, v or a Q_i only if χ_p(ℓ) ∈ {0, 1} (a necessary
+  condition, not an equivalence: 41 = 5² + 4², χ₄₁(5) = 1, 5 ∤ 4), so a pseudo-square p offers more such divisibilities.
+  * *Resolved by profile matching* (next bullet): the size-robust families G1–G4, C, E, N37, CL, PELL.
+  * *Resolved by period length* (`cfk_period.txt`, `scripts/z69_mine_cfk_period.py`): CFk divf multiplicity
+    62 546 vs 38 056 (ratio 1.64) against a period-proportional model Σ L/f of ratio 1.59 (obs/model 0.796 vs 0.772);
+    the real H primes have median L/√p = 1.97 vs 0.88 for their phantoms (controls: ratio 0.92 vs model 0.94).
+  * *Unresolved:* QS divxy — normalising by the size of the Q-set leaves obs/model 1.41 (real) vs 1.02 (phantom)
+    (controls 1.25 vs 1.22); QS eqxyf and CFpA divxy/vdivz were not analysed further. The pseudo-square profile
+    (ℓ | Q_i requires χ_p(ℓ) = 1) is a plausible explanation, not a demonstrated one; these families were dropped from
+    the matched runs (size-sensitive) and remain open. Likewise the hard set's **z-relations** were not tested with
+    (x, z)-phantoms (that design was run on the controls only).
 * **Hard set, profile-matched** (`phantom_match_H_did.txt`; 3 098 covered witnesses of 822 primes): the size-robust
   divf/divq/divxy deviations disappear (CL divq 635/631.5, N37 divq 1 566/1 581.5, G1 divxy 626/651.5); pooled **divf
   1.041 ± 0.076, divq 1.003 ± 0.010, divxy 0.983 ± 0.016**; 30 tests, max |z| = 3.72 (N37 divxy, a *depletion*, and
@@ -199,8 +214,9 @@ gcd(T, f) = 1 since a common prime would also divide U and hence T² − pU² = 
 Lemma P(ii)). ∎
 *Check* (`scripts/z69_mine_lemma43_check.py`): all 136 998 witnesses of the H and control primes ≤ 2·10¹⁰ — 0 violations.
 (e is *not* excluded: f | e gives p ≡ −2g², and (−2/f) = −1 is allowed.)
-Reading: the moduli that p's quadratic data produce *by divisibility of the listed coordinates* are moduli at which p
-is a square, whereas a witness modulus needs (p/f) = −1. Hence rules of the form "take a divisor of a, b, c, d, g, v, a
+Reading: a modulus that divides one of the listed coordinates has Jacobi symbol (p/f) = +1 (or is impossible), whereas
+a witness modulus needs (p/f) = −1 (Jacobi +1 does not mean p is a square mod f: 257 = 15² + 2·4², f = 15 | c, and
+257 ≡ 2 is not a square mod 15). Hence rules of the form "take a divisor of a, b, c, d, g, v, a
 Q_i, T, U or T ± 1 as the witness modulus f" can never succeed (CERTIFIED zero hit counts G1/C1/QS in the shuffle
 scan). This does **not** apply to e (e.g. p = 41 = 7² − 2·2², f = 7 | e is a witness, word (1, 8, 6)), to linear or other
 combinations, nor to rules that take *letters* (rather than f) from coordinate divisors.
@@ -232,11 +248,12 @@ not reached. **No HOT LEAD; no rule passes K4.**
 | F4 known zeros | All primes p ≡ 1 (8) ≤ 10⁸ have W ≥ 1; minimum W = 1, attained only at 2521. | CERTIFIED |
 
 ## 6. Assessment: what the mining says about proof strategies
-* **No detected pointing.** For the listed relations, samplers and samples (controls: 65 f/x/y tests with same-size
-  f-phantoms + 35 z-tests with (x, z)-phantoms; H: profile-matched f-phantoms and a difference-in-differences against
-  the controls), the representation / Pell / CF / class-number / least-non-residue data of p showed no relation to its
-  sampled witnesses beyond what the local event explains (pooled ratios within ≈ ±4 % for divf, ±1 % for divq,
-  ±2 % for divxy at 2 s.e.). This is a non-rejection result: it does not prove independence, does not test untested
+* **No detected pointing on the controls; partial on H.** Controls: 65 f/x/y tests with same-size f-phantoms and
+  35 z-tests with (x, z)-phantoms show no relation beyond the local event (pooled ratios 1.005 ± 0.035 divf,
+  1.008 ± 0.008 divq, 1.011 ± 0.016 divxy, 1.011 ± 0.016 divz). Hard set: the size-robust families are null under profile
+  matching (1.041 ± 0.076 divf — compatible with up to ≈ 12 % enrichment —, 1.003 ± 0.010 divq, 0.983 ± 0.016 divxy) and
+  in the difference-in-differences against controls; CFk/CFh are explained by period length; QS/CFpA deviations and
+  H z-relations are unresolved (§4.2). This is a non-rejection result: it does not prove independence, does not test untested
   families or rules, does not cover witnesses with f > p/16 in the f-phantom design, and says nothing about per-prime
   coverage of a cleverly designed rule. For each *fixed* modulus, Hecke-type equidistribution (e.g. of Gaussian primes
   in residue classes mod f) predicts that representation data add nothing to p mod f; the data are consistent with the
@@ -261,7 +278,8 @@ not reached. **No HOT LEAD; no rule passes K4.**
   noise share ≈ 0.35; the Legendre part is captured by four truncated Euler sums; hard primes have long CF periods and
   rough small shifts; the extreme tail is heavier than these models predict; no compensation across scales or 2-adic
   types under the stated conditioning; no detected relation between p's quadratic / Pell / CF / class-number / n_p data
-  and its witnesses beyond the local event, for the tested relations and samplers.
+  and its witnesses beyond the local event, for the tested relations and samplers (controls; on the hard set for the
+  size-robust families under profile matching, CF convergents up to period length; Q-set / CFpA / z-relations open).
 * Killed as candidate rules (K4): n_p / nq₇ / inert-prime-menu rules, the dictionary-divisor union rule.
 * New relative to Z68: the full witness-count census and the descriptive anatomy (§3.1), the phantom-prime design and
   its outcome (§4), Lemma 4.3's non-Pell cases. Reversal pairs and 2-adic types are Z68_U7F's.
@@ -270,17 +288,20 @@ not reached. **No HOT LEAD; no rule passes K4.**
 "z69 MINE (`Z69_MINE.md`; null, narrowed). CERTIFIED: full U₇ witness counts W(p) for primes p ≡ 1 (8) ≤ 10⁸ (W ≥ 1;
 minimum W(2521) = 1; mean ≈ 0.179 log²p). PROVED (elementary): a witness never divides a, b, c, d, g, v, any CF norm Q_i
 of √p, or the Pell T, U, T ± 1 (it needs (p/f) = −1). EVIDENCE (non-rejection, phantom-prime design conditioning on
-p mod f resp. p mod xz; profile-matched + difference-in-differences on the hard set): no detected relation between
-Gaussian / norm-form / Pell / CF / class-number / least-non-residue data of p and its witnesses beyond the local event.
+p mod f resp. p mod xz): no detected relation between Gaussian / norm-form / Pell / CF / class-number /
+least-non-residue data of p and its witnesses beyond the local event on typical primes; on the hard set the same for the
+size-robust families under profile matching (CF-period effects explained; Q-set and z-relations open).
 Hardness = pseudo-square profile at small primes + rough p + c, cp + 1 (approximate Prop K primes) + an unexplained
 heavy tail; no compensation across scales or 2-adic types under local conditioning. Assessment: p-intrinsic witness
 rules of the tested kinds behave like blind searches; the B2 atom is untouched."
 
 ## 9. Bottom line
-Within the tested families and samplers, the hard primes' witnesses show no trace of p's own arithmetic beyond p mod f:
-Fermat / norm-form coordinates and their linear, quadratic and cubic combinations, the CF of √p, the negative-Pell unit,
-CF denominators of p/A, h(−4p), least non-residues — all non-rejections once the local event is conditioned on, with
-pooled effect sizes within a few per cent. The strong "relations" are local and mostly negative (Lemma 4.3: p's
+On typical primes, within the tested families and samplers, witnesses show no detected trace of p's own arithmetic
+beyond the local event: Fermat / norm-form coordinates and their linear, quadratic and cubic combinations, the CF of
+√p, the negative-Pell unit, CF denominators of p/A, h(−4p), least non-residues — all non-rejections, pooled effect sizes
+within a few per cent. On the hard set the size-robust families are likewise null under profile matching (wider
+intervals), the CF-convergent excess is a period-length effect, and the Q-set / CFpA deviations and z-relations remain
+unresolved. The strong "relations" are local and mostly negative (Lemma 4.3: p's
 quadratic data produce moduli where p is a square, witnesses need moduli where it is not). Hardness is a pseudo-square
 profile plus rough small shifts plus an unexplained heavy tail; no conservation law is visible in the raw count. Not a
 HOT LEAD. Reusable output: the census, and the phantom-prime test (any future witness-rule proposal should first beat
@@ -311,3 +332,14 @@ replace the naive ones, discordant counts printed; (12) numbers corrected (163 5
 denominators 840/2 520; type correlations); (13) xz phantoms restricted to canonical words with full identity asserts;
 (14) reproduction driver added, allwit reads tagged input; (15) engines abort on saturation / buffer / range violations.
 Operational note: one census-type job (`z69_mine_scales.c`, < 1 min) briefly ran as a third concurrent process.
+Delta review (deep; 0 FATAL, 4 MAJOR, 3 MINOR; it regenerated all phantom analyses, fits and census outputs from the
+committed raw files with exact agreement). Fixed: (1) H CF/QS deviations were presented as resolved by matching —
+now split into resolved by matching (size-robust families), resolved by period length (CFk/CFh, new
+`z69_mine_cfk_period.py`), and unresolved (QS, CFpA, H z-relations); the p ≤ 2·10¹⁰ cutoff (9 H, 27 controls) stated;
+(2) precision stated separately for controls and H (H divf compatible with ≈ 12 % enrichment); (3) the analyzer now
+tracks per-key exposure (CF/Pell keys only where measurable, cutoff applied symmetrically to real and phantom primes)
+and the DiD uses these exposures; (4) the estimator is described as record-weighted (the earlier 1/min(W, cap) claim was
+wrong); (5) dictionary details corrected (G2/C2/E2 exclusions; k_i denominators, h_i numerators); (6) the
+"coordinate divisibility ⇔ splitting" and "p is a square mod f" readings replaced by necessary-condition / Jacobi
+statements with counterexamples 41 and 257; (7) type correlations labelled (raw −0.11/−0.14, ratio 0.92; size-detrended
+−0.13/−0.15, 0.87).
