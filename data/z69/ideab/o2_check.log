@@ -1,0 +1,5 @@
+r=2: checked 123 primes (all 23 record setters + 100 random < 3e8)
+r=6: checked 121 primes (all 21 record setters + 100 random < 3e8)
+total checked: 244  mismatches: 0
+r=1: checked 131 primes (all 31 record setters + 100 random < 3e8)
+total checked: 131  mismatches: 0

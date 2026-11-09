@@ -423,3 +423,65 @@ keeps growing. Twist: make that integer-side statement exact and push the comput
   enumeration of actual solutions on a sample; any mismatch voids the data.
 * *What would be a result:* CERTIFIED finite-level statements "no set of family classes of modulus ≤ M covers the primes
   of K_r" for explicit M, plus a growth comparison with the control. *What would not:* any claim about ES itself.
+
+### 3.1 Lemma E (PROVED; immediate from `Z65_LOGIC2.md` Thm D's compactness step + Dirichlet)
+For a prime p let **λ(p)** be the least modulus of an ET Prop 1.9 family class containing p (finite whenever p has a
+Type I/II solution). For a primitive class r mod q put K_{r,q} = (r + qẐ) ∩ Ẑ^×. Then
+**K_{r,q} ∩ U = ∅ ⟺ sup{λ(p) : p prime, p ≡ r (mod q)} < ∞** (sup over all but finitely many primes).
+More precisely, for every M: *some unit residue class inside r mod q is missed by all family classes of modulus ≤ M*
+⟺ *some prime p > M, p ≡ r (q), has λ(p) > M* ⟺ *infinitely many such primes exist*.
+*Proof.* There are finitely many family classes of modulus ≤ M; let L be the lcm of q and their moduli. A family
+class of modulus m | L either contains or is disjoint from a given residue class mod L. (⇐) If p > M has λ(p) > M then
+p ∤ L, so p mod L is a unit class missed by all of them. (⇒) A missed unit class mod L contains infinitely many primes
+(Dirichlet), each with λ > M. For the first equivalence: if K ∩ U = ∅, compactness gives a finite cover, say with
+moduli ≤ M, and then no unit class is missed at level M; if π ∈ K ∩ U then for every M the class π mod L is missed. ∎
+*Corollary (finite-level certificate).* One prime p ≡ r (q) with λ(p) = M₀ > (any prime factor bound is automatic)
+certifies: **every finite set of family classes covering the large primes of r mod q contains a modulus ≥ M₀.**
+
+### 3.2 Computation (CERTIFIED for the stated ranges; `scripts/z69_ideab_o2.py 1e12 10000 r…`, logs `o2_run_*.log`)
+All primes p ≤ 10¹² in K_2, K_6 (n ≡ 1 mod 840, n ≡ 2 resp. 6 mod 11) and in the square-class control K_1 = {1 mod 9240};
+family classes of all seven ET families with modulus ≤ 10⁴ (5000 moduli; the enumeration is a superset of ET's — no
+coprimality side conditions — so "λ > M" here implies the same for ET's families). No prime is unresolved.
+
+| class | #primes ≤ 10¹² | mean λ | max λ for p ≤ 10⁶, 10⁷, …, 10¹² | record prime |
+|---|---|---|---|---|
+| K_2 | 19 585 244 | 39.3 | 159, 239, 359, 519, 823, 1319, **1979** | 593 042 652 721 |
+| K_6 | 19 584 884 | 39.2 | 99, 279, 428, 539, 791, 1056, **1247** | 928 241 301 961 |
+| K_1 (control) | 19 585 148 | 40.3 | 79, 244, 279, 584, 1007, 1623, **2020** | 535 842 079 081 |
+
+Tail counts #{p ≤ 10¹² : λ(p) > M}:
+
+| M | 70 | 100 | 200 | 300 | 500 | 700 | 1000 | 1500 | 2000 |
+|---|---|---|---|---|---|---|---|---|---|
+| K_2 | 2 519 649 | 726 463 | 63 532 | 17 975 | 2 336 | 371 | 19 | 1 | 0 |
+| K_6 | 2 519 771 | 727 483 | 63 892 | 17 854 | 1 254 | 174 | 17 | 0 | 0 |
+| K_1 | 2 517 189 | 1 088 777 | 113 582 | 31 815 | 5 756 | 1 198 | 207 | 18 | 1 |
+
+The most frequent least moduli are the same in all three classes (23, 19, 39, 31, 47, 59, 71, 43 — witnesses at *other*
+primes); up to M = 70 the three tails agree to 0.1 %; beyond, the classes with 11 | modulus thin the K_2, K_6 tails by a
+growing factor (≈ 1.5 at M = 100, ≈ 10 at M = 1000) but the tails do not stop.
+
+**Kill test A (pre-registered): not triggered.** The running maximum of λ grew in each of the last three decades in
+both classes (K_2: 823 → 1319 → 1979; K_6: 791 → 1056 → 1247), roughly ×1.2–1.6 per decade like the control.
+**Kill test B (pre-registered): passed.** `scripts/z69_ideab_o2_check.py` recomputes λ by direct divisibility tests
+on the defining conditions (no residue table, no CRT, no inverses) for all 75 record-setting primes of the three
+classes and 300 random primes < 3·10⁸: 375 / 375 agree (`o2_check.log`; an earlier run at moduli ≤ 1100: 500 / 500).
+Sanity on the campaign screens (table to modulus 3000): no class contains an odd square m², m < 200; all 14 (★)-zero
+primes have λ ≤ 239 (e.g. λ(409) = λ(577) = 7, λ(8 813 281) = 111, λ(1 726 201) = 239), all 38 𝔊*-zero primes
+λ ≤ 239, the twelve R₈-zero primes λ ≤ 248, and all 285 composite (★)-zeros lie in some class of modulus ≤ 548.
+
+### 3.3 What this gives
+* **CERTIFIED (via the Corollary).** Any finite set of ET family classes covering the large primes of K_2 contains a
+  modulus ≥ 1979 (witness p = 593 042 652 721); for K_6, ≥ 1247 (witness p = 928 241 301 961). In the language of
+  Thm D: any IOpen/NOI proof of "ES at all large primes of K_r" would have to pass through an identity of modulus
+  at least that large. (Single engine for the full range; the witnesses themselves are double-checked by the
+  independent direct test, which is all the Corollary needs.)
+* **EVIDENCE for UCOVER O2** (K ∩ U ≠ ∅), of a kind independent of UCOVER's profile computations: on the integer
+  side, K_2 and K_6 are indistinguishable from the square class up to a slowly growing constant factor; nothing
+  suggests a finite cover. New relative to UCOVER (iv): the same holds for **r = 6**, where the two-prime (11, 13)
+  profiles of UCOVER all die — so if K_6 ∩ U ≠ ∅ (CONJECTURE), its points are not (11, 13)-profiles.
+* **Not obtained.** A proof of O2. By Lemma E it is equivalent to "λ is unbounded on the primes of K_r", and every
+  route I see to unboundedness is again a covering-measure bound on a thin profile set, i.e. UCOVER's Theorem T with
+  explicit constants (their O1), which I estimate closes only from ℓ-adic level ≈ 10⁴ with max-divisor bounds.
+* **No bearing on ES itself.** Lemma E and the data are statements about what *finite identity covers* (equivalently
+  open-induction proofs) can do; they neither prove nor threaten positivity at any prime.
