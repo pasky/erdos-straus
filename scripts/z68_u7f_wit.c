@@ -24,7 +24,7 @@ int main(int argc,char**argv){
   u64 M=(F+1)/8+1; u32*spf=calloc(M+1,4);
   for(u64 i=2;i<=M;i++) if(!spf[i]){ for(u64 j=i;j<=M;j+=i) if(!spf[j]) spf[j]=i; }
   // per-p arrays, index (p-1)/8
-  u64 P=N/8+2; u32*mf=calloc(P,4),*mfp=calloc(P,4),*mf2=calloc(P,4),*mr=calloc(P,4);
+  u64 P=N/8+2; u32*mf=calloc(P,4),*mfp=calloc(P,4),*mf2=calloc(P,4),*mr=calloc(P,4); uint8_t*ty=calloc(P,1);
   u64 divs[4096];
   for(u64 f=7;f<=F;f+=8){
     u64 m=(f+1)/8; // divisors of 8m
@@ -45,10 +45,11 @@ int main(int argc,char**argv){
         if(!mf[idx]) { mf[idx]=f; mr[idx]=r; }
         if(fprime && !mfp[idx]) mfp[idx]=f;
         if(fom<=2 && !mf2[idx]) mf2[idx]=f;
+        { u64 a=r&7,b=t&7; u64 e=(a&1)?b:a; /* even letter */ uint8_t bit = e==0?1: e==4?2: e==2?4:8; ty[idx]|=bit; }
       }
     }
   }
-  u64 cnt=0,zero=0,noprime=0,noom2=0; u64 hist[40]={0},histp[40]={0};
+  u64 cnt=0,zero=0,noprime=0,noom2=0; u64 tyhist[16]={0}; u64 hist[40]={0},histp[40]={0};
   double maxratio=0; u64 maxp=0;
   for(u64 p=17;p<=N;p+=8){ if(!ISPRIME(p)) continue; cnt++; u64 idx=(p-1)/8;
     if(!mf[idx]){ zero++; printf("ZERO %llu\n",p); continue; }
@@ -56,9 +57,11 @@ int main(int argc,char**argv){
     if(!mfp[idx]){ noprime++; printf("NOPRIME p=%llu minf=%u r=%u om(minf)=%d minf_om2=%u\n",p,mf[idx],mr[idx],om[mf[idx]>>1],mf2[idx]); }
     else { int c=0; while((1ULL<<c)<=mfp[idx]) c++; histp[c]++; }
     if(!mf2[idx]){ noom2++; printf("NOOM2 p=%llu minf=%u om=%d\n",p,mf[idx],om[mf[idx]>>1]); }
+    tyhist[ty[idx]]++; if(ty[idx]==1||ty[idx]==2||ty[idx]==4||ty[idx]==8) printf("ONETYPE p=%llu type=%u minf=%u\n",p,ty[idx],mf[idx]);
     double rt=(double)mf[idx]/p; if(rt>maxratio){maxratio=rt;maxp=p;}
   }
   printf("N=%llu primes p=1(8): %llu zeros %llu noprime %llu noom2 %llu maxratio minf/p=%.4f at p=%llu\n",N,cnt,zero,noprime,noom2,maxratio,maxp);
+  for(int m=0;m<16;m++) if(tyhist[m]) printf("typeset %x [bit1=(0,7) bit2=(4,3) bit4=(2,5) bit8=(6,1)]: %llu\n",m,tyhist[m]);
   for(int b=0;b<40;b++) if(hist[b]||histp[b]) printf("minf<2^%d: all %llu  prime-witness %llu\n",b,hist[b],histp[b]);
   return 0;
 }
