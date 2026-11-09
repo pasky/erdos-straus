@@ -36,7 +36,10 @@ def divs(n):
 
 def qsolve(al, be):
     """All (X,Y,Z,W) in N^4 with 4XYZW = al X + be Y + Z (Lemma Q case analysis; complete)."""
-    T = int((4 * al * be / 3) ** 0.4) + 2
+    # exact integer cutoff: smallest T with 9 T^5 >= 16 (al be)^2, i.e. T >= (4 al be / 3)^(2/5)
+    T = max(1, int((4 * al * be / 3) ** 0.4) - 2)
+    while 9 * T ** 5 < 16 * (al * be) ** 2:
+        T += 1
     out = set()
 
     def add(X, Y, Z, W):
@@ -332,7 +335,7 @@ def main():
                     bad += 1
                     print("MISMATCH", al, be)
         print(f"selftest qsolve == brute for 1 <= alpha < {A}, 1 <= beta < {B}: mismatches = {bad}")
-        return
+        sys.exit(1 if bad else 0)
     if mode == "events1":                        # single prime S = {L}: UCOVER profiles e_{L,g}
         L, KK = int(sys.argv[2]), int(sys.argv[3])
         rec = Rec((L,), (KK,))
@@ -366,13 +369,17 @@ def main():
         rec = Rec(S, K)
         brute_cylinders(S, K, MMAX, rec)
         br = rec.cyl
-        miss = [k for k in br if k not in ev]
-        small_ev = {k for k, v in ev.items() if v[1] <= MMAX}
+        small_ev = {k for k, v in ev.items() if v[1] <= MMAX}   # reduction cylinders whose minimal class has m <= MMAX
+        miss = [k for k in br if k not in small_ev]               # bounded sets compared symmetrically
         extra = [k for k in small_ev if k not in br]
+        mdiff = [k for k in br if k in ev and ev[k][1] != br[k][1]]  # minimal moduli must agree too
         print(f"S={S} levels<={K} MMAX={MMAX}: brute cylinders {len(br)}, reduction cylinders {len(ev)} "
               f"({len(small_ev)} with a class of modulus <= MMAX)")
         print(f"brute not found by reduction: {len(miss)} {sorted(miss)[:20]}")
         print(f"reduction (modulus <= MMAX) not found by brute: {len(extra)} {sorted(extra)[:20]}")
+        print(f"cylinders with different minimal modulus: {len(mdiff)} {sorted(mdiff)[:20]}")
+        print("NOTE: compares deduplicated cylinders (with minimal moduli), not every parameter tuple")
+        sys.exit(1 if (miss or extra or mdiff) else 0)
 
 
 if __name__ == "__main__":

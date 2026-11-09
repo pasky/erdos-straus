@@ -2,15 +2,23 @@
 S=(11, 13) levels<=(2, 2) MMAX=1000000: brute cylinders 534, reduction cylinders 2509 (534 with a class of modulus <= MMAX)
 brute not found by reduction: 0 []
 reduction (modulus <= MMAX) not found by brute: 0 []
+cylinders with different minimal modulus: 0 []
+NOTE: compares deduplicated cylinders (with minimal moduli), not every parameter tuple
 10188 cylinders written
 S=(11, 13) levels<=(3, 2) MMAX=1000000: brute cylinders 1000, reduction cylinders 10188 (1000 with a class of modulus <= MMAX)
 brute not found by reduction: 0 []
 reduction (modulus <= MMAX) not found by brute: 0 []
+cylinders with different minimal modulus: 0 []
+NOTE: compares deduplicated cylinders (with minimal moduli), not every parameter tuple
 9312 cylinders written
 S=(11, 13) levels<=(2, 3) MMAX=1000000: brute cylinders 840, reduction cylinders 9312 (840 with a class of modulus <= MMAX)
 brute not found by reduction: 0 []
 reduction (modulus <= MMAX) not found by brute: 0 []
+cylinders with different minimal modulus: 0 []
+NOTE: compares deduplicated cylinders (with minimal moduli), not every parameter tuple
 4200 cylinders written
 S=(17, 19) levels<=(2, 2) MMAX=1000000: brute cylinders 682, reduction cylinders 4200 (682 with a class of modulus <= MMAX)
 brute not found by reduction: 0 []
 reduction (modulus <= MMAX) not found by brute: 0 []
+cylinders with different minimal modulus: 0 []
+NOTE: compares deduplicated cylinders (with minimal moduli), not every parameter tuple

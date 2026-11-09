@@ -8,7 +8,8 @@ Reported (all exact at the stated finite level; classes of higher level are not 
   s       = surviving fraction of B (all classes of level <= (K1,K2))
   s1p,s2p = survival under pure classes only (modulus prime to the other prime)  -> pure product s1p*s2p
   Gamma   = s1p*s2p - s   (mass removed only by mixed classes)
-  s1U,s2U = single-prime survival of e_{L,g} (all classes of level <= K)
+  s1U,s2U = FINITE-LEVEL single-prime survival s^U(K) of e_{L,g} (classes of level <= K only; the infinite-level
+            s^U of the memo is smaller or equal, e.g. 17: 0.19118 at K=2 but 99/578 = 0.17128 at K=3)
 Usage: python3 scripts/z68_pc2_survive.py L1 K1 L2 K2 TWOFILE ONEFILE1 ONEFILE2
 """
 import sys
