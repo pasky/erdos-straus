@@ -1,14 +1,15 @@
 // Theorem A sanity check: fraction of primes p = 1 (8) <= N with NO x <= K and prime l | p+x, l = -1 mod lcm(8,x)
-// also compares with the full U7 (least witness) to show all are rescued.
+// (U7 of the survivors is not rechecked here; it is covered by the Z60 census.)
 #include <stdio.h>
 #include <stdlib.h>
 static long gcdl(long a,long b){while(b){long t=a%b;a=b;b=t;}return a;}
 int main(int argc,char**argv){
-  long N=atol(argv[1]); int KMAX=atoi(argv[2]); long M=N+KMAX+1;
-  unsigned *spf=calloc(M+1,sizeof(unsigned));
+  if(argc<3){fprintf(stderr,"usage: N KMAX\n");return 1;}
+  long N=atol(argv[1]); int KMAX=atoi(argv[2]); if(N<10||KMAX<1){fprintf(stderr,"bad args\n");return 1;} long M=N+KMAX+1;
+  unsigned *spf=calloc(M+1,sizeof(unsigned)); if(!spf){fprintf(stderr,"alloc\n");return 1;}
   for(long i=2;i<=M;i++) if(!spf[i]){ for(long j=i;j<=M;j+=i) if(!spf[j]) spf[j]=i; }
-  long L[4096]; for(int x=1;x<=KMAX;x++){ L[x]=8*x/gcdl(8,x); }
-  long cnt=0; long *failK=calloc(KMAX+2,sizeof(long)); // failK[K] = # primes with least good x > K
+  long *L=calloc(KMAX+1,sizeof(long)); long *failK=calloc(KMAX+2,sizeof(long)); if(!L||!failK){fprintf(stderr,"alloc\n");return 1;} for(int x=1;x<=KMAX;x++){ L[x]=8*x/gcdl(8,x); }
+  long cnt=0; // failK[K] = # primes with least good x > K
   for(long p=9;p<=N;p+=8){ if(spf[p]!=p) continue; cnt++;
     int good=0;
     for(int x=1;x<=KMAX && !good;x++){ long m=p+x; while(m>1){ long l=spf[m]; if((l+1)%L[x]==0){good=x;break;} while(m%l==0) m/=l; } }

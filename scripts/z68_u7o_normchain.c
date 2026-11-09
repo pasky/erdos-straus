@@ -3,7 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 int main(int argc,char**argv){
-  long N=atol(argv[1]); long M=N+9; unsigned *spf=calloc(M+1,sizeof(unsigned));
+  if(argc<2){fprintf(stderr,"usage: N\n");return 1;}
+  long N=atol(argv[1]); if(N<10){fprintf(stderr,"N>=10\n");return 1;} long M=N+9; unsigned *spf=calloc(M+1,sizeof(unsigned)); if(!spf){fprintf(stderr,"alloc\n");return 1;}
   for(long i=2;i<=M;i++) if(!spf[i]) for(long j=i;j<=M;j+=i) if(!spf[j]) spf[j]=i;
   long c=0,c8=0,tot=0;
   for(long p=9;p<=N;p+=8){ if(spf[p]!=p) continue; tot++;

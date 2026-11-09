@@ -1,0 +1,32 @@
+REC p=17 f=7 r=4 f/log^2p=0.872
+REC p=113 f=23 r=2 f/log^2p=1.029
+REC p=233 f=39 r=1 f/log^2p=1.313
+REC p=1801 f=55 r=14 f/log^2p=0.979
+REC p=1913 f=71 r=4 f/log^2p=1.243
+REC p=2153 f=87 r=22 f/log^2p=1.477
+REC p=2657 f=95 r=3 f/log^2p=1.528
+REC p=3361 f=679 r=34 f/log^2p=10.298
+REC p=51137 f=839 r=42 f/log^2p=7.137
+REC p=76801 f=863 r=6 f/log^2p=6.820
+REC p=157081 f=1511 r=63 f/log^2p=10.555
+REC p=256313 f=1535 r=32 f/log^2p=9.896
+REC p=517553 f=1583 r=88 f/log^2p=9.145
+REC p=546977 f=1655 r=828 f/log^2p=9.481
+REC p=926657 f=14719 r=640 f/log^2p=77.973
+REC p=2031121 f=21383 r=264 f/log^2p=101.366
+REC p=53712409 f=24983 r=1041 f/log^2p=78.858
+REC p=62850769 f=57927 r=26 f/log^2p=179.659
+HIST log2f=2 720640
+HIST log2f=3 359936
+HIST log2f=4 155548
+HIST log2f=5 108479
+HIST log2f=6 62064
+HIST log2f=7 18634
+HIST log2f=8 9732
+HIST log2f=9 3398
+HIST log2f=10 1100
+HIST log2f=11 335
+HIST log2f=12 74
+HIST log2f=13 25
+HIST log2f=14 4
+HIST log2f=15 1
