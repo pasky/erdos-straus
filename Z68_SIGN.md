@@ -347,3 +347,23 @@ all 1 575 length-4 and 2 189 length-5 witnesses, KT2/KT3 byte-for-byte, and the 
 applied: "the output family's fixed letters vary with n" (bottom line, §3 reading); n = 105 named in the F3 row. Its
 untried directions (1) sign-labelled forward+inverse move graph with multi-step descent, (2) n-dependent cuts with
 unbounded output menus, are pursued in §10.
+
+## 10. Follow-up (after cross-model review): the sign-labelled rescaling-move graph and multi-step descent
+
+### 10.0 Pre-registration (committed before any graph computation)
+Setting. For odd n, V(n) = all words of n (all A ∈ [1, n−1] coprime to n, every length), E(n) = all Lemma-2 moves (any
+cut incl. endpoints, any k ≥ 2 satisfying Lemma 2; inverse moves are the same edges read backwards). A right move maps
+A ↦ A·k⁻¹, a left move A ↦ A·k (mod n) (Lemma 2), so the sign changes by χ_n(k). E⁺ = moves with χ_n(k) = +1.
+Questions: (Q1) components of (V, E) and of (V, E⁺); does the component of a good long word contain a good L₃ vertex?
+(Q2) a terminating *descent rule* (each step strictly lowers the length, chosen by an explicit rule from the current
+word only) from good long words — p-adaptive starts: the word of A = q (least prime non-residue), the shortest good
+word, bounded-digit good words — to a good L₃ vertex; (Q2⁺) the same using only E⁺ steps (sign preserved, so success
+is guaranteed by reaching L₃).
+**Kill tests.** KG1 (squares): at n = m² every vertex is +1; a rule "succeeds" there only if it ends at a +1 L₃ vertex —
+the reported success criterion is *good* L₃, so squares must give 0 successes (sanity). KG2 (21841): exactly 2 good L₃
+vertices (A = 575 and its inverse); a candidate rule must reach one of them; if it fails at 21841 it is dead.
+KG3 (ELL0): a rule whose steps use only bounded k and bounded cut data is a finite-family congruence selector in
+disguise on the profile classes of Thm 6 and must fail somewhere; a surviving rule must use unbounded k / n-dependent
+cuts — record which. **Candidate threshold:** a rule (Q2 or Q2⁺) succeeding from the registered start at every prime
+p ≡ 1 (8) up to 10⁶ (or the largest range computed) and failing at all tested odd squares is reported as a CANDIDATE
+(loudly) and attacked for a proof; success at < 99 % of primes ≤ 10⁵ kills it.
