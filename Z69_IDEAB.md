@@ -81,3 +81,77 @@ so detecting it needs all ≍ p harmonics; Weil saves only √p. Summing over th
 ≍ log² p against error ≍ √p. *Squares:* the count is identically 0 on squares, so any asymptotic "main term" must be
 cancelled by real characters there — the main term is not the naive one. *Six classes:* none.
 *Assessment:* dead as stated (binary-problem barrier); recorded so it is not re-tried naively.
+
+**I5. Parity by involution (Zagier / Heath-Brown "one-sentence" style).**
+*Key lemma (needed):* a finite set W_p ⊇ {solutions of pc = 4abcd − a − b} with two involutions σ, τ, where Fix(σ) is a
+single explicit point for every prime p ≡ 1 (4) and Fix(τ) ⊂ {ES solutions}. Then |W_p| odd ⟹ ES(p).
+Natural candidates: W = {(u,v,d): uv = 4dp+1} (all factorizations, all d ≤ p), or matrices [[u,p],[4d,v]] ∈ Γ₀(4) with
+upper-right entry p, with σ a "windmill" move changing d and τ = transpose (u ↔ v).
+*Squares:* the proof must break because for n = m² an extra σ-fixed point appears (as in Zagier's proof, where
+compositeness creates extra fixed points). *Six classes:* none needed — parity arguments are blind to residue classes,
+which is their attraction. *Obvious worry:* a ↔ b symmetry makes ordered counts even, and unordered counts have no reason to
+be odd; quick test: tabulate the parity of the unordered Type II (c=1) and total counts over primes. *Assessment:*
+long shot but nearly free to test. Top-5 (as a cheap kill).
+
+**I6. Class-number / mock-theta generating function.** G(q) = Σ_{a,b,d ≥ 1} q^{4abd−a−b} = Σ_{a,b} q^{4ab−a−b}/(1−q^{4ab})
+is a double Lambert (Appell–Lerch-like) series; for fixed d the exponent is an indefinite binary quadratic form
+(unimodular Gram matrix [[4d,−1],[−1,0]], vectors (a,1),(b,1)).
+*Key lemma (needed):* G = (modular/mock-modular object with explicit Eisenstein part) + (cuspidal part with a proved
+coefficient bound smaller than the Eisenstein coefficient at primes). *Squares:* coefficients vanish at m² only after
+restricting to gcd-coprime solutions, so the Eisenstein part must carry a factor like Σ over real characters that vanishes
+on squares (L(1,χ_n)-like or a class number H(·)) — a strong structural prediction about what the "main term" is.
+*Six classes:* would be uniform. *Assessment:* the cubic exponent 4abd makes this a sum over d of weight-1 indefinite
+theta objects of varying level; no single automorphic form. I expect this was looked at; low prior. Not top-5.
+
+**I7. Unprovability in open induction (IOpen).** *Claim (PROVED, short):* ES fails in Shepherdson's model
+M = {a₀ + Σ_{i≥1} a_i t^{i/Q} : a₀ ∈ ℤ, a_i real algebraic}, hence IOpen ⊬ ES.
+*Proof.* Take n = 4t + 1 ≥ 2. Suppose x,y,z ∈ M, positive, with 4/n = 1/x+1/y+1/z. Regard them as real polynomials in
+s = t^{1/Q} on [0,∞); positivity in M = positivity for large s. If xyz had a root in [0,∞), let ρ be the largest; on
+(ρ,∞) all three are positive and the identity holds pointwise, but as s → ρ⁺ the left side stays ≤ 4 while the right
+side → +∞. So x,y,z > 0 on [0,∞), and their constant terms x₀,y₀,z₀ are positive integers with 1/x₀+1/y₀+1/z₀ =
+4/n(0) = 4 > 3. Contradiction. ∎
+(Conversely if the constant term a₀ of n is ≥ 2 and ES(a₀) holds in ℤ, then scaling x = x₀·n/a₀ solves ES(n) in M; so in
+M the conjecture fails exactly "because 4/1 has no solution".)
+*Squares / six classes:* n = 4t+1 is ≡ 1 modulo every standard integer, i.e. it sits over the profinite point α = 1 ∈ S;
+the obstruction used is archimedean (4 > 3), not Jacobi. *Assessment:* a genuine (if easy) unprovability theorem in a
+natural weak theory; M has no non-standard primes, so it says nothing about "ES for primes". Worth recording; Phase 2
+must check whether it is in the literature. Candidate strengthening = I8.
+
+**I8. Unprovability for *primes* in Z-ring / Bézout models; Schinzel's theorem as a model-theoretic statement.**
+For α ∈ Ẑ let R_α = {f ∈ ℚ[t] : f(α) ∈ Ẑ}, a discretely ordered Z-ring in which t is irreducible. ES(t) holds in R_α
+⟺ some polynomial identity is integral on a class α mod D ⟺ α ∈ U (the set of I1). So **R_α ⊭ ES(t) ⟺ α ∈ C**:
+the closed set C of I1 is exactly the set of "types of non-standard primes at which congruence reasoning cannot prove ES".
+*Key lemma (needed for a theorem about a named theory):* embed R_α (α ∈ S) in a model of IOpen + Bézout + normality
+(Macintyre–Marker / Smith constructions keep t prime) without creating new solutions — solutions would be Puiseux-type
+generalized polynomials, to be excluded by combining the largest-root argument of I7 with the Jacobi argument R5.
+*Squares:* α ∈ S is the hypothesis. *Six classes:* the non-standard prime t is in the class 1 mod 840.
+*Second half (bounded arithmetic):* ES is ∀Σᵇ₁; by Buss witnessing, S¹₂ ⊢ ES ⟹ a polynomial-time algorithm n ↦ (x,y,z).
+Heuristically the least identity modulus for the worst p ≤ N is exp(c(log N)^{1/3}) (expected number of K1 hits with
+ab ≤ T is ≍ log³T), so exhaustive identity search is *not* polynomial time: "S¹₂ ⊢ ES" would need a new algorithm
+(CONDITIONAL statement, not a result). *Assessment:* I7+I8 together are the most concrete route to the brief's
+"unprovable in a natural weak theory". Top-5.
+
+**I9. Non-congruence identities over norm forms.** Every p in the six classes is p = X² + 840Y² (840 is idoneal; the
+principal genus is exactly the square classes). Look for identities 4/(X²+DY²) = 1/x+1/y+1/z with x,y,z ∈ ℚ[X,Y]
+integral on a class of (X,Y). Schinzel's theorem (one variable) does not forbid these: at points where X²+DY² is a square
+the solution may degenerate to non-coprime type.
+*Key lemma (needed):* existence of such an identity for each class of (X,Y) mod M up to signs.
+*No-go found (PROVED, degree count):* with a,b,c,d,e ∈ ℚ[X,Y] and N of degree 2, 4abd − e = N, ce = a+b forces
+(i) a congruence identity in disguise, or (ii) N + const reducible, or (iii) (4dac−1) | N + 4da² with a linear, which
+needs N to be constant on a line — impossible for a non-degenerate N. So there is **no quadratic-degree two-variable
+identity**; higher degree (a,b,d of total degree > 2 with cancellation) is excluded by e | a+b bounding deg e.
+*Residual idea:* non-polynomial arithmetic functions of (X,Y), e.g. a = a prime factor of X: (p/q) = (D/q) for q | X, so
+half of all p = X²+840Y² have a non-residue witness dividing X, governed by a quartic symbol ((−840)^{1/4}, a D₄ governing
+field). *Squares:* Y = 0. *Six classes:* this idea is *only* for them. *Assessment:* identity version dead by the no-go;
+the governing-field remark may be a useful *classifier* of hard primes (I19).
+
+**I10. Unit/Pell orbits and the negative Pell equation.** For prime p ≡ 1 (4) the fundamental unit has norm −1
+(X² + 1 = pY²) — a classical property separating such primes from squares *and* from most composites n ≡ 1 (4).
+*Idea:* feed Pell data into K3: 4a²d + 1 = pY² (2a = X, d = 1) needs f | pY², f ≡ −p (mod 4a).
+*Kill (PROVED):* all prime factors of Y are ≡ 1 (4) (they divide X²+1), so every divisor g of Y² is ≡ 1 (4), whereas
+f = g or f = pg must be ≡ 3 (4). With dX² + 1 = pY² (d > 1) the congruence is not excluded but the family is
+exponentially sparse (Σ_j τ(Y_j²)/X_j < ∞): expected number of hits finite and tiny. More generally the positive
+solution set is finite, so no infinite group orbit can live inside it. *Squares:* ℚ(√n) = ℚ, no units — the idea *does*
+use non-squareness at an identifiable step. *Six classes:* none. *Assessment:* dead as a construction; the
+"norm −1 unit" property survives only as a possible explanatory variable for composite failures (to test in Phase 2
+against the campaign's F3 list).
