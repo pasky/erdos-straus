@@ -2662,6 +2662,41 @@ internal, unrefereed).**
   class −20447 mod 12670944 = 2⁵·3·11·13²·71 (also by an I-2 class), beyond all first-version search bounds.
   CONJECTURE (EVIDENCE only): only "1 elsewhere" rational slices can carry points of K̄ ∩ U.
 
+**z68 (aimed at the open targets: (S) via p-adaptive words, U₇ tryhard twins, board finalist fable-3; all Astra
+cross-reviewed (SIGN ACCEPT, others ACCEPT-WITH-FIXES; delta reviews for the second rounds), fixes applied; internal,
+unrefereed). No new mechanism; no HOT LEAD.**
+* **(S) via long words (`Z68_SIGN.md`; narrowed).** PROVED: cut identity n = bXY − XY′ − X′Y for every HJ word and a
+  sign-corrected contraction to length 3 (χ_n(A₃) = χ_n(A)·χ_n(X′Y′) when gcd(XX′YY′, n) = 1, automatic at primes);
+  its domain is exactly the refinements of length-3 words, and no word with letters ≤ M′ and length > M′/2 + 2 is in it
+  (so Zaremba/ZQ_M-type bounded-digit words cannot be contracted directly). PROVED (computer-assisted, relative to
+  UCOVER Thm S(a)): no finite-family congruence selector from length 4 or 5 to length 3 at any prime 11 ≤ ℓ ≤ 101.
+  Prop 8: through the contraction, (S)(p) reduces only to a positively weighted re-indexing of itself. Sign-labelled move graph (forward +
+  inverse rescalings): PROVED χ(end) = χ(start)·∏χ(kᵢ); all pre-registered descent rules miss the 99 % threshold at
+  primes p ≡ 1 (8) ≤ 10⁵ (best 89.8 %; none at 21841). EVIDENCE: χ-fractions of L₃ and L₄ correlate (ρ = +0.65, cause
+  open). Not excluded: unbounded output menus, terminating sideways/climbing descents, weighted first-hitting operators.
+* **U₇ tryhard (`Z68_U7O.md`, `Z68_U7F.md`; narrowed).** PROVED (standard Brun sieve, low novelty, weaker saving than
+  Vaughan's for ES): #{p ≤ N : ¬U₇(p)} ≪_A N(log N)^{−A}; it is F2-blind (the same proof gives U⁽⁸⁾, false at 45 primes),
+  so it does not lead to all primes. PROVED: polynomial word families collapse to congruence families (word form of
+  Z58_MORDELL Prop C1); norm chain of a counterexample (p+1, p+2, p+4 forced to be norms from ℚ(i), ℚ(√−2)).
+  EVIDENCE: every prime p ≡ 1 (8) ≤ 4·10⁹ has a U₇ word with least letter ≤ 26 (max at 3 613 009); CONDITIONAL on
+  Dickson (Prop K / Cor K′): no cascade with bounded letters (fixed C) closes, so that closure is a finite-range
+  artefact. CERTIFIED to 10⁹ (independently recounted): no prime U₇-zero; 231 primes have no prime witness f (e.g.
+  2521, whose only witness is f = 87 = 3·29); every prime has a witness with ω(f) ≤ 2; each of the four 2-adic pair
+  types is the only one at some prime. CONJECTURES (primes only): B (ω(f) ≤ 2 witness; false for composites, 196065),
+  C (witness c·q, q prime, c ∈ {1, 3, 5} except 3361, 21841, 76441). Every attempted rule was a bounded-letter family,
+  a whole-class rule on representation data (dies at squares), or needed pointwise control of residues of large prime
+  factors of p + r — the B2 atom. Rules using divisors of nonlinear expressions (a² + b² coordinates, Pell data) are not
+  excluded.
+* **Two-prime covering, board fable-3 checkpoint (`Z68_PC2.md`; gate delivered, outcome negative).** PROVED: every ET
+  family class catching a profile 1 off a finite S reduces to one equation Q(α, β): 4XYZW = αX + βY + Z in two shapes
+  (CERTIFIED against literal brute force; recovers −1215 mod 21736 and −20447 mod 12670944). PROVED (Lemma Q, uniform):
+  Q(α, β) ≤ (αβ)^{2/5+o(1)}, so events of S-level N carry mass ≤ N^{−1/5+o(1)}; exact two-prime law s = s₁s₂ − Γ with
+  0 ≤ Γ ≤ 4(ℓ₁ℓ₂)^{−1/5+o(1)} for the pure menus: **no fixed-factor gain over independence** (the board's 0.16–0.44 ratios
+  are small-prime effects); U contains profiles with ≥ y^{1/5−o(1)} non-residue components among primes ≤ y. PROVED
+  (bridge, under GRH for ζ_{ℚ(√p)} via Lagarias–Odlyzko): (PC) with log F(y) < y^{1/2−ε} implies "GRH ⇒ ES for all
+  large primes" (ES-strength modulo GRH); 1/2 < c < 1 would give a new exceptional-set bound X^{c+o(1)}, not ES.
+  Assessment: park fable-3 (not a no-go for dense many-prime (PC)).
+
 ## 8. Pointers into the repository
 
 * **Start:** `STATUS.md` (wave headlines, newest first; ES-not-solved banner), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
