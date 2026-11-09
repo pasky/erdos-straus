@@ -5,5 +5,5 @@ rho(f3, f4 non-refined) = +0.405
 within classes mod 9240: rho(f3,f4 all)=+0.613  refined=+0.696  non-refined=+0.344
 mean fractions: f3=0.696 f4=0.704 refined=0.786 non-refined=0.668
 21841: [21841, 20, 2, 154, 100, 14, 4, 140, 96, 50, 36]
-rho(f3, f4 unlinked: gcd(b,d)=gcd(a,c)=1) = -0.093; within mod 9240: -0.120; share of L4 = 0.159, mean 0.679
-hardest 1% by f3 (n=42, f3<=0.384): mean f4 all 0.563 (vs 0.704); refined 0.527 (vs 0.786); non-refined 0.572 (vs 0.668); unlinked 0.670 (vs 0.679)
+rho(f3, f4 gcd-one subset gcd(b,d)=gcd(a,c)=1 [NOT the no-move set; see kt3c]) = -0.093; within mod 9240: -0.120; share of L4 = 0.159, mean 0.679
+hardest 1% by f3 (n=42, f3<=0.384): mean f4 all 0.563 (vs 0.704); refined 0.527 (vs 0.786); non-refined 0.572 (vs 0.668); gcd-one 0.670 (vs 0.679)

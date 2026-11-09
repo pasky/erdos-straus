@@ -21,6 +21,6 @@ print(f"within classes mod 9240: rho(f3,f4 all)={spearmanr(resid(f3,cls), resid(
 print(f"mean fractions: f3={f3.mean():.3f} f4={f4.mean():.3f} refined={fr.mean():.3f} non-refined={fn.mean():.3f}")
 i = np.where(p == 21841)[0][0]
 print("21841:", d[i].tolist())
-print(f"rho(f3, f4 unlinked: gcd(b,d)=gcd(a,c)=1) = {spearmanr(f3, fu).statistic:+.3f}; within mod 9240: {spearmanr(resid(f3,cls), resid(fu,cls)).statistic:+.3f}; share of L4 = {U4[m].sum()/L4[m].sum():.3f}, mean {fu.mean():.3f}")
+print(f"rho(f3, f4 gcd-one subset gcd(b,d)=gcd(a,c)=1 [NOT the no-move set; see kt3c]) = {spearmanr(f3, fu).statistic:+.3f}; within mod 9240: {spearmanr(resid(f3,cls), resid(fu,cls)).statistic:+.3f}; share of L4 = {U4[m].sum()/L4[m].sum():.3f}, mean {fu.mean():.3f}")
 q = np.quantile(f3, 0.01); h = f3 <= q
-print(f"hardest 1% by f3 (n={h.sum()}, f3<={q:.3f}): mean f4 all {f4[h].mean():.3f} (vs {f4.mean():.3f}); refined {fr[h].mean():.3f} (vs {fr.mean():.3f}); non-refined {fn[h].mean():.3f} (vs {fn.mean():.3f}); unlinked {fu[h].mean():.3f} (vs {fu.mean():.3f})")
+print(f"hardest 1% by f3 (n={h.sum()}, f3<={q:.3f}): mean f4 all {f4[h].mean():.3f} (vs {f4.mean():.3f}); refined {fr[h].mean():.3f} (vs {fr.mean():.3f}); non-refined {fn[h].mean():.3f} (vs {fn.mean():.3f}); gcd-one {fu[h].mean():.3f} (vs {fu.mean():.3f})")

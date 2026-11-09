@@ -11,8 +11,8 @@ within classes mod 840 (48 classes): rho(f3,f4)=+0.606 (p=0)  rho(f3,f5)=-0.359
 within classes mod 9240 (480 classes): rho(f3,f4)=+0.613 (p=0)  rho(f3,f5)=-0.360
 within classes of (q/p), q<=23 (256 classes): rho(f3,f4)=+0.561 (p=0)
 after regressing out weighted sums of (q/p) over q<3000 in 4 bands + S(sqrt p)/p^(1/4): rho(f3,f4)=+0.522 (p=1.1e-290) rho(f3,f5)=-0.353
-   corr with feature q<=23: f3 -0.494  f4 -0.435  f5 -0.008
-   corr with feature 29..173: f3 +0.004  f4 +0.015  f5 +0.102
-   corr with feature 179..863: f3 +0.183  f4 +0.199  f5 +0.034
-   corr with feature 877..3000: f3 +0.180  f4 +0.179  f5 +0.006
-   corr with feature S(sqrtp): f3 -0.523  f4 -0.452  f5 -0.001
+   corr with feature 3..23: f3 -0.494  f4 -0.435  f5 -0.008
+   corr with feature 29..179: f3 +0.004  f4 +0.015  f5 +0.102
+   corr with feature 181..877: f3 +0.183  f4 +0.199  f5 +0.034
+   corr with feature 881..2999: f3 +0.180  f4 +0.179  f5 +0.006
+   corr with feature S(m<isqrt p): f3 -0.523  f4 -0.452  f5 -0.001

@@ -54,5 +54,5 @@ def ols_resid(y):
     beta, *_ = np.linalg.lstsq(F, y, rcond=None); return y - F @ beta
 r = spearmanr(ols_resid(f3), ols_resid(f4)); r5 = spearmanr(ols_resid(f3), ols_resid(f5))
 print(f"after regressing out weighted sums of (q/p) over q<3000 in 4 bands + S(sqrt p)/p^(1/4): rho(f3,f4)={r.statistic:+.3f} (p={r.pvalue:.2g}) rho(f3,f5)={r5.statistic:+.3f}")
-for j, name in enumerate(['q<=23', '29..173', '179..863', '877..3000', 'S(sqrtp)']):
+for j, name in enumerate(['3..23', '29..179', '181..877', '881..2999', 'S(m<isqrt p)']):
     print(f"   corr with feature {name}: f3 {spearmanr(f3, F[:, j+1]).statistic:+.3f}  f4 {spearmanr(f4, F[:, j+1]).statistic:+.3f}  f5 {spearmanr(f5, F[:, j+1]).statistic:+.3f}")
