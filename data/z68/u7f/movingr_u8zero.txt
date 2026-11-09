@@ -1,0 +1,76 @@
+p=17: [f=7 c=1 om=1 r=4 y=2 z=3 ty=4] [f=23 c=1 om=1 r=6 y=4 z=1 ty=6]
+SUMMARY p=17 nwit=2 minc=1 (f=7) minc_om2=1 (f=7)
+p=113: [f=23 c=1 om=1 r=2 y=12 z=5 ty=2] [f=39 c=3 om=2 r=4 y=10 z=3 ty=4] [f=119 c=7 om=2 r=6 y=20 z=1 ty=6] [f=151 c=1 om=1 r=38 y=4 z=1 ty=6]
+SUMMARY p=113 nwit=4 minc=1 (f=23) minc_om2=1 (f=23)
+p=241: [f=7 c=1 om=1 r=4 y=2 z=35 ty=4] [f=23 c=1 om=1 r=12 y=2 z=11 ty=4] [f=263 c=1 om=1 r=22 y=12 z=1 ty=6]
+SUMMARY p=241 nwit=3 minc=1 (f=7) minc_om2=1 (f=7)
+p=257: [f=7 c=1 om=1 r=2 y=4 z=37 ty=2] [f=87 c=3 om=2 r=4 y=22 z=3 ty=4] [f=103 c=1 om=1 r=52 y=2 z=3 ty=4] [f=263 c=1 om=1 r=6 y=44 z=1 ty=6] [f=343 c=1 om=1 r=86 y=4 z=1 ty=6]
+SUMMARY p=257 nwit=5 minc=1 (f=7) minc_om2=1 (f=7)
+p=353: [f=7 c=1 om=1 r=4 y=2 z=51 ty=4] [f=71 c=1 om=1 r=2 y=36 z=5 ty=2] [f=119 c=7 om=2 r=4 y=30 z=3 ty=4] [f=359 c=1 om=1 r=6 y=60 z=1 ty=6] [f=471 c=3 om=2 r=118 y=4 z=1 ty=6]
+SUMMARY p=353 nwit=5 minc=1 (f=7) minc_om2=1 (f=7)
+p=593: [f=7 c=1 om=1 r=2 y=4 z=85 ty=2] [f=119 c=7 om=2 r=2 y=60 z=5 ty=2] [f=199 c=1 om=1 r=4 y=50 z=3 ty=4] [f=599 c=1 om=1 r=6 y=100 z=1 ty=6] [f=615 c=15 om=3 r=22 y=28 z=1 ty=6] [f=647 c=1 om=1 r=54 y=12 z=1 ty=6] [f=791 c=7 om=2 r=198 y=4 z=1 ty=6]
+SUMMARY p=593 nwit=7 minc=1 (f=7) minc_om2=1 (f=7)
+p=1129: [f=39 c=3 om=2 r=2 y=20 z=29 ty=2] [f=87 c=3 om=2 r=2 y=44 z=13 ty=2] [f=103 c=1 om=1 r=4 y=26 z=11 ty=4]
+SUMMARY p=1129 nwit=3 minc=1 (f=103) minc_om2=1 (f=103)
+p=1249: [f=7 c=1 om=1 r=4 y=2 z=179 ty=4] [f=119 c=7 om=2 r=60 y=2 z=11 ty=4] [f=263 c=1 om=1 r=66 y=4 z=5 ty=2]
+SUMMARY p=1249 nwit=3 minc=1 (f=7) minc_om2=1 (f=7)
+p=1489: [f=7 c=1 om=1 r=2 y=4 z=213 ty=2] [f=23 c=1 om=1 r=6 y=4 z=65 ty=6] [f=71 c=1 om=1 r=2 y=36 z=21 ty=2] [f=167 c=1 om=1 r=14 y=12 z=9 ty=6]
+SUMMARY p=1489 nwit=4 minc=1 (f=7) minc_om2=1 (f=7)
+p=1601: [f=7 c=1 om=1 r=2 y=4 z=229 ty=2] [f=15 c=3 om=2 r=4 y=4 z=107 ty=4] [f=183 c=3 om=2 r=46 y=4 z=9 ty=6] [f=535 c=5 om=2 r=4 y=134 z=3 ty=4] [f=1607 c=1 om=1 r=6 y=268 z=1 ty=6] [f=2135 c=35 om=3 r=534 y=4 z=1 ty=6]
+SUMMARY p=1601 nwit=6 minc=1 (f=7) minc_om2=1 (f=7)
+p=2081: [f=15 c=3 om=2 r=4 y=4 z=139 ty=4] [f=23 c=1 om=1 r=12 y=2 z=91 ty=4] [f=111 c=3 om=2 r=28 y=4 z=19 ty=4] [f=695 c=5 om=2 r=4 y=174 z=3 ty=4] [f=2087 c=1 om=1 r=6 y=348 z=1 ty=6] [f=2775 c=75 om=3 r=694 y=4 z=1 ty=6]
+SUMMARY p=2081 nwit=6 minc=1 (f=23) minc_om2=1 (f=23)
+p=2521: [f=87 c=3 om=2 r=2 y=44 z=29 ty=2]
+SUMMARY p=2521 nwit=1 minc=3 (f=87) minc_om2=3 (f=87)
+p=3169: [f=7 c=1 om=1 r=2 y=4 z=453 ty=2] [f=151 c=1 om=1 r=2 y=76 z=21 ty=2] [f=167 c=1 om=1 r=4 y=42 z=19 ty=4]
+SUMMARY p=3169 nwit=3 minc=1 (f=7) minc_om2=1 (f=7)
+p=3361: [f=679 c=7 om=2 r=34 y=20 z=5 ty=2] [f=1159 c=19 om=2 r=116 y=10 z=3 ty=4]
+SUMMARY p=3361 nwit=2 minc=7 (f=679) minc_om2=7 (f=679)
+p=4481: [f=15 c=3 om=2 r=4 y=4 z=299 ty=4] [f=23 c=1 om=1 r=4 y=6 z=195 ty=4] [f=39 c=3 om=2 r=4 y=10 z=115 ty=4] [f=167 c=1 om=1 r=28 y=6 z=27 ty=4] [f=239 c=1 om=1 r=60 y=4 z=19 ty=4] [f=1495 c=65 om=3 r=4 y=374 z=3 ty=4] [f=1519 c=49 om=2 r=76 y=20 z=3 ty=4] [f=4487 c=7 om=2 r=6 y=748 z=1 ty=6] [f=4535 c=5 om=2 r=54 y=84 z=1 ty=6] [f=4647 c=3 om=2 r=166 y=28 z=1 ty=6] [f=5975 c=25 om=2 r=1494 y=4 z=1 ty=6]
+SUMMARY p=4481 nwit=11 minc=1 (f=23) minc_om2=1 (f=23)
+p=5281: [f=7 c=1 om=1 r=4 y=2 z=755 ty=4] [f=151 c=1 om=1 r=4 y=38 z=35 ty=4] [f=279 c=9 om=2 r=20 y=14 z=19 ty=4] [f=311 c=1 om=1 r=6 y=52 z=17 ty=6] [f=503 c=1 om=1 r=252 y=2 z=11 ty=4] [f=5319 c=27 om=2 r=38 y=140 z=1 ty=6] [f=5559 c=51 om=3 r=278 y=20 z=1 ty=6]
+SUMMARY p=5281 nwit=7 minc=1 (f=7) minc_om2=1 (f=7)
+p=5521: [f=7 c=1 om=1 r=2 y=4 z=789 ty=2] [f=263 c=1 om=1 r=2 y=132 z=21 ty=2] [f=503 c=1 om=1 r=12 y=42 z=11 ty=4] [f=615 c=15 om=3 r=14 y=44 z=9 ty=6] [f=631 c=1 om=1 r=158 y=4 z=9 ty=6] [f=5543 c=23 om=2 r=22 y=252 z=1 ty=6] [f=6023 c=19 om=2 r=502 y=12 z=1 ty=6]
+SUMMARY p=5521 nwit=7 minc=1 (f=7) minc_om2=1 (f=7)
+p=13249: [f=7 c=1 om=1 r=2 y=4 z=1893 ty=2] [f=631 c=1 om=1 r=2 y=316 z=21 ty=2] [f=791 c=7 om=2 r=198 y=4 z=17 ty=6] [f=1223 c=1 om=1 r=204 y=6 z=11 ty=4]
+SUMMARY p=13249 nwit=4 minc=1 (f=7) minc_om2=1 (f=7)
+p=14177: [f=87 c=3 om=2 r=4 y=22 z=163 ty=4] [f=407 c=11 om=2 r=68 y=6 z=35 ty=4] [f=535 c=5 om=2 r=268 y=2 z=27 ty=4] [f=4727 c=29 om=2 r=4 y=1182 z=3 ty=4] [f=5671 c=53 om=2 r=2836 y=2 z=3 ty=4] [f=14183 c=13 om=2 r=6 y=2364 z=1 ty=6] [f=14279 c=109 om=2 r=102 y=140 z=1 ty=6] [f=14455 c=245 om=3 r=278 y=52 z=1 ty=6] [f=18903 c=3 om=2 r=4726 y=4 z=1 ty=6]
+SUMMARY p=14177 nwit=9 minc=3 (f=87) minc_om2=3 (f=87)
+p=14401: [f=71 c=1 om=1 r=12 y=6 z=203 ty=4] [f=215 c=5 om=2 r=4 y=54 z=67 ty=4] [f=335 c=5 om=2 r=4 y=84 z=43 ty=4] [f=759 c=33 om=3 r=20 y=38 z=19 ty=4] [f=14439 c=3 om=2 r=38 y=380 z=1 ty=6] [f=15159 c=93 om=3 r=758 y=20 z=1 ty=6]
+SUMMARY p=14401 nwit=6 minc=1 (f=71) minc_om2=1 (f=71)
+p=15233: [f=55 c=5 om=2 r=2 y=28 z=277 ty=2] [f=311 c=1 om=1 r=6 y=52 z=49 ty=6] [f=1175 c=25 om=2 r=42 y=28 z=13 ty=2] [f=3047 c=11 om=2 r=2 y=1524 z=5 ty=2] [f=3207 c=3 om=2 r=802 y=4 z=5 ty=2] [f=5079 c=3 om=2 r=4 y=1270 z=3 ty=4] [f=5095 c=5 om=2 r=52 y=98 z=3 ty=4] [f=15239 c=49 om=2 r=6 y=2540 z=1 ty=6] [f=20311 c=19 om=2 r=5078 y=4 z=1 ty=6]
+SUMMARY p=15233 nwit=9 minc=1 (f=311) minc_om2=1 (f=311)
+p=21649: [f=7 c=1 om=1 r=2 y=4 z=3093 ty=2] [f=71 c=1 om=1 r=6 y=12 z=305 ty=6] [f=367 c=1 om=1 r=4 y=92 z=59 ty=4] [f=623 c=7 om=2 r=156 y=4 z=35 ty=4] [f=1031 c=1 om=1 r=2 y=516 z=21 ty=2] [f=1975 c=25 om=2 r=76 y=26 z=11 ty=4] [f=2407 c=29 om=2 r=14 y=172 z=9 ty=6]
+SUMMARY p=21649 nwit=7 minc=1 (f=7) minc_om2=1 (f=7)
+p=33601: [f=23 c=1 om=1 r=2 y=12 z=1461 ty=2] [f=47 c=1 om=1 r=4 y=12 z=715 ty=4] [f=55 c=5 om=2 r=4 y=14 z=611 ty=4] [f=143 c=11 om=2 r=4 y=36 z=235 ty=4] [f=487 c=1 om=1 r=2 y=244 z=69 ty=2] [f=1159 c=19 om=2 r=10 y=116 z=29 ty=2] [f=3055 c=65 om=3 r=4 y=764 z=11 ty=4]
+SUMMARY p=33601 nwit=7 minc=1 (f=23) minc_om2=1 (f=23)
+p=35569: [f=23 c=1 om=1 r=12 y=2 z=1547 ty=4] [f=71 c=1 om=1 r=2 y=36 z=501 ty=2] [f=119 c=7 om=2 r=12 y=10 z=299 ty=4] [f=167 c=1 om=1 r=2 y=84 z=213 ty=2] [f=1031 c=1 om=1 r=516 y=2 z=35 ty=4] [f=1319 c=1 om=1 r=44 y=30 z=27 ty=4] [f=3239 c=41 om=2 r=60 y=54 z=11 ty=4] [f=7127 c=1 om=1 r=66 y=108 z=5 ty=2]
+SUMMARY p=35569 nwit=8 minc=1 (f=23) minc_om2=1 (f=23)
+p=64081: [f=7 c=1 om=1 r=4 y=2 z=9155 ty=4] [f=119 c=7 om=2 r=60 y=2 z=539 ty=4] [f=359 c=1 om=1 r=180 y=2 z=179 ty=4] [f=599 c=1 om=1 r=12 y=50 z=107 ty=4] [f=1831 c=1 om=1 r=4 y=458 z=35 ty=4] [f=2375 c=125 om=2 r=44 y=54 z=27 ty=4] [f=5879 c=1 om=1 r=588 y=10 z=11 ty=4] [f=6103 c=17 om=2 r=3052 y=2 z=11 ty=4] [f=64439 c=1 om=1 r=358 y=180 z=1 ty=6]
+SUMMARY p=64081 nwit=9 minc=1 (f=7) minc_om2=1 (f=7)
+p=65521: [f=23 c=1 om=1 r=6 y=4 z=2849 ty=6] [f=71 c=1 om=1 r=12 y=6 z=923 ty=4] [f=215 c=5 om=2 r=54 y=4 z=305 ty=6] [f=407 c=11 om=2 r=6 y=68 z=161 ty=6] [f=791 c=7 om=2 r=132 y=6 z=83 ty=4] [f=2279 c=43 om=2 r=570 y=4 z=29 ty=2] [f=3479 c=49 om=2 r=580 y=6 z=19 ty=4] [f=6095 c=115 om=3 r=1524 y=4 z=11 ty=4]
+SUMMARY p=65521 nwit=8 minc=1 (f=23) minc_om2=1 (f=23)
+p=83449: [f=679 c=7 om=2 r=68 y=10 z=123 ty=4] [f=7591 c=1 om=1 r=52 y=146 z=11 ty=4] [f=7703 c=1 om=1 r=1284 y=6 z=11 ty=4]
+SUMMARY p=83449 nwit=3 minc=1 (f=7591) minc_om2=1 (f=7591)
+p=103841: [f=7 c=1 om=1 r=4 y=2 z=14835 ty=4] [f=15 c=3 om=2 r=4 y=4 z=6923 ty=4] [f=23 c=1 om=1 r=4 y=6 z=4515 ty=4] [f=215 c=5 om=2 r=4 y=54 z=483 ty=4] [f=263 c=1 om=1 r=44 y=6 z=395 ty=4] [f=903 c=21 om=3 r=4 y=226 z=115 ty=4] [f=2415 c=105 om=4 r=4 y=604 z=43 ty=4] [f=2807 c=7 om=2 r=18 y=156 z=37 ty=2] [f=2967 c=69 om=3 r=4 y=742 z=35 ty=4] [f=20823 c=33 om=3 r=274 y=76 z=5 ty=2] [f=34615 c=805 om=4 r=4 y=8654 z=3 ty=4] [f=34631 c=1 om=1 r=52 y=666 z=3 ty=4] [f=103847 c=113 om=2 r=6 y=17308 z=1 ty=6] [f=103895 c=55 om=3 r=54 y=1924 z=1 ty=6] [f=107687 c=1 om=1 r=3846 y=28 z=1 ty=6] [f=138455 c=5 om=2 r=34614 y=4 z=1 ty=6]
+SUMMARY p=103841 nwit=16 minc=1 (f=7) minc_om2=1 (f=7)
+p=131041: [f=79 c=1 om=1 r=20 y=4 z=1659 ty=4] [f=199 c=1 om=1 r=100 y=2 z=659 ty=4] [f=439 c=1 om=1 r=220 y=2 z=299 ty=4] [f=1327 c=1 om=1 r=332 y=4 z=99 ty=4] [f=4519 c=1 om=1 r=10 y=452 z=29 ty=2] [f=10119 c=3 om=2 r=506 y=20 z=13 ty=2]
+SUMMARY p=131041 nwit=6 minc=1 (f=79) minc_om2=1 (f=79)
+p=135649: [f=7 c=1 om=1 r=4 y=2 z=19379 ty=4] [f=103 c=1 om=1 r=2 y=52 z=1317 ty=2] [f=391 c=17 om=2 r=28 y=14 z=347 ty=4] [f=439 c=1 om=1 r=2 y=220 z=309 ty=2] [f=2087 c=1 om=1 r=6 y=348 z=65 ty=6] [f=3015 c=45 om=3 r=26 y=116 z=45 ty=2] [f=5071 c=11 om=2 r=1268 y=4 z=27 ty=4] [f=10439 c=143 om=3 r=58 y=180 z=13 ty=2] [f=12375 c=1125 om=3 r=476 y=26 z=11 ty=4] [f=12919 c=1 om=1 r=6460 y=2 z=11 ty=4] [f=45231 c=3 om=2 r=44 y=1028 z=3 ty=4] [f=49327 c=107 om=2 r=12332 y=4 z=3 ty=4]
+SUMMARY p=135649 nwit=12 minc=1 (f=7) minc_om2=1 (f=7)
+p=211681: [f=55 c=5 om=2 r=14 y=4 z=3849 ty=6] [f=119 c=7 om=2 r=20 y=6 z=1779 ty=4] [f=3079 c=1 om=1 r=770 y=4 z=69 ty=2] [f=70575 c=75 om=3 r=44 y=1604 z=3 ty=4] [f=70583 c=1 om=1 r=68 y=1038 z=3 ty=4] [f=74711 c=91 om=3 r=12452 y=6 z=3 ty=4] [f=76975 c=25 om=2 r=19244 y=4 z=3 ty=4]
+SUMMARY p=211681 nwit=7 minc=1 (f=3079) minc_om2=1 (f=3079)
+p=215297: [f=7 c=1 om=1 r=2 y=4 z=30757 ty=2] [f=23 c=1 om=1 r=6 y=4 z=9361 ty=6] [f=55 c=5 om=2 r=28 y=2 z=3915 ty=4] [f=407 c=11 om=2 r=6 y=68 z=529 ty=6] [f=783 c=27 om=2 r=28 y=28 z=275 ty=4] [f=1783 c=1 om=1 r=446 y=4 z=121 ty=6] [f=5007 c=3 om=2 r=4 y=1252 z=43 ty=4] [f=71767 c=43 om=2 r=4 y=17942 z=3 ty=4] [f=71799 c=273 om=4 r=100 y=718 z=3 ty=4] [f=86119 c=11 om=2 r=43060 y=2 z=3 ty=4] [f=215303 c=5819 om=3 r=6 y=35884 z=1 ty=6] [f=215351 c=1 om=1 r=54 y=3988 z=1 ty=6] [f=215783 c=779 om=3 r=486 y=444 z=1 ty=6] [f=216183 c=33 om=3 r=886 y=244 z=1 ty=6] [f=223271 c=29 om=2 r=7974 y=28 z=1 ty=6] [f=287063 c=161 om=3 r=71766 y=4 z=1 ty=6]
+SUMMARY p=215297 nwit=16 minc=1 (f=7) minc_om2=1 (f=7)
+p=252001: [f=167 c=1 om=1 r=2 y=84 z=1509 ty=2] [f=503 c=1 om=1 r=2 y=252 z=501 ty=2] [f=951 c=3 om=2 r=14 y=68 z=265 ty=6] [f=28071 c=9 om=2 r=638 y=44 z=9 ty=6] [f=50439 c=1173 om=4 r=194 y=260 z=5 ty=2] [f=84335 c=505 om=3 r=1004 y=84 z=3 ty=4]
+SUMMARY p=252001 nwit=6 minc=1 (f=167) minc_om2=1 (f=167)
+p=259201: [f=7 c=1 om=1 r=2 y=4 z=37029 ty=2] [f=47 c=1 om=1 r=4 y=12 z=5515 ty=4] [f=55 c=5 om=2 r=14 y=4 z=4713 ty=6] [f=1103 c=1 om=1 r=4 y=276 z=235 ty=4] [f=12343 c=1 om=1 r=2 y=6172 z=21 ty=2] [f=29623 c=11 om=2 r=7406 y=4 z=9 ty=6] [f=86415 c=105 om=4 r=44 y=1964 z=3 ty=4] [f=86583 c=2793 om=4 r=548 y=158 z=3 ty=4] [f=87031 c=7 om=2 r=1892 y=46 z=3 ty=4] [f=94255 c=35 om=3 r=23564 y=4 z=3 ty=4]
+SUMMARY p=259201 nwit=10 minc=1 (f=7) minc_om2=1 (f=7)
+p=608401: [f=7 c=1 om=1 r=4 y=2 z=86915 ty=4] [f=3399 c=33 om=3 r=20 y=170 z=179 ty=4] [f=17383 c=1 om=1 r=4 y=4346 z=35 ty=4] [f=57943 c=1 om=1 r=28972 y=2 z=11 ty=4] [f=202919 c=131 om=2 r=356 y=570 z=3 ty=4] [f=205079 c=7 om=2 r=6836 y=30 z=3 ty=4] [f=608615 c=35 om=3 r=214 y=2844 z=1 ty=6] [f=614087 c=61 om=2 r=5686 y=108 z=1 ty=6]
+SUMMARY p=608401 nwit=8 minc=1 (f=7) minc_om2=1 (f=7)
+p=1044737: [f=519 c=3 om=2 r=10 y=52 z=2013 ty=2] [f=1975 c=25 om=2 r=38 y=52 z=529 ty=6] [f=5359 c=23 om=2 r=268 y=20 z=195 ty=4] [f=6039 c=99 om=3 r=10 y=604 z=173 ty=2] [f=38695 c=355 om=3 r=28 y=1382 z=27 ty=4] [f=95015 c=155 om=3 r=428 y=222 z=11 ty=4] [f=348247 c=1 om=1 r=4 y=87062 z=3 ty=4] [f=417895 c=5 om=2 r=208948 y=2 z=3 ty=4] [f=1044743 c=7 om=2 r=6 y=174124 z=1 ty=6] [f=1044791 c=209 om=3 r=54 y=19348 z=1 ty=6] [f=1083431 c=1 om=1 r=38694 y=28 z=1 ty=6] [f=1392983 c=1 om=1 r=348246 y=4 z=1 ty=6]
+SUMMARY p=1044737 nwit=12 minc=1 (f=348247) minc_om2=1 (f=348247)
+p=2871233: [f=111 c=3 om=2 r=4 y=28 z=25867 ty=4] [f=295 c=5 om=2 r=2 y=148 z=9733 ty=2] [f=783 c=27 om=2 r=28 y=28 z=3667 ty=4] [f=815 c=5 om=2 r=12 y=68 z=3523 ty=4] [f=17615 c=65 om=3 r=12 y=1468 z=163 ty=4] [f=19271 c=7 om=2 r=146 y=132 z=149 ty=2] [f=24975 c=675 om=3 r=892 y=28 z=115 ty=4] [f=106343 c=551 om=3 r=28 y=3798 z=27 ty=4] [f=574247 c=59 om=2 r=2 y=287124 z=5 ty=2] [f=957079 c=37 om=2 r=4 y=239270 z=3 ty=4] [f=957175 c=25 om=2 r=292 y=3278 z=3 ty=4] [f=2871239 c=301 om=3 r=6 y=478540 z=1 ty=6] [f=2871287 c=1 om=1 r=54 y=53172 z=1 ty=6] [f=2977575 c=2175 om=4 r=106342 y=28 z=1 ty=6] [f=3828311 c=1 om=1 r=957078 y=4 z=1 ty=6]
+SUMMARY p=2871233 nwit=15 minc=1 (f=2871287) minc_om2=1 (f=2871287)
+p=3869153: [f=199 c=1 om=1 r=4 y=50 z=19443 ty=4] [f=1199 c=11 om=2 r=20 y=60 z=3227 ty=4] [f=7639 c=1 om=1 r=3820 y=2 z=507 ty=4] [f=143303 c=47 om=2 r=28 y=5118 z=27 ty=4] [f=303463 c=1 om=1 r=75866 y=4 z=13 ty=2] [f=773831 c=1 om=1 r=2 y=386916 z=5 ty=2] [f=1289719 c=199 om=2 r=4 y=322430 z=3 ty=4] [f=3869159 c=371 om=3 r=6 y=644860 z=1 ty=6] [f=3869207 c=617 om=2 r=54 y=71652 z=1 ty=6] [f=3869975 c=25 om=2 r=822 y=4708 z=1 ty=6] [f=3870199 c=1 om=1 r=1046 y=3700 z=1 ty=6] [f=3876551 c=133 om=3 r=7398 y=524 z=1 ty=6] [f=3878567 c=1309 om=4 r=9414 y=412 z=1 ty=6] [f=4012455 c=15 om=3 r=143302 y=28 z=1 ty=6] [f=5158871 c=17 om=2 r=1289718 y=4 z=1 ty=6]
+SUMMARY p=3869153 nwit=15 minc=1 (f=199) minc_om2=1 (f=199)
