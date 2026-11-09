@@ -1,0 +1,3 @@
+ell=103 AMAX=200000 UVMAX=200000 K=2: brute 13, exact 13, brute-not-exact 0
+ell=379 AMAX=200000 UVMAX=200000 K=2: brute 15, exact 15, brute-not-exact 0
+ell=1009 AMAX=200000 UVMAX=200000 K=2: brute 10, exact 10, brute-not-exact 0
