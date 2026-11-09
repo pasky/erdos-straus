@@ -1,4 +1,6 @@
-data/z69/mine/raw_ph3_H.jsonl.gz: CFk divf multiplicity real 62546 vs phantom 38056 (ratio 1.644); period model sum L/f real 78540 vs phantom 49295 (ratio 1.593); obs/model real 0.796 phantom 0.772; median L/sqrt: real 1.97 phantom 0.88
-data/z69/mine/raw_ph3_C.jsonl.gz: CFk divf multiplicity real 83209 vs phantom 90565 (ratio 0.919); period model sum L/f real 102368 vs phantom 109529 (ratio 0.935); obs/model real 0.813 phantom 0.827; median L/sqrt: real 0.79 phantom 0.78
-data/z69/mine/raw_ph3_H.jsonl.gz: QS divxy multiplicity real 528341 vs phantom 290256 (ratio 1.820); model |Qset| sum 1/l real 374858 vs phantom 283527 (ratio 1.322); obs/model real 1.409 phantom 1.024
-data/z69/mine/raw_ph3_C.jsonl.gz: QS divxy multiplicity real 330176 vs phantom 320511 (ratio 1.030); model |Qset| sum 1/l real 263361 vs phantom 261910 (ratio 1.006); obs/model real 1.254 phantom 1.224
+raw_ph3_H.jsonl.gz CFk:divf  multiplicity real 62546 / phantom 38056 = 1.644; model ratio 1.593; normalised rate ratio 1.0315 +- 0.0247
+raw_ph3_H.jsonl.gz CFh:divf  multiplicity real 62343 / phantom 38092 = 1.637; model ratio 1.593; normalised rate ratio 1.0272 +- 0.0262
+raw_ph3_H.jsonl.gz QS:divxy  multiplicity real 528341 / phantom 290256 = 1.820; model ratio 1.322; normalised rate ratio 1.3768 +- 0.0508
+raw_ph3_C.jsonl.gz CFk:divf  multiplicity real 83209 / phantom 90565 = 0.919; model ratio 0.935; normalised rate ratio 0.9831 +- 0.0170
+raw_ph3_C.jsonl.gz CFh:divf  multiplicity real 83485 / phantom 90484 = 0.923; model ratio 0.935; normalised rate ratio 0.9872 +- 0.0172
+raw_ph3_C.jsonl.gz QS:divxy  multiplicity real 330176 / phantom 320511 = 1.030; model ratio 1.006; normalised rate ratio 1.0245 +- 0.0308
