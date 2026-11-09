@@ -1,0 +1,3 @@
+position x: square-class cases 120550, with a word 0 (Lemma 4 predicts 0); non-square-class cases 1275410, with a word 448318
+position z: square-class cases 120550, with a word 0 (Lemma 4 predicts 0); non-square-class cases 1275410, with a word 365130
+position y: square-class cases 106207, with a word 0 (Lemma 4 predicts 0); non-square-class cases 1143642, with a word 352414
