@@ -76,6 +76,7 @@ for m, Rs in cls.items():
         weight += w; comp.append(c)
         if w == 1.0: full.append((m, rho))
 comp = list(set(comp))
+assert bad_T1 == 0, 'a compatible class with 11 not dividing its modulus exists: T1 sanity failed'
 print(f"M={M:.3g} r={R11}: {len(SM)} smooth moduli, {ntot} classes, {len(comp)} compatible with B_r, total relative weight {weight:.3f}; "
       f"compatible classes with 11 not dividing modulus (must be 0 by T1): {bad_T1}; classes covering all of B_r: {full}", flush=True)
 
@@ -166,8 +167,15 @@ try:
         Dq, Xq = found
         print(f"SURVIVOR after {nodes} nodes: depths {Dq}  residues {Xq}", flush=True)
         # independent re-check of the survivor against every compatible class and against the raw table
-        hit = [c for c in comp if all(Xq[q] % (q ** min(c[i][0], Dq[q])) == c[i][1] % (q ** min(c[i][0], Dq[q])) for i, q in enumerate(S))]
-        print("   classes still consistent with the survivor cylinder:", len(hit), flush=True)
+        # re-check against the RAW class table (every smooth-modulus class, not the filtered list): a class (m, rho) meets
+        # the survivor cylinder iff rho = X_q mod q^min(e_q, D_q) for all q in S
+        hit = 0
+        for m, Rs in cls.items():
+            e = expo(m)
+            for rho in Rs:
+                if all(Xq[q] % (q ** min(e[q], Dq[q])) == rho % (q ** min(e[q], Dq[q])) for q in S): hit += 1
+        print(f"   raw-table re-check: classes (of all {ntot}) meeting the survivor cylinder: {hit}", flush=True)
+        assert hit == 0
         json.dump({"M": M, "r": R11, "depths": Dq, "residues": {str(q): Xq[q] for q in S}, "nodes": nodes, "ncompatible": len(comp), "weight": weight},
                   open(f"data/z69/ideab/smooth_M{M:.0e}_r{R11}.json", "w"))
     else:

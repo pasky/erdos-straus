@@ -21,18 +21,21 @@ def stats(p):
                     if beta > 0 and beta % 2 == 0 and ((A + 1) % B == 0 or (C + 1) % B == 0):
                         good += 1
             A += 1
-    # all d=1 solutions: (4ac-1) | p+4a^2, unordered in (a,b)
+    # all d=1 Type II solutions, UNORDERED in (a,b): p*c = 4abc - a - b  <=>  (4ac-1) | p + 4a^2, b = ((p+4a^2)/(4ac-1) + p)/(4a).
+    # For a <= b and c >= 1: p = 4ab - (a+b)/c >= 4a^2 - 2a, so a <= (1 + sqrt(1+4p))/4.  (Fixed after internal review:
+    # the earlier cutoff a <= 2 sqrt(p) with f stepping from 4a-1 dropped the mirror solutions and mixed ordered/unordered.)
     alld1 = 0
     a = 1
-    while 4 * a - 1 <= p + 4 * a * a and a <= p:
+    while 4 * a * a - 2 * a <= p:
         n = p + 4 * a * a
-        # f == -1 mod 4a, f | n
         f = 4 * a - 1
         while f <= n:
-            if n % f == 0: alld1 += 1
+            if n % f == 0:
+                e = n // f; b = (e + p) // (4 * a)
+                assert (e + p) % (4 * a) == 0
+                if b >= a: alld1 += 1
             f += 4 * a
         a += 1
-        if a > 2 * math.isqrt(p) + 2: break    # f*e = p+4a^2 with f,e >= 4a-1 forces a <~ sqrt(p)
     return h, good, alld1
 rows = []
 for p in primerange(5, PMAX):
@@ -43,6 +46,6 @@ for name, R in (("all p==1(4)", rows), ("six classes", six)):
     print(f"{name}: primes {n};  no good reduced form: {sum(1 for r in R if r[2]==0)}  ; no d=1 solution at all: {sum(1 for r in R if r[3]==0)}")
     for lo, hi in ((5, 1000), (1000, 10000), (10000, PMAX)):
         S = [r for r in R if lo <= r[0] < hi]
-        if S: print(f"   p in [{lo},{hi}): n={len(S)}  mean h={sum(r[1] for r in S)/len(S):.1f}  mean good-reduced={sum(r[2] for r in S)/len(S):.2f}  mean d=1 count={sum(r[3] for r in S)/len(S):.2f}  frac(no d=1)={sum(1 for r in S if r[3]==0)/len(S):.3f}")
+        if S: print(f"   p in [{lo},{hi}): n={len(S)}  mean h={sum(r[1] for r in S)/len(S):.1f}  mean good-reduced={sum(r[2] for r in S)/len(S):.2f}  mean #d=1 solutions (unordered)={sum(r[3] for r in S)/len(S):.2f}  frac(no d=1)={sum(1 for r in S if r[3]==0)/len(S):.3f}")
 print("largest p with no d=1 solution:", max((r[0] for r in rows if r[3] == 0), default=None), " last few:", [r[0] for r in rows if r[3] == 0][-8:])
 print("sample:", rows[:6])

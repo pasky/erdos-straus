@@ -1,0 +1,9 @@
+all p==1(4): primes 3018;  no good reduced form: 269  ; no d=1 solution at all: 33
+   p in [5,1000): n=80  mean h=16.3  mean good-reduced=0.79  mean #d=1 solutions (unordered)=4.31  frac(no d=1)=0.100
+   p in [1000,10000): n=529  mean h=55.5  mean good-reduced=2.11  mean #d=1 solutions (unordered)=8.08  frac(no d=1)=0.026
+   p in [10000,60000): n=2409  mean h=141.6  mean good-reduced=3.72  mean #d=1 solutions (unordered)=11.83  frac(no d=1)=0.005
+six classes: primes 165;  no good reduced form: 25  ; no d=1 solution at all: 5
+   p in [1000,10000): n=27  mean h=37.6  mean good-reduced=1.11  mean #d=1 solutions (unordered)=3.41  frac(no d=1)=0.074
+   p in [10000,60000): n=138  mean h=99.9  mean good-reduced=2.16  mean #d=1 solutions (unordered)=5.88  frac(no d=1)=0.022
+largest p with no d=1 solution: 58321  last few: [31081, 37057, 39313, 40429, 51361, 51913, 56989, 58321]
+sample: [(5, 2, 0, 1), (13, 2, 0, 0), (17, 4, 0, 2), (29, 6, 0, 3), (37, 2, 0, 0), (41, 8, 0, 3)]

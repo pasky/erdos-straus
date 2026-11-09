@@ -70,16 +70,20 @@ Let p ≡ 1 (mod 4) be prime (p ≡ 3 mod 4 is trivial). Every solution has p | 
   4ac | u+1. Since then 0 < b/c − p/u = a/(cu) < 1/(2c²), b/c is automatically a convergent of p/u. For c = 1:
   **p/u = a − 1/(4d − 1/b)**, i.e. p is the numerator of a length-3 Hirzebruch–Jung (minus) continued fraction
   [[a, 4d, b]]; in SL₂ terms −p is the upper-right entry of TᵃL^{−4d}Tᵇ.
-* **(R7) modular-hyperbola form.** c = 1, II ⟺ ∃ u,u* ∈ [1,p) with uu* = 1 + 4dp and u ≡ u* ≡ −1 (mod 4d): a point of
-  the modular hyperbola mod p congruent to (−1,−1) modulo (4 × its own branch index).
+* **(R7) modular-hyperbola form.** c = 1, II ⟺ ∃ positive integers u, u* with uu* = 1 + 4dp and u ≡ u* ≡ −1 (mod 4d)
+  (u = 4db−1, u* = 4da−1): integer *lifts* of a point of the modular hyperbola mod p, congruent to (−1,−1) modulo
+  4 × the branch index. *[Corrected after internal review: the first version required u, u* ∈ [1,p), which is false —
+  p = 5: 21 = 3·7. The lifts need not be reduced mod p.]*
 
 ### 1.1 The ideas
 Format per idea: **Key lemma** (precise) · **Squares** (where non-squareness enters / why it fails on m²) ·
 **Six classes** (how p ≡ 1,121,169,289,361,529 mod 840 are treated) · **Assessment**.
 
 **I1. Profinite exceptional set ("converse Schinzel", uniform covering).**
-Let U ⊂ Ẑ be the (open) union of all identity classes K1∪K2∪K3 and C = Ẑ^× ∖ U (closed). Schinzel/Mordell: C ⊇ S :=
-{unit squares of Ẑ}. ES for p ≡ 1 (4) ⟺ no prime lies in C.
+Let U⁺ ⊂ Ẑ be the (open) union of all identity classes K1∪K2∪K3, viewed as cylinders in Ẑ, and
+C = {α ∈ Ẑ : α ≡ 1 (4)} ∖ U⁺ (closed). Schinzel/Mordell: C ⊇ S := {squares of Ẑ}. ES for p ≡ 1 (4) ⟺ no prime lies in C.
+*[Corrected after internal review: the first version put C inside Ẑ^×; positive integers are not units of Ẑ, so
+"prime ∈ C" and "C ∩ ℤ" only make sense in Ẑ. C ∩ Ẑ^× is the campaign's U.]*
 *Key lemma (CONJECTURE UC):* C ∩ {α ≡ 1 mod 4} = S; equivalently (compactness) for every modulus m and every unit class
 r mod m containing no square, **finitely many** identity classes cover all of r mod m. UC ⟹ ES, since a prime is not a
 square in Ẑ. UC is strictly stronger than ES (ES only says primes ∉ C, and primes are merely dense).
@@ -104,7 +108,9 @@ a route would be exact formulas for the number of u with HJ-length ≤ 3 (Heilbr
 only for *typical* length ≍ log p, so the length-3 stratum is a thin "cusp" of the distribution).
 *Squares:* n = m² has length-3 expansions only with middle term ≢ 0 (4) or with gcd(u,n) > 1 — R5 is the reason.
 *Six classes:* no special treatment; the method would have to see (p/u) = −1.
-*Assessment:* pretty, probably only a restatement; gives access to Dedekind-sum reciprocity. Mid.
+*Assessment:* pretty, probably only a restatement; gives access to Dedekind-sum reciprocity. Mid. *[Review note: with
+entries equal to 1 allowed, [[a,4d,b]] is a formal minus continuant, not always the canonical HJ expansion; the lens-space
+/ Dedekind-sum dictionary needs a, b ≥ 2.]*
 
 **I4. Modular hyperbola + Weil (R7).** Points (u,u*) of uu* ≡ 1 (mod p) are equidistributed in boxes of area ≫ p^{3/2+ε}
 (Kloosterman/Weil) — an *individual-p* tool.
@@ -151,7 +157,7 @@ natural weak theory; M has no non-standard primes, so it says nothing about "ES 
 must check whether it is in the literature. Candidate strengthening = I8.
 
 **I8. Unprovability for *primes* in Z-ring / Bézout models; Schinzel's theorem as a model-theoretic statement.**
-For α ∈ Ẑ let R_α = {f ∈ ℚ[t] : f(α) ∈ Ẑ}, a discretely ordered Z-ring in which t is irreducible. ES(t) holds in R_α
+For α ∈ Ẑ let R_α = {f ∈ ℚ[t] : f(α) ∈ Ẑ}, a discretely ordered Z-ring in which t is irreducible when α is a unit. ES(t) holds in R_α
 ⟺ some polynomial identity is integral on a class α mod D ⟺ α ∈ U (the set of I1). So **R_α ⊭ ES(t) ⟺ α ∈ C**:
 the closed set C of I1 is exactly the set of "types of non-standard primes at which congruence reasoning cannot prove ES".
 *Key lemma (needed for a theorem about a named theory):* embed R_α (α ∈ S) in a model of IOpen + Bézout + normality
@@ -171,7 +177,7 @@ the solution may degenerate to non-coprime type.
 *Key lemma (needed):* existence of such an identity for each class of (X,Y) mod M up to signs.
 *No-go found (PROVED, degree count):* with a,b,c,d,e ∈ ℚ[X,Y] and N of degree 2, 4abd − e = N, ce = a+b forces
 (i) a congruence identity in disguise, or (ii) N + const reducible, or (iii) (4dac−1) | N + 4da² with a linear, which
-needs N to be constant on a line — impossible for a non-degenerate N. So there is **no quadratic-degree two-variable
+needs N to be constant on a line — impossible for a non-degenerate N. So, apart from congruence identities in disguise (case (i)), there is **no quadratic-degree two-variable Type II
 identity**; higher degree (a,b,d of total degree > 2 with cancellation) is excluded by e | a+b bounding deg e.
 *Residual idea:* non-polynomial arithmetic functions of (X,Y), e.g. a = a prime factor of X: (p/q) = (D/q) for q | X, so
 half of all p = X²+840Y² have a non-residue witness dividing X, governed by a quartic symbol ((−840)^{1/4}, a D₄ governing
@@ -182,7 +188,7 @@ the governing-field remark may be a useful *classifier* of hard primes (I19).
 (X² + 1 = pY²) — a classical property separating such primes from squares *and* from most composites n ≡ 1 (4).
 *Idea:* feed Pell data into K3: 4a²d + 1 = pY² (2a = X, d = 1) needs f | pY², f ≡ −p (mod 4a).
 *Kill (PROVED):* all prime factors of Y are ≡ 1 (4) (they divide X²+1), so every divisor g of Y² is ≡ 1 (4), whereas
-f = g or f = pg must be ≡ 3 (4). With dX² + 1 = pY² (d > 1) the congruence is not excluded but the family is
+f = g or f = pg must be ≡ 3 (4). With dX² + 1 = pY² (d > 1) the congruence is not excluded but (Assessment, heuristic — not a no-go) the family is
 exponentially sparse (Σ_j τ(Y_j²)/X_j < ∞): expected number of hits finite and tiny. More generally the positive
 solution set is finite, so no infinite group orbit can live inside it. *Squares:* ℚ(√n) = ℚ, no units — the idea *does*
 use non-squareness at an identifiable step. *Six classes:* none. *Assessment:* dead as a construction; the
@@ -197,7 +203,7 @@ Type I fails ⟺ the same for the integers ((4j+3)p + 1)/4. Let B_e = {m : no co
 run of consecutive integers in the spirit of Grimm / Erdős–Woods problems.
 *Key lemma (needed):* for some explicit J, ⋂_{j ≤ J} (B_{4j+3} − j) contains no x with 4x−3 prime (or is finite).
 *Squares:* for p = m² every x + j lies in the *quadratic* part of B_e: by R5, (q/e) = (p/q) = +1 for every prime q
-exactly dividing x + j, so all divisors are squares mod e while −1 is not. Non-squareness enters as: ∃ q with (p/q) = −1,
+exactly dividing x + j, so all divisors lie in the kernel of the Jacobi character (·/e) while −1 does not *[corrected after review: "are squares mod e" is right only for prime e]*. Non-squareness enters as: ∃ q with (p/q) = −1,
 hence the quadratic obstruction is absent for all j ≡ −x (mod q), j ≢ −x (mod q²). *Six classes:* those j are sparse
 (spacing q ≥ 11), which is exactly why these primes are hard. *Assessment:* a clean way to *state* what a proof must do
 (beat the non-quadratic part of B_e on a progression of j); tools for correlations of multiplicative functions
@@ -237,7 +243,7 @@ torsor where gcd(n, x) = 1; for non-square n it disappears. A *disproof* would n
 one (I20). *Six classes:* no role. *Assessment:* good language, no mechanism. Not top-5.
 
 **I15. Genus theory of the discriminants Δ = 4c²dp + 1.** R3 says: Δ = uv with u ≡ v ≡ −1 (mod 4cd). For c = d = 1 this
-fails iff every prime factor of 4p+1 is ≡ 1 (4), i.e. iff −1 is everywhere a local norm from ℚ(√(4p+1)) — pure genus
+fails iff every prime factor of 4p+1 is ≡ 1 (4) *[the gloss "iff −1 is everywhere a local norm from ℚ(√(4p+1))" of the first version is false for non-squarefree 4p+1, e.g. p = 61, 245 = 5·7²; removed after review]* — a genus-type condition; pure genus
 theory. For general (c,d) the condition "the discriminant has a divisor in the class −1 mod 4cd" is a statement about
 the image of the ambiguous classes of ℚ(√Δ) under the characters of conductor 4cd, i.e. about ℚ(√Δ, ζ_{4cd}) — a
 Rédei-symbol-like object. Note p splits in ℚ(√Δ) with 𝔭·𝔡 principal (form [d,1,−p] has discriminant 4dp+1).
@@ -259,8 +265,11 @@ family (a fixed, explicit, p-free table {(4ad, −f)}) is worth remembering for 
 **(R8) quadratic-order form (PROVED, added to 1.0).** In a Type II solution put f = 4acd − 1, e = 4abd − p. Then
 **p + d(2a)² = f·e**, f ≡ −1, e ≡ −p (mod 4ad). So for d = 1 a solution *is* a positive binary form [f, 4a, e] of
 discriminant −4p whose middle coefficient B = 4a divides f + 1; equivalently the element 1 + 2c√(−dp) of ℤ[√(−dp)] has an
-ideal factor of norm ≡ −1 (mod 4cd). Dually Type I is a factorization of **p + 2c√(−d) in ℤ[√(−d)]** (norm p² + 4c²d)
-with a factor of norm ≡ −p (mod 4cd) — an order that does not depend on p (d = 1 impossible: norms in ℤ[i] are ≡ 1 mod 4).
+ideal factor of norm ≡ −1 (mod 4cd). Dually, for Type I the integer p² + 4c²d = N(p + 2c√(−d)) has the divisor f = 4acd − p ≡ −p (mod 4cd); in ℤ[√(−d)] this is
+an *ideal* factor of **p + 2c√(−d)** of that norm, in an order that does not depend on p (d = 1 impossible: p² + 4c² is a sum of
+two coprime squares, so its divisors are ≡ 1 mod 4). *[Corrected after internal review: the first version said "a factor",
+suggesting an element; the ideal need not be principal — p = 13, (a,b,c,d) = (1,2,1,5), 189 = 7·27, and 7 is not a
+norm from ℤ[√−5].]*
 
 **I17. Class group of discriminant −4dp; Heegner points on thin lines.** By R8 (d = 1): ES(p) ⟸ Cl(−4p) contains a form
 [A,B,C] (not necessarily reduced; B > 0, 4 | B ≤ A+1) with **A ≡ −1 (mod B)**. Such forms represent A ≡ 3 (4), so they
@@ -344,7 +353,11 @@ continued fractions [[a,4d,b]] with numerator p (R6). Zeros below 2200: F1 {193}
 
 **S1 (T2). Which n ≡ 1 (4) have no identity-type solution?** (`z69_ideab_ctype.c`, exhaustive.)
 Type II := ∃ a,b,c,d ≥ 1 with nc = 4abcd − a − b (no gcd condition); Type I := n in some class K3
-(∃ a,d and f | 4a²d+1 with n ≡ −f mod 4ad). CERTIFIED (single run; independent re-check is a Phase-3 to-do):
+(∃ a,d and f | 4a²d+1 with n ≡ −f mod 4ad). *Exhaustiveness (PROVED):* Type II: x = abd and e = (a+b)/c ≤ a+b ≤ ab+1 ≤ x+1
+give n/4 < x ≤ (n+1)/3. Type I: a class (a,d,f) yields c = (n+f)/(4ad), e = (4a²d+1)/f, b = ce − a = (an+c)/f; the mirror
+a ↔ b is again an I-1 class with f′ = (4b²d+1)/e, and for a ≤ b, ce = a+b ≤ 2b gives f = (an+c)/b ≤ n + 2 < 2n; primality
+is not used. CERTIFIED (single run of the C program; re-verified for n ≤ 20000 by the internal reviewer's independent
+naive enumeration, §4):
 * 5 ≤ n ≤ 2·10⁵, all n ≡ 1 (4): Type II zeros = the 223 odd squares ∪ {4545}; Type I zeros = the 223 odd squares ∪
   {105, 2961, 3705}; **zeros of both = exactly the odd squares**.
 * non-square n ≡ 1 (4) up to 8·10⁶: Type II zeros {4545} only; Type I zeros {105, 2961, 3705} only; none in common.
@@ -365,7 +378,7 @@ dies but because *it* dies. Consequence for T1/I18: the "least non-residue gives
 dead; what survives is the integer statement IUC (S1), which is a different kind of claim.
 
 **S3 (T3). R8 / class group** (`z69_ideab_forms.py 60000`): for 3018 primes p ≡ 1 (4) below 6·10⁴ the d = 1 slice
-(forms [f,4a,e] of disc −4p with 4a | f+1) has mean count 5.9 / 10.2 / 14.2 on [5,10³), [10³,10⁴), [10⁴,6·10⁴) and
+(forms [f,4a,e] of disc −4p with 4a | f+1) has on average 4.3 / 8.1 / 11.8 unordered solutions on [5,10³), [10³,10⁴), [10⁴,6·10⁴) *[corrected after review: the first script truncated the enumeration and reported 5.9 / 10.2 / 14.2; `forms_60000.txt` is the corrected run; the zero list was unaffected]* and
 33 zeros (last 58321; 5 of them in the six classes); reduced good forms alone miss 269 primes. So the d = 1 slice
 is a genuine log²-family with slowly thinning zeros; a proof along I17 must use several odd d (discriminants −4dp).
 
@@ -419,11 +432,15 @@ López, arXiv:2404.01508 ("A complete congruence system for the Erdős–Straus 
 of F1 and is already the campaign's "b = 1 line"; no published statement of CONV-II / 4545 found. The repo's own
 literature files (`LITERATURE_2026.md`, `Z58_LIT.md`) are far more complete than these searches.
 
-**Phase-2 verdict (blunt).** 24 / 24 ideas were already in the campaign; **none is NEW**. Independent ideation
+*Legend.* TRIED-DEAD = explored in the repo and abandoned there (a specified menu failed, or a scoped barrier applies); it is
+not a claim that a universal no-go theorem exists. TRIED-OPEN = explored, target still open.
+
+**Phase-2 verdict (blunt).** 24 / 24 ideas (25 / 25 with the late I25) were already explored in the campaign; **I identified no NEW approach**. Independent ideation
 re-derived the campaign's map — the (★)/F1 lines, T1 via reciprocity, the profinite set U and its one-prime profiles,
 CONV-II and 4545, the open-induction unprovability, the class-group and HJ encodings, and the same kills — and arrived
-at the same endpoint (one tied divisor event with polylog expected witnesses). The only items that are not literally in
-the repo are data footnotes: the Type I zero list to 8·10⁶ (I2) and the least-modulus growth in the classes 2, 6 mod 11 (I1).
+at the same endpoint (one tied divisor event with polylog expected witnesses). The only items I could not find in
+the repo are data footnotes: the Type I zero list to 8·10⁶ (I2) and the least-modulus growth in the classes 2, 6 mod 11 (I1)
+(topic-level matching by `git grep`; I did not check that every derivation of §1 occurs verbatim).
 That an unprimed pass lands on the same barrier, with the same exceptional integers, is itself (weak) EVIDENCE that the
 campaign's map of *elementary* approaches is saturated.
 
@@ -464,15 +481,18 @@ Type I/II solution). The scripts compute **λ(p) ≤ λ_ET(p)**, the least modul
 identity class). Every "λ(p) > M" below therefore implies λ_ET(p) > M; statements of the form "λ(p) ≤ M" are about 𝔉⁺.
 Lemma E is stated for λ_ET and holds verbatim for λ (its proof only uses that there are finitely many classes per modulus). For a primitive class r mod q put K_{r,q} = (r + qẐ) ∩ Ẑ^×. Then
 **K_{r,q} ∩ U = ∅ ⟺ sup{λ_ET(p) : p prime, p ≡ r (mod q)} < ∞** (sup over all but finitely many primes).
-More precisely, for every M: *some unit residue class inside r mod q is missed by all family classes of modulus ≤ M*
-⟺ *some prime p > M, p ≡ r (q), has λ(p) > M* ⟺ *infinitely many such primes exist*.
+More precisely, fix one collection 𝔉 of classes with finitely many per modulus (ET's family classes with λ_ET, or 𝔉⁺ with λ)
+and write λ_𝔉. For every M: *some unit residue class inside r mod q is missed by all 𝔉-classes of modulus ≤ M*
+⟺ *some prime p > M, p ≡ r (q), has λ_𝔉(p) > M* ⟺ *infinitely many such primes exist*.
 *Proof.* There are finitely many family classes of modulus ≤ M; let L be the lcm of q and their moduli. A family
 class of modulus m | L either contains or is disjoint from a given residue class mod L. (⇐) If p > M has λ(p) > M then
 p ∤ L, so p mod L is a unit class missed by all of them. (⇒) A missed unit class mod L contains infinitely many primes
 (Dirichlet), each with λ > M. For the first equivalence: if K ∩ U = ∅, compactness gives a finite cover, say with
 moduli ≤ M, and then no unit class is missed at level M; if π ∈ K ∩ U then for every M the class π mod L is missed. ∎
-*Corollary (finite-level certificate).* One prime p ≡ r (q) with λ(p) = M₀ > (any prime factor bound is automatic)
-certifies: **every finite set of family classes covering the large primes of r mod q contains a modulus ≥ M₀.**
+*Corollary (finite-level certificate).* One prime p ≡ r (q) with p > M₀ := λ(p) — or, more generally, one integer n ≡ r (q),
+coprime to every prime ≤ M, lying in no 𝔉⁺-class of modulus ≤ M — certifies: **every finite set of ET family classes covering
+the large primes of r mod q contains a modulus ≥ M₀ (resp. > M).** (The class of p, resp. n, modulo the lcm is a missed unit
+class and contains infinitely many primes; 𝔉⁺ ⊇ ET's classes on unit residues ≡ 1 mod 4.)
 
 ### 3.2 Computation (CERTIFIED for the stated ranges; `scripts/z69_ideab_o2.py 1e12 10000 r…`, logs `o2_run_*.log`)
 All primes p ≤ 10¹² in K_2, K_6 (n ≡ 1 mod 840, n ≡ 2 resp. 6 mod 11) and in the square-class control K_1 = {1 mod 9240};
@@ -509,8 +529,8 @@ primes have λ ≤ 239 (e.g. λ(409) = λ(577) = 7, λ(8 813 281) = 111, λ(1 72
 ### 3.3 What this gives
 * **CERTIFIED (via the Corollary).** Any finite set of ET family classes covering the large primes of K_2 contains a
   modulus ≥ 1979 (witness p = 593 042 652 721); for K_6, ≥ 1247 (witness p = 928 241 301 961). In the language of
-  Thm D: any IOpen/NOI proof of "ES at all large primes of K_r" would have to pass through an identity of modulus
-  at least that large. (Single engine for the full range; the witnesses themselves are double-checked by the
+  Thm D: the finite identity cover that Thm D extracts from an IOpen/NOI proof of "ES at all large primes of K_r" would
+  contain a modulus at least that large (a statement about covers, not about the syntax of proofs). (Single engine for the full range; the witnesses themselves are double-checked by the
   independent direct test, which is all the Corollary needs.)
 * **EVIDENCE for UCOVER O2** (K ∩ U ≠ ∅), of a kind independent of UCOVER's profile computations: on the integer
   side, K_2 and K_6 are indistinguishable from the square class up to a slowly growing constant factor; nothing
@@ -536,6 +556,8 @@ cover of the large primes of K_r contains a modulus > M".
 *Kill test C (pre-registered):* if the search dead-ends for some M ≤ 10⁴ after exhaustive backtracking over the primes
 ≤ 100, the square-away-from-11 profiles are all caught at that level — evidence that K_r ∩ U, if non-empty, needs
 non-square coordinates elsewhere (as UCOVER's (2,2)-profiles at 11, 13 suggest for r = 2).
+*[Review note: as implemented the search is bounded (≤ 40 candidates per prime, ≤ 2·10⁵ backtracks), so a failure would
+have been UNDECIDED, not a kill. It did not occur.]*
 
 **3.4 results (CERTIFIED).** `z69_ideab_cert.py M r 1`:
 | M | r | relevant classes (11 ∣ modulus, compatible) | backtracks | least allowed fraction at a prime | violations against all classes ≤ M |
@@ -546,22 +568,26 @@ non-square coordinates elsewhere (as UCOVER's (2,2)-profiles at 11, 13 suggest f
 
 So (Lemma E) **every finite family-class cover of the large primes of K_2, or of K_6, contains a modulus > 10⁴**
 (certificates: `data/z69/ideab/cert_M10000_r{2,6}.json`, a 4349-digit residue each, checked against all 173 664 classes
-of all seven families without using the squares observation). Kill test C not triggered. The only tight spot is the
+of all seven families without using the squares observation, and again by the direct divisibility test with no table:
+`cert_M10000_direct.log`; the internal reviewer re-verified both with independent code). Kill test C not triggered. The only tight spot is the
 prime 3 (3-adic digits to depth 8), i.e. the constraints live on the deep digits at the *small* primes. This isolates:
 
 **Question (Q-S).** Let S = {2,3,5,7,11} and B_r = (1+8ℤ₂)×(1+3ℤ₃)×(1+5ℤ₅)×(1+7ℤ₇)×(r+11ℤ₁₁). Do the family
 classes with S-smooth modulus cover B_r?
-* If **yes**: by compactness finitely many do, and then K_r ∩ U = ∅ — K_r would be a finite union of polynomial
-  identities (a new Mordell-type class; O2 answered negatively for that r).
+* If **yes**: by compactness finitely many do, and then K_r ∩ U = ∅ — the unit profiles of K_r would lie in a finite
+  union of polynomial-identity classes (a new Mordell-type class; O2 answered negatively for that r).
 * If **no**: some S-point survives all S-smooth classes; the other primes then only have to dodge classes containing
-  a prime ≥ 13, which was easy at every level tried (allowed fraction ≥ 0.4 from ℓ = 13 on).
-Smooth moduli are sparse (≈ 3·10³ below 10⁸), so (Q-S) can be decided *at finite level* far beyond 10⁴.
+  a prime ≥ 13, which was easy at the levels tried (§3.4).
+Smooth moduli are sparse (7 838 below 10⁸), so the *truncation* of (Q-S) to moduli ≤ M can be decided far beyond 10⁴.
+(A "covered" answer at some level would settle (Q-S); "not covered" at a level settles only that level.)
 
 ### 3.5 Question (Q-S): the five-prime core of O2 (`scripts/z69_ideab_smooth.py`)
 All family classes (seven families, superset enumeration) with **S-smooth modulus ≤ M**, S = {2,3,5,7,11}; those
 compatible with B_r; relative weight of a class = its Haar measure inside B_r. "Uncovered" = Haar measure of the part
 of B_r in none of them, computed **exactly** (rational number, digit-tree recursion; `--exact`) up to M = 10⁷ and by Monte Carlo
-(2·10⁵ points; agrees with the exact values to 3 decimals where both exist) at 10⁸.
+(2·10⁵ points, standard error ≈ 0.0005 for r = 2 and ≈ 0.0003 for r = 6; agrees with the exact values to 3 decimals where
+both exist) at 10⁸. The exact values at 10⁵–10⁷ are single-engine; the 10⁴ value 4071/42350 was recomputed by the internal
+reviewer with an independent method (CRT inclusion–exclusion).
 
 | M | smooth moduli | classes | compatible, r = 2 / 6 | total weight, r = 2 / 6 | uncovered measure, r = 2 | uncovered measure, r = 6 |
 |---|---|---|---|---|---|---|
@@ -585,14 +611,46 @@ Sanity built into the run: the number of compatible classes with 11 ∤ modulus 
   is ≈ 0.08 and beyond 10⁹ ≈ 0.03, while the uncovered measure has stopped moving at ≈ 0.048 (r = 2) and ≈ 0.013
   (r = 6): the uncovered set of B_r under *all* S-smooth classes very probably has positive measure.
 * **CONDITIONAL (union bound):** if W_r(∞) − W_r(M) < u_r(M) for one M (u_r = uncovered measure at level M), then
-  B_r is not covered by S-smooth classes. For r = 2 the extrapolated crossing is at M ≈ 10⁹. A *rigorous* tail bound
-  from max-divisor inequalities (τ₃(n) ≤ 1.77·10⁴ n^{1/4}, τ(n) ≤ 8.45 n^{1/4}; both suprema computed) closes the II-2 family only beyond
-  ≈ 10¹⁸ and the II-1/I-4/I-1 families beyond ≈ 10²²; exact enumeration that far is a finite but multi-day
-  computation (≈ 10⁸–10⁹ factorizations of 20–45-digit integers), not attempted here.
+  B_r is not covered by S-smooth classes. For r = 2 the extrapolated crossing is at M ≈ 10⁹. Assessment (back-of-envelope
+  only; no family-by-family derivation is archived): a *rigorous* tail bound from max-divisor inequalities
+  (τ₃(n) ≤ 1.77·10⁴ n^{1/4}, τ(n) ≤ 8.45 n^{1/4}; the suprema are 17653.1… and 8.4469…, computed) would close the II-2
+  family only beyond ≈ 10¹⁸ and the II-1/I-4/I-1 families beyond ≈ 10²², and exact enumeration that far would be a
+  finite but multi-day computation; not attempted here. Finite total weight (> 1) alone does not give a surviving point.
 * **What (Q-S) = "not covered" would and would not give.** It does *not* prove O2: a surviving S-point must still be
-  extended over the primes ≥ 13, where the total weight diverges and only a level-by-level (second-moment) argument
-  could work; at M = 10⁴ this extension was easy (§3.4). It *does* explain the shape of the survivors: they are
+  extended over the primes ≥ 13, where the total weight diverges (heuristically like a power of log M; Assessment) so no union bound is available;
+  a level-by-level (e.g. second-moment) argument is the route I would try. At M = 10⁴ this extension was easy (§3.4). It *does* explain the shape of the survivors: they are
   **generic squares at 3, 5, 7** (e.g. x ≡ 13 mod 27, 21 mod 25, 15 mod 49), not UCOVER's "1 away from 11, 13"
   profiles, which are caught early because the small residues −e, −f of the families cluster at ±1.
-* Had (Q-S) come out "covered", K_r would have been a finite union of identities — a new Mordell-type class. It
-  did not, up to 10⁸.
+* Had the truncated (Q-S) come out "covered" at some level, the unit profiles of K_r would have been inside a finite
+  union of identity classes — a new Mordell-type class. It did not, up to 10⁸. **(Q-S) itself, and O2, remain OPEN.**
+
+
+## §4 Review log
+
+**Internal hostile review** (deep-mode subagent, 2026-11-09; full report `data/z69/ideab/internal_review.md`; no provider /
+auth / quota error). Verdict: "REJECT AS WRITTEN; no fatal defect found in the central finite-cover certificates."
+18 findings; all applied:
+* **MAJOR, fixed.** (1) R7 wrongly required u, u* ∈ [1,p) — now integer lifts. (2) R8's Type I half conflated ideal and
+  element factors — now "ideal factor", with the reviewer's counterexample. (4) C was defined inside Ẑ^× although primes and
+  squares are not units of Ẑ — C now lives in Ẑ; R_α irreducibility restricted to unit α. (7) `z69_ideab_forms.py`
+  truncated the d = 1 enumeration — script fixed, means corrected (4.3 / 8.1 / 11.8 unordered; zero list unchanged).
+  (13) the optional direct-check path of `z69_ideab_cert.py` was broken — fixed (`direct_lambda` importable), run, and
+  archived (`cert_M10000_direct.log`: no class up to 10⁴ for either certificate). (17) I11 ("squares mod e" → kernel of
+  the Jacobi character) and I15 (false local-norm gloss removed).
+* **MINOR, fixed.** (3) I9/I10 scope wording. (6) stale `ctype_20000.txt` (produced by the first, too loose Type I
+  predicate) deleted. (8) legend for TRIED-DEAD; "no NEW approach identified" instead of "nothing is new". (9) Lemma E:
+  collection of classes kept fixed, size hypothesis p > M₀ stated, proof-theoretic wording qualified. (15) tail
+  thresholds relabelled Assessment, Monte Carlo errors stated. (16) kill test C is bounded-search (UNDECIDED on failure);
+  `z69_ideab_smooth.py` now re-checks survivors against the raw table and asserts the T1 sanity count is 0. (18) text
+  slips (number of smooth moduli, "finite union" wording, "(Q-S) decided at finite level").
+* **Confirmed independently by the reviewer (OK):** exhaustiveness of the S1 searches and the zero sets for n ≤ 20000;
+  the superset property of `build` on unit classes ≡ 1 mod 4; λ = 1979, 1247, 2020 for the three record primes and their
+  primality; the sieve against `sympy.primerange` for X = 10⁶; both M = 10⁴ certificates (own code, plus per-modulus
+  divisibility tests at 136 moduli); the smooth enumeration at 10⁴ (equals the restriction of the full table), the exact
+  measure 4071/42350 by CRT inclusion–exclusion, and the stored M = 10⁶, r = 2 survivor against all 332 051 raw classes;
+  the two divisor-bound suprema.
+* **Not independently reproduced:** the full λ census to 10¹² (single engine; only the record primes and 375 + 84 sample
+  primes are double-checked), the exact uncovered measures at 10⁵–10⁷, and the S1 census beyond 20000.
+
+**Open after this lane.** ES; UCOVER O2 (K ∩ U ≠ ∅); (Q-S) for r = 2, 6 beyond the truncation 10⁸. A cross-model review
+is owed by the wave protocol. Not merged; waiting.

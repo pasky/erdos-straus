@@ -1,0 +1,10 @@
+M=10000 r=2: 173664 classes, 651 relevant (11 | modulus, compatible with K_r)
+search: SUCCESS {'backtracks': 167, 'minfrac': (0.0, 3)}
+verification against ALL 173664 classes of modulus <= 10000: violations = 0 []
+n has 4349 digits; primes (other than 11) where n is a non-residue: []
+direct test (divisibility conditions only, no table): least modulus of a class containing n, searched up to 10000: 10001  (10001 means none)
+M=10000 r=6: 173664 classes, 650 relevant (11 | modulus, compatible with K_r)
+search: SUCCESS {'backtracks': 0, 'minfrac': (0.1111111111111111, 3)}
+verification against ALL 173664 classes of modulus <= 10000: violations = 0 []
+n has 4349 digits; primes (other than 11) where n is a non-residue: []
+direct test (divisibility conditions only, no table): least modulus of a class containing n, searched up to 10000: 10001  (10001 means none)

@@ -4,9 +4,10 @@ seven families (no residue table, no CRT, no modular inverses) and compare with 
 usage: o2_check.py JSON MMAX NRANDOM"""
 import sys, json, math, random, importlib.util
 import numpy as np
-spec = importlib.util.spec_from_file_location("o2", "scripts/z69_ideab_o2.py"); o2 = importlib.util.module_from_spec(spec)
-sys.argv_backup = sys.argv; sys.argv = ["o2", "1e6", "8", "2"]; spec.loader.exec_module(o2); sys.argv = sys.argv_backup
-J = json.load(open(sys.argv[1])); MMAX = int(sys.argv[2]); NR = int(sys.argv[3])
+def load_o2():
+    spec = importlib.util.spec_from_file_location("o2", "scripts/z69_ideab_o2.py"); o2 = importlib.util.module_from_spec(spec)
+    saved = sys.argv; sys.argv = ["o2", "1e6", "8", "2"]; spec.loader.exec_module(o2); sys.argv = saved
+    return o2
 
 def direct_lambda(p, limit):
     best = limit + 1
@@ -43,19 +44,22 @@ def direct_lambda(p, limit):
                     best = min(best, M)
     return best
 
-cls = o2.build(MMAX); mods = sorted(cls)
-def table_lambda(p):
-    for M in mods:
-        if p % M in cls[M]: return M
-    return MMAX + 1
-random.seed(69); bad = 0; n = 0
-for r, D in J.items():
-    recs = [q for q, _ in D["records"]]
-    n0 = next(1 + 840 * t for t in range(11) if (1 + 840 * t) % 11 == int(r))
-    P = o2.primes_in_class(n0, 9240, 3 * 10**8).tolist()
-    sample = recs + random.sample(P, NR)
-    for p in sample:
-        lt = table_lambda(p); ld = direct_lambda(p, MMAX); n += 1
-        if lt != ld: bad += 1; print("MISMATCH", r, p, lt, ld)
-    print(f"r={r}: checked {len(sample)} primes (all {len(recs)} record setters + {NR} random < 3e8)", flush=True)
-print("total checked:", n, " mismatches:", bad)
+if __name__ == "__main__":
+    o2 = load_o2()
+    J = json.load(open(sys.argv[1])); MMAX = int(sys.argv[2]); NR = int(sys.argv[3])
+    cls = o2.build(MMAX); mods = sorted(cls)
+    def table_lambda(p):
+        for M in mods:
+            if p % M in cls[M]: return M
+        return MMAX + 1
+    random.seed(69); bad = 0; n = 0
+    for r, D in J.items():
+        recs = [q for q, _ in D["records"]]
+        n0 = next(1 + 840 * t for t in range(11) if (1 + 840 * t) % 11 == int(r))
+        P = o2.primes_in_class(n0, 9240, 3 * 10**8).tolist()
+        sample = recs + random.sample(P, NR)
+        for p in sample:
+            lt = table_lambda(p); ld = direct_lambda(p, MMAX); n += 1
+            if lt != ld: bad += 1; print("MISMATCH", r, p, lt, ld)
+        print(f"r={r}: checked {len(sample)} primes (all {len(recs)} record setters + {NR} random < 3e8)", flush=True)
+    print("total checked:", n, " mismatches:", bad)

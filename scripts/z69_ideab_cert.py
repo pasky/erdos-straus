@@ -73,7 +73,7 @@ def search(i):
     return False
 
 ok = search(0)
-print("search:", "SUCCESS" if ok else "DEAD END", stats, flush=True)
+print("search:", "SUCCESS" if ok else "NO CERTIFICATE FOUND (bounded search: <= 40 candidates per prime, <= 200000 backtracks; this is UNDECIDED, not a proof of coverage)", stats, flush=True)
 if ok:
     n, L = 0, 1
     for q in order:
@@ -89,6 +89,7 @@ if ok:
               open(f"data/z69/ideab/cert_M{M}_r{R11}.json", "w"))
     if DLIM:
         cspec = importlib.util.spec_from_file_location("chk", "scripts/z69_ideab_o2_check.py")
-        src = open("scripts/z69_ideab_o2_check.py").read().split("cls = o2.build(MMAX)")[0].split("J = json.load")[0]
-        ns = {}; exec(src.replace('spec.loader.exec_module(o2)', 'spec.loader.exec_module(o2)'), ns)
-        print(f"direct test: least modulus of a class containing n, searched up to {DLIM}: ", ns["direct_lambda"](n, DLIM), f"(> {DLIM} means none)", flush=True)
+        chk = importlib.util.module_from_spec(cspec); cspec.loader.exec_module(chk)
+        dl = chk.direct_lambda(n, DLIM)
+        print(f"direct test (divisibility conditions only, no table): least modulus of a class containing n, searched up to {DLIM}: {dl}"
+              f"  ({DLIM + 1} means none)", flush=True)
