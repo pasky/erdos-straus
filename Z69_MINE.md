@@ -150,6 +150,10 @@ partial (H: 491 primes / 3 559 witnesses; controls: 1 837 / 5 211) — stated in
   404 / 394, G4 divf 409 / 414, C2 divf 351 / 361, E2 divf 198 / 179, N37 divf 115 / 115.5, PELL divf 156 / 142.5,
   CFk divf 99 566 / 101 454 (f divides some convergent denominator k_i of √p), CFpA divf 537 / 517.5. The tests
   have power: a 15 % excess in G2 divf would be ≈ 3σ; any *rule* would need an excess of an order of magnitude.
+* **Pooled effect sizes** (12 size-robust families; per-witness hit indicators, real / phantom, naive ±2 s.e. ignoring
+  clustering): controls divf 1 794 / 1 763 = 1.02 ± 0.07, divq 1.004 ± 0.018, divxy 1.003 ± 0.025; H (matched) divf
+  825 / 774.5 = 1.07 ± 0.10, divq 0.998 ± 0.022, divxy 0.995 ± 0.027; matched controls divf 0.98 ± 0.07. Any rule that
+  "points" to witnesses would need a ratio ≫ 1 here.
 * **Controls, (x, z)-phantoms (`phantom_phxz_C.txt`): every z-relation is null** (35 tests, |z| ≤ 2.45). The
   apparent z-signals of the same-size f-phantom run (e.g. CFq eqz +8.8, CFpA divz −6.1) are therefore the confound
   described above.
