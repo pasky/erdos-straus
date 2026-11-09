@@ -638,10 +638,12 @@ rationals; single engine) unless marked MC.
 | 6 | 1, 3, 10 (mod 143), 2 (mod 572), 12 (mod 4004), 5, 6, 8, 11 (mod 39, 52, …), 9 (jointly, no single class) | v = 4: –, 0.017897, –, 0.0099 (MC) · v = 7: –, 0.004427 |
 
 * So at 13 only three (r = 2) resp. two (r = 6) of the twelve residue classes survive, exactly one of them a square
-  class (v = 3 resp. v = 4). The S-survivor of §3.5 at level 10⁸ (113, 55, 161, 155, 959) does **not** extend: with it
-  preset, `z69_ideab_cert.py` finds no admissible square residue at 13 already at M = 10⁴ (allowed fraction 0).
+  class (v = 3 resp. v = 4). The S-survivor of §3.5 at level 10⁸ (113, 55, 161, 155, 959) does **not** extend, at least
+  not in the lift tried: with it preset (deeper digits 0), `z69_ideab_cert.py` finds no admissible square residue at 13
+  already at M = 10⁴ (allowed fraction 0).
   The certificates of §3.4 are unaffected (they were found by a search over all coordinates and verified against the
-  full table); their residue mod 13 is necessarily in the surviving set.
+  full table); their residues mod 13 are 3 (r = 2) and 4 (r = 6) — exactly the unique surviving square classes, a
+  consistency check between the two independent programs.
 * The uncovered measure of the stage {2,…,13} still converges to a positive value (r = 2, v = 3: decrements 0.0146,
   0.0092, 0.0031 per decade; ≈ 0.010–0.011 of the sub-box), but it is ≈ 4–5 times smaller than at the stage {2,…,11}
   (0.0485) *within one of twelve residue classes*. This is what a measure-zero Cantor set looks like level by level:
