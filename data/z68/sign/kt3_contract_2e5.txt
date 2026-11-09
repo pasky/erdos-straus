@@ -1,4 +1,4 @@
-# p L3 neg3 L4 neg4 R4 negR4 NR4 negNR4 U4 negU4 (U4: gcd(b,d)=gcd(a,c)=1, no rescaling move)
+# p L3 neg3 L4 neg4 R4 negR4 NR4 negNR4 U4 negU4 (U4: gcd-one subset gcd(b,d)=gcd(a,c)=1 -- NOT the exact no-move set, see z68_sign_moves.c)
 17 2 2 4 2 2 2 2 0 0 0
 41 2 2 8 4 2 2 6 2 2 0
 73 12 8 10 6 2 2 8 4 0 0

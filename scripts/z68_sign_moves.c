@@ -42,7 +42,7 @@ static int any_move(ll *w, int r, int want_in) {
 int main(int argc, char **argv) {
     if (argc < 2) { fprintf(stderr, "usage: P\n"); return 1; }
     ll P = atoll(argv[1]); if (P < 10 || P > 100000000) return 1;
-    char *cp = calloc(P + 1, 1);
+    char *cp = calloc(P + 1, 1); if (!cp) { fprintf(stderr, "calloc failed\n"); return 1; }
     for (ll i = 2; i * i <= P; i++) if (!cp[i]) for (ll j = i * i; j <= P; j += i) cp[j] = 1;
     printf("# p L3 neg3 L4 neg4 NOOUT negNOOUT ISOL negISOL\n");
     for (ll p = 10009; p <= P; p += 8) {

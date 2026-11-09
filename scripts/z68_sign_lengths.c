@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
     ll P = atoll(argv[1]);
     if (P < 10 || P > 100000000) { fprintf(stderr, "10 <= P <= 1e8\n"); return 1; }
     
-    char *c = calloc(P + 1, 1);
+    char *c = calloc(P + 1, 1); if (!c) { fprintf(stderr, "calloc failed\n"); return 1; }
     for (ll i = 2; i * i <= P; i++) if (!c[i]) for (ll j = i * i; j <= P; j += i) c[j] = 1;
     printf("# p L2 neg2 L3 neg3 L4 neg4 L5 neg5  (HJ length r(p/A), A in (0,p))\n");
     for (ll p = 9; p <= P; p += 8) {

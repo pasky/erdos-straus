@@ -20,10 +20,10 @@ int main(int argc, char **argv) {
     ll P = atoll(argv[1]);
     if (P < 10 || P > 100000000) { fprintf(stderr, "10 <= P <= 1e8\n"); return 1; }
     
-    char *c = calloc(P + 1, 1);
+    char *c = calloc(P + 1, 1); if (!c) { fprintf(stderr, "calloc failed\n"); return 1; }
     for (ll i = 2; i * i <= P; i++) if (!c[i]) for (ll j = i * i; j <= P; j += i) c[j] = 1;
     long checked = 0;
-    printf("# p L3 neg3 L4 neg4 R4 negR4 NR4 negNR4 U4 negU4 (U4: gcd(b,d)=gcd(a,c)=1, no rescaling move)\n");
+    printf("# p L3 neg3 L4 neg4 R4 negR4 NR4 negNR4 U4 negU4 (U4: gcd-one subset gcd(b,d)=gcd(a,c)=1 -- NOT the exact no-move set, see z68_sign_moves.c)\n");
     for (ll p = 9; p <= P; p += 8) {
         if (c[p]) continue;
         long L3 = 0, n3 = 0, L4 = 0, n4 = 0, R4 = 0, nR4 = 0, U4 = 0, nU4 = 0;
@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
             if (ref) { R4++; if (s == -1) nR4++; }
             { ll x = b, y = d; while (y) { ll t = x % y; x = y; y = t; }
               ll x2 = a, y2 = cc; while (y2) { ll t = x2 % y2; x2 = y2; y2 = t; }
-              if (x == 1 && x2 == 1) { U4++; if (s == -1) nU4++; } }   // unlinked: no rescaling move k > 1
+              if (x == 1 && x2 == 1) { U4++; if (s == -1) nU4++; } }   // gcd-one subset (sufficient for "no interior out-move", not the exact no-move set)
         }
         printf("%lld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld\n", p, L3, n3, L4, n4, R4, nR4, L4 - R4, n4 - nR4, U4, nU4);
     }
