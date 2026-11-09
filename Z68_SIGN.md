@@ -419,7 +419,7 @@ agreed with the program everywhere.
   10⁵; 5.4 % overall), 1.46 % near 10⁶; D⁺ lower (4.1 % overall, 0.79 % near 10⁶). Bounded-digit good words (S3): in D,
   per-prime mean 0.48 % in (10⁴, 10⁵] (pooled 0.46 %) and 0.175 % near 10⁶; Rmin success 0.24 % and 0.045 %.
 * **Signed reachability.** S1's component contains a good L₃ vertex at 1 044/2 384 = 43.8 % (E) and 1 027/2 384 = 43.1 % (E⁺)
-  of primes ≤ 10⁵ (S1 then lies in a small component; it is not necessarily isolated, e.g. at 17 A = 3 moves to A = 6).
+  of primes ≤ 10⁵. In the failure cases S1 lies in a component without a good L₃ vertex (not necessarily isolated: at 17, A = 3 moves to A = 6); in the success cases it can lie in the largest component (at 21841, S1 = 11 is in the largest E-component, 15 104/21 840 ≈ 69.2 % of V, which contains both good L₃ vertices).
   S2's component does at all 2 347 primes in (10³, 10⁵] (E; failures at 41 and 409 below 10³) and at 2 309/2 384 = 96.9 %
   (E⁺; failures e.g. 1249, 2521, 20521).
 * **Minimax height (direction 2: n-dependent cuts, uncapped k).** h(start) = least H such that, inside the words of
@@ -467,3 +467,15 @@ with the 881 plateau example and the 409 connectivity counterexample; (M5) the F
 existential (S)(105) is false). Minor: registration provenance and the prime-level kill table added; allocation checks,
 absent-S2 output (−1), domain statement, multi-edge terminology, checker binary/`check=True`; §9's ACCEPT is the
 cross-model verdict on the memo as of e2f66fdfa and does not cover §10.
+
+### 10.5 Cross-model delta review (`data/z68/xreview/REVIEW_SIGN_DELTA.md`: ACCEPT-WITH-FIXES)
+Scope e2f66fdfa..83d90a366 (§§9–10). The reviewer independently rebuilt 12 527 878 generating moves (numerator, full HJ
+equality, oriented denominator congruence, labels), re-derived Prop 9 (including a composite-safe proof of kA_new = A + tn),
+recomputed 138 graphs (91 primes ≤ 10⁵, 589681, sample endpoints, 44 controls) and re-summed the prime-level kill table
+(987, 987, 2138, 2139, 2139, 1870, 2141); zero discrepancies. Required fix R1 applied: the §10.2 "S1 then lies in a small
+component" parenthetical is now restricted to the failure cases (at 21841 S1 = 11 lies in the largest E-component and
+reaches both good L₃ vertices). Kept as advised: "registered strict-descent rules fail" (not "transport impossible"), and the
+409 counterexample tied to S2. Reviewer's suggested untried direction (recorded, not run): a pre-registered deterministic
+restarted plateau-saturating search over S3 in increasing A (explore the equal-length E⁺ component, then a shorter exit
+with fixed tie-breaks), tested on a complete held-out interval beyond 10⁵; or an analytic bound on the first-hit mass of
+bounded-digit starts with correlations controlled.
