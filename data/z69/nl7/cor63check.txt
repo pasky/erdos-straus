@@ -1,0 +1,1 @@
+Corollary 6.3: congruence-type words found on 1102 (curve, letters, class) triples; in every case P(t) mod M is not an odd-square residue
