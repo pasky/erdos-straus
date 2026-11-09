@@ -1,0 +1,28 @@
+k=1 L=3 R=48: LC classes of even t: 8; classes where all 4 H-shaped strong-LC samples have a letter-L U7 word (x or z): 0
+k=2 L=63 R=2016: LC classes of even t: 144; classes where all 4 H-shaped strong-LC samples have a letter-L U7 word (x or z): 16
+    t ≡ 36 (mod 2016)   [t mod L = 36]  sample word position z, y = 3457164582979863
+    t ≡ 216 (mod 2016)   [t mod L = 27]  sample word position z, y = 4777563360277463
+    t ≡ 288 (mod 2016)   [t mod L = 36]  sample word position z, y = 5738814876668343
+    t ≡ 468 (mod 2016)   [t mod L = 27]  sample word position z, y = 1215553989746423
+    t ≡ 540 (mod 2016)   [t mod L = 36]  sample word position z, y = 276225830697143
+    t ≡ 720 (mod 2016)   [t mod L = 27]  sample word position z, y = 1025743305826423
+    t ≡ 792 (mod 2016)   [t mod L = 36]  sample word position z, y = 963164391691543
+    t ≡ 972 (mod 2016)   [t mod L = 27]  sample word position z, y = 488723377833303
+    t ≡ 1044 (mod 2016)   [t mod L = 36]  sample word position z, y = 2251254328859863
+    t ≡ 1224 (mod 2016)   [t mod L = 27]  sample word position z, y = 1746275594531223
+    t ≡ 1296 (mod 2016)   [t mod L = 36]  sample word position z, y = 347464201146103
+    t ≡ 1476 (mod 2016)   [t mod L = 27]  sample word position z, y = 353169674130743
+k=3 L=323 R=15504: LC classes of even t: 360; classes where all 4 H-shaped strong-LC samples have a letter-L U7 word (x or z): 0
+k=4 L=1023 R=65472: LC classes of even t: 2400; classes where all 4 H-shaped strong-LC samples have a letter-L U7 word (x or z): 64
+    t ≡ 696 (mod 65472)   [t mod L = 696]  sample word position z, y = 68756470020214751
+    t ≡ 792 (mod 65472)   [t mod L = 792]  sample word position z, y = 37724340969499231
+    t ≡ 3300 (mod 65472)   [t mod L = 231]  sample word position z, y = 4866716409702831
+    t ≡ 3396 (mod 65472)   [t mod L = 327]  sample word position z, y = 36778560475593711
+    t ≡ 4788 (mod 65472)   [t mod L = 696]  sample word position z, y = 40461575072673711
+    t ≡ 4884 (mod 65472)   [t mod L = 792]  sample word position z, y = 16038685882890991
+    t ≡ 7392 (mod 65472)   [t mod L = 231]  sample word position z, y = 14288074730513631
+    t ≡ 7488 (mod 65472)   [t mod L = 327]  sample word position z, y = 357925395042763231
+    t ≡ 8880 (mod 65472)   [t mod L = 696]  sample word position z, y = 74679086337869151
+    t ≡ 8976 (mod 65472)   [t mod L = 792]  sample word position z, y = 30468415954076511
+    t ≡ 11484 (mod 65472)   [t mod L = 231]  sample word position z, y = 52400817220466671
+    t ≡ 11580 (mod 65472)   [t mod L = 327]  sample word position z, y = 56310724568169391

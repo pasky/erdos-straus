@@ -1,0 +1,7 @@
+(1) identity check, s = 18 + 126 j, j = -40..40
+   81 values verified; 10 of them prime; examples (s, n, n mod 840): [(-5022, 10177165011108097, 457), (-4014, 4153645759078657, 457), (-3762, 3204757315051777, 457), (-2628, 763170239287297, 457), (-1746, 148695196836097, 457), (-1368, 56035644604417, 457)]
+   classes of n mod 840 hit when also 5 | s: [121]
+(2) empirical bounded-letter identity classes on n = t^4 + 1, t even
+   k=1 L=3 R=48: classes of even t with a letter-L U7 word for all 12 samples: 18 of 24; LC-compatible: 2  e.g. [0, 6]
+   k=2 L=63 R=2016: classes of even t with a letter-L U7 word for all 12 samples: 192 of 1008; LC-compatible: 22  e.g. [36, 216, 288, 468, 540, 720, 792, 840]
+   k=3 L=323 R=15504: classes of even t with a letter-L U7 word for all 12 samples: 129 of 7752; LC-compatible: 128  e.g. [180, 246, 252, 360, 366, 504, 618, 636]
