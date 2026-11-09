@@ -133,7 +133,7 @@ K₀ − K₋₁ = 1), so K(c₁..c_L) ≥ L + 1. Hence X′ ≥ j, Y′ ≥ r �
 letter is a_s + 1, for s odd the final block is 2^{a_s − 1}, and s = 0 gives [[a₀]] (e.g. 5/3 = [1; 1, 2] = [[2, 3]]);
 in all cases HJ letters ≤ M + 2. K(w) ≤ (M+2)^r since each continuant step multiplies by at most the letter. ∎
 *Not covered.* Some bounded-digit words admit single rescaling moves (Lemma 2); compositions of moves at several cuts,
-and any other descent operation, are not studied here.
+and any other descent operation, are not studied in §§2–8 (multi-step move graphs: §10).
 
 **Gate verdict.** The natural exact map — cut a word and absorb the second continuants into the cut letter — exists,
 is characterised (Prop 4), and does not apply to long bounded-digit witnesses (Prop 5). The other candidates examined at
@@ -233,7 +233,7 @@ input word, and finite-state algorithms with unbounded output menus.
   cut are only 0.37 % of L₄ (all 4171 primes; 0.39 % on the filtered sample). **Reading (EVIDENCE):** the cross-length
   correlation is real and not explained by the listed congruence controls; the strong positive association does not
   persist on NOOUT, where a weak negative association remains (not "absence of information"); since almost every word
-  admits a move, and reachability to L₃ through multi-step moves was not computed, this does **not** show that the
+  admits a move, and reachability to L₃ through multi-step moves was not computed in this test (see §10 for the move graph), this does **not** show that the
   correlation is carried by links to L₃. Open. *Provenance:* only "p ≤ 2·10⁵, Spearman ρ, thresholds 0.1 / 0.3" was
   registered; the lower cutoff 10⁴, the size filters, the congruence/regression controls and the decompositions (B)–(D)
   are post-hoc (after ρ ≥ 0.3 triggered "examine").
