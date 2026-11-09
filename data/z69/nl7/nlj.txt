@@ -1,0 +1,6 @@
+(1) representations verified; disc(P1) = 2304
+(2) mu <= 3000: P1 + mu reducible exactly for mu in [6] ([(t**2 - 2*t + 2, 1), (t**2 + 2*t + 4, 1)]); mu*P1 + 1 reducible for []
+(3) primes 3 <= l < 400 without an admissible class: []; admissible classes for l <= 23: {3: [1], 5: [1], 7: [0, 2, 6], 11: [1, 3, 6, 7, 8, 9, 10], 13: [1, 4, 7, 10, 12], 17: [0, 1, 2, 3, 4, 7, 9, 10, 16], 19: [1, 5, 6, 9, 10, 13, 18], 23: [0, 1, 2, 5, 6, 7, 8, 11, 12, 15, 22]}
+(4) P1 = 1 mod 8 iff t odd; F1 = F2 = 1 mod 3 for t = 1 mod 3: verified
+(5) t < 4e5 (t = 1 mod 6) with P1, F1, F2 all prime: 138; of these with a U7 word having x = 6 or z = 6: 0 (theorem: 0); with y = 6 (not controlled here, 6*P1+1 is not forced prime in this test): 87
+(6) joint rule (letters | a,b,c,d,e,f) on P1, t = 1 mod 6, t < 6e4: primes 1406, rule failures 0, first []
