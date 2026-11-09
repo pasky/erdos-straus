@@ -13,7 +13,7 @@ from z69_mine_feat import rep, cf_sqrt
 from sympy import factorint, isprime
 pari = cypari2.Pari(); pari.allocatemem(1 << 30)
 
-def lite_feats(p):
+def lite_feats(p, cf=True):
     F = {'p': p}
     ab = rep('1,0,1', p); a, b = (ab if ab[0] % 2 else ab[::-1]); F['a'], F['b'] = a, b
     F['c'], F['d'] = rep('1,0,2', p)
@@ -32,7 +32,7 @@ def lite_feats(p):
     q = 7
     while not (q % 8 == 7 and pow(p % q, (q - 1) // 2, q) == q - 1): q = int(pari('nextprime(%d)' % (q + 1)))
     F['nq7'] = q
-    if p < BIG:
+    if cf and p < BIG:
         a0, L, quots, Qs = cf_sqrt(p)
         F['a0'] = a0; F['L'] = L; F['quots'] = quots[:12] + quots[L // 2 - 1:L // 2 + 2]; F['Qset'] = sorted(set(Qs))
     else:
@@ -134,23 +134,34 @@ def pell_full(p, f, fq):
         tally()
     return h1[0], k1[0], nzk, nzh, nzkq, nzhq
 
+SIZE_SENSITIVE = ('CFq', 'QS', 'CFpA', 'CFk', 'CFh')
+
 def main():
-    global MATCH
-    wfile, cap, K, seed, outfn = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4]), sys.argv[5]
-    MATCH = len(sys.argv) > 6 and sys.argv[6] == 'match'
-    global XZ
-    XZ = len(sys.argv) > 6 and sys.argv[6] == 'xz'
-    rng = random.Random(seed)
-    wit = load_wit(wfile)
-    fo = open(outfn, 'w')
-    for p in sorted(wit):
-        if p > 2 * 10 ** 10 or not wit[p]: continue
+    import argparse
+    global MATCH, XZ, BIG
+    ap = argparse.ArgumentParser(description='phantom-prime relation test (see header)')
+    ap.add_argument('wit'); ap.add_argument('cap', type=int); ap.add_argument('K', type=int)
+    ap.add_argument('seed', type=int); ap.add_argument('out')
+    ap.add_argument('mode', nargs='?', default='same', choices=['same', 'match', 'xz'])
+    ap.add_argument('--big', type=int, default=10 ** 12, help='no CF/Pell data for primes >= big')
+    ap.add_argument('--maxp', type=int, default=2 * 10 ** 10)
+    a = ap.parse_args()
+    MATCH, XZ, BIG = a.mode == 'match', a.mode == 'xz', a.big
+    cap, K = a.cap, a.K
+    rng = random.Random(a.seed)
+    wit = load_wit(a.wit)
+    fo = open(a.out, 'w')
+    order = sorted(wit); rng.shuffle(order)          # random order: a time-limited run is a random subsample
+    for p in order:
+        if p > a.maxp or not wit[p]: continue
         W = list(wit[p]); rng.shuffle(W); W = W[:cap]
         Fp = lite_feats(p); Dp = dictionary(Fp)
+        if MATCH:   # profile-matched phantoms are ~1e3 x larger: drop the size-sensitive families altogether
+            for fam in SIZE_SENSITIVE: Dp.pop(fam, None)
         for f, r, y, z in W:
             fq = [q for q in factorint(f) if q >= 5]
             fqs = set(factorint(f))
-            real = hits(Dp, pell_full(p, f, fq), f, r, y, z, fq)
+            real = hits(Dp, (pell_full(p, f, fq) if not MATCH else pell_one(p, f) + (0, 0, 0, 0)), f, r, y, z, fq)
             phs = []
             tries = 0
             if MATCH:
@@ -164,35 +175,48 @@ def main():
                     if any(l not in fqs and pow(q % l, (l - 1) // 2, l) != pow(p % l, (l - 1) // 2, l) for l in (11, 13, 17, 19, 23)):
                         continue
                     if isprime(q): phs.append(q)
-            while XZ and len(phs) < K and tries < 2000:
-                # (x,z)-phantom: p' = p + k x z with 8 | k, i.e. the word (x, y + k, z); f' = x(y+k) - 1
-                tries += 1
-                span = max(1, p // (2 * r * z) // 8)
-                k = 8 * rng.randint(-span, span + 2)
-                if k == 0 or y + k < 1: continue
-                q = p + k * r * z
-                if q < 17 or q in phs or not isprime(q): continue
-                phs.append(q)
-            while not MATCH and not XZ and len(phs) < K and tries < 2000:
-                tries += 1
-                span = max(1, p // (2 * f) // 8)
-                k = 8 * rng.randint(-span, span + 2)
-                if k == 0: continue
-                q = p + k * f
-                if q < max(17, (f - 1) // 2) or q in phs or not isprime(q): continue
-                phs.append(q)
+            if XZ:
+                # (x,z)-phantom: p' = p + 8j x z, |p' - p| <= p/2, word (x, y + 8j, z), f' = x(y + 8j) - 1;
+                # require the phantom word to be canonical: x < f'  <=>  x (y' - 1) > 1
+                J = p // (16 * r * z)
+                while J >= 1 and len(phs) < K and tries < 2000:
+                    tries += 1
+                    j = rng.randint(-J, J)
+                    yq = y + 8 * j
+                    if j == 0 or yq < 2 or r * (yq - 1) <= 1: continue
+                    q = p + 8 * j * r * z
+                    if q in phs or not isprime(q): continue
+                    phs.append(q)
+            if not MATCH and not XZ:
+                # same-size f-phantom: p' = p + 8 j f with 1 <= |j| <= p/(16 f)  (so |p' - p| <= p/2);
+                # impossible when f > p/16 -- such witnesses get no phantom and are reported as not covered
+                J = p // (16 * f)
+                while J >= 1 and len(phs) < K and tries < 2000:
+                    tries += 1
+                    j = rng.randint(-J, J)
+                    if j == 0: continue
+                    q = p + 8 * j * f
+                    if q in phs or not isprime(q): continue
+                    phs.append(q)
             rec = {'p': p, 'f': f, 'r': r, 'y': y, 'z': z, 'real': {'%s:%s' % k: v for k, v in real.items()}, 'ph': []}
             for q in phs:
-                Fq = lite_feats(q)
+                Fq = lite_feats(q, cf=not MATCH and q < BIG)
+                Dq = dictionary(Fq)
+                if MATCH:
+                    for fam in SIZE_SENSITIVE: Dq.pop(fam, None)
                 if XZ:
                     yq = y + (q - p) // (r * z); fqq = r * yq - 1
                     assert r * yq * z - r - z == q and (r * yq) % 8 == 0
+                    assert (q + r) % fqq == 0 and (q + r) // fqq == z and fqq - q % fqq == r and (fqq + 1) % r == 0
                     fqs_ = [t for t in factorint(fqq) if t >= 5]
-                    h = hits(dictionary(Fq), pell_full(q, fqq, fqs_) if q < BIG else None, fqq, r, yq, z, fqs_)
+                    h = hits(Dq, pell_full(q, fqq, fqs_) if q < BIG else None, fqq, r, yq, z, fqs_)
                 else:
                     zq = (q + r) // f
-                    assert (q + r) % f == 0
-                    h = hits(dictionary(Fq), pell_full(q, f, fq) if q < BIG else None, f, r, y, zq, fq)
+                    assert (q + r) % f == 0 and f - q % f == r
+                    if MATCH:
+                        h = hits(Dq, pell_one(q, f) + (0, 0, 0, 0) if q < BIG else None, f, r, y, zq, fq)
+                    else:
+                        h = hits(Dq, pell_full(q, f, fq) if q < BIG else None, f, r, y, zq, fq)
                 rec['ph'].append({'q': q, 'h': {'%s:%s' % k: v for k, v in h.items()}})
             fo.write(json.dumps(rec) + '\n')
         fo.flush()

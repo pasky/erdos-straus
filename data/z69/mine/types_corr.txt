@@ -1,28 +1,42 @@
 primes 1273994 mean clusters per bin [16.16  6.49 12.46  9.17] var/mean [2.24 2.42 2.26 4.71]
-M=1 classes=1  residual var/mean per bin [2.24 2.42 2.26 4.71]
+M=1  classes=1  residual var/mean per bin [2.24 2.42 2.26 4.71]
    residual correlations:
  [[ 1.     0.043  0.063 -0.019]
  [ 0.043  1.    -0.114 -0.14 ]
  [ 0.063 -0.114  1.    -0.029]
  [-0.019 -0.14  -0.029  1.   ]]
    Var(sum residual) / sum Var(bin residuals) = 0.922 (1 = independent, <1 = compensation)
-M=15015 classes=5760  residual var/mean per bin [1.82 1.49 1.5  2.36]
+M=1 (x 20 size bands) classes=20  residual var/mean per bin [2.14 2.4  2.21 4.68]
+   residual correlations:
+ [[ 1.     0.021  0.032 -0.036]
+ [ 0.021  1.    -0.132 -0.149]
+ [ 0.032 -0.132  1.    -0.042]
+ [-0.036 -0.149 -0.042  1.   ]]
+   Var(sum residual) / sum Var(bin residuals) = 0.868 (1 = independent, <1 = compensation)
+M=15015  classes=5760  residual var/mean per bin [1.82 1.49 1.5  2.36]
    residual correlations:
  [[ 1.     0.025  0.051 -0.007]
  [ 0.025  1.     0.013  0.009]
  [ 0.051  0.013  1.    -0.005]
  [-0.007  0.009 -0.005  1.   ]]
    Var(sum residual) / sum Var(bin residuals) = 1.041 (1 = independent, <1 = compensation)
-M=240240 classes=11520  residual var/mean per bin [1.72 1.48 1.5  2.35]
+M=15015 (x 20 size bands) classes=114962  residual var/mean per bin [1.6  1.36 1.35 2.17]
    residual correlations:
- [[ 1.     0.026  0.052 -0.008]
- [ 0.026  1.     0.013  0.009]
- [ 0.052  0.013  1.    -0.005]
- [-0.008  0.009 -0.005  1.   ]]
-   Var(sum residual) / sum Var(bin residuals) = 1.042 (1 = independent, <1 = compensation)
-one-hot local model (l<=100, p mod 64): held-out residual correlations
- [[1.    0.037 0.105 0.025]
- [0.037 1.    0.064 0.055]
- [0.105 0.064 1.    0.014]
- [0.025 0.055 0.014 1.   ]]
-   Var(sum)/sum Var = 1.143
+ [[ 1.    -0.007  0.007 -0.035]
+ [-0.007  1.    -0.012 -0.006]
+ [ 0.007 -0.012  1.    -0.026]
+ [-0.035 -0.006 -0.026  1.   ]]
+   Var(sum residual) / sum Var(bin residuals) = 0.959 (1 = independent, <1 = compensation)
+M=240240 (x 20 size bands) classes=224487  residual var/mean per bin [1.39 1.24 1.24 1.99]
+   residual correlations:
+ [[ 1.    -0.007  0.006 -0.035]
+ [-0.007  1.    -0.013 -0.008]
+ [ 0.006 -0.013  1.    -0.027]
+ [-0.035 -0.008 -0.027  1.   ]]
+   Var(sum residual) / sum Var(bin residuals) = 0.957 (1 = independent, <1 = compensation)
+one-hot local model (l<=100, p mod 64) + log p, log^2 p: held-out residual correlations
+ [[ 1.    -0.     0.056 -0.007]
+ [-0.     1.     0.035  0.038]
+ [ 0.056  0.035  1.    -0.011]
+ [-0.007  0.038 -0.011  1.   ]]
+   Var(sum)/sum Var = 1.049

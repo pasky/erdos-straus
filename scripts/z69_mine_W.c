@@ -13,6 +13,7 @@ typedef unsigned long long u64;
 int main(int argc,char**argv){
   u64 N = argc>1 ? strtoull(argv[1],0,10) : 10000000ULL;
   u64 FULLMAX = argc>2 ? strtoull(argv[2],0,10) : N;
+  if(N<9 || N>400000000ULL){fprintf(stderr,"N out of supported range [9,4e8]\n");return 1;}
   u64 M = 2*N+2;
   uint32_t *spf = calloc(M+1,sizeof(uint32_t));
   if(!spf){fprintf(stderr,"oom\n");return 1;}
@@ -20,16 +21,17 @@ int main(int argc,char**argv){
   u64 K = N/8+1;                     // index n>>3 for n = 1 mod 8
   uint16_t *W = calloc(K,sizeof(uint16_t));
   uint32_t *fmin = calloc(K,sizeof(uint32_t));
+  if(!W||!fmin){fprintf(stderr,"oom\n");return 1;}
   u64 divs[4096];
   for(u64 f=7; f<=2*N+1; f+=8){
     // divisors of f+1
     u64 m=f+1; int nd=1; divs[0]=1;
     while(m>1){ u64 q=spf[m]; int e=0; while(m%q==0){m/=q;e++;}
-      int cur=nd; u64 pw=1; for(int k=1;k<=e;k++){ pw*=q; for(int i=0;i<cur;i++) divs[nd++]=divs[i]*pw; } }
+      int cur=nd; u64 pw=1; if((u64)cur*(e+1)>4096){fprintf(stderr,"divisor buffer\n");return 4;} for(int k=1;k<=e;k++){ pw*=q; for(int i=0;i<cur;i++) divs[nd++]=divs[i]*pw; } }
     for(int i=0;i<nd;i++){ u64 r=divs[i]; if(r>=f) continue;
       u64 t0 = (u64)((8 - ((1+r)%8))%8); if(t0==0) t0=8;   // t = -1-r mod 8, t>=1
       for(u64 t=t0; ; t+=8){ u64 n=f*t-r; if(n>N) break;
-        u64 k=n>>3; if(W[k]<65535) W[k]++; if(fmin[k]==0) fmin[k]=(uint32_t)f; else if(f<fmin[k]) fmin[k]=(uint32_t)f; }
+        u64 k=n>>3; if(W[k]==65535){fprintf(stderr,"W counter saturated at n=%llu\n",n);return 3;} W[k]++; if(fmin[k]==0) fmin[k]=(uint32_t)f; else if(f<fmin[k]) fmin[k]=(uint32_t)f; }
     }
   }
   // primes: spf[n]==n

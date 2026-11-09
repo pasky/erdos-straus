@@ -1,27 +1,24 @@
-iter 0 test R2(w) 0.434 Poisson floor share 0.3082
-iter 1 test R2(w) 0.4342 Poisson floor share 0.3082
-iter 2 test R2(w) 0.4342 Poisson floor share 0.3082
-iter 3 test R2(w) 0.4342 Poisson floor share 0.3082
-iter 4 test R2(w) 0.4342 Poisson floor share 0.3082
-iter 5 test R2(w) 0.4342 Poisson floor share 0.3082
-test var of Pearson residual (Poisson=1): 1.8472519678785815
-16 min 0.977 max 1.024 g(1) 0.977
+fold: held-out R2(w) = 0.4342   Poisson floor share 0.3082
+fold: held-out R2(w) = 0.4332   Poisson floor share 0.3080
+cross-fitted (all primes out-of-fold): R2(w) = 0.4337, Poisson floor share 0.3081
+variance of Pearson residual (Poisson = 1): 1.850
+16 min 0.976 max 1.023 g(1) 0.976
 32 min 0.981 max 1.019 g(1) 0.993
-64 min 0.984 max 1.016 g(1) 0.996
-128 min 0.984 max 1.016 g(1) 0.999
-3 min 0.947 max 1.053 g(1) 0.947
+64 min 0.985 max 1.014 g(1) 0.996
+128 min 0.985 max 1.015 g(1) 0.999
+3 min 0.946 max 1.054 g(1) 0.946
 5 min 0.943 max 1.022 g(1) 0.943
-7 min 0.914 max 1.132 g(1) 0.914
-11 min 0.946 max 1.091 g(1) 0.946
-13 min 0.957 max 1.056 g(1) 0.957
-17 min 0.973 max 1.055 g(1) 0.981
-19 min 0.964 max 1.095 g(1) 0.964
-23 min 0.964 max 1.116 g(1) 0.965
-29 min 0.978 max 1.065 g(1) 0.978
+7 min 0.913 max 1.13 g(1) 0.913
+11 min 0.945 max 1.095 g(1) 0.945
+13 min 0.959 max 1.058 g(1) 0.959
+17 min 0.973 max 1.056 g(1) 0.981
+19 min 0.965 max 1.097 g(1) 0.965
+23 min 0.964 max 1.116 g(1) 0.964
+29 min 0.976 max 1.068 g(1) 0.976
 31 min 0.973 max 1.114 g(1) 0.973
-37 min 0.981 max 1.068 g(1) 0.981
-41 min 0.984 max 1.06 g(1) 0.988
-43 min 0.983 max 1.098 g(1) 0.984
-47 min 0.979 max 1.111 g(1) 0.979
-53 min 0.985 max 1.064 g(1) 0.985
-59 min 0.985 max 1.094 g(1) 0.99
+37 min 0.98 max 1.066 g(1) 0.982
+41 min 0.983 max 1.061 g(1) 0.989
+43 min 0.983 max 1.094 g(1) 0.983
+47 min 0.98 max 1.11 g(1) 0.982
+53 min 0.983 max 1.066 g(1) 0.985
+59 min 0.985 max 1.093 g(1) 0.987

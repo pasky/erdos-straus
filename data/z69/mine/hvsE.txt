@@ -1,29 +1,23 @@
 H primes in (1e6,1e8]: 556
-median E/mu over H 0.7425595694016478  all primes median 0.981350232419937
-quantile of H E/mu within all: 0.027898829781092607
-median Poisson cdf P(X<=W|E) for H: 1.1182726183114093e-05
-2031121 4 23.6 37.8 E/mu=0.63 cdf=8.38e-07
-1381969 4 22.9 35.8 E/mu=0.64 cdf=1.56e-06
-1095481 4 24.7 34.6 E/mu=0.71 cdf=3.33e-07
-4149601 5 25.5 41.6 E/mu=0.61 cdf=9.40e-07
-45553561 7 39.6 55.7 E/mu=0.71 cdf=2.28e-10
-5886169 7 34.1 43.5 E/mu=0.78 cdf=2.04e-08
-1726201 6 26.0 36.9 E/mu=0.70 cdf=2.91e-06
-39203761 9 38.8 54.7 E/mu=0.71 cdf=9.74e-09
-4806001 7 28.5 42.4 E/mu=0.67 cdf=1.61e-06
-96049801 10 37.5 60.5 E/mu=0.62 cdf=1.08e-07
-10910881 8 32.8 47.0 E/mu=0.70 cdf=2.48e-07
-9768361 8 31.7 46.4 E/mu=0.68 cdf=5.86e-07
-2762761 7 26.1 39.4 E/mu=0.66 cdf=1.05e-05
-7237129 8 32.4 44.7 E/mu=0.73 cdf=3.34e-07
-17690689 9 37.0 49.9 E/mu=0.74 cdf=4.04e-08
-6528601 8 28.8 44.1 E/mu=0.65 cdf=4.88e-06
-38170801 10 40.1 54.6 E/mu=0.73 cdf=1.56e-08
-5308801 8 27.4 42.9 E/mu=0.64 cdf=1.39e-05
-13364569 9 38.1 48.2 E/mu=0.79 cdf=1.70e-08
-12570721 9 33.0 47.8 E/mu=0.69 cdf=8.01e-07
-30197521 10 43.9 53.1 E/mu=0.83 cdf=8.40e-10
-12257281 9 31.2 47.7 E/mu=0.65 cdf=3.09e-06
-11814001 9 30.2 47.5 E/mu=0.64 cdf=6.01e-06
-1724209 7 32.6 36.9 E/mu=0.88 cdf=7.00e-08
-64865089 11 38.2 57.9 E/mu=0.66 cdf=2.22e-07
+median E/mu: H 0.742, all 0.981; percentile of the H median within all: 0.0280
+median log(W/mu) H -1.299, median log(E/mu) H -0.298; ratio of means of logs 0.233
+variance inflation phi = 1.850
+t=0.001: observed Poisson-cdf<=t: 12330 (H 486), expected 1090.3 | observed NB-cdf<=t: 1793 (H 328), expected 1128.4
+t=0.0001: observed Poisson-cdf<=t: 3537 (H 396), expected 103.2 | observed NB-cdf<=t: 318 (H 148), expected 106.4
+t=1.12e-05: observed Poisson-cdf<=t: 1158 (H 279), expected 11.0 | observed NB-cdf<=t: 63 (H 41), expected 11.2
+t=1e-06: observed Poisson-cdf<=t: 354 (H 152), expected 0.9 | observed NB-cdf<=t: 5 (H 4), expected 0.9
+2031121 4 E=23.5 mu=37.8 E/mu=0.62 Pcdf=9.8e-07 NBcdf=7.7e-05
+1381969 4 E=22.4 mu=35.8 E/mu=0.63 Pcdf=2.4e-06 NBcdf=1.4e-04
+1095481 4 E=24.7 mu=34.6 E/mu=0.71 Pcdf=3.3e-07 NBcdf=3.6e-05
+4149601 5 E=24.9 mu=41.6 E/mu=0.60 Pcdf=1.6e-06 NBcdf=1.1e-04
+45553561 7 E=39.6 mu=55.7 E/mu=0.71 Pcdf=2.3e-10 NBcdf=3.1e-07
+5886169 7 E=34.1 mu=43.5 E/mu=0.78 Pcdf=2.0e-08 NBcdf=6.5e-06
+1726201 6 E=25.9 mu=36.9 E/mu=0.70 Pcdf=3.1e-06 NBcdf=1.9e-04
+39203761 9 E=40.2 mu=54.7 E/mu=0.74 Pcdf=3.3e-09 NBcdf=2.1e-06
+4806001 7 E=29.3 mu=42.4 E/mu=0.69 Pcdf=8.8e-07 NBcdf=8.3e-05
+96049801 10 E=37.5 mu=60.5 E/mu=0.62 Pcdf=1.0e-07 NBcdf=2.2e-05
+10910881 8 E=32.8 mu=47.0 E/mu=0.70 Pcdf=2.5e-07 NBcdf=3.7e-05
+9768361 8 E=31.7 mu=46.4 E/mu=0.68 Pcdf=5.9e-07 NBcdf=6.6e-05
+2762761 7 E=26.0 mu=39.4 E/mu=0.66 Pcdf=1.1e-05 NBcdf=4.6e-04
+7237129 8 E=31.6 mu=44.7 E/mu=0.71 Pcdf=6.0e-07 NBcdf=6.6e-05
+17690689 9 E=37.0 mu=49.9 E/mu=0.74 Pcdf=4.0e-08 NBcdf=1.1e-05
