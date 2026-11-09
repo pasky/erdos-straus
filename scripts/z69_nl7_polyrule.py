@@ -14,6 +14,7 @@ RULES = {
  'G':   lambda t, B: [t, B, t + B, abs(t - B)],                         # z68 R-G: a, b, a±b
  'G2':  lambda t, B: [t, B, t + B, abs(t - B), t*t + 2*B*B, 2*t*t + B*B, t*B + 1, abs(t*B - 1),
                       t*t + 2, t*t + 3, B*B + 2, t + 2*B, abs(t - 2*B), 2*t + B, abs(2*t - B)],
+ 'Pm':  lambda t, B: [t + 1, t - 1],                                   # Pell T±1 (S = 1) on t^2+1; = a±b there
  'P':   lambda t, B: [t, t + 1, t - 1, t + 2, t - 2, t + 3, t - 3, 2*t*t + 1, 2*t],   # Pell t±c, positive Pell (2t^2+1, 2t)
 }
 

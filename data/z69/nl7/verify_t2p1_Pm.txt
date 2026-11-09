@@ -1,0 +1,1154 @@
+t=420 p=176401 p%840=1 candidate letters=[1, 419, 421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 232, 381))
+t=1860 p=3459601 p%840=481 candidate letters=[1, 11, 13, 143, 169, 1859, 1861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 82372, 21))
+t=2460 p=6051601 p%840=241 candidate letters=[1, 23, 107, 2459, 2461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 32536, 93))
+t=6060 p=36723601 p%840=481 candidate letters=[1, 11, 19, 29, 73, 83, 209, 319, 551, 6059, 6061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 874372, 21))
+t=6540 p=42771601 p%840=481 candidate letters=[1, 13, 31, 211, 503, 6539, 6541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1018372, 21))
+t=16260 p=264387601 p%840=121 candidate letters=[1, 7, 23, 71, 101, 161, 229, 707, 2323, 16259, 16261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2167112, 61))
+t=16620 p=276224401 p%840=481 candidate letters=[1, 11, 1511, 16619, 16621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 10624016, 13))
+t=37020 p=1370480401 p%840=241 candidate letters=[1, 37019, 37021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 195782915))
+t=39540 p=1563411601 p%840=241 candidate letters=[1, 19, 2081, 39539, 39541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 60131216, 13))
+t=43980 p=1934240401 p%840=121 candidate letters=[1, 7, 13, 17, 61, 103, 199, 221, 427, 721, 2587, 3383, 6283, 43979, 43981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (4, (4, 11245584, 43))
+t=52860 p=2794179601 p%840=241 candidate letters=[1, 52859, 52861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 22903112, 61))
+t=57180 p=3269552401 p%840=241 candidate letters=[1, 211, 271, 57179, 57181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 125752016, 13))
+t=62940 p=3961443601 p%840=241 candidate letters=[1, 113, 557, 62939, 62941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 152363216, 13))
+t=69060 p=4769283601 p%840=481 candidate letters=[1, 53, 1303, 69059, 69061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 113554372, 21))
+t=82020 p=6727280401 p%840=121 candidate letters=[1, 7, 11717, 82019, 82021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (4, (4, 41186, 40835))
+t=89580 p=8024576401 p%840=121 candidate letters=[1, 7, 29, 67, 191, 469, 1337, 3089, 12797, 89579, 89581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 36809984, 109))
+t=97260 p=9459507601 p%840=481 candidate letters=[1, 19, 5119, 97259, 97261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 363827216, 13))
+t=118740 p=14099187601 p%840=121 candidate letters=[1, 7, 16963, 118739, 118741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 115567112, 61))
+t=122340 p=14967075601 p%840=121 candidate letters=[1, 7, 19, 47, 137, 893, 2603, 6439, 17477, 122339, 122341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 19641832, 381))
+t=125220 p=15680048401 p%840=241 candidate letters=[1, 125219, 125221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 84301336, 93))
+t=128460 p=16501971601 p%840=241 candidate letters=[1, 19, 6761, 128459, 128461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 634691216, 13))
+t=135060 p=18241203601 p%840=481 candidate letters=[1, 131, 1031, 135059, 135061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 434314372, 21))
+t=136020 p=18501440401 p%840=241 candidate letters=[1, 13, 19, 7159, 10463, 136019, 136021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 2643062915))
+t=159780 p=25529648401 p%840=481 candidate letters=[1, 23, 6947, 159779, 159781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 607848772, 21))
+t=161940 p=26224563601 p%840=481 candidate letters=[1, 13, 67, 2417, 12457, 161939, 161941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 624394372, 21))
+t=180660 p=32638035601 p%840=241 candidate letters=[1, 13, 17, 169, 1069, 10627, 13897, 180659, 180661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 377572, 43221))
+t=200580 p=40232336401 p%840=481 candidate letters=[1, 79, 2539, 200579, 200581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 957912772, 21))
+t=211980 p=44935520401 p%840=121 candidate letters=[1, 7, 11, 77, 2753, 19271, 30283, 211979, 211981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (15, 2, 1549500704))
+t=214980 p=46216400401 p%840=241 candidate letters=[1, 13, 23, 179, 299, 719, 1201, 9347, 16537, 214979, 214981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 6602342915))
+t=231180 p=53444192401 p%840=481 candidate letters=[1, 13, 151, 1531, 17783, 231179, 231181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1272480772, 21))
+t=235380 p=55403744401 p%840=481 candidate letters=[1, 41, 113, 2083, 5741, 235379, 235381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1319136772, 21))
+t=246660 p=60841155601 p%840=121 candidate letters=[1, 7, 167, 211, 1169, 1477, 35237, 246659, 246661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (4, (4, 132263382, 115))
+t=256980 p=66038720401 p%840=241 candidate letters=[1, 23, 11173, 256979, 256981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 9434102915))
+t=274020 p=75086960401 p%840=481 candidate letters=[1, 11, 29, 319, 859, 9449, 24911, 274019, 274021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2887960016, 13))
+t=287340 p=82564275601 p%840=241 candidate letters=[1, 13, 23, 31, 299, 403, 713, 961, 9269, 12493, 22103, 287339, 287341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 11794896515))
+t=296580 p=87959696401 p%840=241 candidate letters=[1, 296579, 296581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 12565670915))
+t=330420 p=109177376401 p%840=121 candidate letters=[1, 7, 13, 41, 91, 3631, 8059, 25417, 47203, 330419, 330421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (3, (3, 535183218, 68))
+t=378660 p=143383395601 p%840=481 candidate letters=[1, 277, 1367, 378659, 378661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3413890372, 21))
+t=432780 p=187298528401 p%840=481 candidate letters=[1, 457, 947, 432779, 432781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4459488772, 21))
+t=445020 p=198042800401 p%840=481 candidate letters=[1, 445019, 445021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4715304772, 21))
+t=458940 p=210625923601 p%840=121 candidate letters=[1, 7, 13, 43, 559, 821, 10673, 35303, 65563, 458939, 458941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (3, (3, 1032480018, 68))
+t=483180 p=233462912401 p%840=481 candidate letters=[1, 61, 89, 5429, 7921, 483179, 483181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5558640772, 21))
+t=485580 p=235787936401 p%840=241 candidate letters=[1, 277, 617, 787, 1753, 485579, 485581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 33683990915))
+t=496380 p=246393104401 p%840=241 candidate letters=[1, 13, 38183, 496379, 496381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 35199014915))
+t=535740 p=287017347601 p%840=481 candidate letters=[1, 23, 23293, 535739, 535741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6833746372, 21))
+t=536460 p=287789331601 p%840=121 candidate letters=[1, 7, 11, 77, 6967, 48769, 76637, 536459, 536461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (1767, 2, 81457496))
+t=539940 p=291535203601 p%840=481 candidate letters=[1, 37, 263, 2053, 14593, 539939, 539941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6941314372, 21))
+t=559140 p=312637539601 p%840=121 candidate letters=[1, 7, 11, 49, 121, 4621, 11411, 50831, 79877, 559139, 559141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 233660344, 669))
+t=586140 p=343560099601 p%840=481 candidate letters=[1, 193, 3037, 586139, 586141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 8180002372, 21))
+t=619980 p=384375200401 p%840=241 candidate letters=[1, 619979, 619981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2066533336, 93))
+t=620580 p=385119536401 p%840=481 candidate letters=[1, 13, 47737, 620579, 620581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 9169512772, 21))
+t=636060 p=404572323601 p%840=481 candidate letters=[1, 636059, 636061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 9632674372, 21))
+t=671820 p=451342112401 p%840=481 candidate letters=[1, 19, 73, 361, 1861, 9203, 35359, 671819, 671821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 17359312016, 13))
+t=674340 p=454734435601 p%840=481 candidate letters=[1, 17, 103, 6547, 39667, 674339, 674341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 10827010372, 21))
+t=709260 p=503049747601 p%840=121 candidate letters=[1, 7, 41, 17299, 101323, 709259, 709261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 19348067216, 13))
+t=718140 p=515725059601 p%840=241 candidate letters=[1, 89, 8069, 718139, 718141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 19835579216, 13))
+t=736620 p=542609024401 p%840=241 candidate letters=[1, 13, 23, 32027, 56663, 736619, 736621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 77515574915))
+t=752340 p=566015475601 p%840=121 candidate letters=[1, 7, 31, 217, 373, 2017, 3467, 24269, 107477, 752339, 752341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4639471112, 61))
+t=775020 p=600656000401 p%840=121 candidate letters=[1, 7, 13, 53, 371, 2089, 14623, 59617, 110717, 775019, 775021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3229333336, 93))
+t=803940 p=646319523601 p%840=241 candidate letters=[1, 281, 2861, 803939, 803941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 24858443216, 13))
+t=823260 p=677757027601 p%840=241 candidate letters=[1, 17, 79, 613, 1343, 10421, 48427, 823259, 823261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 96822432515))
+t=856860 p=734209059601 p%840=241 candidate letters=[1, 41, 43, 19927, 20899, 856859, 856861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3947360536, 93))
+t=885540 p=784181091601 p%840=481 candidate letters=[1, 67, 709, 1249, 13217, 885539, 885541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 30160811216, 13))
+t=892140 p=795913779601 p%840=241 candidate letters=[1, 59, 15121, 892139, 892141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 945265772, 421))
+t=896820 p=804286112401 p%840=121 candidate letters=[1, 7, 11, 19, 77, 103, 133, 209, 613, 1463, 4291, 6743, 8707, 11647, 47201, 81529, 128117, 896819, 896821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 85544152, 4701))
+t=919140 p=844818339601 p%840=481 candidate letters=[1, 13, 17, 221, 293, 3137, 4159, 54067, 70703, 919139, 919141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 20114722372, 21))
+t=949020 p=900638960401 p%840=481 candidate letters=[1, 949019, 949021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 34639960016, 13))
+t=984660 p=969555315601 p%840=481 candidate letters=[1, 13, 367, 2683, 75743, 984659, 984661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 23084650372, 21))
+t=1091460 p=1191284931601 p%840=121 candidate letters=[1, 7, 41, 287, 3803, 26621, 155923, 1091459, 1091461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 45818651216, 13))
+t=1115580 p=1244518736401 p%840=241 candidate letters=[1, 1115579, 1115581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1042310500, 597))
+t=1162380 p=1351127264401 p%840=481 candidate letters=[1, 11, 73, 251, 421, 2761, 4631, 15923, 105671, 1162379, 1162381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 32169696772, 21))
+t=1169340 p=1367356035601 p%840=241 candidate letters=[1, 53, 22063, 1169339, 1169341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7351376536, 93))
+t=1181220 p=1395280688401 p%840=481 candidate letters=[1, 13, 179, 6599, 90863, 1181219, 1181221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 33220968772, 21))
+t=1194780 p=1427499248401 p%840=121 candidate letters=[1, 7, 23, 41, 53, 161, 181, 287, 943, 1267, 4163, 6601, 7421, 22543, 29141, 51947, 170683, 1194779, 1194781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 11700813512, 61))
+t=1201380 p=1443313904401 p%840=481 candidate letters=[1, 1033, 1163, 1201379, 1201381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 34364616772, 21))
+t=1232940 p=1520141043601 p%840=481 candidate letters=[1, 43, 53, 541, 2279, 23263, 28673, 1232939, 1232941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 58466963216, 13))
+t=1238340 p=1533485955601 p%840=481 candidate letters=[1, 13, 149, 8311, 95257, 1238339, 1238341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 36511570372, 21))
+t=1253820 p=1572064592401 p%840=121 candidate letters=[1, 7, 37, 41, 47, 53, 103, 259, 329, 577, 721, 1739, 2173, 3811, 4841, 12173, 23657, 26677, 30581, 33887, 179117, 1253819, 1253821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 43695164, 17989))
+t=1257780 p=1582010528401 p%840=121 candidate letters=[1, 7, 17, 19, 49, 133, 193, 241, 307, 343, 931, 1351, 3667, 4097, 5219, 6517, 9457, 25669, 66199, 73987, 179683, 1257779, 1257781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 351089776, 2253))
+t=1318620 p=1738758704401 p%840=481 candidate letters=[1, 19, 83, 15887, 69401, 1318619, 1318621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 41399016772, 21))
+t=1322220 p=1748265728401 p%840=241 candidate letters=[1, 1322219, 1322221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 249752246915))
+t=1371660 p=1881451155601 p%840=241 candidate letters=[1, 317, 4327, 1371659, 1371661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3396121220, 277))
+t=1372260 p=1883097507601 p%840=121 candidate letters=[1, 7, 11, 43, 47, 97, 121, 301, 329, 679, 1031, 1331, 2021, 4171, 4559, 11341, 14147, 29197, 31913, 124751, 196037, 1372259, 1372261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 72426827216, 13))
+t=1383420 p=1913850896401 p%840=241 candidate letters=[1, 13, 61, 22679, 106417, 1383419, 1383421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 273407270915))
+t=1383540 p=1914182931601 p%840=241 candidate letters=[1, 37, 47, 61, 613, 2257, 22681, 29437, 37393, 1383539, 1383541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2742382424, 349))
+t=1384260 p=1916175747601 p%840=241 candidate letters=[1, 17, 107, 311, 761, 1819, 4451, 12937, 81427, 1384259, 1384261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 73699067216, 13))
+t=1420260 p=2017138467601 p%840=481 candidate letters=[1, 1420259, 1420261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 48027106372, 21))
+t=1433940 p=2056183923601 p%840=241 candidate letters=[1, 13, 73, 949, 1511, 19643, 110303, 1433939, 1433941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 293740560515))
+t=1463460 p=2141715171601 p%840=481 candidate letters=[1, 37, 1069, 1369, 39553, 1463459, 1463461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 50993218372, 21))
+t=1524660 p=2324588115601 p%840=241 candidate letters=[1, 37, 89, 463, 797, 1913, 3293, 17131, 41207, 1524659, 1524661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 89407235216, 13))
+t=1565940 p=2452168083601 p%840=481 candidate letters=[1, 13, 163, 313, 739, 2119, 5003, 9607, 120457, 1565939, 1565941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 58384954372, 21))
+t=1589340 p=2526001635601 p%840=241 candidate letters=[1, 13, 31, 167, 179, 307, 683, 2327, 5177, 8879, 9517, 51269, 122257, 1589339, 1589341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2788081276, 453))
+t=1589820 p=2527527632401 p%840=121 candidate letters=[1, 7, 11, 77, 121, 847, 1163, 1367, 1877, 13139, 20647, 144529, 227117, 1589819, 1589821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6982120532, 181))
+t=1646220 p=2710040288401 p%840=481 candidate letters=[1, 1646219, 1646221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 64524768772, 21))
+t=1659180 p=2752878272401 p%840=481 candidate letters=[1, 113, 14683, 1659179, 1659181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 65544720772, 21))
+t=1660380 p=2756861744401 p%840=121 candidate letters=[1, 7, 193, 839, 1229, 1351, 1979, 8603, 237197, 1660379, 1660381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 106033144016, 13))
+t=1664940 p=2772025203601 p%840=241 candidate letters=[1, 509, 3271, 1664939, 1664941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 396003600515))
+t=1685220 p=2839966448401 p%840=481 candidate letters=[1, 29, 58111, 1685219, 1685221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 67618248772, 21))
+t=1718580 p=2953517216401 p%840=241 candidate letters=[1, 17, 43, 179, 731, 2351, 9601, 39967, 101093, 1718579, 1718581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 113596816016, 13))
+t=1735620 p=3012376784401 p%840=481 candidate letters=[1, 29, 97, 131, 617, 2813, 13249, 17893, 59849, 1735619, 1735621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 71723256772, 21))
+t=1765380 p=3116566544401 p%840=121 candidate letters=[1, 7, 11, 37, 77, 101, 227, 707, 1111, 1589, 2497, 7777, 17479, 22927, 47713, 160489, 252197, 1765379, 1765381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 119867944016, 13))
+t=1771620 p=3138637424401 p%840=241 candidate letters=[1, 17, 23, 31, 197, 391, 529, 3349, 4531, 8993, 57149, 77027, 104213, 1771619, 1771621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 120716824016, 13))
+t=1831020 p=3352634240401 p%840=481 candidate letters=[1, 17, 37, 41, 71, 629, 697, 1207, 1517, 2627, 2911, 25789, 44659, 49487, 107707, 1831019, 1831021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 79824624772, 21))
+t=1833540 p=3361868931601 p%840=481 candidate letters=[1, 73, 599, 3061, 25117, 1833539, 1833541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 129302651216, 13))
+t=1851540 p=3428200371601 p%840=481 candidate letters=[1, 1851539, 1851541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 81623818372, 21))
+t=1864740 p=3477255267601 p%840=241 candidate letters=[1, 127, 14683, 1864739, 1864741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 133740587216, 13))
+t=1883820 p=3548777792401 p%840=121 candidate letters=[1, 7, 17, 110813, 269117, 1883819, 1883821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1186060, 1496037))
+t=1892460 p=3581404851601 p%840=241 candidate letters=[1, 211, 8969, 1892459, 1892461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 48397362860, 37))
+t=1942860 p=3774704979601 p%840=241 candidate letters=[1, 131, 14831, 1942859, 1942861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 62221096, 30333))
+t=1952220 p=3811162928401 p%840=241 candidate letters=[1, 1952219, 1952221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 446376544, 4269))
+t=1990740 p=3963045747601 p%840=241 candidate letters=[1, 347, 521, 3821, 5737, 1990739, 1990741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 566149392515))
+t=2069940 p=4284651603601 p%840=481 candidate letters=[1, 739, 2801, 2069939, 2069941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 102015514372, 21))
+t=2070660 p=4287632835601 p%840=241 candidate letters=[1, 97, 21347, 2070659, 2070661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 164908955216, 13))
+t=2151780 p=4630157168401 p%840=121 candidate letters=[1, 7, 307397, 2151779, 2151781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 178082968016, 13))
+t=2161020 p=4670007440401 p%840=121 candidate letters=[1, 7, 73, 193, 511, 4229, 11197, 29603, 308717, 2161019, 2161021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 38278749512, 61))
+t=2178780 p=4747082288401 p%840=481 candidate letters=[1, 11, 41, 47, 151, 307, 451, 4831, 7097, 14429, 46357, 53141, 198071, 2178779, 2178781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 182580088016, 13))
+t=2179140 p=4748651139601 p%840=481 candidate letters=[1, 2179139, 2179141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 113063122372, 21))
+t=2228340 p=4965499155601 p%840=481 candidate letters=[1, 19, 117281, 2228339, 2228341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 118226170372, 21))
+t=2254380 p=5082229184401 p%840=481 candidate letters=[1, 131, 457, 4933, 17209, 2254379, 2254381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 121005456772, 21))
+t=2277420 p=5186641856401 p%840=481 candidate letters=[1, 89, 577, 3947, 25589, 2277419, 2277421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 123491472772, 21))
+t=2279460 p=5195937891601 p%840=121 candidate letters=[1, 7, 13, 23, 31, 37, 91, 139, 259, 481, 529, 677, 713, 3197, 3367, 4309, 4739, 8801, 16399, 25049, 61607, 73531, 99107, 175343, 325637, 2279459, 2279461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (807, 2, 3221288216))
+t=2284140 p=5217295539601 p%840=481 candidate letters=[1, 11, 13, 53, 71, 143, 607, 3763, 15973, 32171, 43097, 175703, 207649, 2284139, 2284141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 124221322372, 21))
+t=2323380 p=5398094624401 p%840=241 candidate letters=[1, 2323379, 2323381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 207619024016, 13))
+t=2332020 p=5438317280401 p%840=481 candidate letters=[1, 43, 193, 263, 281, 8299, 8867, 12083, 54233, 2332019, 2332021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 129483744772, 21))
+t=2337540 p=5464093251601 p%840=481 candidate letters=[1, 2337539, 2337541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 130097458372, 21))
+t=2338620 p=5469143504401 p%840=241 candidate letters=[1, 233, 10037, 2338619, 2338621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 29403997336, 93))
+t=2395740 p=5739570147601 p%840=241 candidate letters=[1, 2395739, 2395741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 819938592515))
+t=2402220 p=5770660928401 p%840=481 candidate letters=[1, 17, 31, 77491, 141307, 2402219, 2402221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 137396688772, 21))
+t=2470620 p=6103963184401 p%840=481 candidate letters=[1, 41, 60259, 2470619, 2470621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 145332456772, 21))
+t=2496660 p=6233311155601 p%840=481 candidate letters=[1, 11, 263, 821, 863, 2893, 3041, 9493, 226969, 2496659, 2496661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 148412170372, 21))
+t=2497020 p=6235108880401 p%840=121 candidate letters=[1, 7, 31, 37, 217, 259, 311, 1147, 2177, 8029, 9641, 11507, 67487, 80549, 356717, 2497019, 2497021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 239811880016, 13))
+t=2604180 p=6781753472401 p%840=481 candidate letters=[1, 17, 257, 289, 9011, 10133, 153187, 2604179, 2604181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 260836672016, 13))
+t=2615460 p=6840631011601 p%840=121 candidate letters=[1, 7, 11, 77, 33967, 237769, 373637, 2615459, 2615461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (38104, 2, 89763815))
+t=2626620 p=6899132624401 p%840=241 candidate letters=[1, 17, 59, 367, 421, 6239, 7157, 44519, 154507, 2626619, 2626621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2160029000, 1597))
+t=2647740 p=7010527107601 p%840=241 candidate letters=[1, 31, 41, 64579, 85411, 2647739, 2647741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3279011744, 1069))
+t=2656020 p=7054442240401 p%840=241 candidate letters=[1, 41, 137, 19387, 64781, 2656019, 2656021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 1007777462915))
+t=2670420 p=7131142976401 p%840=241 candidate letters=[1, 13, 67, 39857, 205417, 2670419, 2670421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 486236396, 7333))
+t=2771940 p=7683651363601 p%840=241 candidate letters=[1, 277, 751, 3691, 10007, 2771939, 2771941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 10299800756, 373))
+t=2809020 p=7890593360401 p%840=241 candidate letters=[1, 463, 6067, 2809019, 2809021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 303484360016, 13))
+t=2829660 p=8006975715601 p%840=121 candidate letters=[1, 7, 149, 1043, 2713, 18991, 404237, 2829659, 2829661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 43048256536, 93))
+t=2857740 p=8166677907601 p%840=241 candidate letters=[1, 41, 47, 461, 1483, 1927, 6199, 60803, 69701, 2857739, 2857741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 9013993276, 453))
+t=2932140 p=8597444979601 p%840=121 candidate letters=[1, 7, 37, 83, 259, 11321, 35327, 79247, 418877, 2932139, 2932141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 45880936, 93693))
+t=2963460 p=8782095171601 p%840=241 candidate letters=[1, 149, 19889, 2963459, 2963461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 337772891216, 13))
+t=3001260 p=9007561587601 p%840=241 candidate letters=[1, 19, 61, 137, 1153, 2603, 21907, 49201, 157961, 3001259, 3001261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 882921152, 5101))
+t=3053580 p=9324350816401 p%840=481 candidate letters=[1, 521, 5861, 3053579, 3053581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 222008352772, 21))
+t=3069060 p=9419129283601 p%840=121 candidate letters=[1, 7, 17, 337, 1301, 2359, 9107, 180533, 438437, 3069059, 3069061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 362274203216, 13))
+t=3085260 p=9518829267601 p%840=241 candidate letters=[1, 1559, 1979, 3085259, 3085261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 12759824756, 373))
+t=3091020 p=9554404640401 p%840=481 candidate letters=[1, 3091019, 3091021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 227485824772, 21))
+t=3149340 p=9918342435601 p%840=481 candidate letters=[1, 13, 242257, 3149339, 3149341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 236151010372, 21))
+t=3158340 p=9975111555601 p%840=241 candidate letters=[1, 79, 39979, 3158339, 3158341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 173970344, 28669))
+t=3179940 p=10112018403601 p%840=121 candidate letters=[1, 7, 454277, 3179939, 3179941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 21333372160, 237))
+t=3208740 p=10296012387601 p%840=241 candidate letters=[1, 19, 281, 601, 1583, 2027, 5339, 11419, 168881, 3208739, 3208741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 1470858912515))
+t=3246060 p=10536905523601 p%840=121 candidate letters=[1, 7, 13, 23, 91, 107, 1319, 2461, 30337, 35671, 141133, 249697, 463723, 3246059, 3246061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (4, (4, 3817526, 690035))
+t=3313140 p=10976896659601 p%840=481 candidate letters=[1, 13, 254857, 3313139, 3313141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 261354682372, 21))
+t=3319980 p=11022267200401 p%840=121 candidate letters=[1, 7, 13, 17, 23, 119, 161, 391, 1213, 2737, 8491, 20621, 27899, 144347, 195293, 255383, 474283, 3319979, 3319981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (3, (3, 17330608806, 212))
+t=3365940 p=11329552083601 p%840=241 candidate letters=[1, 151, 331, 10169, 22291, 3365939, 3365941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 435752003216, 13))
+t=3378660 p=11415343395601 p%840=481 candidate letters=[1, 11, 13, 31, 73, 143, 1493, 2263, 23627, 46283, 108989, 259897, 307151, 3378659, 3378661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 271793890372, 21))
+t=3406380 p=11603424704401 p%840=481 candidate letters=[1, 11, 313, 10883, 309671, 3406379, 3406381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 276272016772, 21))
+t=3431580 p=11775741296401 p%840=481 candidate letters=[1, 181, 1021, 3361, 18959, 3431579, 3431581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 280374792772, 21))
+t=3478380 p=12099127424401 p%840=241 candidate letters=[1, 811, 4289, 3478379, 3478381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 1728446774915))
+t=3484380 p=12140903984401 p%840=241 candidate letters=[1, 29, 53, 61, 239, 1537, 2267, 14579, 57121, 65743, 120151, 3484379, 3484381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 164066270060, 37))
+t=3492660 p=12198673875601 p%840=241 candidate letters=[1, 1693, 2063, 3492659, 3492661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 33697994132, 181))
+t=3504660 p=12282641715601 p%840=481 candidate letters=[1, 59, 191, 311, 313, 11197, 11269, 18349, 59401, 3504659, 3504661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 292443850372, 21))
+t=3579780 p=12814824848401 p%840=121 candidate letters=[1, 7, 53, 313, 371, 9649, 11437, 67543, 511397, 3579779, 3579781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (1984, 2, 3230356655))
+t=3598260 p=12947475027601 p%840=121 candidate letters=[1, 7, 113, 791, 4549, 31843, 514037, 3598259, 3598261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 27315348160, 237))
+t=3629580 p=13173850976401 p%840=241 candidate letters=[1, 1013, 3583, 3629579, 3629581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 506686576016, 13))
+t=3645420 p=13289086976401 p%840=481 candidate letters=[1, 13, 61, 793, 4597, 59761, 280417, 3645419, 3645421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 316406832772, 21))
+t=3688260 p=13603261827601 p%840=481 candidate letters=[1, 19, 269, 13711, 194119, 3688259, 3688261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 323887186372, 21))
+t=3691140 p=13624514499601 p%840=481 candidate letters=[1, 31, 97, 38053, 119069, 3691139, 3691141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 324393202372, 21))
+t=3698580 p=13679494016401 p%840=241 candidate letters=[1, 31, 229, 521, 7099, 16151, 119309, 3698579, 3698581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 1954213430915))
+t=3702180 p=13706136752401 p%840=121 candidate letters=[1, 7, 13, 284783, 528883, 3702179, 3702181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (3, (3, 3235631906, 1412))
+t=3724860 p=13874582019601 p%840=121 candidate letters=[1, 7, 337, 1579, 2359, 11053, 532123, 3724859, 3724861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (3, (3, 11447674934, 404))
+t=3738660 p=13977578595601 p%840=481 candidate letters=[1, 3738659, 3738661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 332799490372, 21))
+t=3776340 p=14260743795601 p%840=121 candidate letters=[1, 7, 277, 643, 839, 4501, 5873, 13633, 539477, 3776339, 3776341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 417542420, 17077))
+t=3824220 p=14624658608401 p%840=121 candidate letters=[1, 7, 743, 5147, 546317, 3824219, 3824221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (15, 2, 504298572704))
+t=3841140 p=14754356499601 p%840=481 candidate letters=[1, 3841139, 3841141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 351294202372, 21))
+t=3886860 p=15107680659601 p%840=481 candidate letters=[1, 11, 53, 59, 61, 113, 583, 649, 1243, 3127, 5989, 6667, 34397, 63719, 65879, 73337, 353351, 3886859, 3886861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 359706682372, 21))
+t=3926940 p=15420857763601 p%840=241 candidate letters=[1, 19, 41, 71, 779, 1349, 2911, 5041, 55309, 95779, 206681, 3926939, 3926941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 2202979680515))
+t=4026180 p=16210125392401 p%840=241 candidate letters=[1, 97, 41507, 4026179, 4026181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 2315732198915))
+t=4122780 p=16997314928401 p%840=241 candidate letters=[1, 13, 103, 1339, 3079, 40027, 317137, 4122779, 4122781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 139322253512, 61))
+t=4151820 p=17237609312401 p%840=121 candidate letters=[1, 7, 49, 84731, 593117, 4151819, 4151821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (15580, 2, 553214459))
+t=4165860 p=17354389539601 p%840=121 candidate letters=[1, 7, 67, 97, 641, 6499, 42947, 62177, 595123, 4165859, 4165861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 36612636160, 237))
+t=4286220 p=18371681888401 p%840=121 candidate letters=[1, 7, 612317, 4286219, 4286221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 915927904, 10029))
+t=4308540 p=18563516931601 p%840=481 candidate letters=[1, 37, 116447, 4308539, 4308541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 441988498372, 21))
+t=4326060 p=18714795123601 p%840=241 candidate letters=[1, 61, 199, 21739, 70919, 4326059, 4326061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 2673542160515))
+t=4330020 p=18749073200401 p%840=481 candidate letters=[1, 17, 29, 493, 8783, 149311, 254707, 4330019, 4330021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 721118200016, 13))
+t=4332660 p=18771942675601 p%840=241 candidate letters=[1, 1597, 2713, 4332659, 4332661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 721997795216, 13))
+t=4342740 p=18859390707601 p%840=241 candidate letters=[1, 13, 67, 64817, 334057, 4342739, 4342741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 2694198672515))
+t=4373340 p=19126102755601 p%840=121 candidate letters=[1, 7, 691, 6329, 624763, 4373339, 4373341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (231, 2, 41488292312))
+t=4374660 p=19137650115601 p%840=241 candidate letters=[1, 17, 41, 277, 929, 4709, 15793, 106699, 257333, 4374659, 4374661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2934322312, 3261))
+t=4473660 p=20013633795601 p%840=481 candidate letters=[1, 23, 73, 61283, 194507, 4473659, 4473661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 476515090372, 21))
+t=4569780 p=20882889248401 p%840=481 candidate letters=[1, 4569779, 4569781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 803188048016, 13))
+t=4615140 p=21299517219601 p%840=481 candidate letters=[1, 4615139, 4615141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 507131362372, 21))
+t=4620180 p=21346063232401 p%840=481 candidate letters=[1, 613, 7537, 4620179, 4620181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 821002432016, 13))
+t=4687260 p=21970406307601 p%840=241 candidate letters=[1, 83, 233, 20117, 56473, 4687259, 4687261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 845015627216, 13))
+t=4692180 p=22016553152401 p%840=241 candidate letters=[1, 13, 61, 97, 793, 1109, 1261, 3721, 4231, 5917, 48373, 76921, 360937, 4692179, 4692181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 118368565336, 93))
+t=4704060 p=22128180483601 p%840=241 candidate letters=[1, 29, 941, 4999, 162209, 4704059, 4704061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 3161168640515))
+t=4721460 p=22292184531601 p%840=481 candidate letters=[1, 17, 29, 37, 61, 157, 493, 1037, 1769, 2669, 4553, 9577, 30073, 77401, 127607, 162809, 277733, 4721459, 4721461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 530766298372, 21))
+t=4721820 p=22295584112401 p%840=481 candidate letters=[1, 13, 363217, 4721819, 4721821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 530847240772, 21))
+t=4733580 p=22406779616401 p%840=481 candidate letters=[1, 149, 1279, 3701, 31769, 4733579, 4733581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 861799216016, 13))
+t=4854540 p=23566558611601 p%840=481 candidate letters=[1, 23, 211067, 4854539, 4854541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 561108538372, 21))
+t=4935660 p=24360739635601 p%840=481 candidate letters=[1, 17, 223, 227, 1279, 3859, 21743, 22133, 290333, 4935659, 4935661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 580017610372, 21))
+t=4967580 p=24676851056401 p%840=481 candidate letters=[1, 67, 74143, 4967579, 4967581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 949109656016, 13))
+t=4996140 p=24961414899601 p%840=481 candidate letters=[1, 167, 29917, 4996139, 4996141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 960054419216, 13))
+t=5000340 p=25003400115601 p%840=481 candidate letters=[1, 43, 103, 1129, 4429, 48547, 116287, 5000339, 5000341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 961669235216, 13))
+t=5030580 p=25306735136401 p%840=481 candidate letters=[1, 733, 6863, 5030579, 5030581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 602541312772, 21))
+t=5041020 p=25411882640401 p%840=481 candidate letters=[1, 43, 59, 1117, 1987, 2537, 4513, 85441, 117233, 5041019, 5041021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 605044824772, 21))
+t=5092140 p=25929889779601 p%840=241 candidate letters=[1, 13, 29, 169, 377, 1039, 4901, 13507, 30131, 175591, 391703, 5092139, 5092141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 3704269968515))
+t=5138340 p=26402537955601 p%840=241 candidate letters=[1, 13, 19, 71, 247, 293, 923, 1051, 1349, 3809, 4889, 5567, 17537, 20803, 72371, 270439, 395257, 5138339, 5138341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 3771791136515))
+t=5287740 p=27960194307601 p%840=241 candidate letters=[1, 5287739, 5287741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4287058312, 3261))
+t=5304660 p=28139417715601 p%840=241 candidate letters=[1, 2027, 2617, 5304659, 5304661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 59365860160, 237))
+t=5312820 p=28226056352401 p%840=481 candidate letters=[1, 41, 129581, 5312819, 5312821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1085617552016, 13))
+t=5355660 p=28683094035601 p%840=481 candidate letters=[1, 97, 599, 8941, 55213, 5355659, 5355661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 682930810372, 21))
+t=5385540 p=29004041091601 p%840=121 candidate letters=[1, 7, 49, 131, 839, 917, 1889, 2851, 5873, 6419, 41111, 109909, 769363, 5385539, 5385541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 445763396, 32533))
+t=5411940 p=29289094563601 p%840=481 candidate letters=[1, 13, 19, 211, 1973, 2743, 25649, 284839, 416303, 5411939, 5411941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 697359394372, 21))
+t=5467260 p=29890931907601 p%840=121 candidate letters=[1, 7, 23, 137, 959, 5701, 39907, 237707, 781037, 5467259, 5467261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1149651227216, 13))
+t=5536140 p=30648846099601 p%840=121 candidate letters=[1, 7, 13, 359, 2203, 2513, 15421, 425857, 790877, 5536139, 5536141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (4, (4, 71609453504, 107))
+t=5611740 p=31491625827601 p%840=121 candidate letters=[1, 7, 97, 57853, 801677, 5611739, 5611741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (4, (141, 4, 55935392234))
+t=5613420 p=31510484096401 p%840=121 candidate letters=[1, 7, 11, 347, 2311, 2429, 16177, 510311, 801917, 5613419, 5613421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1211941696016, 13))
+t=5616420 p=31544173616401 p%840=481 candidate letters=[1, 19, 1033, 5437, 295601, 5616419, 5616421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 751051752772, 21))
+t=5628660 p=31681813395601 p%840=481 candidate letters=[1, 59, 95401, 5628659, 5628661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 754328890372, 21))
+t=5643420 p=31848189296401 p%840=121 candidate letters=[1, 7, 83, 67993, 806203, 5643419, 5643421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (1239, 2, 12857565320))
+t=5679060 p=32251722483601 p%840=481 candidate letters=[1, 97, 127, 137, 461, 12319, 41453, 44717, 58547, 5679059, 5679061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 767898154372, 21))
+t=5689140 p=32366313939601 p%840=481 candidate letters=[1, 5689139, 5689141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 770626522372, 21))
+t=5715420 p=32666025776401 p%840=241 candidate letters=[1, 307, 1153, 4957, 18617, 5715419, 5715421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 42868800232, 381))
+t=5784060 p=33455350083601 p%840=481 candidate letters=[1, 43, 134513, 5784059, 5784061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 796555954372, 21))
+t=5829540 p=33983536611601 p%840=241 candidate letters=[1, 1627, 3583, 5829539, 5829541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 4854790944515))
+t=5930220 p=35167509248401 p%840=481 candidate letters=[1, 11, 1823, 3253, 539111, 5930219, 5930221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 837321648772, 21))
+t=5969220 p=35631587408401 p%840=481 candidate letters=[1, 823, 7253, 5969219, 5969221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 848371128772, 21))
+t=5977380 p=35729071664401 p%840=241 candidate letters=[1, 19, 314599, 5977379, 5977381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1374195064016, 13))
+t=6124260 p=37506560547601 p%840=481 candidate letters=[1, 11, 13, 59, 113, 143, 379, 1243, 1469, 4169, 4927, 16159, 42827, 54197, 103801, 471097, 556751, 6124259, 6124261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 893013346372, 21))
+t=6149820 p=37820286032401 p%840=481 candidate letters=[1, 13, 103, 367, 1289, 4771, 16757, 59707, 473063, 6149819, 6149821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 900483000772, 21))
+t=6197340 p=38407023075601 p%840=481 candidate letters=[1, 1031, 6011, 6197339, 6197341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1477193195216, 13))
+t=6199140 p=38429336739601 p%840=241 candidate letters=[1, 13, 281, 1697, 2459, 2521, 3653, 22061, 476857, 6199139, 6199141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 5489905248515))
+t=6260820 p=39197867072401 p%840=121 candidate letters=[1, 7, 2113, 2963, 894403, 6260819, 6260821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1507610272016, 13))
+t=6268260 p=39291083427601 p%840=481 candidate letters=[1, 23, 1733, 3617, 272533, 6268259, 6268261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 935501986372, 21))
+t=6287340 p=39530644275601 p%840=241 candidate letters=[1, 137, 173, 36343, 45893, 6287339, 6287341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1520409395216, 13))
+t=6358260 p=40427470227601 p%840=121 candidate letters=[1, 7, 13, 91, 107, 179, 653, 749, 1391, 4571, 8489, 9737, 35521, 59423, 69871, 489097, 908323, 6358259, 6358261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (15, 2, 1394050697504))
+t=6358980 p=40436626640401 p%840=481 candidate letters=[1, 11, 293, 1973, 3223, 21703, 578089, 6358979, 6358981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 962776824772, 21))
+t=6361140 p=40464102099601 p%840=481 candidate letters=[1, 61, 104281, 6361139, 6361141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1556311619216, 13))
+t=6409380 p=41080151984401 p%840=481 candidate letters=[1, 11, 103, 1133, 5657, 62227, 582671, 6409379, 6409381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 978098856772, 21))
+t=6424260 p=41271116547601 p%840=241 candidate letters=[1, 19, 661, 9719, 338119, 6424259, 6424261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 189317048384, 109))
+t=6436380 p=41426987504401 p%840=121 candidate letters=[1, 7, 163, 1141, 5641, 39487, 919483, 6436379, 6436381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (3, (3, 65136772806, 212))
+t=6518220 p=42487191968401 p%840=481 candidate letters=[1, 41, 251, 25969, 158981, 6518219, 6518221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1634122768016, 13))
+t=6552660 p=42937353075601 p%840=481 candidate letters=[1, 41, 71, 233, 2251, 2911, 28123, 92291, 159821, 6552659, 6552661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1022317930372, 21))
+t=6630180 p=43959286832401 p%840=241 candidate letters=[1, 1381, 1697, 3907, 4801, 6630179, 6630181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2379521860, 9237))
+t=6646620 p=44177557424401 p%840=121 candidate letters=[1, 7, 61, 108961, 949517, 6646619, 6646621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1699136824016, 13))
+t=6652740 p=44258949507601 p%840=241 candidate letters=[1, 6652739, 6652741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 6322707072515))
+t=6673020 p=44529195920401 p%840=241 candidate letters=[1, 853, 7823, 6673019, 6673021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 97225318604, 229))
+t=6709980 p=45023831600401 p%840=241 candidate letters=[1, 31, 216451, 6709979, 6709981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 86532040, 260157))
+t=6787020 p=46063640480401 p%840=481 candidate letters=[1, 37, 53, 1961, 3461, 128057, 183433, 6787019, 6787021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1771678480016, 13))
+t=6793980 p=46158164240401 p%840=241 candidate letters=[1, 277, 283, 24007, 24527, 6793979, 6793981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 248162173336, 93))
+t=6840060 p=46786420803601 p%840=241 candidate letters=[1, 439, 15581, 6840059, 6840061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1799477723216, 13))
+t=6858660 p=47041216995601 p%840=241 candidate letters=[1, 739, 9281, 6858659, 6858661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 906696292, 25941))
+t=6875940 p=47278550883601 p%840=121 candidate letters=[1, 7, 17, 119, 57781, 404467, 982277, 6875939, 6875941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1818405803216, 13))
+t=6887940 p=47443717443601 p%840=241 candidate letters=[1, 17, 419, 967, 1459, 4721, 7123, 16439, 405173, 6887939, 6887941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1824758363216, 13))
+t=6927540 p=47990810451601 p%840=241 candidate letters=[1, 31, 71, 97571, 223469, 6927539, 6927541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 9718673644, 2469))
+t=6939420 p=48155549936401 p%840=481 candidate letters=[1, 61, 89, 103, 757, 9167, 67373, 77971, 113761, 6939419, 6939421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1852136536016, 13))
+t=6954180 p=48360619472401 p%840=481 candidate letters=[1, 13, 169, 1879, 3701, 41149, 534937, 6954179, 6954181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1151443320772, 21))
+t=7042260 p=49593425907601 p%840=121 candidate letters=[1, 7, 241, 29221, 1006037, 7042259, 7042261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 157940846840, 157))
+t=7063260 p=49889641827601 p%840=121 candidate letters=[1, 7, 73, 96757, 1009037, 7063259, 7063261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 137816690132, 181))
+t=7119660 p=50689558515601 p%840=481 candidate letters=[1, 19, 653, 10903, 374719, 7119659, 7119661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1206894250372, 21))
+t=7171980 p=51437297120401 p%840=241 candidate letters=[1, 59, 121559, 7171979, 7171981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 421617189512, 61))
+t=7177980 p=51523396880401 p%840=481 candidate letters=[1, 47, 152723, 7177979, 7177981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1226747544772, 21))
+t=7195740 p=51778674147601 p%840=121 candidate letters=[1, 7, 29, 89, 203, 233, 347, 20737, 30883, 35447, 80851, 248129, 1027963, 7195739, 7195741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1991487467216, 13))
+t=7239660 p=52412676915601 p%840=121 candidate letters=[1, 7, 11, 13, 143, 50627, 556897, 658151, 1034237, 7239659, 7239661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (16, 2, 1690731513407))
+t=7253340 p=52610941155601 p%840=241 candidate letters=[1, 17, 131, 347, 2227, 3257, 20903, 55369, 426667, 7253339, 7253341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 7515848736515))
+t=7279980 p=52998108800401 p%840=121 candidate letters=[1, 7, 49, 101, 707, 1471, 4949, 10297, 72079, 148571, 1039997, 7279979, 7279981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2038388800016, 13))
+t=7339260 p=53864737347601 p%840=481 candidate letters=[1, 523, 587, 12503, 14033, 7339259, 7339261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2071720667216, 13))
+t=7348260 p=53996925027601 p%840=241 candidate letters=[1, 7348259, 7348261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 290306048536, 93))
+t=7373460 p=54367912371601 p%840=241 candidate letters=[1, 17, 103, 1751, 4211, 71587, 433733, 7373459, 7373461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 38383004, 708229))
+t=7398420 p=54736618496401 p%840=121 candidate letters=[1, 7, 1056917, 7398419, 7398421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (4, (12, 4, 1164608904179))
+t=7409580 p=54901875776401 p%840=241 candidate letters=[1, 2309, 3209, 7409579, 7409581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 45981470500, 597))
+t=7448340 p=55477768755601 p%840=241 candidate letters=[1, 31, 97, 269, 2477, 3007, 27689, 76787, 240269, 7448339, 7448341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 7925395536515))
+t=7454940 p=55576130403601 p%840=241 candidate letters=[1, 13, 271, 27509, 573457, 7454939, 7454941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 7939447200515))
+t=7458060 p=55622658963601 p%840=121 candidate letters=[1, 7, 13, 317, 563, 1019, 2219, 3361, 7319, 13247, 23527, 573697, 1065437, 7458059, 7458061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (16, 2, 1794279321407))
+t=7460580 p=55660253936401 p%840=121 candidate letters=[1, 7, 23, 131, 149, 161, 311, 1043, 2177, 3427, 7153, 23989, 46339, 50071, 56951, 324373, 1065797, 7460579, 7460581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (268096, 2, 103806767))
+t=7485540 p=56033309091601 p%840=121 candidate letters=[1, 7, 31, 241469, 1069363, 7485539, 7485541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4299, 2, 6517774700))
+t=7517220 p=56508596528401 p%840=241 candidate letters=[1, 31, 613, 12263, 242491, 7517219, 7517221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3077475032, 9181))
+t=7525740 p=56636762547601 p%840=481 candidate letters=[1, 13, 169, 44531, 578903, 7525739, 7525741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1348494346372, 21))
+t=7564740 p=57225291267601 p%840=121 candidate letters=[1, 7, 13, 91, 97, 679, 857, 1261, 1523, 4967, 5999, 8827, 11141, 77987, 83129, 581903, 1080677, 7564739, 7564741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 773314746860, 37))
+t=7592820 p=57650915552401 p%840=241 candidate letters=[1, 13, 584063, 7592819, 7592821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 8235845078915))
+t=7604340 p=57825986835601 p%840=481 candidate letters=[1, 1283, 1523, 4993, 5927, 7604339, 7604341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1376809210372, 21))
+t=7611060 p=57928234323601 p%840=481 candidate letters=[1, 59, 129001, 7611059, 7611061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1379243674372, 21))
+t=7624740 p=58136660067601 p%840=241 candidate letters=[1, 53, 293, 491, 15529, 26023, 143863, 7624739, 7624741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2236025387216, 13))
+t=7637340 p=58328962275601 p%840=241 candidate letters=[1, 107, 137, 521, 14659, 55747, 71377, 7637339, 7637341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 8332708896515))
+t=7708380 p=59419122224401 p%840=121 candidate letters=[1, 7, 23, 89, 461, 623, 727, 10603, 12373, 16721, 86611, 335147, 1101197, 7708379, 7708381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (16, 2, 1916745878207))
+t=7720620 p=59607973184401 p%840=481 candidate letters=[1, 7720619, 7720621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1419237456772, 21))
+t=7797180 p=60796015952401 p%840=121 candidate letters=[1, 7, 13, 599783, 1113883, 7797179, 7797181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 16058113036, 1893))
+t=7801260 p=60859657587601 p%840=481 candidate letters=[1, 13, 29, 377, 20693, 269009, 600097, 7801259, 7801261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1449039466372, 21))
+t=7822740 p=61195261107601 p%840=481 candidate letters=[1, 7822739, 7822741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1457030026372, 21))
+t=7841580 p=61490376896401 p%840=481 candidate letters=[1, 11, 151, 373, 1661, 4721, 21023, 51931, 712871, 7841579, 7841581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2365014496016, 13))
+t=7886940 p=62203822563601 p%840=481 candidate letters=[1, 809, 9749, 7886939, 7886941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1481043394372, 21))
+t=7971420 p=63543536816401 p%840=481 candidate letters=[1, 17, 61, 181, 1037, 7687, 44041, 130679, 468907, 7971419, 7971421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1512941352772, 21))
+t=8050260 p=64806686067601 p%840=121 candidate letters=[1, 7, 49, 164291, 1150037, 8050259, 8050261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 13828312, 2343261))
+t=8069340 p=65114248035601 p%840=121 candidate letters=[1, 7, 17, 474667, 1152763, 8069339, 8069341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2504394155216, 13))
+t=8128020 p=66064709120401 p%840=481 candidate letters=[1, 11, 109, 1199, 6779, 74569, 738911, 8128019, 8128021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1572969264772, 21))
+t=8168340 p=66721778355601 p%840=481 candidate letters=[1, 193, 42323, 8168339, 8168341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1588613770372, 21))
+t=8198940 p=67222617123601 p%840=121 candidate letters=[1, 7, 37, 43, 53, 113, 301, 1369, 1961, 4181, 5989, 27239, 72557, 154697, 190673, 221593, 1171277, 8198939, 8198941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 33712445900, 997))
+t=8203620 p=67299381104401 p%840=481 candidate letters=[1, 389, 21089, 8203619, 8203621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1602366216772, 21))
+t=8250420 p=68069430176401 p%840=241 candidate letters=[1, 1543, 5347, 8250419, 8250421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 9724204310915))
+t=8307660 p=69017214675601 p%840=241 candidate letters=[1, 29, 31, 899, 9241, 267989, 286471, 8307659, 8307661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 41626788104, 829))
+t=8314260 p=69126919347601 p%840=241 candidate letters=[1, 241, 859, 9679, 34499, 8314259, 8314261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2658727667216, 13))
+t=8354460 p=69797001891601 p%840=481 candidate letters=[1, 59, 141601, 8354459, 8354461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1661833378372, 21))
+t=8357820 p=69853155152401 p%840=481 candidate letters=[1, 37, 113, 1999, 2273, 3677, 4181, 73963, 225887, 8357819, 8357821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1663170360772, 21))
+t=8368980 p=70039826240401 p%840=241 candidate letters=[1, 17, 492293, 8368979, 8368981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 10005689462915))
+t=8464020 p=71639634560401 p%840=481 candidate letters=[1, 107, 79103, 8464019, 8464021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2755370560016, 13))
+t=8543460 p=72990708771601 p%840=481 candidate letters=[1, 8543459, 8543461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1737874018372, 21))
+t=8557140 p=73224644979601 p%840=241 candidate letters=[1, 61, 140281, 8557139, 8557141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2816332499216, 13))
+t=8561940 p=73306816563601 p%840=481 candidate letters=[1, 79, 108379, 8561939, 8561941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1745400394372, 21))
+t=8586420 p=73726608416401 p%840=241 candidate letters=[1, 61, 140761, 8586419, 8586421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 10532372630915))
+t=8614140 p=74203407939601 p%840=241 candidate letters=[1, 41, 829, 10391, 210101, 8614139, 8614141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 10600486848515))
+t=8682540 p=75386500851601 p%840=121 candidate letters=[1, 7, 883, 9833, 1240363, 8682539, 8682541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (64, 2, 593594494895))
+t=8698380 p=75661814624401 p%840=481 candidate letters=[1, 463, 503, 17293, 18787, 8698379, 8698381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1801471776772, 21))
+t=8721660 p=76067353155601 p%840=241 candidate letters=[1, 13, 461, 18919, 670897, 8721659, 8721661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 10866764736515))
+t=8731860 p=76245379059601 p%840=241 candidate letters=[1, 8731859, 8731861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2932514579216, 13))
+t=8811420 p=77641122416401 p%840=481 candidate letters=[1, 19, 47, 167, 2777, 3173, 52763, 187477, 463759, 8811419, 8811421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2986197016016, 13))
+t=8816460 p=77729966931601 p%840=481 candidate letters=[1, 1171, 7529, 8816459, 8816461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1850713498372, 21))
+t=8825340 p=77886626115601 p%840=121 candidate letters=[1, 7, 49, 131, 233, 773, 1631, 5411, 11417, 37877, 67369, 180109, 1260763, 8825339, 8825341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (3314271, 2, 11750192))
+t=8842620 p=78191928464401 p%840=241 candidate letters=[1, 19, 61, 223, 2087, 4237, 39653, 144961, 465401, 8842619, 8842621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3007381864016, 13))
+t=9004620 p=81083181344401 p%840=481 candidate letters=[1, 13, 692663, 9004619, 9004621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1930551936772, 21))
+t=9211380 p=84849521504401 p%840=241 candidate letters=[1, 839, 10979, 9211379, 9211381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3973472020, 10677))
+t=9217380 p=84960094064401 p%840=241 candidate letters=[1, 1867, 4937, 9217379, 9217381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 113887525556, 373))
+t=9218940 p=84988854723601 p%840=241 candidate letters=[1, 263, 733, 12577, 35053, 9218939, 9218941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7300193672, 5821))
+t=9233340 p=85254567555601 p%840=241 candidate letters=[1, 13, 29, 841, 10979, 318391, 710257, 9233339, 9233341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1871834356, 22773))
+t=9234780 p=85281161648401 p%840=481 candidate letters=[1, 19, 257, 35933, 486041, 9234779, 9234781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2030503848772, 21))
+t=9249420 p=85551770336401 p%840=481 candidate letters=[1, 9249419, 9249421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2036946912772, 21))
+t=9252780 p=85613937728401 p%840=481 candidate letters=[1, 113, 81883, 9252779, 9252781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2038427088772, 21))
+t=9277140 p=86065326579601 p%840=481 candidate letters=[1, 9277139, 9277141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2049174442372, 21))
+t=9364260 p=87689365347601 p%840=241 candidate letters=[1, 71, 239, 39181, 131891, 9364259, 9364261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 12527052192515))
+t=9365340 p=87709593315601 p%840=481 candidate letters=[1, 227, 41257, 9365339, 9365341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2088323650372, 21))
+t=9410460 p=88556757411601 p%840=241 candidate letters=[1, 2719, 3461, 9410459, 9410461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3406029131216, 13))
+t=9457620 p=89446576064401 p%840=241 candidate letters=[1, 9457619, 9457621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 12778082294915))
+t=9494580 p=90147049376401 p%840=241 candidate letters=[1, 53, 179143, 9494579, 9494581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 12878149910915))
+t=9526620 p=90756488624401 p%840=481 candidate letters=[1, 13, 19, 501401, 732817, 9526619, 9526621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2160868776772, 21))
+t=9618780 p=92520928688401 p%840=241 candidate letters=[1, 37, 2069, 4649, 259967, 9618779, 9618781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 13217275526915))
+t=9645060 p=93027182403601 p%840=481 candidate letters=[1, 31, 241, 701, 1291, 7471, 13759, 40021, 311131, 9645059, 9645061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2214932914372, 21))
+t=9693660 p=93967044195601 p%840=241 candidate letters=[1, 9693659, 9693661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 13423863456515))
+t=9778380 p=95616715424401 p%840=241 candidate letters=[1, 13, 23, 425147, 752183, 9778379, 9778381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 56047312676, 853))
+t=9826260 p=96555385587601 p%840=241 candidate letters=[1, 2477, 3967, 9826259, 9826261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 106573273276, 453))
+t=9834060 p=96708736083601 p%840=481 candidate letters=[1, 59, 67, 146777, 166679, 9834059, 9834061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2302588954372, 21))
+t=9855060 p=97122207603601 p%840=481 candidate letters=[1, 37, 89, 110731, 266353, 9855059, 9855061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3735469523216, 13))
+t=9900060 p=98011188003601 p%840=481 candidate letters=[1, 13, 2351, 4211, 761543, 9900059, 9900061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2333599714372, 21))
+t=9933060 p=98665680963601 p%840=241 candidate letters=[1, 109, 91129, 9933059, 9933061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3794833883216, 13))
+t=9942180 p=98846943152401 p%840=241 candidate letters=[1, 13, 764783, 9942179, 9942181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1335769502060, 37))
+t=9970140 p=99403691619601 p%840=481 candidate letters=[1, 9970139, 9970141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2366754562372, 21))
+t=10006980 p=100139648720401 p%840=241 candidate letters=[1, 101, 1637, 6113, 99079, 10006979, 10006981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 14305664102915))
+t=10011660 p=100233335955601 p%840=121 candidate letters=[1, 7, 11, 97, 121, 853, 1067, 9383, 11737, 82741, 103213, 910151, 1430237, 10011659, 10011661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (15, 2, 3456321929504))
+t=10150620 p=103035086384401 p%840=241 candidate letters=[1, 13, 1783, 5693, 780817, 10150619, 10150621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 553952077336, 93))
+t=10153020 p=103083815120401 p%840=241 candidate letters=[1, 103, 98573, 10153019, 10153021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3964762120016, 13))
+t=10162140 p=103269089379601 p%840=481 candidate letters=[1, 11, 13, 17, 31, 157, 169, 187, 341, 383, 527, 1753, 2041, 4979, 5797, 19283, 26533, 29801, 54343, 60131, 64727, 327811, 597773, 781703, 923831, 10162139, 10162141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2458787842372, 21))
+t=10208460 p=104212655571601 p%840=241 candidate letters=[1, 79, 129221, 10208459, 10208461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 139695248756, 373))
+t=10250220 p=105067010048401 p%840=121 candidate letters=[1, 7, 37, 89, 449, 617, 623, 16453, 16613, 22829, 115171, 277033, 1464317, 10250219, 10250221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4041038848016, 13))
+t=10277580 p=105628650656401 p%840=481 candidate letters=[1, 13, 790583, 10277579, 10277581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2514967872772, 21))
+t=10358940 p=107307637923601 p%840=241 candidate letters=[1, 47, 220403, 10358939, 10358941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4127216843216, 13))
+t=10388460 p=107920101171601 p%840=481 candidate letters=[1, 19, 503, 1087, 9557, 20653, 546761, 10388459, 10388461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2569526218372, 21))
+t=10397580 p=108109669856401 p%840=241 candidate letters=[1, 19, 389, 26729, 547241, 10397579, 10397581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 52943031272, 1021))
+t=10412580 p=108421822256401 p%840=241 candidate letters=[1, 43, 103, 2351, 4429, 101093, 242153, 10412579, 10412581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 15488831750915))
+t=10422780 p=108634342928401 p%840=241 candidate letters=[1, 113, 1637, 6367, 92237, 10422779, 10422781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 498322673984, 109))
+t=10428420 p=108751943696401 p%840=481 candidate letters=[1, 10428419, 10428421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2589331992772, 21))
+t=10429140 p=108766961139601 p%840=121 candidate letters=[1, 7, 193, 337, 2359, 4421, 30947, 54037, 1489877, 10429139, 10429141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4183344659216, 13))
+t=10457940 p=109368509043601 p%840=241 candidate letters=[1, 13, 17, 23, 37, 79, 221, 599, 851, 1027, 1343, 7787, 10183, 12289, 17459, 47321, 132379, 282647, 454693, 615173, 804457, 10457939, 10457941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 18746744780, 2917))
+t=10471620 p=109654825424401 p%840=481 candidate letters=[1, 10471619, 10471621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2610829176772, 21))
+t=10508460 p=110427731571601 p%840=241 candidate letters=[1, 13, 808343, 10508459, 10508461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1492266642860, 37))
+t=10596540 p=112286659971601 p%840=241 candidate letters=[1, 37, 137, 77347, 286393, 10596539, 10596541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4318717691216, 13))
+t=10714260 p=114795367347601 p%840=241 candidate letters=[1, 47, 139, 311, 733, 14617, 34451, 77081, 227963, 10714259, 10714261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 9006383756, 6373))
+t=10738380 p=115312805024401 p%840=481 candidate letters=[1, 29, 61, 349, 401, 439, 1061, 10121, 24461, 26779, 30769, 176039, 370289, 10738379, 10738381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2745542976772, 21))
+t=10741980 p=115390134320401 p%840=241 candidate letters=[1, 2521, 2741, 3919, 4261, 10741979, 10741981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 16484304902915))
+t=10744980 p=115454595200401 p%840=121 candidate letters=[1, 7, 13, 23, 97, 161, 1261, 8521, 66739, 110773, 467173, 826537, 1534997, 10744979, 10744981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 243575095360, 237))
+t=10784580 p=116307165776401 p%840=481 candidate letters=[1, 13, 17, 221, 48799, 634387, 829583, 10784579, 10784581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2769218232772, 21))
+t=10809660 p=116848749315601 p%840=121 candidate letters=[1, 7, 37, 463, 631, 677, 2281, 4739, 15967, 17131, 23347, 292153, 1544237, 10809659, 10809661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 146384080, 399117))
+t=10860060 p=117940903203601 p%840=121 candidate letters=[1, 7, 17, 119, 263, 347, 419, 1841, 2429, 4471, 5899, 25919, 31297, 41293, 91261, 638827, 1551437, 10860059, 10860061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (3, (3, 338910641390, 116))
+t=10876980 p=118308693920401 p%840=481 candidate letters=[1, 43, 67, 443, 571, 19049, 24553, 162343, 252953, 10876979, 10876981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2816873664772, 21))
+t=10959540 p=120111517011601 p%840=241 candidate letters=[1, 43, 254873, 10959539, 10959541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4619673731216, 13))
+t=10973940 p=120427359123601 p%840=481 candidate letters=[1, 11, 37, 59, 407, 457, 649, 2183, 5027, 16909, 24013, 26963, 185999, 296593, 997631, 10973939, 10973941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2867318074372, 21))
+t=11011620 p=121255775024401 p%840=241 candidate letters=[1, 19, 29, 251, 431, 881, 2309, 4769, 12499, 25549, 43871, 379711, 579559, 11011619, 11011621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 255813871360, 237))
+t=11044380 p=121978329584401 p%840=241 candidate letters=[1, 103, 3119, 3541, 107227, 11044379, 11044381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3653577236, 16693))
+t=11089740 p=122982333267601 p%840=241 candidate letters=[1, 13, 61, 137, 1327, 8357, 80947, 181799, 853057, 11089739, 11089741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 17568904752515))
+t=11134020 p=123966401360401 p%840=481 candidate letters=[1, 13, 19, 247, 45077, 586001, 856463, 11134019, 11134021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2951580984772, 21))
+t=11134140 p=123969073539601 p%840=241 candidate letters=[1, 23, 101, 1087, 2323, 4793, 10243, 110239, 484093, 11134139, 11134141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 17709867648515))
+t=11135940 p=124009159683601 p%840=241 candidate letters=[1, 227, 49057, 11135939, 11135941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 17715594240515))
+t=11166780 p=124696975568401 p%840=481 candidate letters=[1, 13, 431, 541, 1993, 5603, 20641, 25909, 858983, 11166779, 11166781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 2968975608772, 21))
+t=11173740 p=124852465587601 p%840=241 candidate letters=[1, 37, 1093, 10223, 301993, 11173739, 11173741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4802017907216, 13))
+t=11176260 p=124908787587601 p%840=241 candidate letters=[1, 17, 43, 431, 731, 15289, 25931, 259913, 657427, 11176259, 11176261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 115442502392, 541))
+t=11203620 p=125521101104401 p%840=121 candidate letters=[1, 7, 11, 13, 41, 103, 143, 287, 379, 721, 2653, 4223, 15539, 29561, 39037, 78347, 108773, 273259, 861817, 1018511, 1600517, 11203619, 11203621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (51, 2, 1242783179252))
+t=11212260 p=125714774307601 p%840=241 candidate letters=[1, 19, 2861, 3919, 590119, 11212259, 11212261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4835183627216, 13))
+t=11224860 p=125997482019601 p%840=241 candidate letters=[1, 631, 2339, 4799, 17789, 11224859, 11224861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 17999640288515))
+t=11230620 p=126126825584401 p%840=481 candidate letters=[1, 541, 20759, 11230619, 11230621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3003019656772, 21))
+t=11297940 p=127643448243601 p%840=241 candidate letters=[1, 11297939, 11297941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 20013083764, 3189))
+t=11322060 p=128189042643601 p%840=121 candidate letters=[1, 7, 1617437, 11322059, 11322061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 20149173632, 3181))
+t=11342580 p=128654121056401 p%840=241 candidate letters=[1, 683, 16607, 11342579, 11342581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 18379160150915))
+t=11363460 p=129128223171601 p%840=241 candidate letters=[1, 59, 821, 13841, 192601, 11363459, 11363461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 18446889024515))
+t=11535060 p=133057609203601 p%840=481 candidate letters=[1, 17, 787, 14657, 678533, 11535059, 11535061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3168038314372, 21))
+t=11571180 p=133892206592401 p%840=481 candidate letters=[1, 449, 25771, 11571179, 11571181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3187909680772, 21))
+t=11572620 p=133925533664401 p%840=241 candidate letters=[1, 41, 127, 239, 293, 311, 1181, 9799, 37211, 39497, 48421, 91123, 282259, 11572619, 11572621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5150982064016, 13))
+t=11584380 p=134197859984401 p%840=241 candidate letters=[1, 2099, 5519, 11584379, 11584381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 82532509216, 813))
+t=11588820 p=134300748992401 p%840=481 candidate letters=[1, 11, 53, 218657, 1053529, 11588819, 11588821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3197636880772, 21))
+t=11616420 p=134941213616401 p%840=241 candidate letters=[1, 2203, 5273, 11616419, 11616421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 607203280, 111117))
+t=11650740 p=135739742547601 p%840=241 candidate letters=[1, 11650739, 11650741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 168379420, 403077))
+t=11732340 p=137647801875601 p%840=241 candidate letters=[1, 73, 173, 929, 12629, 67817, 160717, 11732339, 11732341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1128260671112, 61))
+t=11754780 p=138174852848401 p%840=481 candidate letters=[1, 43, 273367, 11754779, 11754781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3289877448772, 21))
+t=11812740 p=139540826307601 p%840=481 candidate letters=[1, 17, 449, 26309, 694867, 11812739, 11812741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3322400626372, 21))
+t=11854020 p=140517790160401 p%840=241 candidate letters=[1, 283, 41887, 11854019, 11854021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 20073970022915))
+t=11903820 p=141700930592401 p%840=481 candidate letters=[1, 43, 139, 85639, 276833, 11903819, 11903821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5450035792016, 13))
+t=11958780 p=143012419088401 p%840=121 candidate letters=[1, 7, 23, 519947, 1708397, 11958779, 11958781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1309709500, 54597))
+t=12109740 p=146645802867601 p%840=121 candidate letters=[1, 7, 967, 1319, 1789, 6769, 9181, 12523, 1729963, 12109739, 12109741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5640223187216, 13))
+t=12154620 p=147734787344401 p%840=481 candidate letters=[1, 113, 271, 44851, 107563, 12154619, 12154621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3517494936772, 21))
+t=12156780 p=147787299968401 p%840=121 candidate letters=[1, 7, 13, 91, 103, 721, 941, 1297, 1339, 9079, 9373, 12919, 16861, 118027, 133591, 935137, 1736683, 12156779, 12156781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (4, (4, 321276739062, 115))
+t=12198540 p=148804378131601 p%840=241 candidate letters=[1, 43, 283687, 12198539, 12198541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 21257768304515))
+t=12262020 p=150357134480401 p%840=121 candidate letters=[1, 7, 11, 31, 77, 121, 217, 341, 467, 847, 2387, 3269, 3751, 5137, 14477, 26257, 35959, 56507, 101339, 159247, 395549, 1114729, 1751717, 12262019, 12262021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 165957102076, 453))
+t=12268860 p=150524925699601 p%840=481 candidate letters=[1, 11, 1483, 8273, 1115351, 12268859, 12268861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5789420219216, 13))
+t=12283980 p=150896164640401 p%840=481 candidate letters=[1, 17, 67, 547, 1321, 9299, 22457, 183343, 722587, 12283979, 12283981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5803698640016, 13))
+t=12301140 p=151318045299601 p%840=481 candidate letters=[1, 31, 43, 53, 1643, 7487, 232097, 286073, 396811, 12301139, 12301141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5819924819216, 13))
+t=12313380 p=151619327024401 p%840=481 candidate letters=[1, 13, 947183, 12313379, 12313381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3609983976772, 21))
+t=12333180 p=152107328912401 p%840=121 candidate letters=[1, 7, 1761883, 12333179, 12333181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (4, (1028457, 4, 36974654))
+t=12360540 p=152782949091601 p%840=241 candidate letters=[1, 12360539, 12360541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 21826135584515))
+t=12372180 p=153070837952401 p%840=481 candidate letters=[1, 227, 613, 20183, 54503, 12372179, 12372181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3644543760772, 21))
+t=12382980 p=153338193680401 p%840=121 candidate letters=[1, 7, 13, 31, 59, 403, 413, 29983, 30727, 209881, 399451, 952537, 1768997, 12382979, 12382981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (3, (3, 241097788806, 212))
+t=12423660 p=154347327795601 p%840=241 candidate letters=[1, 181, 1319, 9419, 68639, 12423659, 12423661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1265142031112, 61))
+t=12439740 p=154747131267601 p%840=481 candidate letters=[1, 13, 1303, 9547, 956903, 12439739, 12439741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3684455506372, 21))
+t=12442260 p=154809833907601 p%840=481 candidate letters=[1, 13, 957097, 12442259, 12442261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3685948426372, 21))
+t=12462540 p=155314903251601 p%840=121 candidate letters=[1, 7, 13, 91, 136951, 958657, 1780363, 12462539, 12462541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 24050000504, 3229))
+t=12480540 p=155763878691601 p%840=481 candidate letters=[1, 61, 197, 63353, 204599, 12480539, 12480541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5990918411216, 13))
+t=12496620 p=156165511424401 p%840=241 candidate letters=[1, 373, 33503, 12496619, 12496621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6006365824016, 13))
+t=12517620 p=156690810464401 p%840=241 candidate letters=[1, 251, 1367, 9157, 49871, 12517619, 12517621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 22384401494915))
+t=12597180 p=158688943952401 p%840=121 candidate letters=[1, 7, 283, 1981, 6359, 44513, 1799597, 12597179, 12597181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 853166365336, 93))
+t=12599220 p=158740344608401 p%840=241 candidate letters=[1, 2087, 6037, 12599219, 12599221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 370478360, 214237))
+t=12600660 p=158776632435601 p%840=481 candidate letters=[1, 101, 124759, 12600659, 12600661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6106793555216, 13))
+t=12601860 p=158806875459601 p%840=481 candidate letters=[1, 23, 71, 1633, 2027, 6217, 7717, 177491, 547907, 12601859, 12601861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3781116082372, 21))
+t=12825060 p=164482164003601 p%840=241 candidate letters=[1, 13, 619, 20719, 986543, 12825059, 12825061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 44191876412, 1861))
+t=12880380 p=165904188944401 p%840=481 candidate letters=[1, 29, 1069, 12049, 444151, 12880379, 12880381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6380930344016, 13))
+t=12994140 p=168847674339601 p%840=481 candidate letters=[1, 37, 149, 1259, 2357, 5513, 10321, 87209, 351193, 12994139, 12994141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4020182722372, 21))
+t=13003140 p=169081649859601 p%840=241 candidate letters=[1, 97, 677, 19207, 134053, 13003139, 13003141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6503140379216, 13))
+t=13071540 p=170865157971601 p%840=121 candidate letters=[1, 7, 13, 197, 1379, 9479, 66353, 1005503, 1867363, 13071539, 13071541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (16, 2, 5511779289407))
+t=13086660 p=171260669955601 p%840=121 candidate letters=[1, 7, 1181, 1583, 8267, 11081, 1869523, 13086659, 13086661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (184, 2, 466650326855))
+t=13105380 p=171750984944401 p%840=121 candidate letters=[1, 7, 97, 679, 1873, 6997, 19301, 135107, 1872197, 13105379, 13105381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 310019828420, 277))
+t=13125660 p=172282950435601 p%840=481 candidate letters=[1, 29, 439, 1031, 2003, 6553, 12731, 29899, 452609, 13125659, 13125661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4101975010372, 21))
+t=13135380 p=172538207744401 p%840=121 candidate letters=[1, 7, 49, 268069, 1876483, 13135379, 13135381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 549484738040, 157))
+t=13139340 p=172642255635601 p%840=241 candidate letters=[1, 61, 215399, 13139339, 13139341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6640086755216, 13))
+t=13141020 p=172686406640401 p%840=241 candidate letters=[1, 13141019, 13141021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1415462349512, 61))
+t=13148580 p=172885156016401 p%840=241 candidate letters=[1, 37, 47, 1739, 7561, 279757, 355367, 13148579, 13148581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 10017682004, 8629))
+t=13218060 p=174717110163601 p%840=481 candidate letters=[1, 17, 31, 641, 1213, 10897, 20621, 426389, 777533, 13218059, 13218061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4159931194372, 21))
+t=13219980 p=174767871200401 p%840=241 candidate letters=[1, 31, 61, 1891, 6991, 216721, 426451, 13219979, 13219981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6721841200016, 13))
+t=13228140 p=174983687859601 p%840=481 candidate letters=[1, 1543, 8573, 13228139, 13228141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4166278282372, 21))
+t=13240860 p=175320373539601 p%840=241 candidate letters=[1, 43, 71, 3053, 4337, 186491, 307927, 13240859, 13240861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 25045767648515))
+t=13254180 p=175673287472401 p%840=481 candidate letters=[1, 1787, 7417, 13254179, 13254181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4182697320772, 21))
+t=13284660 p=176482191315601 p%840=241 candidate letters=[1, 13, 313, 42443, 1021897, 13284659, 13284661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 36609140, 2410357))
+t=13292340 p=176686302675601 p%840=481 candidate letters=[1, 2659, 3121, 4259, 4999, 13292339, 13292341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4206816730372, 21))
+t=13319940 p=177420801603601 p%840=241 candidate letters=[1, 47, 283403, 13319939, 13319941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 25345828800515))
+t=13321380 p=177459165104401 p%840=481 candidate letters=[1, 449, 29669, 13321379, 13321381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6825352504016, 13))
+t=13382220 p=179083812128401 p%840=481 candidate letters=[1, 179, 283, 47287, 74761, 13382219, 13382221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6887838928016, 13))
+t=13424820 p=180225792032401 p%840=241 candidate letters=[1, 37, 61, 101, 179, 2027, 2179, 6161, 6623, 74999, 132919, 220079, 362833, 13424819, 13424821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6931761232016, 13))
+t=13447740 p=180841711107601 p%840=481 candidate letters=[1, 13447739, 13447741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6955450427216, 13))
+t=13480980 p=181736821760401 p%840=481 candidate letters=[1, 13480979, 13480981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6989877760016, 13))
+t=13492860 p=182057270979601 p%840=241 candidate letters=[1, 29, 127, 106243, 465271, 13492859, 13492861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 26008181568515))
+t=13508940 p=182491459923601 p%840=241 candidate letters=[1, 229, 373, 36217, 58991, 13508939, 13508941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 26070208560515))
+t=13517220 p=182715236528401 p%840=241 candidate letters=[1, 29, 383, 1217, 11107, 35293, 466111, 13517219, 13517221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 982339981336, 93))
+t=13541820 p=183380888912401 p%840=481 candidate letters=[1, 13541819, 13541821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7053111112016, 13))
+t=13555140 p=183741820419601 p%840=241 candidate letters=[1, 13, 113, 139, 863, 15707, 97519, 119957, 1042703, 13555139, 13555141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 26248831488515))
+t=13558620 p=183836176304401 p%840=481 candidate letters=[1, 53, 109, 2347, 5777, 124391, 255823, 13558619, 13558621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4377051816772, 21))
+t=13576020 p=184308319040401 p%840=241 candidate letters=[1, 419, 32401, 13576019, 13576021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 26329759862915))
+t=13690860 p=187439647539601 p%840=121 candidate letters=[1, 7, 13, 71, 91, 163, 169, 497, 923, 1141, 1183, 2119, 6461, 11573, 11999, 14833, 27547, 81011, 83993, 150449, 192829, 1053143, 1955837, 13690859, 13690861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1007740040536, 93))
+t=13700460 p=187702604211601 p%840=241 candidate letters=[1, 113, 263, 461, 29719, 52093, 121243, 13700459, 13700461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7219330931216, 13))
+t=13708140 p=187913102259601 p%840=481 candidate letters=[1, 19, 157, 87313, 721481, 13708139, 13708141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4474121482372, 21))
+t=13714620 p=188090801744401 p%840=241 candidate letters=[1, 1237, 11087, 13714619, 13714621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 26870114534915))
+t=13731540 p=188555190771601 p%840=241 candidate letters=[1, 1163, 1531, 8969, 11807, 13731539, 13731541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 12103940864, 7789))
+t=13772820 p=189690570752401 p%840=481 candidate letters=[1, 191, 72109, 13772819, 13772821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4516442160772, 21))
+t=13793820 p=190269470192401 p%840=481 candidate letters=[1, 13, 29, 439, 2417, 5707, 31421, 475649, 1061063, 13793819, 13793821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4530225480772, 21))
+t=13796220 p=190335686288401 p%840=241 candidate letters=[1, 193, 71483, 13796219, 13796221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1023310141336, 93))
+t=13807020 p=190633801280401 p%840=241 candidate letters=[1, 521, 26501, 13807019, 13807021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7332069280016, 13))
+t=13871820 p=192427390112401 p%840=241 candidate letters=[1, 13, 1321, 10501, 1067063, 13871819, 13871821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 48762484, 1973109))
+t=13999740 p=195992720067601 p%840=121 candidate letters=[1, 7, 13, 49, 285709, 1076903, 1999963, 13999739, 13999741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 15978535796, 6133))
+t=14005380 p=196150668944401 p%840=241 candidate letters=[1, 13, 3511, 3989, 1077337, 14005379, 14005381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 28021524134915))
+t=14057580 p=197615555456401 p%840=481 candidate letters=[1, 14057579, 14057581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4705132272772, 21))
+t=14098740 p=198774469587601 p%840=481 candidate letters=[1, 19, 37, 241, 3079, 4579, 58501, 381047, 742039, 14098739, 14098741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7645171907216, 13))
+t=14105940 p=198977543283601 p%840=481 candidate letters=[1, 491, 28729, 14105939, 14105941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4737560554372, 21))
+t=14129340 p=199638248835601 p%840=121 candidate letters=[1, 7, 83, 283, 293, 581, 2051, 6889, 24319, 48223, 49927, 170233, 2018477, 14129339, 14129341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 435891373004, 229))
+t=14147340 p=200147229075601 p%840=241 candidate letters=[1, 13, 151, 211, 1963, 7207, 67049, 93691, 1088257, 14147339, 14147341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 268293872756, 373))
+t=14318940 p=205032042723601 p%840=121 candidate letters=[1, 7, 13, 91, 919, 15581, 157351, 1101457, 2045563, 14318939, 14318941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 432557052160, 237))
+t=14357220 p=206129766128401 p%840=241 candidate letters=[1, 23, 37, 851, 16871, 388033, 624227, 14357219, 14357221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7928067928016, 13))
+t=14366460 p=206395172931601 p%840=241 candidate letters=[1, 1523, 9433, 14366459, 14366461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 29485024704515))
+t=14372580 p=206571055856401 p%840=481 candidate letters=[1, 13, 2281, 6301, 1105583, 14372579, 14372581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4918358472772, 21))
+t=14405340 p=207513820515601 p%840=481 candidate letters=[1, 13, 17, 847373, 1108103, 14405339, 14405341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4940805250372, 21))
+t=14411820 p=207700555712401 p%840=241 candidate letters=[1, 223, 2617, 5507, 64627, 14411819, 14411821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7988482912016, 13))
+t=14420940 p=207963510483601 p%840=481 candidate letters=[1, 13, 169, 2633, 5477, 85331, 1109303, 14420939, 14420941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4951512154372, 21))
+t=14435340 p=208379040915601 p%840=241 candidate letters=[1, 14435339, 14435341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 663627518840, 157))
+t=14480580 p=209687197136401 p%840=481 candidate letters=[1, 37, 157, 92233, 391367, 14480579, 14480581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4992552312772, 21))
+t=14529660 p=211111019715601 p%840=481 candidate letters=[1, 19, 764719, 14529659, 14529661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5026452850372, 21))
+t=14532060 p=211180767843601 p%840=241 candidate letters=[1, 17, 241, 3547, 4097, 60299, 854827, 14532059, 14532061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 195176310392, 541))
+t=14553060 p=211791555363601 p%840=241 candidate letters=[1, 73, 199357, 14553059, 14553061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 30255936480515))
+t=14622540 p=213818676051601 p%840=481 candidate letters=[1, 53, 113, 129403, 275897, 14622539, 14622541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5090920858372, 21))
+t=14650620 p=214640666384401 p%840=481 candidate letters=[1, 251, 58369, 14650619, 14650621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5110492056772, 21))
+t=14674020 p=215326862960401 p%840=241 candidate letters=[1, 503, 1949, 7529, 29173, 14674019, 14674021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 312730544, 344269))
+t=14767260 p=218071967907601 p%840=241 candidate letters=[1, 13, 47, 611, 24169, 314197, 1135943, 14767259, 14767261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 31153138272515))
+t=14779140 p=218422979139601 p%840=481 candidate letters=[1, 13, 61, 793, 18637, 242281, 1136857, 14779139, 14779141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5200547122372, 21))
+t=14879940 p=221412614403601 p%840=481 candidate letters=[1, 3793, 3923, 14879939, 14879941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5271728914372, 21))
+t=14918460 p=222560448771601 p%840=241 candidate letters=[1, 1907, 7823, 14918459, 14918461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1196561552536, 93))
+t=14965260 p=223959006867601 p%840=481 candidate letters=[1, 89, 181, 929, 16109, 82681, 168149, 14965259, 14965261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5332357306372, 21))
+t=15015180 p=225455630432401 p%840=481 candidate letters=[1, 15015179, 15015181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5367991200772, 21))
+t=15025380 p=225762044144401 p%840=121 candidate letters=[1, 7, 2146483, 15025379, 15025381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 8683155544016, 13))
+t=15029940 p=225899096403601 p%840=481 candidate letters=[1, 619, 691, 21751, 24281, 15029939, 15029941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5378549914372, 21))
+t=15041220 p=226238299088401 p%840=481 candidate letters=[1, 13, 41, 366859, 1157017, 15041219, 15041221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5386626168772, 21))
+t=15072180 p=227170609952401 p%840=241 candidate letters=[1, 977, 2801, 5381, 15427, 15072179, 15072181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 8737331152016, 13))
+t=15107460 p=228235347651601 p%840=241 candidate letters=[1, 97, 193, 78277, 155747, 15107459, 15107461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 32605049664515))
+t=15189420 p=230718479936401 p%840=121 candidate letters=[1, 7, 13, 977, 1069, 1093, 2221, 6839, 13897, 14209, 15547, 1168417, 2169917, 15189419, 15189421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 373330873684, 309))
+t=15210420 p=231356876576401 p%840=121 candidate letters=[1, 7, 431, 35291, 2172917, 15210419, 15210421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3126444278060, 37))
+t=15211860 p=231400684659601 p%840=121 candidate letters=[1, 7, 13, 41, 169, 287, 53003, 90011, 371021, 1170143, 2173123, 15211859, 15211861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 152840610740, 757))
+t=15239220 p=232233826208401 p%840=241 candidate letters=[1, 199, 76579, 15239219, 15239221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 33176260886915))
+t=15257940 p=232804733043601 p%840=481 candidate letters=[1, 47, 163, 93607, 324637, 15257939, 15257941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5542969834372, 21))
+t=15288180 p=233728447712401 p%840=481 candidate letters=[1, 19, 467, 733, 1723, 8873, 20857, 32737, 804641, 15288179, 15288181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5564963040772, 21))
+t=15315060 p=234551062803601 p%840=481 candidate letters=[1, 67, 179, 1277, 11993, 85559, 228583, 15315059, 15315061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 9021194723216, 13))
+t=15326580 p=234904054496401 p%840=241 candidate letters=[1, 23, 41, 943, 16253, 373819, 666373, 15326579, 15326581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 336538760024, 349))
+t=15342780 p=235400898128401 p%840=481 candidate letters=[1, 61, 97, 449, 2593, 5917, 34171, 158173, 251521, 15342779, 15342781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5604783288772, 21))
+t=15393660 p=236964768195601 p%840=481 candidate letters=[1, 103, 1451, 10609, 149453, 15393659, 15393661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5642018290372, 21))
+t=15420180 p=237781951232401 p%840=121 candidate letters=[1, 7, 59, 413, 37337, 261359, 2202883, 15420179, 15420181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (15, 2, 8199377628704))
+t=15458340 p=238960275555601 p%840=481 candidate letters=[1, 13, 37, 683, 1741, 8879, 22633, 417793, 1189103, 15458339, 15458341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5689530370372, 21))
+t=15496620 p=240145231424401 p%840=121 candidate letters=[1, 7, 31, 217, 71413, 499891, 2213803, 15496619, 15496621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3245205830060, 37))
+t=15532260 p=241251100707601 p%840=481 candidate letters=[1, 439, 463, 33547, 35381, 15532259, 15532261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5744073826372, 21))
+t=15565260 p=242277318867601 p%840=241 candidate letters=[1, 71, 211, 563, 1039, 14981, 27647, 73769, 219229, 15565259, 15565261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 768504904, 157629))
+t=15610740 p=243695203347601 p%840=481 candidate letters=[1, 137, 113947, 15610739, 15610741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 5802266746372, 21))
+t=15623940 p=244107501123601 p%840=241 candidate letters=[1, 433, 36083, 15623939, 15623941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 9388750043216, 13))
+t=15638820 p=244572690992401 p%840=121 candidate letters=[1, 7, 11, 1421711, 2234117, 15638819, 15638821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (15, 2, 8433541068704))
+t=15679380 p=245842957184401 p%840=241 candidate letters=[1, 37, 61, 103, 191, 797, 2257, 6947, 19673, 82091, 152227, 257039, 423767, 15679379, 15679381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 35120422454915))
+t=15784620 p=249154228544401 p%840=481 candidate letters=[1, 17, 47, 53, 901, 17519, 297823, 335843, 928507, 15784619, 15784621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 9582854944016, 13))
+t=15828180 p=250531282112401 p%840=241 candidate letters=[1, 15828179, 15828181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 37137753056, 3373))
+t=15886740 p=252388507827601 p%840=481 candidate letters=[1, 11, 13, 1222057, 1444249, 15886739, 15886741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6009250186372, 21))
+t=15907740 p=253056191907601 p%840=481 candidate letters=[1, 1381, 11519, 15907739, 15907741]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6025147426372, 21))
+t=15979980 p=255359760800401 p%840=481 candidate letters=[1, 15979979, 15979981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6079994304772, 21))
+t=16007820 p=256250301152401 p%840=241 candidate letters=[1, 59, 181, 1499, 10679, 88441, 271319, 16007819, 16007821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 36607185878915))
+t=16030020 p=256961541200401 p%840=121 candidate letters=[1, 7, 2290003, 16030019, 16030021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 9883136200016, 13))
+t=16058940 p=257889553923601 p%840=481 candidate letters=[1, 13, 1235303, 16058939, 16058941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6140227474372, 21))
+t=16095180 p=259054819232401 p%840=241 candidate letters=[1, 16095179, 16095181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1392767845336, 93))
+t=16255860 p=264252984339601 p%840=481 candidate letters=[1, 17, 73, 829, 1241, 13099, 19609, 222683, 956227, 16255859, 16255861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6291737722372, 21))
+t=16339020 p=266963574560401 p%840=481 candidate letters=[1, 823, 19853, 16339019, 16339021]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6356275584772, 21))
+t=16582260 p=274971346707601 p%840=481 candidate letters=[1, 17, 1531, 10831, 975427, 16582259, 16582261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 10575821027216, 13))
+t=16589940 p=275226109203601 p%840=241 candidate letters=[1, 313, 353, 46997, 53003, 16589939, 16589941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1479710264536, 93))
+t=16667220 p=277796222528401 p%840=241 candidate letters=[1, 97, 257, 64853, 171827, 16667219, 16667221]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 39685174646915))
+t=16800780 p=282266208608401 p%840=241 candidate letters=[1, 59, 284759, 16800779, 16800781]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1517560261336, 93))
+t=16801860 p=282302499459601 p%840=481 candidate letters=[1, 227, 1163, 14447, 74017, 16801859, 16801861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6721488082372, 21))
+t=16816620 p=282798708224401 p%840=481 candidate letters=[1, 17, 289, 58189, 989213, 16816619, 16816621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6733302576772, 21))
+t=16846260 p=283796475987601 p%840=241 candidate letters=[1, 83, 1291, 13049, 202967, 16846259, 16846261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 40542353712515))
+t=16893420 p=285387639296401 p%840=481 candidate letters=[1, 31, 961, 17579, 544949, 16893419, 16893421]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6794943792772, 21))
+t=16898460 p=285557950371601 p%840=481 candidate letters=[1, 17, 881, 19181, 994027, 16898459, 16898461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 10982998091216, 13))
+t=16915380 p=286130080544401 p%840=121 candidate letters=[1, 7, 13, 29, 101, 103, 169, 203, 721, 809, 991, 1313, 2987, 5663, 12883, 17069, 20909, 23461, 83327, 100091, 164227, 167479, 583289, 1301183, 2416483, 16915379, 16915381]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 3866622710060, 37))
+t=16915620 p=286138199984401 p%840=121 candidate letters=[1, 7, 2416517, 16915619, 16915621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 11005315384016, 13))
+t=16917540 p=286203159651601 p%840=241 candidate letters=[1, 257, 65827, 16917539, 16917541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 40886165664515))
+t=16940940 p=286995448083601 p%840=481 candidate letters=[1, 3109, 5449, 16940939, 16940941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6833224954372, 21))
+t=16960620 p=287662630784401 p%840=481 candidate letters=[1, 13, 29, 43, 559, 30341, 394433, 584849, 1304663, 16960619, 16960621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6849110256772, 21))
+t=17010660 p=289362553635601 p%840=481 candidate letters=[1, 17, 31, 89, 571, 961, 1513, 11243, 17701, 29791, 191131, 548731, 1000627, 17010659, 17010661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6889584610372, 21))
+t=17107260 p=292658344707601 p%840=481 candidate letters=[1, 13, 1315943, 17107259, 17107261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 6968055826372, 21))
+t=17129820 p=293430733232401 p%840=121 candidate letters=[1, 7, 257, 523, 3661, 4679, 32753, 66653, 2447117, 17129819, 17129821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 11285797432016, 13))
+t=17132340 p=293517073875601 p%840=121 candidate letters=[1, 7, 269, 967, 2531, 6769, 17717, 63689, 2447477, 17132339, 17132341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 10490995564, 13989))
+t=17150340 p=294134162115601 p%840=241 candidate letters=[1, 13, 23, 29, 41, 299, 533, 943, 1399, 12259, 18187, 32177, 57359, 418301, 591391, 745667, 1319257, 17150339, 17150341]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 219831212344, 669))
+t=17161140 p=294504726099601 p%840=241 candidate letters=[1, 103, 166613, 17161139, 17161141]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 42072103728515))
+t=17178060 p=295085745363601 p%840=241 candidate letters=[1, 31, 149, 3719, 4619, 115289, 554131, 17178059, 17178061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 42155106480515))
+t=17205060 p=296014089603601 p%840=481 candidate letters=[1, 2971, 5791, 17205059, 17205061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7047954514372, 21))
+t=17229540 p=296857048611601 p%840=121 candidate letters=[1, 7, 43, 301, 57241, 400687, 2461363, 17229539, 17229541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (147, 2, 1013163988436))
+t=17282940 p=298700015043601 p%840=241 candidate letters=[1, 13, 3449, 5011, 1329457, 17282939, 17282941]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 20940676, 7132053))
+t=17336820 p=300565327712401 p%840=241 candidate letters=[1, 17, 239, 251, 289, 4063, 4267, 59989, 69071, 72539, 1019813, 17336819, 17336821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 11560204912016, 13))
+t=17355180 p=301202272832401 p%840=241 candidate letters=[1, 17, 23, 754573, 1020893, 17355179, 17355181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1381661801984, 109))
+t=17385540 p=302257001091601 p%840=241 candidate letters=[1, 23, 283, 2671, 6509, 61433, 755893, 17385539, 17385541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1139208212, 132661))
+t=17401620 p=302816378624401 p%840=481 candidate letters=[1, 17401619, 17401621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7209913776772, 21))
+t=17402820 p=302858143952401 p%840=121 candidate letters=[1, 7, 41, 287, 60637, 424459, 2486117, 17402819, 17402821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 11648390152016, 13))
+t=17421540 p=303510055971601 p%840=241 candidate letters=[1, 61, 67, 260023, 285599, 17421539, 17421541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 11673463691216, 13))
+t=17491260 p=305944176387601 p%840=241 candidate letters=[1, 89, 149, 1319, 13261, 117391, 196531, 17491259, 17491261]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 11767083707216, 13))
+t=17492820 p=305998751552401 p%840=481 candidate letters=[1, 1187, 14737, 17492819, 17492821]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 11769182752016, 13))
+t=17551860 p=308067789459601 p%840=241 candidate letters=[1, 13, 31, 97, 403, 449, 1261, 3007, 5837, 13919, 39091, 43553, 180947, 566189, 1350143, 17551859, 17551861]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 22095380, 6971317))
+t=17574540 p=308864456211601 p%840=241 candidate letters=[1, 17574539, 17574541]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 4173844002860, 37))
+t=17608980 p=310076176640401 p%840=241 candidate letters=[1, 13, 167, 1013, 2171, 8111, 17383, 105443, 1354537, 17608979, 17608981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 44296596662915))
+t=17699460 p=313270884291601 p%840=481 candidate letters=[1, 13, 1361497, 17699459, 17699461]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7458830578372, 21))
+t=17756580 p=315296133296401 p%840=481 candidate letters=[1, 59, 193, 3481, 5101, 92003, 300959, 17756579, 17756581]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7507050792772, 21))
+t=17850180 p=318628926032401 p%840=481 candidate letters=[1, 71, 73, 439, 557, 3541, 5041, 32047, 40661, 244523, 251411, 17850179, 17850181]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7586403000772, 21))
+t=17895660 p=320254646835601 p%840=121 candidate letters=[1, 7, 2556523, 17895659, 17895661]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1721799176536, 93))
+t=17907060 p=320662797843601 p%840=241 candidate letters=[1, 269, 66569, 17907059, 17907061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (4, 2, 45808971120515))
+t=17919060 p=321092711283601 p%840=481 candidate letters=[1, 317, 56527, 17919059, 17919061]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 7645064554372, 21))
+t=17959980 p=322560881600401 p%840=241 candidate letters=[1, 13, 1381537, 17959979, 17959981]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 65322171244, 2469))
+t=17998620 p=323950321904401 p%840=241 candidate letters=[1, 3659, 4919, 17998619, 17998621]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (2, (2, 1741668397336, 93))

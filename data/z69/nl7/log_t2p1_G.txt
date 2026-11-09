@@ -1,0 +1,1 @@
+family t2p1 rule G t in [4,1500000): primes 39173, rule failures 0

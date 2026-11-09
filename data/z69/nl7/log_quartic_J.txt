@@ -1,0 +1,1 @@
+quartic rule J M0=840 j in [1,250): primes 26, failures 2

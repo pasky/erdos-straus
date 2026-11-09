@@ -1,0 +1,5 @@
+# quartic curve p = t^4+1, t = 840*j, j in [1,250); rule J
+# FAIL t p #letters
+FAIL 13440 32628497448960001 33
+FAIL 207480 1853126033640860160001 19
+# primes 26 failures 2

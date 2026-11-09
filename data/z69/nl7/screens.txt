@@ -1,0 +1,7 @@
+star_prime_zeros.txt: 14 numbers, in the SG family: []
+gstar_zeros.txt: 38 numbers, in the SG family: []
+r8_zeros_1e10.txt: 12 numbers, in the SG family: []
+composite_zeros_le8e6.txt: 285 numbers, in the SG family: []
+Z7: 8 numbers, in the SG family: []
+star_prime_zeros.txt: every one of the 14 primes has a U7 word; least letters: [2, 3, 4, 6]; e.g. (8813281, (3, (31364, 94, 3)))
+r8_zeros_1e10.txt: every one of the 12 primes has a U7 word; least letters: [1, 2, 3]; e.g. (10917229157, (1, (3639076386, 4, 1)))

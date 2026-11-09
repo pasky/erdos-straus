@@ -1,0 +1,1 @@
+family fixb:4 rule G t in [1,1500000): primes 78352, rule failures 0

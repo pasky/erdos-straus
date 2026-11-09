@@ -1,0 +1,2 @@
+# family fixb:4 rule G t in [1,1500000): primes p=P(t)≡1 (8): 78352, rule failures: 0
+# t p #candidate_letters
