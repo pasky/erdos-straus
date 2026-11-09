@@ -7,14 +7,18 @@ EVIDENCE / CONJECTURE / Assessment. Internal only; nothing externally refereed. 
 occurred in this lane. (The internal hostile review ran through the `review` tool in deep mode; the tool reported the
 reviewer model as `openai/gpt-6-astra` — see §6.)
 
-**Verdict: null (blunt).** I read OPERATIONS, FRONTIER §§1–4, §6, the z58–z68 blocks, the z61 board memo, and grepped
-the ledger for every idea below. Every arithmetic re-encoding I produced (§1) collapses in a few lines to the tied
-divisor event B2 or to a statement already in the repository; I say so idea by idea. Four first tests were run (§3).
+**Verdict: null (blunt): no mechanism found.** I read OPERATIONS, FRONTIER §§1–4, §6, the z58–z68 blocks, the z61
+board memo, and grepped the ledger for every idea below. In the form I could state them, the arithmetic re-encodings
+of §1 either reduce to the tied divisor event B2, or are already proposed in the repository, or have no forcing lemma;
+I say which, idea by idea. **This is "no mechanism found", not a closure of the 21 directions:** several dismissals
+are of one stated form only (ideas 6, 7, 8, 11 (e = p + 2), 12, 13, 19 in particular; see §7). Four first tests were
+run (§3).
 The first version of this memo contained several false or over-scoped statements (a wrong hypothesis in Lemma T, a
 false "trace" lemma, a sign slip, an ill-defined generating function, a false remark on the Lyness map, over-broad
 "dead" verdicts); the hostile review found them and they are corrected or withdrawn below (§6). What survives is modest:
 
-* **T2 (census CERTIFIED by one engine, independently recomputed to 10⁷ and at the extremes by the reviewer; fits
+* **T2 (census CERTIFIED by one engine to 10¹⁰; independently recomputed to 10⁷ by the internal reviewer and to 10⁸
+  by the cross-model reviewer, and at the extremes by both; fits
   EVIDENCE; the statistic and range are new, the methodology is not).** The α-class search cost
   K(p) = min{ab : p lies in a Type I-α or Type II-α class mod 4ab} for all 56 876 600 primes p ≡ 1 (24), p ≤ 10¹⁰:
   max K = 5777 (p = 1 775 179 561); tail −ln P(K > Q) ≈ κ(ln Q)^j with fitted j ≈ 2.2–2.3 on Q ≤ 4000 (κ₂ ≈ 0.215),
@@ -27,11 +31,13 @@ false "trace" lemma, a sign slip, an ill-defined generating function, a false re
   complementarity is not excluded by such data (`Z57_COMPLEMENT.md` makes the same distinction).
 * **T1 (EVIDENCE; kill fired for one dictionary).** The all-level signed word-count difference O(n) has no
   expression in a 20-function divisor dictionary once trivial words are removed (R² ≤ 0.58).
-* **Lemma T (PROVED; negative).** A reciprocity argument for ℚ(ζ_m)/ℚ(ζ_m)⁺ that forces Artin symbol −1 on an ideal
-  forces its norm to be ≡ −1 (mod m) itself: only the trivial hit. Negative norm alone forces nothing when the
-  extension is ramified (explicit counterexample at m = 8, a (★) level).
+* **Lemma T (PROVED; negative for the total-norm / sign argument only).** For ℚ(ζ_m)/ℚ(ζ_m)⁺, Artin symbol −1 on an
+  ideal means its norm is ≡ −1 (mod m) itself; so the sign-of-the-norm argument I attempted yields only the trivial
+  hit. It does not prohibit forcing a *proper* ideal divisor with Artin symbol −1 by some other lemma. Negative norm
+  alone forces nothing when the extension is ramified (explicit counterexample at m = 8, a (★) level).
 * **T3 (EVIDENCE; pre-registered kill fired).** The slice singled out by factoring ES through ℤ[i] (e = 2a + 1,
-  p = a² + b²) succeeds at 5.1 % of primes against 3.5 % for control slices (ratio 1.46 ≤ 1.5). Not a rule.
+  p = a² + b²) succeeds at 5.1 % of primes against 3.5 % for control slices (point-estimate ratio 1.46 ≤ 1.5).
+  Not a universal rule; not killed as an enriched selector.
 
 No idea passes F1–F4 as a *mechanism*.
 
@@ -43,10 +49,10 @@ primes, the 38 𝔊*-zeros, the R₈ zeros or the composite zeros. The cells say
 | idea | F1 odd squares | F2 C-even / numerator 8 | F3 composites | F4 known zeros |
 |---|---|---|---|---|
 | CPLX (search cost; bounded arithmetic) | no existence content; no Type I/II class contains an odd square (T1), so K(m²) = ∞ — consistent | numerator-blind: the witnessing argument applies verbatim to any numerator on the range where it is solvable (8/p fails at 131, 241; the C-even *line* R₈ has zeros near 10¹⁰); nothing distinguishes 4 | K is defined for every n; primes enter only because ES reduces to primes | uses the α-classes of full ES; a (★)- or 𝔊*-zero merely has its α-witness elsewhere (possibly still Type II, c > 1; e.g. 409: (a, b, c, d, e) = (1, 117, 2, 1, 59)) |
-| IDENT-OE (all-level signed-count identity) | W⁻_{4∣t}(m²) = 0 verified (script); a closed form for O would have had to equal −E at squares | the sub-sum t ≡ 0 (8) is the R₈ analogue; an identity giving positivity for both would be refuted at certified R₈ zeros in its range — moot | all n ≡ 1 (4) used; a positivity identity would have had to give O = −E at the 285 composite (★)-zeros — moot | likewise O = −E at the 14 (★)-zero primes — moot |
+| IDENT-OE (all-level signed-count identity) | W⁻_{4∣t}(m²) = 0 verified (script), i.e. O₄ = −E₄ at odd squares for the 4 ∣ t sub-sums (the unrestricted all-level O is not constrained this way) | the sub-sum t ≡ 0 (8) is the R₈ analogue; an identity giving positivity for both would be refuted at certified R₈ zeros in its range — moot | all n ≡ 1 (4) used; a positivity identity for R would have had to give O₄ = −E₄ at the 285 composite (★)-zeros (a constraint on the (★) count only) — moot | likewise O₄ = −E₄ at the 14 (★)-zero primes (not at the other 24 𝔊*-zeros) — moot |
 | INV (inversion ι: p ↦ p⁻¹ exchanges Type I-α ↔ II-α) | ι maps squares to squares: both types fail there | ι is numerator-blind (any numerator M ≡ 0 (4)) | profinite statement, primality-blind | no rescue law found (positive dependence of failures at 21 ≤ Q ≤ 3152) |
-| SIGN (CM reciprocity, Lemma T) | forces class −1 (mod m) only of an integer ≡ −1 (mod m); at n = m₀² this would need n + u ≡ −1 (mod 4u), a non-square class — consistent, because the forcing is trivial | m = 4C with C a power of 2 is the ramified case, where even the sign statement fails (§3.3) | no primality used | forces nothing at any zero |
-| GAUSS-SPLIT (ℤ[i] factorisation ⇒ slice e = 2a + 1) | at p = m², a = m, b = 0: M = ((m+1)/2)², e = 2m + 1; no Type II solution on this (or any) slice by T1 | not examined (killed first) | uses a prime p = a² + b² for uniqueness of e | sampled primes only (5.1 % success); not screened at the zero lists — a 5 % slice is not a rule |
+| SIGN (CM reciprocity, Lemma T) | forces class −1 (mod m) only of an integer ≡ −1 (mod m); at n = m₀² this would need n + u ≡ −1 (mod 4u), a non-square class — consistent, because the forcing is trivial | m = 4C with C a power of 2 is the ramified case, where even the sign statement fails (§3.3); other even C are not ramified | no primality used | forces nothing at any zero |
+| GAUSS-SPLIT (ℤ[i] factorisation ⇒ slice e = 2a + 1) | at p = m², a = m, b = 0: M = ((m+1)/2)², e = 2m + 1; no Type II solution on this (or any) slice by T1 | not examined (no pass earned) | uses a prime p = a² + b² for uniqueness of e | sampled primes only (5.1 % success); not screened at the zero lists — a 5 % slice is not a rule |
 
 ## 1. Raw ideas (21), each with its first lemma and an honest screen
 
@@ -68,9 +74,11 @@ divisor event.
    tuv ∓ (u + v) = n}: W_t⁻ = D_t⁻(tn+1), W_t⁺ = D_t⁺(tn+1) − 2, so O_t := W_t⁻ − W_t⁺ = (D_t⁻ − D_t⁺)(tn+1) + 2 is the
    odd-character (Kronecker theta-quotient) component of FRONTIER §2.3 plus the trivial-divisor correction.
    *Lemma sought:* a closed form for O = Σ_t O_t (then R ≥ 1 ⟸ a bound on the sign-free E = Σ_t (W_t⁻ + W_t⁺)).
-   *Relation to prior work:* (J)7 Thm 9.1 excludes fixed-level identities; `STRONG_APPROX_ES.md` §9.1 already ran an
+   *Relation to prior work:* `STRONG_APPROX_ES.md` Thm 9.1 ((J)7) excludes finite n-local Eisenstein-type combinations
+   (not every fixed-level or shifted identity); its §9.1 already ran an
    all-level shifted-count dictionary experiment (150 columns, held-out test) on other counts; the board (F3/F4) had
-   no candidate formula. This is a different signed count. Tested (T1). **Kill fired for the tested dictionary.**
+   no candidate formula. This is a different signed count, not exhausted by either. Tested (T1). **Kill fired for the
+   tested dictionary only.**
 3. **INV — inversion.** ι: p ↦ p⁻¹ (mod 4ab) maps the Type II-α class −e to the Type I-α class −e⁻¹ (same (a, b, e)).
    *Prior:* the symmetry (`POINTWISE_MORDELL17.md` Lemma 1.1; `Z60_LOPEZ.md` Prop E and `Z60_LOPEZT.md` for the U_II
    branches, including inverse-branch least-witness data). *Hypothesis tested:* "p deep in the Type II-α avoider set
@@ -85,41 +93,62 @@ divisor event.
    (order d + 1) has a point of order 4C ⟺ 4C | #E(𝔽_d) for E: y² = x³ − x (supersingular at d ≡ 3 (4)). At a (★)
    solution with d = 4uC − 1, d′ = 4BC − 1 both prime (gcd(u, B) = 1), the non-split torus T_{−1}(ℤ/N), N = 4Cp + 1,
    has exponent lcm(4Cu, 4CB) = 4CuB = p + u + B: raising to the p-th power equals raising to the −(u + B)-th. *Prior
-   in spirit:* `BRAINSTORM/y3_lucas_dickson_trace.md`, z52b item Z1958. A Lucas-test *certificate*, not a forcing
+   in spirit:* `BRAINSTORM/y3_lucas_dickson_trace.md` (Prop G; genuinely related); z52b item Z1958 is only the much weaker
+   prime-level Pocklington anti-certificate. A Lucas-test *certificate*, not a forcing
    step → B2.
 6. **SIGN — class forcing by CM reciprocity.** Ideal norms from K⁺ = ℚ(ζ_m)⁺ prime to m are ≡ ±1 (mod m), the sign
    being the Artin symbol for ℚ(ζ_m)/K⁺. Could a sign/reciprocity argument force the class −1 at a tied modulus?
-   Lemma T (§3.3): only trivially. **Dead.**
+   Lemma T (§3.3): the *total-norm / sign* argument does so only trivially. **Dead in that form.** Not excluded
+   (`Z60_RAYCLASS.md` §3 makes the same exemption): a new lemma forcing an Artin −1 *proper* ideal divisor without
+   assuming its norm or the factorisation; such a lemma should be screened first at 409 and the R₈ zeros.
 7. **GAUSS-SPLIT.** Factor 4/p = (2/π)(2/π̄) over ℤ[i]. *Lemma (PROVED, §3.4):* the solutions of 2/π = 1/α + 1/β are
    α = (π ± 1)/2, β = ±πα (and α = β = π), giving the e-slices e = 1 ± 2a. *Differs from* `Z58_WITNESS.md`
-   (two-square data as selectors of d) by deriving one slice. Tested (T3). **Dead as a rule.** (Other nonlinear
+   (two-square data as selectors of d) by deriving one slice. Tested (T3). **Not a universal rule; not killed as an
+   enriched selector** (a divisor-matched control is the legitimate next test). (Other nonlinear
    Gaussian rules are lane NL7's brief.)
 8. **LYNESS.** For a word, t = (p + u + v)/(uv) ∈ ℕ and (tu − 1, u, v, tv − 1) are four consecutive integer terms of
    x_{k+1}x_{k−1} = x_k + p. The map F(x, y) = (y, (y + p)/x) preserves each curve (x+1)(y+1)(x+y+p) = Kxy of the
    pencil (generically elliptic; F is a translation on it), and a word is an integral point P with F^{±1}(P)
    integral, on the fibre K = t(u+1)(v+1) determined by the word itself. *Related prior:*
    `BRAINSTORM/z52b_translate.md` #49, `y2_zamolodchikov_forcing.md` (twisted period-5 version). Assessment: no
-   argument selecting a fibre and forcing integral neighbours is supplied; not a no-go.
+   argument selecting a fibre and forcing integral neighbours is supplied. **Left open, not ruled out** (the cited
+   prior items concern the twisted version and are no no-go for this autonomous pencil); a restart would choose K(p)
+   independently of a known word and test integral neighbours on F1–F4.
 9. **E₂-FORM.** For gcd(e, p) = 1 (automatic when e < p): Type II at slice e ⟺ M² has a divisor f ≡ −M (mod e),
    M = (p + e)/4 (then the cofactor is ≡ −M too) ⟺ p(k + 1) = 4(kM − f) with f | M², k the witness modulus 4acd − 1.
    Classical two-unit-fraction criterion; restatement → B2.
-10. **TYPE-I-FIXED.** Type I ⟺ the *p-independent* integer 4dm² + 1 has a divisor f ≡ −p (mod 4dm). Algebraic
-    factorisations (Sophie Germain / Aurifeuille) need d a square, and then every divisor is ≡ 1 (4) ≠ −p: sterile, in
-    line with (J)89 Lemma 4.1 ((d/p) = −1 on positive Type I slices). **Dead.**
+10. **TYPE-I-FIXED.** For a prime p: Type I ⟺ some *p-independent* integer 4a²d + 1 has a divisor f ≡ −p (mod 4ad)
+    (f = 4acd − p; conversely c = (p + f)/(4ad), e = (4a²d + 1)/f, b = (pe + 1)/(4ad); cross-review's derivation).
+    *PROVED restricted statement:* if d is a square, every divisor of 4a²d + 1 is ≡ 1 (4) ≠ −p, so square-d slices are
+    sterile (in line with `SYNTHESIS_SPARKS8.md` Lemma 4.1 / (J)89 Lemma 4.1). *Correction (cross-review):* my claim
+    that algebraic factorisations of 4dm² + 1 need d square was false: d = 4m²k² − 2k gives 4dm² + 1 = (4m²k − 1)², and
+    at m = 1, k = 6 (d = 132, non-square) the prime p = 1033 ≡ 1 (24) has the Type I point
+    (a, b, c, d, e) = (1, 45, 2, 132, 23). Such factorisations give ordinary ET congruence families (B1), not a new
+    mechanism; but there is **no blanket algebraic sterility**. No forcing lemma proposed.
 11. **ALG-SLICE.** Type I slices with (pe + 1)/4 a perfect square: e = p ∓ 2 gives ((p ∓ 1)/2)². *Lemma (PROVED):* for
     p ≡ 1 (8) no solution lies on e = p − 2: a, b | ((p−1)/2)² makes p ≡ 1 modulo every odd prime of ab, hence a
     square mod 4ab, contradicting `JOINT_BUDGET.md` Remark 4.4 (the Type I extension of Prop 4.3). For e = p + 2 no
     such argument applies; the reviewer found no solution on either slice for p ≡ 1 (8), p < 10⁴ (EVIDENCE; e.g.
-    p = 17: N_e = 81, none). **Dead** (sterile or empirically empty).
-12. **SUBSET-COVER.** If p + u has ≥ k distinct prime factors in general position mod 4u, Olson / Erdős–Heilbronn-type
-    theorems give a sub-product ≡ −1 (mod 4u) pointwise. Needs ω(p + u) ≳ log₂(4u) for some u; the only prime factors
-    one can force in a short interval are primorial ones (ω ≤ log H/log log H < log₂ H), and those are congruence
-    data. → B1. **Dead.**
+    p = 17: N_e = 81, none); the cross-review extended the emptiness to all 19 552 primes p ≡ 1 (8), p ≤ 10⁶.
+    **e = p − 2: sterile (PROVED). e = p + 2: empirically empty, unproved** — the open statement is: for
+    M = (p+1)/2, M⁴ has no divisor ≡ −M² (mod 2M + 1).
+12. **SUBSET-COVER.** Idea: when p + u has many prime factors, a zero-sum / subset-product theorem in (ℤ/4u)^× might
+    give a sub-product ≡ −1 (mod 4u) pointwise. *What I can actually state:* the only prime factors of p + u that one
+    can force for some u ≤ H are those of a modulus Q ≤ H with u ≡ −p (mod Q) (so ω ≤ (1 + o(1)) log H/log log H), and
+    divisors built from them are congruence data on p (B1). *Withdrawn (cross-review):* my threshold
+    "ω(p + u) ≳ log₂(4u) is needed" and the appeal to Olson / Erdős–Heilbronn "in general position" were not a theorem —
+    a single target can be hit by one factor, and the relevant scales differ (logarithmic for random sets, square-root
+    for spread sets, linear in the worst case; `BRAINSTORM/z31_zero_sum.md`). **No mechanism in the form stated; not
+    ruled out** — a restart must name the target-specific subset-product theorem and its deterministic hypotheses.
 13. **SIEVE-FL.** For fixed p and ℓ ∤ 4p, the residues of 4Cp + 1 mod ℓ over C ≤ T are equidistributed up to O(1) per
     class (so the fundamental lemma is pointwise in p). But a divisor d ≡ −1 (mod 4C) has d ≥ 4C − 1, and each d has a
-    unique candidate level C_d = (−(4p)⁻¹ mod d): no free variable remains. → B2. **Dead.**
+    unique candidate level C_d = (−(4p)⁻¹ mod d): the naive free-variable argument has no free variable. → B2 for that
+    argument; **not a sieve no-go** (a specified tied-incidence weight summing over d is not excluded).
 14. **MONOID-DESCENT.** {n : 4Cn + 1 ∈ 𝔬_C·𝔬_C}, 𝔬_C = 4Cℕ − 1, is an ideal for n ⊙ n′ = n + n′ + 4Cnn′, and division
-    by primes ≡ 1 (4C) preserves it. Trivial equivalences; *prior:* board z61 astra-4 (killed). **Dead.**
+    by primes ≡ 1 (4C) preserves it. Trivial equivalences. *Prior (already proposed, not proved impossible):*
+    `BRAINSTORM/z52b_translate.md` #265 / `ES_CONNECTIONS_TODO.md` Z2847; a related coherence item (astra-4) was
+    withdrawn on the z61 board (`~/.pi/boards/20261107-es-newmech/memo.md`, outside the repository). **No mechanism
+    in this form.**
 15. **RSR — worst-case to average-case.** Use E(N) ≪ N exp(−c(log N)^{3/4}) at one p via a family {n_r} such that
     ES(n_r) for one r gives ES(p). The only known links between different n are congruences (same word) and scaling
     (`Z59_CONV2.md` Prop 4.1: no descent into a prime within equation-scaling transports); a new link *is* the missing
@@ -129,17 +158,20 @@ divisor event.
     **Speculative; no first lemma.**
 17. **INVERSE-SIEVE.** The (★) zero set avoids H_d for every d ≡ 3 (4), every removed class being a Jacobi
     non-residue. Inverse large-sieve results need a positive proportion of removed classes; here |H_d|/d → 0.
-    *Prior:* size-controlled covering rigidity, `Z58_LADDER.md`. **Dead.**
+    *Related prior:* `BRAINSTORM/bsL_sieve_saturation.md`; size-controlled covering rigidity in `Z58_LADDER.md` (neither
+    is an inverse-sieve no-go). **Dead for the unadapted standard theorems only.**
 18. **TIE-LADDER.** Relax d ≡ −1 (mod 4C) to (mod 4C/g) *with g² | C*: with C = g²d′ this is exactly the Type II
     family with c = g (`Z59_CONV2.md` Prop 2.1, m = c²d). Linnik gives a divisor ≡ −1 (mod G) of some 4Cp + 1 with
     C ≤ G^L, but C is then not a function of G. **Dead (prior).**
-19. **4-TERM-MERGE.** ES ⟺ some 4-term representation of 4/p has a mergeable pair ((c + d) | cd). Polylog count, same
-    lottery (B3). **Dead.**
+19. **4-TERM-MERGE.** ES ⟺ some 4-term representation of 4/p has a mergeable pair ((c + d) | cd) (split one unit
+    fraction into two equal halves for the converse). *Already proposed:* `BRAINSTORM/z52b_analogues.md` #312,
+    `z52b_upgrades.md` #208. I have no forced merge / divisibility invariant to offer; **no mechanism, not a no-go**
+    (my earlier "polylog count" assertion was unsupported and is deleted).
 20. **MIRROR-SIZE.** By ι, Type I-α at p is "Type II-α at the inverse profile without the size cap p ≥ 4ab − e".
     More tickets, same lottery (Assessment). No forcing.
 21. **QR-FLOOR.** *Lemma (PROVED, from `JOINT_BUDGET.md` Remark 4.4):* if p ≡ 1 (8) is a quadratic residue modulo
     every odd prime ≤ y, then every class modulus 4ab containing p has a prime factor > y, so K(p) > y. (Prior in
-    substance: every hit modulus has a prime factor ≥ n_p.) It explains none of the observed tail
+    substance: every hit modulus has a prime factor ≥ n_p; `Z58_LADDER.md` Lemma 1.1(c).) It explains none of the observed tail
     (2^{−π(Q)} ≪ exp(−κ ln^j Q)).
 
 ## 2. Kill tests — what was and was not pre-registered (honest record)
@@ -195,9 +227,10 @@ the minimum (reviewer's check). K is an *upper bound* for the least family-class
 shapes — II-β (p ≡ −4a²d mod 4acd − 1), II-γ (p ≡ −e − 4a²d mod 4ade), I-γ (p ≡ −e⁻¹ mod 4ad, e | 4a²d + 1), I-δ
 (f ≡ −p mod 4cd, f | p² + 4c²d, f small) — are *not* included. Everything below is about α-classes only.
 
-**Census (CERTIFIED: one exhaustive engine to 10¹⁰; an independent prime-by-prime search by the reviewer reproduced
-all 34 survival thresholds for the 82 887 primes ≤ 10⁷ and, by direct search including exclusion of all smaller
-products, the extreme values below).** All 56 876 600 primes p ≡ 1 (24), 5 ≤ p ≤ 10¹⁰ have K(p) ≤ 5777, attained at
+**Census (CERTIFIED: one exhaustive engine to 10¹⁰ — the full range is not independently duplicated. Independent
+prime-by-prime searches: internal reviewer, all 34 survival thresholds for the 82 887 primes ≤ 10⁷; cross-model
+reviewer, all 137 joint/marginal survival cells for the 719 781 primes ≤ 10⁸ (max joint K = 2388 at 66 306 529;
+marginal maxima I: 9499, II: 7348); both, by direct search excluding all smaller products, the extreme values below).** All 56 876 600 primes p ≡ 1 (24), 5 ≤ p ≤ 10¹⁰ have K(p) ≤ 5777, attained at
 p = 1 775 179 561 (≡ 1 mod 840, n_p = 41); next 4460 (2 431 459 801), 3657 (278 893 729, the maximum ≤ 10⁹);
 K(7 183 201) = 1133 is the maximum ≤ 10⁷. The 14 largest attained values of K (one representative prime each, as
 logged) all occur at primes in Mordell's classes 𝔐, with least non-residue 13–41. Type II-α alone: max 35 967
@@ -224,7 +257,7 @@ range 10¹⁰, the maxima, and the joint table below.
 
 **Reading for CPLX (Assessment).** Class enumeration finds an ES decomposition after ≈ K(p) moduli; on this evidence
 the envelope is exp(O((log p)^{1/j})), j ∈ [2, 3] — super-polynomial in log p, tiny in practice. This is a statement
-about one search procedure. I found no reduction from a recognised hard problem and **claim no conditional
+about one search procedure; the fits establish no tail theorem, no search lower bound and no unprovability. I found no reduction from a recognised hard problem and **claim no conditional
 unprovability statement**.
 
 **Joint failure of the two types (census counts CERTIFIED as above; reading EVIDENCE).**
@@ -244,11 +277,11 @@ classes suggest; no error analysis was done). For Q ≤ 9 the failures are negat
 p ≡ 17 and p ≡ 13 mod 20, are disjoint). For all reported 21 ≤ Q ≤ 3152 the joint failure exceeds independence, by a
 factor growing to 660; θ ranges over [1.215, 1.420] (minimum at Q = 68). A natural explanation (Assessment, not
 tested by conditioning) is the ι-invariant data shared by p and p⁻¹, e.g. the quadratic profile
-((p/ℓ) = (p⁻¹/ℓ)). **Conclusion:** same-cap rescue of II-α by I-α is refuted at these depths. This says nothing about
+((p/ℓ) = (p⁻¹/ℓ)). **Conclusion:** *guaranteed* same-cap rescue of II-α by I-α is refuted at these depths (positive joint counts). This says nothing about
 eventual pointwise complementarity of the full families (`Z57_COMPLEMENT.md`: positive covariance does not forbid
 pointwise coverage; pointwise complementarity at primes not excluded for five pairs).
 
-### 3.3 Lemma T — forcing the class −1 by CM reciprocity is trivial (idea SIGN). PROVED (review-corrected).
+### 3.3 Lemma T — the total-norm / sign argument forces only the trivial hit (idea SIGN). PROVED (review-corrected).
 Let m ≥ 3, K = ℚ(ζ_m), K⁺ its maximal real subfield, f the conductor of K (f = m if m ≢ 2 (4), f = m/2 otherwise).
 
 **(i)** For every integral ideal 𝔞 of K⁺ prime to m, N𝔞 ≡ ±1 (mod m), and the sign is the Artin symbol of 𝔞 for
@@ -273,8 +306,10 @@ N(3 + 93√2) = −17 289 = −(8·2161 + 1) with 2161 ≡ 1 (24) prime, and 17 
 the ramified case the local symbol at the ramified prime enters, and the real sign alone decides nothing. Note that
 m = 4C with C a power of 2 — (★) levels — is exactly this case.
 
-**Reading.** CM reciprocity for ℚ(ζ_m)/ℚ(ζ_m)⁺ can force the class −1 at the tied modulus only where a congruence on
-p already gives it. This is the cyclotomic incarnation of "reciprocity forces parity, never class" (FRONTIER §3;
+**Reading (scoped; cross-review).** The *total-norm / sign* argument for ℚ(ζ_m)/ℚ(ζ_m)⁺ forces the class −1 at the
+tied modulus only where a congruence on p already gives it. Lemma T identifies a character with a residue; it is
+**not** a general no-go: it does not prohibit a different lemma forcing a proper ideal divisor with Artin symbol −1.
+For the argument attempted, this is the cyclotomic incarnation of "reciprocity forces parity, never class" (FRONTIER §3;
 `Z60_RAYCLASS.md` Prop 3.1), with the reason spelled out: inside the family of K⁺-norms the class is a parity, and
 that parity is the residue of the integer itself.
 
@@ -290,8 +325,10 @@ script; the reviewer compared `slice_ok` with an explicit two-factor test on 976
 
 **Result (the pre-registered run; 20 000 random primes p ≡ 1 (24), 1000 < p ≤ 3·10⁶).** Gaussian slice:
 1015/20 000 = 5.08 % ± 0.16 %; control slices e ± 4k (k ≤ 3): 4176/119 826 = 3.49 % ± 0.05 % (binomial errors; the six
-controls per prime are not independent); ratio 1.456 ≤ 1.5: **kill fired** (narrowly, on the point estimate; the
-enrichment itself is real). A rule needs ≈ 100 %; this slice succeeds at 1 prime in 20.
+controls per prime are not independent); ratio 1.456 ≤ 1.5: **kill fired on the point estimate**
+(narrowly; the cross-review's paired-prime delta-method 95 % interval for the ratio is [1.364, 1.549], or
+[1.409, 1.503] with finite-population correction for the 26 969 eligible primes — so "population ratio ≤ 1.5" is not
+statistically established; the enrichment itself is real). A rule needs ≈ 100 %; this slice succeeds at 1 prime in 20.
 
 *Post hoc follow-up (not pre-registered; `scripts/z69_ideaa_gauss2.py`, `gauss_slice_followup.txt`, 8000 primes).*
 M = ((a+1)/2)² + (b/2)² has mean τ(M²) = 98.6 against 58.8 for the controls (4 | M with frequency 0.50 against 0.17;
@@ -299,16 +336,18 @@ primes ≡ 3 (4) enter only squared), and the crude ticket count (τ(M²) − 2)
 ratio of 1.46. So the enrichment is *consistent with* increased divisor availability; the follow-up compares
 aggregate means only (no matching on τ, φ(e) or local factors; the crude count also wrongly discards the endpoint
 divisors, which can hit, e.g. p = 2089, e = 91, M = 545, f = 1), so a class effect is neither isolated nor excluded.
-**Dead as a rule;** lanes NL7 / MINE scoring Gaussian-norm rules should compare against divisor-matched controls.
+**Not a universal rule; as an enriched selector it is neither established nor killed.** Lanes NL7 / MINE scoring
+Gaussian-norm rules should compare against controls matched on divisor availability, φ(e) and local factors.
 
 ## 4. Limits of this memo
-* The K census beyond 10⁷ rests on one engine (plus direct verification of six extreme values); K covers α-classes
+* The K census beyond 10⁸ rests on one engine (plus direct verification of six extreme values); K covers α-classes
   only; the tail fits are eyeball fits on 18–23 points and do not determine j (2.2–3).
 * T1: n ≤ 6000, one dictionary, a signed count with boundary corrections.
 * T3: one slice, one sample; the follow-up is not a controlled comparison.
 * Ideas 15 (RSR), 16 (UNDEC) have no test because they have no first lemma that a ≤ 2-hour test could decide; idea 4
   was false.
-* Verdicts "dead" in §1 mean: dead in the stated form, for the stated reason — not no-go theorems.
+* Verdicts "dead" in §1 mean: dead in the stated form, for the stated reason — not no-go theorems. Ideas 6 (beyond
+  total norms), 7 (as a selector), 8, 11 (e = p + 2), 12, 13, 19 are explicitly *not* ruled out.
 
 ## 5. Shortlist (≤ 5), ranked, with the four required items
 
@@ -316,16 +355,16 @@ divisors, which can hit, e.g. p = 2089, e = 91, M = 545, f = 1), so a class effe
 |---|---|---|---|---|---|
 | 1 | CPLX | S¹₂-provability ⟹ polynomial-time witness search (prior, `Z58_LOGIC` Thm 3.1); cost of class enumeration ≈ K(p) | FRONTIER §3 "Logic" has the witnessing; the α-cost census to 10¹⁰ is new, the tail methodology is not (`FOREST_H4` §5, `Z58_WITNESS` §2.1) | §0 row 1 | T2: max K = 5777 ≤ 10¹⁰, tail exponent j ≈ 2.3; no hardness reduction. **Narrowed to a data point** |
 | 2 | INV | ι exchanges I-α ↔ II-α (prior: MORDELL17 L1.1) | FRONTIER §6 z57 "statistical complementarity" tested pair counts; here a depth-resolved joint law for Type I vs Type II α-classes | §0 row 3 | T2b: failures positively dependent at 21 ≤ Q ≤ 3152 (θ ∈ [1.215, 1.42]). **Same-cap rescue refuted**; TRACE withdrawn |
-| 3 | SIGN | Lemma T(i)–(ii): Artin symbol −1 ⟹ norm ≡ −1 (mod m) | FRONTIER §3 "reciprocity forces parity, never class" / RAYCLASS Prop 3.1 concern quadratic orders and total products; this is the real-cyclotomic norm version | §0 row 4 | Proof: trivial hit only; ramified counterexample at m = 8. **Dead** |
-| 4 | IDENT-OE | closed form for O = Σ_t [(D_t⁻ − D_t⁺)(tn+1) + 2] | (J)7 Thm 9.1 (fixed level); `STRONG_APPROX_ES` §9.1 (other all-level counts); board F3/F4 (no candidate) | §0 row 2 | T1: R² ≤ 0.58 on interior words. **Kill fired (this dictionary)** |
-| 5 | GAUSS-SPLIT | 2/π = 1/α + 1/β ⟹ α = (π ± 1)/2, slice e = 1 ± 2a | `Z58_WITNESS` tested two-square data as d-selectors, not this derived slice | §0 row 5 | T3: 5.1 % vs 3.5 %, ratio 1.46 (pre-registered kill ≤ 1.5 fired). **Dead as a rule** |
+| 3 | SIGN | Lemma T(i)–(ii): Artin symbol −1 ⟹ norm ≡ −1 (mod m) | FRONTIER §3 "reciprocity forces parity, never class" / RAYCLASS Prop 3.1 concern quadratic orders and total products; this is the real-cyclotomic norm version | §0 row 4 | Proof: the total-norm / sign argument gives the trivial hit only; ramified counterexample at m = 8. **Dead in that form** (proper-divisor forcing not excluded) |
+| 4 | IDENT-OE | closed form for O = Σ_t [(D_t⁻ − D_t⁺)(tn+1) + 2] | `STRONG_APPROX_ES` Thm 9.1 (finite n-local Eisenstein combinations) and §9.1 (other all-level counts); board F3/F4 (no candidate) | §0 row 2 | T1: R² ≤ 0.58 on interior words. **Kill fired (this dictionary)** |
+| 5 | GAUSS-SPLIT | 2/π = 1/α + 1/β ⟹ α = (π ± 1)/2, slice e = 1 ± 2a | `Z58_WITNESS` tested two-square data as d-selectors, not this derived slice | §0 row 5 | T3: 5.1 % vs 3.5 %, ratio 1.46 (pre-registered point-estimate kill ≤ 1.5 fired). **Not a universal rule** |
 
 **What I would and would not fund (Assessment).** Nothing above justifies a lane. If one more bounded test is wanted:
 complete the cost census with the β/γ/δ class shapes (the least modulus over all ET family classes to 10¹⁰ and its tail
 exponent), and compare it with OMEGA13's specific witness W(p); minutes of compute. The ideation outcome itself is a
 data point: an informed pass deliberately looking for non-counting, non-covering, non-local-global shapes (group
-order, CM sign, identities across levels, complexity, inversion) again ended at B2 or at prior ledger entries — and
-my two attempts at "new lemmas" beyond restatement (TRACE, the first Lemma T) were false as first written.
+order, CM sign, identities across levels, complexity, inversion) found no mechanism: each item ended at B2, at a
+prior ledger entry, or without a forcing lemma — and my two attempts at "new lemmas" beyond restatement (TRACE, the first Lemma T) were false as first written.
 
 ## 6. Internal hostile review (record)
 Run through the `review` tool, deep mode, on commits `e9a856348..5d4e9d133`; the tool reported the reviewer as
@@ -360,4 +399,32 @@ prime-by-prime search, matching the corresponding sums in the 10⁹ and 10¹⁰ 
 1 775 179 561 (5777), 278 893 729 (3657), 7 183 201 (1133), 2 431 459 801 (4460), 6 106 475 761 (II-only 35 967),
 3 280 856 329 (I-only 22 628); both decomposition identities; all T1 R² values and the T1 check; the `kfit` numbers;
 the T3 counts. Not independently re-run: the full 56 876 600-prime range. The fixes above were applied after the
-review and have not been re-reviewed; an Astra cross-review follows per the wave rules.
+review; the cross-model review (§7) then audited that version.
+
+## 7. Cross-model review (record)
+`data/z69/xreview/REVIEW_IDEAA.md` (Astra; branch `side-agent/z69-xrev-ideaa`), on commit `5f4c3cc68`:
+**ACCEPT-WITH-FIXES** — "accept the numerical results and scoped null outcome, not a blanket closure of the 21
+directions". All four required fixes are applied in this version (not re-reviewed):
+1. **Idea 10 (TYPE-I-FIXED):** the claim that algebraic factorisations of 4dm² + 1 need d square was false
+   (d = 4m²k² − 2k; fixture p = 1033, (1, 45, 2, 132, 23), re-checked by hand: 4·45·132 = 23 760 = 1033·23 + 1,
+   1 + 45 = 23·2). Only the square-d sterility is kept as PROVED. **Idea 12 (SUBSET-COVER):** the unsupported
+   threshold ω ≳ log₂(4u) and the "general position" appeal are withdrawn; only the forced-factor budget remains.
+2. **Scope:** the opening "every arithmetic re-encoding collapses" and the blanket "dead" language are narrowed to
+   "no mechanism found"; Lemma T's reading is restricted to the total-norm / sign argument (proper-divisor forcing not
+   excluded); ideas 8 (LYNESS), 11 (e = p + 2: empirically empty to 10⁶, unproved), 13, 19 and the structured
+   variants are recorded as unproved, not ruled out; GAUSS-SPLIT is "not a universal rule", not killed as a selector.
+3. **Prior-art scope:** `STRONG_APPROX_ES` Thm 9.1 described as a statement about finite n-local Eisenstein
+   combinations; MONOID-DESCENT now cites `z52b_translate` #265 / Z2847 (the z61 board memo is outside the repository);
+   "already proposed" is distinguished from "proved impossible" (ideas 5, 14, 17, 19); the "polylog count" assertion
+   of idea 19 is deleted.
+4. **Kept / made explicit:** the one-engine limitation of the 10¹⁰ census (independent duplication now to 10⁸ by the
+   cross-reviewer, not beyond); the T3 kill is a point-estimate statement (interval [1.364, 1.549] quoted); O₄ / E₄
+   notation in the falsifier table (only the 14 (★)-zeros and the 285 composites constrain O₄ = −E₄; the other 24
+   𝔊*-zeros do not).
+
+Cross-reviewer's independent confirmations (quoted from the review): Lemma T(i)–(iii) and the m = 8, m = 10
+counterexamples; both decomposition identities; the census to 10⁸ and the six extreme minima; the `kfit` replay
+(byte-identical JSON); the dependence ratios 0.888874, 2.19410, 8.71944, 11.1047, 52.8108, 148.547, 660.174; both T1
+replays; the Gaussian lemma and the entire T3 sample by actual divisor/cofactor tests; ALG-SLICE (e = p − 2) and
+QR-FLOOR; the TRACE counterexample; 8/131 and 8/241 have no three-term representation. No new computation was
+required for the null verdict. **No provider / auth / quota error occurred in either review.**
