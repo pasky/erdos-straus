@@ -1,14 +1,47 @@
-# Z69_IDEAB — independent ideation on Erdős–Straus (lane IDEAB, wave z69)
+# Z69_IDEAB — independent ideation on Erdős–Straus. Verdict: **no NEW idea (25/25 already in the campaign); inconclusive / narrowed on UCOVER O2 (integer-side certificates + a five-prime reduction); HOT LEAD: no**
 
-**ES is OPEN. Nothing here claims otherwise.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment.
+Lane IDEAB, wave z69 (brief `z52bbriefs/z69_lanes.md` §IDEAB; common rules `z58_lanes.md`).
+**ES is OPEN. Nothing here proves or disproves ES or any case of it.** Internal, unrefereed.
+Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z69_ideab_*`,
+data `data/z69/ideab/` (< 1 MB). No provider / auth / quota error occurred in this lane (one hostile-review
+subagent call; see §4).
 
-Status: Phase 1 in progress (written from own knowledge only; no repo memo / FRONTIER / git grep consulted;
-only `z69_lanes.md` header+IDEAB and `z58_lanes.md` Common rules + falsifier table were read).
+**Protocol.** §1 (Phase 1: 24 ideas + sanity checks) was written from my own knowledge and committed (commit `d86981e6c`)
+before anything in the repo other than the two brief files was read. §2 (lookup) and §3 (push) came after.
+CERTIFIED in this memo means: an exact finite computation by the stated script, with the stated independent check;
+it does not mean a second full-range engine unless said.
 
-## §0 Falsifier table — placeholder
-The mandatory falsifier table (F1 odd squares, F2 numerator 8 / C-even, F3 composites, F4 known zeros) is filled in
-for the Phase-3 idea in §3, after Phase 1 is committed (the table's notation (★), R, 𝔊*, 𝔐 is campaign-internal and
-I have deliberately not looked it up yet). During Phase 1 each idea carries its own "squares / six classes" line.
+**Results in one paragraph.**
+* (i) **Phase 1–2.** 24 independently generated approaches (+1 late) with key lemma / squares / six-classes lines;
+  post-hoc lookup: **all 25 are already in the campaign** (table in §2), most of them with the same kill. Unprimed, I
+  re-derived the (★) and López lines, T1 by reciprocity, the profinite uncovered set with its one-prime profiles,
+  CONV-II and its exception 4545, open-induction unprovability, and ended at the same wall (one tied divisor event,
+  polylog expected witnesses). That is weak EVIDENCE that the campaign's map of elementary approaches is saturated.
+* (ii) **Phase 3 (UCOVER O2: does K = {1 mod 840, (n/11) = −1} meet U?).** Lemma E (PROVED): K_r ∩ U ≠ ∅ ⟺ the
+  least family-class modulus λ(p) is unbounded on the primes of K_r. CERTIFIED: over all primes ≤ 10¹² the running
+  maximum of λ in K_2 and K_6 grows like in the square class (to 1979 and 1247); explicit residue classes show that
+  **every finite family-class cover of the large primes of K_2 or K_6 needs a modulus > 10⁴**.
+* (iii) **Five-prime reduction (Q-S).** The certificate construction shows that the only tight constraints sit on the
+  deep digits at 2, 3, 5, 7, 11. The family classes with {2,3,5,7,11}-smooth modulus have *finite* total weight
+  (PROVED) and leave an uncovered part of the box B_r of measure ≈ 0.048 (r = 2) and ≈ 0.013 (r = 6), stable from
+  10⁶ to 10⁸ (CERTIFIED exact to 10⁶, Monte Carlo beyond). EVIDENCE for O2, of a kind independent of UCOVER's
+  profile computations, and it says the survivors are generic squares at 3, 5, 7 rather than "1 away from 11, 13".
+  Not a proof of O2; no bearing on ES itself.
+
+## §0 Falsifier table (mandatory; for the Phase-3 object = Lemma E + the certificates + (Q-S))
+
+The Phase-3 object is a statement about what *finite identity covers* (equivalently IOpen/NOI proofs, by
+`Z65_LOGIC2.md` Thm D) can do on the class K. It is not a positivity mechanism, so the screens are passed vacuously;
+the table records how it interacts with them.
+
+| screen | behaviour |
+|---|---|
+| **F1 odd squares** | T1 (no family class contains a unit square residue) is *used as an engine*: a residue that is a square away from 11 can only be caught by classes with 11 ∣ modulus (§3.4). The run checks it: 0 compatible classes with 11 ∤ modulus at every level (§3.5), and no class of modulus ≤ 3000 contains m², m < 200 odd (§3.2). Nothing here is an argument for positivity, so there is no step that "uses primality"; in a square class Lemma E returns sup λ = ∞, as it must. |
+| **F2 numerator 8 / C-even** | No distinction between C odd and C even is made or needed: λ is the minimum over all seven ET families. Restricting the class table (e.g. to the C-even half of (★)) can only increase λ; Lemma E holds verbatim for any fixed set of families. Nothing here can "prove" R₈(p) > 0: the twelve R₈-zero primes simply have λ ≤ 248 through other families. |
+| **F3 composites** | Lemma E and the certificates are about *unit* residue classes (primes). The 285 composite (★)-zeros all lie in some family class of modulus ≤ 548 (they have other solutions); 4545 has no Type II class but a Type I class (S1). Composites sharing a factor with a modulus are outside the statement. |
+| **F4 known zeros** | The 14 (★)-zero primes have λ ≤ 239 (λ(409) = λ(577) = 7, λ(8 813 281) = 111, λ(1 726 201) = 239) and the 38 𝔊*-zero primes λ ≤ 239: λ is finite there because other lines solve them. No positivity of R or R_𝔊* is asserted anywhere. |
+
+**HOT LEAD: no.** (Phase-1 ideas carry their own "squares / six classes" lines in §1.1.)
 
 ## §1 Phase-1 idea list (independent)
 
@@ -550,7 +583,7 @@ Sanity built into the run: the number of compatible classes with 11 ∤ modulus 
   (r = 6): the uncovered set of B_r under *all* S-smooth classes very probably has positive measure.
 * **CONDITIONAL (union bound):** if W_r(∞) − W_r(M) < u_r(M) for one M (u_r = uncovered measure at level M), then
   B_r is not covered by S-smooth classes. For r = 2 the extrapolated crossing is at M ≈ 10⁹. A *rigorous* tail bound
-  from max-divisor inequalities (τ₃(n) ≤ 1.75·10⁴ n^{1/4}, τ(n) ≤ 8.45 n^{1/4}) closes the II-2 family only beyond
+  from max-divisor inequalities (τ₃(n) ≤ 1.77·10⁴ n^{1/4}, τ(n) ≤ 8.45 n^{1/4}; both suprema computed) closes the II-2 family only beyond
   ≈ 10¹⁸ and the II-1/I-4/I-1 families beyond ≈ 10²²; exact enumeration that far is a finite but multi-day
   computation (≈ 10⁸–10⁹ factorizations of 20–45-digit integers), not attempted here.
 * **What (Q-S) = "not covered" would and would not give.** It does *not* prove O2: a surviving S-point must still be
