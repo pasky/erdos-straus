@@ -30,7 +30,7 @@ a fixed input family, an output length-3 family from a finite menu indexed by n 
 from length 4, nor from length 5, at any prime 11 ≤ ℓ ≤ 101 (Theorem 6): explicit good length-4 (and length-5) families
 cover non-residue profile classes that no finite set of good length-3 families covers. CERTIFIED: length-5 good
 families catch every non-residue profile class at level 1 for every prime 11 ≤ ℓ ≤ 211 (Prop 7). **Not excluded:**
-transports whose output letters vary with n inside a congruence class (unbounded menus), multi-step rescaling moves,
+transports whose output family's fixed letters vary with n inside a congruence class (unbounded menus), multi-step rescaling moves,
 rules using the whole input word, and the bounded-alphabet skew-product programme as a whole. Task 2 (reduce (S)
 through the bridge to a new fixed-denominator estimate outside ZQ_M): through the contraction, (S)(p) reduces at primes
 only to a positively weighted re-indexing of itself (Prop 8); **no new estimate was obtained** (Assessment that none is
@@ -49,7 +49,7 @@ Objects: the contraction (Thm 3), the obstruction results (Props 4, 5, 8, Thm 6)
 |---|---|---|
 | **F1 odd squares** | Every word denominator A of n = m² is a unit mod m², so χ_{m²}(A) = +1 for every word of every length; contraction outputs are genuine words, so they are never good at squares (T1). The product formula χ(A₃) = χ(A)χ(X′Y′) needs gcd(X′Y′, n) = 1 and can fail at squares (χ_{2025}(9) = 0, review example). Profile theorems concern classes containing no squares. | Only through χ_n ≢ 1 on units; the contraction itself is an identity of integers. |
 | **F2 C-even / numerator 8** | The *support* of the contraction's output is L₃(n) (Prop 4); counts are not inherited (refinement multiplicities vary). KT2 recomputes the cell census at the 26 screen primes: at the 12 R₈-zero primes in [10¹⁰, 1.1·10¹⁰]: 110–191 word pairs, 63–131 good pairs, 6–28 pairs with 4 ∣ t, **none** with 8 ∣ t; at the 14 (★)-zero primes none with 4 ∣ t (N₋ ∈ [4, 26]). R(p), R₈(p) of the screen file are reproduced (boundary words included). So admissibility of a cell set does not imply its non-emptiness at a given prime. | — |
-| **F3 composites** | Lemmas 1–2, Thm 3 (identity part), Props 4, 5 hold for every odd n; the sign formulas need the stated coprimality (automatic at primes). Prop 8 is stated for primes only (its composite form is false: n = 333, review). Nothing uses primality otherwise. | coprimality in the sign formulas |
+| **F3 composites** | Lemmas 1–2, Thm 3 (identity part), Props 4, 5 hold for every odd n; the sign formulas need the stated coprimality (automatic at primes). Prop 8 is stated for primes only (its composite form is false: n = 333, review). Nothing uses primality otherwise. (S) itself has no known composite failure: all 284 non-vacuous composite R-zeros ≤ 8·10⁶ have good words; the 285th, n = 105, has L₃(105) = ∅ (vacuous). | coprimality in the sign formulas |
 | **F4 known zeros** | (S) holds at the 14 + 12 screen primes (KT2 lists good words; Z64_SDEEPF f4_witnesses for all 64). 21841: 10 pairs, 1 good pair (64, 9, 38); 154 length-4 words (100 good), of which 14 are refinements of L₃ (4 good) and 24 admit no outgoing move (12 good). Nothing here predicts or explains its deficit. | — |
 
 ## 1. Precise statements attacked
@@ -203,7 +203,7 @@ imposing the prime-to-ℓ congruences of the exhibited witnesses, eventual good 
 certificate (length 5: every non-residue class for ℓ ≤ 211, Prop 7), whereas finite length-3 coverage is obstructed
 (other non-square classes can be finitely covered at length 3, e.g. {n ≡ 1 (8), n ≡ 7 (11)} by [[(n+4)/11, 3, 4]]).
 On those branches any transport down to length 3 must make its output's fixed letters depend on more than a fixed
-residue of n. Not excluded: outputs with letters varying with n
+residue of n. Not excluded: outputs whose family's fixed letters vary with n
 inside a congruence class, unbounded sequences of congruence refinements, multi-step moves, rules reading the whole
 input word, and finite-state algorithms with unbounded output menus.
 
@@ -339,3 +339,11 @@ fail otherwise); (M2) KT3 NOOUT described as "weakly negative", not "absent"; (M
 and in Thm 6(c), all-ℓ remark needs n ≥ ℓ + g₀; (m2) gcd-one header/comment in `z68_sign_contract.c` and its data
 file relabelled; (m3) NOOUT/ISOL denominators and the post-hoc provenance of KT3 stated; (m4) allocation checks added;
 (m5) "no good word is produced" at squares.
+
+## 9. Cross-model review (`data/z68/xreview/REVIEW_SIGN.md`: ACCEPT, no required fixes)
+The cross-model reviewer re-derived Lemmas 1–2, Thm 3, Props 4, 5, 8 and Thm 6 (relative to UCOVER S(a), re-running its
+certificates at ℓ = 11, 17), re-checked 120 925 cuts / 4 782 moves / 1 143 contractions on all odd n ≤ 201 (+333, 2025),
+all 1 575 length-4 and 2 189 length-5 witnesses, KT2/KT3 byte-for-byte, and the F1–F4 screens. Optional editorial fixes
+applied: "the output family's fixed letters vary with n" (bottom line, §3 reading); n = 105 named in the F3 row. Its
+untried directions (1) sign-labelled forward+inverse move graph with multi-step descent, (2) n-dependent cuts with
+unbounded output menus, are pursued in §10.
