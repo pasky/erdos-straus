@@ -21,12 +21,13 @@ it does not mean a second full-range engine unless said.
   least family-class modulus λ(p) is unbounded on the primes of K_r. CERTIFIED: over all primes ≤ 10¹² the running
   maximum of λ in K_2 and K_6 grows like in the square class (to 1979 and 1247); explicit residue classes show that
   **every finite family-class cover of the large primes of K_2 or K_6 needs a modulus > 10⁴**.
-* (iii) **Five-prime reduction (Q-S).** The certificate construction shows that the only tight constraints sit on the
-  deep digits at 2, 3, 5, 7, 11. The family classes with {2,3,5,7,11}-smooth modulus have *finite* total weight
-  (PROVED) and leave an uncovered part of the box B_r of measure ≈ 0.048 (r = 2) and ≈ 0.013 (r = 6), stable from
-  10⁶ to 10⁸ (CERTIFIED exact to 10⁷, Monte Carlo at 10⁸). EVIDENCE for O2, of a kind independent of UCOVER's
-  profile computations, and it says the survivors are generic squares at 3, 5, 7 rather than "1 away from 11, 13".
-  Not a proof of O2; no bearing on ES itself.
+* (iii) **Level-by-level picture (Q-S and §3.6).** For a finite prime set S′ ∋ 11 the family classes with S′-smooth
+  modulus have *finite* total weight (PROVED). For S′ = {2,3,5,7,11} they leave an uncovered part of the box B_r of
+  measure ≈ 0.048 (r = 2) and ≈ 0.013 (r = 6), stable from 10⁶ to 10⁸ (CERTIFIED exact to 10⁷, Monte Carlo at 10⁸).
+  Adding 13 kills nine resp. ten of the twelve residue classes mod 13 outright and leaves ≈ 1 % of the surviving
+  square class (v ≡ 3 resp. 4 mod 13). So the uncovered set thins at every prime, as a measure-zero set must, and
+  stays non-empty at every level computed. EVIDENCE for O2 of a kind independent of UCOVER's profile computations;
+  the survivors are generic squares at 3, 5, 7, and exist for r = 6 as well. Not a proof of O2; no bearing on ES itself.
 
 ## §0 Falsifier table (mandatory; for the Phase-3 object = Lemma E + the certificates + (Q-S))
 
@@ -570,14 +571,15 @@ So (Lemma E) **every finite family-class cover of the large primes of K_2, or of
 (certificates: `data/z69/ideab/cert_M10000_r{2,6}.json`, a 4349-digit residue each, checked against all 173 664 classes
 of all seven families without using the squares observation, and again by the direct divisibility test with no table:
 `cert_M10000_direct.log`; the internal reviewer re-verified both with independent code). Kill test C not triggered. The only tight spot is the
-prime 3 (3-adic digits to depth 8), i.e. the constraints live on the deep digits at the *small* primes. This isolates:
+prime 3 (3-adic digits to depth 8), i.e. the constraints live on the deep digits at the *small* primes. This suggests looking at small primes first:
 
 **Question (Q-S).** Let S = {2,3,5,7,11} and B_r = (1+8ℤ₂)×(1+3ℤ₃)×(1+5ℤ₅)×(1+7ℤ₇)×(r+11ℤ₁₁). Do the family
 classes with S-smooth modulus cover B_r?
 * If **yes**: by compactness finitely many do, and then K_r ∩ U = ∅ — the unit profiles of K_r would lie in a finite
   union of polynomial-identity classes (a new Mordell-type class; O2 answered negatively for that r).
-* If **no**: some S-point survives all S-smooth classes; the other primes then only have to dodge classes containing
-  a prime ≥ 13, which was easy at the levels tried (§3.4).
+* If **no**: some S-point survives all S-smooth classes. This is *necessary* for K_r ∩ U ≠ ∅ but, as §3.6 shows, far from
+  sufficient: the next prime removes most of what is left. *[Corrected by my own follow-up after the review: the first
+  version said the other primes "were easy"; that was wrong.]*
 Smooth moduli are sparse (7 838 below 10⁸), so the *truncation* of (Q-S) to moduli ≤ M can be decided far beyond 10⁴.
 (A "covered" answer at some level would settle (Q-S); "not covered" at a level settles only that level.)
 
@@ -618,12 +620,38 @@ Sanity built into the run: the number of compatible classes with 11 ∤ modulus 
   finite but multi-day computation; not attempted here. Finite total weight (> 1) alone does not give a surviving point.
 * **What (Q-S) = "not covered" would and would not give.** It does *not* prove O2: a surviving S-point must still be
   extended over the primes ≥ 13, where the total weight diverges (heuristically like a power of log M; Assessment) so no union bound is available;
-  a level-by-level (e.g. second-moment) argument is the route I would try. At M = 10⁴ this extension was easy (§3.4). It *does* explain the shape of the survivors: they are
+  a level-by-level (e.g. second-moment) argument is the route I would try. The extension is *not* automatic: see §3.6. It *does* explain the shape of the survivors: they are
   **generic squares at 3, 5, 7** (e.g. x ≡ 13 mod 27, 21 mod 25, 15 mod 49), not UCOVER's "1 away from 11, 13"
   profiles, which are caught early because the small residues −e, −f of the families cluster at ±1.
 * Had the truncated (Q-S) come out "covered" at some level, the unit profiles of K_r would have been inside a finite
   union of identity classes — a new Mordell-type class. It did not, up to 10⁸. **(Q-S) itself, and O2, remain OPEN.**
 
+
+### 3.6 The next stage (prime 13): the five-prime box is only the first level of a tree (added after the review)
+`z69_ideab_smooth.py M r … --exact --extra 13:v` adds 13 to S and restricts the coordinate at 13 to v + 13ℤ₁₃
+(any unit v; for non-residues v the classes with 11 ∤ modulus are kept). Logs `smooth13_*.log`. CERTIFIED (exact
+rationals; single engine) unless marked MC.
+
+| r | residues v mod 13 with B_r × (v + 13ℤ₁₃) **entirely covered** at level 10⁵ | surviving v: exact uncovered measure of the sub-box at 10⁴, 10⁵, 10⁶; MC at 10⁷ |
+|---|---|---|
+| 2 | 1, 4, 9 (single classes mod 143), 10 (mod 5720), 12 (mod 4004), 5, 6, 8, 11 | v = 3: 0.038451, 0.023898, 0.014690, 0.0116 (MC) · v = 2: 0.012310, 0.006801 · v = 7: 0.022800, 0.005012 |
+| 6 | 1, 3, 10 (mod 143), 2 (mod 572), 12 (mod 4004), 5, 6, 8, 11 (mod 39, 52, …), 9 (jointly, no single class) | v = 4: –, 0.017897, –, 0.0099 (MC) · v = 7: –, 0.004427 |
+
+* So at 13 only three (r = 2) resp. two (r = 6) of the twelve residue classes survive, exactly one of them a square
+  class (v = 3 resp. v = 4). The S-survivor of §3.5 at level 10⁸ (113, 55, 161, 155, 959) does **not** extend: with it
+  preset, `z69_ideab_cert.py` finds no admissible square residue at 13 already at M = 10⁴ (allowed fraction 0).
+  The certificates of §3.4 are unaffected (they were found by a search over all coordinates and verified against the
+  full table); their residue mod 13 is necessarily in the surviving set.
+* The uncovered measure of the stage {2,…,13} still converges to a positive value (r = 2, v = 3: decrements 0.0146,
+  0.0092, 0.0031 per decade; ≈ 0.010–0.011 of the sub-box), but it is ≈ 4–5 times smaller than at the stage {2,…,11}
+  (0.0485) *within one of twelve residue classes*. This is what a measure-zero Cantor set looks like level by level:
+  **for every finite prime set S′ ∋ 11 the S′-smooth classes have finite weight (PROVED as in §3.5) and, at the two stages
+  computed, leave a set of positive measure (EVIDENCE / CERTIFIED at finite level); the measures tend to 0 along
+  S′ ↑ {all primes}; O2 asks whether the nested sets stay non-empty.** (Q-S) is the first level, not a "core".
+* Relation to UCOVER (iv): there, among profiles (g at 11, h at 13, **1 elsewhere**) only (g,h) ≡ (2,2) survives. Without
+  the "1 elsewhere" restriction the surviving residues mod 13 are {2, 3, 7} for r = 2 and {4, 7} for r = 6 (new data;
+  finite level 10⁵). In particular r = 6 has survivors, with generic squares at 3, 5, 7 — consistent with the
+  M = 10⁴ certificate for K_6.
 
 ## §4 Review log
 
@@ -643,6 +671,10 @@ auth / quota error). Verdict: "REJECT AS WRITTEN; no fatal defect found in the c
   thresholds relabelled Assessment, Monte Carlo errors stated. (16) kill test C is bounded-search (UNDECIDED on failure);
   `z69_ideab_smooth.py` now re-checks survivors against the raw table and asserts the T1 sanity count is 0. (18) text
   slips (number of smooth moduli, "finite union" wording, "(Q-S) decided at finite level").
+* **Self-correction after the review (not prompted by it).** While wiring the S-survivor into the certificate search I
+  found that it does not extend to the prime 13; the "five-prime core / other primes are easy" reading of §3.4–3.5 was
+  wrong. §3.6 was added, the two affected bullets and the summary (iii) were rewritten, and `z69_ideab_smooth.py` /
+  `z69_ideab_cert.py` gained the `--extra q:v` and preset options. The §3.6 numbers are single-engine.
 * **Confirmed independently by the reviewer (OK):** exhaustiveness of the S1 searches and the zero sets for n ≤ 20000;
   the superset property of `build` on unit classes ≡ 1 mod 4; λ = 1979, 1247, 2020 for the three record primes and their
   primality; the sieve against `sympy.primerange` for X = 10⁶; both M = 10⁴ certificates (own code, plus per-modulus

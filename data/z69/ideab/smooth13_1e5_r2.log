@@ -1,0 +1,15 @@
+   EXACT uncovered relative measure of B_r at level 1e+05: 1285219/20908800 = 0.061468  (22216 nodes)
+SURVIVOR after 17 nodes: depths {2: 7, 3: 3, 5: 4, 7: 2, 11: 2}  residues {2: 17, 3: 13, 5: 76, 7: 15, 11: 101}
+   raw-table re-check: classes (of all 79936) meeting the survivor cylinder: 0
+M=1e+05 r=2 extra=[(13, 1)]: 1848 smoothl relative weight 10.616; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes co    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
+M=1e+05 r=2 extra=[(13, 3)]: 1848 smoothl relative weight 10.144; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes co    EXACT uncovered relative measure of Bodes) 
+M=1e+05 r=2 extra=[(13, 4)]: 1848 smoothl relative weight 12.824; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes co    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
+M=1e+05 r=2 extra=[(13, 9)]: 1848 smoothl relative weight 12.724; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes co    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
+M=1e+05 r=2 extra=[(13, 10)]: 1848 smootal relative weight 11.489; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes c    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
+M=1e+05 r=2 extra=[(13, 12)]: 1848 smootal relative weight 10.210; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes c    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
+M=1e+05 r=2 extra=[(13, 2)]: 1848 smoothl relative weight 15.383; compatible classes with 11 not dividing modulus (must be 0 by T1): 146; classes     EXACT uncovered relative measure of B7 nodes) 
+M=1e+05 r=2 extra=[(13, 5)]: 1848 smoothl relative weight 16.791; compatible classes with 11 not dividing modulus (must be 0 by T1): 156; classes     EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
+M=1e+05 r=2 extra=[(13, 6)]: 1848 smoothl relative weight 26.177; compatible classes with 11 not dividing modulus (must be 0 by T1): 234; classes     EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
+M=1e+05 r=2 extra=[(13, 7)]: 1848 smoothl relative weight 14.418; compatible classes with 11 not dividing modulus (must be 0 by T1): 143; classes     EXACT uncovered relative measure of B4951 nodes) 
+M=1e+05 r=2 extra=[(13, 8)]: 1848 smoothl relative weight 19.038; compatible classes with 11 not dividing modulus (must be 0 by T1): 168; classes     EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
+M=1e+05 r=2 extra=[(13, 11)]: 1848 smootal relative weight 25.033; compatible classes with 11 not dividing modulus (must be 0 by T1): 219; classes    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 

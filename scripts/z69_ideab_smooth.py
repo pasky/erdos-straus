@@ -3,13 +3,20 @@
 Enumerate ALL family classes (seven ET families, superset enumeration) whose modulus is S-smooth and <= M, keep those
 compatible with the box B_r = (1+8Z_2)x(1+3Z_3)x(1+5Z_5)x(1+7Z_7)x(r+11Z_11), and decide by complete DFS on the digits
 whether they cover B_r.  Output: a surviving S-point (residues mod prime powers) or "COVERED".
-usage: smooth.py M r [nodelimit] [seed] [--exact]"""
+usage: smooth.py M r [nodelimit] [seed] [--exact] [--extra q:v ...]
+--extra q:v adds the prime q to S with the coordinate at q restricted to the residue class v mod q (box B_r x (v + q Z_q))."""
 import sys, math, random, json
 from sympy import factorint, divisors, sqrt_mod
 sys.setrecursionlimit(100000)
 M = int(float(sys.argv[1])); R11 = int(sys.argv[2]); NODELIM = int(float(sys.argv[3])) if len(sys.argv) > 3 else 10**7
 random.seed(int(sys.argv[4]) if len(sys.argv) > 4 else 1)
 S = [2, 3, 5, 7, 11]; BASE = {2: 3, 3: 1, 5: 1, 7: 1, 11: 1}; BASEVAL = {2: 1, 3: 1, 5: 1, 7: 1, 11: R11}
+EXTRA = []
+if "--extra" in sys.argv:
+    for tok in sys.argv[sys.argv.index("--extra") + 1:]:
+        if tok.startswith("--"): break
+        q, v = map(int, tok.split(":")); S.append(q); BASE[q] = 1; BASEVAL[q] = v; EXTRA.append((q, v))
+TAG = "".join(f"_x{q}-{v}" for q, v in EXTRA)
 
 def smooth_upto(X):
     out = [1]
@@ -69,15 +76,17 @@ for m, Rs in cls.items():
     e = expo(m)
     for rho in Rs:
         if any(rho % (q ** min(e[q], BASE[q])) != BASEVAL[q] % (q ** min(e[q], BASE[q])) for q in S): continue
-        if e[11] == 0: bad_T1 += 1; continue
+        if e[11] == 0:
+            bad_T1 += 1
+            if not EXTRA: continue
         c = tuple((e[q], rho % (q ** e[q])) for q in S)
         w = 1.0
         for q in S: w /= q ** max(0, e[q] - BASE[q])
         weight += w; comp.append(c)
         if w == 1.0: full.append((m, rho))
 comp = list(set(comp))
-assert bad_T1 == 0, 'a compatible class with 11 not dividing its modulus exists: T1 sanity failed'
-print(f"M={M:.3g} r={R11}: {len(SM)} smooth moduli, {ntot} classes, {len(comp)} compatible with B_r, total relative weight {weight:.3f}; "
+assert bad_T1 == 0 or EXTRA, 'a compatible class with 11 not dividing its modulus exists: T1 sanity failed'
+print(f"M={M:.3g} r={R11} extra={EXTRA}: {len(SM)} smooth moduli, {ntot} classes, {len(comp)} compatible with B_r, total relative weight {weight:.3f}; "
       f"compatible classes with 11 not dividing modulus (must be 0 by T1): {bad_T1}; classes covering all of B_r: {full}", flush=True)
 
 # Monte Carlo estimate of the uncovered relative measure of B_r at this level
@@ -86,13 +95,14 @@ NMC = 200000; unc = 0
 import collections
 by11 = collections.defaultdict(list)
 for c in comp: by11[c[4]].append(c)
+OTH = [i for i in range(len(S)) if i != 4]
 for _ in range(NMC):
     x = {q: BASEVAL[q] % (q ** BASE[q]) + (q ** BASE[q]) * random.randrange(q ** (maxe[q] - BASE[q])) for q in S}
     hitp = False
     for (e11, r11), L in by11.items():
         if x[11] % (11 ** e11) != r11: continue
         for c in L:
-            if all(x[q] % (q ** c[i][0]) == c[i][1] for i, q in enumerate(S[:4])): hitp = True; break
+            if all(x[S[i]] % (S[i] ** c[i][0]) == c[i][1] for i in OTH): hitp = True; break
         if hitp: break
     unc += not hitp
 print(f"   Monte Carlo ({NMC} random points of B_r): uncovered fraction = {unc / NMC:.4f}", flush=True)
@@ -177,9 +187,9 @@ try:
         print(f"   raw-table re-check: classes (of all {ntot}) meeting the survivor cylinder: {hit}", flush=True)
         assert hit == 0
         json.dump({"M": M, "r": R11, "depths": Dq, "residues": {str(q): Xq[q] for q in S}, "nodes": nodes, "ncompatible": len(comp), "weight": weight},
-                  open(f"data/z69/ideab/smooth_M{M:.0e}_r{R11}.json", "w"))
+                  open(f"data/z69/ideab/smooth_M{M:.0e}_r{R11}{TAG}.json", "w"))
     else:
         print(f"COVERED: exhaustive DFS ({nodes} nodes) found no S-point of B_r outside the S-smooth classes of modulus <= {M}", flush=True)
-        json.dump({"M": M, "r": R11, "covered": True, "nodes": nodes, "ncompatible": len(comp), "weight": weight}, open(f"data/z69/ideab/smooth_M{M:.0e}_r{R11}.json", "w"))
+        json.dump({"M": M, "r": R11, "covered": True, "nodes": nodes, "ncompatible": len(comp), "weight": weight}, open(f"data/z69/ideab/smooth_M{M:.0e}_r{R11}{TAG}.json", "w"))
 except TimeoutError:
     print(f"UNDECIDED: node limit {NODELIM} reached", flush=True)

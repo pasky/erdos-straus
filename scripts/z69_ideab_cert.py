@@ -3,7 +3,9 @@
 Search for an integer n, unit mod every prime <= M, with n = 1 (mod 840), n = r (mod 11), n a square modulo every prime
 power prime to 11, such that n lies in NO family class (all seven ET families, superset enumeration) of modulus <= M.
 Verification of the result does not use the squares-are-uncovered observation.
-usage: cert.py M r seed [check_direct_limit]"""
+usage: cert.py M r seed [check_direct_limit] [smooth_survivor.json]
+If a survivor file of z69_ideab_smooth.py is given, the coordinates at 2,3,5,7,11 are preset to that cylinder (which meets
+no {2,3,5,7,11}-smooth class up to the level of that file) and only the primes >= 13 are searched."""
 import sys, math, random, json, importlib.util
 sys.setrecursionlimit(100000); sys.set_int_max_str_digits(0)
 M = int(sys.argv[1]); R11 = int(sys.argv[2]); SEED = int(sys.argv[3]); DLIM = int(sys.argv[4]) if len(sys.argv) > 4 else 0
@@ -11,6 +13,10 @@ _argv = sys.argv; sys.argv = ["o2", "1e6", "8", "2"]
 spec = importlib.util.spec_from_file_location("o2", "scripts/z69_ideab_o2.py"); o2 = importlib.util.module_from_spec(spec); spec.loader.exec_module(o2)
 sys.argv = _argv
 random.seed(SEED)
+PRESET = {}
+if len(sys.argv) > 5:
+    _J = json.load(open(sys.argv[5])); assert _J["r"] == R11
+    PRESET = {int(q): int(v) for q, v in _J["residues"].items()}; PRESET_DEPTH = {int(q): int(v) for q, v in _J["depths"].items()}
 
 def factor(m):
     f = {}; d = 2
@@ -47,6 +53,8 @@ def base_ok(q, t):
 
 assign = {}; stats = {"backtracks": 0, "minfrac": (1.0, None)}
 def candidates(q):
+    if q in PRESET:
+        return [PRESET[q] % (q ** vmax[q])] if q ** vmax[q] <= q ** PRESET_DEPTH[q] else [PRESET[q]]
     forb = set()
     for m, rho, fm in groups[q]:
         if all(assign[s] % (s ** e) == rho % (s ** e) for s, e in fm.items() if s != q):
@@ -86,7 +94,7 @@ if ok:
     print("n has", len(str(n)), "digits; primes (other than 11) where n is a non-residue:", nonsq[:5], flush=True)
     json.dump({"M": M, "r": R11, "seed": SEED, "n": str(n), "L_is_lcm_of_prime_powers_le_M": True,
                "assign_small": {str(q): assign[q] for q in order if q < 200}, "stats": stats, "violations": len(bad)},
-              open(f"data/z69/ideab/cert_M{M}_r{R11}.json", "w"))
+              open(f"data/z69/ideab/cert_M{M}_r{R11}{'_preset' if PRESET else ''}.json", "w"))
     if DLIM:
         cspec = importlib.util.spec_from_file_location("chk", "scripts/z69_ideab_o2_check.py")
         chk = importlib.util.module_from_spec(cspec); cspec.loader.exec_module(chk)

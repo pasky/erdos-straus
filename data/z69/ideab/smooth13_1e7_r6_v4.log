@@ -1,0 +1,4 @@
+M=1e+07 r=6 extra=[(13, 4)]: 8289 smooth moduli, 2222456 classes, 2578 compatible with B_r, total relative weight 10.131; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes covering all of B_r: []
+   Monte Carlo (200000 random points of B_r): uncovered fraction = 0.0099
+SURVIVOR after 37 nodes: depths {2: 9, 3: 5, 5: 3, 7: 3, 11: 4, 13: 2}  residues {2: 433, 3: 1, 5: 61, 7: 274, 11: 6980, 13: 82}
+   raw-table re-check: classes (of all 2222456) meeting the survivor cylinder: 0
