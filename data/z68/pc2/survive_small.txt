@@ -1,0 +1,9 @@
+(L1,L2)=(11,13) level (11^2,13^2); NR box 55 x 78 = 4290; mixed cylinders 2449
+  s = 15/4290 = 0.00350;  s1_pure = 0.21818, s2_pure = 0.25641, product = 0.05594;  Gamma = 0.05245
+  single-prime s1U = 0.00000, s2U = 0.00000;  s/(s1U s2U) = nan;  s/(s1p s2p) = 0.0625
+(L1,L2)=(17,19) level (17^2,19^2); NR box 136 x 171 = 23256; mixed cylinders 4080
+  s = 146/23256 = 0.00628;  s1_pure = 0.19118, s2_pure = 0.30409, product = 0.05814;  Gamma = 0.05186
+  single-prime s1U = 0.19118, s2U = 0.30409;  s/(s1U s2U) = 0.1080;  s/(s1p s2p) = 0.1080
+(L1,L2)=(11,13) level (11^3,13^2); NR box 605 x 78 = 47190; mixed cylinders 10023
+  s = 98/47190 = 0.00208;  s1_pure = 0.17521, s2_pure = 0.25641, product = 0.04492;  Gamma = 0.04285
+  single-prime s1U = 0.00000, s2U = 0.00000;  s/(s1U s2U) = nan;  s/(s1p s2p) = 0.0462

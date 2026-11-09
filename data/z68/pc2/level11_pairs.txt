@@ -1,0 +1,9 @@
+   17    19  pure c1=0.7500 c2=0.5556  mixed NRxNR cyl=  57 mass=0.79167  Gamma11=0.06944  Gamma11/(c1 c2)=0.167
+   29    31  pure c1=0.5714 c2=0.7333  mixed NRxNR cyl= 122 mass=0.58095  Gamma11=0.05714  Gamma11/(c1 c2)=0.136
+   41    43  pure c1=0.3000 c2=0.5238  mixed NRxNR cyl= 185 mass=0.44048  Gamma11=0.15238  Gamma11/(c1 c2)=0.970
+   59    61  pure c1=0.5862 c2=0.4667  mixed NRxNR cyl= 333 mass=0.38276  Gamma11=0.07586  Gamma11/(c1 c2)=0.277
+  101   103  pure c1=0.4000 c2=0.4118  mixed NRxNR cyl= 461 mass=0.18078  Gamma11=0.05608  Gamma11/(c1 c2)=0.340
+  211   223  pure c1=0.3524 c2=0.3514  mixed NRxNR cyl= 882 mass=0.07568  Gamma11=0.03329  Gamma11/(c1 c2)=0.269
+  401   409  pure c1=0.1900 c2=0.1078  mixed NRxNR cyl= 876 mass=0.02147  Gamma11=0.01456  Gamma11/(c1 c2)=0.711
+  809   811  pure c1=0.1386 c2=0.1358  mixed NRxNR cyl=1237 mass=0.00756  Gamma11=0.00549  Gamma11/(c1 c2)=0.292
+ 1601  1607  pure c1=0.0675 c2=0.0884  mixed NRxNR cyl=1680 mass=0.00262  Gamma11=0.00210  Gamma11/(c1 c2)=0.351
