@@ -11,7 +11,7 @@ int main(int argc,char**argv){
   u64 N=atoll(argv[1]); u64 F=2*N+1;
   uint8_t*comp=calloc(F/16+2,1);
   for(u64 i=3;i*i<=F;i+=2) if(!getbit(comp,i>>1)) for(u64 j=i*i;j<=F;j+=2*i) setbit(comp,j>>1);
-  #define ISPRIME(n) ((n)==2 || (((n)&1) && !getbit(comp,(n)>>1)))
+  #define ISPRIME(n) ((n)==2 || ((n)>=3 && ((n)&1) && !getbit(comp,(n)>>1)))
   u64 M=(F+1)/8+1; u32*spf=calloc(M+1,4);
   for(u64 i=2;i<=M;i++) if(!spf[i]){ for(u64 j=i;j<=M;j+=i) if(!spf[j]) spf[j]=i; }
   u64 P=N/8+2; uint8_t*fl=calloc(P,1);

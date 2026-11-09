@@ -16,7 +16,7 @@ int main(int argc,char**argv){
   // prime sieve up to F (odd bitmap: index n>>1)
   uint8_t*comp=calloc(F/16+2,1); // bit set = composite (odd n)
   for(u64 i=3;i*i<=F;i+=2) if(!getbit(comp,i>>1)) for(u64 j=i*i;j<=F;j+=2*i) setbit(comp,j>>1);
-  #define ISPRIME(n) ((n)==2 || (((n)&1) && !getbit(comp,(n)>>1)))
+  #define ISPRIME(n) ((n)==2 || ((n)>=3 && ((n)&1) && !getbit(comp,(n)>>1)))
   // omega for odd n <= F: uint8 array indexed n>>1
   uint8_t*om=calloc(F/2+2,1);
   for(u64 q=3;q<=F;q+=2) if(!getbit(comp,q>>1)) for(u64 j=q;j<=F;j+=2*q) om[j>>1]++;
