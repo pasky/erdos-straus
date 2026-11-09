@@ -1,0 +1,52 @@
+== n == 1 (mod 8), n<=1000000
+all           prime mod4:[0 9695 0 9857] zero=0 | sq:[23 218 17 241] zero=0 | comp:[12096 40246 12219 40387] zero=0
+OOO           prime mod4:[0 9812 0 9740] zero=0 | sq:[19 224 21 235] zero=0 | comp:[12038 40415 12277 40218] zero=0
+xeven         prime mod4:[4837 5011 4916 4788] zero=0 | sq:[136 128 113 122] zero=0 | comp:[26074 26153 26401 26320] zero=0
+8|xy          prime mod4:[4893 4938 4887 4834] zero=0 | sq:[499 0 0 0] zero=499 | comp:[26273 26196 26170 26309] zero=8
+4|y           prime mod4:[9832 0 9720 0] zero=9 | sq:[499 0 0 0] zero=499 | comp:[52442 0 52506 0] zero=188
+8|y           prime mod4:[9920 0 9632 0] zero=286 | sq:[499 0 0 0] zero=499 | comp:[52575 0 52373 0] zero=3484
+xe,xy=4(8)    prime mod4:[4896 4954 4874 4828] zero=0 | sq:[115 119 125 140] zero=0 | comp:[25914 26481 26357 26196] zero=0
+xe,xy=2(4)    prime mod4:[4761 4860 5014 4917] zero=0 | sq:[125 127 121 126] zero=0 | comp:[26296 26275 26166 26211] zero=0
+x<=z          prime mod4:[4929 4852 4928 4843] zero=0 | sq:[125 127 133 114] zero=0 | comp:[26233 26357 26376 25982] zero=0
+x<z,4|y       prime mod4:[4916 4874 4916 4846] zero=9 | sq:[499 0 0 0] zero=499 | comp:[26184 26221 26258 26285] zero=188
+xe,8|xy,yodd  prime mod4:[4942 4985 4900 4725] zero=852 | sq:[499 0 0 0] zero=499 | comp:[27213 27594 26699 23442] zero=7894
+xe,16|xy      prime mod4:[4988 4826 4776 4962] zero=23 | sq:[499 0 0 0] zero=499 | comp:[26007 26278 26213 26450] zero=205
+== n == 3 (mod 8), n<=1000000
+all           prime mod4:[1 9806 0 9846] zero=0 | sq:[0 0 0 0] zero=0 | comp:[12069 40509 12342 40427] zero=0
+OOO           prime mod4:[0 9866 1 9786] zero=0 | sq:[0 0 0 0] zero=0 | comp:[12301 40470 12110 40466] zero=0
+xeven         prime mod4:[4984 4808 5004 4857] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26341 26502 26271 26233] zero=0
+8|xy          prime mod4:[4958 4930 4844 4921] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26282 26542 26135 26388] zero=0
+4|y           prime mod4:[9822 0 9831 0] zero=1 | sq:[0 0 0 0] zero=0 | comp:[52704 0 52643 0] zero=125
+8|y           prime mod4:[9889 0 9764 0] zero=169 | sq:[0 0 0 0] zero=0 | comp:[52981 0 52366 0] zero=2835
+xe,xy=4(8)    prime mod4:[4913 4976 4923 4841] zero=1 | sq:[0 0 0 0] zero=0 | comp:[26255 26486 26214 26392] zero=34
+xe,xy=2(4)    prime mod4:[4972 4971 4870 4840] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26519 26304 26247 26277] zero=0
+x<=z          prime mod4:[4927 4917 4919 4890] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26177 26320 26512 26338] zero=0
+x<z,4|y       prime mod4:[4792 4975 5030 4856] zero=1 | sq:[0 0 0 0] zero=0 | comp:[26276 26244 26428 26399] zero=125
+xe,8|xy,yodd  prime mod4:[4962 4888 5070 4733] zero=453 | sq:[0 0 0 0] zero=0 | comp:[26275 27005 27082 24985] zero=4935
+xe,16|xy      prime mod4:[4794 4980 5007 4872] zero=4 | sq:[0 0 0 0] zero=0 | comp:[26125 26494 26211 26517] zero=147
+== n == 5 (mod 8), n<=1000000
+all           prime mod4:[0 9693 0 9930] zero=0 | sq:[0 0 0 0] zero=0 | comp:[12210 40488 12146 40533] zero=0
+OOO           prime mod4:[0 9777 0 9846] zero=0 | sq:[0 0 0 0] zero=0 | comp:[12203 40517 12153 40504] zero=0
+xeven         prime mod4:[4858 5106 4885 4774] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26066 26594 26145 26572] zero=0
+8|xy          prime mod4:[4840 4991 4904 4888] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26258 26436 26214 26469] zero=0
+4|y           prime mod4:[9771 0 9852 0] zero=0 | sq:[0 0 0 0] zero=0 | comp:[52984 0 52393 0] zero=0
+8|y           prime mod4:[9761 0 9862 0] zero=128 | sq:[0 0 0 0] zero=0 | comp:[52594 0 52783 0] zero=1612
+xe,xy=4(8)    prime mod4:[4970 5013 4854 4786] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26390 26275 26189 26523] zero=0
+xe,xy=2(4)    prime mod4:[4842 4898 4947 4936] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26600 26414 26135 26228] zero=0
+x<=z          prime mod4:[5013 4853 4917 4840] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26246 26366 26450 26315] zero=0
+x<z,4|y       prime mod4:[4914 4919 4857 4933] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26570 26209 26414 26184] zero=0
+xe,8|xy,yodd  prime mod4:[4869 4963 4876 4915] zero=318 | sq:[0 0 0 0] zero=0 | comp:[26020 26527 26978 25852] zero=2986
+xe,16|xy      prime mod4:[4786 4911 5001 4925] zero=2 | sq:[0 0 0 0] zero=0 | comp:[26482 26287 26285 26323] zero=62
+== n == 7 (mod 8), n<=1000000
+all           prime mod4:[0 9765 0 9904] zero=0 | sq:[0 0 0 0] zero=0 | comp:[12307 40507 12121 40396] zero=0
+OOO           prime mod4:[0 9813 0 9856] zero=0 | sq:[0 0 0 0] zero=0 | comp:[12228 40514 12200 40389] zero=0
+xeven         prime mod4:[4940 4923 4937 4869] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26342 26310 26365 26314] zero=0
+8|xy          prime mod4:[4934 4895 4885 4955] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26411 26180 26429 26311] zero=0
+4|y           prime mod4:[9874 0 9795 0] zero=8 | sq:[0 0 0 0] zero=0 | comp:[52592 0 52739 0] zero=150
+8|y           prime mod4:[9868 0 9801 0] zero=253 | sq:[0 0 0 0] zero=0 | comp:[52759 0 52572 0] zero=2898
+xe,xy=4(8)    prime mod4:[4910 4769 5111 4879] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26309 26479 26390 26153] zero=0
+xe,xy=2(4)    prime mod4:[4874 4951 4878 4966] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26344 26272 26660 26055] zero=0
+x<=z          prime mod4:[4982 4787 4922 4978] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26502 26290 25963 26576] zero=0
+x<z,4|y       prime mod4:[4909 4948 4965 4847] zero=8 | sq:[0 0 0 0] zero=0 | comp:[26088 26268 26504 26471] zero=150
+xe,8|xy,yodd  prime mod4:[4868 4922 4938 4941] zero=197 | sq:[0 0 0 0] zero=0 | comp:[25575 26434 27198 26124] zero=2081
+xe,16|xy      prime mod4:[4880 4958 5007 4824] zero=0 | sq:[0 0 0 0] zero=0 | comp:[26194 26413 26286 26438] zero=0
