@@ -1,0 +1,16 @@
+gen_bandA.jsonl: 6000 inputs
+   G    cand/prime   16.0  real 0.0055  decoy 0.0050  real non-Lambda 0.0032  McNemar z +0.39  failures 5967
+   N    cand/prime   47.7  real 0.0203  decoy 0.0217  real non-Lambda 0.0125  McNemar z -0.55  failures 5878
+   J    cand/prime   57.9  real 0.0990  decoy 0.0982  real non-Lambda 0.0483  McNemar z +0.21  failures 5406
+   Q    cand/prime   24.2  real 0.0445  decoy 0.0462  real non-Lambda 0.0180  McNemar z -0.58  failures 5733
+   A    cand/prime   33.9  real 0.6320  decoy 0.6187  real non-Lambda 0.2608  McNemar z +1.79  failures 2208
+   C    cand/prime    7.5  real 0.0107  decoy 0.0117  real non-Lambda 0.0062  McNemar z -0.55  failures 5936
+   ALL  cand/prime  172.1  real 0.6923  decoy 0.6795  real non-Lambda 0.3168  McNemar z +1.78  failures 1846
+   A_a  cand/prime    6.2  real 0.1632  decoy 0.1592  real non-Lambda 0.0488  McNemar z +0.74  failures 5021
+   A_b  cand/prime    5.2  real 0.1528  decoy 0.1525  real non-Lambda 0.0482  McNemar z +0.06  failures 5083
+   A_c  cand/prime    5.7  real 0.1577  decoy 0.1462  real non-Lambda 0.0457  McNemar z +2.15  failures 5054
+   A_d  cand/prime    5.4  real 0.1548  decoy 0.1565  real non-Lambda 0.0518  McNemar z -0.31  failures 5071
+   A_e  cand/prime    6.4  real 0.1552  decoy 0.1548  real non-Lambda 0.0520  McNemar z +0.06  failures 5069
+   A_g  cand/prime    5.0  real 0.1533  decoy 0.1538  real non-Lambda 0.0503  McNemar z -0.09  failures 5080
+   Apen cand/prime    5.9  real 0.0430  decoy 0.0357  real non-Lambda 0.0277  McNemar z +2.39  failures 5742
+   Anopen cand/prime   27.9  real 0.6145  decoy 0.6050  real non-Lambda 0.2407  McNemar z +1.27  failures 2313

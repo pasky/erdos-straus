@@ -1,0 +1,48 @@
+gen_band.jsonl: 10000 inputs
+   G    cand/prime   16.0  real 0.0069  decoy 0.0065  real non-Lambda 0.0043  McNemar z +0.37  failures 9931
+   N    cand/prime   47.9  real 0.0219  decoy 0.0205  real non-Lambda 0.0136  McNemar z +0.74  failures 9781
+   J    cand/prime   58.2  real 0.0994  decoy 0.1022  real non-Lambda 0.0498  McNemar z -0.88  failures 9006
+   Q    cand/prime   24.2  real 0.0387  decoy 0.0403  real non-Lambda 0.0158  McNemar z -0.77  failures 9613
+   A    cand/prime   33.8  real 0.6261  decoy 0.6091  real non-Lambda 0.2557  McNemar z +2.92  failures 3739
+   C    cand/prime    7.5  real 0.0103  decoy 0.0119  real non-Lambda 0.0065  McNemar z -1.11  failures 9897
+   ALL  cand/prime  172.6  real 0.6848  decoy 0.6677  real non-Lambda 0.3128  McNemar z +3.03  failures 3152
+gen_H_train.jsonl: 438 inputs
+   G    cand/prime   15.7  real 0.0205  decoy 0.0183  real non-Lambda 0.0046  McNemar z +0.28  failures 429
+   N    cand/prime   60.3  real 0.1005  decoy 0.0982  real non-Lambda 0.0274  McNemar z +0.13  failures 394
+   J    cand/prime   82.1  real 0.2808  decoy 0.2831  real non-Lambda 0.1347  McNemar z -0.10  failures 315
+   Q    cand/prime   22.9  real 0.0274  decoy 0.0502  real non-Lambda 0.0160  McNemar z -2.04  failures 426
+   A    cand/prime   18.4  real 0.2374  decoy 0.2489  real non-Lambda 0.0731  McNemar z -0.48  failures 334
+   C    cand/prime    7.0  real 0.0434  decoy 0.0411  real non-Lambda 0.0160  McNemar z +0.22  failures 419
+   ALL  cand/prime  187.6  real 0.5342  decoy 0.5502  real non-Lambda 0.2397  McNemar z -0.55  failures 204
+gen_H_test.jsonl: 411 inputs
+   G    cand/prime   15.5  real 0.0268  decoy 0.0243  real non-Lambda 0.0122  McNemar z +0.24  failures 400
+   N    cand/prime   60.0  real 0.0876  decoy 0.1071  real non-Lambda 0.0389  McNemar z -1.02  failures 375
+   J    cand/prime   81.7  real 0.2822  decoy 0.2628  real non-Lambda 0.1387  McNemar z +0.80  failures 295
+   Q    cand/prime   23.0  real 0.0195  decoy 0.0535  real non-Lambda 0.0073  McNemar z -2.86  failures 403
+   A    cand/prime   18.8  real 0.2336  decoy 0.2409  real non-Lambda 0.0754  McNemar z -0.30  failures 315
+   C    cand/prime    6.8  real 0.0560  decoy 0.0341  real non-Lambda 0.0146  McNemar z +1.88  failures 388
+   ALL  cand/prime  187.4  real 0.5182  decoy 0.5207  real non-Lambda 0.2433  McNemar z -0.08  failures 198
+gen_u8.jsonl: 38 inputs
+   G    cand/prime   10.9  real 0.0526  decoy 0.0263  real non-Lambda 0.0000  McNemar z +1.00  failures 36
+   N    cand/prime   32.9  real 0.1842  decoy 0.2632  real non-Lambda 0.0263  McNemar z -1.00  failures 31
+   J    cand/prime   31.4  real 0.3158  decoy 0.2105  real non-Lambda 0.1053  McNemar z +1.63  failures 26
+   Q    cand/prime   10.2  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 38
+   A    cand/prime    3.9  real 0.0526  decoy 0.0789  real non-Lambda 0.0000  McNemar z -1.00  failures 36
+   C    cand/prime    2.6  real 0.0263  decoy 0.0526  real non-Lambda 0.0000  McNemar z -1.00  failures 37
+   ALL  cand/prime   77.3  real 0.4211  decoy 0.3947  real non-Lambda 0.1316  McNemar z +0.28  failures 22
+gen_sq.jsonl: 499 inputs
+   G    cand/prime    3.5  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 499
+   N    cand/prime   22.9  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 499
+   J    cand/prime   13.3  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 499
+   Q    cand/prime    0.0  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 499
+   A    cand/prime    2.1  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 499
+   C    cand/prime    0.0  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 499
+   ALL  cand/prime   36.7  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 499
+gen_z7.jsonl: 8 inputs
+   G    cand/prime    2.2  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 8
+   N    cand/prime    3.4  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 8
+   J    cand/prime    1.4  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 8
+   Q    cand/prime    7.8  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 8
+   A    cand/prime    0.5  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 8
+   C    cand/prime    1.4  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 8
+   ALL  cand/prime   15.2  real 0.0000  decoy 0.0000  real non-Lambda 0.0000  McNemar z +0.00  failures 8

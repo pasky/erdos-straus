@@ -142,11 +142,12 @@ def main():
     ap = argparse.ArgumentParser(description='phantom-prime relation test (see header)')
     ap.add_argument('wit'); ap.add_argument('cap', type=int); ap.add_argument('K', type=int)
     ap.add_argument('seed', type=int); ap.add_argument('out')
-    ap.add_argument('mode', nargs='?', default='same', choices=['same', 'match', 'xz'])
+    ap.add_argument('mode', nargs='?', default='same', choices=['same', 'match', 'xz', 'xzm'])
     ap.add_argument('--big', type=int, default=10 ** 12, help='no CF/Pell data for primes >= big')
     ap.add_argument('--maxp', type=int, default=2 * 10 ** 10)
     a = ap.parse_args()
-    MATCH, XZ, BIG = a.mode == 'match', a.mode == 'xz', a.big
+    MATCH, XZ, BIG = a.mode == 'match', a.mode in ('xz', 'xzm'), a.big
+    XZM = a.mode == 'xzm'
     cap, K = a.cap, a.K
     rng = random.Random(a.seed)
     wit = load_wit(a.wit)
@@ -179,12 +180,15 @@ def main():
                 # (x,z)-phantom: p' = p + 8j x z, |p' - p| <= p/2, word (x, y + 8j, z), f' = x(y + 8j) - 1;
                 # require the phantom word to be canonical: x < f'  <=>  x (y' - 1) > 1
                 J = p // (16 * r * z)
-                while J >= 1 and len(phs) < K and tries < 2000:
+                xzp = set(factorint(r * z))
+                while J >= 1 and len(phs) < K and tries < (8000 if XZM else 2000):
                     tries += 1
                     j = rng.randint(-J, J)
                     yq = y + 8 * j
                     if j == 0 or yq < 2 or r * (yq - 1) <= 1: continue
                     q = p + 8 * j * r * z
+                    if XZM and any(l not in xzp and pow(q % l, (l - 1) // 2, l) != pow(p % l, (l - 1) // 2, l) for l in (3, 5, 7, 11, 13)):
+                        continue
                     if q in phs or not isprime(q): continue
                     phs.append(q)
             if not MATCH and not XZ:
