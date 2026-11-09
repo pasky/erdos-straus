@@ -18,8 +18,8 @@ Thm T, Cor T.1, Lemmas S1, S2, S2′, Thm S) and Elsholtz–Tao (`sources/elshol
   Lemma 2.8 re-derived; divisor maxima as finite Euler products). §4.
 * **(T-all) for 17 ≤ ℓ < e^{2950}: not closed (narrowed).** The binding term is the I-1 family at level k ≈ 29. Its
   a′ = 1 events at level k are in bijection with the solutions counted by the campaign's (★)/(MS) number R(ℓ^{2k−1})
-  (Prop R, PROVED). Upper bounds on such counts at all odd powers ℓ^{2k−1} would be one sufficient route to a
-  certified tail. The counting bounds tested here do not close the gap. Divisor-free box counting, as explored, gives
+  (Prop R, PROVED). Upper bounds on such counts at all odd powers ℓ^{2k−1}, *together with* bounds for the a′ > 1
+  analogues (or another control of the remaining A-events), would be one sufficient route to a certified tail. The counting bounds tested here do not close the gap. Divisor-free box counting, as explored, gives
   only ≈ n^{2/3} (Assessment, grid computation). Divisor maxima give ℓ₀ = e^{2950}. §5.
 * **(T-all) EVIDENCE.** No prime 17 ≤ ℓ < 10⁵ has all non-residues caught at level 1 (only ℓ = 3, 5, 7, 11, 13 do);
   for every tested prime 2000 ≤ ℓ < 10⁵ at least 84 % of the non-residue mass survives level 1. All 72 primes
@@ -33,9 +33,9 @@ This lane is about coverings of unit profiles by polynomial identities; it makes
 | screen | behaviour |
 |---|---|
 | **F1 odd squares** | Square profiles lie in U and in U_S (ET Prop 1.6, SDEEPF Prop 3.5). All caught residues are quadratic non-residues mod ℓ (UCOVER Lemma 1 / S1; asserted again in every script here). Every bound here is a bound on the *caught* mass inside the non-residues. |
-| **F2 C-even / numerator 8** | Not applicable (no positivity claim; only the numerator-4 ET families and SDEEPF good words). |
+| **F2 C-even / numerator 8** | No positivity claim, so no contradiction (only the numerator-4 ET families and SDEEPF good words). Via Prop R the campaign's C is d′. The 12 R₈-zeros remove only the even-d′, a′ = 1, level-1 subfamily of A-events at such n, not all A-events: their full R is ≥ 12. |
 | **F3 composites** | Not applicable: profiles are units of Ẑ, not integers. |
-| **F4 known zeros** | Not applicable (no positivity claim). |
+| **F4 known zeros** | No positivity claim. Via Prop R, the 14 R-zero primes p have no a′ = 1 A-events at n = p. The 38 𝔊*-zeros remove only that restricted representation subfamily. Neither implies that all ET events vanish, nor controls the higher odd powers p^{2k−1}. |
 
 **Pre-registered kill tests (checkpoint 1) and outcomes.**
 * **K1 ((S)-gap).** Dies at a prime 101 < ℓ < 10⁵ if (exact caught mass of the computed levels) + (Lemma S2′ tail)
@@ -126,8 +126,11 @@ has mass 1/(ℓ − 1)).
   R_E(k) ≤ 2P_II(ℓ^k) (pure E/D events ↪ ΣII_{ℓ^k}; two residues per point; mixed ones are redundant, UCOVER §2.1),
   R_A(k) ≤ P_II(ℓ^{2k−1}) (Lemma D). F and E events exist only for odd k (UCOVER Lemma 1).
 * **(I2) Reflection.** P_I(n) ≤ 2B_I(n), P_II(n) ≤ 2B_II(n), where B counts ℕ-points with a ≤ b. ET's reflections
-  (Remark 2.4 and its ΣII analogue) send an ℕ-point with a > b to one with a < b: the new f is 4bcd − n > 4acd − n > 0
-  (ΣI, by (2.9), (2.6)) resp. 4bcd − 1 > 0 (ΣII, by (2.21)).
+  (Remark 2.4 and its ΣII analogue) send an ℕ-point with a > b to one with a < b. The new f is the quotient
+  (n² + 4c²d)/f = 4bcd − n (ΣI, by (2.9)) resp. (4c²dn + 1)/f = 4bcd − 1 (ΣII, by (2.21)). Both are positive
+  integers: positive quotients of positive integers, integral by the defining equations. (The first version argued via
+  "4bcd − n > 4acd − n", which is false for a > b; cross-model review. Example: n = 7, sextuple (2, 1, 3, 1, 1, 17),
+  reflected f = 5 < 17.)
 * **(I3) Size bounds** (ET Lemma 2.8, re-derived from the equations alone, a ≤ b).
   * ΣII: from (2.15), nc < 4abcd = a + b + nc ≤ nc + 2abcd, so n/4 < abd ≤ n/2; with b < ce ≤ 2b this gives
     acde ≤ n and e²(ad)(ac)(cd) = (acde)² ≤ n².
@@ -152,8 +155,12 @@ has mass 1/(ℓ − 1)).
   * For fixed p, f(a) = ln binom(a+r−1, r−1) − aε ln p is concave: f(a) − f(a−1) = ln((a+r−1)/a) − ε ln p decreases.
     Its maximum sits at the last a with a non-negative difference. That a is < 29 (τ, ε ≥ 0.05) resp. < 36 (τ₃,
     ε ≥ 0.08).
-  * The script locates this a in floating point and encloses f on a window of ±2 around it, plus a = 0, in outward
-    interval arithmetic. It sums the upper endpoints, asserting that the prime list reaches the cutoff.
+  * With ε = num/den as an exact rational, the script decides everything in exact integers:
+    * the cutoff: p contributes iff r^den > p^num, and the first excluded prime is asserted to satisfy p^num ≥ r^den;
+    * the maximiser: the largest a with (a+r−1)^den ≥ a^den·p^num.
+    Then f(a*) is enclosed in outward interval arithmetic and the upper endpoints are summed.
+  * This fixes a cross-model review finding: the previous version located a* in floating point within a ±2 window,
+    which concavity alone does not justify. The constants and the final bound are unchanged.
   * Results: ln C(0.05) ≤ 4526.2143, ln C(0.06) ≤ 683.54, ln C(0.1) ≤ 24.455, ln C₃(0.08) ≤ 6471.13,
     ln C₃(0.09) ≤ 1850.52.
 
@@ -168,7 +175,7 @@ with outward-rounded interval arithmetic (mpmath.iv, 50 digits), and every repor
   * The exponential part gains at least 0.02L per level, so the pair ratio is ≤ 5.8·10⁻⁵².
   * A geometric series then bounds the whole tail by 3.1·10^{−6369}.
 * Total: Σ_{k≤300} ≤ 0.040798, and the tail is negligible. So **μ_ℓ ≤ 0.0408** (`data/z67/ell0/tbound_L2950.txt`).
-  The largest single term is the A family, case cd, at level 29: ≤ 0.0380.
+  The largest single term is the A family, case cd, at level 29: < 0.03803.
 * An earlier double-precision version gave 0.0421 using looser margins; the internal review asked for the interval
   version.
 
@@ -260,7 +267,8 @@ and the ℓ-adic survivor tree (UCOVER §3).
 * Narrowed:
   * The gap 17 ≤ ℓ < ℓ₀ for ET is not closed by the counting bounds tested here (§5).
   * The binding family is identified: the level-k I-1 events with a′ = 1 are exactly the (★)/(MS) representations
-    of ℓ^{2k−1} (Prop R). Good upper bounds for such counts would be one sufficient route.
+    of ℓ^{2k−1} (Prop R). Good upper bounds for such counts, together with bounds for the a′ > 1 analogues, would be
+    one sufficient route.
 * No bearing on ES itself; no HOT LEAD.
 
 **Hard screens (FRONTIER §4).**
@@ -277,8 +285,8 @@ and the ℓ-adic survivor tree (UCOVER §3).
 > PROVED for every prime ℓ ≥ 11 (gap 101 < ℓ < 10⁵ closed by a global certificate, computer-assisted). For ET at
 > 17 ≤ ℓ < e^{2950} the question stays open (EVIDENCE: every prime 17 ≤ ℓ < 10⁵ has level-1 survivors; 17 ≤ ℓ < 400
 > have level-2 survivors). The binding family: the level-k I-1 events with a′ = 1 are exactly the (★)
-> representations of ℓ^{2k−1} (Prop R). Summable upper bounds for these counts with usable constants are one
-> sufficient route to a certified tail; the counting methods tested do not supply them.
+> representations of ℓ^{2k−1} (Prop R). Summable upper bounds for these counts *and* for their a′ > 1 analogues, with
+> usable constants, are one sufficient route to a certified tail; the counting methods tested do not supply them.
 
 **Bottom line.**
 * Two of the brief's three asks are done. The (S)-families now provably escape finite good-word coverings beyond the
@@ -316,6 +324,16 @@ fixes:
   of ℓ (reviewer's argument, now in the proof). Hence the bijection with *all* R(ℓ^{2k−1}) solutions.
 * **(8) MINOR.** Domain n ≥ 8 for the ΣI simplification; loss range 0.00045–0.00124; "for the tested primes" in the
   evidence statements.
+
+**Cross-model review** (`data/z67/xreview/REVIEW_ELL0.md`): ACCEPT-WITH-FIXES. The reviewer independently reran the
+full (S) certificate and the T-expl evaluation with independently rebuilt constants (total < 0.040797735431250). It
+also confirmed Lemma D, Prop R (R(17³) = 24, R(19³) = 16, R(23³) = 10) and the §6 minima. Fixes applied:
+* (1) Euler-product constants are now decided in exact integers: exact rational ε, exact cutoff r^den > p^num and an
+  exact maximiser, followed by an interval enclosure. The script was rerun; output unchanged.
+* (2) §4(I2): the reversed reflection inequality was replaced by the positive-quotient argument. "≤ 0.0380" is now
+  "< 0.03803".
+* (3) The summary, §7 and the FRONTIER text now say that R-bounds must be combined with bounds for the a′ > 1 analogues.
+* (4) The F2/F4 rows now state their Prop R subfamily interpretation.
 
 **Replay** (each under `ulimit -v 4000000`, `timeout 1800`; all runs take seconds to two minutes, except the level-3
 run, about ten minutes):

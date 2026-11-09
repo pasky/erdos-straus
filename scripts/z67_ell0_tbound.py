@@ -7,8 +7,8 @@ Ingredients (Z67_ELL0.md §4):
       ln C_r(eps) = sum_p max_{a>=0} [ln binom(a+r-1, r-1) - a eps ln p]        (r = 2: tau, r = 3: tau_3),
   only primes p < r^{1/eps} contribute (binom(a+r-1, r-1) <= r^a).  For fixed p the sequence
   f(a) = ln binom(a+r-1, r-1) - a eps ln p is concave (f(a) - f(a-1) = ln((a+r-1)/a) - eps ln p decreases), so its
-  maximum is at the last a with f(a) - f(a-1) >= 0; we locate it in floating point and take the max of the interval
-  upper endpoints over a window of +-2 around it (and a = 0).  Including extra primes is harmless (each term >= 0).
+  maximum is at the last a with f(a) - f(a-1) >= 0; cutoff and maximiser are determined by exact integer
+  comparisons (eps = num/den as an exact rational), then f(a*) is enclosed in interval arithmetic.
 * ET Lemma 2.8 + the ET §3 case split (thresholds X = n^{2/5}, Y = ((15/8) n^3)^{1/5}; valid for n >= 8):
       B_II(n) <= X T3(n/2) + D(X) [T(5n) + T(2 n^{7/5}) + T(5 n^{9/5})]
       B_I(n)  <= Y [T3(nY) + T3(n)] + D(Y) [T(2n^2) + T(2nY)],      D(X) = X (1 + ln X),
@@ -41,26 +41,36 @@ def primes_upto(n):
 
 
 def lnC_upper(eps_str, r, P):
-    """Rigorous upper bound (an iv point interval at an upper endpoint) for ln max_m tau_r(m)/m^eps."""
-    e = iv.mpf(eps_str)
-    ef = float(eps_str)
-    cap = r ** (1.0 / ef) * (1 + 1e-9) + 2
-    assert int(P[-1]) >= cap, "prime list too short for this eps"
+    """Rigorous upper bound (an iv point interval at an upper endpoint) for ln max_m tau_r(m)/m^eps.
+    eps = num/den exactly (Fraction of the decimal string).  Exact integer checks (cross-model review fix):
+    * cutoff: prime p contributes (max at some a >= 1) iff r > p^eps for a = 1, i.e. r^den > p^num; for p with
+      p^num >= r^den the maximum is at a = 0 (binom(a+r-1, r-1) <= r^a <= p^{a eps}).  We assert that the first prime
+      beyond the loop satisfies p^num >= r^den (then all larger primes do too).
+    * maximiser: f(a) - f(a-1) = ln((a+r-1)/a) - eps ln p >= 0  iff  (a+r-1)^den >= a^den p^num; this difference
+      decreases in a (concavity), so the maximiser a* is the largest a with the inequality, found exactly in integers.
+    Then f(a*) is enclosed in outward interval arithmetic and the upper endpoints are summed."""
+    from fractions import Fraction
+    q = Fraction(eps_str)
+    num, den = q.numerator, q.denominator
+    e = iv.mpf(num) / den
+    rden = r ** den
+    up = [None] + [(a + r - 1) ** den for a in range(1, 200)]
+    lo = [None] + [a ** den for a in range(1, 200)]
     tot = iv.mpf(0)
-    for p in P:
-        if p >= cap:
+    idx = 0
+    while idx < len(P):
+        p = int(P[idx])
+        pn = p ** num
+        if pn >= rden:
             break
-        lpf = math.log(int(p))
         a_star = 0
-        while math.log((a_star + 1 + r - 1) / (a_star + 1)) - ef * lpf >= 0:
+        while up[a_star + 1] >= lo[a_star + 1] * pn:
             a_star += 1
-        lp = iv.log(iv.mpf(int(p)))
-        best = iv.mpf(0)   # a = 0 term
-        for a in range(max(1, a_star - 2), a_star + 3):
-            v = iv.log(iv.mpf(math.comb(a + r - 1, r - 1))) - a * e * lp
-            if v.b > best.b:
-                best = iv.mpf(v.b)
-        tot += best
+        assert a_star >= 1
+        v = iv.log(iv.mpf(math.comb(a_star + r - 1, r - 1))) - a_star * e * iv.log(iv.mpf(p))
+        tot += iv.mpf(v.b) if v.b > 0 else iv.mpf(0)
+        idx += 1
+    assert idx < len(P), "prime list too short for this eps"
     return iv.mpf(tot.b)
 
 
@@ -68,6 +78,12 @@ EPS2 = ["%.3f" % (0.05 + 0.002 * i) for i in range(26)] + ["%.2f" % (0.11 + 0.01
 EPS3 = ["%.3f" % (0.08 + 0.002 * i) for i in range(11)] + ["%.2f" % (0.11 + 0.01 * i) for i in range(40)]
 _P = primes_upto(int(max(2 ** (1 / 0.05), 3 ** (1 / 0.08))) + 100)   # covers both prime cutoffs (asserted below)
 LNC = {2: {e: lnC_upper(e, 2, _P) for e in EPS2}, 3: {e: lnC_upper(e, 3, _P) for e in EPS3}}
+
+def epsiv(eps_str):
+    from fractions import Fraction
+    q = Fraction(eps_str)
+    return iv.mpf(q.numerator) / q.denominator
+
 
 LN2, LN4, LN5 = iv.log(2), iv.log(4), iv.log(5)
 C15 = iv.log(iv.mpf(15) / 8)
@@ -110,8 +126,9 @@ def level_terms(L, k, choose):
         for i, (pre, r, u0, u1, lin) in enumerate(cf(lnn)):
             lnx = u0 + u1 * lnn
             e = choose(name, k, i, r, lnx)
-            val = mult + pre + LNC[r][e] + iv.mpf(e) * lnx - lnphi
-            beta = k - m * (lin + iv.mpf(e) * u1)
+            ee = epsiv(e)
+            val = mult + pre + LNC[r][e] + ee * lnx - lnphi
+            beta = k - m * (lin + ee * u1)
             out.append((name, i, val, e, beta))
     return out
 
