@@ -393,13 +393,13 @@ S2 has length 4 and small A, e.g. 12, 22, 37), S3 = all good words with HJ lette
   at 21841 Rmin from S1 (length 6) stops at a length-4 word. The registered threshold (≥ 99 % of primes ≤ 10⁵) fails
   for every descent rule and start tested. **No CANDIDATE.**
 * **Signed reachability.** The sign-preserving graph E⁺ has a largest component of 6–29 % of V; it is good-signed at
-  68 % of primes ≤ 10⁵ and 16/30 near 10⁶. S1's component contains a good L₃ vertex at only 44 % of primes (E and E⁺
-  alike): the least-non-residue word typically has length 2 (37 %) and sits in a small component. S2's component does
-  at every prime in (10³, 10⁵] and in the 10⁶ sample (E), and at 98 % (E⁺; fails e.g. at 1249, 2521, 20521).
+  71 % of primes ≤ 10⁵ and 16/30 near 10⁶. S1's component contains a good L₃ vertex at only 44 % of primes (E and E⁺
+  alike): the least-non-residue word has length 2 at 56 % of primes and then sits in a small component. S2's component does
+  at every prime in (10³, 10⁵] and in the 10⁶ sample (E), and at 97 % (E⁺; fails e.g. at 1249, 2521, 20521).
 * **Minimax height (direction 2: n-dependent cuts, unbounded k).** h(start) := least H such that, inside the words of
   length ≤ H, the start is E-connected to a good L₃ vertex. From S2: h = 4 at 95 % of primes, h ≤ 16 at every prime in
-  (10³, 10⁵], h ≤ 8 in the 10⁶ sample (20521: 12; 21841: 6). E⁺-version: undefined (no such H) at 38 primes ≤ 10⁵.
-  From S1: undefined at 37 % (isolated length-2 word).
+  (10³, 10⁵], h ≤ 8 in the 10⁶ sample (20521: 12; 21841: 6). E⁺-version: undefined (no such H) at 75 primes ≤ 10⁵.
+  From S1: undefined at 56 % (mostly the isolated length-2 word).
 
 ### 10.3 What the graph can and cannot carry
 **Proposition 9 (accumulated correction; PROVED, immediate from Lemma 2).** At a prime p, along any path
