@@ -1,0 +1,7 @@
+# family fixb:4 rule G t = 15*q, q prime in [7,4000000)
+# FAIL lines: t p #letters least_letter_overall(<=60 or -1)
+FAIL 10306635 106226725023241 20 6
+FAIL 48066015 2310341797980241 24 6
+FAIL 50064045 2506408601762041 16 6
+# primes 37251 failures 3
+# histogram of least successful candidate letter: [(1, 28535), (15, 6), (2, 7222), (3, 1006), (4, 412), (5, 49), (7, 17), (None, 3), ('big', 1)]

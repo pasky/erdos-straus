@@ -1,0 +1,6 @@
+t=10306635 p=106226725023241 p%840=361 candidate letters=[1, 2, 3, 4, 5, 7, 15, 641, 2297, 2803, 3677, 4487, 16079, 687109, 1472377, 2061327, 3435545, 10306631, 10306635, 10306639]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (6, (6, 12151306912, 1457))
+t=48066015 p=2310341797980241 p%840=361 candidate letters=[1, 2, 3, 4, 5, 7, 15, 49, 113, 211, 1477, 4649, 10339, 32543, 227801, 425363, 980939, 3204401, 6866573, 9613203, 16022005, 48066011, 48066015, 48066019]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (6, (95, 6, 4060354653744))
+t=50064045 p=2506408601762041 p%840=361 candidate letters=[1, 2, 3, 4, 5, 7, 15, 2543, 19687, 3337603, 7152007, 10012809, 16688015, 50064041, 50064045, 50064049]
+   words with a candidate letter: NONE (rule fails, re-verified);  least letter of any U7 word: (6, (24, 6, 17527332879455))

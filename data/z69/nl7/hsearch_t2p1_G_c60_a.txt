@@ -1,0 +1,4 @@
+# family t2p1 rule G t = 60*q, q prime in [7,200000)
+# FAIL lines: t p #letters least_letter_overall(<=60 or -1)
+# primes 2714 failures 0
+# histogram of least successful candidate letter: [(1, 1772), (2, 888), (3, 35), (4, 16), (5, 3)]
