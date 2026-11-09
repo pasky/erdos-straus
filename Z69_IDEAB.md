@@ -222,3 +222,77 @@ R_I(p) = Σ_{a,d} #{f | 4a²d + 1 : f ≡ −p (4ad)}. In R_I the numbers 4a²d+
 moduli *and* over the number being divided; here both are tied to a. Same binary barrier as I4.
 *Squares:* sum is 0. *Six classes:* none. *Assessment:* dead as analysis; but the p-independence of the Type I
 family (a fixed, explicit, p-free table {(4ad, −f)}) is worth remembering for I1's computations.
+
+**(R8) quadratic-order form (PROVED, added to 1.0).** In a Type II solution put f = 4acd − 1, e = 4abd − p. Then
+**p + d(2a)² = f·e**, f ≡ −1, e ≡ −p (mod 4ad). So for d = 1 a solution *is* a positive binary form [f, 4a, e] of
+discriminant −4p whose middle coefficient B = 4a divides f + 1; equivalently the element 1 + 2c√(−dp) of ℤ[√(−dp)] has an
+ideal factor of norm ≡ −1 (mod 4cd). Dually Type I is a factorization of **p + 2c√(−d) in ℤ[√(−d)]** (norm p² + 4c²d)
+with a factor of norm ≡ −p (mod 4cd) — an order that does not depend on p (d = 1 impossible: norms in ℤ[i] are ≡ 1 mod 4).
+
+**I17. Class group of discriminant −4dp; Heegner points on thin lines.** By R8 (d = 1): ES(p) ⟸ Cl(−4p) contains a form
+[A,B,C] (not necessarily reduced; B > 0, 4 | B ≤ A+1) with **A ≡ −1 (mod B)**. Such forms represent A ≡ 3 (4), so they
+live in the *non-principal genus* (genus character χ₋₄). In Heegner-point terms z = (−B + 2i√p)/(2A) lies on the line
+x = −(1 + y/√p)/(2c), c = (A+1)/B. Expected number: ≍ L(1,χ₋₄ₚ)·log p reduced ones, ≍ log²p in all.
+*Key lemma (needed):* for every prime p ≡ 1 (4) some class of the non-principal genus of Cl(−4dp) (some odd d) contains
+such a form. Tools that work for *individual* p here: Duke equidistribution of Heegner points (power saving, but only
+for regions of area ≫ p^{−δ}; the target is a curve), genus theory, composition. A structural hope: the property
+"B | A+1" might be stable under composition with a fixed class or under an involution, making the set of good classes a
+coset-like object which cannot be empty.
+*Squares:* for n = m² the discriminant −4m² has no primitive form representing a number ≡ 3 (4) (norms from ℤ[i]):
+the non-principal genus is *empty*. So non-squareness enters at an identifiable step: **χ₋₄ is a non-trivial genus
+character of disc −4dn**. *Six classes:* 3 and 7 are inert, 5 splits; A must contain a prime q ≡ 3 (4) with (p/q) = −1,
+so q ≥ 11: the good forms have A ≥ 11 but nothing else changes. *Numerator-8 remark:* for 8/p the same computation gives
+p + 2d(2a)² = fe, i.e. only **even d**; any argument along I17 must use odd d (for d even, 2 | disc/4 and the genus
+structure changes). *Assessment:* new to me, gives a place for individual-p tools and an honest use of non-squareness.
+Top-5.
+
+**I18. Stratify by the least non-residue; pseudosquare bound.** Let q(p) be the least prime with (p/q) = −1.
+*Key lemma (form):* for each prime q and each non-residue class r mod q there is a finite identity family F_{q,r} covering
+every n ≡ r (mod q) that is a square modulo all primes < q (this is UC of I1 restricted to the "pseudosquare corridor").
+Then ES holds for all p with q(p) ≤ Q once the lemma is verified for q ≤ Q, i.e. for all p below the pseudosquare L_Q
+(L_Q grows like e^{cQ/log Q}); under GRH q(p) < 2 log²p, giving ES conditionally on the lemma for all q.
+*Squares:* q(m²) = ∞. *Six classes:* they are the corridor q(p) ≥ 11; Mordell's theorem is the lemma for q ≤ 7.
+*Assessment:* this is the constructive face of I1; the computation "does the corridor at q = 11, 13 close?" is the
+decisive experiment. Top-5 jointly with I1.
+
+**I19. Extreme-value diagnostics (disproof-side heuristic).** For each one-parameter family (F1, F2, d = 1, …) the
+number of solutions should be Poisson-like with mean μ_F(p) = c_F log²p·(local factors); the number of zeros up to N
+is then ≈ Σ_p e^{−μ_F(p)}. *Key lemma (form):* none — this is a calibration device: a family whose observed zeros
+exceed the Poisson prediction signals hidden structure (an obstruction), one with fewer signals hidden positive
+correlation (a mechanism). *Squares:* the local factor must vanish there (product over real characters). *Six classes:*
+local factors are smallest there. *Assessment:* EVIDENCE-type only; cheap; useful to choose which family to attack.
+
+**I20. Disproof via a non-quadratic reciprocity obstruction.** Squares fail by one line of quadratic reciprocity (R5).
+Look for a thin family T ⊄ {squares} containing primes on which a *higher* reciprocity law (quartic, Rédei, cubic)
+forbids every K1/K2/K3 class. *Key lemma (form):* n ∈ T ⟹ for all (a,d,k): n ≢ −4a²d (mod 4k−1), etc. First test:
+list the non-square integers with no coprime-type solution (I2) and look for algebraic shape (values of a polynomial or
+norm form?). *Squares:* the model case. *Six classes:* T would have to live inside them. *Assessment:* I believe ES, so
+low prior, but the experiment is the same as for I1/I2.
+
+**I21. Function-field analogue.** In 𝔽_q[t] replace positivity by degree/monic conditions and ask for N-torsion-free
+solutions of 4/N = 1/X+1/Y+1/Z; there RH is known and "individual N" equidistribution has genuine power savings.
+*Key lemma (needed):* the analogue for irreducible N, proved by Weil/Deligne bounds on the curve family of R3.
+*Squares:* same Jacobi obstruction. *Six classes:* analogue = N a square modulo all small-degree irreducibles.
+*Assessment:* the binary barrier is a *size* (log-many solutions) phenomenon, not an RH phenomenon, so I expect the
+analogue to be either trivial (no positivity) or equally hard. Likely tried. Low.
+
+**I22. Ternary forms / weight 3/2.** For c = 1: 4dp + 1 = (2dX−1)² − (2dY)² with X = a+b, Y = a−b. Summing over d is not
+a single quadratic form, but for *fixed* small d the count is a restricted representation number of a binary form, and
+Σ_d could be a Fourier–Jacobi/Siegel-type coefficient. *Key lemma (needed):* identify Σ_d with a coefficient of a
+weight-3/2 or Jacobi form and bound the cusp part (Duke–Iwaniec). *Squares:* weight-3/2 coefficients naturally vanish or
+jump at squares (unary theta functions!) — suggestive. *Six classes:* uniform. *Assessment:* suggestive but I have no
+candidate form; likely tried. Low-mid.
+
+**I23. Work over a ring with units, then descend.** Solve 4/π = 1/α+1/β+1/γ in ℤ[√p] (where p = π², π = √p) or in ℤ[i]
+(p = ππ̄), use the infinite unit group / the absence of positivity, and descend by trace.
+*Kill (PROVED):* averaging 1/(πα) over Galois gives 4/p = Σ y_i/(p y_i² − x_i²) for α_i = x_i + y_i√p; requiring each term to
+be a unit fraction is y | x² and denominator p y − x²/y, which every integer has: the descent condition is the original
+problem verbatim. *Squares / six classes:* n/a. *Assessment:* dead.
+
+**I24. Lenstra's "divisors in residue classes".** For modulus m > N^{1/3} an integer N has ≤ 11 divisors ≡ r (mod m), all
+found in polynomial time by a Euclid/lattice argument. In R3 (c = 1) N = 4dp+1, m = 4d: the regime d > √p/4 — which
+carries half of the expected log²p solutions — is exactly Lenstra's regime, and his construction is the convergent
+structure R6. *Key lemma (needed):* turn Lenstra's *finiteness* proof into an *existence* statement after summing over d
+(the lattice attached to d varies with d by a unipotent shear, cf. I3). *Squares:* the sheared lattices never contain
+the required vector by R5. *Six classes:* none. *Assessment:* gives an algorithmic handle (each d costs polylog time
+without factoring) relevant to I8's bounded-arithmetic angle; as a proof route it is R6 again. Mid.
