@@ -393,3 +393,33 @@ at the same endpoint (one tied divisor event with polylog expected witnesses). T
 the repo are data footnotes: the Type I zero list to 8·10⁶ (I2) and the least-modulus growth in the classes 2, 6 mod 11 (I1).
 That an unprimed pass lands on the same barrier, with the same exceptional integers, is itself (weak) EVIDENCE that the
 campaign's map of *elementary* approaches is saturated.
+
+**Late idea (after the Phase-1 commit, before its lookup): I25. Schur–Murty "Euclidean" forcing.** A Euclid-style
+forcing of a prime divisor in a class a mod q exists iff a² ≡ 1 (mod q) (Schur 1912, Murty 1988); the tied class −1
+always qualifies. On the ±1-subgroup "class = parity": if e ≡ 3 (4) is prime and a prime ℓ | (p+e)/4 has ℓ ≡ ±1 (mod e),
+then ℓ ≡ (p/ℓ) (mod e) (R5). *Kill found by myself:* forcing needs the whole number ≡ −1, and then the whole number is
+already a witness; when N ≡ +1 (the ES situation) nothing is forced. **Lookup: TRIED-DEAD** —
+`BRAINSTORM/y3_euclid_schur_forcing.md` ("the ES class −1 is a Schur–Murty Euclidean class"), `DETERMINISTIC_EXISTENCE.md`.
+So 25 / 25.
+
+## §3 Phase 3 — the best TRIED-OPEN item with a twist: O2 of `Z66_UCOVER.md` from the integer side
+
+**Choice (Assessment).** No idea is NEW. Of the TRIED-OPEN ones, CONV-II/IUC (I2) has no mechanism and a 10¹⁰ census
+already; IE₁/IΔ₀ (I8) is out of reach in a lane; O1 of UCOVER (explicit ℓ₀) needs an explicit P_II(n) ≤ Cn^θ, θ < 1/2
+(I checked: with max-divisor bounds the tail only closes from level k ≈ 10⁴ — hopeless for ℓ = 17). That leaves
+**O2: does K = {n ≡ 1 (840), (n/11) = −1} meet U** (U = profinite units in no ET Prop 1.9 family class)? UCOVER has
+profile evidence (two-prime profiles at 11, 13 surviving over (g,h) ≡ (2,2)); it is a CONJECTURE there. My Phase-1 S2 saw
+the same phenomenon from the other side: among *integers* of the classes r = 2, 6 mod 11 the least identity modulus
+keeps growing. Twist: make that integer-side statement exact and push the computation with all seven families.
+
+**Pre-registered (before running anything in this section).**
+* *Lemma E to prove:* K_r ∩ U ≠ ∅ ⟺ the least family-class modulus is unbounded over the primes of
+  K_r := {1 mod 840, r mod 11}.
+* *Computation:* for all primes p ≤ 10¹² in K_2, K_6 and in the control class K_1 = {1 mod 9240} (a square class):
+  λ(p) := least modulus of an ET family class (I-1, I-2, I-3, I-4, II-1, II-2, II-3) containing p, moduli ≤ 10⁴.
+* *Kill test A (against the conjecture):* if the running maximum of λ over K_2 or K_6 is constant over the last three
+  decades of p while the control's keeps growing, O2 is probably *false* for that class; then try to exhibit the finite cover.
+* *Kill test B (implementation):* λ(p) from the class table must equal λ computed from an independent brute-force
+  enumeration of actual solutions on a sample; any mismatch voids the data.
+* *What would be a result:* CERTIFIED finite-level statements "no set of family classes of modulus ≤ M covers the primes
+  of K_r" for explicit M, plus a growth comparison with the control. *What would not:* any claim about ES itself.
