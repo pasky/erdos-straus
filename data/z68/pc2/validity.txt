@@ -1,0 +1,1 @@
+all checks passed (every n >= 1 in the class, n <= 3000); counts: {'I-1': 21894, 'I-2': 1238, 'I-3': 1102, 'I-4': 15084, 'II-1': 15058, 'II-2': 10276, 'II-3': 804}
