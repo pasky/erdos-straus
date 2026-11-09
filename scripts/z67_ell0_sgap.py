@@ -46,7 +46,7 @@ def caught(ell, k):
 
 def tail_upper(ell, K):
     """Rigorous upper bound for sum_{k>K} T_k(ell) (same construction as z66_ucover_stree.tail_upper)."""
-    from mpmath import iv, mpf
+    from mpmath import iv
     iv.dps = 40
     L = iv.mpf(ell)
     lnl = iv.log(L)
@@ -63,8 +63,16 @@ def tail_upper(ell, K):
         * L ** iv.mpf("-0.5")
     assert rho.b < 1
     tot += T(K3 + 1) / (1 - rho)
-    m_, e_ = mpf(tot.b).man_exp
-    return Fraction(int(m_)) * (Fraction(2) ** int(e_))
+    return upper_fraction(tot)
+
+
+def upper_fraction(x):
+    """The interval's upper endpoint as an exact Fraction, read from mpmath's raw (sign, man, exp, bc) tuple.
+    (Do NOT go through mpf(x.b): that re-rounds the endpoint to the working precision of the mp context, possibly
+    downward; this was a bug found by the internal review.)"""
+    sign, man, exp_, _bc = x._mpi_[1]
+    v = Fraction(int(man)) * (Fraction(2) ** int(exp_))
+    return -v if sign else v
 
 
 def certify(ell):

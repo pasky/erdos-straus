@@ -1,4 +1,4 @@
-# Z67_ELL0 — making Z66_UCOVER's Theorem T explicit. Verdict: strengthened ((S) closed for every ℓ ≥ 11; explicit ℓ₀ for ET) + narrowed (ET gap ℓ < ℓ₀ not closable by union-bound counting); HOT LEAD: no
+# Z67_ELL0 — making Z66_UCOVER's Theorem T explicit. Verdict: strengthened ((S) closed for every ℓ ≥ 11; explicit ℓ₀ for ET) + narrowed (ET gap ℓ < ℓ₀ not closed by the counting bounds tested); HOT LEAD: no
 
 Lane ELL0, wave z67 (brief `z52bbriefs/z67_lanes.md` §ELL0; common rules `z58_lanes.md`, `z53_depth.md`).
 **ES is OPEN. Nothing here proves or disproves ES or any case of it.** Internal, unrefereed; internal hostile review:
@@ -12,18 +12,19 @@ Thm T, Cor T.1, Lemmas S1, S2, S2′, Thm S) and Elsholtz–Tao (`sources/elshol
   UCOVER's Lemma S2′ tail), worst bound 0.4932 (ℓ = 379). The same certificate re-proves 11 ≤ ℓ ≤ 101 (K ≤ 7). §3.
 * **Lemma D (PROVED, new).** The I-1 (A) events need only k₂ = 1: every (A) cylinder with k₂ ≥ 3 sits inside one of
   level k − 1 (ET's dilation (2.10)). So the A-term of level k is a single count at n = ℓ^{2k−1}. §2.
-* **Theorem T-expl (PROVED; explicit inequality evaluated by computer).** For every prime ℓ ≥ e^{2950} (< 10^{1282}),
-  μ_ℓ ≤ 0.0422: at least 91.5 % of the non-residues g (Haar) have e_{ℓ,g} ∈ U, and Cor T.1 holds for all but
-  ≤ 0.0422(ℓ − 1) of the classes g₀ mod ℓ. All constants are explicit (ET §3 split with ET Lemma 2.8 re-derived;
-  divisor maxima as finite Euler products). §4.
-* **(T-all) for 17 ≤ ℓ < e^{2950}: not closed (narrowed).** The binding term is the I-1 family at level k ≈ 28; its
-  a′ = 1 sub-family is *exactly* the campaign's (★)/(MS) representation count R(ℓ^{2k−1}) (Prop R, PROVED). A
-  certified tail for a fixed small ℓ therefore needs upper bounds for (★)-type counts at all odd powers ℓ^{2k−1} of
-  strength n^{1/2−δ} with usable constants; divisor-free counting tops out at n^{2/3}, divisor maxima give ℓ₀ ≈ e^{2950}
-  (Assessment, with a box-exponent computation). §5.
+* **Theorem T-expl (PROVED, computer-assisted: an explicit inequality enclosed in interval arithmetic).** For every
+  prime ℓ ≥ e^{2950} (< 10^{1282}), μ_ℓ ≤ 0.0408: at least 91.8 % of the non-residues g (Haar) have e_{ℓ,g} ∈ U, and
+  Cor T.1 holds for all but ≤ 0.0408(ℓ − 1) of the classes g₀ mod ℓ. All constants are explicit (ET §3 split with ET
+  Lemma 2.8 re-derived; divisor maxima as finite Euler products). §4.
+* **(T-all) for 17 ≤ ℓ < e^{2950}: not closed (narrowed).** The binding term is the I-1 family at level k ≈ 29. Its
+  a′ = 1 events at level k are in bijection with the solutions counted by the campaign's (★)/(MS) number R(ℓ^{2k−1})
+  (Prop R, PROVED). Upper bounds on such counts at all odd powers ℓ^{2k−1} would be one sufficient route to a
+  certified tail. The counting bounds tested here do not close the gap. Divisor-free box counting, as explored, gives
+  only ≈ n^{2/3} (Assessment, grid computation). Divisor maxima give ℓ₀ = e^{2950}. §5.
 * **(T-all) EVIDENCE.** No prime 17 ≤ ℓ < 10⁵ has all non-residues caught at level 1 (only ℓ = 3, 5, 7, 11, 13 do);
-  for ℓ ≥ 2000 at least 84 % of the non-residue mass survives level 1. All 72 primes 17 ≤ ℓ < 400 keep survivors after
-  level 2 (min mass 0.059, ℓ = 23), the 10 primes 59 ≤ ℓ ≤ 101 after level 3 (min 0.154, ℓ = 59). §6.
+  for every tested prime 2000 ≤ ℓ < 10⁵ at least 84 % of the non-residue mass survives level 1. All 72 primes
+  17 ≤ ℓ < 400 keep survivors after level 2 (min mass 0.059, ℓ = 23), the 10 primes 59 ≤ ℓ ≤ 101 after level 3 (min
+  0.154, ℓ = 59). §6.
 
 ## 0. Falsifier table (mandatory)
 
@@ -41,7 +42,8 @@ This lane is about coverings of unit profiles by polynomial identities; it makes
   ≥ 1/2 at every feasible depth. **Did not fire:** all 9566 primes pass with K ≤ 2.
 * **K2 (ET, explicit tail).** Dies if the I-1 events at level k cannot be bounded by c·ℓ^{θ(2k−1)}, θ < 1/2, without
   divisor-function maxima (then ℓ₀ is astronomically large and the gap cannot be closed by computation).
-  **Fired** (§5): divisor-free box counting gives θ = 2/3 at best; with divisor maxima ℓ₀ = e^{2950}.
+  **Fired for the methods tried** (§5). The divisor-free box bounds explored give θ ≈ 2/3 (a grid Assessment, not a
+  theorem about all methods). With divisor maxima, ℓ₀ = e^{2950}.
 
 ## 1. Precise statements
 
@@ -50,7 +52,8 @@ Haar measure normalised on ℤ_ℓ^× (the non-residues have mass 1/2); C_ℓ^S,
 classes (U_S, UCOVER §6). Since every caught residue is a non-residue, μ_ℓ < 1/2 implies that some non-residue g has
 e_{ℓ,g} ∈ U (the complement of an open set of smaller mass in the non-residues is non-empty).
 * **(T-expl)** An explicit ℓ₀ with μ_ℓ < 1/2 for every prime ℓ ≥ ℓ₀. **PROVED, ℓ₀ = e^{2950}** (§4).
-* **(T-all)** μ_ℓ < 1/2, or at least C_ℓ ⊉ non-residues, for every prime ℓ ≥ 17. **OPEN** (EVIDENCE §6; obstruction §5).
+* **(T-all)** μ_ℓ < 1/2, or at least C_ℓ ⊉ non-residues, for every prime ℓ ≥ 17. **OPEN** (EVIDENCE §6; what the tested
+  methods miss: §5).
   (ℓ = 3, 5, 7, 11, 13: every non-residue profile is caught at level 1; CERTIFIED, §6.)
 * **(S-all)** μ_ℓ^S < 1/2 for every prime ℓ ≥ 11. **PROVED, computer-assisted** (§3 + UCOVER Thm S(b)).
 
@@ -90,9 +93,18 @@ level 1 (UCOVER Thm S(c)).
 where E_k is the exact set of good caught unit residues at level k (UCOVER Lemma S1, enumerated completely by
 `scripts/z66_ucover_swords.c`, UCOVER Lemma S2) and T_k majorises the candidate count of that enumeration divided by
 φ(ℓ^k) whenever ℓ^k ≥ 10⁵ (UCOVER Lemma S2′; the script also asserts candidates ≤ majorant at every computed level with
-ℓ^k ≥ 10⁵). `scripts/z67_ell0_sgap.py` increases K from 1 until the right side is < 1/2, with exact fractions for the
-first sum and the tail evaluated in mpmath interval arithmetic (terms to K + 80, then a geometric remainder with ratio
-bound ρ < 1; upper endpoint converted exactly; the construction of UCOVER `z66_ucover_stree.tail_upper`). Results:
+ℓ^k ≥ 10⁵). `scripts/z67_ell0_sgap.py` increases K from 1 until the right side is < 1/2.
+* The first sum uses exact fractions.
+* The tail is evaluated in mpmath interval arithmetic: terms to K + 80, then a geometric remainder with ratio bound
+  ρ < 1 (the construction of UCOVER `z66_ucover_stree.tail_upper`).
+* The interval's upper endpoint is read exactly from mpmath's raw (sign, mantissa, exponent) tuple.
+  * The first version went through `mpf(tot.b)`, which re-rounds to 53 bits and can round down. The internal review
+    exhibited an undershoot of 2.3·10⁻¹⁷ at ℓ = 37, K = 3.
+  * Fixed, and both ranges were rerun. Every per-prime line is identical.
+  * The same `mpf(…).man_exp` conversion occurs in UCOVER's `z66_ucover_stree.py`. Its margins (≥ 0.0099) dwarf the
+    effect, and §3 re-proves its existence statements independently, but the script should be fixed by its owner.
+
+Results:
 * 101 < ℓ < 10⁵ (`data/z67/ell0/sgap_102_1e5.txt`): all 9566 primes CERTIFIED; K = 1 for 9517 primes, K = 2 for 49;
   worst bound 0.4932 (ℓ = 379, K = 1); e.g. ℓ = 99991: 0.0033.
 * 11 ≤ ℓ ≤ 101 (`sgap_11_101_global.txt`): all 22 primes CERTIFIED with K ≤ 7 (ℓ = 11: K = 7, bound 0.390); worst
@@ -102,11 +114,11 @@ bound ρ < 1; upper endpoint converted exactly; the construction of UCOVER `z66_
 (`z66_ucover_sbrute.py`, Jacobi symbols on explicit representatives) with A, uv ≤ 2·10⁵ at ℓ = 103, 379, 1009, levels
 ≤ 2: brute = exact (13, 15, 10 residues).
 
-## 4. Theorem T-expl: an explicit ℓ₀ (PROVED, with a computer-evaluated explicit inequality)
+## 4. Theorem T-expl: an explicit ℓ₀ (PROVED, computer-assisted: an explicit inequality enclosed in interval arithmetic)
 
-**Theorem T-expl.** For every prime ℓ ≥ e^{2950} (in particular every ℓ ≥ 10^{1282}), μ_ℓ ≤ 0.0422 < 1/2. Hence at
-least a fraction 1 − 0.0844 of the non-residues g ∈ ℤ_ℓ^× (by Haar measure) have e_{ℓ,g} ∈ U, and UCOVER Cor T.1 holds
-with an explicit count: all but ≤ 0.0422(ℓ − 1) of the non-residue classes g₀ mod ℓ meet U (a class fully inside C_ℓ
+**Theorem T-expl.** For every prime ℓ ≥ e^{2950} (in particular every ℓ ≥ 10^{1282}), μ_ℓ ≤ 0.0408 < 1/2. Hence at
+least a fraction 1 − 0.0816 of the non-residues g ∈ ℤ_ℓ^× (by Haar measure) have e_{ℓ,g} ∈ U, and UCOVER Cor T.1 holds
+with an explicit count: all but ≤ 0.0408(ℓ − 1) of the non-residue classes g₀ mod ℓ meet U (a class fully inside C_ℓ
 has mass 1/(ℓ − 1)).
 
 **Inputs** (all elementary; no unproved ET constant is used).
@@ -130,31 +142,42 @@ has mass 1/(ℓ − 1)).
   * ΣI. e ≤ Y: factorisation of (ne + 1)/4 (2.1). f ≤ Y: factorisation of (n + f)/4 (2.6). cd ≤ Y: f | n² + 4c²d
     (2.9), then a (2.6), b (2.8). ac ≤ Y: b | na + c (2.8), then f, d (2.6), e.
   With T(x) = max_{m≤x} τ(m), T₃(x) = max_{m≤x} τ₃(m), D(X) = X(1 + ln X) ≥ #{(u, v) ∈ ℕ² : uv ≤ X}, and
-  a²d ≤ (ad)², c²d ≤ (cd)²:
+  a²d ≤ (ad)², c²d ≤ (cd)² (the simplification n² + 4Y² ≤ 2n² needs n ≥ 8; here n ≥ ℓ is huge):
   * B_II(n) ≤ X·T₃(n/2) + D(X)[T(5n) + T(2n^{7/5}) + T(5n^{9/5})];
   * B_I(n) ≤ Y[T₃(nY) + T₃(n)] + D(Y)[T(2n²) + T(2nY)].
 * **(I5) Divisor maxima.** τ(m) ≤ C(ε)m^ε and τ₃(m) ≤ C₃(ε)m^ε for all m ≥ 1, where
   ln C(ε) = Σ_{p < 2^{1/ε}} max_{a≥0}[ln(a + 1) − aε ln p] and
   ln C₃(ε) = Σ_{p < 3^{1/ε}} max_{a≥0}[ln binom(a+2, 2) − aε ln p]
-  (multiplicativity; for larger p the maximum is at a = 0, since a + 1 ≤ 2^a and binom(a+2, 2) ≤ 3^a). They are
-  computed in double precision plus a margin 10⁻⁶·#primes + 10⁻³. Examples: ln C(0.05) ≤ 4526.3, ln C(0.1) ≤ 24.5,
-  ln C₃(0.09) ≤ 1850.6.
+  (multiplicativity; for larger p the maximum is at a = 0, since a + 1 ≤ 2^a and binom(a+2, 2) ≤ 3^a).
+  * For fixed p, f(a) = ln binom(a+r−1, r−1) − aε ln p is concave: f(a) − f(a−1) = ln((a+r−1)/a) − ε ln p decreases.
+    Its maximum sits at the last a with a non-negative difference. That a is < 29 (τ, ε ≥ 0.05) resp. < 36 (τ₃,
+    ε ≥ 0.08).
+  * The script locates this a in floating point and encloses f on a window of ±2 around it, plus a = 0, in outward
+    interval arithmetic. It sums the upper endpoints, asserting that the prime list reaches the cutoff.
+  * Results: ln C(0.05) ≤ 4526.2143, ln C(0.06) ≤ 683.54, ln C(0.1) ≤ 24.455, ln C₃(0.08) ≤ 6471.13,
+    ln C₃(0.09) ≤ 1850.52.
 
-**Proof.** `scripts/z67_ell0_tbound.py 2950 300` (mpmath, 60 digits, log domain) evaluates (I1)–(I5) at
-L = ln ℓ = 2950.
+**Proof.** `scripts/z67_ell0_tbound.py 2950 300` encloses (I1)–(I5) at L = ln ℓ = 2950. It works in the log domain
+with outward-rounded interval arithmetic (mpmath.iv, 50 digits), and every reported bound is an upper endpoint.
 * For each level k ≤ 300 and each of the 12 case terms it takes the best ε from a grid: τ from 0.05 to 0.10 in steps
   of 0.002, then 0.11 to 0.50; τ₃ from 0.08 to 0.10 in steps of 0.002, then 0.11 to 0.50.
-* Levels k > 300 are bounded with fixed ε = 0.05 (τ) and 0.09 (τ₃). Each term is then of the shape
-  exp(α + βk)(1 + γk) with β < 0. The per-level decay is ≤ e^{−0.02L}, and a geometric series bounds the rest by
-  3.4·10^{−6369}.
-* Total: Σ_{k≤300} = 0.04213…, and the tail is negligible. So **μ_ℓ ≤ 0.0422** (`data/z67/ell0/tbound_L2950.txt`).
+* Levels k > 300 are bounded with fixed ε = 0.05 (τ) and 0.09 (τ₃). Each ln-term is then const − β(k)L, plus
+  ln(1 + ln X) in the pair cases, with β linear in k.
+  * Grouping levels in pairs, term(k+2)/term(k) ≤ e^{−(β(k+2)−β(k))L}·(1 + 4/(2·300 + 1)). The last factor bounds the
+    growth of 1 + ln X.
+  * The exponential part gains at least 0.02L per level, so the pair ratio is ≤ 5.8·10⁻⁵².
+  * A geometric series then bounds the whole tail by 3.1·10^{−6369}.
+* Total: Σ_{k≤300} ≤ 0.040798, and the tail is negligible. So **μ_ℓ ≤ 0.0408** (`data/z67/ell0/tbound_L2950.txt`).
+  The largest single term is the A family, case cd, at level 29: ≤ 0.0380.
+* An earlier double-precision version gave 0.0421 using looser margins; the internal review asked for the interval
+  version.
 
 *All ℓ ≥ e^{2950}.* Fix the ε's at their L = 2950 choices. Each term is then
 exp(const − βL + ln(1 + c·L))/(1 − e^{−L}) with β ≥ 0.192 > 2/2950 (checked by the script). Since
 d/dL ln(1 + cL) ≤ 1/L, every term decreases in L for L ≥ 2950. The ε-minimised bound at larger L is no larger. ∎
 
 *Where the size comes from.*
-* The binding term is the I-1 (A) family at level k ≈ 28 (n = ℓ^{55}), case cd ≤ X. Its divisor argument is ≈ n^{9/5}.
+* The binding term is the I-1 (A) family at level k ≈ 29 (n = ℓ^{57}), case cd ≤ X. Its divisor argument is ≈ n^{9/5}.
 * Its exponent (2k−1)(2/5 + (9/5)ε) − k is negative only for ε < (k/(2k−1) − 2/5)·(5/9). This tends to 1/18 as
   k → ∞, and C(ε) ≥ e^{4500} at ε = 0.05.
 * The F and E families are harmless: their exponents are ≈ −2k/5 and −3k/5.
@@ -163,41 +186,48 @@ d/dL ln(1 + cL) ≤ 1/L, every term decreases in L for L ≥ 2950. The ε-minimi
 
 ## 5. Why (T-all) is not closed for 17 ≤ ℓ < e^{2950} (narrowed)
 
-**Prop R (PROVED).** The level-k (A) events with a′ = 1 are exactly the solutions of
-  4·d′·C·w − C − w = ℓ^{2k−1}  (C, w, d′ ≥ 1, ℓ ∤ d′),
-i.e. the campaign's (★)/(MS) representations n = 4uBC − u − B (`Z57_SYNTH.md` §1; R(n) := #{(u, B, C) ∈ ℕ³ : …}) at
-n = ℓ^{2k−1}, with (u, B, C) = (C, w, d′). The caught residue is −f = 1 − 4d′C (mod ℓ^k). In general the (A) events
-of level k are the solutions of a′ℓ^{2k−1} = 4a′d′Cw − C − w. Hence (★T)'s A-term contains
-Σ_k #{residues of R(ℓ^{2k−1})-solutions}/φ(ℓ^k).
-*Proof.* UCOVER §2.2 (A) with K′ = 2k − 1 (Lemma D) and a′ = 1: a′(4d′Cw − ℓ^{K′}) = C + w. ∎
-(The coprimality condition ℓ ∤ C needed for a unit residue is automatic: if ℓ | C then −f ≡ 1 is a square mod ℓ,
-contradicting UCOVER Lemma 1's parity.)
+**Prop R (PROVED).** For n = ℓ^{2k−1} the level-k (A) events with a′ = 1 are in bijection with *all* solutions of
+  4·d′·C·w − C − w = n  (C, w, d′ ≥ 1),
+i.e. with the campaign's (★)/(MS) representations n = 4uBC − u − B (`Z57_SYNTH.md` §1; R(n) := #{(u, B, C) ∈ ℕ³ : …}),
+via (u, B, C) = (C, w, d′). So their number is exactly R(ℓ^{2k−1}). The caught residue is −f = 1 − 4d′C (mod ℓ^k),
+f := 4d′C − 1. In general the level-k (A) events are the solutions of a′ℓ^{2k−1} = 4a′d′Cw − C − w with ℓ ∤ a′d′.
+*Proof.* UCOVER §2.2 (A) with K′ = 2k − 1 (Lemma D) and a′ = 1 reads a′(4d′Cw − ℓ^{K′}) = C + w. It remains to see that
+the side condition ℓ ∤ d′ is automatic.
+* For any solution, f·w = n + C, gcd(C, f) = 1 and f ≡ −1 (mod 4C).
+* UCOVER's Jacobi fact (J) gives (−C/f) = −1, hence (n/f) = (−C/f) = −1. As n is an odd power of ℓ, (ℓ/f) = −1.
+* By reciprocity (f ≡ 3 mod 4) this is (−f/ℓ) = −1.
+* If ℓ | d′C we would have −f ≡ 1 (mod ℓ), a square. Hence ℓ ∤ d′C, and every solution is an event whose residue is
+  a non-residue. ∎
 
-**What a certificate for a fixed small ℓ would need (Assessment, with a computation).**
-* A certificate in the style of §3 must bound the event mass of all levels k > K for the K one can compute. For ℓ = 17,
-  UCOVER's code reaches K = 4 (n = 17⁷).
-* By Prop R, this includes bounding R(17^{2k−1})/17^k and its a′ > 1 analogues for every k > K. A bound of strength
-  c·n^{1/2} gives a constant per level, which is not summable. One needs n^{1/2−δ}, uniformly in k, with a small c.
+(Prop R counts *events*, not distinct residues: different solutions can give the same residue mod ℓ^k, and cylinders
+of different levels overlap. Upper bounds on R are therefore *sufficient* for bounding the A-mass, not necessary.)
+
+**What the tested certificate methods would need (Assessment, with a computation).**
+* A certificate in the style of §3 must bound the event mass (or the union mass) of all levels k > K for the K one can
+  compute. For ℓ = 17, UCOVER's code reaches K = 4 (n = 17⁷).
+* One sufficient route is an upper bound for R(ℓ^{2k−1}) and its a′ > 1 analogues that is summable against ℓ^{−k}
+  uniformly enough in k. Examples: c·n^{1/2−δ}, or c·n^{1/2}/(log n)^{1+η}, with usable constants. A bound c·n^{1/2}
+  alone gives a constant per level and does not suffice.
 * Counting by dyadic boxes in (d′, C, a′, s) (s = 4d′Cw − n) without divisor-function input (`scripts/z67_ell0_boxlp.py`,
-  `data/z67/ell0/boxlp.txt`) uses three tools: the trivial residue count (ρ = 1 − 4m, m = a′d′C ≤ n/s), fixing three
-  coordinates, and Lenstra's "≤ 11 divisors in a residue class mod q > X^{1/3}" for the five pair fibrations where it
-  applies. The worst box then costs n^{2/3}.
-  * The worst box is s = O(1), d′ ≈ C ≈ a′ ≈ n^{1/3}. Here s = 1 alone contributes every factorisation
+  `data/z67/ell0/boxlp.txt`; a 1/60-mesh grid search, not a certified optimisation) uses three tools: the trivial
+  residue count (ρ = 1 − 4m, m = a′d′C ≤ n/s), fixing three coordinates, and Lenstra's "≤ 11 divisors in a residue
+  class mod q > X^{1/3}" for the five pair fibrations where it applies. The worst sampled box then costs n^{2/3}.
+  * That box is s = O(1), d′ ≈ C ≈ a′ ≈ n^{1/3}. Here s = 1 alone contributes every factorisation
     (n + 1)/4 = d′Cw with ℓ ∤ C + w.
-  * Restricted to s ≥ n^{0.2} the worst cost is still n^{0.65}, now at the box a′ = O(1), d′ ≈ C ≈ s ≈ n^{1/3}: the
-    a′ = 1, i.e. (★), sub-family.
-* With divisor maxima τ ≤ C(ε)m^ε the exponent is 2/5 + O(ε) (ET). But then C(ε) is astronomically large for the ε
+  * Restricted to s ≥ n^{0.2}, the mesh still finds n^{0.65}, near the box a′ = O(1), d′ ≈ C ≈ s ≈ n^{1/3}: the
+    a′ = 1, i.e. (★), sub-family. The reviewer found a feasible off-mesh box costing n^{0.66}, and nearby boxes
+    approach n^{2/3}.
+* With divisor maxima τ ≤ C(ε)m^ε the exponent is 2/5 + O(ε) (ET). But C(ε) is astronomically large for the ε
   required, which is what §4 pays.
-* So, absent a new counting idea, the gap 17 ≤ ℓ < e^{2950} cannot be closed by union-bound certificates. The missing
-  input is precisely a uniform-in-k upper bound for (★)-type representation counts at odd prime powers, of strength
-  n^{1/2−δ} with a usable constant. (The campaign's data and heuristics give R(n) ≍ log² n on average; nothing
-  rigorous of the needed strength is available.)
-* Escape hatches the argument leaves open:
-  * a structured choice of g. Rational g are dangerous: e.g. for ℓ ≡ 3 (mod 4), g = −1 is caught at level 1 (F: a = c = 1,
-    d = (ℓ + 1)/4; also A: C = w = 1, a′ = 2, d′ = (ℓ + 1)/4).
-  * a König-tree argument that uses more than measure;
-  * explicit Shiu-type bounds for Σ τ over progressions whose modulus is large compared with their length (needed in
-    the a′ = O(1) box, where the sum is Σ_{d′} τ(4d′n + 1) over d′ ≈ n^{1/3}).
+* So the counting bounds tested here do not close the gap 17 ≤ ℓ < e^{2950}. This is not a theorem that no
+  measure-counting certificate can. Escape hatches the tested methods leave open:
+  * better deduplication: counting distinct residues or cylinder unions, not events;
+  * further arithmetic constraints on the events;
+  * explicit Shiu-type bounds for Σ τ over progressions whose modulus is large compared with their length. These are
+    needed in the a′ = O(1) box, where the sum is Σ_{d′} τ(4d′n + 1) over d′ ≈ n^{1/3}.
+  * a structured choice of g. Rational g are dangerous: e.g. for ℓ ≡ 3 (mod 4), g = −1 is caught at level 1 (F:
+    a = c = 1, d = (ℓ + 1)/4; also A: C = w = 1, a′ = 2, d′ = (ℓ + 1)/4).
+  * a König-tree argument: survivors at every finite level would suffice, by compactness.
 
 ## 6. (T-all): EVIDENCE and the CERTIFIED small-ℓ facts
 
@@ -205,15 +235,16 @@ contradicting UCOVER Lemma 1's parity.)
 and the ℓ-adic survivor tree (UCOVER §3).
 * **Level 1, 3 ≤ ℓ < 10⁵** (`etlow_L1_3_2000.txt`, `etlow_L1_2000_1e5.txt`; CERTIFIED as stated). All non-residues
   are caught at level 1 exactly for ℓ ∈ {3, 5, 7, 11, 13}. For every other prime ℓ < 10⁵ some non-residue class
-  g₀ mod ℓ survives level 1. The smallest surviving masses are 0.091 (ℓ = 23) and 0.125 (ℓ = 17). For ℓ ≥ 2000 the
-  surviving mass is ≥ 0.421 (min at ℓ = 2237, 176 caught non-residues out of 1118).
+  g₀ mod ℓ survives level 1. The smallest surviving masses are 0.091 (ℓ = 23) and 0.125 (ℓ = 17). For the tested
+  primes 2000 ≤ ℓ < 10⁵ the surviving mass is ≥ 0.421 (min at ℓ = 2237, 176 caught non-residues out of 1118).
 * **Level 2, 17 ≤ ℓ < 400** (`etlow_L2_17_400.txt`): all 72 primes keep survivors; min surviving mass 0.0593 (ℓ = 23).
 * **Level 3, 59 ≤ ℓ ≤ 101** (`etlow_L3_59_101.txt`; 17–53 are in UCOVER §3): all keep survivors; the loss from level 2
-  to 3 is about 0.001 (0.0005–0.0012); min mass 0.154 (ℓ = 59).
+  to 3 is about 0.001 (0.00045–0.00124); min mass 0.154 (ℓ = 59).
 * *Reading (EVIDENCE, not proof).* The new loss per level falls by roughly a factor ℓ^{1/2} or more per level (UCOVER
-  §3; e.g. ℓ = 59: 0.0169, 0.0010). A Prop-R-type tail that behaves like its average would leave every ℓ ≥ 17 with
-  survivors. But survival at finitely many levels proves nothing about U: the caught set is open, and the uncovered set
-  is closed and may be empty while every finite level leaves survivors.
+  §3; e.g. ℓ = 59: 0.0169, 0.00098). A Prop-R-type tail that behaves like its average would leave every ℓ ≥ 17 with
+  survivors.
+* But survival at the finitely many levels computed here does not prove survival at all levels. If survival at every
+  finite level could be proved, compactness (König's lemma) would give an uncovered profile.
 * The plain event-mass sum Σ_k|E_k|/φ(ℓ^k) (no tree) already exceeds 1/2 for ℓ = 17, 23, 31 at level 2
   (0.544, 0.589, 0.501). So a certificate that *adds* event masses, as in §3, is impossible for these ℓ even with a
   perfect tail. Any proof there has to use the union of cylinders or the survivor tree, branch by branch.
@@ -227,39 +258,64 @@ and the ℓ-adic survivor tree (UCOVER §3).
     count for every prime above 10^{1282}.
   * Lemma D shrinks the A-term to one ΣII count per level.
 * Narrowed:
-  * The gap 17 ≤ ℓ < ℓ₀ for ET cannot be closed by union-bound counting with available tools (§5).
-  * The obstruction is identified: the tail contains the (★)/(MS) representation counts R(ℓ^{2k−1}) at all odd prime
-    powers (Prop R).
+  * The gap 17 ≤ ℓ < ℓ₀ for ET is not closed by the counting bounds tested here (§5).
+  * The binding family is identified: the level-k I-1 events with a′ = 1 are exactly the (★)/(MS) representations
+    of ℓ^{2k−1} (Prop R). Good upper bounds for such counts would be one sufficient route.
 * No bearing on ES itself; no HOT LEAD.
 
 **Hard screens (FRONTIER §4).**
 * *T1 squares.* Built in: square profiles are uncovered, every caught residue is a non-residue.
 * *8/131.* Not applicable (numerator 4 only).
-* *Tied modulus (B2).* Not moved. Prop R says that making UCOVER's theorem explicit at small ℓ needs *upper* bounds on
-  (★)-counts at prime powers. B2 needs *lower* bounds at primes, the opposite direction, and upper bounds are the easy
-  side analytically: divisor maxima give them, but with constants that are astronomical here.
+* *Tied modulus (B2).* Not moved. Prop R points to *upper* bounds on (★)-counts at prime powers as one route to an
+  explicit Theorem T at small ℓ. B2 needs *lower* bounds at primes, the opposite direction.
 * *Fixed p.* Not applicable.
 
 **Proposed FRONTIER text** (do not edit FRONTIER here).
 > *(z67 ELL0.)* UCOVER's Theorem T made explicit: for every prime ℓ ≥ e^{2950} (< 10^{1282}) the ET-caught non-square
-> ℓ-profiles have Haar mass ≤ 0.0422 (`Z67_ELL0.md` Thm T-expl; explicit ET §3 split + Euler-product divisor maxima;
-> new Lemma D: the I-1 events of level k live only on ΣII_{ℓ^{2k−1}}). The (S)-analogue is now PROVED for every prime
-> ℓ ≥ 11 (gap 101 < ℓ < 10⁵ closed by a global certificate, computer-assisted). For ET at 17 ≤ ℓ < e^{2950} the
-> question stays open (EVIDENCE: every prime 17 ≤ ℓ < 10⁵ has level-1 survivors; 17 ≤ ℓ < 400 have level-2
-> survivors). The obstruction: the tail contains the (★) counts R(ℓ^{2k−1}) at all odd prime powers, and certified
-> tails need uniform n^{1/2−δ} upper bounds for them with usable constants.
+> ℓ-profiles have Haar mass ≤ 0.0408 (`Z67_ELL0.md` Thm T-expl; explicit ET §3 split + Euler-product divisor maxima,
+> interval arithmetic; new Lemma D: the I-1 events of level k live only on ΣII_{ℓ^{2k−1}}). The (S)-analogue is now
+> PROVED for every prime ℓ ≥ 11 (gap 101 < ℓ < 10⁵ closed by a global certificate, computer-assisted). For ET at
+> 17 ≤ ℓ < e^{2950} the question stays open (EVIDENCE: every prime 17 ≤ ℓ < 10⁵ has level-1 survivors; 17 ≤ ℓ < 400
+> have level-2 survivors). The binding family: the level-k I-1 events with a′ = 1 are exactly the (★)
+> representations of ℓ^{2k−1} (Prop R). Summable upper bounds for these counts with usable constants are one
+> sufficient route to a certified tail; the counting methods tested do not supply them.
 
 **Bottom line.**
 * Two of the brief's three asks are done. The (S)-families now provably escape finite good-word coverings beyond the
   squares at every prime ℓ ≥ 11. Theorem T has an explicit ℓ₀ — but it is e^{2950}.
-* The third ask, every ℓ ≥ 17 for the ET families, is out of reach of measure counting. The I-1 family's level-k
-  events form the (★)-type equation at n = ℓ^{2k−1}. Bounding their number rigorously below √n needs divisor maxima,
-  whose constants explode. Below ℓ₀ only EVIDENCE remains, and it is uniformly positive.
+* The third ask, every ℓ ≥ 17 for the ET families, is not reached. The binding I-1 events at level k include the
+  (★)-type equation at n = ℓ^{2k−1}. The tested ways of counting them below √n use divisor maxima, and their
+  constants explode. Below ℓ₀ only EVIDENCE remains, and it is uniformly positive at the computed levels.
 * Nothing here touches ES; B2 is unchanged.
 
 ## 8. Review log and replay
 
-**Internal hostile review:** pending.
+**Internal hostile review** (deep-mode subagent; `data/z67/ell0/internal_review.md`). Verdict on the first version:
+REJECT as written, repairable. It confirmed Lemma D, the ET embeddings and multipliers, the reflections, the size
+bounds, all eight case reconstructions, Prop R's equation, the g = −1 example, all certificate counts and the evidence
+numbers. It reran the (S) certificates in full and the T-expl evaluation, and found no provider error. Findings and
+fixes:
+* **(1) MAJOR.** The (S) tail's upper endpoint went through a 53-bit `mpf`, which can round down (undershoot
+  2.3·10⁻¹⁷ at ℓ = 37). Fixed by reading the raw interval endpoint. All certificates were rerun and are unchanged
+  (§3). The same pattern in UCOVER's `z66_ucover_stree.py` is flagged there.
+* **(2) MAJOR.** T-expl's numerics (double-precision divisor constants with an ad-hoc margin; 60-digit non-interval
+  sums) were not a rigorous enclosure. The script was rewritten in outward interval arithmetic, with a proved window
+  for the maximising exponent; the bound is now ≤ 0.0408 (§4). During the rewrite an intermediate version truncated
+  the prime list for ε = 0.05 (ln C 4496.7 instead of 4526.2); this was caught by comparison with the float value, and
+  the script now asserts that the list reaches the cutoff.
+* **(3) MAJOR.** §5's "cannot be closed" / "needs n^{1/2−δ}" language overclaimed. Prop R counts events, not distinct
+  residues. A power saving is sufficient, not necessary. The box search covers only the tested methods. All of this was
+  rephrased as "not closed by the counting bounds tested", including the title, the summary, K2, the FRONTIER text
+  and the bottom line.
+* **(4) MAJOR.** The compactness sentence in §6 was false: survivors at every finite level do imply an uncovered
+  profile. Corrected.
+* **(5) MINOR.** The 0.65 restricted-box exponent is a grid value; it is now labelled as such, with the reviewer's
+  off-mesh 0.66.
+* **(6) MINOR.** The tail ratio in §4 now quotes the pairwise ratio including the affine factor.
+* **(7) MINOR.** Prop R's parity aside: the coprimality ℓ ∤ d′C is automatic for every (★) solution at an odd power
+  of ℓ (reviewer's argument, now in the proof). Hence the bijection with *all* R(ℓ^{2k−1}) solutions.
+* **(8) MINOR.** Domain n ≥ 8 for the ΣI simplification; loss range 0.00045–0.00124; "for the tested primes" in the
+  evidence statements.
 
 **Replay** (each under `ulimit -v 4000000`, `timeout 1800`; all runs take seconds to two minutes, except the level-3
 run, about ten minutes):
