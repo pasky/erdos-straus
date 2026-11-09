@@ -1,13 +1,14 @@
-# Z69_IDEAB — independent ideation on Erdős–Straus. Verdict: **no NEW idea (25/25 already in the campaign); inconclusive / narrowed on UCOVER O2 (integer-side certificates + a five-prime reduction); HOT LEAD: no**
+# Z69_IDEAB — independent ideation on Erdős–Straus. Verdict: **no NEW idea (25/25 already in the campaign); inconclusive / narrowed on UCOVER O2 (integer-side certificates + level-by-level finite data); HOT LEAD: no**
 
 Lane IDEAB, wave z69 (brief `z52bbriefs/z69_lanes.md` §IDEAB; common rules `z58_lanes.md`).
 **ES is OPEN. Nothing here proves or disproves ES or any case of it.** Internal, unrefereed.
 Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. Scripts `scripts/z69_ideab_*`,
-data `data/z69/ideab/` (< 1 MB). No provider / auth / quota error occurred in this lane (one hostile-review
-subagent call; see §4).
+data `data/z69/ideab/` (< 1 MB). No provider / auth / quota error occurred in this lane (two hostile-review
+subagent calls; see §4).
 
 **Protocol.** §1 (Phase 1: 24 ideas + sanity checks) was written from my own knowledge and committed (commit `d86981e6c`)
 before anything in the repo other than the two brief files was read. §2 (lookup) and §3 (push) came after.
+Corrections made to §1 after the internal reviews are marked inline in *[brackets]*; the Phase-1 text as committed is in git.
 CERTIFIED in this memo means: an exact finite computation by the stated script, with the stated independent check;
 it does not mean a second full-range engine unless said.
 
@@ -377,7 +378,7 @@ r = 7, 8, 10: always 11 (one K2 class each). **r = 2, 6: the maximum least modul
 control square class r = 1 (136, 359, 536, 1271); the witnesses used are other primes (23, 19, 39, 31, 47, …), not 11.
 EVIDENCE that **strong UC is false**: the class {1 mod 840, 2 mod 11} contains no squares yet is not covered by
 finitely many identities. This matches a compactness heuristic: uncovered sets at every finite level are non-empty and
-nested, so C is a Cantor-like closed set strictly larger than S; a prime is excluded from C not because its *class*
+nested, so (heuristically) C is a Cantor-like closed set strictly larger than S; a prime is excluded from C not because its *class*
 dies but because *it* dies. Consequence for T1/I18: the "least non-residue gives a bounded-modulus identity" route is
 dead; what survives is the integer statement IUC (S1), which is a different kind of claim.
 
@@ -573,8 +574,9 @@ have been UNDECIDED, not a kill. It did not occur.]*
 So (Lemma E) **every finite family-class cover of the large primes of K_2, or of K_6, contains a modulus > 10⁴**
 (certificates: `data/z69/ideab/cert_M10000_r{2,6}.json`, a 4349-digit residue each, checked against all 173 664 classes
 of all seven families without using the squares observation, and again by the direct divisibility test with no table:
-`cert_M10000_direct.log`; the internal reviewer re-verified both with independent code). Kill test C not triggered. The only tight spot is the
-prime 3 (3-adic digits to depth 8), i.e. the constraints live on the deep digits at the *small* primes. This suggests looking at small primes first:
+`cert_M10000_direct.log`; the internal reviewer re-verified both with independent code). Kill test C not triggered. In these runs the tightest
+spot was the prime 3 (3-adic digits to depth 8): the constraints live on the digits at the *small* primes (and, as §3.6
+shows, 13 is just as restrictive). This suggests looking at small primes first:
 
 **Question (Q-S).** Let S = {2,3,5,7,11} and B_r = (1+8ℤ₂)×(1+3ℤ₃)×(1+5ℤ₅)×(1+7ℤ₇)×(r+11ℤ₁₁). Do the family
 classes with S-smooth modulus cover B_r?
