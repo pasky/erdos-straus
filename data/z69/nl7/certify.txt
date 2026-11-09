@@ -1,0 +1,6 @@
+(1) SG primes with 5 | s, s < 2e5: 71 proved prime (Pratt certificates above 2^64)
+(2) quartic primes (840 j)^4 + 1, j < 250: 26 proved prime
+    rule J: 2 failures (j < 250): all prime factors of p + L and (when factored) L p + 1 proved prime
+    rule c: 8 failures (j < 250): all prime factors of p + L and (when factored) L p + 1 proved prime
+(3) the three R-G failures on t^2+16: p and all prime factors of p + L, L p + 1 proved prime
+prime factors above 2^64 certified: 8; distinct numbers with a Pratt certificate: 85
