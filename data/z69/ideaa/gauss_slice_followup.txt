@@ -1,0 +1,3 @@
+gauss    n=8000 success=0.0496 mean tau(M^2)=98.58 mean naive expectation=0.2460 success/expectation=0.202 P(4|M)=0.500
+control  n=47928 success=0.0339 mean tau(M^2)=58.84 mean naive expectation=0.1448 success/expectation=0.234 P(4|M)=0.167
+ratio of success rates 1.464; ratio of mean tau(M^2) 1.675; ratio of naive expectations 1.699

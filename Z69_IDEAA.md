@@ -25,8 +25,9 @@ instead of dressing them up. Four first tests were run (§3). What survives is m
   20-function divisor dictionary once trivial words are removed (R² ≤ 0.58). Identity route IDENT-OE: dead in this form.
 * **Lemma T (PROVED; kill).** Class forcing by the sign of a real-cyclotomic norm (CM reciprocity for
   ℚ(ζ_m)/ℚ(ζ_m)⁺) forces a divisor ≡ −1 (mod m) only of integers that are themselves ≡ −1 (mod m): the trivial hit.
-* **T3 (EVIDENCE; kill fired).** The slice singled out by factoring ES through ℤ[i] (e = 2a + 1, p = a² + b²) is
-  not better than control slices (§3.4).
+* **T3 (EVIDENCE; pre-registered kill fired).** The slice singled out by factoring ES through ℤ[i] (e = 2a + 1,
+  p = a² + b²) succeeds at 5.1 % of primes against 3.5 % for control slices (ratio 1.46 ≤ 1.5); the excess is fully
+  accounted for by a 1.7× larger divisor count of the norm M = N((π+1)/2) (§3.4). Not a rule.
 
 No idea passes F1–F4 as a *mechanism*. Details, with every dead idea stated as precisely as I can, follow.
 
@@ -38,7 +39,7 @@ No idea passes F1–F4 as a *mechanism*. Details, with every dead idea stated as
 | IDENT-OE (all-level odd/even identity) | built in: W⁻_{4∣t}(m²) = 0 verified (T1 check in the script); a closed form for O would have had to equal −E at squares | the t ≡ 0 (8) sub-sum is the R₈ analogue; an identity valid for both would be refuted at the R₈ zeros — moot, no identity found | all n ≡ 1 (4) were used; no primality step — a closed form would have been refuted by the 285 composite zeros unless it vanished there | would have had to give O = −E at the 14 (★)-zero primes; moot |
 | INV / TRACE (inversion ι: p ↦ p⁻¹ exchanges Type I ↔ II) | ι maps squares to squares: both types fail there, as they must | ι is numerator-blind (holds for every numerator M ≡ 0 (4)); no 4-specific step | profinite statement, primality-blind | at a (★)-zero the Type I side would have to fire; data: failures are positively dependent, so no forcing |
 | TORUS / sign forcing | the forced class is −1 (mod m) of an integer ≡ −1 (mod m); at n = m₀² the needed integer n + u ≡ −1 (4u) never occurs — consistent, because the lemma is trivial | m = 4C vs 8C makes no difference: trivial in both | no primality used | forces nothing at any zero (trivial hit only) |
-| GAUSS-SPLIT (ℤ[i] factorisation ⇒ slice e = 2a+1) | at p = m² the "representation" a = m, b = 0 gives M = ((m+1)/2)², e = 2m+1; no solution exists (T1) — the rule must fail there and does (M ≡ QR profile) | not examined (rule killed before that) | uses p = a² + b² with p prime for uniqueness of e | tested on all p ≡ 1 (24): success rate ≈ control (§3.4) |
+| GAUSS-SPLIT (ℤ[i] factorisation ⇒ slice e = 2a+1) | at p = m² the "representation" a = m, b = 0 gives M = ((m+1)/2)², e = 2m+1; no solution exists (T1) — the rule must fail there and does (M ≡ QR profile) | not examined (rule killed before that) | uses p = a² + b² with p prime for uniqueness of e | sampled p ≡ 1 (24) ≤ 3·10⁶: 5.1 % success vs 3.5 % control; the excess is a divisor-count effect (§3.4) |
 
 ## 1. Raw ideas (21), each with its first lemma and an honest screen
 
@@ -233,7 +234,21 @@ the divisors of π² are uπ^j (u a unit), and 2 | π + uπ^j forces (j, u) = (0
 (2, ±1) is the swap). So α = (π ± 1)/2, β = πα, and multiplying by the conjugate equation,
 4/p = 1/Nα + 1/(pNα) + 2a/(pNα) = 1/M + e/(pM) with M = Nα = (p + 1 ± 2a)/4, e = 1 ± 2a: one positive slice
 e = 2|a| + 1 (and one signed slice). Type II at slice e ⟺ M² has a divisor ≡ −M (mod e).
-`scripts/z69_ideaa_gauss.py`; data `data/z69/ideaa/gauss_slice.txt`. **Result: (filled in after the pre-registered run).**
+`scripts/z69_ideaa_gauss.py`; data `data/z69/ideaa/gauss_slice.txt`.
+
+**Result (pre-registered run; 20 000 random primes p ≡ 1 (24), 1000 < p ≤ 3·10⁶).** Gaussian slice: 1015/20 000 =
+5.08 % ± 0.16 %; control slices e ± 4k (k ≤ 3): 4176/119 826 = 3.49 % ± 0.05 %; ratio 1.456 ≤ 1.5: **kill fired**
+(narrowly, by the letter of the criterion; the enrichment itself is ≈ 10σ and real). A rule needs ≈ 100 %; this slice
+succeeds at 1 prime in 20.
+
+*Post hoc follow-up (not pre-registered; `scripts/z69_ideaa_gauss2.py`, `gauss_slice_followup.txt`, 8000 primes).*
+The enrichment is a divisor-count effect, not a class effect: M = ((a+1)/2)² + (b/2)² has mean τ(M²) = 98.6 against
+58.8 for the controls (ratio 1.68; 4 | M with probability 0.50 against 0.17, primes ≡ 3 (4) enter only squared), so the
+naive expected number of hitting divisors (τ(M²) − 2)/φ(e) is 1.70× larger, while the success rate is only 1.46×
+larger: *per ticket* the Gaussian slice does slightly worse (success/expectation 0.202 vs 0.234). EVIDENCE that the
+ℤ[i]-derived slice carries more tickets but no forcing. **Dead as a rule;** the density observation (norm-form
+slices have ≈ 1.7× the tickets) may be of use to lanes NL7/MINE as a normalisation when they score Gaussian rules:
+a raw hit-rate advantage below ≈ 1.7× over random slices is explained by divisor counts alone.
 
 ## 4. Limits of this memo
 * One engine for the K census; no independent recount (the first 10⁷ were eyeballed against K = 5 ⟺ p ≡ 13, 17 (20)
@@ -254,7 +269,7 @@ e = 2|a| + 1 (and one signed slice). Type II at slice e ⟺ M² has a divisor �
 | 2 | INV / TRACE | coverage is a function of p + p⁻¹; complementarity hypothesis | symmetry prior (MORDELL17 L1.1); depth-resolved joint law new | §0 row 3 | T2b: θ ≈ 1.3–1.4, excess up to 660×. **Complementarity dead**; coordinate remark survives |
 | 3 | SIGN | N_{K⁺/ℚ}(γ) ≡ 1 (mod m) signed; negative norm forces class −1 | not in FRONTIER §3 as a *class*-forcing statement | §0 row 4 | Lemma T: trivial hit only. **Dead** |
 | 4 | IDENT-OE | closed form for the all-level odd part O(n) | (J)7 Thm 9.1 is fixed-level; board F3/F4 had no candidate | §0 row 2 | T1: R² ≤ 0.58 on interior words. **Dead** (this dictionary) |
-| 5 | GAUSS-SPLIT | 2/π = 1/α + 1/β has only trivial solutions ⟹ slice e = 2a + 1 | `Z58_WITNESS` tested two-square data as d-selectors, not this derived slice | §0 row 5 | T3: see §3.4 |
+| 5 | GAUSS-SPLIT | 2/π = 1/α + 1/β has only trivial solutions ⟹ slice e = 2a + 1 | `Z58_WITNESS` tested two-square data as d-selectors, not this derived slice | §0 row 5 | T3: 5.1 % vs 3.5 % control, ratio 1.46 (kill ≤ 1.5 fired); excess = divisor count. **Dead** |
 
 **What I would and would not fund (Assessment).** Nothing above justifies a lane. If one more bounded test is wanted:
 complete the cost census with the β/γ/δ class shapes (true least class modulus W(p) to 10¹⁰ and its tail exponent) —
