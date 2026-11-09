@@ -56,7 +56,11 @@ mod ℓ^{k−1} to a level-(k−1) (A) residue. (For ℓ = 17 the counts match t
 one A-term per level instead of k. The A-term still lives at n = ℓ^{2k−1} (that cannot be reduced).
 
 ## 3. Plan / status (checkpoint 1)
-* (S)-gap 101 < ℓ < 10⁵: global certificate per prime (exact levels + Lemma S2′ tail). In progress.
+* **(S)-gap: CLOSED** (CERTIFIED, `scripts/z67_ell0_sgap.py`, `data/z67/ell0/sgap_102_1e5.txt`): all 9566 primes
+  101 < ℓ < 10⁵ pass the global certificate Σ_{k≤K}|E_k|/φ(ℓ^k) + Σ_{k>K} T_k < 1/2 (K = 1 for 9517 primes, K = 2 for
+  49; worst bound 0.4932 at ℓ = 379, K = 1). The same certificate also passes for every prime 11 ≤ ℓ ≤ 101
+  (`sgap_11_101_global.txt`, K ≤ 7; worst 0.4877 at ℓ = 37), re-proving UCOVER Thm S(a)'s existence part
+  independently of the branch tree. With UCOVER Thm S(b) (ℓ ≥ 10⁵): **(S-all) holds for every prime ℓ ≥ 11.**
 * (T-expl): explicit P_I, P_II bounds (ET §3 split + rigorous divisor-function maxima computed as finite Euler
   products) → explicit ℓ₀. In progress. First assessment (exponent LP over dyadic boxes, `/tmp` exploratory): the
   (A) count needs divisor-function maxima in some boxes (box s = O(1), d′ ≈ C ≈ a′ ≈ n^{1/3}: s = 1 alone contributes
