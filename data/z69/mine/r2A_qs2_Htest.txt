@@ -1,0 +1,18 @@
+file /tmp/z69mine/qs2_Htest.jsonl primes 411
+  D  real 0.52306 decoy 0.51446  ratio 1.017  z +5.90  (primes 411)
+  R  real 0.04583 decoy 0.04365  ratio 1.050  z +5.88  (primes 411)
+  E  real 0.23518 decoy 0.23436  ratio 1.004  z +0.72  (primes 411)
+  A  real 0.27899 decoy 0.26519  ratio 1.052  z +4.99  (primes 411)
+ strata for D (letter divides some Q_i):
+  l <= sqrt p      real 0.6554 decoy 0.6547 ratio 1.001 z +0.32 (primes 409)
+  l > sqrt p       real 0.0258 decoy 0.0222 ratio 1.161 z +0.76 (primes 402)
+  l <= 100         real 0.8168 decoy 0.8144 ratio 1.003 z +1.23 (primes 411)
+  100 < l <= 1e4   real 0.4019 decoy 0.4028 ratio 0.998 z -0.24 (primes 404)
+  l > 1e4          real 0.0173 decoy 0.0155 ratio 1.115 z +0.81 (primes 331)
+  L/sqrt p low     real 0.4363 decoy 0.4234 ratio 1.030 z +3.83 (primes 137)
+  L/sqrt p mid     real 0.5179 decoy 0.5143 ratio 1.007 z +1.86 (primes 137)
+  L/sqrt p high    real 0.6150 decoy 0.6057 ratio 1.015 z +4.74 (primes 137)
+ first-hit relative position: real median 0.002 (n 6764), decoy median 0.002 (n 13345); odd-index share real 0.524 decoy 0.529
+ injection (one letter forced to divide a Q_i in 100% of primes): real 0.5755 decoy 0.5145 z +16.21
+ injection (one letter forced to divide a Q_i in 50% of primes): real 0.5527 decoy 0.5145 z +9.91
+ injection (one letter forced to divide a Q_i in 20% of primes): real 0.5329 decoy 0.5145 z +9.55
