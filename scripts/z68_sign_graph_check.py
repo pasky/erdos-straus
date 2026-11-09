@@ -1,4 +1,5 @@
 # z68_sign_graph_check.py — independent small-n check of the move-graph edge count of z68_sign_graph.c.
+# (an EDGE-COUNT check only: equal totals do not certify adjacency or heights.)
 # Moves generated directly from Lemma 2 by brute force over cuts and ALL k, building target words by concatenation.
 import sys, subprocess, re
 from math import gcd
@@ -31,7 +32,9 @@ def edges(n):
                     assert K(nw) == n and min(nw) >= 2; E += 1
     return E
 ns = [17, 41, 89, 97, 113, 225, 289, 409, 1089]
-out = subprocess.run(['/tmp/z68g'] + [str(n) for n in ns], capture_output=True, text=True).stdout
+# usage: python3 z68_sign_graph_check.py BINARY   (build: gcc -O2 -o BINARY scripts/z68_sign_graph.c)
+binary = sys.argv[1] if len(sys.argv) > 1 else '/tmp/z68g'
+out = subprocess.run([binary] + [str(n) for n in ns], capture_output=True, text=True, check=True).stdout
 cE = {int(m.group(1)): int(m.group(2)) for m in re.finditer(r'n=(\d+) V=\d+ E=(\d+)', out)}
 for n in ns:
     e = edges(n); print(n, e, cE[n], 'OK' if e == cE[n] else 'MISMATCH'); assert e == cE[n]

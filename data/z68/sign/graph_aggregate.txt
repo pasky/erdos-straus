@@ -1,0 +1,110 @@
+# data/z68/sign/graph_p1e5.txt
+== (0, 1000]: 37 records
+  giant mean 0.2525 (min 0.0547); E+ giant band mean 0.0639, per-n range [0.0137, 0.1875]; moves/V band mean 1.195
+  all L3 in giant: 5/37 = 13.514 %; good L3 in giant: 34/37 = 91.892 %; E+ giant good-signed: 28/37 = 75.676 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 17.377 %, pooled 1176/8216 = 14.314 %; D+ per-n mean 16.735 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 37 records with S3 non-empty): per-n mean Rmin 1.0142 %, D 1.0893 %; pooled Rmin 16/2322 = 0.689 %, D 18/2322 = 0.775 %
+  prime-level: S1 Rmin 12/37 = 32.432 %, S1 Rmin+ 12/37 = 32.432 %, S2 Rmin 31/37 = 83.784 %, S2 Rmin+ 31/37 = 83.784 %, S2 in D 31/37 = 83.784 %, some S3 Rmin-success 6/37 = 16.216 %, some S3 in D 6/37 = 16.216 %
+  S1: length 2 at 25/37 = 67.568 %; length 3 (already an L3 word) at 12/37 = 32.432 %; genuinely long (>= 4): 0, Rmin success among them 0
+  component of start contains good L3 (E / E+): S1 12/37 = 32.432 % / 12/37 = 32.432 %; S2 35/37 = 94.595 % / 33/37 = 89.189 %
+  minimax height from S2 (E): =4 at 32/37 = 86.486 %, undefined at 2, max 8; (E+): undefined at 4, max 6; from S1 (E): undefined at 25/37 = 67.568 %
+== (1000, 10000]: 258 records
+  giant mean 0.5567 (min 0.1688); E+ giant band mean 0.1164, per-n range [0.0048, 0.3345]; moves/V band mean 1.665
+  all L3 in giant: 170/258 = 65.891 %; good L3 in giant: 258/258 = 100.000 %; E+ giant good-signed: 191/258 = 74.031 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 9.575 %, pooled 60146/676796 = 8.887 %; D+ per-n mean 8.120 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 258 records with S3 non-empty): per-n mean Rmin 0.5627 %, D 0.8326 %; pooled Rmin 516/95760 = 0.539 %, D 790/95760 = 0.825 %
+  prime-level: S1 Rmin 105/258 = 40.698 %, S1 Rmin+ 105/258 = 40.698 %, S2 Rmin 224/258 = 86.822 %, S2 Rmin+ 224/258 = 86.822 %, S2 in D 224/258 = 86.822 %, some S3 Rmin-success 146/258 = 56.589 %, some S3 in D 168/258 = 65.116 %
+  S1: length 2 at 146/258 = 56.589 %; length 3 (already an L3 word) at 102/258 = 39.535 %; genuinely long (>= 4): 10, Rmin success among them 3
+  component of start contains good L3 (E / E+): S1 111/258 = 43.023 % / 109/258 = 42.248 %; S2 258/258 = 100.000 % / 244/258 = 94.574 %
+  minimax height from S2 (E): =4 at 238/258 = 92.248 %, undefined at 0, max 11; (E+): undefined at 14, max 12; from S1 (E): undefined at 147/258 = 56.977 %
+== (10000, 30000]: 501 records
+  giant mean 0.6904 (min 0.6157); E+ giant band mean 0.1534, per-n range [0.0028, 0.3674]; moves/V band mean 1.893
+  all L3 in giant: 382/501 = 76.248 %; good L3 in giant: 501/501 = 100.000 %; E+ giant good-signed: 366/501 = 73.054 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 6.104 %, pooled 293184/4927442 = 5.950 %; D+ per-n mean 4.617 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 501 records with S3 non-empty): per-n mean Rmin 0.3591 %, D 0.6227 %; pooled Rmin 1717/495320 = 0.347 %, D 3032/495320 = 0.612 %
+  prime-level: S1 Rmin 204/501 = 40.719 %, S1 Rmin+ 204/501 = 40.719 %, S2 Rmin 451/501 = 90.020 %, S2 Rmin+ 451/501 = 90.020 %, S2 in D 451/501 = 90.020 %, some S3 Rmin-success 376/501 = 75.050 %, some S3 in D 440/501 = 87.824 %
+  S1: length 2 at 282/501 = 56.287 %; length 3 (already an L3 word) at 191/501 = 38.124 %; genuinely long (>= 4): 28, Rmin success among them 13
+  component of start contains good L3 (E / E+): S1 218/501 = 43.513 % / 212/501 = 42.315 %; S2 501/501 = 100.000 % / 482/501 = 96.208 %
+  minimax height from S2 (E): =4 at 475/501 = 94.810 %, undefined at 0, max 16; (E+): undefined at 19, max 14; from S1 (E): undefined at 283/501 = 56.487 %
+== (30000, 60000]: 695 records
+  giant mean 0.7444 (min 0.7034); E+ giant band mean 0.1838, per-n range [0.0022, 0.3853]; moves/V band mean 2.023
+  all L3 in giant: 546/695 = 78.561 %; good L3 in giant: 695/695 = 100.000 %; E+ giant good-signed: 495/695 = 71.223 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 4.644 %, pooled 713442/15592752 = 4.575 %; D+ per-n mean 3.323 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 695 records with S3 non-empty): per-n mean Rmin 0.2310 %, D 0.4766 %; pooled Rmin 2847/1262484 = 0.226 %, D 5936/1262484 = 0.470 %
+  prime-level: S1 Rmin 291/695 = 41.871 %, S1 Rmin+ 291/695 = 41.871 %, S2 Rmin 622/695 = 89.496 %, S2 Rmin+ 623/695 = 89.640 %, S2 in D 623/695 = 89.640 %, some S3 Rmin-success 564/695 = 81.151 %, some S3 in D 652/695 = 93.813 %
+  S1: length 2 at 385/695 = 55.396 %; length 3 (already an L3 word) at 261/695 = 37.554 %; genuinely long (>= 4): 49, Rmin success among them 30
+  component of start contains good L3 (E / E+): S1 309/695 = 44.460 % / 305/695 = 43.885 %; S2 695/695 = 100.000 % / 676/695 = 97.266 %
+  minimax height from S2 (E): =4 at 658/695 = 94.676 %, undefined at 0, max 8; (E+): undefined at 19, max 19; from S1 (E): undefined at 386/695 = 55.540 %
+== (60000, 100000]: 893 records
+  giant mean 0.7760 (min 0.7494); E+ giant band mean 0.2075, per-n range [0.0023, 0.3964]; moves/V band mean 2.113
+  all L3 in giant: 741/893 = 82.979 %; good L3 in giant: 893/893 = 100.000 %; E+ giant good-signed: 604/893 = 67.637 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 3.806 %, pooled 1349694/35706974 = 3.780 %; D+ per-n mean 2.597 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 893 records with S3 non-empty): per-n mean Rmin 0.1729 %, D 0.4044 %; pooled Rmin 4276/2488202 = 0.172 %, D 10038/2488202 = 0.403 %
+  prime-level: S1 Rmin 375/893 = 41.993 %, S1 Rmin+ 375/893 = 41.993 %, S2 Rmin 810/893 = 90.705 %, S2 Rmin+ 810/893 = 90.705 %, S2 in D 810/893 = 90.705 %, some S3 Rmin-success 778/893 = 87.122 %, some S3 in D 875/893 = 97.984 %
+  S1: length 2 at 497/893 = 55.655 %; length 3 (already an L3 word) at 339/893 = 37.962 %; genuinely long (>= 4): 57, Rmin success among them 36
+  component of start contains good L3 (E / E+): S1 394/893 = 44.121 % / 389/893 = 43.561 %; S2 893/893 = 100.000 % / 874/893 = 97.872 %
+  minimax height from S2 (E): =4 at 853/893 = 95.521 %, undefined at 0, max 9; (E+): undefined at 19, max 22; from S1 (E): undefined at 499/893 = 55.879 %
+== (0, 100000]: 2384 records
+  giant mean 0.7169 (min 0.0547); E+ giant band mean 0.1771, per-n range [0.0022, 0.3964]; moves/V band mean 1.978
+  all L3 in giant: 1844/2384 = 77.349 %; good L3 in giant: 2381/2384 = 99.874 %; E+ giant good-signed: 1684/2384 = 70.638 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 5.368 %, pooled 2417642/56912180 = 4.248 %; D+ per-n mean 4.050 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 2384 records with S3 non-empty): per-n mean Rmin 0.2842 %, D 0.5283 %; pooled Rmin 9372/4344088 = 0.216 %, D 19814/4344088 = 0.456 %
+  prime-level: S1 Rmin 987/2384 = 41.401 %, S1 Rmin+ 987/2384 = 41.401 %, S2 Rmin 2138/2384 = 89.681 %, S2 Rmin+ 2139/2384 = 89.723 %, S2 in D 2139/2384 = 89.723 %, some S3 Rmin-success 1870/2384 = 78.440 %, some S3 in D 2141/2384 = 89.807 %
+  S1: length 2 at 1335/2384 = 55.998 %; length 3 (already an L3 word) at 905/2384 = 37.961 %; genuinely long (>= 4): 144, Rmin success among them 82
+  component of start contains good L3 (E / E+): S1 1044/2384 = 43.792 % / 1027/2384 = 43.079 %; S2 2382/2384 = 99.916 % / 2309/2384 = 96.854 %
+  minimax height from S2 (E): =4 at 2256/2384 = 94.631 %, undefined at 2, max 16; (E+): undefined at 75, max 22; from S1 (E): undefined at 1340/2384 = 56.208 %
+== (1000, 100000]: 2347 records
+  giant mean 0.7243 (min 0.1688); E+ giant band mean 0.1789, per-n range [0.0022, 0.3964]; moves/V band mean 1.990
+  all L3 in giant: 1839/2347 = 78.355 %; good L3 in giant: 2347/2347 = 100.000 %; E+ giant good-signed: 1656/2347 = 70.558 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 5.179 %, pooled 2416466/56903964 = 4.247 %; D+ per-n mean 3.850 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 2347 records with S3 non-empty): per-n mean Rmin 0.2727 %, D 0.5194 %; pooled Rmin 9356/4341766 = 0.215 %, D 19796/4341766 = 0.456 %
+  prime-level: S1 Rmin 975/2347 = 41.542 %, S1 Rmin+ 975/2347 = 41.542 %, S2 Rmin 2107/2347 = 89.774 %, S2 Rmin+ 2108/2347 = 89.817 %, S2 in D 2108/2347 = 89.817 %, some S3 Rmin-success 1864/2347 = 79.421 %, some S3 in D 2135/2347 = 90.967 %
+  S1: length 2 at 1310/2347 = 55.816 %; length 3 (already an L3 word) at 893/2347 = 38.049 %; genuinely long (>= 4): 144, Rmin success among them 82
+  component of start contains good L3 (E / E+): S1 1032/2347 = 43.971 % / 1015/2347 = 43.247 %; S2 2347/2347 = 100.000 % / 2276/2347 = 96.975 %
+  minimax height from S2 (E): =4 at 2224/2347 = 94.759 %, undefined at 0, max 16; (E+): undefined at 71, max 22; from S1 (E): undefined at 1315/2347 = 56.029 %
+# data/z68/sign/graph_sample1e6.txt
+== (10000, 30000]: 1 records
+  giant mean 0.6769 (min 0.6769); E+ giant band mean 0.3375, per-n range [0.3375, 0.3375]; moves/V band mean 1.867
+  all L3 in giant: 0/1 = 0.000 %; good L3 in giant: 1/1 = 100.000 %; E+ giant good-signed: 1/1 = 100.000 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 3.180 %, pooled 326/10250 = 3.180 %; D+ per-n mean 3.122 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 1 records with S3 non-empty): per-n mean Rmin 0.0000 %, D 0.2053 %; pooled Rmin 0/974 = 0.000 %, D 2/974 = 0.205 %
+  prime-level: S1 Rmin 0/1 = 0.000 %, S1 Rmin+ 0/1 = 0.000 %, S2 Rmin 0/1 = 0.000 %, S2 Rmin+ 0/1 = 0.000 %, S2 in D 0/1 = 0.000 %, some S3 Rmin-success 0/1 = 0.000 %, some S3 in D 1/1 = 100.000 %
+  S1: length 2 at 0/1 = 0.000 %; length 3 (already an L3 word) at 0/1 = 0.000 %; genuinely long (>= 4): 1, Rmin success among them 0
+  component of start contains good L3 (E / E+): S1 1/1 = 100.000 % / 0/1 = 0.000 %; S2 1/1 = 100.000 % / 0/1 = 0.000 %
+  minimax height from S2 (E): =4 at 0/1 = 0.000 %, undefined at 0, max 12; (E+): undefined at 1, max -1; from S1 (E): undefined at 0/1 = 0.000 %
+== (0, 100000]: 1 records
+  giant mean 0.6769 (min 0.6769); E+ giant band mean 0.3375, per-n range [0.3375, 0.3375]; moves/V band mean 1.867
+  all L3 in giant: 0/1 = 0.000 %; good L3 in giant: 1/1 = 100.000 %; E+ giant good-signed: 1/1 = 100.000 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 3.180 %, pooled 326/10250 = 3.180 %; D+ per-n mean 3.122 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 1 records with S3 non-empty): per-n mean Rmin 0.0000 %, D 0.2053 %; pooled Rmin 0/974 = 0.000 %, D 2/974 = 0.205 %
+  prime-level: S1 Rmin 0/1 = 0.000 %, S1 Rmin+ 0/1 = 0.000 %, S2 Rmin 0/1 = 0.000 %, S2 Rmin+ 0/1 = 0.000 %, S2 in D 0/1 = 0.000 %, some S3 Rmin-success 0/1 = 0.000 %, some S3 in D 1/1 = 100.000 %
+  S1: length 2 at 0/1 = 0.000 %; length 3 (already an L3 word) at 0/1 = 0.000 %; genuinely long (>= 4): 1, Rmin success among them 0
+  component of start contains good L3 (E / E+): S1 1/1 = 100.000 % / 0/1 = 0.000 %; S2 1/1 = 100.000 % / 0/1 = 0.000 %
+  minimax height from S2 (E): =4 at 0/1 = 0.000 %, undefined at 0, max 12; (E+): undefined at 1, max -1; from S1 (E): undefined at 0/1 = 0.000 %
+== (1000, 100000]: 1 records
+  giant mean 0.6769 (min 0.6769); E+ giant band mean 0.3375, per-n range [0.3375, 0.3375]; moves/V band mean 1.867
+  all L3 in giant: 0/1 = 0.000 %; good L3 in giant: 1/1 = 100.000 %; E+ giant good-signed: 1/1 = 100.000 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 3.180 %, pooled 326/10250 = 3.180 %; D+ per-n mean 3.122 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 1 records with S3 non-empty): per-n mean Rmin 0.0000 %, D 0.2053 %; pooled Rmin 0/974 = 0.000 %, D 2/974 = 0.205 %
+  prime-level: S1 Rmin 0/1 = 0.000 %, S1 Rmin+ 0/1 = 0.000 %, S2 Rmin 0/1 = 0.000 %, S2 Rmin+ 0/1 = 0.000 %, S2 in D 0/1 = 0.000 %, some S3 Rmin-success 0/1 = 0.000 %, some S3 in D 1/1 = 100.000 %
+  S1: length 2 at 0/1 = 0.000 %; length 3 (already an L3 word) at 0/1 = 0.000 %; genuinely long (>= 4): 1, Rmin success among them 0
+  component of start contains good L3 (E / E+): S1 1/1 = 100.000 % / 0/1 = 0.000 %; S2 1/1 = 100.000 % / 0/1 = 0.000 %
+  minimax height from S2 (E): =4 at 0/1 = 0.000 %, undefined at 0, max 12; (E+): undefined at 1, max -1; from S1 (E): undefined at 0/1 = 0.000 %
+== (100000, 900000]: 1 records
+  giant mean 0.8600 (min 0.8600); E+ giant band mean 0.4304, per-n range [0.4304, 0.4304]; moves/V band mean 2.414
+  all L3 in giant: 0/1 = 0.000 %; good L3 in giant: 1/1 = 100.000 %; E+ giant good-signed: 1/1 = 100.000 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 1.116 %, pooled 3290/294826 = 1.116 %; D+ per-n mean 1.096 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 1 records with S3 non-empty): per-n mean Rmin 0.0668 %, D 0.2507 %; pooled Rmin 8/11968 = 0.067 %, D 30/11968 = 0.251 %
+  prime-level: S1 Rmin 0/1 = 0.000 %, S1 Rmin+ 0/1 = 0.000 %, S2 Rmin 0/1 = 0.000 %, S2 Rmin+ 0/1 = 0.000 %, S2 in D 0/1 = 0.000 %, some S3 Rmin-success 1/1 = 100.000 %, some S3 in D 1/1 = 100.000 %
+  S1: length 2 at 0/1 = 0.000 %; length 3 (already an L3 word) at 0/1 = 0.000 %; genuinely long (>= 4): 1, Rmin success among them 0
+  component of start contains good L3 (E / E+): S1 1/1 = 100.000 % / 1/1 = 100.000 %; S2 1/1 = 100.000 % / 1/1 = 100.000 %
+  minimax height from S2 (E): =4 at 0/1 = 0.000 %, undefined at 0, max 8; (E+): undefined at 0, max 8; from S1 (E): undefined at 0/1 = 0.000 %
+== (900000, 1000000]: 30 records
+  giant mean 0.8741 (min 0.8726); E+ giant band mean 0.2859, per-n range [0.0219, 0.4364]; moves/V band mean 2.495
+  all L3 in giant: 26/30 = 86.667 %; good L3 in giant: 30/30 = 100.000 %; E+ giant good-signed: 16/30 = 53.333 %
+  D (strict descent to good L3) among good words of length >= 4: per-n mean 1.457 %, pooled 216498/14858870 = 1.457 %; D+ per-n mean 0.792 %
+  S3 (bounded-digit good words, letters <= 4, length >= 6; 30 records with S3 non-empty): per-n mean Rmin 0.0451 %, D 0.1747 %; pooled Rmin 243/537612 = 0.045 %, D 940/537612 = 0.175 %
+  prime-level: S1 Rmin 12/30 = 40.000 %, S1 Rmin+ 12/30 = 40.000 %, S2 Rmin 26/30 = 86.667 %, S2 Rmin+ 26/30 = 86.667 %, S2 in D 26/30 = 86.667 %, some S3 Rmin-success 28/30 = 93.333 %, some S3 in D 30/30 = 100.000 %
+  S1: length 2 at 17/30 = 56.667 %; length 3 (already an L3 word) at 9/30 = 30.000 %; genuinely long (>= 4): 4, Rmin success among them 3
+  component of start contains good L3 (E / E+): S1 13/30 = 43.333 % / 13/30 = 43.333 %; S2 30/30 = 100.000 % / 30/30 = 100.000 %
+  minimax height from S2 (E): =4 at 28/30 = 93.333 %, undefined at 0, max 6; (E+): undefined at 0, max 10; from S1 (E): undefined at 17/30 = 56.667 %
