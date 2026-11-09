@@ -1,15 +1,52 @@
-   EXACT uncovered relative measure of B_r at level 1e+05: 1285219/20908800 = 0.061468  (22216 nodes)
-SURVIVOR after 17 nodes: depths {2: 7, 3: 3, 5: 4, 7: 2, 11: 2}  residues {2: 17, 3: 13, 5: 76, 7: 15, 11: 101}
-   raw-table re-check: classes (of all 79936) meeting the survivor cylinder: 0
-M=1e+05 r=2 extra=[(13, 1)]: 1848 smoothl relative weight 10.616; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes co    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
-M=1e+05 r=2 extra=[(13, 3)]: 1848 smoothl relative weight 10.144; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes co    EXACT uncovered relative measure of Bodes) 
-M=1e+05 r=2 extra=[(13, 4)]: 1848 smoothl relative weight 12.824; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes co    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
-M=1e+05 r=2 extra=[(13, 9)]: 1848 smoothl relative weight 12.724; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes co    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
-M=1e+05 r=2 extra=[(13, 10)]: 1848 smootal relative weight 11.489; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes c    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
-M=1e+05 r=2 extra=[(13, 12)]: 1848 smootal relative weight 10.210; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes c    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
-M=1e+05 r=2 extra=[(13, 2)]: 1848 smoothl relative weight 15.383; compatible classes with 11 not dividing modulus (must be 0 by T1): 146; classes     EXACT uncovered relative measure of B7 nodes) 
-M=1e+05 r=2 extra=[(13, 5)]: 1848 smoothl relative weight 16.791; compatible classes with 11 not dividing modulus (must be 0 by T1): 156; classes     EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
-M=1e+05 r=2 extra=[(13, 6)]: 1848 smoothl relative weight 26.177; compatible classes with 11 not dividing modulus (must be 0 by T1): 234; classes     EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
-M=1e+05 r=2 extra=[(13, 7)]: 1848 smoothl relative weight 14.418; compatible classes with 11 not dividing modulus (must be 0 by T1): 143; classes     EXACT uncovered relative measure of B4951 nodes) 
-M=1e+05 r=2 extra=[(13, 8)]: 1848 smoothl relative weight 19.038; compatible classes with 11 not dividing modulus (must be 0 by T1): 168; classes     EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
-M=1e+05 r=2 extra=[(13, 11)]: 1848 smootal relative weight 25.033; compatible classes with 11 not dividing modulus (must be 0 by T1): 219; classes    EXACT uncovered relative measure of B COVERED: exhaustive DFS (1 nodes) found lus <= 100000 
+# z69_ideab_smooth.py 1e5 2 2e7 1 --exact --extra 13:v  (v = 1..12); intact rerun after round-2 review
+## v=1
+M=1e+05 r=2 extra=[(13, 1)]: 1848 smooth moduli, 123412 classes, 241 compatible with B_r, total relative weight 10.616; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 0; classes covering all of B_r: [(143, 79)]
+   EXACT uncovered relative measure of B_r at level 1e+05: 0 = 0.000000  (1 nodes)
+COVERED: exhaustive DFS (1 nodes) found no S-point of B_r outside the S-smooth classes of modulus <= 100000
+## v=2
+M=1e+05 r=2 extra=[(13, 2)]: 1848 smooth moduli, 123412 classes, 386 compatible with B_r, total relative weight 15.383; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 146; classes covering all of B_r: []
+   EXACT uncovered relative measure of B_r at level 1e+05: 1502071/220849200 = 0.006801  (42537 nodes)
+SURVIVOR after 21 nodes: depths {2: 9, 3: 4, 5: 3, 7: 2, 11: 2, 13: 2}  residues {2: 209, 3: 10, 5: 101, 7: 1, 11: 101, 13: 145}
+   raw-table re-check: classes (of all 123412) meeting the survivor cylinder: 0
+## v=3
+M=1e+05 r=2 extra=[(13, 3)]: 1848 smooth moduli, 123412 classes, 238 compatible with B_r, total relative weight 10.144; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 0; classes covering all of B_r: []
+   EXACT uncovered relative measure of B_r at level 1e+05: 469147/19631040 = 0.023898  (4782 nodes)
+SURVIVOR after 14 nodes: depths {2: 6, 3: 3, 5: 3, 7: 2, 11: 2, 13: 2}  residues {2: 1, 3: 13, 5: 86, 7: 8, 11: 68, 13: 81}
+   raw-table re-check: classes (of all 123412) meeting the survivor cylinder: 0
+## v=4
+M=1e+05 r=2 extra=[(13, 4)]: 1848 smooth moduli, 123412 classes, 249 compatible with B_r, total relative weight 12.824; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 0; classes covering all of B_r: [(143, 134), (5720, 4281)]
+   EXACT uncovered relative measure of B_r at level 1e+05: 0 = 0.000000  (1 nodes)
+COVERED: exhaustive DFS (1 nodes) found no S-point of B_r outside the S-smooth classes of modulus <= 100000
+## v=5
+M=1e+05 r=2 extra=[(13, 5)]: 1848 smooth moduli, 123412 classes, 382 compatible with B_r, total relative weight 16.791; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 156; classes covering all of B_r: [(39, 31), (312, 265), (780, 421)]
+   EXACT uncovered relative measure of B_r at level 1e+05: 0 = 0.000000  (1 nodes)
+COVERED: exhaustive DFS (1 nodes) found no S-point of B_r outside the S-smooth classes of modulus <= 100000
+## v=6
+M=1e+05 r=2 extra=[(13, 6)]: 1848 smooth moduli, 123412 classes, 464 compatible with B_r, total relative weight 26.177; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 234; classes covering all of B_r: [(39, 19), (52, 45), (104, 97), (312, 97), (364, 253), (728, 617), (780, 721)]
+   EXACT uncovered relative measure of B_r at level 1e+05: 0 = 0.000000  (1 nodes)
+COVERED: exhaustive DFS (1 nodes) found no S-point of B_r outside the S-smooth classes of modulus <= 100000
+## v=7
+M=1e+05 r=2 extra=[(13, 7)]: 1848 smooth moduli, 123412 classes, 369 compatible with B_r, total relative weight 14.418; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 143; classes covering all of B_r: []
+   EXACT uncovered relative measure of B_r at level 1e+05: 10729237/2140538400 = 0.005012  (104951 nodes)
+SURVIVOR after 25 nodes: depths {2: 7, 3: 6, 5: 4, 7: 2, 11: 3, 13: 2}  residues {2: 113, 3: 127, 5: 576, 7: 36, 11: 684, 13: 72}
+   raw-table re-check: classes (of all 123412) meeting the survivor cylinder: 0
+## v=8
+M=1e+05 r=2 extra=[(13, 8)]: 1848 smooth moduli, 123412 classes, 407 compatible with B_r, total relative weight 19.038; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 168; classes covering all of B_r: [(39, 34), (572, 541), (780, 541), (1560, 1321)]
+   EXACT uncovered relative measure of B_r at level 1e+05: 0 = 0.000000  (1 nodes)
+COVERED: exhaustive DFS (1 nodes) found no S-point of B_r outside the S-smooth classes of modulus <= 100000
+## v=9
+M=1e+05 r=2 extra=[(13, 9)]: 1848 smooth moduli, 123412 classes, 244 compatible with B_r, total relative weight 12.724; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 0; classes covering all of B_r: [(143, 35), (12012, 11761)]
+   EXACT uncovered relative measure of B_r at level 1e+05: 0 = 0.000000  (1 nodes)
+COVERED: exhaustive DFS (1 nodes) found no S-point of B_r outside the S-smooth classes of modulus <= 100000
+## v=10
+M=1e+05 r=2 extra=[(13, 10)]: 1848 smooth moduli, 123412 classes, 234 compatible with B_r, total relative weight 11.489; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 0; classes covering all of B_r: [(5720, 2961), (20020, 8681)]
+   EXACT uncovered relative measure of B_r at level 1e+05: 0 = 0.000000  (1 nodes)
+COVERED: exhaustive DFS (1 nodes) found no S-point of B_r outside the S-smooth classes of modulus <= 100000
+## v=11
+M=1e+05 r=2 extra=[(13, 11)]: 1848 smooth moduli, 123412 classes, 455 compatible with B_r, total relative weight 25.033; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 219; classes covering all of B_r: [(39, 37), (52, 37), (104, 89), (312, 193), (1560, 1441)]
+   EXACT uncovered relative measure of B_r at level 1e+05: 0 = 0.000000  (1 nodes)
+COVERED: exhaustive DFS (1 nodes) found no S-point of B_r outside the S-smooth classes of modulus <= 100000
+## v=12
+M=1e+05 r=2 extra=[(13, 12)]: 1848 smooth moduli, 123412 classes, 239 compatible with B_r, total relative weight 10.210; compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): 0; classes covering all of B_r: [(4004, 2521)]
+   EXACT uncovered relative measure of B_r at level 1e+05: 0 = 0.000000  (1 nodes)
+COVERED: exhaustive DFS (1 nodes) found no S-point of B_r outside the S-smooth classes of modulus <= 100000

@@ -87,7 +87,7 @@ for m, Rs in cls.items():
 comp = list(set(comp))
 assert bad_T1 == 0 or EXTRA, 'a compatible class with 11 not dividing its modulus exists: T1 sanity failed'
 print(f"M={M:.3g} r={R11} extra={EXTRA}: {len(SM)} smooth moduli, {ntot} classes, {len(comp)} compatible with B_r, total relative weight {weight:.3f}; "
-      f"compatible classes with 11 not dividing modulus (must be 0 by T1): {bad_T1}; classes covering all of B_r: {full}", flush=True)
+      f"compatible classes with 11 not dividing modulus (must be 0 by T1 when no non-residue --extra coordinate is used): {bad_T1}; classes covering all of B_r: {full}", flush=True)
 
 # Monte Carlo estimate of the uncovered relative measure of B_r at this level
 maxe = {q: max([c[i][0] for c in comp] + [BASE[q]]) for i, q in enumerate(S)}

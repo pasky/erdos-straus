@@ -18,16 +18,17 @@ it does not mean a second full-range engine unless said.
   CONV-II and its exception 4545, open-induction unprovability, and ended at the same wall (one tied divisor event,
   polylog expected witnesses). That is weak EVIDENCE that the campaign's map of elementary approaches is saturated.
 * (ii) **Phase 3 (UCOVER O2: does K = {1 mod 840, (n/11) = −1} meet U?).** Lemma E (PROVED): K_r ∩ U ≠ ∅ ⟺ the
-  least family-class modulus λ(p) is unbounded on the primes of K_r. CERTIFIED: over all primes ≤ 10¹² the running
-  maximum of λ in K_2 and K_6 grows like in the square class (to 1979 and 1247); explicit residue classes show that
+  least ET-family-class modulus λ_ET(p) is unbounded on the primes of K_r. CERTIFIED: over all primes ≤ 10¹² the running
+  maximum of λ ≤ λ_ET (least modulus in a superset enumeration; single engine, record primes double-checked) in K_2 and K_6 grows like in the square class (to 1979 and 1247); explicit residue classes show that
   **every finite family-class cover of the large primes of K_2 or K_6 needs a modulus > 10⁴**.
 * (iii) **Level-by-level picture (Q-S and §3.6).** For a finite prime set S′ ∋ 11 the family classes with S′-smooth
   modulus have *finite* total weight (PROVED). For S′ = {2,3,5,7,11} they leave an uncovered part of the box B_r of
   measure ≈ 0.048 (r = 2) and ≈ 0.013 (r = 6), stable from 10⁶ to 10⁸ (CERTIFIED exact to 10⁷, Monte Carlo at 10⁸).
-  Adding 13 kills nine resp. ten of the twelve residue classes mod 13 outright and leaves ≈ 1 % of the surviving
-  square class (v ≡ 3 resp. 4 mod 13). So the uncovered set thins at every prime, as a measure-zero set must, and
-  stays non-empty at every level computed. EVIDENCE for O2 of a kind independent of UCOVER's profile computations;
-  the survivors are generic squares at 3, 5, 7, and exist for r = 6 as well. Not a proof of O2; no bearing on ES itself.
+  Adding 13 kills nine resp. ten of the twelve residue classes mod 13 outright (level 10⁵) and leaves ≈ 1 % of the
+  surviving square class v ≡ 3 resp. 4 mod 13 (level 10⁷, Monte Carlo). So at the two stages and the finite levels
+  computed the uncovered set thins sharply but stays non-empty. EVIDENCE for O2 of a kind independent of UCOVER's
+  profile computations; the finite-level survivors are generic squares at 3, 5, 7, and exist for r = 6 as well.
+  Nothing is proved about all moduli at any stage; not a proof of O2; no bearing on ES itself.
 
 ## §0 Falsifier table (mandatory; for the Phase-3 object = Lemma E + the certificates + (Q-S))
 
@@ -37,7 +38,7 @@ the table records how it interacts with them.
 
 | screen | behaviour |
 |---|---|
-| **F1 odd squares** | T1 (no family class contains a unit square residue) is *used as an engine*: a residue that is a square away from 11 can only be caught by classes with 11 ∣ modulus (§3.4). The run checks it: 0 compatible classes with 11 ∤ modulus at every level (§3.5), and no class of modulus ≤ 3000 contains m², m < 200 odd (§3.2). Nothing here is an argument for positivity, so there is no step that "uses primality"; in a square class Lemma E returns sup λ = ∞, as it must. |
+| **F1 odd squares** | T1 (no family class contains a unit square residue) is *used as an engine*: a residue that is a square away from 11 can only be caught by classes with 11 ∣ modulus (§3.4). The five-prime runs check it: 0 compatible classes with 11 ∤ modulus at every level (§3.5; in the §3.6 runs with a non-residue coordinate at 13 such classes legitimately exist and are kept), and no class of modulus ≤ 3000 contains m², m < 200 odd (§3.2). Nothing here is an argument for positivity, so there is no step that "uses primality"; in a square class Lemma E returns sup λ = ∞, as it must. |
 | **F2 numerator 8 / C-even** | No distinction between C odd and C even is made or needed: λ is the minimum over all seven ET families. Restricting the class table (e.g. to the C-even half of (★)) can only increase λ; Lemma E holds verbatim for any fixed set of families. Nothing here can "prove" R₈(p) > 0: the twelve R₈-zero primes simply have λ ≤ 248 through other families. |
 | **F3 composites** | Lemma E and the certificates are about *unit* residue classes (primes). The 285 composite (★)-zeros all lie in some family class of modulus ≤ 548 (they have other solutions); 4545 has no Type II class but a Type I class (S1). Composites sharing a factor with a modulus are outside the statement. |
 | **F4 known zeros** | The 14 (★)-zero primes have λ ≤ 239 (λ(409) = λ(577) = 7, λ(8 813 281) = 111, λ(1 726 201) = 239) and the 38 𝔊*-zero primes λ ≤ 239: λ is finite there because other lines solve them. No positivity of R or R_𝔊* is asserted anywhere. |
@@ -81,13 +82,15 @@ Format per idea: **Key lemma** (precise) · **Squares** (where non-squareness en
 **Six classes** (how p ≡ 1,121,169,289,361,529 mod 840 are treated) · **Assessment**.
 
 **I1. Profinite exceptional set ("converse Schinzel", uniform covering).**
-Let U⁺ ⊂ Ẑ be the (open) union of all identity classes K1∪K2∪K3, viewed as cylinders in Ẑ, and
-C = {α ∈ Ẑ : α ≡ 1 (4)} ∖ U⁺ (closed). Schinzel/Mordell: C ⊇ S := {squares of Ẑ}. ES for p ≡ 1 (4) ⟺ no prime lies in C.
-*[Corrected after internal review: the first version put C inside Ẑ^×; positive integers are not units of Ẑ, so
-"prime ∈ C" and "C ∩ ℤ" only make sense in Ẑ. C ∩ Ẑ^× is the campaign's U.]*
-*Key lemma (CONJECTURE UC):* C ∩ {α ≡ 1 mod 4} = S; equivalently (compactness) for every modulus m and every unit class
-r mod m containing no square, **finitely many** identity classes cover all of r mod m. UC ⟹ ES, since a prime is not a
-square in Ẑ. UC is strictly stronger than ES (ES only says primes ∉ C, and primes are merely dense).
+Let U⁺ ⊂ Ẑ be the (open) union of all identity classes K1∪K2∪K3, viewed as cylinders in Ẑ; C := (1 + 4Ẑ) ∖ U⁺ (closed);
+C^× := C ∩ Ẑ^× (this is the campaign's U) and S^× := (Ẑ^×)², the unit squares. Schinzel/Mordell: C^× ⊇ S^×. ES for a prime
+p ≡ 1 (4) with a Type I/II solution ⟺ p ∉ C (p is an element of Ẑ, not a unit).
+*[Corrected twice after internal review: the first version put C inside Ẑ^× (positive integers are not units of Ẑ); the
+second claimed C ⊇ all squares of Ẑ (false: 0 is a square, 0 ∉ 1+4Ẑ) and "primes are dense" (true only in Ẑ^×). The
+conjecture below is about unit profiles; the integer statement is IUC in S1.]*
+*Key lemma (CONJECTURE UC):* C^× = S^×; equivalently (compactness) for every modulus m and every unit class
+r mod m containing no square, **finitely many** identity classes cover all of r mod m. UC ⟹ ES for all large primes of every non-square unit class, hence ES (a prime lies in a non-square unit class modulo
+some m). UC is strictly stronger than ES (ES only concerns the primes of each unit class, which are dense in Ẑ^× but are not all of it).
 *Squares:* they are exactly the allowed exceptional set; non-squareness enters as "p ∉ S, so some finite level (m, r)
 separates p from S". *Six classes:* p in a square class mod 840 is handled at the level m = 840·q^j with q the least
 non-residue prime of p; UC predicts a **bound on the least identity modulus that is uniform over all n ≡ r (mod m)**
@@ -203,8 +206,8 @@ Type I fails ⟺ the same for the integers ((4j+3)p + 1)/4. Let B_e = {m : no co
 (density ≍ (log)^{−1/2} or smaller). A counterexample is an x with x + j ∈ B_{4j+3} for all j ≥ 0 — a statement about a
 run of consecutive integers in the spirit of Grimm / Erdős–Woods problems.
 *Key lemma (needed):* for some explicit J, ⋂_{j ≤ J} (B_{4j+3} − j) contains no x with 4x−3 prime (or is finite).
-*Squares:* for p = m² every x + j lies in the *quadratic* part of B_e: by R5, (q/e) = (p/q) = +1 for every prime q
-exactly dividing x + j, so all divisors lie in the kernel of the Jacobi character (·/e) while −1 does not *[corrected after review: "are squares mod e" is right only for prime e]*. Non-squareness enters as: ∃ q with (p/q) = −1,
+*Squares:* for p = m² and every j with gcd(m, e) = 1 (so gcd(x+j, e) = 1), x + j lies in the *quadratic* part of B_e: by R5,
+(q/e) = (p/q) = +1 for every prime q dividing x + j to an odd power, so all divisors lie in the kernel of the Jacobi character (·/e) while −1 does not *[corrected after review: "are squares mod e" is right only for prime e]*. Non-squareness enters as: ∃ q with (p/q) = −1,
 hence the quadratic obstruction is absent for all j ≡ −x (mod q), j ≢ −x (mod q²). *Six classes:* those j are sparse
 (spacing q ≥ 11), which is exactly why these primes are hard. *Assessment:* a clean way to *state* what a proof must do
 (beat the non-quadratic part of B_e on a progression of j); tools for correlations of multiplicative functions
@@ -247,7 +250,7 @@ one (I20). *Six classes:* no role. *Assessment:* good language, no mechanism. No
 fails iff every prime factor of 4p+1 is ≡ 1 (4) *[the gloss "iff −1 is everywhere a local norm from ℚ(√(4p+1))" of the first version is false for non-squarefree 4p+1, e.g. p = 61, 245 = 5·7²; removed after review]* — a genus-type condition; pure genus
 theory. For general (c,d) the condition "the discriminant has a divisor in the class −1 mod 4cd" is a statement about
 the image of the ambiguous classes of ℚ(√Δ) under the characters of conductor 4cd, i.e. about ℚ(√Δ, ζ_{4cd}) — a
-Rédei-symbol-like object. Note p splits in ℚ(√Δ) with 𝔭·𝔡 principal (form [d,1,−p] has discriminant 4dp+1).
+Rédei-symbol-like object. For c = 1 (Δ = 4dp+1 non-square) p splits in ℚ(√Δ) with 𝔭·𝔡 principal (form [d,1,−p] has discriminant 4dp+1). *[Scope "c = 1" added after review.]*
 *Key lemma (needed):* a reciprocity law expressing χ(u) (χ mod 4cd, u | Δ) through symbols depending on p only, summed over
 (c,d) with a sign-definite total. *Squares:* for p = m², (p/u) = 1 contradicts R5's (p/u) = −1: genus theory itself
 kills them. *Six classes:* here (p/q) = 1 for q ≤ 7 forces u to contain a prime ≥ 11 that is a non-residue for p.
@@ -638,28 +641,42 @@ rationals; single engine) unless marked MC.
 | 6 | 1, 3, 10 (mod 143), 2 (mod 572), 12 (mod 4004), 5, 6, 8, 11 (mod 39, 52, …), 9 (jointly, no single class) | v = 4: –, 0.017897, –, 0.0099 (MC) · v = 7: –, 0.004427 |
 
 * So at 13 only three (r = 2) resp. two (r = 6) of the twelve residue classes survive, exactly one of them a square
-  class (v = 3 resp. v = 4). The S-survivor of §3.5 at level 10⁸ (113, 55, 161, 155, 959) does **not** extend, at least
-  not in the lift tried: with it preset (deeper digits 0), `z69_ideab_cert.py` finds no admissible square residue at 13
-  already at M = 10⁴ (allowed fraction 0).
+  class (v = 3 resp. v = 4). The S-survivor cylinder of §3.5 at level 10⁸ (113 mod 2⁹, 55 mod 3⁴, 161 mod 5⁴, 155 mod 7⁴,
+  959 mod 11³) does **not** extend to any square residue at 13, in any lift: v = 1, 4, 9, 10, 12 are dead for every
+  point of B_2, and the whole cylinder × (3 + 13ℤ₁₃) lies in the single II-2 class n ≡ 640 (mod 1287 = 3²·11·13)
+  (a = 7, d = 23: 4ad = 644 | 1288, −4a²d ≡ 640; found by the round-2 reviewer; `z69_ideab_cert.py` with the preset
+  had only shown that one lift fails).
   The certificates of §3.4 are unaffected (they were found by a search over all coordinates and verified against the
   full table); their residues mod 13 are 3 (r = 2) and 4 (r = 6) — exactly the unique surviving square classes, a
   consistency check between the two independent programs.
-* The uncovered measure of the stage {2,…,13} still converges to a positive value (r = 2, v = 3: decrements 0.0146,
-  0.0092, 0.0031 per decade; ≈ 0.010–0.011 of the sub-box), but it is ≈ 4–5 times smaller than at the stage {2,…,11}
-  (0.0485) *within one of twelve residue classes*. This is what a measure-zero Cantor set looks like level by level:
-  **for every finite prime set S′ ∋ 11 the S′-smooth classes have finite weight (PROVED as in §3.5) and, at the two stages
-  computed, leave a set of positive measure (EVIDENCE / CERTIFIED at finite level); the measures tend to 0 along
-  S′ ↑ {all primes}; O2 asks whether the nested sets stay non-empty.** (Q-S) is the first level, not a "core".
-* Relation to UCOVER (iv): there, among profiles (g at 11, h at 13, **1 elsewhere**) only (g,h) ≡ (2,2) survives. Without
+* At the stage {2,…,13} the finite-level uncovered measures *suggest* convergence to a positive value (r = 2, v = 3:
+  decrements 0.0146, 0.0092, 0.0031 per decade; extrapolation ≈ 0.010–0.011 of the sub-box — EVIDENCE, the last point
+  is Monte Carlo, and no tail bound exists), ≈ 4–5 times smaller than at the stage {2,…,11} (0.0485) *within one of
+  twelve residue classes*. What is PROVED: for every finite prime set S′ ∋ 11 the S′-smooth classes have finite total
+  weight (as in §3.5); and U has Haar measure 0 in Ẑ^× (for each prime q ≡ 3 (4) the II-2 class n ≡ −4 mod q, a = d = 1,
+  is a family class; these are independent events of probability 1/(q−1) with divergent sum — remark of the round-2
+  reviewer), so the all-modulus survivor measures of an exhausting sequence of prime sets tend to 0. What is *not*
+  proved: that any stage has positive all-modulus measure, or is non-empty. **O2 asks whether the nested closed survivor
+  sets (all moduli, S′ ↑ all primes) have non-empty intersection, i.e. whether all of them are non-empty.** (Q-S) is
+  the first member of that sequence, not a "core"; the picture "Cantor-like set, thinning level by level" is a
+  heuristic reading of the finite data.
+* Explicit witnesses for the full-cover entries (parameters found independently by the round-2 reviewer; each modulus
+  divides 120120, so each class contains the whole box): r = 2: v = 1 ↔ (143, 79) II-2 a=4, d=1; v = 4 ↔ (143, 134)
+  II-2 a=9, d=4; v = 9 ↔ (143, 35) II-2 a=3, d=3; v = 10 ↔ (5720, 2961) II-3 a=26, d=1, e=55; v = 12 ↔ (4004, 2521) I-1
+  a=91, d=11, f=13495. r = 6: v = 1 ↔ (143, 105) II-2 a=9, d=1; v = 5 ↔ (39, 31) II-2 a=1, d=2; v = 9: the three classes
+  (396, 61), (99, 94), (1287, 919) cover the box jointly.
+* Relation to UCOVER (iv): there, among profiles (g at 11, h at 13, **1 elsewhere**) only (g,h) ≡ (2,2) survives the cited
+  finite-level profile computations. Without
   the "1 elsewhere" restriction the surviving residues mod 13 are {2, 3, 7} for r = 2 and {4, 7} for r = 6 (new data;
-  finite level 10⁵). In particular r = 6 has survivors, with generic squares at 3, 5, 7 — consistent with the
-  M = 10⁴ certificate for K_6.
+  finite level 10⁵; six-prime smooth moduli only — nothing is claimed about extending these survivors over the primes
+  ≥ 17). In particular r = 6 has finite-level survivors, with generic squares at 3, 5, 7 — no contradiction with UCOVER,
+  whose r = 6 profiles are "1 elsewhere", and consistent with the M = 10⁴ certificate for K_6.
 
 ## §4 Review log
 
 **Internal hostile review** (deep-mode subagent, 2026-11-09; full report `data/z69/ideab/internal_review.md`; no provider /
 auth / quota error). Verdict: "REJECT AS WRITTEN; no fatal defect found in the central finite-cover certificates."
-18 findings; all applied:
+18 findings; all addressed (two of the fixes — I1 and I11 — were themselves incomplete and were redone after round 2):
 * **MAJOR, fixed.** (1) R7 wrongly required u, u* ∈ [1,p) — now integer lifts. (2) R8's Type I half conflated ideal and
   element factors — now "ideal factor", with the reviewer's counterexample. (4) C was defined inside Ẑ^× although primes and
   squares are not units of Ẑ — C now lives in Ẑ; R_α irreducibility restricted to unit α. (7) `z69_ideab_forms.py`
@@ -685,6 +702,22 @@ auth / quota error). Verdict: "REJECT AS WRITTEN; no fatal defect found in the c
   the two divisor-bound suprema.
 * **Not independently reproduced:** the full λ census to 10¹² (single engine; only the record primes and 375 + 84 sample
   primes are double-checked), the exact uncovered measures at 10⁵–10⁷, and the S1 census beyond 20000.
+
+**Round 2** (focused deep-mode subagent on the post-review changes; report `data/z69/ideab/internal_review_round2.md`; no
+provider error). Verdict: "REJECT THE REVISED MEMO AS WRITTEN; no FATAL defect found in the requested finite
+computations." 16 findings; applied:
+* **MAJOR, fixed.** (2) I1 still wrong after the first fix (C ⊉ all squares of Ẑ; primes dense only in Ẑ^×) — rewritten in
+  terms of unit profiles. (3) I11 needed the coprimality hypothesis. (11, 16) the §3.6 / summary wording "converges to a
+  positive value", "Cantor set", "as a measure-zero set must" overclaimed — now finite-level EVIDENCE only, with the
+  reviewer's short proof that U has measure 0 and an explicit statement of what is not proved.
+* **MINOR, fixed.** (4) I15 discriminant sentence scoped to c = 1. (6) summary uses λ_ET. (7) diagnostic text of
+  `z69_ideab_smooth.py` for `--extra`. (10) the mangled `smooth13_1e5_r2.log` replaced by an intact rerun. (12) UCOVER
+  comparison hedged. (14) preset option documented as one-lift; `z69_ideab_cert.py` refuses to write a certificate with
+  violations. (15) the one-lift statement replaced by the reviewer's stronger exact obstruction (class 640 mod 1287).
+* **Confirmed independently in round 2 (OK):** R7/R8 as corrected; S1 inequality f ≤ n+2; the corrected S3 means; Lemma E
+  and Corollary; the six-prime enumeration at 10⁴ against the unrestricted table; the seven full-cover classes with explicit
+  parameters; the exact measure 4071/105875 (r = 2, v = 3, M = 10⁴) by CRT inclusion–exclusion; 469147/19631040 at 10⁵
+  by a fresh run; r = 6, v = 9 jointly covered; `cert.py 3000 2 1 3000` → 0 violations, direct test 3001.
 
 **Open after this lane.** ES; UCOVER O2 (K ∩ U ≠ ∅); (Q-S) for r = 2, 6 beyond the truncation 10⁸. A cross-model review
 is owed by the wave protocol. Not merged; waiting.

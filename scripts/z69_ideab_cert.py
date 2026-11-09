@@ -5,7 +5,8 @@ power prime to 11, such that n lies in NO family class (all seven ET families, s
 Verification of the result does not use the squares-are-uncovered observation.
 usage: cert.py M r seed [check_direct_limit] [smooth_survivor.json]
 If a survivor file of z69_ideab_smooth.py is given, the coordinates at 2,3,5,7,11 are preset to that cylinder (which meets
-no {2,3,5,7,11}-smooth class up to the level of that file) and only the primes >= 13 are searched."""
+no {2,3,5,7,11}-smooth class up to the level of that file) and only the primes >= 13 are searched. NOTE: only ONE lift of the
+preset cylinder is tried (deeper digits 0); a failure says nothing about the other lifts."""
 import sys, math, random, json, importlib.util
 sys.setrecursionlimit(100000); sys.set_int_max_str_digits(0)
 M = int(sys.argv[1]); R11 = int(sys.argv[2]); SEED = int(sys.argv[3]); DLIM = int(sys.argv[4]) if len(sys.argv) > 4 else 0
@@ -92,6 +93,7 @@ if ok:
     print(f"verification against ALL {sum(len(v) for v in cls.values())} classes of modulus <= {M}: violations = {len(bad)}", bad[:3], flush=True)
     nonsq = [q for q in primes if q not in (2, 11) and pow(n % q, (q - 1) // 2, q) != 1]
     print("n has", len(str(n)), "digits; primes (other than 11) where n is a non-residue:", nonsq[:5], flush=True)
+    assert not bad, 'candidate violates a class: NOT a certificate (no file written)'
     json.dump({"M": M, "r": R11, "seed": SEED, "n": str(n), "L_is_lcm_of_prime_powers_le_M": True,
                "assign_small": {str(q): assign[q] for q in order if q < 200}, "stats": stats, "violations": len(bad)},
               open(f"data/z69/ideab/cert_M{M}_r{R11}{'_preset' if PRESET else ''}.json", "w"))
