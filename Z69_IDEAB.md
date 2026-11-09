@@ -485,3 +485,38 @@ primes have λ ≤ 239 (e.g. λ(409) = λ(577) = 7, λ(8 813 281) = 111, λ(1 72
   explicit constants (their O1), which I estimate closes only from ℓ-adic level ≈ 10⁴ with max-divisor bounds.
 * **No bearing on ES itself.** Lemma E and the data are statements about what *finite identity covers* (equivalently
   open-induction proofs) can do; they neither prove nor threaten positivity at any prime.
+
+### 3.4 Constructive certificates: "square away from 11" residues (plan, pre-registered)
+*Observation (PROVED, from T1 = ET Prop 1.6).* The residue of a family class is never a unit square modulo its modulus.
+Hence a unit residue π mod L that is a square modulo every prime power of L prime to 11, with π ≡ r (mod 11), r ∈ {2, 6},
+can only lie in family classes whose modulus is divisible by 11. So to build a unit class of K_r missed by all family
+classes of modulus ≤ M it suffices to choose, prime by prime (ℓ ≠ 11), a *square* residue mod ℓ^{v} that dodges the
+(few) classes with 11 | modulus and largest other prime ℓ; these have modulus ≥ 11ℓ, so only primes ℓ ≤ M/11 carry
+constraints. This generalises UCOVER's "1 away from ℓ" profiles to "any square away from 11".
+*Plan.* Backtracking search (`scripts/z69_ideab_cert.py`) for M = 10⁴ and beyond; the output residue n mod lcm is then
+verified (i) against the full class table of all seven families and all moduli ≤ M, without using the observation, and
+(ii) by the independent direct test of §3.2. By Lemma E each success is a CERTIFIED statement "every finite family-class
+cover of the large primes of K_r contains a modulus > M".
+*Kill test C (pre-registered):* if the search dead-ends for some M ≤ 10⁴ after exhaustive backtracking over the primes
+≤ 100, the square-away-from-11 profiles are all caught at that level — evidence that K_r ∩ U, if non-empty, needs
+non-square coordinates elsewhere (as UCOVER's (2,2)-profiles at 11, 13 suggest for r = 2).
+
+**3.4 results (CERTIFIED).** `z69_ideab_cert.py M r 1`:
+| M | r | relevant classes (11 ∣ modulus, compatible) | backtracks | least allowed fraction at a prime | violations against all classes ≤ M |
+|---|---|---|---|---|---|
+| 3000 | 2 | 151 of 37 263 | 0 | 0.40 (ℓ = 31) | 0 |
+| 10⁴ | 2 | 651 of 173 664 | 167 | 0 on some branches (ℓ = 3) | 0 |
+| 10⁴ | 6 | 650 of 173 664 | 0 | 0.11 (ℓ = 3) | 0 |
+
+So (Lemma E) **every finite family-class cover of the large primes of K_2, or of K_6, contains a modulus > 10⁴**
+(certificates: `data/z69/ideab/cert_M10000_r{2,6}.json`, a 4349-digit residue each, checked against all 173 664 classes
+of all seven families without using the squares observation). Kill test C not triggered. The only tight spot is the
+prime 3 (3-adic digits to depth 8), i.e. the constraints live on the deep digits at the *small* primes. This isolates:
+
+**Question (Q-S).** Let S = {2,3,5,7,11} and B_r = (1+8ℤ₂)×(1+3ℤ₃)×(1+5ℤ₅)×(1+7ℤ₇)×(r+11ℤ₁₁). Do the family
+classes with S-smooth modulus cover B_r?
+* If **yes**: by compactness finitely many do, and then K_r ∩ U = ∅ — K_r would be a finite union of polynomial
+  identities (a new Mordell-type class; O2 answered negatively for that r).
+* If **no**: some S-point survives all S-smooth classes; the other primes then only have to dodge classes containing
+  a prime ≥ 13, which was easy at every level tried (allowed fraction ≥ 0.4 from ℓ = 13 on).
+Smooth moduli are sparse (≈ 3·10³ below 10⁸), so (Q-S) can be decided *at finite level* far beyond 10⁴.
