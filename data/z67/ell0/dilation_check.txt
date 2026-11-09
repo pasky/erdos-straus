@@ -1,0 +1,6 @@
+ell=17 k=3: (A) events 306, with k2>=3: 64, not reduced to level 2: 0; level 2 (A) residues 46
+ell=17 k=4: (A) events 758, with k2>=3: 242, not reduced to level 3: 0; level 3 (A) residues 218
+ell=19 k=3: (A) events 334, with k2>=3: 104, not reduced to level 2: 0; level 2 (A) residues 67
+ell=19 k=4: (A) events 893, with k2>=3: 230, not reduced to level 3: 0; level 3 (A) residues 203
+ell=23 k=3: (A) events 685, with k2>=3: 142, not reduced to level 2: 0; level 2 (A) residues 91
+ell=23 k=4: (A) events 1368, with k2>=3: 543, not reduced to level 3: 0; level 3 (A) residues 473
