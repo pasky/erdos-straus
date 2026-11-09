@@ -1,0 +1,2 @@
+# slice q1=24 T=(2, 3, 5, 7) LEVEL=2116800 box residues 2520
+II2 a=2 d=5 f=39 | 39 37

@@ -82,7 +82,10 @@ def main():
                     test(-4 * a * a * d - e, 4 * a * d * e, f"II3 a={a} d={d} e={e}")
     for p in profs:
         h = hits[p]
-        print(f"q1={p[0]} q2={p[1]}: {len(h)} catching classes (modulus <= {MMAX})")
+        dist = len(set((x[1], x[2]) for x in h))
+        nr = "non-residue" if pow((p[0].numerator * pow(p[0].denominator, -1, 11)) % 11, 5, 11) == 10 else "RESIDUE (outside K, control)"
+        print(f"q1={p[0]} q2={p[1]} [q1 mod 11 {nr}]: {len(h)} catching parameter/family occurrences, "
+              f"{dist} distinct classes (m, r) (modulus <= {MMAX}); first 12 occurrences:")
         for x in sorted(h, key=lambda t: t[1])[:12]:
             print("   ", x)
 

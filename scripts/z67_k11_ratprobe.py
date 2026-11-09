@@ -1,7 +1,8 @@
 """z67 K11: probe two-prime profiles with RATIONAL components (g at 11, h at 13, 1 elsewhere), EVIDENCE only.
 
-Builds the cylinder list of z66_ucover_kbrute.py (all seven families, modulus <= MMAX, rigid r = 1 mod m') plus the
-exact two-prime A/E/F events of z66_ucover_levels2.c (levels k <= K, j <= J), then reports which small-height
+Builds the cylinder list of z66_ucover_kbrute.py (all seven families, modulus <= MMAX AND 11-, 13-valuations <= K, J;
+rigid r = 1 mod m') plus the exact two-prime A/E/F events of z66_ucover_levels2.c (levels k <= K, j <= J; A-splits
+with N1^2 N2 > 1e9 skipped), then reports which small-height
 rationals g = u/v (non-residue mod 11) and h = s/t (mod 13) are caught by none of them.
 Usage: uv run --with sympy python scripts/z67_k11_ratprobe.py MMAX K J HMAX
 """

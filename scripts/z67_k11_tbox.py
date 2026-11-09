@@ -41,6 +41,11 @@ def main():
     for p, k in zip(TP, e):
         LEVEL *= p ** k
     u, v = q1.numerator, q1.denominator
+    for p in range(2, 200):
+        if all(p % k for k in range(2, p)) and p not in TP and (u % p == 0 or v % p == 0):
+            sys.exit(f"q1={q1} is not a unit at {p} (outside T)")
+    if 11 not in TP and pow((u * pow(v, -1, 11)) % 11, 5, 11) != 10:
+        print(f"# WARNING: q1={q1} is a quadratic RESIDUE mod 11: this slice is EMPTY in K-bar (control only)")
     cyl = {}
     cert = {}
     fams = {}
