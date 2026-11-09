@@ -1,0 +1,2 @@
+# II-2 scan a*d <= 100000: 29 (a,c,d) candidates; pi0 catches: 0; square-control catches: 0
+# positive control gamma=(2,1): 1 catches, first [(4, 9, 1, 143, 143)]
