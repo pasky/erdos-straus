@@ -91,14 +91,14 @@ regulators. The Rédei 2-part data (v₂ h(−4p), v₂ h(−8p)) show no differ
 controls 0.49/0.26/0.13/0.12).
 
 (c) *Rough small shifts.* log τ(p + c), log τ(cp + 1) (c ≤ 8; `z69_mine_tau.c`) alone give R²(log w) = **0.371**
-(all 15 coefficients ≥ 0; largest for p + 1, …, p + 4, 2p + 1, 4p + 1), the residue model (ℓ < 100, p mod 64) 0.391,
+(all coefficients positive except 5p + 1 (−0.001); largest for p + 1, p + 2, p + 3, p + 4, p + 7, 2p + 1, 4p + 1), the residue model (ℓ < 100, p mod 64) 0.391,
 both together 0.438; noise share 0.352. The lowest 0.1 % in w have Σ log τ = 35.7 vs 39.1 on average. So hard primes are
 *approximate Prop K primes* (Z68_U7O §6A.3: p ≡ 1 mod M and p + c = (c+1)·prime) — exactly the Dickson family along which
 no bounded cascade closes.
 
 (d) *The extreme tail is mostly fluctuation.* For the 556 hard primes in (10⁶, 10⁸] the local model of (a) predicts
-E/μ with median 0.74 (2.8th percentile among all primes) while the observed W/μ is ≈ 0.25: the local factor accounts
-for only ≈ 22 % of the median log-deficit (−0.30 of −1.39); the Poisson probability P(X ≤ W | E) has median 1.1·10⁻⁵
+E/μ with median 0.74 (2.8th percentile among all primes) while the observed W/μ has median 0.27: the local factor
+accounts for only ≈ 23 % of the log-deficit (medians −0.30 of −1.30; ratio of means 0.23); the Poisson probability P(X ≤ W | E) has median 1.1·10⁻⁵
 over H — consistent with H being the extreme tail of 1.4·10⁶ draws (`hvsE.txt`).
 
 (e) *No compensation (no conservation law).* Counting witness clusters (8 | y pairs once) by scale
@@ -177,8 +177,8 @@ p ≡ a² (mod f), so (p/f) = 1. If f | a: p ≡ b², same. If f | d: p ≡ c² 
 p ≡ 2d² and (2/f) = 1 for f ≡ 7 (8). If f | g: p ≡ e². If f | v: p ≡ u². If f | u: if 3 | f then 3 | u and 3 | p,
 impossible; otherwise p ≡ 3v², so (p/f) = (3/f), excluded unless (3/f) = −1. Q_i: h² − pk² = ±Q_i with gcd(h, k) = 1;
 if f | Q_i then gcd(k, f) = 1 (a common prime would divide h) and p ≡ (h k⁻¹)² (mod f). Pell: if f | U then
-T² ≡ −1 (mod f), impossible because (−1/f) = −1 for f ≡ 3 (mod 4) (a square class has Jacobi symbol 1 when
-gcd(T, f) = 1, which holds since f | U and f | T would give f | 1). If f | T then pU² ≡ 1, so gcd(U, f) = 1 and
+T² ≡ −1 (mod f), impossible because (−1/f) = −1 for f ≡ 3 (mod 4) (−1 would be a square modulo every prime factor of f;
+gcd(T, f) = 1 since a common prime would also divide U and hence T² − pU² = −1). If f | T then pU² ≡ 1, so gcd(U, f) = 1 and
 (p/f) = 1. If f | T ∓ 1 then pU² = T² + 1 ≡ 2 (mod f), gcd(U, f) = 1 (f odd), and (p/f) = (2/f) = 1 (cf. Z68_U7O
 Lemma P(ii)). ∎
 *Check* (`scripts/z69_mine_lemma43_check.py`): all 136 998 witnesses of the H and control primes ≤ 2·10¹⁰ — 0 violations.
