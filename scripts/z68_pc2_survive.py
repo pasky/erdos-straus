@@ -2,7 +2,7 @@
 
 Inputs are COMPLETE cylinder lists (reduction-built, z68_pc2_events.py; complete for all levels <= the stated box):
   two-prime file  ev_L1_L2_K..txt   (k1 k2 rho1 rho2 ...)
-  single-prime files for L1 (level K1) and L2 (level K2)   (k rho ...)  -> UCOVER single-prime survival s^U.
+  single-prime files for L1 (level K1) and L2 (level K2)   (k rho ...)  -> finite-level single-prime survival s^U(K).
 Box B = NR(L1) x NR(L2) at level (L1^K1, L2^K2); profile pi(g,h) = (g at L1, h at L2, 1 elsewhere).
 Reported (all exact at the stated finite level; classes of higher level are not used):
   s       = surviving fraction of B (all classes of level <= (K1,K2))

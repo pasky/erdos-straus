@@ -36,10 +36,19 @@ def divs(n):
 
 def qsolve(al, be):
     """All (X,Y,Z,W) in N^4 with 4XYZW = al X + be Y + Z (Lemma Q case analysis; complete)."""
-    # exact integer cutoff: smallest T with 9 T^5 >= 16 (al be)^2, i.e. T >= (4 al be / 3)^(2/5)
-    T = max(1, int((4 * al * be / 3) ** 0.4) - 2)
-    while 9 * T ** 5 < 16 * (al * be) ** 2:
-        T += 1
+    # exact integer cutoff: smallest T >= 1 with 9 T^5 >= 16 (al be)^2, i.e. T = ceil((4 al be / 3)^(2/5)); pure integer
+    # binary search (no floating point)
+    need = 16 * (al * be) ** 2
+    lo, hi = 1, 1
+    while 9 * hi ** 5 < need:
+        hi *= 2
+    while lo < hi:
+        mid = (lo + hi) // 2
+        if 9 * mid ** 5 >= need:
+            hi = mid
+        else:
+            lo = mid + 1
+    T = lo
     out = set()
 
     def add(X, Y, Z, W):
