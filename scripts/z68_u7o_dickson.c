@@ -13,10 +13,10 @@ static int isprime(u64 n){ if(n<2)return 0; static const u64 sp[]={2,3,5,7,11,13
 static u64 gcdu(u64 a,u64 b){while(b){u64 t=a%b;a=b;b=t;}return a;}
 int main(int argc,char**argv){
   if(argc<4){fprintf(stderr,"usage: C T maxhits\n");return 1;}
-  int C=atoi(argv[1]); u64 T=atoll(argv[2]); int maxh=atoi(argv[3]);
+  int C=atoi(argv[1]); if(C<1||C>20){fprintf(stderr,"1<=C<=20\n");return 1;} u64 T=atoll(argv[2]); int maxh=atoi(argv[3]);
   u64 M=840; for(int k=1;k<=C;k++){ u64 q=8ull*k*(k+1); M=M/gcdu(M,q)*q; }
   u64 co[64]; int nf=0; co[nf++]=M;
   for(int k=1;k<=C;k++){ u64 a=M/(k+1), b=k*M/(k+1); int dup=0; for(int i=0;i<nf;i++) if(co[i]==a) dup=1; if(!dup) co[nf++]=a; dup=0; for(int i=0;i<nf;i++) if(co[i]==b) dup=1; if(!dup) co[nf++]=b; }
-  fprintf(stderr,"M=%llu forms=%d\n",M,nf); int h=0;
+  fprintf(stderr,"M=%llu forms=%d\n",M,nf); u64 maxco=0; for(int i=0;i<nf;i++) if(co[i]>maxco) maxco=co[i]; if(T > (~0ull)/2/maxco){fprintf(stderr,"T too large: overflow\n");return 1;} int h=0;
   for(u64 t=1;t<=T&&h<maxh;t++){ int ok=1; for(int i=0;i<nf&&ok;i++) if(!isprime(co[i]*t+1)) ok=0; if(ok){ printf("%llu\n",M*t+1); fflush(stdout); h++; } }
 }
