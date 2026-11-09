@@ -23,7 +23,7 @@ instrumental.
 * Briefs: `/home/pasky/projects/math/z52bbriefs/` — `z53_depth.md` (structured lane), `z55_tryhard.md` (unprimed
   "just prove it"), `xreview_z5N.md` (cross-model hostile review), `z5N_lanes.md` (lane file), `z58_summary.md`
   (export writer brief).
-* Models: Opus `anthropic/claude-opus-5-5:high` (depth), Fable `anthropic/claude-fable-5-1:high` (unprimed twins),
+* Models: Opus `anthropic/claude-opus-5-5:high` (depth), Fable `anthropic/claude-fable-5-1:high` (unprimed twins; since z69 Fable 5.2 `anthropic/claude-fable-5-2:high` = pi "best" mode, used for tryhard + ideation lanes),
   Astra `openai-codex/gpt-6-astra:high` (every cross-review and FRONTIER consistency review). No OpenRouter.
 * Mandatory falsifier table for every lane (since z58): F1 odd squares, F2 C-even / numerator-8 sub-line, F3 composites,
   F4 known zeros — data in `data/z58/screens/`.
