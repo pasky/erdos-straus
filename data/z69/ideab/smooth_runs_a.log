@@ -1,0 +1,18 @@
+M=1e+04 r=2: 522 smooth moduli, 15325 classes, 49 compatible with B_r, total relative weight 4.873; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes covering all of B_r: []
+   Monte Carlo (200000 random points of B_r): uncovered fraction = 0.0953
+SURVIVOR after 6 nodes: depths {2: 4, 3: 2, 5: 2, 7: 2, 11: 2}  residues {2: 1, 3: 1, 5: 21, 7: 43, 11: 24}
+M=1e+04 r=6: 522 smooth moduli, 15325 classes, 54 compatible with B_r, total relative weight 4.665; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes covering all of B_r: []
+   Monte Carlo (200000 random points of B_r): uncovered fraction = 0.0493
+SURVIVOR after 13 nodes: depths {2: 4, 3: 3, 5: 4, 7: 2, 11: 2}  residues {2: 1, 3: 1, 5: 551, 7: 15, 11: 105}
+M=1e+05 r=2: 1197 smooth moduli, 79936 classes, 220 compatible with B_r, total relative weight 7.902; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes covering all of B_r: []
+   Monte Carlo (200000 random points of B_r): uncovered fraction = 0.0607
+SURVIVOR after 17 nodes: depths {2: 7, 3: 3, 5: 4, 7: 2, 11: 2}  residues {2: 17, 3: 13, 5: 76, 7: 15, 11: 101}
+M=1e+05 r=6: 1197 smooth moduli, 79936 classes, 234 compatible with B_r, total relative weight 7.639; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes covering all of B_r: []
+   Monte Carlo (200000 random points of B_r): uncovered fraction = 0.0198
+SURVIVOR after 1637 nodes: depths {2: 7, 3: 4, 5: 3, 7: 2, 11: 3}  residues {2: 113, 3: 28, 5: 96, 7: 15, 11: 1062}
+M=1e+06 r=2: 2432 smooth moduli, 332051 classes, 772 compatible with B_r, total relative weight 9.118; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes covering all of B_r: []
+   Monte Carlo (200000 random points of B_r): uncovered fraction = 0.0513
+SURVIVOR after 18 nodes: depths {2: 8, 3: 3, 5: 3, 7: 3, 11: 3}  residues {2: 177, 3: 4, 5: 121, 7: 302, 11: 35}
+M=1e+06 r=6: 2432 smooth moduli, 332051 classes, 811 compatible with B_r, total relative weight 8.897; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes covering all of B_r: []
+   Monte Carlo (200000 random points of B_r): uncovered fraction = 0.0155
+SURVIVOR after 15 nodes: depths {2: 6, 3: 4, 5: 4, 7: 2, 11: 3}  residues {2: 1, 3: 1, 5: 521, 7: 36, 11: 787}

@@ -1,0 +1,6 @@
+r=2    EXACT uncovered relative measure of B_r at level 1e+04: 4071/42350 = 0.096128  (340 nodes)
+r=6    EXACT uncovered relative measure of B_r at level 1e+04: 10443/211750 = 0.049318  (285 nodes)
+r=2    EXACT uncovered relative measure of B_r at level 1e+05: 1285219/20908800 = 0.061468  (22216 nodes)
+r=6    EXACT uncovered relative measure of B_r at level 1e+05: 14921069/752716800 = 0.019823  (14228 nodes)
+r=2    EXACT uncovered relative measure of B_r at level 1e+06: 45390029278273/894600153216000 = 0.050738  (879812 nodes)
+r=6    EXACT uncovered relative measure of B_r at level 1e+06: 81668242543/5206667558400 = 0.015685  (247886 nodes)
