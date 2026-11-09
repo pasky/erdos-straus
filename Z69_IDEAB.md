@@ -1,4 +1,4 @@
-# Z69_IDEAB — independent ideation on Erdős–Straus. Verdict: **no NEW idea (25/25 already in the campaign); inconclusive / narrowed on UCOVER O2 (integer-side certificates + level-by-level finite data); HOT LEAD: no**
+# Z69_IDEAB — independent ideation on Erdős–Straus. Verdict: **no mechanism found; 24 unprimed ideas re-tagged by the cross-review as 4 narrow NEW-TWISTs (I9, I17, I23, I24; untested), ~11 TRIED-OPEN, rest TRIED-DEAD in scope; inconclusive / narrowed on K-at-11 (finite-level certificates and data on top of `Z67_K11`); protocol shortfall (Phase 1 ≈ 57 min < 1.5 h); HOT LEAD: no**
 
 Lane IDEAB, wave z69 (brief `z52bbriefs/z69_lanes.md` §IDEAB; common rules `z58_lanes.md`).
 **ES is OPEN. Nothing here proves or disproves ES or any case of it.** Internal, unrefereed.
@@ -6,24 +6,33 @@ Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE / Assessment. S
 data `data/z69/ideab/` (< 1 MB). No provider / auth / quota error occurred in this lane (two hostile-review
 subagent calls; see §4).
 
-**Protocol.** §1 (Phase 1: 24 ideas + sanity checks) was written from my own knowledge and committed (commit `d86981e6c`)
-before anything in the repo other than the two brief files was read. §2 (lookup) and §3 (push) came after.
+**Protocol (with its shortfalls).** §1 (Phase 1: 24 ideas + sanity checks) was written from my own knowledge and committed
+(commit `d86981e6c`, 21:15:30 UTC) before anything in the repo other than the two brief files was read; the lookup table
+followed at `a3f0babd9` (21:19:10 UTC). **Not compliant with the brief:** the lane registry start is 20:18:56 UTC, so
+Phase 1 lasted at most 56 min 34 s, below the mandated ≥ 1.5 h; one output-limited turn at the start was lost (its
+content was never saved); and **I25 was written after the repo lookup had begun** (commit `1a8921e33`), so only 24 ideas
+are unprimed. My Phase-2 lookup also missed `Z67_K11.md`, which already contains the reduction and the Haar-nullity
+used in §3.5–3.6 (credited there). §2 (lookup) and §3 (push) came after the Phase-1 commit.
 Corrections made to §1 after the internal reviews are marked inline in *[brackets]*; the Phase-1 text as committed is in git.
 CERTIFIED in this memo means: an exact finite computation by the stated script, with the stated independent check;
 it does not mean a second full-range engine unless said.
 
 **Results in one paragraph.**
-* (i) **Phase 1–2.** 24 independently generated approaches (+1 late) with key lemma / squares / six-classes lines;
-  post-hoc lookup: **all 25 are already in the campaign** (table in §2), most of them with the same kill. Unprimed, I
-  re-derived the (★) and López lines, T1 by reciprocity, the profinite uncovered set with its one-prime profiles,
-  CONV-II and its exception 4545, open-induction unprovability, and ended at the same wall (one tied divisor event,
-  polylog expected witnesses). That is weak EVIDENCE that the campaign's map of elementary approaches is saturated.
-* (ii) **Phase 3 (UCOVER O2: does K = {1 mod 840, (n/11) = −1} meet U?).** Lemma E (PROVED): K_r ∩ U ≠ ∅ ⟺ the
+* (i) **Phase 1–2.** 24 unprimed approaches (+ I25, written after the lookup) with key lemma / squares / six-classes
+  lines. Unprimed, I re-derived the (★) and López lines, T1 by reciprocity, the profinite uncovered set with its
+  one-prime profiles, CONV-II and its exception 4545, open-induction unprovability, and ended at the same wall (one
+  tied divisor event, polylog expected witnesses). **No mechanism was found.** The cross-model review's source audit
+  (adopted as the §2 table) re-tags the list: four narrow NEW-TWISTs the cited treatments do not contain (I9 residual
+  classifier via q | X in p = X² + 840Y²; I17 stability of the *set of classes* admitting a good form; I23 twisted
+  trace at √p with both coefficient equations; I24 cross-d lattice transport) — all speculative and untested — about
+  eleven TRIED-OPEN, the rest TRIED-DEAD in a stated scope. My first-pass "0 NEW / saturated" verdict is withdrawn.
+* (ii) **Phase 3 (UCOVER O2 = the K-at-11 question of `Z67_K11`: does K = {1 mod 840, (n/11) = −1} meet U?).** Lemma E (PROVED): K_r ∩ U ≠ ∅ ⟺ the
   least ET-family-class modulus λ_ET(p) is unbounded on the primes of K_r. CERTIFIED: over all primes ≤ 10¹² the running
   maximum of λ ≤ λ_ET (least modulus in a superset enumeration; single engine, record primes double-checked) in K_2 and K_6 grows like in the square class (to 1979 and 1247); explicit residue classes show that
   **every finite family-class cover of the large primes of K_2 or K_6 needs a modulus > 10⁴**.
-* (iii) **Level-by-level picture (Q-S and §3.6).** For a finite prime set S′ ∋ 11 the family classes with S′-smooth
-  modulus have *finite* total weight (PROVED). For S′ = {2,3,5,7,11} they leave an uncovered part of the box B_r of
+* (iii) **Level-by-level picture (Q-S and §3.6).** The reduction to smooth shadows and the Haar-nullity of U are
+  `Z67_K11` (R), (N) — not mine; what is added here is finite data. For a finite prime set S′ ∋ 11 the family classes
+  with S′-smooth modulus have *finite* total weight (PROVED). For S′ = {2,3,5,7,11} they leave an uncovered part of the box B_r of
   measure ≈ 0.048 (r = 2) and ≈ 0.013 (r = 6), stable from 10⁶ to 10⁸ (CERTIFIED exact to 10⁷, Monte Carlo at 10⁸).
   Adding 13 kills nine resp. ten of the twelve residue classes mod 13 outright (level 10⁵) and leaves ≈ 1 % of the
   surviving square class v ≡ 3 resp. 4 mod 13 (level 10⁷, Monte Carlo). So at the two stages and the finite levels
@@ -90,13 +99,11 @@ p ≡ 1 (4) with a Type I/II solution ⟺ p ∉ C (p is an element of Ẑ, not a
 second claimed C ⊇ all squares of Ẑ (false: 0 is a square, 0 ∉ 1+4Ẑ) and "primes are dense" (true only in Ẑ^×). The
 conjecture below is about unit profiles; the integer statement is IUC in S1.]*
 *Key lemma (CONJECTURE UC):* C^× = S^×; equivalently (compactness) for every modulus m and every unit class
-r mod m containing no square, **finitely many** identity classes cover all of r mod m. UC ⟹ ES for all large primes of every non-square unit class, hence ES (a prime lies in a non-square unit class modulo
-some m). UC is strictly stronger than ES (ES only concerns the primes of each unit class, which are dense in Ẑ^× but are not all of it).
+r mod m containing no square, **finitely many** identity classes cover all of r mod m. UC ⟹ ES for all *large* primes of every non-square unit class (large relative to the class's finite cover). *[Corrected after cross-model review: the further step "hence ES for every prime" was unjustified — a given prime need not exceed the threshold of the class used for it. UC is a statement about unit profiles / large-prime tails (`Z65_LOGIC2` Thm D), not about every integer of a progression.]* UC is strictly stronger than ES (ES only concerns the primes of each unit class, which are dense in Ẑ^× but are not all of it).
 *Squares:* they are exactly the allowed exceptional set; non-squareness enters as "p ∉ S, so some finite level (m, r)
 separates p from S". *Six classes:* p in a square class mod 840 is handled at the level m = 840·q^j with q the least
 non-residue prime of p; UC predicts a **bound on the least identity modulus that is uniform over all n ≡ r (mod m)**
-— a sharply testable prediction (and falsifiable: one non-square integer n with no coprime-type solution kills UC as stated
-and forces a description of the true C).
+— a sharply testable prediction. *[Corrected after cross-model review: the original added "one non-square integer with no coprime-type solution kills UC"; false — a unit-profile cover is not a cover of all integers of a progression (integers sharing a factor with a modulus are not addressed), so a single integer failure does not refute UC.]*
 *Assessment:* cleanest "structural" strengthening I know; the test is cheap. Top-5.
 
 **I2. Structure theory of C when UC fails.** If some non-square integers n lie in C (no K1/K2/K3 class contains n),
@@ -219,17 +226,15 @@ restricted to non-residue primes for p; then Q | x + j and e = 4j+3 < 4Q.
 *Key lemma (needed, Erdős–Hall type):* if m has ≥ C log e distinct prime factors not all in a proper subgroup-coset
 configuration mod e, then {a/b} ∋ −1 (mod e).
 *Kill (PROVED, counting):* x + j has ≈ y/log y forced primes, giving 3^{π(y)} ratios a/b, against e ≍ e^{y}; the forced
-part can never cover (Z/e)^×, and making e small again (e | a+b ≤ Q+1) just returns the K1 covering with ab | Q, whose
+part can never cover (Z/e)^× *[Corrected after cross-model review: but failing to cover the group does not preclude *hitting* −1 — `FORCED_WINDOW` Thms 3.1–3.2 make exactly this distinction; so this is not a PROVED kill, only the failure of a coverage argument]*, and making e small again (e | a+b ≤ Q+1) just returns the K1 covering with ab | Q, whose
 total weight Σ_{ab | Q} τ(a+b)/(4ab) is finite for each Q. *S-unit variant:* allow a,b to be S-units with unbounded
 exponents (a = q^i, b = r^j, e | q^i + r^j, 4q^i r^j | p + e): infinitely many trials but Σ over S-unit pairs of
 τ(a+b)/(4ab) ≤ C·∏_{q∈S}(1−1/q)^{−2} < ∞ — again a finite expected count, so no "infinitely many trials" argument.
 *Squares / six classes:* uses only non-residue primes, so it is honest about squares; hard classes = few small such
-primes. *Assessment:* dead; the general lesson (**every structured sub-family has finite total weight; divergence of
-the full weight ≍ log³p needs all scales**) is a constraint on any constructive proof.
+primes. *Assessment:* dead as a coverage argument; target-only forcing stays open. *[Corrected after cross-model review: the "general lesson: every structured sub-family has finite total weight" is false and is withdrawn — e.g. K1 with a = 1, b ≡ 2 (4), e = b+1 has divergent weight Σ 1/(4b).]*
 
 **I13. Largest denominator first ("subtraction") and induction.** Writing z = pk first: 4/p − 1/(pk) = (4k−1)/(pk), so
-**Type II ⟺ ∃ k: (4k−1)/(pk) is a sum of two unit fractions ⟺ ∃ k and coprime a,b | k with pa + b ≡ 0 (mod 4k−1)** (this
-is K2). Similarly 4/p = 4/(p+δ) + 4δ/(p(p+δ)) with 4 | p+δ is R1. *Induction attempt:* use ES for smaller numbers
+**Type II ⟺ ∃ k and coprime a,b | k with pa + b ≡ 0 (mod 4k−1)** (this is K2). *[Corrected after cross-model review: the original also equated this, for each k, with "(4k−1)/(pk) is a sum of two unit fractions"; false per k — p = 5, k = 4: 3/4 = 1/2 + 1/4 gives the Type I triple (2,4,20), but no coprime a,b | 4 has 5a + b ≡ 0 (15). A two-term decomposition of (4k−1)/(pk) gives ES(p) but not necessarily a Type II solution with that k.]* Similarly 4/p = 4/(p+δ) + 4δ/(p(p+δ)) with 4 | p+δ is R1. *Induction attempt:* use ES for smaller numbers
 (e.g. for x = (p+3)/4 or for k) to build the two-term representation. *Kill:* the two-term problem m/N = 1/y+1/z is a
 divisor-class condition on N with modulus m ≈ 4k, unrelated to 3-term representations of 4/k; no descent step exists
 because the surface 4xyz = n(xy+yz+zx) is linear in each variable (no Vieta involution, unlike Markoff).
@@ -243,15 +248,14 @@ principle holds trivially; ES asks for an integral point in the *positive* regio
 logarithmic "volume" (≍ log³ n expected points).
 *Key lemma (needed):* strong approximation on the relevant torsor *with* archimedean localisation of logarithmic size —
 far beyond known technology (equidistribution of integral points needs volume ≥ n^δ).
-*Squares:* the vanishing of coprime-type solutions for n = m² is a Brauer–Manin-type (reciprocity) obstruction on the
-torsor where gcd(n, x) = 1; for non-square n it disappears. A *disproof* would need a new obstruction beyond the quadratic
+*Squares:* the vanishing of ET-coordinate (Type I/II) solutions for n = m² is a Brauer–Manin-type (reciprocity) obstruction on the
+corresponding torsor *[Corrected after cross-model review: the original described that torsor by "gcd(n, x) = 1", which is insufficient — 4/9 = 1/4 + 1/6 + 1/36 has gcd(9, 4) = 1; the obstruction is to the ET parametrisations]*; for non-square n it disappears. A *disproof* would need a new obstruction beyond the quadratic
 one (I20). *Six classes:* no role. *Assessment:* good language, no mechanism. Not top-5.
 
 **I15. Genus theory of the discriminants Δ = 4c²dp + 1.** R3 says: Δ = uv with u ≡ v ≡ −1 (mod 4cd). For c = d = 1 this
 fails iff every prime factor of 4p+1 is ≡ 1 (4) *[the gloss "iff −1 is everywhere a local norm from ℚ(√(4p+1))" of the first version is false for non-squarefree 4p+1, e.g. p = 61, 245 = 5·7²; removed after review]* — a genus-type condition; pure genus
 theory. For general (c,d) the condition "the discriminant has a divisor in the class −1 mod 4cd" is a statement about
-the image of the ambiguous classes of ℚ(√Δ) under the characters of conductor 4cd, i.e. about ℚ(√Δ, ζ_{4cd}) — a
-Rédei-symbol-like object. For c = 1 (Δ = 4dp+1 non-square) p splits in ℚ(√Δ) with 𝔭·𝔡 principal (form [d,1,−p] has discriminant 4dp+1). *[Scope "c = 1" added after review.]*
+residues of divisors of Δ modulo 4cd, i.e. about ℚ(√Δ, ζ_{4cd}). *[Corrected after cross-model review: the original called this "the image of the ambiguous classes under the characters of conductor 4cd"; divisor residues are not in general class characters — for Δ = 21 the totally positive element (7+√21)/2 has norm 7, so its (principal) ideal and the unit ideal have opposite mod-4 norm characters in one narrow class. The character dictionary must be repaired before any reciprocity is attempted.]* For c = 1 (Δ = 4dp+1 non-square) p splits in ℚ(√Δ) with 𝔭·𝔡 principal (form [d,1,−p] has discriminant 4dp+1). *[Scope "c = 1" added after review.]*
 *Key lemma (needed):* a reciprocity law expressing χ(u) (χ mod 4cd, u | Δ) through symbols depending on p only, summed over
 (c,d) with a sign-definite total. *Squares:* for p = m², (p/u) = 1 contradicts R5's (p/u) = −1: genus theory itself
 kills them. *Six classes:* here (p/q) = 1 for q ≤ 7 forces u to contain a prime ≥ 11 that is a non-residue for p.
@@ -277,11 +281,11 @@ suggesting an element; the ideal need not be principal — p = 13, (a,b,c,d) = (
 norm from ℤ[√−5].]*
 
 **I17. Class group of discriminant −4dp; Heegner points on thin lines.** By R8 (d = 1): ES(p) ⟸ Cl(−4p) contains a form
-[A,B,C] (not necessarily reduced; B > 0, 4 | B ≤ A+1) with **A ≡ −1 (mod B)**. Such forms represent A ≡ 3 (4), so they
+[A,B,C] (not necessarily reduced; B > 0, 4 | B ≤ A+1) with **A ≡ −1 (mod B)** (this is the d = 1 statement). Such forms represent A ≡ 3 (4), so they
 live in the *non-principal genus* (genus character χ₋₄). In Heegner-point terms z = (−B + 2i√p)/(2A) lies on the line
 x = −(1 + y/√p)/(2c), c = (A+1)/B. Expected number: ≍ L(1,χ₋₄ₚ)·log p reduced ones, ≍ log²p in all.
-*Key lemma (needed):* for every prime p ≡ 1 (4) some class of the non-principal genus of Cl(−4dp) (some odd d) contains
-such a form. Tools that work for *individual* p here: Duke equidistribution of Heegner points (power saving, but only
+*Key lemma (needed):* for every prime p ≡ 1 (4) some class of Cl(−4dp) (some odd d) contains
+such a form with **4d | B**. *[Corrected after cross-model review: for d > 1 the condition is 4d | B (B = 4ad), not just 4 | B — at n = 9, d = 5 the form [7,4,7] meets the weaker criterion; and χ₋₄ is a genus character only for d = 1 (disc −60: [3,0,5] represents 17 and 23), so "non-principal genus" and the square-exclusion line below are valid for d = 1 only.]* Tools that work for *individual* p here: Duke equidistribution of Heegner points (power saving, but only
 for regions of area ≫ p^{−δ}; the target is a curve), genus theory, composition. A structural hope: the property
 "B | A+1" might be stable under composition with a fixed class or under an involution, making the set of good classes a
 coset-like object which cannot be empty.
@@ -297,7 +301,7 @@ Top-5.
 *Key lemma (form):* for each prime q and each non-residue class r mod q there is a finite identity family F_{q,r} covering
 every n ≡ r (mod q) that is a square modulo all primes < q (this is UC of I1 restricted to the "pseudosquare corridor").
 Then ES holds for all p with q(p) ≤ Q once the lemma is verified for q ≤ Q, i.e. for all p below the pseudosquare L_Q
-(L_Q grows like e^{cQ/log Q}); under GRH q(p) < 2 log²p, giving ES conditionally on the lemma for all q.
+(heuristically L_Q grows like e^{cQ/log Q}; not proved); under GRH q(p) < 2 log²p, giving ES conditionally on the lemma for all q.
 *Squares:* q(m²) = ∞. *Six classes:* they are the corridor q(p) ≥ 11; Mordell's theorem is the lemma for q ≤ 7.
 *Assessment:* this is the constructive face of I1; the computation "does the corridor at q = 11, 13 close?" is the
 decisive experiment. Top-5 jointly with I1.
@@ -305,8 +309,7 @@ decisive experiment. Top-5 jointly with I1.
 **I19. Extreme-value diagnostics (disproof-side heuristic).** For each one-parameter family (F1, F2, d = 1, …) the
 number of solutions should be Poisson-like with mean μ_F(p) = c_F log²p·(local factors); the number of zeros up to N
 is then ≈ Σ_p e^{−μ_F(p)}. *Key lemma (form):* none — this is a calibration device: a family whose observed zeros
-exceed the Poisson prediction signals hidden structure (an obstruction), one with fewer signals hidden positive
-correlation (a mechanism). *Squares:* the local factor must vanish there (product over real characters). *Six classes:*
+exceed the Poisson prediction may signal hidden structure. *[Corrected after cross-model review: the original also read "fewer zeros than Poisson" as "hidden positive correlation (a mechanism)"; zero counts alone do not identify a correlation mechanism — withdrawn.]* *Squares:* the local factor must vanish there (product over real characters). *Six classes:*
 local factors are smallest there. *Assessment:* EVIDENCE-type only; cheap; useful to choose which family to attack.
 
 **I20. Disproof via a non-quadratic reciprocity obstruction.** Squares fail by one line of quadratic reciprocity (R5).
@@ -332,13 +335,12 @@ candidate form; likely tried. Low-mid.
 
 **I23. Work over a ring with units, then descend.** Solve 4/π = 1/α+1/β+1/γ in ℤ[√p] (where p = π², π = √p) or in ℤ[i]
 (p = ππ̄), use the infinite unit group / the absence of positivity, and descend by trace.
-*Kill (PROVED):* averaging 1/(πα) over Galois gives 4/p = Σ y_i/(p y_i² − x_i²) for α_i = x_i + y_i√p; requiring each term to
-be a unit fraction is y | x² and denominator p y − x²/y, which every integer has: the descent condition is the original
-problem verbatim. *Squares / six classes:* n/a. *Assessment:* dead.
+*Attempted kill (GAP, not PROVED):* averaging 1/(πα) over Galois gives 4/p = Σ y_i/(p y_i² − x_i²) for α_i = x_i + y_i√p; requiring each term to
+be a unit fraction is y | x² and denominator p y − x²/y, which every integer has. *[Corrected after cross-model review: the original concluded "the descent condition is the original problem verbatim — dead"; that discards the second coefficient equation Σ x_i/D_i = 0 (D_i = p y_i² − x_i²) which a solution in ℤ[√p] also satisfies. The twisted trace at √p with both equations retained is not in the cited repo notes; it is an unexamined narrow twist, not a mechanism — see §2.]* *Squares / six classes:* n/a. *Assessment:* open, speculative.
 
 **I24. Lenstra's "divisors in residue classes".** For modulus m > N^{1/3} an integer N has ≤ 11 divisors ≡ r (mod m), all
 found in polynomial time by a Euclid/lattice argument. In R3 (c = 1) N = 4dp+1, m = 4d: the regime d > √p/4 — which
-carries half of the expected log²p solutions — is exactly Lenstra's regime, and his construction is the convergent
+carries about a quarter of the heuristic log²p mass (corrected after cross-model review; the original said half) — is exactly Lenstra's regime, and his construction is the convergent
 structure R6. *Key lemma (needed):* turn Lenstra's *finiteness* proof into an *existence* statement after summing over d
 (the lattice attached to d varies with d by a unipotent shear, cf. I3). *Squares:* the sheared lattices never contain
 the required vector by R5. *Six classes:* none. *Assessment:* gives an algorithmic handle (each d costs polylog time
@@ -393,7 +395,8 @@ I5 is dead in its naive form.
 
 **S5 (T4).** I7 is a pen-and-paper proof (see I7); nothing to compute. Its literature status is a Phase-2 item.
 
-**Phase-1 verdict.** Dead on arrival: I4, I5, I9 (identity version), I10, I12, I13, I16, I23, strong UC of I1/I18.
+**Phase-1 verdict (as written in Phase 1; several of these "dead" calls are corrected in §2 — I5, I10, I12 are open in a
+stated scope and the I23 kill was a gap).** Dead on arrival: I4, I5, I9 (identity version), I10, I12, I13, I16, I23, strong UC of I1/I18.
 Alive: IUC (S1), I17 (R8), I7/I8 (unprovability), I3/I24 (R6 lattice structure), I11 (as a frame), I15, I19, I22.
 
 --- *End of Phase 1 (committed before any repo/literature lookup).* ---
@@ -404,6 +407,45 @@ Dictionary (learned only now): the campaign's **(★)** is my F2 / "c = 1 line" 
 zeros 409, 577 are the first two of its 14 prime zeros); its "b = 1 line / López Type A" is my F1 (zero 193 ✓.);
 its uncovered set "U" is my C; its "profiles e_{ℓ,g}" are my α_{q,r}; "B2 / tied-modulus divisor event" is the common
 endpoint of my I4, I11, I12, I16; CONV-II is the Type II half of my IUC.
+
+**Authoritative tags (cross-model review `data/z69/xreview/REVIEW_IDEAB.md` §A; adopted in full).** My first-pass table
+tagged everything TRIED and concluded "none NEW / map saturated"; the cross-review checked the cited sources and found
+that verdict unsupported. "NEW-TWIST" means: the specified step is absent from the cited treatments after keyword/source
+checks — not demonstrated originality or viability. "DEAD" is always scoped, never a universal impossibility claim.
+
+| # | corrected tag | source match / surviving twist and concrete next step |
+|---|---|---|
+| I1 | TRIED-DEAD (strong UC); TRIED-OPEN (K at 11) | `Z66_UCOVER` Thm T refutes strong UC; its §5 leaves K open. `Z65_LOGIC2` Thm D is about unit profiles / large-prime tails, not every integer of a progression. |
+| I2 | TRIED-OPEN | `Z58_WILDCARD` §1, `KUDLA_ES` Thm 1.2 match CONV-II and the Type I exceptions. The extension of the Type I zero list to 8·10⁶ is new data, not a mechanism. |
+| I3 | TRIED-DEAD for the universal c = 1 target | `DEDEKIND_ES` §§1–2, 5–6, `BRAINSTORM/bsA_lens_homotopy_surgery.md`. 409 and 577 already refute universal c = 1 existence. |
+| I4 | TRIED-DEAD (termwise Weil) | `Z53_HYPKLOOST` Thms B/C/K, §8: the scale obstruction; joint / nonlinear estimates are expressly left open there. |
+| I5 | **TRIED-OPEN** beyond the tested involutions | `INVOLUTION_ES` §§0, 5 leaves growing menus / non-affine maps open; my S4 does not kill auxiliary-set parity. Next: specify and test a non-affine cross-slice involution, not another raw parity count. |
+| I6 | **TRIED-OPEN** (mock / growing-level version) | `METAPLECTIC_ES` Thm K is the per-level decomposition; §§5, 7 exempt mock / weakly holomorphic / harmonic constructions. Next: derive an actual completion / transformation law with boundary terms. |
+| I7 | TRIED-SUPERSEDED | `Z64_UNPROV` Lemma 2.4 already has the largest-root argument; Thm A is stronger. |
+| I8 | **TRIED-OPEN already at IOpen + Bézout** | `Z66_IE1` §6 / O1″ leaves this combination open; my first-pass "open only from IE₁ up" was false. Next: test landing-map compatibility with Bézout / root-floor constructions. |
+| I9 | TRIED-DEAD (polynomial part); **NEW-TWIST** (residual classifier) | `BRAINSTORM/s7_normform_collapse.md` subsumes the polynomial no-go; `CLASS_FORCING` does not test factoring the X-coordinate of p = X² + 840Y². Next: compare existence of q | X with (840/q) = −1 against matched hard-prime controls; prove, rather than assume, the claimed quartic / "half" law. |
+| I10 | **TRIED-OPEN** beyond the d = 1 kill | My pointer `z5_pell_unit_T1.md` is not this substitution (better prior: `POINTWISE`'s negative-Pell discussion). d > 1 is not killed by orbit sparsity. Next: fix d > 1, establish admissibility, test the exact K3 divisor condition. |
+| I11 | TRIED; fixed J conditionally dead, growing J open | `SYNTHESIS_SPARKS7` §2; `Z59_CONVO` §7.7 (Hypothesis H). Next: a joint-factorisation statistic for J = J(p). |
+| I12 | **TRIED-OPEN** (target-only forcing) | `FORCED_WINDOW` Thms 3.1–3.2: the full-group cardinality bound does not preclude hitting −1. Next: track the uncontrolled cofactor and target hits separately from group coverage. |
+| I13 | TRIED reformulation; no valid descent supplied | FRONTIER's Vieta remark and `Z59_CONVO` §7(4) kill particular swaps, not every induction. Next: one transport rule with proved positivity, divisibility and strict descent. |
+| I14 | **TRIED-OPEN** (shrinking target) | `GEOMETRY_ES` §6 formulates SHT; `Z58_STRUCT2` §5.3 leaves quantitative localisation open; 4545 defeats a Type II BM-sufficiency claim, not every prime-specific counting theorem. Next: state the required height / error uniformity. |
+| I15 | **TRIED-OPEN** (varying discriminants) | `Z53_GENUSREDEI` §1 concerns finitely many fixed forms / levels, conditional on HC. Next: repair the character dictionary (see the correction in I15), then test one explicit sign-definite weighted sum over growing (c,d). |
+| I16 | TRIED-DEAD (stated analytic implementation) | `PARITY_AUDIT` §§0–2 is the exact tied divisor sum; the p-free Type I table is already in `GEOMETRY_ES` §4. |
+| I17 | TRIED encoding; **NEW-TWIST** (existential class-set stability) | Prior: `Z58_TERNARY` Lemma D, `WINDMILL` §4. `WINDMILL_REDUCTION` Prop 10.3 is representative-wise invariance, not the *subset of classes admitting a good representative*. Next: reduce the good-form census and test coset / inversion / fixed-class-multiplication stability, with 4d | B retained. |
+| I18 | TRIED-DEAD (global finite-corridor lemma); K at 11 open | `Z66_UCOVER` Thm T and §5 distinguish these; the q = 11 continuation is legitimate. |
+| I19 | TRIED / DONE (diagnostic) | FRONTIER §2.4, `Z58_DISPROOF` §§4–6 already calibrate the tail. |
+| I20 | **TRIED-OPEN** | `Z58_DISPROOF`, `Z58_STRUCT2` do not exclude a higher global obstruction. Next: state a candidate with quantifiers over all three identity families; test known witnesses first. |
+| I21 | **TRIED-OPEN** (monic model) | `Z58_FFIELD` Def. 1.0 / §3.2: the leading-coefficient-free theorem does *not* transfer to monic positivity; §3.3 leaves fixed-q growing degree open (my first-pass reading was wrong). Next: formulate the full Type II monic / infinity-sign analogue. |
+| I22 | **TRIED-OPEN** (growing-level Jacobi / Siegel) | `Z58_TERNARY` Thm F is a fixed scalar-nebentypus proxy barrier; §4.4 leaves extensions. Next: keep d in a two-variable generating series and test the claimed Jacobi coefficient / transformation identity. |
+| I23 | **NEW-TWIST**, narrowly (twisted trace at √p); my "kill" was a GAP | Not in `z5_pell_unit_T1.md`; `BRAINSTORM/s3_vphi_ringmaps.md` Result 2 treats the ordinary trace at 4/p. Next: retain both coefficient equations and determine which integer triples lift to integral α_i. Not yet a mechanism. |
+| I24 | **NEW-TWIST**, narrowly (cross-d transport) | `Z53_LATTICE` §5 scopes its kill to uniform per-fibre guarantees; the cross-d shear is not established anywhere. Next: exhibit the lattice basis and the d → d+1 map, checking target congruence and positivity. |
+| I25 | TRIED-DEAD (stated forcing) | `BRAINSTORM/y3_euclid_schur_forcing.md` Props E1–E2 / Remark E3. **Written after the repo lookup — not one of the unprimed ideas.** |
+
+Count: 4 narrow NEW-TWISTs (I9, I17, I23, I24 — speculative, none a HOT LEAD), 11 TRIED-OPEN in some scoped sense
+(I2, I5, I6, I8, I10, I12, I14, I15, I20, I21, I22; plus the open K-at-11 branches of I1/I18 and growing-J of I11),
+the rest TRIED-DEAD / superseded in the stated scope.
+
+<details><summary>First-pass table (my own Phase-2 tags; superseded by the table above, kept for provenance)</summary>
 
 | # | idea | status | pointers (repo unless stated) | what my Phase 1 adds, if anything |
 |---|---|---|---|---|
@@ -432,6 +474,9 @@ endpoint of my I4, I11, I12, I16; CONV-II is the Type II half of my IUC.
 | I23 | rings with units, descend by trace | **TRIED-DEAD** | `BRAINSTORM/z5_pell_unit_T1.md`, FRONTIER l.608 | nothing |
 | I24 | Lenstra divisors in residue classes | **TRIED-DEAD** | `Z53_LATTICE.md`, FRONTIER l.1604 ("Lenstra/CHN/Shiu per-fibre bounds remove only n^{o(1)}") | nothing |
 
+
+</details>
+
 **Literature (web, 2026-11-09, three bounded searches):** nothing on ES in open induction outside the repo's own sources;
 López, arXiv:2404.01508 ("A complete congruence system for the Erdős–Straus conjecture", Type A/B) is the published form
 of F1 and is already the campaign's "b = 1 line"; no published statement of CONV-II / 4545 found. The repo's own
@@ -440,30 +485,39 @@ literature files (`LITERATURE_2026.md`, `Z58_LIT.md`) are far more complete than
 *Legend.* TRIED-DEAD = explored in the repo and abandoned there (a specified menu failed, or a scoped barrier applies); it is
 not a claim that a universal no-go theorem exists. TRIED-OPEN = explored, target still open.
 
-**Phase-2 verdict (blunt).** 24 / 24 ideas (25 / 25 with the late I25) were already explored in the campaign; **I identified no NEW approach**. Independent ideation
-re-derived the campaign's map — the (★)/F1 lines, T1 via reciprocity, the profinite set U and its one-prime profiles,
-CONV-II and 4545, the open-induction unprovability, the class-group and HJ encodings, and the same kills — and arrived
-at the same endpoint (one tied divisor event with polylog expected witnesses). The only items I could not find in
-the repo are data footnotes: the Type I zero list to 8·10⁶ (I2) and the least-modulus growth in the classes 2, 6 mod 11 (I1)
-(topic-level matching by `git grep`; I did not check that every derivation of §1 occurs verbatim).
-That an unprimed pass lands on the same barrier, with the same exceptional integers, is itself (weak) EVIDENCE that the
-campaign's map of *elementary* approaches is saturated.
+**Phase-2 verdict (corrected after cross-model review).** My first-pass verdict — "24/24 already in the campaign, none
+NEW, the map of elementary approaches is saturated" — is **withdrawn**: it rested on topic-level `git grep` matching and
+a short pass, and the cross-review found four narrow twists that the cited treatments do not contain and numerous
+branches the sources themselves leave open. What stands: the unprimed pass re-derived much of the campaign's map
+(the (★)/López lines, T1 via reciprocity, the profinite set U with its one-prime profiles, CONV-II and 4545,
+open-induction unprovability, the class-group and HJ encodings) and reached the same tied-divisor wall; **no mechanism
+was found**; the NEW-TWIST items are untested suggestions. No saturation claim is made. Data footnotes not found in the
+repo: the Type I zero list to 8·10⁶ (I2) and the least-modulus growth in the classes 2, 6 mod 11 (I1).
 
-**Late idea (after the Phase-1 commit, before its lookup): I25. Schur–Murty "Euclidean" forcing.** A Euclid-style
+**Late idea I25 (written after the Phase-1 commit AND after the repo lookup of §2 had begun — it is not an unprimed idea; only the 24 above are). Schur–Murty "Euclidean" forcing.** A Euclid-style
 forcing of a prime divisor in a class a mod q exists iff a² ≡ 1 (mod q) (Schur 1912, Murty 1988); the tied class −1
 always qualifies. On the ±1-subgroup "class = parity": if e ≡ 3 (4) is prime and a prime ℓ | (p+e)/4 has ℓ ≡ ±1 (mod e),
 then ℓ ≡ (p/ℓ) (mod e) (R5). *Kill found by myself:* forcing needs the whole number ≡ −1, and then the whole number is
 already a witness; when N ≡ +1 (the ES situation) nothing is forced. **Lookup: TRIED-DEAD** —
 `BRAINSTORM/y3_euclid_schur_forcing.md` ("the ES class −1 is a Schur–Murty Euclidean class"), `DETERMINISTIC_EXISTENCE.md`.
-So 25 / 25.
 
 ## §3 Phase 3 — the best TRIED-OPEN item with a twist: O2 of `Z66_UCOVER.md` from the integer side
+
+**Prior work I missed and must credit: `Z67_K11.md`** (wave z67, the same question). It already has: (R) the reduction to
+smooth shadows — K̄ ∩ U ≠ ∅ iff for every P the family classes with P-smooth moduli fail to cover the P-box of K̄
+(PROVED there); (N) U is Haar-null (PROVED there, the same one-line argument that the round-2 reviewer supplied here);
+event equations for all seven families; CERTIFIED coverings of rational slices (e.g. the slice q = 2 over
+T = {2,3,5,7} by the single class 6481 mod 8360); and the refutation of the candidate π° = (2 at 11, 2 at 13,
+1 elsewhere) — so UCOVER's "(2,2) survives" is superseded: π° ∉ U. Everything below that is a *reduction* or the
+*Haar-nullity* is therefore a re-derivation; the contributions of this lane are the finite data and certificates:
+Lemma E's integer-side formulation, the λ census, the M = 10⁴ missed residue classes, and the exact uncovered measures
+of the P-boxes for P = 11, 13. The cross-model review re-checked compatibility with Z67's slice coverings and π° catch.
 
 **Choice (Assessment).** No idea is NEW. Of the TRIED-OPEN ones, CONV-II/IUC (I2) has no mechanism and a 10¹⁰ census
 already; IE₁/IΔ₀ (I8) is out of reach in a lane; O1 of UCOVER (explicit ℓ₀) needs an explicit P_II(n) ≤ Cn^θ, θ < 1/2
 (I checked: with max-divisor bounds the tail only closes from level k ≈ 10⁴ — hopeless for ℓ = 17). That leaves
 **O2: does K = {n ≡ 1 (840), (n/11) = −1} meet U** (U = profinite units in no ET Prop 1.9 family class)? UCOVER has
-profile evidence (two-prime profiles at 11, 13 surviving over (g,h) ≡ (2,2)); it is a CONJECTURE there. My Phase-1 S2 saw
+profile evidence (two-prime profiles at 11, 13 surviving over (g,h) ≡ (2,2)); it is a CONJECTURE there. *[Added after cross-model review: `Z67_K11` later showed that this (2,2) profile π° is in fact caught (π° ∉ U) and left the K question open; I had not found that memo when choosing this topic.]* My Phase-1 S2 saw
 the same phenomenon from the other side: among *integers* of the classes r = 2, 6 mod 11 the least identity modulus
 keeps growing. Twist: make that integer-side statement exact and push the computation with all seven families.
 
@@ -484,7 +538,7 @@ For a prime p let **λ_ET(p)** be the least modulus of an ET Prop 1.9 family cla
 Type I/II solution). The scripts compute **λ(p) ≤ λ_ET(p)**, the least modulus over a *superset* 𝔉⁺ of the family classes
 (same seven parametrisations, without ET's coprimality side conditions; every class of 𝔉⁺ is still a valid polynomial
 identity class). Every "λ(p) > M" below therefore implies λ_ET(p) > M; statements of the form "λ(p) ≤ M" are about 𝔉⁺.
-Lemma E is stated for λ_ET and holds verbatim for λ (its proof only uses that there are finitely many classes per modulus). For a primitive class r mod q put K_{r,q} = (r + qẐ) ∩ Ẑ^×. Then
+Lemma E is stated for λ_ET and U. (The same proof gives the analogous statement for 𝔉⁺ with *its own* uncovered set U⁺ ⊆ U; I do not prove U⁺ = U on unit profiles, so λ is used only through λ ≤ λ_ET: "λ unbounded ⟹ λ_ET unbounded ⟹ K ∩ U ≠ ∅", never the converse.) For a primitive class r mod q put K_{r,q} = (r + qẐ) ∩ Ẑ^×. Then
 **K_{r,q} ∩ U = ∅ ⟺ sup{λ_ET(p) : p prime, p ≡ r (mod q)} < ∞** (sup over all but finitely many primes).
 More precisely, fix one collection 𝔉 of classes with finitely many per modulus (ET's family classes with λ_ET, or 𝔉⁺ with λ)
 and write λ_𝔉. For every M: *some unit residue class inside r mod q is missed by all 𝔉-classes of modulus ≤ M*
@@ -524,9 +578,12 @@ growing factor (≈ 1.5 at M = 100, ≈ 10 at M = 1000) but the tails do not sto
 
 **Kill test A (pre-registered): not triggered.** The running maximum of λ grew in each of the last three decades in
 both classes (K_2: 823 → 1319 → 1979; K_6: 791 → 1056 → 1247), roughly ×1.2–1.6 per decade like the control.
-**Kill test B (pre-registered): passed.** `scripts/z69_ideab_o2_check.py` recomputes λ by direct divisibility tests
+**Kill test B: the implemented test passed; it is weaker than the registered one.** Registered: comparison with an
+exhaustive enumeration of actual solutions. Implemented: `scripts/z69_ideab_o2_check.py` recomputes λ by direct divisibility tests
 on the defining conditions (no residue table, no CRT, no inverses) for all 75 record-setting primes of the three
 classes and 300 random primes < 3·10⁸: 375 / 375 agree (`o2_check.log`; an earlier run at moduli ≤ 1100: 500 / 500).
+(The cross-model reviewer's separate modulus-first enumerator additionally reconstructed and verified actual Type I/II
+triples at all 75 record minima, which is closer to the registered test.)
 Sanity on the campaign screens (table to modulus 3000): no class contains an odd square m², m < 200; all 14 (★)-zero
 primes have λ ≤ 239 (e.g. λ(409) = λ(577) = 7, λ(8 813 281) = 111, λ(1 726 201) = 239), all 38 𝔊*-zero primes
 λ ≤ 239, the twelve R₈-zero primes λ ≤ 248, and all 285 composite (★)-zeros lie in some class of modulus ≤ 548.
@@ -541,7 +598,7 @@ primes have λ ≤ 239 (e.g. λ(409) = λ(577) = 7, λ(8 813 281) = 111, λ(1 72
   side, K_2 and K_6 are indistinguishable from the square class up to a slowly growing constant factor; nothing
   suggests a finite cover. New relative to UCOVER (iv): the same holds for **r = 6**, where the two-prime (11, 13)
   profiles of UCOVER all die — so if K_6 ∩ U ≠ ∅ (CONJECTURE), its points are not (11, 13)-profiles.
-* **Not obtained.** A proof of O2. By Lemma E it is equivalent to "λ is unbounded on the primes of K_r", and every
+* **Not obtained.** A proof of O2. By Lemma E it is equivalent to "λ_ET is unbounded on the primes of K_r" (unbounded λ would suffice; bounded λ would not by itself give an ET cover), and every
   route I see to unboundedness is again a covering-measure bound on a thin profile set, i.e. UCOVER's Theorem T with
   explicit constants (their O1), which I estimate closes only from ℓ-adic level ≈ 10⁴ with max-divisor bounds.
 * **No bearing on ES itself.** Lemma E and the data are statements about what *finite identity covers* (equivalently
@@ -560,7 +617,7 @@ verified (i) against the full class table of all seven families and all moduli �
 cover of the large primes of K_r contains a modulus > M".
 *Kill test C (pre-registered):* if the search dead-ends for some M ≤ 10⁴ after exhaustive backtracking over the primes
 ≤ 100, the square-away-from-11 profiles are all caught at that level — evidence that K_r ∩ U, if non-empty, needs
-non-square coordinates elsewhere (as UCOVER's (2,2)-profiles at 11, 13 suggest for r = 2).
+non-square coordinates elsewhere (as UCOVER's (2,2)-profiles at 11, 13 suggested for r = 2 — a suggestion since withdrawn: `Z67_K11` shows that profile is caught).
 *[Review note: as implemented the search is bounded (≤ 40 candidates per prime, ≤ 2·10⁵ backtracks), so a failure would
 have been UNDECIDED, not a kill. It did not occur.]*
 
@@ -580,8 +637,11 @@ shows, 13 is just as restrictive). This suggests looking at small primes first:
 
 **Question (Q-S).** Let S = {2,3,5,7,11} and B_r = (1+8ℤ₂)×(1+3ℤ₃)×(1+5ℤ₅)×(1+7ℤ₇)×(r+11ℤ₁₁). Do the family
 classes with S-smooth modulus cover B_r?
-* If **yes**: by compactness finitely many do, and then K_r ∩ U = ∅ — the unit profiles of K_r would lie in a finite
-  union of polynomial-identity classes (a new Mordell-type class; O2 answered negatively for that r).
+* If **yes** (for ET's own family classes): by compactness finitely many do, and then K_r ∩ U = ∅ — the unit profiles
+  of K_r would lie in a finite union of polynomial-identity classes (a new Mordell-type class; O2 answered negatively
+  for that r). For the relaxed table 𝔉⁺ actually enumerated, a "covered" outcome would give this only after a
+  normalisation step (each 𝔉⁺-class refined into ET classes) that I have not written out; since no level came out
+  covered, the step was not needed. The "not covered" outcomes are sound for ET's classes because 𝔉⁺ is a superset.
 * If **no**: some S-point survives all S-smooth classes. This is *necessary* for K_r ∩ U ≠ ∅ but, as §3.6 shows, far from
   sufficient: the next prime removes most of what is left. *[Corrected by my own follow-up after the review: the first
   version said the other primes "were easy"; that was wrong.]*
@@ -609,7 +669,7 @@ x ≡ 113 (2⁹), 55 (3⁴), 161 (5⁴), 155 (7⁴), 959 (11³) meets no S-smoot
 Sanity built into the run: the number of compatible classes with 11 ∤ modulus is 0 at every level, as T1 demands.
 
 **Reading.**
-* **PROVED (qualitative):** the total weight W_r(∞) of all compatible S-smooth classes is finite: a modulus m carries
+* **PROVED (qualitative; cf. `Z67_K11` §§2, 4 for the same convergence/divergence dichotomy):** the total weight W_r(∞) of all compatible S-smooth classes is finite: a modulus m carries
   O_ε(m^ε) classes, each of weight ≤ 9240/m, and Σ_{m S-smooth} m^{−1+ε} = Π_{q∈S}(1 − q^{−1+ε})^{−1} < ∞. (This is what
   distinguishes the five-prime problem from the full one, whose weight diverges like a power of log M.)
 * **CERTIFIED:** (Q-S) has answer "not covered" at every level M ≤ 10⁸, for r = 2 and r = 6, with uncovered measure
@@ -656,10 +716,11 @@ rationals; single engine) unless marked MC.
   is Monte Carlo, and no tail bound exists), ≈ 4–5 times smaller than at the stage {2,…,11} (0.0485) *within one of
   twelve residue classes*. What is PROVED: for every finite prime set S′ ∋ 11 the S′-smooth classes have finite total
   weight (as in §3.5); and U has Haar measure 0 in Ẑ^× (for each prime q ≡ 3 (4) the II-2 class n ≡ −4 mod q, a = d = 1,
-  is a family class; these are independent events of probability 1/(q−1) with divergent sum — remark of the round-2
-  reviewer), so the all-modulus survivor measures of an exhausting sequence of prime sets tend to 0. What is *not*
+  is a family class; these are independent events of probability 1/(q−1) with divergent sum — this is `Z67_K11` (N),
+  re-supplied by the round-2 reviewer), so the all-modulus survivor measures of an exhausting sequence of prime sets tend to 0. What is *not*
   proved: that any stage has positive all-modulus measure, or is non-empty. **O2 asks whether the nested closed survivor
-  sets (all moduli, S′ ↑ all primes) have non-empty intersection, i.e. whether all of them are non-empty.** (Q-S) is
+  sets (all moduli, S′ ↑ all primes) have non-empty intersection, i.e. whether all of them are non-empty (this is
+  exactly `Z67_K11` (R)).** (Q-S) is
   the first member of that sequence, not a "core"; the picture "Cantor-like set, thinning level by level" is a
   heuristic reading of the finite data.
 * Explicit witnesses for the full-cover entries (parameters found independently by the round-2 reviewer; each modulus
@@ -667,12 +728,16 @@ rationals; single engine) unless marked MC.
   II-2 a=9, d=4; v = 9 ↔ (143, 35) II-2 a=3, d=3; v = 10 ↔ (5720, 2961) II-3 a=26, d=1, e=55; v = 12 ↔ (4004, 2521) I-1
   a=91, d=11, f=13495. r = 6: v = 1 ↔ (143, 105) II-2 a=9, d=1; v = 5 ↔ (39, 31) II-2 a=1, d=2; v = 9: the three classes
   (396, 61), (99, 94), (1287, 919) cover the box jointly.
-* Relation to UCOVER (iv): there, among profiles (g at 11, h at 13, **1 elsewhere**) only (g,h) ≡ (2,2) survives the cited
-  finite-level profile computations. Without
+* Relation to UCOVER (iv) and `Z67_K11`: among profiles (g at 11, h at 13, **1 elsewhere**) only (g,h) ≡ (2,2) survived
+  UCOVER's finite-level profile computations, and `Z67_K11` then refuted that survivor too (π° ∉ U) and CERTIFIED that
+  several rational slices are covered, conjecturing that only "1 elsewhere"-type rational slices can carry points of
+  K̄ ∩ U. The finite-level survivors here are not rational slices and not "1 elsewhere"; they neither contradict nor
+  support that conjecture beyond the levels computed. Without
   the "1 elsewhere" restriction the surviving residues mod 13 are {2, 3, 7} for r = 2 and {4, 7} for r = 6 (new data;
   finite level 10⁵; six-prime smooth moduli only — nothing is claimed about extending these survivors over the primes
   ≥ 17). In particular r = 6 has finite-level survivors, with generic squares at 3, 5, 7 — no contradiction with UCOVER,
-  whose r = 6 profiles are "1 elsewhere", and consistent with the M = 10⁴ certificate for K_6.
+  whose r = 6 profiles are "1 elsewhere", and consistent with the M = 10⁴ certificate for K_6. (Larger exact / Monte Carlo
+  tables of §3.5–3.6 are single-engine; the cross-model review reproduced only M = 10⁴, r = 2.)
 
 ## §4 Review log
 
@@ -720,6 +785,37 @@ computations." 16 findings; applied:
   and Corollary; the six-prime enumeration at 10⁴ against the unrestricted table; the seven full-cover classes with explicit
   parameters; the exact measure 4071/105875 (r = 2, v = 3, M = 10⁴) by CRT inclusion–exclusion; 469147/19631040 at 10⁵
   by a fresh run; r = 6, v = 9 jointly covered; `cert.py 3000 2 1 3000` → 0 violations, direct test 3001.
+
+**Cross-model review** (`data/z69/xreview/REVIEW_IDEAB.md`, reviewed at `7e38bb51d`; verdict **REJECT as written** — "the
+finite computations survive; the blanket novelty verdict, several mathematical claims, and protocol accounting do
+not"). All required fixes applied:
+1. **Novelty verdict replaced.** The "0 NEW / 25 of 25 / saturated" verdict is withdrawn (title, summary (i), §2). The
+   reviewer's re-tag table is adopted as the authoritative §2 table: I9, I17, I23, I24 NEW-TWIST (narrow, untested);
+   I2, I5, I6, I8, I10, I12, I14, I15, I20, I21, I22 TRIED-OPEN; the rest TRIED-DEAD / superseded in scope; my
+   first-pass table is kept only for provenance.
+2. **λ versus λ_ET.** Every equivalence is now stated for λ_ET and U; λ (relaxed table 𝔉⁺) is used only as a lower
+   bound (unbounded λ ⟹ O2; "not covered" by 𝔉⁺ ⟹ not covered by ET). The "covered ⟹ ET-covered" reading of (Q-S) is
+   flagged as needing a normalisation step that is not written out (§3.1, §3.3, §3.4).
+3. **False Phase-1 assertions corrected inline** (original text in git): I1 (unit-profile cover ≠ cover of all integers;
+   "hence every prime" bridge unjustified), I12 (not covering the group does not preclude hitting −1; the "finite
+   weight of every structured sub-family" lesson is false and withdrawn), I13 (two-unit-fraction form is not Type II per
+   k: p = 5, k = 4), I14 (gcd(n,x) = 1 is not the square obstruction: 4/9 = 1/4 + 1/6 + 1/36), I15 (divisor residues are
+   not ambiguous-class characters: Δ = 21), I17 (for d > 1 the condition is 4d | B and χ₋₄ is not a genus character),
+   I23 (the PROVED kill was a gap — the equation Σ x_i/D_i = 0 was discarded), I19 (correlation-sign diagnosis
+   withdrawn), I24 (one quarter, not half, of the heuristic mass), I18 (pseudosquare growth labelled heuristic).
+4. **Source contradictions and protocol.** I8 ("open only from IE₁ up" was false: IOpen + Bézout is open, `Z66_IE1`
+   O1″) and I21 (`Z58_FFIELD` says the theorem does *not* transfer to monic positivity) are corrected in the §2 table;
+   kill test B is described as the implemented (weaker) test; the Phase-1 duration (≤ 56 min 34 s < 1.5 h), the lost
+   turn, and the post-lookup status of I25 are stated in the header.
+5. **`Z67_K11` credited** for the smooth-shadow reduction (R), the Haar-nullity (N), the slice coverings and the
+   refutation of π°; the UCOVER (2,2) references are updated; this lane's contribution to K-at-11 is stated as finite
+   data and certificates only.
+* **Reproduced by the cross-review:** Lemma E for λ_ET; the seven-family enumeration on unit residues ≡ 1 (4); both
+  M = 10⁴ certificates (three independent checkers); the census to 10⁸ and all 75 record minima; kill tests A, B as
+  implemented; the full S1 range to 8·10⁶ (same C engine); F1–F4 finite checks; smooth weight finiteness; M = 10⁴,
+  r = 2 smooth measure 4071/42350; the obstruction 640 mod 1287.
+* **Not independently reproduced by the cross-review:** the full λ census counts / tails to 10¹², and the smooth
+  exact / Monte Carlo tables above M = 10⁴ (§3.5–3.6). These remain single-engine.
 
 **Open after this lane.** ES; UCOVER O2 (K ∩ U ≠ ∅); (Q-S) for r = 2, 6 beyond the truncation 10⁸. A cross-model review
 is owed by the wave protocol. Not merged; waiting.
