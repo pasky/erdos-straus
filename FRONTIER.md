@@ -2635,6 +2635,33 @@ fixes applied; internal, unrefereed).**
   engine found. HSTARF: a realisation problem (abelian triangle covers pulled back along the p-th power map) equivalent
   to the full Type II family, with the square obstruction built in; no proof of solvability at large primes.
 
+**z67 (making Z66_UCOVER explicit; the K11 class; both ACCEPT-WITH-FIXES in Astra cross-review, fixes applied;
+internal, unrefereed).**
+* **Explicit ℓ₀ and (S) for all ℓ ≥ 11 (`Z67_ELL0.md`; strengthened + narrowed).** PROVED (computer-assisted, global
+  mass certificate, outward-rounded): for **every prime ℓ ≥ 11** the (S) good-word caught mass is < 1/2 (all 9566
+  primes 101 < ℓ < 10⁵ pass, worst 0.4932 at ℓ = 379), so some non-residue ℓ-profile is in U_S; ℓ = 3, 5, 7 fail
+  (UCOVER Thm S(c)). PROVED (Thm T-expl, relative to Elsholtz–Tao §3 with Lemma 2.8 re-derived; computer-assisted
+  interval arithmetic): for every prime ℓ ≥ e^{2950} (< 10^{1282}) the ET-caught non-residue mass is ≤ 0.0408, i.e.
+  ≥ 91.8 % of non-residue ℓ-profiles lie in U. PROVED (Lemma D): the I-1 (A) events need only k₂ = 1. PROVED (Prop R):
+  the a′ = 1 I-1 events at level k are in bijection with the (★)/(MS) solutions counted by R(ℓ^{2k−1}). OPEN: the ET
+  version (T-all) for 17 ≤ ℓ < e^{2950}; binding term I-1 at level k ≈ 29; R-bounds at odd powers, *together with*
+  bounds for the a′ > 1 analogues, would be one sufficient route; the counting bounds tested do not close it
+  (divisor-free box counting ≈ n^{2/3}, Assessment). EVIDENCE: below 10⁵ only ℓ = 3, 5, 7, 11, 13 have every
+  non-residue caught at level 1; all 72 primes 17 ≤ ℓ < 400 keep survivors through level 2, the 10 primes
+  59 ≤ ℓ ≤ 101 through level 3 (finite-depth survival only, not membership in U).
+* **The class K = {n ≡ 1 (840), (n/11) = −1} (`Z67_K11.md`; narrowed, K̄ ∩ U ≠ ∅ still OPEN).** PROVED: (R) K̄ ∩ U ≠ ∅
+  ⟺ for every P the P-smooth family classes miss part of the P-box of K̄ (finite covering of K's unit profiles ⟺ one
+  P fails); (N) U is Haar-null in Ẑ^× (II-2 classes −1 mod primes f ≡ 3 (4) + Borel–Cantelli; no conflict with
+  UCOVER/ELL0, whose masses live on null slices); (M, M′) event equations with explicit finite search bounds for all
+  seven ET families on profiles that are 1 off a finite prime set, including the mixed I-2, I-3, II-3 cases. The raw
+  free-slice class-measure series diverges (defeats only the unconditioned union bound). CERTIFIED: all 21 tested nonempty
+  rational K-slices "π_p = q for p ≥ 11" with q a non-residue {2,3,5,7}-unit are covered (q = 2: one I-3 class 6481 mod
+  8360); at T = {2,…,13} q = 4, 9, 2, 3, −1 covered, q = 1 survives the tested level; free 13-smooth shadow:
+  1 316 612 / 1 556 755 200 residues mod 3.1·10¹² uncovered by classes with modulus dividing Q (not a proof that
+  X₁₃ ≠ ∅). KILLED (Astra cross-review): the candidate π° = (2 at 11, 2 at 13, 1 elsewhere) is caught by the II-3
+  class −20447 mod 12670944 = 2⁵·3·11·13²·71 (also by an I-2 class), beyond all first-version search bounds.
+  CONJECTURE (EVIDENCE only): only "1 elsewhere" rational slices can carry points of K̄ ∩ U.
+
 ## 8. Pointers into the repository
 
 * **Start:** `STATUS.md` (wave headlines, newest first; ES-not-solved banner), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
