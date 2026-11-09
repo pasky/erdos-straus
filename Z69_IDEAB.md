@@ -346,3 +346,50 @@ I5 is dead in its naive form.
 Alive: IUC (S1), I17 (R8), I7/I8 (unprovability), I3/I24 (R6 lattice structure), I11 (as a frame), I15, I19, I22.
 
 --- *End of Phase 1 (committed before any repo/literature lookup).* ---
+
+## §2 Phase 2 — post-hoc lookup (repo `git grep`, FRONTIER §§2, 3, 6; three web searches)
+
+Dictionary (learned only now): the campaign's **(★)** is my F2 / "c = 1 line" (R(n) = #{4uBC − u − B = n}; my Phase-1
+zeros 409, 577 are the first two of its 14 prime zeros); its "b = 1 line / López Type A" is my F1 (zero 193 ✓.);
+its uncovered set "U" is my C; its "profiles e_{ℓ,g}" are my α_{q,r}; "B2 / tied-modulus divisor event" is the common
+endpoint of my I4, I11, I12, I16; CONV-II is the Type II half of my IUC.
+
+| # | idea | status | pointers (repo unless stated) | what my Phase 1 adds, if anything |
+|---|---|---|---|---|
+| I1 | profinite exceptional set, UC | **TRIED — strong UC refuted (PROVED)** | `Z66_UCOVER.md` Thm T (U ⊋ (Ẑ^×)², same one-prime profiles), `Z65_LOGIC2.md` Thm D (finite unions of classes ⟺ NOI-provability), `EXPONENT_COVERING.md` | S2 is independent EVIDENCE for the case UCOVER (iv) leaves as CONJECTURE (K = {1 mod 840, (n/11) = −1} meets U): in classes r = 2, 6 mod 11 the least modulus grows like in the square class. Nothing else. |
+| I2 | structure of C ∩ ℤ; IUC | **TRIED-OPEN** | FRONTIER §2 l.269 CONJECTURE CONV-II (odd non-square n ≠ 4545 has N_II ≥ 1; CERTIFIED n ≤ 10¹⁰), `Z58_WILDCARD.md` §1, `Z59_CONV2.md`, `Z58_STRUCT2.md` Thm 4.1 (4545 = integral Hasse failure, BM set non-empty); Type I zeros 105, 2961, 3705 already in `KUDLA_ES.md` l.57 (n ≤ 2·10⁴) | S1 reproduces 4545 independently (n ≡ 1 mod 4, ≤ 8·10⁶) and extends the Type I (K3) zero list {105, 2961, 3705} from 2·10⁴ to 8·10⁶ for n ≡ 1 (4) (single engine). IUC is implied by CONV-II + N_I(4545) > 0. |
+| I3 | Hirzebruch–Jung / continuant / lens space / Dedekind sums | **TRIED-DEAD** | FRONTIER §2.1 "SL₂ form", l.1510 ("HJ grammars (trap at 193)"), `DEDEKIND_ES.md`, `BRAINSTORM/bsA_lens_homotopy_surgery.md`, `Z68_SIGN.md`, `ES_CONNECTIONS_TODO.md` | nothing |
+| I4 | modular hyperbola + Weil | **TRIED-DEAD** | FRONTIER l.480, §6 l.1281 ("tied modulus; need p^{1−o(1)} saving"), §7 item 1, `Z53_HYPKLOOST.md`, `PARITY_AUDIT.md` §2 | nothing (same kill) |
+| I5 | parity by involution | **TRIED-DEAD** | FRONTIER l.590 (M5), §6 l.1409 (finite affine menus barred, (J)2 Thm 6.1), `WINDMILL.md`, `WINDMILL_REDUCTION.md`, `INVOLUTION_ES.md`, `Z62_PARITY(F).md` | S4 agrees (no parity law) |
+| I6 | Lambert / mock-theta generating function | **TRIED-DEAD** | FRONTIER §2.3 (exact theta-quotient normal form, `METAPLECTIC_ES.md` Thm K), §6 l.1287 ("Eisenstein-only, exact, does not decide one integer"), (I)5/(J)7 (no fixed-level identity, via T1) | nothing |
+| I7 | IOpen ⊬ ES (Shepherdson) | **TRIED — superseded** | `Z64_UNPROV.md` Thms A, A′, A″ (normal open induction + GCD + irreducible divisors ⊬ ES at *primes* of any square class), `Z58_LOGIC.md` | my 6-line largest-root proof is a cheaper special case (composite n = 4t+1, plain IOpen); no new content |
+| I8 | primes in Z-ring/Bézout models; S¹₂ witnessing | **TRIED; open only from IE₁ up** | `Z64_UNPROV.md` Prop 5.1 (exactly the Buss-witnessing statement), `Z65_LOGIC2.md`, `Z66_IE1.md` (IOpen + Lagrange upward: arc method dead; IE₁/IΔ₀ OPEN) | nothing |
+| I9 | identities over norm forms X² + DY² | **TRIED-DEAD** | `BRAINSTORM/ident_form_families` (O145b), `BRAINSTORM/s7_normform_collapse.md`, `POINTWISE_BINARYFORM` §6 (0 two-variable Type I families for u²+v²), `CLASS_FORCING.md` (governing fields) | my degree-count no-go is a re-derivation |
+| I10 | Pell / norm −1 unit | **TRIED-DEAD** | `BRAINSTORM/z5_pell_unit_T1.md` ("the real unit is positivity-blind"), FRONTIER l.524, l.608, l.1537 | nothing |
+| I11 | consecutive integers x+j ∈ B_{4j+3} | **TRIED-DEAD** | FRONTIER l.1510 ("consecutive blocks"), `SYNTHESIS_SPARKS4.md` l.85 (the (log n)^{−1/2} lottery), §3 B2 | nothing |
+| I12 | CRT-forced smooth shifts; S-unit pairs | **TRIED-DEAD** | FRONTIER §6 l.1288 (CRT architectures capped), `BREADTH_Z45.md` §15, `Z53_HCHYP.md` (Erdős–Hall) | nothing |
+| I13 | largest denominator first; induction | **TRIED-DEAD** | FRONTIER l.530 ("no Vieta-type involution") | nothing |
+| I14 | Cayley cubic, Brauer–Manin | **TRIED-DEAD** | FRONTIER §2.2 (BM main term, PROVED), l.649 & `Z58_STRUCT2.md` (4545: BM set non-empty, no point — BM is *not* the only obstruction) | nothing |
+| I15 | genus theory / Rédei for Δ = 4c²dp+1 | **TRIED-DEAD** | `Z53_GENUSREDEI.md`, `CLASS_FORCING.md`, FRONTIER l.506, l.964 ("class, not parity"), §6 l.1397 | nothing |
+| I16 | divisor sums with tied modulus | **TRIED-DEAD** | FRONTIER §2.1 trial form, §6 l.1281, `PARITY_AUDIT.md` §2 | nothing |
+| I17 | forms of disc −4dp, non-principal genus, Heegner points | **TRIED-DEAD** | `WINDMILL.md` l.432–472, `Z53_FORESTCLASS.md` (SMN: non-principal genus of −4p fails at 48 primes), `BRAINSTORM/z31_quadratic_forms.md`, `BRAINSTORM/z31_duke_equidistribution.md`, FRONTIER §6 l.1280 (Heegner small-scale equidistribution → scale constraint B3) | S3's census of the d = 1 slice (33 zeros < 6·10⁴) is consistent; nothing new |
+| I18 | stratify by least non-residue; pseudosquares | **TRIED-DEAD** | `Z66_UCOVER.md` (iii)–(iv), `Z60_MS105.md`, FRONTIER l.1537 | S2 (see I1) |
+| I19 | Poisson / extreme-value calibration | **TRIED (done)** | FRONTIER §2 l.200, l.359, §6 l.1284 ("far tail fatter than Poisson") | nothing |
+| I20 | disproof via higher reciprocity | **TRIED-OPEN (nothing found)** | `Z58_DISPROOF` lane, `Z58_STRUCT2.md`, FRONTIER §6 l.1397 | nothing |
+| I21 | function-field analogue | **TRIED** | `Z58_FFIELD.md`, FRONTIER l.671, l.1184 (a mute place makes the F_q[T] variant a theorem — the analogy does not transfer) | nothing |
+| I22 | ternary / weight 3/2 | **TRIED-DEAD** | `Z58_TERNARY` (lane), `THREE_SQUARES.md`, FRONTIER l.413, l.444 | nothing |
+| I23 | rings with units, descend by trace | **TRIED-DEAD** | `BRAINSTORM/z5_pell_unit_T1.md`, FRONTIER l.608 | nothing |
+| I24 | Lenstra divisors in residue classes | **TRIED-DEAD** | `Z53_LATTICE.md`, FRONTIER l.1604 ("Lenstra/CHN/Shiu per-fibre bounds remove only n^{o(1)}") | nothing |
+
+**Literature (web, 2026-11-09, three bounded searches):** nothing on ES in open induction outside the repo's own sources;
+López, arXiv:2404.01508 ("A complete congruence system for the Erdős–Straus conjecture", Type A/B) is the published form
+of F1 and is already the campaign's "b = 1 line"; no published statement of CONV-II / 4545 found. The repo's own
+literature files (`LITERATURE_2026.md`, `Z58_LIT.md`) are far more complete than these searches.
+
+**Phase-2 verdict (blunt).** 24 / 24 ideas were already in the campaign; **none is NEW**. Independent ideation
+re-derived the campaign's map — the (★)/F1 lines, T1 via reciprocity, the profinite set U and its one-prime profiles,
+CONV-II and 4545, the open-induction unprovability, the class-group and HJ encodings, and the same kills — and arrived
+at the same endpoint (one tied divisor event with polylog expected witnesses). The only items that are not literally in
+the repo are data footnotes: the Type I zero list to 8·10⁶ (I2) and the least-modulus growth in the classes 2, 6 mod 11 (I1).
+That an unprimed pass lands on the same barrier, with the same exceptional integers, is itself (weak) EVIDENCE that the
+campaign's map of *elementary* approaches is saturated.
