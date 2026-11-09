@@ -458,9 +458,12 @@ keeps growing. Twist: make that integer-side statement exact and push the comput
   of K_r" for explicit M, plus a growth comparison with the control. *What would not:* any claim about ES itself.
 
 ### 3.1 Lemma E (PROVED; immediate from `Z65_LOGIC2.md` Thm D's compactness step + Dirichlet)
-For a prime p let **λ(p)** be the least modulus of an ET Prop 1.9 family class containing p (finite whenever p has a
-Type I/II solution). For a primitive class r mod q put K_{r,q} = (r + qẐ) ∩ Ẑ^×. Then
-**K_{r,q} ∩ U = ∅ ⟺ sup{λ(p) : p prime, p ≡ r (mod q)} < ∞** (sup over all but finitely many primes).
+For a prime p let **λ_ET(p)** be the least modulus of an ET Prop 1.9 family class containing p (finite whenever p has a
+Type I/II solution). The scripts compute **λ(p) ≤ λ_ET(p)**, the least modulus over a *superset* 𝔉⁺ of the family classes
+(same seven parametrisations, without ET's coprimality side conditions; every class of 𝔉⁺ is still a valid polynomial
+identity class). Every "λ(p) > M" below therefore implies λ_ET(p) > M; statements of the form "λ(p) ≤ M" are about 𝔉⁺.
+Lemma E is stated for λ_ET and holds verbatim for λ (its proof only uses that there are finitely many classes per modulus). For a primitive class r mod q put K_{r,q} = (r + qẐ) ∩ Ẑ^×. Then
+**K_{r,q} ∩ U = ∅ ⟺ sup{λ_ET(p) : p prime, p ≡ r (mod q)} < ∞** (sup over all but finitely many primes).
 More precisely, for every M: *some unit residue class inside r mod q is missed by all family classes of modulus ≤ M*
 ⟺ *some prime p > M, p ≡ r (q), has λ(p) > M* ⟺ *infinitely many such primes exist*.
 *Proof.* There are finitely many family classes of modulus ≤ M; let L be the lcm of q and their moduli. A family
