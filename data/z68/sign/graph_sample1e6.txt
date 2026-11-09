@@ -1,0 +1,96 @@
+n=20521 giant=0.6769 giant+=0.3375 giant+sign=-1 L3inGiant=18/20 goodL3inGiant=6 L3inGiant+=6 goodL3inGiant+=6 S1comp:1 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:0 S2D:0 S2D+:0
+n=20521 minimax-height to a good L3: S1(len 6): E 12 E+ -1 | S2(len 4): E 12 E+ -1   (-1 = never)
+n=20521 V=20520 E=38306 comps=3112 comps+=3242 L3=20 goodL3=6 | good len>=4: 10250 inGoodComp=0.6905 inGoodComp+=0.6751 D=0.0318 D+=0.0312 | S1 q=11 len=6 Rmin:stuck(len4) Rmin+:stuck | S2 A=22 len=4 Rmin:stuck Rmin+:stuck | S3 bounded(<=4,len>=6) good=974 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.002
+n=589681 giant=0.8600 giant+=0.4304 giant+sign=-1 L3inGiant=34/36 goodL3inGiant=10 L3inGiant+=10 goodL3inGiant+=10 S1comp:1 S1comp+:1 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:0 S2D+:0
+n=589681 minimax-height to a good L3: S1(len 5): E 10 E+ 10 | S2(len 4): E 8 E+ 8   (-1 = never)
+n=589681 V=589680 E=1423402 comps=44330 comps+=44822 L3=36 goodL3=10 | good len>=4: 294826 inGoodComp=0.8625 inGoodComp+=0.8608 D=0.0112 D+=0.0110 | S1 q=23 len=5 Rmin:stuck(len5) Rmin+:stuck | S2 A=93 len=4 Rmin:stuck Rmin+:stuck | S3 bounded(<=4,len>=6) good=11968 Rmin=0.001 Rmin+=0.001 D=0.003 D+=0.003
+n=990001 giant=0.8736 giant+=0.4298 giant+sign=-1 L3inGiant=64/64 goodL3inGiant=44 L3inGiant+=44 goodL3inGiant+=44 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990001 minimax-height to a good L3: S1(len 3): E 3 E+ 3 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990001 V=990000 E=2469910 comps=68015 comps+=72392 L3=64 goodL3=44 | good len>=4: 494956 inGoodComp=0.8743 inGoodComp+=0.8597 D=0.0079 D+=0.0067 | S1 q=7 len=3 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=37 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17712 Rmin=0.001 Rmin+=0.001 D=0.001 D+=0.001
+n=990137 giant=0.8742 giant+=0.1094 giant+sign=1 L3inGiant=132/132 goodL3inGiant=84 L3inGiant+=48 goodL3inGiant+=0 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990137 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990137 V=990136 E=2470782 comps=67816 comps+=209054 L3=132 goodL3=84 | good len>=4: 494976 inGoodComp=0.8734 inGoodComp+=0.2172 D=0.0147 D+=0.0040 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=18108 Rmin=0.000 Rmin+=0.000 D=0.001 D+=0.000
+n=990169 giant=0.8738 giant+=0.4283 giant+sign=1 L3inGiant=182/182 goodL3inGiant=104 L3inGiant+=78 goodL3inGiant+=0 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990169 minimax-height to a good L3: S1(len 3): E 3 E+ 3 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990169 V=990168 E=2467726 comps=67772 comps+=73127 L3=182 goodL3=104 | good len>=4: 494980 inGoodComp=0.8735 inGoodComp+=0.8546 D=0.0139 D+=0.0105 | S1 q=7 len=3 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=26 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17486 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.001
+n=990281 giant=0.8741 giant+=0.1476 giant+sign=-1 L3inGiant=118/118 goodL3inGiant=98 L3inGiant+=94 goodL3inGiant+=94 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990281 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990281 V=990280 E=2470348 comps=67974 comps+=185412 L3=118 goodL3=98 | good len>=4: 495038 inGoodComp=0.8749 inGoodComp+=0.2950 D=0.0162 D+=0.0048 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=12 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=18034 Rmin=0.000 Rmin+=0.000 D=0.001 D+=0.000
+n=990289 giant=0.8750 giant+=0.4318 giant+sign=-1 L3inGiant=70/72 goodL3inGiant=44 L3inGiant+=44 goodL3inGiant+=44 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990289 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990289 V=990288 E=2470776 comps=67349 comps+=71528 L3=72 goodL3=44 | good len>=4: 495076 inGoodComp=0.8759 inGoodComp+=0.8637 D=0.0126 D+=0.0109 | S1 q=7 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=21 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17686 Rmin=0.000 Rmin+=0.000 D=0.001 D+=0.001
+n=990313 giant=0.8733 giant+=0.4111 giant+sign=1 L3inGiant=150/150 goodL3inGiant=96 L3inGiant+=54 goodL3inGiant+=0 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990313 minimax-height to a good L3: S1(len 3): E 3 E+ 3 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990313 V=990312 E=2470590 comps=67800 comps+=80423 L3=150 goodL3=96 | good len>=4: 495060 inGoodComp=0.8731 inGoodComp+=0.8211 D=0.0162 D+=0.0103 | S1 q=5 len=3 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17962 Rmin=0.000 Rmin+=0.000 D=0.001 D+=0.000
+n=990329 giant=0.8740 giant+=0.2377 giant+sign=-1 L3inGiant=116/116 goodL3inGiant=90 L3inGiant+=88 goodL3inGiant+=88 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990329 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990329 V=990328 E=2471852 comps=67832 comps+=164967 L3=116 goodL3=90 | good len>=4: 495058 inGoodComp=0.8740 inGoodComp+=0.4756 D=0.0143 D+=0.0046 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=12 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17806 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.000
+n=990361 giant=0.8730 giant+=0.4357 giant+sign=-1 L3inGiant=82/82 goodL3inGiant=40 L3inGiant+=40 goodL3inGiant+=40 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990361 minimax-height to a good L3: S1(len 4): E 4 E+ 4 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990361 V=990360 E=2466852 comps=67787 comps+=68954 L3=82 goodL3=40 | good len>=4: 495140 inGoodComp=0.8744 inGoodComp+=0.8715 D=0.0138 D+=0.0132 | S1 q=13 len=4 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=13 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17492 Rmin=0.000 Rmin+=0.000 D=0.001 D+=0.001
+n=990377 giant=0.8742 giant+=0.0395 giant+sign=-1 L3inGiant=142/142 goodL3inGiant=106 L3inGiant+=104 goodL3inGiant+=104 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990377 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990377 V=990376 E=2470952 comps=68115 comps+=234816 L3=142 goodL3=106 | good len>=4: 495078 inGoodComp=0.8744 inGoodComp+=0.0795 D=0.0149 D+=0.0033 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17790 Rmin=0.000 Rmin+=0.000 D=0.003 D+=0.000
+n=990497 giant=0.8733 giant+=0.1169 giant+sign=1 L3inGiant=118/118 goodL3inGiant=86 L3inGiant+=32 goodL3inGiant+=0 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990497 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990497 V=990496 E=2472174 comps=68286 comps+=209624 L3=118 goodL3=86 | good len>=4: 495158 inGoodComp=0.8720 inGoodComp+=0.2164 D=0.0160 D+=0.0043 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=18082 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.001
+n=990529 giant=0.8736 giant+=0.4341 giant+sign=1 L3inGiant=62/62 goodL3inGiant=38 L3inGiant+=24 goodL3inGiant+=0 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:0 S2D+:0
+n=990529 minimax-height to a good L3: S1(len 7): E 7 E+ 7 | S2(len 4): E 6 E+ 6   (-1 = never)
+n=990529 V=990528 E=2470066 comps=68306 comps+=70215 L3=62 goodL3=38 | good len>=4: 495226 inGoodComp=0.8731 inGoodComp+=0.8679 D=0.0123 D+=0.0105 | S1 q=13 len=7 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=52 len=4 Rmin:stuck Rmin+:stuck | S3 bounded(<=4,len>=6) good=17730 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.002
+n=990593 giant=0.8745 giant+=0.0873 giant+sign=1 L3inGiant=100/102 goodL3inGiant=74 L3inGiant+=24 goodL3inGiant+=0 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990593 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990593 V=990592 E=2472720 comps=67858 comps+=215977 L3=102 goodL3=76 | good len>=4: 495208 inGoodComp=0.8740 inGoodComp+=0.1658 D=0.0107 D+=0.0025 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17836 Rmin=0.001 Rmin+=0.000 D=0.001 D+=0.000
+n=990673 giant=0.8744 giant+=0.3729 giant+sign=-1 L3inGiant=238/238 goodL3inGiant=150 L3inGiant+=150 goodL3inGiant+=150 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990673 minimax-height to a good L3: S1(len 3): E 3 E+ 3 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990673 V=990672 E=2472588 comps=68147 comps+=90442 L3=238 goodL3=150 | good len>=4: 495186 inGoodComp=0.8742 inGoodComp+=0.7458 D=0.0192 D+=0.0087 | S1 q=5 len=3 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=18038 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.000
+n=990761 giant=0.8737 giant+=0.2548 giant+sign=-1 L3inGiant=110/110 goodL3inGiant=76 L3inGiant+=74 goodL3inGiant+=74 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990761 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990761 V=990760 E=2472352 comps=68020 comps+=161113 L3=110 goodL3=76 | good len>=4: 495296 inGoodComp=0.8736 inGoodComp+=0.5095 D=0.0163 D+=0.0073 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=12 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=18154 Rmin=0.001 Rmin+=0.000 D=0.003 D+=0.001
+n=990809 giant=0.8726 giant+=0.2611 giant+sign=1 L3inGiant=86/86 goodL3inGiant=66 L3inGiant+=16 goodL3inGiant+=0 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990809 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990809 V=990808 E=2472906 comps=68274 comps+=159360 L3=86 goodL3=66 | good len>=4: 495322 inGoodComp=0.8726 inGoodComp+=0.5183 D=0.0140 D+=0.0061 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=12 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17934 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.000
+n=990841 giant=0.8757 giant+=0.4297 giant+sign=1 L3inGiant=150/150 goodL3inGiant=94 L3inGiant+=56 goodL3inGiant+=0 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990841 minimax-height to a good L3: S1(len 3): E 3 E+ 3 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990841 V=990840 E=2472858 comps=67116 comps+=72221 L3=150 goodL3=94 | good len>=4: 495326 inGoodComp=0.8748 inGoodComp+=0.8565 D=0.0178 D+=0.0146 | S1 q=7 len=3 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=42 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17992 Rmin=0.001 Rmin+=0.000 D=0.002 D+=0.001
+n=990881 giant=0.8729 giant+=0.1935 giant+sign=-1 L3inGiant=134/134 goodL3inGiant=108 L3inGiant+=100 goodL3inGiant+=100 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990881 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990881 V=990880 E=2471786 comps=68452 comps+=176244 L3=134 goodL3=108 | good len>=4: 495328 inGoodComp=0.8733 inGoodComp+=0.3878 D=0.0153 D+=0.0057 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=12 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=18190 Rmin=0.001 Rmin+=0.001 D=0.002 D+=0.001
+n=990889 giant=0.8735 giant+=0.4364 giant+sign=-1 L3inGiant=122/122 goodL3inGiant=52 L3inGiant+=52 goodL3inGiant+=52 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990889 minimax-height to a good L3: S1(len 4): E 4 E+ 4 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990889 V=990888 E=2475144 comps=67907 comps+=68640 L3=122 goodL3=52 | good len>=4: 495392 inGoodComp=0.8745 inGoodComp+=0.8727 D=0.0181 D+=0.0175 | S1 q=17 len=4 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=17 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=18070 Rmin=0.001 Rmin+=0.001 D=0.002 D+=0.002
+n=990953 giant=0.8749 giant+=0.0219 giant+sign=1 L3inGiant=104/104 goodL3inGiant=78 L3inGiant+=16 goodL3inGiant+=0 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=990953 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=990953 V=990952 E=2472982 comps=67192 comps+=246048 L3=104 goodL3=78 | good len>=4: 495386 inGoodComp=0.8751 inGoodComp+=0.0459 D=0.0116 D+=0.0021 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17756 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.000
+n=990961 giant=0.8731 giant+=0.4291 giant+sign=-1 L3inGiant=132/132 goodL3inGiant=92 L3inGiant+=92 goodL3inGiant+=92 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:0 S2D+:0
+n=990961 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 6 E+ 6   (-1 = never)
+n=990961 V=990960 E=2475724 comps=68262 comps+=72660 L3=132 goodL3=92 | good len>=4: 495384 inGoodComp=0.8731 inGoodComp+=0.8583 D=0.0207 D+=0.0174 | S1 q=7 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=21 len=4 Rmin:stuck Rmin+:stuck | S3 bounded(<=4,len>=6) good=18482 Rmin=0.001 Rmin+=0.001 D=0.002 D+=0.002
+n=991009 giant=0.8734 giant+=0.4266 giant+sign=-1 L3inGiant=136/136 goodL3inGiant=100 L3inGiant+=100 goodL3inGiant+=100 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=991009 minimax-height to a good L3: S1(len 3): E 3 E+ 3 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=991009 V=991008 E=2473564 comps=67946 comps+=74229 L3=136 goodL3=100 | good len>=4: 495404 inGoodComp=0.8736 inGoodComp+=0.8531 D=0.0153 D+=0.0107 | S1 q=7 len=3 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=22 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=18270 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.001
+n=991057 giant=0.8747 giant+=0.4113 giant+sign=1 L3inGiant=108/108 goodL3inGiant=62 L3inGiant+=46 goodL3inGiant+=0 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=991057 minimax-height to a good L3: S1(len 3): E 3 E+ 3 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=991057 V=991056 E=2472126 comps=67824 comps+=80632 L3=108 goodL3=62 | good len>=4: 495466 inGoodComp=0.8736 inGoodComp+=0.8194 D=0.0126 D+=0.0088 | S1 q=5 len=3 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17872 Rmin=0.000 Rmin+=0.000 D=0.001 D+=0.001
+n=991073 giant=0.8745 giant+=0.0273 giant+sign=1 L3inGiant=108/110 goodL3inGiant=80 L3inGiant+=20 goodL3inGiant+=0 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=991073 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=991073 V=991072 E=2472188 comps=67454 comps+=244606 L3=110 goodL3=82 | good len>=4: 495442 inGoodComp=0.8737 inGoodComp+=0.0525 D=0.0136 D+=0.0032 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17976 Rmin=0.001 Rmin+=0.000 D=0.003 D+=0.000
+n=991129 giant=0.8751 giant+=0.4283 giant+sign=-1 L3inGiant=118/118 goodL3inGiant=78 L3inGiant+=78 goodL3inGiant+=78 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=991129 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=991129 V=991128 E=2472530 comps=67425 comps+=73160 L3=118 goodL3=78 | good len>=4: 495478 inGoodComp=0.8757 inGoodComp+=0.8567 D=0.0142 D+=0.0110 | S1 q=7 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=17 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17568 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.001
+n=991201 giant=0.8736 giant+=0.4356 giant+sign=-1 L3inGiant=70/70 goodL3inGiant=36 L3inGiant+=36 goodL3inGiant+=36 S1comp:1 S1comp+:1 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:0 S2D+:0
+n=991201 minimax-height to a good L3: S1(len 6): E 6 E+ 10 | S2(len 4): E 4 E+ 10   (-1 = never)
+n=991201 V=991200 E=2471004 comps=67580 comps+=69087 L3=70 goodL3=36 | good len>=4: 495564 inGoodComp=0.8751 inGoodComp+=0.8712 D=0.0130 D+=0.0122 | S1 q=11 len=6 Rmin:bad-L3(len3) Rmin+:stuck | S2 A=22 len=4 Rmin:bad-L3 Rmin+:stuck | S3 bounded(<=4,len>=6) good=17802 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.002
+n=991217 giant=0.8729 giant+=0.0421 giant+sign=1 L3inGiant=132/132 goodL3inGiant=108 L3inGiant+=20 goodL3inGiant+=0 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=991217 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=991217 V=991216 E=2472994 comps=68154 comps+=238805 L3=132 goodL3=108 | good len>=4: 495496 inGoodComp=0.8717 inGoodComp+=0.0833 D=0.0163 D+=0.0031 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17982 Rmin=0.001 Rmin+=0.000 D=0.003 D+=0.000
+n=991273 giant=0.8758 giant+=0.3848 giant+sign=1 L3inGiant=128/128 goodL3inGiant=88 L3inGiant+=40 goodL3inGiant+=0 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=991273 minimax-height to a good L3: S1(len 3): E 3 E+ 3 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=991273 V=991272 E=2473848 comps=66966 comps+=87542 L3=128 goodL3=88 | good len>=4: 495548 inGoodComp=0.8769 inGoodComp+=0.7682 D=0.0145 D+=0.0066 | S1 q=5 len=3 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17802 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.001
+n=991313 giant=0.8760 giant+=0.1378 giant+sign=-1 L3inGiant=108/110 goodL3inGiant=80 L3inGiant+=78 goodL3inGiant+=78 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=991313 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=991313 V=991312 E=2472976 comps=67232 comps+=204021 L3=110 goodL3=82 | good len>=4: 495570 inGoodComp=0.8758 inGoodComp+=0.2756 D=0.0113 D+=0.0033 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=17938 Rmin=0.000 Rmin+=0.000 D=0.001 D+=0.000
+n=991409 giant=0.8750 giant+=0.1854 giant+sign=-1 L3inGiant=94/94 goodL3inGiant=72 L3inGiant+=70 goodL3inGiant+=70 S1comp:0 S1comp+:0 S1D:0 S1D+:0 S2comp:1 S2comp+:1 S2D:0 S2D+:0
+n=991409 minimax-height to a good L3: S1(len 2): E -1 E+ -1 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=991409 V=991408 E=2474222 comps=67108 comps+=176336 L3=94 goodL3=72 | good len>=4: 495616 inGoodComp=0.8746 inGoodComp+=0.3707 D=0.0120 D+=0.0044 | S1 q=3 len=2 Rmin:stuck(len2) Rmin+:stuck | S2 A=12 len=4 Rmin:stuck Rmin+:stuck | S3 bounded(<=4,len>=6) good=18058 Rmin=0.000 Rmin+=0.000 D=0.001 D+=0.000
+n=991633 giant=0.8747 giant+=0.3884 giant+sign=1 L3inGiant=132/132 goodL3inGiant=96 L3inGiant+=32 goodL3inGiant+=0 S1comp:1 S1comp+:1 S1D:1 S1D+:1 S2comp:1 S2comp+:1 S2D:1 S2D+:1
+n=991633 minimax-height to a good L3: S1(len 3): E 3 E+ 3 | S2(len 4): E 4 E+ 4   (-1 = never)
+n=991633 V=991632 E=2474900 comps=67784 comps+=87147 L3=132 goodL3=96 | good len>=4: 495712 inGoodComp=0.8762 inGoodComp+=0.7767 D=0.0175 D+=0.0092 | S1 q=5 len=3 Rmin:GOOD-L3(len3) Rmin+:GOOD-L3 | S2 A=10 len=4 Rmin:GOOD-L3 Rmin+:GOOD-L3 | S3 bounded(<=4,len>=6) good=18004 Rmin=0.000 Rmin+=0.000 D=0.002 D+=0.001

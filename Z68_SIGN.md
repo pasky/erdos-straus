@@ -367,3 +367,57 @@ disguise on the profile classes of Thm 6 and must fail somewhere; a surviving ru
 cuts — record which. **Candidate threshold:** a rule (Q2 or Q2⁺) succeeding from the registered start at every prime
 p ≡ 1 (8) up to 10⁶ (or the largest range computed) and failing at all tested odd squares is reported as a CANDIDATE
 (loudly) and attacked for a proof; success at < 99 % of primes ≤ 10⁵ kills it.
+
+### 10.1 Computation (`scripts/z68_sign_graph.c`; independent edge-count check `scripts/z68_sign_graph_check.py`)
+For each odd n the program builds V(n) (every word, every length) and every Lemma-2 move (all cuts incl. endpoints, all
+k ≥ 2; each target word is rebuilt from the move data and checked to have numerator n; when gcd(k, n) = 1 its
+denominator is checked against A·k^{∓1} mod n; CSR adjacency checked). Brute-force Python edge counts agree at
+n = 17, 41, 89, 97, 113, 225, 289, 409, 1089 (`graph_check.txt`). Runs: all 2 384 primes p ≡ 1 (8), 17 ≤ p ≤ 10⁵
+(`graph_p1e5.txt`, 4 min), 30 primes p ≡ 1 (8) in [990 000, 10⁶] plus 20521 and 589681 (`graph_sample1e6.txt`), and
+controls: odd squares m², m = 33, 41, …, 313, and Z₇ = {105, 1465, 3865, 4545, 10305, 12145, 39361, 67425}
+(`graph_controls.txt`). Aggregation: `scripts/z68_sign_graph_agg.py`.
+Starts: S1 = word of A = q (least prime non-residue), S2 = shortest good word of length ≥ 4 (least A; in every run
+S2 has length 4 and small A, e.g. 12, 22, 37), S3 = all good words with HJ letters ≤ 4 and length ≥ 6 ("bounded-digit").
+
+### 10.2 Results (EVIDENCE unless labelled)
+* **The move graph percolates, square-blind.** |E| ≈ 1.5–2|V|. Fraction of V in the largest component: mean 0.25
+  (p ≤ 10³), 0.56 (10³–10⁴], 0.69 (10⁴–3·10⁴], 0.74 (–6·10⁴], 0.78 (–10⁵], 0.87 near 10⁶. It contains every L₃
+  vertex at 1 839 of the 2 347 primes in (10³, 10⁵], and **a good L₃ vertex at all 2 347** (and at all 32 of the 10⁶
+  sample). Odd squares of primes percolate alike (41²: 0.52, 97²: 0.66, 313²: 0.79); squares and Z₇ composites with small
+  prime factors percolate less (105²: 0.008, 4545: 0.013). So connectivity is not a non-squareness signal (at squares
+  every vertex is +1, F1).
+* **Descent rules (Q2) — KILLED as registered.** Strictly length-decreasing paths to a good L₃ vertex exist from only
+  0.4–1.1 % of good words of length ≥ 4 (mean per prime), from 0.48 % of bounded-digit good words (S3) in (10⁴, 10⁵] and
+  0.18 % near 10⁶ (decreasing). The deterministic rule Rmin (go to the shortest neighbour while shorter) from S1 reaches
+  a good L₃ vertex at 40–43 % of primes; from S3 at 0.24 % (→ 0.03 % near 10⁶); E⁺-only versions are lower. KG2 fires:
+  at 21841 Rmin from S1 (length 6) stops at a length-4 word. The registered threshold (≥ 99 % of primes ≤ 10⁵) fails
+  for every descent rule and start tested. **No CANDIDATE.**
+* **Signed reachability.** The sign-preserving graph E⁺ has a largest component of 6–29 % of V; it is good-signed at
+  68 % of primes ≤ 10⁵ and 16/30 near 10⁶. S1's component contains a good L₃ vertex at only 44 % of primes (E and E⁺
+  alike): the least-non-residue word typically has length 2 (37 %) and sits in a small component. S2's component does
+  at every prime in (10³, 10⁵] and in the 10⁶ sample (E), and at 98 % (E⁺; fails e.g. at 1249, 2521, 20521).
+* **Minimax height (direction 2: n-dependent cuts, unbounded k).** h(start) := least H such that, inside the words of
+  length ≤ H, the start is E-connected to a good L₃ vertex. From S2: h = 4 at 95 % of primes, h ≤ 16 at every prime in
+  (10³, 10⁵], h ≤ 8 in the 10⁶ sample (20521: 12; 21841: 6). E⁺-version: undefined (no such H) at 38 primes ≤ 10⁵.
+  From S1: undefined at 37 % (isolated length-2 word).
+
+### 10.3 What the graph can and cannot carry
+**Proposition 9 (accumulated correction; PROVED, immediate from Lemma 2).** At a prime p, along any path
+A₀ → A₁ → … → A_m in E(p) whose i-th step is a right (resp. left) move with multiplier k_i, A_m ≡ A₀·∏ k_i^{∓1}
+(mod p) and χ_p(A_m) = χ_p(A₀)·∏ χ_p(k_i). So "tracking the correction character" along a descent is the same as
+evaluating χ_p at the endpoint, and a rule guarantees a good endpoint from a good start only through knowledge of
+∏ χ_p(k_i) (e.g. by using E⁺ steps), i.e. through Legendre symbols of the multipliers, which are divisors of letters
+and unbounded. ∎
+*Reading (Assessment).* The unlabelled graph behaves alike at primes and at prime squares (10.2), so connectivity,
+heights and path existence carry no non-squareness information by themselves; the sign enters only through the labels
+χ_p(k_i). The successful statement "S2 is connected inside words of length ≤ 16 to a good L₃ vertex" (all primes in
+(10³, 10⁵]) is (S)(p) together with a percolation fact; it is not a descent rule and is not a candidate under the
+registered criterion. Monotone descent from long or bounded-digit good words is rare and becomes rarer as p grows,
+so a working descent must climb; a climbing search whose success is certified only at the endpoint is a search for an
+(S)-witness, not a transport. The reviewer's direction 3 (weighted first-hitting operator) is untried.
+**KG1** squares: no good vertex exists, 0 successes (sanity, as registered). **KG2** 21841: S1-descent stuck (dead);
+S2 reaches the unique good pair within height 6 (E) / 8 (E⁺). **KG3** (ELL0): every rule tested used unbounded k and
+n-dependent cuts, so ELL0/Thm 6 did not exclude them; they failed on their own.
+**Verdict of §10: NARROWED (unchanged).** Descent along rescaling moves — monotone, greedy, sign-preserving, from the
+least-non-residue word or from bounded-digit good words — is numerically dead by its registered kill tests; the move
+graph percolates square-blind, so reachability alone reduces to (S).
