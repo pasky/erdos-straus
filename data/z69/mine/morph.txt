@@ -1,0 +1,6 @@
+H-low p>=1e4 primes 570 witnesses 6674 W/prime 11.7
+   min<=2=0.096  min<=8=0.366  min>=20=0.404  x(=r)<=8=0.133  y<=8=0.164  z<=8=0.105  f prime=0.249  f>sqrt(p)=0.786  reversal also witness=0.273  8|y=0.273  r square=0.086  sq|p+r, sq>1 odd=0.322
+H-np primes 231 witnesses 6605 W/prime 28.6
+   min<=2=0.137  min<=8=0.438  min>=20=0.391  x(=r)<=8=0.155  y<=8=0.173  z<=8=0.174  f prime=0.000  f>sqrt(p)=0.805  reversal also witness=0.354  8|y=0.354  r square=0.072  sq|p+r, sq>1 odd=0.408
+C p>=1e4 primes 2495 witnesses 125765 W/prime 50.4
+   min<=2=0.268  min<=8=0.608  min>=20=0.247  x(=r)<=8=0.238  y<=8=0.196  z<=8=0.274  f prime=0.194  f>sqrt(p)=0.778  reversal also witness=0.415  8|y=0.415  r square=0.146  sq|p+r, sq>1 odd=0.371

@@ -1,0 +1,6 @@
+local one-hot (l<100, mod 64)            held-out R2(log w) = 0.3913
+log tau(p+c), log tau(cp+1), c<=8        held-out R2(log w) = 0.3708
+   coefs p+c: [0.1   0.091 0.091 0.071 0.012 0.009 0.073 0.049]  cp+1: [ 0.1    0.065  0.021  0.066 -0.001  0.004  0.029  0.059]
+local + shifts                           held-out R2(log w) = 0.4384
+noise share approx 0.352
+sum log tau: lowest 0.1% w: 35.70   all: 39.13

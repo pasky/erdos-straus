@@ -1,0 +1,2 @@
+H 822 {'f % np == 0': '0.725', 'f % nq7 == 0': '0.443', 'f == nq7': '0.146', 'f has inert prime <= 59': '0.950', 'least inert prime divides some f': '0.725'}
+C 2468 {'f % np == 0': '0.991', 'f % nq7 == 0': '0.900', 'f == nq7': '0.750', 'f has inert prime <= 59': '1.000', 'least inert prime divides some f': '0.991'}

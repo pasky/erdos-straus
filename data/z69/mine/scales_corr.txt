@@ -1,0 +1,28 @@
+primes 1273994 mean clusters per bin [ 2.6   9.84 15.16 16.68] var/mean [0.75 1.4  1.29 2.29]
+M=1 classes=1  residual var/mean per bin [0.75 1.4  1.29 2.29]
+   residual correlations:
+ [[1.    0.283 0.25  0.199]
+ [0.283 1.    0.439 0.182]
+ [0.25  0.439 1.    0.148]
+ [0.199 0.182 0.148 1.   ]]
+   Var(sum residual) / sum Var(bin residuals) = 1.548 (1 = independent, <1 = compensation)
+M=15015 classes=5760  residual var/mean per bin [0.35 1.27 1.21 1.36]
+   residual correlations:
+ [[1.    0.188 0.191 0.171]
+ [0.188 1.    0.409 0.184]
+ [0.191 0.409 1.    0.134]
+ [0.171 0.184 0.134 1.   ]]
+   Var(sum residual) / sum Var(bin residuals) = 1.522 (1 = independent, <1 = compensation)
+M=240240 classes=11520  residual var/mean per bin [0.35 1.26 1.2  1.26]
+   residual correlations:
+ [[1.    0.188 0.191 0.177]
+ [0.188 1.    0.41  0.19 ]
+ [0.191 0.41  1.    0.142]
+ [0.177 0.19  0.142 1.   ]]
+   Var(sum residual) / sum Var(bin residuals) = 1.540 (1 = independent, <1 = compensation)
+one-hot local model (l<=100, p mod 64): held-out residual correlations
+ [[1.    0.179 0.175 0.211]
+ [0.179 1.    0.393 0.189]
+ [0.175 0.393 1.    0.135]
+ [0.211 0.189 0.135 1.   ]]
+   Var(sum)/sum Var = 1.526

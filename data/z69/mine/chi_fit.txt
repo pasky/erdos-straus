@@ -1,0 +1,11 @@
+log L_y(1,chi_p), y=   13 : R2(log w) = 0.1046  slope -0.181
+log L_y(1,chi_p), y=   50 : R2(log w) = 0.1104  slope -0.181
+log L_y(1,chi_p), y=  200 : R2(log w) = 0.1115  slope -0.181
+log L_y(1,chi_p), y= 2000 : R2(log w) = 0.1113  slope -0.180
+free linear model in chi_p(l), l<=200: R2(log w) = 0.1513
+coef*l (should be ~ const if ~ -kappa*chi/l): [np.float64(-0.17), np.float64(-0.12), np.float64(-0.43), np.float64(-0.2), np.float64(-0.07), np.float64(0.08), np.float64(-0.15), np.float64(-0.59), np.float64(-0.11), np.float64(-0.51), np.float64(-0.0), np.float64(0.06)]
+4 twisted L(1) model: R2(log w) = 0.1497 coefs {'1': np.float64(-0.16), '-4': np.float64(0.148), '8': np.float64(-0.022), '-8': np.float64(0.12)}
+class-mod-8 Euler sums: R2(log w) = 0.1497 coefs {1: np.float64(0.087), 3: np.float64(-0.172), 5: np.float64(-0.112), 7: np.float64(-0.452)}
+one-hot residue-class model p mod l, l<=60: R2(log w) = 0.3143
+free chi model l<=60 (same subsample): R2(log w) = 0.1479
+approx noise share of Var(log w): 0.317
