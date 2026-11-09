@@ -1,4 +1,4 @@
-// z68_sign_cells.c — all length-3 words of single odd n ≡ 1 (mod 4) (n < 2^62), with sign and 2-adic cell counts.
+// z68_sign_cells.c — all length-3 words of single odd n ≡ 1 (mod 4) (n <= 9e12: factorisation by trial division with primes < 3.1e6), with sign and 2-adic cell counts.
 // Word: (t,u,v), t,u,v >= 2, tuv - u - v = n, A = tu - 1.  Enumeration: the smaller outer letter u <= sqrt(n/2)+1;
 // for each such u, all divisors A of n+u with A ≡ -1 (mod u), 2u-1 <= A <= (n+u)/2, v = (n+u)/A >= u
 // (v = u counted once).  Sign (A/n) by direct Jacobi.  Prints per n: #words (ordered pairs counted once per
@@ -38,6 +38,7 @@ static void gen(int i, ull d) {
     ull x = d; for (int e = 0; e <= fac_e[i]; e++) { gen(i + 1, x); x *= fac_p[i]; }
 }
 static void doit(ull n) {
+    if (n < 5 || n % 4 != 1 || n > 9000000000000ULL) { fprintf(stderr, "domain: n = 1 (mod 4), 5 <= n <= 9e12 (trial-division sieve to 3.1e6 must exceed sqrt(n + u))\n"); exit(1); }
     ull umax = 2; while ((umax + 1) * (umax + 1) <= n / 2 + 2) umax++; umax += 1;
     long pairs = 0, neg = 0, t4 = 0, t8 = 0, t4neg = 0;
     int printed = 0;

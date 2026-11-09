@@ -1,0 +1,4 @@
+N=3895 primes p = 1 (8) in (1e4, 2e5] with |L3|, |NOOUT| >= 10; NOOUT share of L4 = 0.0780
+rho(f3, f4 all) = +0.638;  rho(f3, f4 NOOUT) = -0.158 (within mod 9240: -0.075)
+hardest 1% by f3 (n=39): mean NOOUT -1 fraction 0.563 vs all 0.558
+ISOL (no move in or out at any cut): share of L4 = 0.0037 (too small per prime for a correlation)

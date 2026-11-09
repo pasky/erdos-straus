@@ -15,6 +15,9 @@ def K(w):
     for x in w: a, b = x * a - b, a
     return a
 fn, R = sys.argv[1], int(sys.argv[2])
+# optional argv[3] = "full": also assert that for every prime l in [argv[4], argv[5]] every non-residue class is witnessed
+full = len(sys.argv) > 3 and sys.argv[3] == "full"
+cov = {}
 cnt = 0; ls = set()
 for line in open(fn):
     m = re.match(r"W (\d+) (\d+) g=(\d+) X/X'=(\d+)/(\d+) Y/Y'=(\d+)/(\d+)", line)
@@ -35,5 +38,12 @@ for line in open(fn):
         w = left + [b] + right
         assert K(w) == nn and nn % l == g and (nn - 1) % M == 0
         assert jacobi_symbol(K(w[1:]), nn) == -1, (l, g, nn, w)
-    cnt += 1; ls.add(l)
+    cnt += 1; ls.add(l); cov.setdefault(l, set()).add(g)
+if full:
+    lo, hi = int(sys.argv[4]), int(sys.argv[5])
+    for l in range(lo, hi + 1):
+        if l < 3 or any(l % d == 0 for d in range(2, int(l ** 0.5) + 1)): continue
+        nonres = {g for g in range(1, l) if jacobi_symbol(g, l) == -1}
+        assert cov.get(l, set()) == nonres, (l, sorted(nonres - cov.get(l, set())))
+    print(f"full coverage asserted: every non-residue class mod l witnessed at length {R} for every prime {lo} <= l <= {hi}")
 print(f"{fn}: R={R}: {cnt} witnesses verified at {len(ls)} primes l, 0 failures")

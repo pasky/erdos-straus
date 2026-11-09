@@ -1,4 +1,4 @@
-# z68_sign_transport_check.py — Theorem 2 (no local transport L4 -> L3) input check.
+# z68_sign_transport_check.py — Theorem 6 (no local transport L4 -> L3) input check.
 # For each prime l with a UCOVER Thm S(a) certified branch list (g0 mod l containing a profile e_{l,g} caught by NO
 # length-3 good family at ANY level; data/z66/ucover/stree_certified*.txt), intersect with the non-residue classes
 # caught at level 1 by LENGTH-4 good families (data/z68/sign/profile_R4_B2e6.txt, exact length 4, explicit witnesses).
@@ -60,4 +60,6 @@ for l in sorted(branches):
         both.append(g0)
     print(f"l={l} UCOVER-branches={branches[l]} caught-at-length-4-level-1={both}")
     if both: ok_l.append(l)
-print("primes l where Theorem 2 applies:", ok_l)
+expected = [l for l in range(11, 102) if all(l % d for d in range(2, l))]
+assert ok_l == expected, (ok_l, expected)
+print("primes l where Theorem 6 applies (asserted = all primes 11..101):", ok_l)

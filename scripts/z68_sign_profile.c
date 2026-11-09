@@ -69,7 +69,7 @@ static void enum_len(int c, ll Nmax, fracfn f, void *ctx) {
     if (c == 0) { f(1, 0, ctx); return; }
     if (c == 1) { for (ll N = 2; N <= Nmax; N++) f(N, 1, ctx); return; }
     struct rec_ctx rc = { c, Nmax, f, ctx };
-    // D/D2 of length c-1 with D <= Nmax/2 + 1 (since N >= 2D - D2 > D)
+    // D/D2 of length c-1 with D < N <= Nmax (N = bD - D2 >= 2D - D2 > D); the extension loop stops at once when bD - D2 > Nmax
     enum_len(c - 1, Nmax, enum_up, &rc);
 }
 
@@ -108,7 +108,7 @@ int main(int argc, char **argv) {
     if (argc < 5) { fprintf(stderr, "usage: lmin lmax R B\n"); return 1; }
     int lmin = atoi(argv[1]), lmax = atoi(argv[2]), R = atoi(argv[3]);
     ll B = atoll(argv[4]);
-    if (R > 7 || lmax >= 4096) { fprintf(stderr, "R<=7, l<4096\n"); return 1; }
+    if (R < 2 || R > 7 || lmin < 3 || lmax >= 4096 || B < 4) { fprintf(stderr, "need 2<=R<=7, 3<=lmin, lmax<4096, B>=4\n"); return 1; }
     printf("# z68_sign_profile lmin=%d lmax=%d R=%d B=%lld ; level-1 catching of non-residue profiles e_{l,g}\n", lmin, lmax, R, B);
     printf("# cols: l Rlen #nonres #caught_exact_len #caught_len<=Rlen ev=#good_events(shapes a<=c) maxXY uncaught_list(len<=Rlen) exact_uncaught\n");
     for (L = lmin; L <= lmax; L++) {

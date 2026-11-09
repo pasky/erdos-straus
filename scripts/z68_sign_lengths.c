@@ -20,7 +20,10 @@ static int jacobi(ll a, ll n) {
     return n == 1 ? s : 0;
 }
 int main(int argc, char **argv) {
+    if (argc < 2) { fprintf(stderr, "usage: P\n"); return 1; }
     ll P = atoll(argv[1]);
+    if (P < 10 || P > 100000000) { fprintf(stderr, "10 <= P <= 1e8\n"); return 1; }
+    
     char *c = calloc(P + 1, 1);
     for (ll i = 2; i * i <= P; i++) if (!c[i]) for (ll j = i * i; j <= P; j += i) c[j] = 1;
     printf("# p L2 neg2 L3 neg3 L4 neg4 L5 neg5  (HJ length r(p/A), A in (0,p))\n");

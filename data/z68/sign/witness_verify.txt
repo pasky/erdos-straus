@@ -1,4 +1,7 @@
 data/z68/sign/profile_R4_B2e6.txt: R=4: 1575 witnesses verified at 42 primes l, 0 failures
+full coverage asserted: every non-residue class mod l witnessed at length 5 for every prime 11 <= l <= 101
 data/z68/sign/profile_R5_B2e5.txt: R=5: 561 witnesses verified at 22 primes l, 0 failures
-data/z68/sign/profile_R5_B2e6_131_211.txt: R=5: 1351 witnesses verified at 16 primes l, 0 failures
+full coverage asserted: every non-residue class mod l witnessed at length 5 for every prime 103 <= l <= 127
 data/z68/sign/profile_R5_B2e5_103_127.txt: R=5: 277 witnesses verified at 5 primes l, 0 failures
+full coverage asserted: every non-residue class mod l witnessed at length 5 for every prime 131 <= l <= 211
+data/z68/sign/profile_R5_B2e6_131_211.txt: R=5: 1351 witnesses verified at 16 primes l, 0 failures
