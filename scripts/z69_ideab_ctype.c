@@ -4,14 +4,14 @@
 //   Type I (class K3): exists a,d,f with f | 4a^2 d + 1 and n == -f (mod 4ad)
 //             <=> exists f==-n (4), 1<=f<2n, x'=(n+f)/4 = a*c*d, f | 4a^2 d + 1   (c free; b=(an+c)/f)
 // Output: lines "n flagII flagI" for n with flagII==0 or flagI==0 (so zeros of either type are visible).
-// usage: ctype N [skipsq]   (skipsq=1: skip perfect squares, which are zeros of both types by reciprocity R5)
+// usage: ctype N [skipsq] [n0]   (n0: start value, rounded up to 1 mod 4);   (skipsq=1: skip perfect squares, which are zeros of both types by reciprocity R5)
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <math.h>
 static int *dstart, *dlist;
 int main(int argc, char **argv) {
-    long N = atol(argv[1]); int skipsq = argc > 2 ? atoi(argv[2]) : 0;
+    long N = atol(argv[1]); int skipsq = argc > 2 ? atoi(argv[2]) : 0; long n0 = argc > 3 ? atol(argv[3]) : 5; while (n0 % 4 != 1) n0++;
     long M = (3 * N) / 4 + 2;            // max x' = (n+f)/4 < 3n/4
     int *cnt = calloc(M + 2, sizeof(int));
     for (long d = 1; d <= M; d++) for (long m = d; m <= M; m += d) cnt[m]++;
@@ -20,7 +20,8 @@ int main(int argc, char **argv) {
     dlist = malloc(tot * sizeof(int));
     int *fill = calloc(M + 2, sizeof(int));
     for (long d = 1; d <= M; d++) for (long m = d; m <= M; m += d) dlist[dstart[m] + fill[m]++] = d;
-    for (long n = 5; n <= N; n += 4) {
+    for (long n = n0; n <= N; n += 4) {
+        if ((n & 0xFFFFF) == 1) { fprintf(stderr, "at %ld\n", n); }
         int f2 = 0, f1 = 0;
         if (skipsq) { long r = (long)floor(sqrt((double)n) + 0.5); if (r * r == n) continue; }
         long xhi = (n + 1) / 3;
@@ -46,7 +47,7 @@ int main(int argc, char **argv) {
                 }
             }
         }
-        if (!f2 || !f1) printf("%ld %d %d\n", n, f2, f1);
+        if (!f2 || !f1) { printf("%ld %d %d\n", n, f2, f1); fflush(stdout); }
     }
     return 0;
 }

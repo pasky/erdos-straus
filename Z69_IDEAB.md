@@ -296,3 +296,53 @@ structure R6. *Key lemma (needed):* turn Lenstra's *finiteness* proof into an *e
 (the lattice attached to d varies with d by a unipotent shear, cf. I3). *Squares:* the sheared lattices never contain
 the required vector by R5. *Six classes:* none. *Assessment:* gives an algorithmic handle (each d costs polylog time
 without factoring) relevant to I8's bounded-arithmetic angle; as a proof route it is R6 again. Mid.
+
+### 1.2 Top 5 and Phase-1 sanity checks (all numerics small; scripts `scripts/z69_ideab_*`, data `data/z69/ideab/`)
+
+**Top 5 (chosen before looking anything up):** T1 = I1+I18 (profinite exceptional set / corridor closing),
+T2 = I2+I20 (what is C ∩ ℤ?), T3 = I17 (R8: forms of discriminant −4dp, non-principal genus),
+T4 = I7+I8 (unprovability: IOpen; Z-ring models; bounded-arithmetic witnessing), T5 = I5 (parity — as a cheap kill).
+
+**S0. Reformulations verified** (`z69_ideab_sanity.py`, primes p ≡ 1 (4), p < 2200; `sanity_2200.txt`). CERTIFIED on that range:
+every solution of 4/p is Type I or II; "some Type II solution" ⟺ "some K2 class contains p" (0 mismatches / 159 primes);
+F1, F2, R8(d=1) each produce exact solutions (checked with rationals); the F2 count equals the count of length-3 minus
+continued fractions [[a,4d,b]] with numerator p (R6). Zeros below 2200: F1 {193}; F2 {409, 577}; R8(d=1)
+{13, 37, 97, 181, 193, 541, 673, 757, 1033, 1093, 1297, 1621, 1777}.
+
+**S1 (T2). Which n ≡ 1 (4) have no identity-type solution?** (`z69_ideab_ctype.c`, exhaustive.)
+Type II := ∃ a,b,c,d ≥ 1 with nc = 4abcd − a − b (no gcd condition); Type I := n in some class K3
+(∃ a,d and f | 4a²d+1 with n ≡ −f mod 4ad). CERTIFIED (single run; independent re-check is a Phase-3 to-do):
+* 5 ≤ n ≤ 2·10⁵, all n ≡ 1 (4): Type II zeros = the 223 odd squares ∪ {4545}; Type I zeros = the 223 odd squares ∪
+  {105, 2961, 3705}; **zeros of both = exactly the odd squares**.
+* non-square n ≡ 1 (4) up to 8·10⁶: Type II zeros {4545} only; Type I zeros {105, 2961, 3705} only; none in common.
+  (4545 = 3²·5·101, 105 = 3·5·7, 2961 = 3²·7·47, 3705 = 3·5·13·19.)
+So on this range **C ∩ ℤ = {odd squares}**: with both types allowed, non-squareness alone (no primality) suffices —
+EVIDENCE for the integer form of I1: *CONJECTURE IUC: a positive integer n ≡ 1 (mod 4) has a Type I or Type II
+identity-type solution iff n is not a square.* The one-type exceptional sets look *finite* ({4545}; {105, 2961, 3705}).
+
+**S2 (T1). Corridor test of the strong (profinite) UC** (`z69_ideab_corridor.py 11 100000 3000`): n ≡ 1 (840),
+n ≡ r (11), n < 9.24·10⁸, least modulus of an identity class (K1∪K2∪K3) containing n.
+r = 7, 8, 10: always 11 (one K2 class each). **r = 2, 6: the maximum least modulus keeps growing with the range**
+(r = 2: 143, 351, 479, 611 over the first 10², 10³, 10⁴, 10⁵ values; r = 6: 127, 279, 599, 935), at the same rate as in the
+control square class r = 1 (136, 359, 536, 1271); the witnesses used are other primes (23, 19, 39, 31, 47, …), not 11.
+EVIDENCE that **strong UC is false**: the class {1 mod 840, 2 mod 11} contains no squares yet is not covered by
+finitely many identities. This matches a compactness heuristic: uncovered sets at every finite level are non-empty and
+nested, so C is a Cantor-like closed set strictly larger than S; a prime is excluded from C not because its *class*
+dies but because *it* dies. Consequence for T1/I18: the "least non-residue gives a bounded-modulus identity" route is
+dead; what survives is the integer statement IUC (S1), which is a different kind of claim.
+
+**S3 (T3). R8 / class group** (`z69_ideab_forms.py 60000`): for 3018 primes p ≡ 1 (4) below 6·10⁴ the d = 1 slice
+(forms [f,4a,e] of disc −4p with 4a | f+1) has mean count 5.9 / 10.2 / 14.2 on [5,10³), [10³,10⁴), [10⁴,6·10⁴) and
+33 zeros (last 58321; 5 of them in the six classes); reduced good forms alone miss 269 primes. So the d = 1 slice
+is a genuine log²-family with slowly thinning zeros; a proof along I17 must use several odd d (discriminants −4dp).
+
+**S4 (T5). Parity** (`sanity_2200.txt`): over 159 primes, the parities of (total #solutions, #Type I, #Type II,
+½#F2, ½#R8, p mod 8) populate all 32 combinations roughly evenly. EVIDENCE: no parity law for any natural count.
+I5 is dead in its naive form.
+
+**S5 (T4).** I7 is a pen-and-paper proof (see I7); nothing to compute. Its literature status is a Phase-2 item.
+
+**Phase-1 verdict.** Dead on arrival: I4, I5, I9 (identity version), I10, I12, I13, I16, I23, strong UC of I1/I18.
+Alive: IUC (S1), I17 (R8), I7/I8 (unprovability), I3/I24 (R6 lattice structure), I11 (as a frame), I15, I19, I22.
+
+--- *End of Phase 1 (committed before any repo/literature lookup).* ---
