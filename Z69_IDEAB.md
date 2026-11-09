@@ -525,7 +525,7 @@ keeps growing. Twist: make that integer-side statement exact and push the comput
 * *Lemma E to prove:* K_r ∩ U ≠ ∅ ⟺ the least family-class modulus is unbounded over the primes of
   K_r := {1 mod 840, r mod 11}.
 * *Computation:* for all primes p ≤ 10¹² in K_2, K_6 and in the control class K_1 = {1 mod 9240} (a square class):
-  λ(p) := least modulus of an ET family class (I-1, I-2, I-3, I-4, II-1, II-2, II-3) containing p, moduli ≤ 10⁴.
+  λ(p) := least modulus of a family class (I-1, I-2, I-3, I-4, II-1, II-2, II-3; as implemented: the superset 𝔉⁺, so λ ≤ λ_ET, see §3.1) containing p, moduli ≤ 10⁴.
 * *Kill test A (against the conjecture):* if the running maximum of λ over K_2 or K_6 is constant over the last three
   decades of p while the control's keeps growing, O2 is probably *false* for that class; then try to exhibit the finite cover.
 * *Kill test B (implementation):* λ(p) from the class table must equal λ computed from an independent brute-force
