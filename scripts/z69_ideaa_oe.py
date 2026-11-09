@@ -9,8 +9,11 @@ R(n) (the (*) count) = Wm_{4|t}(n).
 
 Question (identity route with a concrete candidate): does O_T(n) have a closed form / small dictionary
 expression (it is a sum over t of weight-1 Eisenstein coefficients at the moving argument tn+1)?
-Kill test (pre-registered, memo §2): exact rational least squares of O_T on the dictionary below, on
-n in [N/2, N]; KILL if the residual is not identically 0 and R^2 < 0.9 for every T.
+Kill test (written here before the first run; see memo §2 for what was and was not pre-registered):
+floating-point least squares (numpy lstsq) of O_T on the dictionary below, on n = 1 (4) in [N/2, N];
+KILL if the residual is not identically 0 and R^2 < 0.9 for every T.
+Note: for t >= 3, Wm_t = D_t^-(tn+1) and Wp_t = D_t^+(tn+1) - 2, so O_t = (D^- - D^+)(tn+1) + 2: the
+odd-character (theta-quotient) component of FRONTIER §2.3 plus the trivial-divisor correction.
 """
 import sys, json
 import numpy as np
@@ -38,8 +41,8 @@ levels = {"all": lambda t: True, "t=0(4)": lambda t: t % 4 == 0, "t=2(4)": lambd
 Wm = {k: np.zeros(N + 1, dtype=np.int64) for k in levels}
 Wp = {k: np.zeros(N + 1, dtype=np.int64) for k in levels}
 # minus: n = t u v - u - v  (u,v>=1, n>=1)
-for u in range(UMIN, N + 2):
-    for v in range(UMIN, N + 2):
+for u in range(UMIN, N + 3):      # u, v up to N+2 (t=1: (u-1)(v-1) = n+1); review fix
+    for v in range(UMIN, N + 3):
         uv = u * v
         if uv - u - v > N:
             break

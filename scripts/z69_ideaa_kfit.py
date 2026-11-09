@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """z69 IDEAA T2 analysis: tail law of the two-small search cost K(p) (output of z69_ideaa_kcost.c).
-Fits -ln P(K>Q) against kappa_j * (ln Q)^j, j = 2, 3 (pre-registered comparison, memo §2), prints the
+Fits -ln P(K>Q) against kappa_j * (ln Q)^j, j = 2, 3 (exploratory, NOT pre-registered; memo §2), prints the
 Type I / Type II dependence exponent, and profiles the record setters (least QNR, class mod 840)."""
 import math, re, sys, json
 D = "data/z69/ideaa/"

@@ -2,8 +2,8 @@
 """z69 IDEAA test T3 (idea GAUSS-SPLIT): the slice singled out by the Z[i]-factorisation of ES.
 
 p = a^2 + b^2 (a odd), pi = a + bi.  2/pi = 1/alpha + 1/beta in Z[i] has only the solutions
-alpha = (pi+u)/2, beta = pi*alpha (u = +-1), and (2/pi)(2/pibar) then gives
-    4/p = 1/M + e/(pM),   e = 2a+1,  M = (p+e)/4 = N((pi+1)/2),
+alpha = (pi+u)/2, beta = u*pi*alpha (u = +-1) [and alpha = beta = pi], and (2/pi)(2/pibar) then gives
+    4/p = 1/M + e/(pM),   e = 1 + 2ua,  M = (p+e)/4 = N((pi+u)/2),
 i.e. the e-slice with e = 2|a|+1 (a>0 normalisation; e = 3 mod 4 automatically).
 Type II at slice e  <=>  M^2 has a divisor f == -M (mod e)   [(e y'-M)(e z'-M) = M^2].
 Kill test (pre-registered in memo §2 before this run): success rate of the Gaussian slice on primes
@@ -48,8 +48,9 @@ def slice_ok(p, e):
     """Type II at slice e: M=(p+e)/4, exists f | M^2 with f == -M mod e."""
     if (p + e) % 4: return None
     M = (p + e) // 4
-    if math.gcd(M, e) != 1:  # then gcd(p,e)>1 impossible for prime p>e; gcd(M,e)|p
-        pass
+    # criterion 'f | M^2, f == -M (mod e)' is valid when gcd(M, e) = 1 (then the cofactor M^2/f is == -M too);
+    # gcd(M, e) | p, so this holds whenever p does not divide e (always here: e < p).  Review fix: assert it.
+    assert math.gcd(M, e) == 1
     fac = factor(M)
     target = (-M) % e
     res = {1 % e}
