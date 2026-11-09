@@ -24,7 +24,7 @@ it does not mean a second full-range engine unless said.
 * (iii) **Five-prime reduction (Q-S).** The certificate construction shows that the only tight constraints sit on the
   deep digits at 2, 3, 5, 7, 11. The family classes with {2,3,5,7,11}-smooth modulus have *finite* total weight
   (PROVED) and leave an uncovered part of the box B_r of measure ≈ 0.048 (r = 2) and ≈ 0.013 (r = 6), stable from
-  10⁶ to 10⁸ (CERTIFIED exact to 10⁶, Monte Carlo beyond). EVIDENCE for O2, of a kind independent of UCOVER's
+  10⁶ to 10⁸ (CERTIFIED exact to 10⁷, Monte Carlo at 10⁸). EVIDENCE for O2, of a kind independent of UCOVER's
   profile computations, and it says the survivors are generic squares at 3, 5, 7 rather than "1 away from 11, 13".
   Not a proof of O2; no bearing on ES itself.
 
@@ -560,15 +560,15 @@ Smooth moduli are sparse (≈ 3·10³ below 10⁸), so (Q-S) can be decided *at 
 ### 3.5 Question (Q-S): the five-prime core of O2 (`scripts/z69_ideab_smooth.py`)
 All family classes (seven families, superset enumeration) with **S-smooth modulus ≤ M**, S = {2,3,5,7,11}; those
 compatible with B_r; relative weight of a class = its Haar measure inside B_r. "Uncovered" = Haar measure of the part
-of B_r in none of them, computed **exactly** (rational number, digit-tree recursion) up to M = 10⁶ and by Monte Carlo
-(2·10⁵ points; agrees with the exact values to 3 decimals where both exist) beyond.
+of B_r in none of them, computed **exactly** (rational number, digit-tree recursion; `--exact`) up to M = 10⁷ and by Monte Carlo
+(2·10⁵ points; agrees with the exact values to 3 decimals where both exist) at 10⁸.
 
 | M | smooth moduli | classes | compatible, r = 2 / 6 | total weight, r = 2 / 6 | uncovered measure, r = 2 | uncovered measure, r = 6 |
 |---|---|---|---|---|---|---|
 | 10⁴ | 522 | 15 325 | 49 / 54 | 4.873 / 4.665 | 4071/42350 = 0.096128 (exact) | 0.049318 (exact) |
 | 10⁵ | 1 197 | 79 936 | 220 / 234 | 7.902 / 7.639 | 0.061468 (exact) | 0.019823 (exact) |
 | 10⁶ | 2 432 | 332 051 | 772 / 811 | 9.118 / 8.897 | 0.050738 (exact) | 0.015685 (exact) |
-| 10⁷ | 4 520 | 1 166 099 | 2 315 / 2 397 | 9.571 / 9.371 | 0.0484 (MC) | 0.0135 (MC) |
+| 10⁷ | 4 520 | 1 166 099 | 2 315 / 2 397 | 9.571 / 9.371 | 0.048518 (exact; MC 0.0484) | 0.013465 (exact; MC 0.0135) |
 | 10⁸ | 7 838 | 3 580 758 | 6 048 / 6 181 | 9.719 / 9.525 | 0.0487 (MC) | 0.0133 (MC) |
 
 At every level an explicit surviving cylinder is produced by a complete digit DFS and re-checked (e.g. M = 10⁸, r = 2:
@@ -580,7 +580,7 @@ Sanity built into the run: the number of compatible classes with 11 ∤ modulus 
   O_ε(m^ε) classes, each of weight ≤ 9240/m, and Σ_{m S-smooth} m^{−1+ε} = Π_{q∈S}(1 − q^{−1+ε})^{−1} < ∞. (This is what
   distinguishes the five-prime problem from the full one, whose weight diverges like a power of log M.)
 * **CERTIFIED:** (Q-S) has answer "not covered" at every level M ≤ 10⁸, for r = 2 and r = 6, with uncovered measure
-  ≥ 0.0507 resp. 0.0156 at M = 10⁶ (exact).
+  exactly 0.048518… resp. 0.013465… at M = 10⁷ (rationals in `smooth_exact_1e7_r*.log`).
 * **EVIDENCE:** the weight increments per decade are 3.03, 1.22, 0.45, 0.15 (ratio ≈ 0.35), so the weight beyond 10⁸
   is ≈ 0.08 and beyond 10⁹ ≈ 0.03, while the uncovered measure has stopped moving at ≈ 0.048 (r = 2) and ≈ 0.013
   (r = 6): the uncovered set of B_r under *all* S-smooth classes very probably has positive measure.

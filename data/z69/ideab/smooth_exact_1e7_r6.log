@@ -1,0 +1,5 @@
+M=1e+07 r=6: 4520 smooth moduli, 1166099 classes, 2397 compatible with B_r, total relative weight 9.371; compatible classes with 11 not dividing modulus (must be 0 by T1): 0; classes covering all of B_r: []
+   Monte Carlo (200000 random points of B_r): uncovered fraction = 0.0135
+   EXACT uncovered relative measure of B_r at level 1e+07: 1748988928517851477/129895942246963200000 = 0.013465  (21136314 nodes)
+SURVIVOR after 21 nodes: depths {2: 8, 3: 7, 5: 4, 7: 3, 11: 3}  residues {2: 81, 3: 811, 5: 231, 7: 281, 11: 1106}
+   classes still consistent with the survivor cylinder: 0
