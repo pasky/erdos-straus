@@ -33,7 +33,7 @@ This lane is about coverings of unit profiles by polynomial identities; it makes
 | screen | behaviour |
 |---|---|
 | **F1 odd squares** | Square profiles lie in U and in U_S (ET Prop 1.6, SDEEPF Prop 3.5). All caught residues are quadratic non-residues mod ℓ (UCOVER Lemma 1 / S1; asserted again in every script here). Every bound here is a bound on the *caught* mass inside the non-residues. |
-| **F2 C-even / numerator 8** | No positivity claim, so no contradiction (only the numerator-4 ET families and SDEEPF good words). Via Prop R the campaign's C is d′. The 12 R₈-zeros remove only the even-d′, a′ = 1, level-1 subfamily of A-events at such n, not all A-events: their full R is ≥ 12. |
+| **F2 C-even / numerator 8** | No positivity claim, so no contradiction (only the numerator-4 ET families and SDEEPF good words). Via Prop R the campaign's C is d′. The 12 R₈-zeros remove only the even-d′, a′ = 1, level-1 subfamily of A-events at such n, not all A-events (the cross-model reviewer reports full R ≥ 12 there). |
 | **F3 composites** | Not applicable: profiles are units of Ẑ, not integers. |
 | **F4 known zeros** | No positivity claim. Via Prop R, the 14 R-zero primes p have no a′ = 1 A-events at n = p. The 38 𝔊*-zeros remove only that restricted representation subfamily. Neither implies that all ET events vanish, nor controls the higher odd powers p^{2k−1}. |
 
