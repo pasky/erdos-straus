@@ -1,0 +1,18 @@
+p>10000: N=4171  rho(f3,f4)=+0.646 (p=0)  rho(f3,f5)=-0.279 (p=1.9e-75)  rho(f4,f5)=-0.232
+   mean f3=0.695 f4=0.704 f5=0.437;  hardest 1% by f3 (f3<=0.384, n=42): mean f4=0.563 vs all 0.704; mean f5=0.436
+   rho(excess N3-, excess N4-) = +0.638 (p=0)
+p>50000: N=3209  rho(f3,f4)=+0.649 (p=0)  rho(f3,f5)=-0.300 (p=1.4e-67)  rho(f4,f5)=-0.264
+   mean f3=0.697 f4=0.708 f5=0.443;  hardest 1% by f3 (f3<=0.394, n=34): mean f4=0.559 vs all 0.708; mean f5=0.446
+   rho(excess N3-, excess N4-) = +0.640 (p=0)
+21841: [21841, 6, 4, 20, 2, 154, 100, 272, 110] f4=0.649 f5=0.404
+within classes mod 24 (2 classes): rho(f3,f4)=+0.622 (p=0)  rho(f3,f5)=-0.317
+within classes mod 120 (8 classes): rho(f3,f4)=+0.628 (p=0)  rho(f3,f5)=-0.329
+within classes mod 840 (48 classes): rho(f3,f4)=+0.606 (p=0)  rho(f3,f5)=-0.359
+within classes mod 9240 (480 classes): rho(f3,f4)=+0.613 (p=0)  rho(f3,f5)=-0.360
+within classes of (q/p), q<=23 (256 classes): rho(f3,f4)=+0.561 (p=0)
+after regressing out weighted sums of (q/p) over q<3000 in 4 bands + S(sqrt p)/p^(1/4): rho(f3,f4)=+0.522 (p=1.1e-290) rho(f3,f5)=-0.353
+   corr with feature q<=23: f3 -0.494  f4 -0.435  f5 -0.008
+   corr with feature 29..173: f3 +0.004  f4 +0.015  f5 +0.102
+   corr with feature 179..863: f3 +0.183  f4 +0.199  f5 +0.034
+   corr with feature 877..3000: f3 +0.180  f4 +0.179  f5 +0.006
+   corr with feature S(sqrtp): f3 -0.523  f4 -0.452  f5 -0.001
