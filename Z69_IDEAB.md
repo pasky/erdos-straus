@@ -155,3 +155,70 @@ solution set is finite, so no infinite group orbit can live inside it. *Squares:
 use non-squareness at an identifiable step. *Six classes:* none. *Assessment:* dead as a construction; the
 "norm −1 unit" property survives only as a possible explanatory variable for composite failures (to test in Phase 2
 against the campaign's F3 list).
+
+**I11. Consecutive-integer formulation; simultaneous multiplicative constraints.** By R1/R2, with x = (p+3)/4:
+Type II fails for p ⟺ for every j ≥ 0 the integer **x + j has no two coprime divisors a,b with a + b ≡ 0 (mod 4j+3)**;
+Type I fails ⟺ the same for the integers ((4j+3)p + 1)/4. Let B_e = {m : no coprime a,b | m with e | a+b}; B_e is
+"multiplicatively defined" (m ∈ B_e depends only on the multiset of residues mod e of the prime powers of m) and thin
+(density ≍ (log)^{−1/2} or smaller). A counterexample is an x with x + j ∈ B_{4j+3} for all j ≥ 0 — a statement about a
+run of consecutive integers in the spirit of Grimm / Erdős–Woods problems.
+*Key lemma (needed):* for some explicit J, ⋂_{j ≤ J} (B_{4j+3} − j) contains no x with 4x−3 prime (or is finite).
+*Squares:* for p = m² every x + j lies in the *quadratic* part of B_e: by R5, (q/e) = (p/q) = +1 for every prime q
+exactly dividing x + j, so all divisors are squares mod e while −1 is not. Non-squareness enters as: ∃ q with (p/q) = −1,
+hence the quadratic obstruction is absent for all j ≡ −x (mod q), j ≢ −x (mod q²). *Six classes:* those j are sparse
+(spacing q ≥ 11), which is exactly why these primes are hard. *Assessment:* a clean way to *state* what a proof must do
+(beat the non-quadratic part of B_e on a progression of j); tools for correlations of multiplicative functions
+(Matomäki–Radziwiłł–Tao) give only almost-all statements. Not top-5 but it frames I12, I17.
+
+**I12. Force smooth shifts by CRT, then a "divisors cover all residues" theorem.** Choose j ≡ −x (mod Q), Q = ∏_{q ≤ y} q
+restricted to non-residue primes for p; then Q | x + j and e = 4j+3 < 4Q.
+*Key lemma (needed, Erdős–Hall type):* if m has ≥ C log e distinct prime factors not all in a proper subgroup-coset
+configuration mod e, then {a/b} ∋ −1 (mod e).
+*Kill (PROVED, counting):* x + j has ≈ y/log y forced primes, giving 3^{π(y)} ratios a/b, against e ≍ e^{y}; the forced
+part can never cover (Z/e)^×, and making e small again (e | a+b ≤ Q+1) just returns the K1 covering with ab | Q, whose
+total weight Σ_{ab | Q} τ(a+b)/(4ab) is finite for each Q. *S-unit variant:* allow a,b to be S-units with unbounded
+exponents (a = q^i, b = r^j, e | q^i + r^j, 4q^i r^j | p + e): infinitely many trials but Σ over S-unit pairs of
+τ(a+b)/(4ab) ≤ C·∏_{q∈S}(1−1/q)^{−2} < ∞ — again a finite expected count, so no "infinitely many trials" argument.
+*Squares / six classes:* uses only non-residue primes, so it is honest about squares; hard classes = few small such
+primes. *Assessment:* dead; the general lesson (**every structured sub-family has finite total weight; divergence of
+the full weight ≍ log³p needs all scales**) is a constraint on any constructive proof.
+
+**I13. Largest denominator first ("subtraction") and induction.** Writing z = pk first: 4/p − 1/(pk) = (4k−1)/(pk), so
+**Type II ⟺ ∃ k: (4k−1)/(pk) is a sum of two unit fractions ⟺ ∃ k and coprime a,b | k with pa + b ≡ 0 (mod 4k−1)** (this
+is K2). Similarly 4/p = 4/(p+δ) + 4δ/(p(p+δ)) with 4 | p+δ is R1. *Induction attempt:* use ES for smaller numbers
+(e.g. for x = (p+3)/4 or for k) to build the two-term representation. *Kill:* the two-term problem m/N = 1/y+1/z is a
+divisor-class condition on N with modulus m ≈ 4k, unrelated to 3-term representations of 4/k; no descent step exists
+because the surface 4xyz = n(xy+yz+zx) is linear in each variable (no Vieta involution, unlike Markoff).
+*Squares:* the only "inductive" structure of ES is n ↦ mn, which is precisely how squares are solved and why it cannot help
+primes. *Six classes:* n/a. *Assessment:* dead; recorded for the multilinearity remark.
+
+**I14. Integral points on the Cayley cubic; Brauer–Manin with an archimedean region.** 1/x+1/y+1/z+1/w = 0 with
+w = −n/4 is a hyperplane-type section of Cayley's 4-nodal cubic (Heath-Brown's count N(B) ~ cB log⁶B of rational points
+uses the same torsor parametrization as R2). Signed solutions (4/n = 1/x+1/y−1/z) always exist, so the integral Hasse
+principle holds trivially; ES asks for an integral point in the *positive* region of X_n(ℝ), a non-compact region of
+logarithmic "volume" (≍ log³ n expected points).
+*Key lemma (needed):* strong approximation on the relevant torsor *with* archimedean localisation of logarithmic size —
+far beyond known technology (equidistribution of integral points needs volume ≥ n^δ).
+*Squares:* the vanishing of coprime-type solutions for n = m² is a Brauer–Manin-type (reciprocity) obstruction on the
+torsor where gcd(n, x) = 1; for non-square n it disappears. A *disproof* would need a new obstruction beyond the quadratic
+one (I20). *Six classes:* no role. *Assessment:* good language, no mechanism. Not top-5.
+
+**I15. Genus theory of the discriminants Δ = 4c²dp + 1.** R3 says: Δ = uv with u ≡ v ≡ −1 (mod 4cd). For c = d = 1 this
+fails iff every prime factor of 4p+1 is ≡ 1 (4), i.e. iff −1 is everywhere a local norm from ℚ(√(4p+1)) — pure genus
+theory. For general (c,d) the condition "the discriminant has a divisor in the class −1 mod 4cd" is a statement about
+the image of the ambiguous classes of ℚ(√Δ) under the characters of conductor 4cd, i.e. about ℚ(√Δ, ζ_{4cd}) — a
+Rédei-symbol-like object. Note p splits in ℚ(√Δ) with 𝔭·𝔡 principal (form [d,1,−p] has discriminant 4dp+1).
+*Key lemma (needed):* a reciprocity law expressing χ(u) (χ mod 4cd, u | Δ) through symbols depending on p only, summed over
+(c,d) with a sign-definite total. *Squares:* for p = m², (p/u) = 1 contradicts R5's (p/u) = −1: genus theory itself
+kills them. *Six classes:* here (p/q) = 1 for q ≤ 7 forces u to contain a prime ≥ 11 that is a non-residue for p.
+*Assessment:* the c = d = 1 case is a nice sanity anchor; the general case is a restatement unless a Rédei-type
+reciprocity appears. Mid.
+
+**I16. Divisor-in-progression sums with modulus tied to the shift.** R_II(p) = Σ_{a,d} #{f | p + 4a²d : f ≡ −1 (4ad)},
+R_I(p) = Σ_{a,d} #{f | 4a²d + 1 : f ≡ −p (4ad)}. In R_I the numbers 4a²d+1 do **not** depend on p: R_I(p) =
+#{(a,d,f) : f | 4a²d+1, 4ad | p + f} is a pure covering count; in R_II they do.
+*Key lemma (needed):* a lower bound for the short-interval sum Σ_{a ≤ A} τ(p+a; 4a, −1) for a *single* p.
+*Kill:* each term is one event of probability ≍ τ/a; dispersion/Kloosterman methods average over ≫ p^δ independent
+moduli *and* over the number being divided; here both are tied to a. Same binary barrier as I4.
+*Squares:* sum is 0. *Six classes:* none. *Assessment:* dead as analysis; but the p-independence of the Type I
+family (a fixed, explicit, p-free table {(4ad, −f)}) is worth remembering for I1's computations.
