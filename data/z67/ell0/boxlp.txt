@@ -1,0 +1,5 @@
+divisor-free methods only: (np.float64(0.6666666666666666), (np.float64(0.333), np.float64(0.333), np.float64(0.333), np.float64(0.0)))
+divisor-free, s >= n^0.2 : (np.float64(0.65), (np.float64(0.35), np.float64(0.317), np.float64(0.0), np.float64(0.333)))
+with tau-maxima at eps=0.0: (np.float64(0.4), (np.float64(0.2), np.float64(0.2), np.float64(0.2), np.float64(0.4)))
+with tau-maxima at eps=0.05: (np.float64(0.45), (np.float64(0.2), np.float64(0.25), np.float64(0.2), np.float64(0.35)))
+with tau-maxima at eps=0.1: (np.float64(0.5), (np.float64(0.183), np.float64(0.317), np.float64(0.183), np.float64(0.317)))
