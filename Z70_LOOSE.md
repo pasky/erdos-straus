@@ -241,6 +241,14 @@ trivial certificate.)
 certificate-fixed involution σ cannot preserve the decomposition Triv ⊔ T′: it must pair at least one divisor word of
 p + 1 with a non-trivial word — i.e. it must be an arithmetic transport from divisors of p + 1 to the (MS)/(W)
 certificates. That is the B2 event again in parity clothing; no such transport is known.
+### 3.3 Round 2 — a grammar search (pre-registered here before running)
+Lemma P5 says a candidate must move divisor words of p + 1 into T′_p. Grammar: priority gluings
+σ(w) := P_i(w) for the first i with w ∈ Dom(P_i), else s(w), with (P_1, …, P_k), k ≤ 3, distinct, drawn from
+{τ_xy, τ_yz, μ, μ^s, ρ_L, ρ_R, ρ_C, s∘ρ_C}, where μ: (x, 1, z) ↦ (1, x, z − 1) and (1, y, z) ↦ (y, 1, z + 1) (the
+divisor-word exchange y = 1 ↔ x = 1; an involution on its domain), μ^s := s∘μ∘s. 8 + 56 + 336 = 400 maps. Stage 1:
+involution on T₇₃ and T₄₀₉, ≠ s, Fix ⊆ C_p at both; stage 2: every prime p ≡ 1 (4) < 2000 and failure (not an
+involution, or a non-certificate fixed point) at 9 and 105. Survivor of both = HOT LEAD.
+
 **Verdict I5 (narrowed):** the seven registered natural non-affine cross-slice maps fail stage 1 on T₇₃/T₄₀₉;
 Lemma P5 explains why any such map must be arithmetic in p + 1. Not killed in general (a map certificate-fixed only at
 primes is not excluded), but no candidate exists. F1: T₉, T₁₀₅ have C = ∅ and odd |T| — any passing family must fail
