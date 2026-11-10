@@ -1,7 +1,9 @@
 # Z69_TWIST — pushing the surviving twists of the z69 ideation lanes: no forcing mechanism found (three specified proposals refuted; the other directions narrowed, bounded-null, or untested); by-product = fixed-gap Vieta-descent sterility theorems for Type I; not a HOT LEAD
 
 **ES is OPEN. Nothing here proves or disproves it.** Status: round 1 final, internal hostile review ×3 (§7) and cross-model review
-(§8, `data/z69/xreview/REVIEW_TWIST.md`: ACCEPT-WITH-FIXES) applied; round 2 in §9; not merged. Verdict §6: **three
+(§8, `data/z69/xreview/REVIEW_TWIST.md`: ACCEPT-WITH-FIXES) applied; round 2 (§9: I17 translation profile —
+structure found and partly identified, not forcing; I24; I12) done, internally reviewed (§9.5), waiting for the
+delta review; not merged. Verdict §6: **three
 specified proposals refuted (the #11 slice, the I10 substitution, the I23 lift model); the other directions are
 narrowed, bounded-null, or untested**; no forcing mechanism.
 Sources: `Z69_IDEAB.md` §1 (branch `side-agent/z69-ideab`), `data/z69/xreview/REVIEW_IDEAB.md` table A
