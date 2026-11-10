@@ -1,3 +1,3 @@
-# rfcheck d=1 [20000,24000): primes 99; R == G_A (good classes with natural A < sqrt(dn)) at 99; |R - G_A| = 0, |G_A - R| = 0
-# rfcheck d=1 [1001000,1003000): primes 40; R == G_A (good classes with natural A < sqrt(dn)) at 40; |R - G_A| = 0, |G_A - R| = 0
-# rfcheck d=3 [202000,206000): primes 77; R == G_A (good classes with natural A < sqrt(dn)) at 77; |R - G_A| = 0, |G_A - R| = 0
+# rfcheck d=1 [20000,24000): primes 99; R == G_A (good classes with natural A, A^2 < dn) at 99; |R - G_A| = 0, |G_A - R| = 0; coverage: |G| 1232, |R| 408, |R u R^-1| 816, |G_small| 1194
+# rfcheck d=1 [1001000,1003000): primes 40; R == G_A (good classes with natural A, A^2 < dn) at 40; |R - G_A| = 0, |G_A - R| = 0; coverage: |G| 956, |R| 286, |R u R^-1| 572, |G_small| 934
+# rfcheck d=3 [202000,206000): primes 77; R == G_A (good classes with natural A, A^2 < dn) at 77; |R - G_A| = 0, |G_A - R| = 0; coverage: |G| 474, |R| 96, |R u R^-1| 192, |G_small| 458

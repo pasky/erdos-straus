@@ -1,6 +1,6 @@
 # Z70_CLASS — the I17 residual and the class-group structure of good forms (wave z70, lane CLASS): on the tested windows the residual is divisor-lattice structure seen through a class map injective on small primitive ideals; no forcing mechanism; not a HOT LEAD
 
-**ES is OPEN. Nothing here proves or disproves it.** Status: internal hostile review round 1 applied (§8): the first PSC/PSF null implementations were wrong — their calibrated readings (§§1.3, 1.5) are withdrawn and replaced by corrected runs (§§1.9–1.10). Verdict (§4): **narrowed descriptively, not closed — the I17 residual beyond DL + CS is real (d = 1; d = 3 at larger n) and, on the tested windows, no positive residual remains once all divisor-lattice relations (Lemmas Φ, DL′) and ideal identities are kept; no forcing mechanism established; item 2 null apart from a genus effect.** Not a HOT LEAD.
+**ES is OPEN. Nothing here proves or disproves it.** Status: final; internal hostile review rounds 1–3 applied (§8): the first PSC/PSF null implementations were wrong — their calibrated readings (§§1.3, 1.5) are withdrawn and replaced by corrected runs (§§1.9–1.10). Verdict (§4): **narrowed descriptively, not closed — the I17 residual beyond DL + CS is real (d = 1; d = 3 at larger n) and, on the tested windows, no positive residual remains once all divisor-lattice relations (Lemmas Φ, DL′) and ideal identities are kept; no forcing mechanism established; item 2 null apart from a genus effect.** Not a HOT LEAD.
 Scripts `scripts/z70_class_*`, data `data/z70/class/`. Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE /
 Assessment. Sources: `Z69_TWIST.md` §9 (I17 round 2: Lemmas DL, CS; residual d = 3 energy Z_Ex = +3.6 and a small d = 1
 residual on the 10⁶ window, both against nulls that do not contain DL/CS), `Z69_MINE.md` §§3, 12 (open: class-group
@@ -188,9 +188,10 @@ N = n + 4 min(a,b)²d ≤ n + 4abd = 2n + e, and e ≤ (n + 4d)/(4d − 1) (z69)
 statement about classes SR is weak — every class of discriminant −4dn contains an ideal of norm ≤ √(4dn/3) (its reduced
 form). Its content is that the *natural* representatives, which carry the solution's arithmetic, are of that size; and
 when a natural representative has norm N < √(dn) it *is* the reduced form of the class (reduce B into (−N, N]; then
-C = (B² + 4dn)/(4N) > dn/N > N). CERTIFIED: the least natural norm is ≤ √(dn) — so the reduced form of the class is a natural
-good form — for 95 % (d = 1, n ≈ 2.7·10⁴), 97.7 % (10⁶), 98.4 % (4·10⁶) of good classes, and ≥ 96 % for d = 2, 3, 5, 7 at
-2·10⁵ (`i1_repid_*.txt`, K_small/K).
+C = (B² + 4dn)/(4N) > dn/N > N). CERTIFIED: the least natural norm is ≤ √(dn) — so the reduced form of the class is one of
+its natural representatives (an A-side form [A, ·, ·], a conjugate B-side form, or the de-side form) — for 95 % (d = 1,
+n ≈ 2.7·10⁴), 97.7 % (10⁶), 98.4 % (4·10⁶) of good classes, and ≥ 96 % for d = 2, 3, 5, 7 at 2·10⁵ (`i1_repid_*.txt`,
+K_small/K). Which side is small matters for Remark RF below.
 
 **Remark RF (good classes read off the reduced forms). PROVED; CERTIFIED check.** A class g contains a good form (Type II
 with this d) iff g has a primitive form [A, B, C] with B ≡ B* (mod 2A) for some positive B* ≡ 0 (mod 4d) dividing A + 1.
@@ -198,10 +199,14 @@ with this d) iff g has a primitive form [A, B, C] with B ≡ B* (mod 2A) for som
 e := N_a/A ≡ −n (mod 4ad) because A ≡ −1, and (a, (n + e)/(4ad), c, e) is a solution. ⇒: take [A, 4ad, de].) If A < √(dn)
 the form [A, B, C] with |B| ≤ A is the reduced form of g (C > dn/A > A). Check (`scripts/z70_class_rfcheck.py`,
 `i1_rfcheck.txt`): for every prime p ≡ 1 (8) in [20000, 24000), [1001000, 1003000) (d = 1) and [202000, 206000) (d = 3), the
-reduced forms with A < √(dn) satisfying the criterion are exactly the good classes with a natural A-norm < √(dn) (216 primes,
-0 discrepancies). So, for ≈ 97 % of good classes, membership in G is visible on the reduced form itself: first coefficient
-A, middle coefficient B ≡ a positive multiple of 4d dividing A + 1 — the tied divisor condition again, now on the list of
-reduced forms.
+reduced forms with A² < dn satisfying the criterion are exactly the good classes with a natural A-norm A, A² < dn (216
+primes, 0 discrepancies; the check uses the exact test A² < dn and asserts equality — review round 3). *Coverage* (corrected
+in review round 3; the earlier "≈ 97 %" conflated the sides): of the good classes, RF on the reduced form detects 408/1232
+= 33 %, 286/956 = 30 % (d = 1) and 96/474 = 20 % (d = 3); together with the inverse classes (small B-side representative,
+the form [B, 4bd, ·] of g⁻¹) 816/1232 = 66 %, 572/956 = 60 %, 192/474 = 41 %; the remaining classes with a small natural
+representative (1194, 934, 458 in all) are small only on the de-side, where the condition sits on the third coefficient.
+So for a majority of good classes membership in G is visible on the reduced form of g or g⁻¹ — the tied divisor condition
+again, now on the list of reduced forms.
 
 **Lemma FR (free region). PROVED.** Let 𝔞, 𝔟, 𝔱 be invertible ideals of O with [𝔟] = [𝔞] + [𝔱] and
 N(𝔞)N(𝔟)N(𝔱) < dn. Then 𝔟·conj(𝔞)·conj(𝔱) = xO with x ∈ ℤ_{>0} and x² = N(𝔞)N(𝔟)N(𝔱).
@@ -320,11 +325,12 @@ it constrains where good classes sit but forces nothing.
 **Narrowed, descriptively; not closed.** PROVED: Lemma Φ (a-fibre divisor lattice; contains DL, CS, FIB), Lemma DL′ (c-fibre
 lattice), Lemma SR (bound for the least natural norm), Lemma FR and Cor. FR′ (free region; injectivity on primitive
 ideals), Corollary J, Remark V (scoped). CERTIFIED: the corrected FIX-CS / FIX-ALL runs, the explicit decomposition, the
-J-check. EVIDENCE: the d = 1 (and n ≈ 3·10⁶, d = 3) residual beyond DL + CS is real; against the null that keeps every
-fibre relation and every ideal identity no positive residual is detected for d = 1, 2, 3; at n ≈ 4·10⁶ (d = 1) 216 of 218
-L1 overlaps are explicit ideal identities. Unresolved: negative deviations against FIX-ALL (d = 1 pooled L3 −6.2), mostly
-attributable to the null (ALLF diagnostic). Proposition NG is a reformulation: **no forcing mechanism was established**
-— none of the operations supplies the divisor event. Not a HOT LEAD.
+J-check. EVIDENCE: the d = 1 (and n ≈ 3·10⁶ / 6·10⁶, d = 3) residual beyond DL + CS is real; against the null that keeps every
+fibre relation and every ideal identity no positive excess is detected for d = 1, 2, 3; at n ≈ 4·10⁶ (d = 1) 216 of 218
+L1 overlaps are explicit ideal identities. Unresolved: negative deviations against FIX-ALL (d = 1 pooled L3 −6.2; pooled
+control C0 −6.2) — the post hoc diagnostics (ALLF, DIAG) do not distinguish a null artefact from additional arithmetic
+avoidance. Proposition NG is a reformulation: **no forcing mechanism was established** — none of the operations supplies
+the divisor event. Not a HOT LEAD.
 
 ### 1.9 Internal review round 1 — the nulls were wrong; corrected nulls (pre-registered here, before any corrected run beyond a 3-prime smoke test)
 The hostile review (§8) found two FATAL implementation errors: **PSC** imposed CS by overwriting classes along a BFS tree,
@@ -364,7 +370,7 @@ data files; for d = 1–3 it is 10–140 per window and statistic, for d = 5, 7 
 
 | d | windows (n analysed) | Z_Mx | Z_Ex | Z_L1 | Z_L3 | control | pooled (Mx, Ex, L1, L3; control) |
 |---|---|---|---|---|---|---|---|
-| 1 | F1 F2 F3 F4 G1 G2 G3 H1 H2 (139 77 61 47 59 54 21 54 30) | +3.4 +4.2 +6.0 +4.9 +4.0 +6.2 +10.2 +3.9 +5.7 | +2.5 +1.9 +3.1 +3.3 +1.7 +3.2 +6.0 +0.6 +2.4 | **+3.3 +5.0 +7.0 +7.6 +6.8 +9.3 +9.8 +6.7 +6.9** | +2.1 +2.7 +5.9 +6.6 +2.5 +6.1 +8.9 +4.7 +5.9 | C0 −2.7 −0.2 +0.9 +0.7 −0.6 −0.2 +0.8 +2.5 +2.4 | +14.9, +7.9, **+18.7**, +13.2; C0 +0.4 |
+| 1 | F1 F2 F3 F4 G1 G2 G3 H1 H2 (139 77 61 47 59 54 21 54 30) | +3.4 +4.2 +6.0 +4.9 +4.0 +6.2 +10.2 +3.9 +5.7 | +2.5 +1.9 +3.1 +3.3 +1.7 +3.2 +6.0 +0.6 +2.4 | **+3.3 +5.0 +7.0 +7.6 +6.8 +9.3 +9.8 +6.7 +6.9** | +2.1 +2.7 +5.9 +6.6 +2.5 +6.1 +8.9 +4.7 +5.9 | C0 −2.7 −0.2 +0.9 +0.7 −0.6 −0.2 +0.8 +2.5 +2.4 | +14.9, +7.9, **+18.7**, +13.1; C0 +0.4 |
 | 2 | F1 F2 F3′ G1 G2 H1 (128 156 78 181 108 104) | +2.0 +1.9 +3.3 +4.5 +3.6 +1.9 | +2.3 +2.0 +4.2 +4.0 +8.1 +2.3 | −0.6 −0.3 −1.0 −1.1 +0.2 −0.9 | +0.6 −1.1 −0.0 +0.2 +2.1 −0.3 | A2 +0.2 −0.8 +1.1 **+3.3 +4.2 +3.4** | +7.2, +10.0, −1.5, +0.5; A2 +4.8 |
 | 3 | F1 F2 F3′ H1 (120 147 74 169) | +1.2 +1.1 +1.8 **+4.9** | +1.0 +2.0 +1.6 **+4.4** | −0.0 −0.5 −0.7 +1.3 | −0.2 −1.1 −1.2 +2.6 | A2 −0.4 −0.8 −0.1 +0.8 | **+4.9, +5.2**, +0.3, +0.3; A2 −0.2 |
 | 5 | F1 F2 F3′ (96 129 70) | +1.7 +1.0 +0.8 | +1.1 +0.4 +1.1 | −0.4 +1.4 −0.9 | −0.0 +0.6 +2.0 | A2 −0.4 −0.6 −0.8 | +1.9, +1.3, +0.2, +1.3 |
@@ -403,11 +409,14 @@ pivot-solved classes of small good ideals lose the free-region protection (Lemma
 A second post hoc diagnostic (final pass; `Z70_DIAG=1`, `i1_FIXALL_d1_{G2,H1}_diag.txt`, same seed, registered outputs
 reproduced identically) splits ideal-pair coincidences by whether an ideal involves a pivot-solved or uniformly drawn
 prime class (S) or not (P): H1 — collisions S 522 vs null 532.9, P 34 vs 37.4; L3-pairs S 953 vs 1020.5, P 545 vs 581.1;
-G2 — collisions S 438 vs 445.0, P 20 vs 24.5; L3-pairs S 803 vs 830.3, P 296 vs 320.8. The deficit is **not confined to
-solved classes**: pairs built only from swapped/fixed/frozen primes also show ≈ 6–8 % fewer coincidences than the null. So
-the artefact explanation is at best partial, and the negative deviations remain **unresolved** — possibly a genuine
-anti-coincidence of good classes at small-prime translations beyond ideal identities (not a forcing mechanism either
-way).
+G2 — collisions S 438 vs 445.0, P 20 vs 24.5; L3-pairs S 803 vs 830.3, P 296 vs 320.8 (ideal-pair counts, multiplicity-
+weighted, identities included in both bins — not the registered class-level statistics). The ideal-pair deficit also
+occurs among pairs whose e-ideal factor vectors contain no pivot variable (P: L3 about 6–8 % fewer, collisions 9–18 %
+fewer). This does **not** isolate classes whose small natural representatives keep their free-region protection — the
+review found 86 (G2) / 105 (H1) solutions with a P-labelled e-ideal whose small A-representative contains a pivot prime —
+nor does it decompose the registered class-level deficit. ALLF and DIAG therefore do not distinguish a null artefact from
+additional arithmetic avoidance; the negative deviations remain **unresolved** (whatever they are, they are deficits,
+not a forcing mechanism).
 **Summary of the calibrated evidence:** beyond DL + CS there is a positive residual for d = 1 and, at n ≈ 3·10⁶, for d = 3
 (d = 2: not interpreted, control fails); against the null that keeps every relation of Lemma Φ in every active fibre and
 every ideal identity (incl. Lemma DL′) **no positive excess is detected** in any window for d = 1, 2, 3; the remaining
@@ -416,7 +425,8 @@ deviations are negative (fewer coincidences than that null) and unresolved.
 ### 1.11 z69's windows with the corrected nulls (the §1.2 replication; run after review round 2)
 `i1_FIXCS_*_z69w*.txt`, `i1_FIXALL_*_z69w*.txt` (R = 200). FIX-CS: d = 1 [20000, 24000) / [200000, 202000) / [10⁶, 10⁶ + 1000):
 L1 +4.6 / +3.2 / +3.9, Mx +2.8 / +3.3 / +2.8, Ex +2.4 / +2.1 / +3.2, L3 +2.3 / +3.4 / +2.7 (C0 −2.2 / −0.8 / −1.9); d = 3
-[20000, 24000): Ex +1.8, others ≤ 0.3 in absolute value (A2 −1.2); d = 5: all |Z| ≤ 2.0. FIX-ALL: every |Z| ≤ 1.9 on all five.
+[20000, 24000): Ex +1.8, others ≤ 0.3 in absolute value (A2 −1.2); d = 5: all |Z| ≤ 2.0. FIX-ALL: every |Z| ≤ 1.9 on all five
+(but for d = 3 and d = 5 fewer than ten n have nonzero null variance for every statistic — "no power" under §1.9's rule).
 So z69's d = 1 excess is reproduced against DL + CS and disappears against the full fibre structure; z69's d = 3 window is
 too small to show the residual that appears at n ≈ 3·10⁶.
 
@@ -424,7 +434,8 @@ too small to show the residual that appears at n ≈ 3·10⁶.
 `i1_FIX{CS,ALL}_d{3,5,7}_X1.txt`, R = 200: d = 3 [6·10⁶, 6.01·10⁶) (160 n): FIX-CS Mx +4.2, Ex +4.1, L1 +1.1, L3 +0.1 — the d = 3
 residual beyond DL + CS replicates on a second large window; FIX-ALL Mx +0.4, Ex −0.7, L1 +0.3, L3 −0.5. d = 5
 [3·10⁶, 3.01·10⁶) (155 n, power 50–76 n per statistic): FIX-CS Mx +1.4, Ex +2.0, L1 +1.2, L3 −0.4; FIX-ALL all |Z| ≤ 1.0.
-d = 7 [3·10⁶, 3.01·10⁶) (136 n): FIX-CS all |Z| ≤ 1.0; FIX-ALL all |Z| ≤ 1.4.
+d = 7 [3·10⁶, 3.01·10⁶) (136 n): FIX-CS all |Z| ≤ 1.0 (Mx 1.01); FIX-ALL all |Z| ≤ 1.4 (L1 with only 9 n of nonzero
+null variance: no power).
 
 ## 2. Item 2 — class-group structure beyond h vs U₇ witnesses (pre-registration)
 Samples (from `Z69_MINE.md` round 2, `data/z69/mine/`): H_train (438), H_test (411), CTRL (2 547 size-matched controls);
@@ -522,13 +533,13 @@ split prime (local data).** Not a HOT LEAD.
 ## 4. Verdict
 **Narrowed descriptively, not closed; no forcing mechanism established; not a HOT LEAD. ES is OPEN.**
 * Item 1. With corrected nulls (§1.9–1.10; the first PSC/PSF implementations were wrong and their calibrated readings are
-  withdrawn): the I17 residual beyond DL + CS is real for d = 1 (pooled L1 Z = +18.8 over nine windows), present at
-  n ≈ 3·10⁶ and 6·10⁶ for d = 3 (pooled Ex +5.2 over the registered windows; replicated at 6·10⁶, §1.12; absent on the
-  three smaller windows), not interpretable for d = 2 (control fails),
+  withdrawn): the I17 residual beyond DL + CS is real for d = 1 (pooled L1 Z = +18.7 over nine windows), present at
+  n ≈ 3·10⁶ and 6·10⁶ for d = 3 (pooled Ex +5.2 over the registered windows; replicated at 6·10⁶, §1.12; not detected on
+  the three smaller windows), not interpretable for d = 2 (control fails),
   and not seen for d = 5, 7 (low power). Against a null that keeps every relation of Lemma Φ in every active fibre and
   every ideal identity (incl. the new Lemma DL′), no positive excess is detected for d = 1, 2, 3; what remains is a
-  negative deviation (fewer coincidences than the null; pooled d = 1 control also negative), unresolved — partly a null
-  artefact (ALLF), but present also among pairs without solved classes (DIAG): possibly a genuine anti-coincidence. Descriptively, almost all
+  negative deviation (fewer coincidences than the null), unresolved; the pooled d = 1 control also fails; the post hoc
+  diagnostics ALLF and DIAG do not distinguish a null artefact from additional arithmetic avoidance. Descriptively, almost all
   small-prime translation overlaps are explicit ideal identities between small natural representatives (Lemmas Φ, DL′; at
   n ≈ 4·10⁶, 216/218), and Lemma FR / Cor. FR′ explain why small classes cannot carry other coincidences; Corollary J is
   the one class-level exclusion found. No operation found produces a good class without exhibiting the divisor event
@@ -541,7 +552,8 @@ split prime (local data).** Not a HOT LEAD.
 * What this buys: a calibrated, corrected account of I17 (structure = divisor lattices of n + 4a²d and 4c²dn + 1 seen
   through a class map that is injective on small primitive ideals), two short new lemmas (DL′, Cor. J) and the
   free-region principle — and the negative information that, in these tests, class-group *positions* of good forms and
-  witness ideals showed no detected signal beyond divisor identities and local data.
+  witness ideals showed no detected *positive* excess beyond divisor identities and local data (the negative departures
+  against FIX-ALL are unresolved).
 
 **Hard screens (FRONTIER §4).** T1 squares: passes (vacuous; NG names the genus step). 8/131: no positivity claim.
 Tied modulus: the identified structure lives inside the tied divisor event (it presupposes M ≡ −1 (mod 4ad)); it does not
@@ -550,9 +562,10 @@ loosen the tie. Fixed p: all statements are per n, none produces a solution.
 ## 5. Proposed FRONTIER §7 text (do not edit FRONTIER here)
 "z70 CLASS (`Z70_CLASS.md`; narrowed descriptively). I17 rerun with corrected symmetry-preserving nulls (prime-class
 variables, fibre relations solved exactly, all ideal identities kept): residual beyond z69's DL + CS is real for d = 1
-(pooled Z_L1 +18.8) and appears for d = 3 at n ≈ 3·10⁶; against the null keeping all relations of the fibres n + 4a²d
-no positive excess detected (d = 1, 2, 3); negative deviations (fewer coincidences than the null) unresolved — partly a
-null artefact, partly possibly a genuine anti-coincidence. PROVED: Lemma Φ
+(pooled Z_L1 +18.7) and appears for d = 3 at n ≈ 3·10⁶ and 6·10⁶; against the null keeping all relations of the fibres
+n + 4a²d no positive excess detected (d = 1, 2, 3); negative departures (fewer coincidences than the null; pooled d = 1
+control also fails) unresolved — the diagnostics do not separate a null artefact from additional arithmetic avoidance.
+PROVED: Lemma Φ
 (divisors M of N_a = n + 4a²d ↦ classes is additive on products MM′ | N_a, with φ_a(N_a) = T_d; contains DL, CS), Lemma DL′ ((4acd − 1)(4bcd − 1) = 4c²dn + 1,
 c-fibre lattice), Lemma SR (least natural norm ≤ √(d(2n + e))), Lemma FR (class relations with norm product < dn are
 rational ideal identities; primitive small ideals lie in distinct classes), Cor. J (g, g + J ∈ G₁ ⟹ 2m(g)m(g+J) ≥ n).
@@ -561,13 +574,13 @@ reformulation). MINE class-group item (GRH-conditional): h-parts, h(p) null; lea
 primes only through its genus; U₇ and (★) representation-ideal class orders match exact decoys (H_train/H_test/CTRL/band)."
 
 ## 6. Bottom line
-The good-form class sets G_d(p) have translation structure beyond DL and CS (d = 1; d = 3 at n ≈ 3·10⁶). Descriptively,
+The good-form class sets G_d(p) have translation structure beyond DL and CS (d = 1; d = 3 at n ≈ 3·10⁶ and 6·10⁶). Descriptively,
 the overlaps at small-prime translations are almost always explicit identities among small natural ideal representatives
 (norms 4acd − 1, 4bcd − 1, de) coming from the factorisations of n + 4a²d and 4c²dn + 1 (Lemmas Φ, DL′); for pairs of small
 primitive ideals the class group adds no further relation (Lemma FR, Cor. FR′). Against a null that keeps all these
 relations no positive excess is detected (corrected runs; the first implementation of the nulls was wrong and is
-withdrawn); the negative deviations left (fewer coincidences than that null, also among pairs not touched by the null's
-solved classes) are unresolved. The one class-level law found is an exclusion (Corollary J). No
+withdrawn); the negative departures left (fewer coincidences than that null) are unresolved — the post hoc diagnostics do
+not separate a null artefact from additional arithmetic avoidance. The one class-level law found is an exclusion (Corollary J). No
 forcing mechanism was established: exhibiting a good class by these operations is exhibiting a divisor M ≡ −1 (mod 4ad)
 of some N_a, the B2 event. Item 2 is null apart from a genus effect
 of the least split prime (no within-stratum residual detected). Not a HOT LEAD. ES is OPEN.
@@ -575,7 +588,9 @@ of the least split prime (no within-stratum residual detected). Not a HOT LEAD. 
 ## 7. Reproduction
 Corrected nulls (the valid calibrated runs): `bash scripts/z70_class_run2.sh P|Q` (FIX-CS / FIX-ALL, §1.9), single runs
 `uv run --with sympy --with numpy python scripts/z70_class_nullfix.py CS|ALL|ALLF d R seed range P0 P1` (or `list n …`),
-pooled Z from the exact sums: `python3 scripts/z70_class_pool2.py FILES`.
+pooled Z: `python3 scripts/z70_class_reagg.py FILE [excluded n …]` per file (the §1.10 pooled values sum these per-n
+records with the smoke primes 24001, 25169 (d = 1) and 24481 (d = 2) excluded from F1); `scripts/z70_class_pool2.py` pools
+the printed aggregates and therefore *includes* the smoke primes — not to be used for the registered F1 numbers.
 Withdrawn first implementations (record only): `scripts/z70_class_run1.sh A|B|C|D` (PSC, §1.2), `… E|F` (PSF, §1.4); single runs:
 `uv run --with sympy --with numpy python scripts/z70_class_null.py PSC d R seed range P0 P1`,
 `… scripts/z70_class_psf.py d R seed range P0 P1` (`Z70_MATCH2=1` for the 2-adic diagnostic),
@@ -632,7 +647,7 @@ Gauss–Jordan over an abelian group, repeated passes, frozen rows satisfied, fr
 asserted; 18 instrumented runs with extra genus / representative / CS-self-loop checks passed; FIX-CS d = 1 F1 reproduced
 byte-for-byte), confirmed the §1.9 commit precedes the FIX data, re-pooled all outcomes, re-checked Lemma Φ(ii) (also in the
 non-maximal order ℤ[√−39]), Cor. FR′ and NG's square argument, and reproduced the A2 decomposition (946 = 898 + 48 + 0)
-independently. Findings, all applied: (1) MAJOR — the §1.9 smoke-test primes had been included in the F1 aggregates: now
+independently. Findings, applied (the artefact wording was further narrowed in round 3): (1) MAJOR — the §1.9 smoke-test primes had been included in the F1 aggregates: now
 excluded (`z70_class_reagg.py`; d = 1 F1 L1 +3.6 → +3.3, verdicts unchanged); (2) MAJOR — NG(iii)'s complement closure was
 false without coprimality (n = 9, a = 3): hypotheses added; (3) MAJOR — surviving overclaims ("real structure for d = 2",
 "no hidden class-level law", "accounted for", "every operation needs a divisor", "fully explained") reworded; (4) MAJOR —
@@ -641,3 +656,17 @@ ALLF is a confounded diagnostic (it freezes 371 variables on H1) and the pooled 
 rule stated, pooled failure recorded as a warning; MINOR — §0 count (26, not 38) annotated, "monoid map" made precise,
 single rounding of the table entries, power legend corrected, z69 windows rerun with the corrected nulls (§1.11).
 
+
+**Internal hostile review, round 3 (final delta)** (deep reviewer on `b36b6f061..649b89f26`; reviewer model reported as
+`openai/gpt-6-astra`; no provider / auth / quota error). No FATAL. It confirmed every §1.10 per-window entry with the smoke
+exclusion, the §1.11/§1.12 summaries, the RF proof (both directions, integrality via the shear C* = C + kB + Ak², the c = 1
+case with reduced middle coefficient 1 − A), and reproduced both DIAG runs exactly. Findings, applied: (1) MAJOR — RF's
+"≈ 97 % of good classes" conflated the A-, B- and de-side representatives: replaced by the measured coverage (33 / 30 / 20 %
+on the reduced form of g, 66 / 60 / 41 % with g⁻¹) and the check now uses A² < dn exactly and asserts equality; SR's
+wording made side-specific; (2) MAJOR — DIAG partitions e-ideal factor supports, not classes whose small representatives
+keep free-region protection (86 / 105 P-labelled solutions have a pivot prime in their small A-representative): the
+reading is now "does not distinguish a null artefact from additional arithmetic avoidance"; (3) MAJOR — §§1.8, 4–6 and the
+FRONTIER text harmonised with that ("partly a null artefact", "possibly a genuine anti-coincidence", "no detected signal"
+removed); MINOR — pooled d = 1 L3 +13.1 (not +13.2) and L1 +18.7 (not +18.8) in §§4–5; the reproduction note now warns that
+`pool2` includes the smoke primes; low power of the small FIX-ALL windows (§1.11, §1.12 d = 7 L1) stated; the 6–8 % figure
+attributed to L3 pairs (collisions 9–18 %).
