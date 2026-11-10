@@ -689,11 +689,13 @@ forcing mechanism. Scope: d ∈ {1, 3, 5}; windows as listed; the attribution of
 **Corollary (the reviewer's test).** From a solution (t, d) the fibre d + 1 has no solution with t′ ∈ {t − 1, t, t + 1}:
 t ± 1 is odd, and t′ = t gives s′ = s + 4t > t + 1 ≥ max Σ(t).
 **Lemma AE (adjacent exclusion; PROVED).** If n ≤ 4d(d + 1), the fibres d and d + 1 are not both non-empty.
-*Proof.* Let n = 4dt − s = 4(d+1)t′ − s′ with 2 ≤ s ≤ t + 1, 2 ≤ s′ ≤ t′ + 1. Then
-t − t′ = (n + s(d+1) − s′d)/(4d(d+1)). From 4dt = n + s ≤ n + t + 1: t ≤ (n+1)/(4d−1), so
-s(d+1) ≤ (n + 4d)(d+1)/(4d − 1) ≤ (4/3)(d+1)(d+2) ≤ 4d(d+1) for n ≤ 4d(d+1), d ≥ 1; hence
-t − t′ < (4d(d+1) + 4d(d+1))/(4d(d+1)) = 2. Also t − t′ > 0 − s′d/(4d(d+1)) > −1 … and t′ ≤ t because
-s′d ≤ (t′+1)d < n. So t − t′ ∈ {0, 1}, excluded by the Corollary. ∎
+*Proof.* Let n = 4dt − s = 4(d+1)t′ − s′ with 2 ≤ s ≤ t + 1, 2 ≤ s′ ≤ t′ + 1 (t, t′ the products ab, a′b′). Then
+t − t′ = (n + s(d+1) − s′d)/(4d(d+1)).
+Upper bound: 4dt = n + s ≤ n + t + 1 gives t ≤ (n+1)/(4d−1), so s ≤ t + 1 ≤ (n + 4d)/(4d − 1) and, using
+n ≤ 4d(d+1) and 4d/(4d−1) ≤ 4/3, s(d+1) ≤ 4d(d+2)(d+1)/(4d−1) ≤ (4/3)(d+1)(d+2) ≤ 4d(d+1). With s′d > 0:
+t − t′ < (4d(d+1) + 4d(d+1))/(4d(d+1)) = 2.
+Lower bound: 4(d+1)t′ = n + s′ ≤ n + t′ + 1 gives t′ ≤ (n+1)/(4d+3), so s′d ≤ ((n+1)/(4d+3) + 1)d < n + 4d(d+1), hence
+t − t′ > −1. So t − t′ ∈ {0, 1}, and both are excluded by the Corollary. ∎
 Data (`scripts/z69_twist_i24b.c`, `i24c.c`, `data/z69/twist/r2/i24b_*.txt`, `i24c_1e8.txt`):
 * registered sample (primes p ≡ 1 (4) below 2·10⁵): 96 414 solutions, 28 443 eligible, **0 transported**; control
   arm (from the non-solution fibre d + 7): 27 hits in 28 392 (z = −5.2). To 10⁸ (not registered): 0 of 20 102 195
