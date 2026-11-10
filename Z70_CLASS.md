@@ -357,8 +357,11 @@ exact sums (`scripts/z70_class_pool2.py`).
 Mx +4.9), driven by the new window H1 = [3·10⁶, 3.01·10⁶) — on F1–F3′ alone every |Z| < 3, which is what the withdrawn PSC
 run saw; the z69 d = 3 energy residual is therefore **not** explained by DL + CS at larger n (correcting §1.3); d = 2: the
 positive control A2 fails (|Z| ≥ 3 on G1, G2, H1), so by the validity rule the d = 2 FIX-CS runs are **not interpreted**
-(the order-2 translation T₂ also arises from A–e identities across fibres, 𝔄₂ = conj 𝔈₁ with A₂ = e₁, a₂ ≡ b₁ (mod e₁),
-which FIX-CS does not impose — Assessment); d = 5, 7 **K-RES** (low power).
+— the reason is CERTIFIED (`scripts/z70_class_a2check.py`, `i1_a2check.txt`, post hoc): every ordered pair (g, g + T_d) of
+good classes is an ideal identity between natural representatives, 𝔡·conj 𝔈₁ = 𝔡·𝔄₂ (A₂ = e₁, a₂ ≡ b₁ (mod e₁)) or its
+B-side mirror; with a₂ = b₁ this is Lemma CS, with a₂ ≠ b₁ a cross-fibre identity that FIX-CS does not impose: d = 2 G1:
+946 pairs = 898 CS + 48 cross-fibre + 0 other (FIX-CS null 917.5); G2: 748 = 708 + 40 + 0; H1: 630 = 598 + 32 + 0; d = 3 H1:
+356 = 352 + 4 + 0. d = 5, 7 **K-RES** (low power).
 
 **FIX-ALL (every active-fibre relation exact):**
 
@@ -528,7 +531,7 @@ pooled Z from the exact sums: `python3 scripts/z70_class_pool2.py FILES`.
 Withdrawn first implementations (record only): `scripts/z70_class_run1.sh A|B|C|D` (PSC, §1.2), `… E|F` (PSF, §1.4); single runs:
 `uv run --with sympy --with numpy python scripts/z70_class_null.py PSC d R seed range P0 P1`,
 `… scripts/z70_class_psf.py d R seed range P0 P1` (`Z70_MATCH2=1` for the 2-adic diagnostic),
-`… scripts/z70_class_repid.py d range P0 P1`, `… scripts/z70_class_jcheck.py P0 P1`,
+`… scripts/z70_class_repid.py d range P0 P1`, `… scripts/z70_class_jcheck.py P0 P1`, `… scripts/z70_class_a2check.py d range P0 P1`,
 `… scripts/z70_class_other.py d range P0 P1` (`Z70_SMALLCTL=1` for the post hoc control),
 `python3 scripts/z70_class_pool.py FILES` (pooled Z from rounded output — superseded by pool2), `… scripts/z70_class_core.py`
 (selftest of the dictionary).

@@ -1,0 +1,4 @@
+# a2check d=2 [500000,510000): ordered A2 pairs 946: CS 898, cross-fibre identity XID 48, OTHER 0
+# a2check d=2 [2000000,2006000): ordered A2 pairs 748: CS 708, cross-fibre identity XID 40, OTHER 0
+# a2check d=2 [3000000,3006000): ordered A2 pairs 630: CS 598, cross-fibre identity XID 32, OTHER 0
+# a2check d=3 [3000000,3010000): ordered A2 pairs 356: CS 352, cross-fibre identity XID 4, OTHER 0
