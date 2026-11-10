@@ -258,7 +258,7 @@ empty on this sample (no statistic). **No GEN-CANDIDATE**: no family reaches cov
 d = 1: 81–86 % of primes with G ≠ ∅).
 
 **Decomposition of the BIAS and of the negative CYC departures (pre-registered for W3 only, D2):**
-* *Exact minimal norm explains the hit counts.* Against X, every family and d has |z| ≤ 1.8 on W1 ∪ W2 and |z| ≤ 1.1 on W3
+* *Exact minimal norm explains the hit counts.* Against X, every family and d has |z| ≤ 1.8 on W1 ∪ W2 and |z| ≤ 1.3 on W3
   (GEN2: +0.25, −0.45, −0.23, −0.55, −0.35 and −0.46, −0.67, +0.57, −0.41, +0.20 for d = 1, 2, 3, 5, 7; CYC W3 d = 2: +0.27,
   d = 3: −0.92 — the negative A-null departures of CYC disappear too). Read: a seed class is good as often as a target class
   with the *same minimal norm* at another prime; the coarse half-octave null misjudges the very small norms.
@@ -380,7 +380,7 @@ below are excluded only as *tested rules*.)
      p ≡ 1 (8) (Lemma REP; 8 088 instances CERTIFIED) — the representation makes N_a a norm from ℤ[√−2d], a "square" for
      the character separating the target residue: the T1 mechanism again.
   6. **Small-prime genus seeds and cyclic orbits** (S_CYC, S_GEN2): **as tested**, they hit G as often as classes of the same
-     minimal norm (X-null |z| ≤ 1.1 on W3); every GEN2 hit is a seed-ideal identity at small norm; CYC hits are seed
+     minimal norm (X-null |z| ≤ 1.1 on W3 for these two families); every GEN2 hit is a seed-ideal identity at small norm; CYC hits are seed
      identities or class-level coincidences of 𝔮*^k with a small natural representative at the null rate. A congruence menu
      (B1): union over d ≤ 7 covers 98.8 %, failures all in 𝔐.
   7. **Fixed-n explicit maps** (s, τ, μ, ρ_L, ρ_R, ρ_C): never connect trivial words to non-trivial certificates (PROVED for
