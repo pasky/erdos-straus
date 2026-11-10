@@ -1,0 +1,15 @@
+W1 d=1: primes with a canonical fibre 305 (no rep / odd w: 0) | canonical fibre good: 0 (barren 305) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0197
+W1 d=2: primes with a canonical fibre 305 (no rep / odd w: 0) | canonical fibre good: 0 (barren 305) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0259
+W1 d=3: primes with a canonical fibre 305 (no rep / odd w: 0) | canonical fibre good: 0 (barren 305) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0134
+W1 d=5: primes with a canonical fibre 70 (no rep / odd w: 235) | canonical fibre good: 0 (barren 70) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0112
+W1 d=7: primes with a canonical fibre 150 (no rep / odd w: 155) | canonical fibre good: 0 (barren 150) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0014
+W2 d=1: primes with a canonical fibre 286 (no rep / odd w: 0) | canonical fibre good: 0 (barren 286) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0105
+W2 d=2: primes with a canonical fibre 286 (no rep / odd w: 0) | canonical fibre good: 0 (barren 286) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0148
+W2 d=3: primes with a canonical fibre 286 (no rep / odd w: 0) | canonical fibre good: 0 (barren 286) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0061
+W2 d=5: primes with a canonical fibre 86 (no rep / odd w: 200) | canonical fibre good: 0 (barren 86) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0044
+W2 d=7: primes with a canonical fibre 140 (no rep / odd w: 146) | canonical fibre good: 0 (barren 140) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0014
+W3 d=1: primes with a canonical fibre 1561 (no rep / odd w: 0) | canonical fibre good: 0 (barren 1561) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0042
+W3 d=2: primes with a canonical fibre 1561 (no rep / odd w: 0) | canonical fibre good: 0 (barren 1561) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0066
+W3 d=3: primes with a canonical fibre 1561 (no rep / odd w: 0) | canonical fibre good: 0 (barren 1561) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0025
+W3 d=5: primes with a canonical fibre 409 (no rep / odd w: 1152) | canonical fibre good: 0 (barren 409) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0031
+W3 d=7: primes with a canonical fibre 777 (no rep / odd w: 784) | canonical fibre good: 0 (barren 777) | comparison fibres a in [a_c/2, 2a_c]: mean good fraction 0.0012

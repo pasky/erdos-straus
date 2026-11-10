@@ -1,0 +1,2 @@
+F1: odd squares m^2, 3 <= m <= 301, d in {1,2,3,5,7} coprime to m: 648 pairs, 0 with G nonempty
+F3: 285 composite (★)-zeros; per d: G_d nonempty in {1: 276, 2: 230, 3: 44, 5: 95, 7: 73} of {1: 285, 2: 285, 3: 71, 5: 167, 7: 188} (coprime) inputs; no d<=7 with G nonempty: 4 (first: [57, 345, 2305, 4545])

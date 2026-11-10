@@ -189,7 +189,7 @@ q ∤ d·a (else q | x), and −2d·(2a)² ≡ x² (mod q) gives (−2d/q) = 1, 
 χ_{−8d}(m) = (−8d/m), a character modulo 8d with χ_{−8d}(−1) = −1. Hence χ_{−8d}(A) = 1 for every divisor A of N_a.
 Since p ≡ 1 (mod 8) and x is odd, 4da² ≡ 0 (mod 8): da² is even. If a is even then 8d | 4ad and A ≡ −1 (mod 4ad) gives
 χ_{−8d}(A) = χ_{−8d}(−1) = −1, impossible. If a is odd then d is even, d = 2d′, and N_a = x² + 16d′a²: every prime factor
-has (−4d′/q) = 1 and the character χ_{−16d′} (modulo 16d′ | 4ad = 8ad′) is odd, so again A ≡ −1 (mod 4ad) is impossible.
+has (−4d′/q) = 1 and the character χ_{−4d′}(m) = (−4d′/m) (modulo 4d′, which divides 4ad = 8ad′) is odd, so again A ≡ −1 (mod 4ad) is impossible.
 ∎ (The mechanism is T1's: the representation makes N_a a norm from ℤ[√−2d] (resp. ℤ[2√−d′]), whose norms are "squares" for
 the character that separates the target residue −1.)
 
