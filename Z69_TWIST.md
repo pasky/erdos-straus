@@ -1,6 +1,7 @@
-# Z69_TWIST — pushing the surviving twists of the z69 ideation lanes (WORK IN PROGRESS)
+# Z69_TWIST — pushing the surviving twists of the z69 ideation lanes: all ten die or reduce; by-product = Vieta-descent sterility theorems for Type I; no mechanism, not a HOT LEAD
 
-**ES is OPEN. Nothing here proves or disproves it.** Status: in progress (checkpoint 1).
+**ES is OPEN. Nothing here proves or disproves it.** Status: final draft (verdict §6: **narrowed / dead on the
+triaged twists**; no forcing mechanism found).
 Sources: `Z69_IDEAB.md` §1 (branch `side-agent/z69-ideab`), `data/z69/xreview/REVIEW_IDEAB.md` table A
 (branch `side-agent/z69-xrev-ideab`), `Z69_IDEAA.md` + `data/z69/xreview/REVIEW_IDEAA.md` "Possibly-premature
 dismissals". Scripts `scripts/z69_twist_*`, data `data/z69/twist/`. Labels: PROVED / CONDITIONAL / CERTIFIED /
@@ -291,3 +292,45 @@ modulus and the factored number are algebraically tied (e − n fixed), which th
 empty, unproved". It yields sterility, never existence: the descent needs a solution to start from. Type II has
 no analogue — for fixed (b, c, d) its solutions satisfy the *linear* relation e(4bcd − 1) = p + 4b²d (the K2
 congruence class), so its transport (p, e) ↦ (p + t(4bcd − 1), e + t) is unipotent, not hyperbolic.
+
+## 5. Mandatory falsifier table — final
+
+The lane ends with no positivity mechanism, so the table is for the objects actually produced.
+
+| screen | Lemma V / Prop R / Cor T10 (sterility of Type I slices) | Lemmas P, P′ (parity of word sets) | the triaged twists as would-be mechanisms |
+|---|---|---|---|
+| **F1 odd squares** | Hold for every n ≡ 1 (4), squares included; they assert absence of solutions on slices, compatible with R(m²) = 0. No step uses non-squareness and none is needed. | \|T_n\| and \|O_n\| are odd whenever x(xy − 2) = n forces x = 1 — e.g. at n = 9 — while B₉ = ∅ and U₇(9) fails. So parity alone forces nothing; an involution argument must break at squares, and no candidate was found. | I17 would use "χ₋₄ is a non-trivial genus character of disc −4dn" (fails for n = m²) — but the stability it needs is refuted. I9: Y = 0. I23: ℤ[√n] degenerates. None reached a stage where the screen bites. |
+| **F2 numerator 8 / C-even** | Type I only; says nothing about the C-even line of (★). | Lemma P′ separates the fibres y ≡ 0 (4), y ≡ 7 (8), y ≡ 3 (8); 8 ∣ y is the C-even line and has 286 zeros among primes ≡ 1 (8) below 10⁶ (census §3), consistent with F2. No positivity claim. | n/a (no mechanism survived). |
+| **F3 composites** | Primality-free by design (valid for all n ≡ 1 (4)). | \|T₁₀₅\| is odd and 105 ∈ Z₇: parity cannot be the whole argument at composites either. | n/a. |
+| **F4 known zeros** | Compatible: sterility of the gaps e − n ∈ {2, 6, 10, 18, …} removes candidate solutions, it never adds one. The census finds B_p = ∅ at 154 primes ≤ 2·10⁷ and (★) ∪ B empty only at 409, which has the Type II c = 2 solution (1, 117, 2, 1, 59) (REVIEW_IDEAA). | No positivity claim at the 14 (★)-zeros or the 38 𝔊*-zeros. | n/a. |
+
+Where primality enters: nowhere in the proved statements except Lemma P / P′(d) (uniqueness of the swap-fixed
+word needs "x ∣ n ⟹ x ∈ {1, n}", and holds at some composites and squares too). **No statement of this memo forces
+a tied divisor event at a prime.**
+
+## 6. Verdict
+
+**Narrowed / dead on the triaged twists; not a HOT LEAD.**
+* Of the ten twists handed over by the two cross-reviews, **none** yields a mechanism. I9, I17, I23 fail their
+  pre-registered tests (EVIDENCE). I24 and I12 reduce by two-line proofs to the covering form (PROVED). I10 is dead
+  for every d and IDEAA #11 is closed, both by proof (PROVED). IDEAA #10 gets the sharp necessary condition
+  (d/p) = −1 (PROVED, known in substance). I5 and I6 remain open only in the generic sense.
+* **What is new and PROVED:** (1) Lemma V: for odd M no a, b with ab ∣ M², (2M + 1) ∣ a + b (Vieta descent);
+  (2) Lemma ι + Prop R: Type I carries a cross-n Vieta involution; the solutions with e > n are exactly the
+  descendants of finitely many explicit roots per gap j = (e − n)/2; the gaps j = 1, 3, 5 (and 35 further j ≤ 301)
+  are empty for all n ≡ 1 (4), every j ≡ 3 (4), j ≥ 7 is not; no Type I solution has e = k(kp + 2), k ≡ 1 (4);
+  (3) Cor T10: no Type I point has p ∣ 4a²d + 1; (4) Lemma P′: for n ≡ 1 (8) the all-odd words have y ≡ 3 (4),
+  those with y ≡ 7 (8) are exactly the Type I solutions with a = 1, those with y ≡ 3 (8) are never certificates,
+  and for primes the latter set has odd cardinality.
+* **What the pushes say about a mechanism (Assessment).** Vieta descent is a genuine way to prove universal
+  statements about tied divisors, but only on slices where modulus and factored number are algebraically tied, and
+  only in the sterile direction. The hyperbolic structure exists for Type I (pe + 1 is symmetric in p and e) and
+  not for Type II (unipotent transport = congruence classes). The parity structure of the word set is real
+  (Lemmas P, P′) and pins down what a Zagier-type argument would have to do — move the middle letter from the
+  class 3 to the class 7 (mod 8) — but T1 forbids any uniform construction, exactly as in `INVOLUTION_ES.md`.
+* Not done: I6 was not tested; I17 only for d = 1; the I23 search is bounded (h ≤ 40, p < 400); Prop R's sterile
+  list is computed only for j ≤ 301 and no closed description of the sterile j ≡ 1 (4) was found.
+
+## 7. Review log
+
+(internal hostile review: pending)
