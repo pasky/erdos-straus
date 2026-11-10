@@ -175,6 +175,13 @@ non-squares: a proof may of course treat primes and composites separately, but a
 this is a cleaner bookkeeping target, not a mechanism — it is the union of three known one-parameter lines and
 asks for the same kind of tied divisor event (a divisor of ny + 1 in the class −1 mod y with a 2-adic side
 condition); nothing here makes it easier to force.
+*Tail calibration (EVIDENCE; one engine; added after the third review round, not reviewed).*
+`scripts/z69_twist_certcount.c 1000000000`, `data/z69/twist/certcount_1e9.txt`: number of certificate words
+(ordered) per non-square n ≡ 1 (4), n ≤ 10⁹. At most 2 words: 4 values of n, the largest 111 969; at most 6: 52
+values, the largest 4 808 265. Minimum over the blocks (4^k, 4^{k+1}] from 4⁵ to 10⁹ — all non-squares:
+4, 2, 4, 2, 6, 8, 6, 14, 19, 18; primes only: 4, 8, 14, 14, 18, 18, 24, 30, 36, 46 (minimisers 2521, 9601, 21841,
+76441, 351289, 4149601, 5516281, 17287201, 111664081, 278893729 — the campaign's familiar hard primes). The
+minimum grows steadily; no sign of a late exception to (W) below 10⁹.
 
 **Consequences for I5 (PROVED / CERTIFIED as marked).**
 * On the odd set O_p alone a Zagier-type argument is impossible **already at primes**: |O_p| is odd while B_p = ∅
@@ -497,4 +504,5 @@ any odd square; the 4545 example is exact (4/4545 = 1/1148 + 1/111356 + 1/361509
 (1) MAJOR — the U_II zero list was stated without its certified range (10¹⁰): range and CONJECTURE status added.
 (2) MINOR — the census starts at n = 5 (the square 1 is not counted): stated. (3) MINOR — the text referred to a
 third round before it was recorded: recorded here. (4) MINOR — "a proof could not use primality" and the
-comparison with U₇ were overstated: reworded. Nothing was added after the third round.
+comparison with U₇ were overstated: reworded. After the third round only the tail-calibration paragraph for (W) (§3) was added;
+it is a single-engine census and was not reviewed.

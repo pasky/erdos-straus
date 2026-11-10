@@ -1,0 +1,15 @@
+cnt <= 0: 1 non-squares (largest 105); primes 0 (largest 0)
+cnt <= 2: 4 non-squares (largest 111969); primes 0 (largest 0)
+cnt <= 4: 28 non-squares (largest 111969); primes 1 (largest 2521)
+cnt <= 6: 52 non-squares (largest 4808265); primes 2 (largest 2521)
+cnt <= 8: 95 non-squares (largest 4808265); primes 8 (largest 9601)
+block (1024, 4096]: min cnt 4 at n=1465 ; over primes 4 at p=2521
+block (4096, 16384]: min cnt 2 at n=5481 ; over primes 8 at p=9601
+block (16384, 65536]: min cnt 4 at n=25305 ; over primes 14 at p=21841
+block (65536, 262144]: min cnt 2 at n=111969 ; over primes 14 at p=76441
+block (262144, 1048576]: min cnt 6 at n=978145 ; over primes 18 at p=351289
+block (1048576, 4194304]: min cnt 8 at n=2646105 ; over primes 18 at p=4149601
+block (4194304, 16777216]: min cnt 6 at n=4808265 ; over primes 24 at p=5516281
+block (16777216, 67108864]: min cnt 14 at n=17158185 ; over primes 30 at p=17287201
+block (67108864, 268435456]: min cnt 19 at n=88601865 ; over primes 36 at p=111664081
+block (268435456, 1000000000]: min cnt 18 at n=320411025 ; over primes 46 at p=278893729
