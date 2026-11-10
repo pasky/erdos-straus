@@ -16,7 +16,9 @@
 #   whose only unit coefficients sit on good primes are frozen at the real classes.  Purpose: test whether the negative
 #   deviations of FIX-ALL come from pivot-solved small good ideals losing their free-region protection (Lemma FR).
 # Usage: python scripts/z70_class_nullfix.py MODE d R seed range P0 P1 [mod res] | list n1 ...
-import sys, math, random
+import sys, math, random, os
+DIAG = os.environ.get('Z70_DIAG') == '1'   # post hoc diagnostic (final pass): split ideal-pair coincidences by whether an
+# ideal involves a pivot-solved or uniformly drawn ("solved") prime class
 sys.path.insert(0, 'scripts')
 from collections import Counter
 from sympy import factorint, primerange
@@ -104,6 +106,19 @@ def analyse(n, d, R, rng, F, mode):
     pools = {q: SP.pool(q) for q in swap}
     H = set(G.add(u, u) for u in G.coords.values()); Hl = sorted(H)
     acc = {s: [] for s in SS}; first = None; varied = [False]*len(vecs)
+    solved = [any(q in pivset or q in big for q, _ in v) for v in vecs]
+    def pairsplit(Y):
+        out = Counter(); idx = {}
+        for i, y in enumerate(Y): idx.setdefault(y, []).append(i)
+        for i, y in enumerate(Y):
+            for j in idx[y]:
+                if j > i: out['coll_' + ('S' if solved[i] or solved[j] else 'P')] += 1
+            for t in tl:
+                z = G.add(y, t)
+                for j in idx.get(z, ()):
+                    if j != i: out['L3_' + ('S' if solved[i] or solved[j] else 'P')] += 1
+        return out
+    dobs = pairsplit(Xobs) if DIAG else None; dnull = Counter()
     for _ in range(R):
         cls = {q: realc[q] for q in allprimes if q in fixed or q in frozen}
         used = set(fixed) | set(frozen)
@@ -130,9 +145,11 @@ def analyse(n, d, R, rng, F, mode):
         else: varied = [vv or (y != f_) for vv, y, f_ in zip(varied, Y, first)]
         st = stats(G, Y, tl)
         for k_ in SS: acc[k_].append(st[k_])
+        if DIAG: dnull.update(pairsplit(Y))
     nullst = {k_: (sum(v)/R, (sum(x*x for x in v)/R - (sum(v)/R)**2) ** 0.5) for k_, v in acc.items()}
     return dict(n=n, d=d, h=G.h, k=obs['K'], NI=len(vecs), obs=obs, null=nullst, nfib=len(fib), frozen=len(frozen),
-                frows=nfrozenrows, nvar=sum(varied), l0=tlp[0] if tlp else None)
+                frows=nfrozenrows, nvar=sum(varied), l0=tlp[0] if tlp else None,
+                dobs=dobs, dnull={k: v/R for k, v in dnull.items()} if DIAG else None)
 
 def run(mode, d, R, nlist, F, seed, out=sys.stdout, tag=''):
     rng = random.Random(seed)
@@ -150,11 +167,16 @@ def run(mode, d, R, nlist, F, seed, out=sys.stdout, tag=''):
             agg[s][0] += ob[s] - mu; agg[s][1] += sd*sd; tot['obs_'+s] += ob[s]; tot['null_'+s] += mu
             powr[s] += sd > 0
         for k in ('nfib', 'frozen', 'frows', 'nvar', 'NI'): tot[k] += o[k]
+        if DIAG:
+            for k in ('coll_S', 'coll_P', 'L3_S', 'L3_P'): tot['dobs_' + k] += o['dobs'][k]; tot['dnull_' + k] += o['dnull'].get(k, 0)
         print(line, file=out, flush=True)
     Z = lambda a: a[0]/math.sqrt(a[1]) if a[1] > 0 else float('nan')
     print(f"# {tag} null=FIX-{mode} d={d} n analysed {npr} (skipped: {dict(skipped)}); R={R}; seed={seed}; imposed fibres {tot['nfib']}, "
           f"frozen rows {tot['frows']} (vars {tot['frozen']}); ideal-class variability {tot['nvar']}/{tot['NI']}; "
           f"n with null variance > 0: " + ', '.join(f"{s} {powr[s]}" for s in ('Mx', 'Ex', 'L1', 'L3', 'C0', 'A2')), file=out)
+    if DIAG:
+        print(f"# {tag} DIAG ideal-pair coincidences, observed vs null mean, split by involvement of a solved class (S) or not (P): " +
+              '; '.join(f"{k} obs {tot['dobs_'+k]} null {tot['dnull_'+k]:.1f}" for k in ('coll_S', 'coll_P', 'L3_S', 'L3_P')), file=out)
     print(f"# {tag} null=FIX-{mode} d={d} EXACT sums: " + '; '.join(f"{s} excess {agg[s][0]:+.4f} var {agg[s][1]:.4f}" for s in SS), file=out)
     print(f"# {tag} null=FIX-{mode} d={d}: " + "; ".join(f"Z_{s} = {Z(agg[s]):+.2f} (obs {tot['obs_'+s]:.0f}, null {tot['null_'+s]:.1f})" for s in SS), file=out, flush=True)
 
