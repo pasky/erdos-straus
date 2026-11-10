@@ -70,6 +70,37 @@ PSC Z_Mx +2.66, Z_Ex +1.57, Z_L1 +1.70, Z_L3 +1.09. PSC d = 3, [200000, 201000),
 Z_Ex +4.05, Z_L1 −0.74, Z_L3 −0.70 — the d = 3 energy residual reappears against PSC in the smoke test. These two
 windows are excluded from the registered samples.
 
+### 1.3 Registered outcome of §1.2 (PSC) — RESIDUAL fires for d = 1 and d = 2; K-RES fires for d = 3, 5, 7
+Data `data/z70/class/i1_PSC_*.txt` (pooled over the fresh windows by `scripts/z70_class_pool.py`). Positive controls behave
+(C0 d = 1 and A2 d > 1: |Z| < 3 against PSC on every window; against PS: C0 Z = +23.7 (d = 1, F1), A2 Z = +17.9 (d = 3, F2)).
+Full table in §1.5. In short: d = 1 L1 Z = +4.05, +5.18, +7.47, +8.44 on F1–F4 (pooled +11.5), Mx pooled +9.7;
+d = 2 pooled Ex +5.0, Mx +4.3 (per window only F3 ≥ 3); d = 3, 5, 7: every registered |Z| < 3 on every fresh window
+(pooled d = 3 Ex +2.7). So the z69 d = 3 "residual energy" is accounted for by DL + CS; the d = 1 residual is real and
+grows with n.
+
+### 1.4 Residual hunt, step 1 — Lemma FIB and the fibre-principal null PSF (pre-registered before any PSF run beyond a smoke test)
+**Lemma FIB (PROVED).** (2ad + √−dn) = 𝔡·𝔅_a with N(𝔅_a) = N_a, and every e-ideal *and* every A-ideal of a fibre-a solution
+divides 𝔅_a. Hence [𝔅_a] = T_d, and every good class has three natural ideal representatives
+  g = [𝔄] = [conj 𝔅′] = T_d − [𝔈]   (𝔄 of norm A = 4acd − 1, 𝔅′ the A-ideal of the b-side solution, of norm 4bcd − 1),
+and for two e-ideals of one fibre with coprime norms [𝔈] + [𝔈′] = T_d − [𝔚], 𝔚 = 𝔅_a/(𝔈𝔈′) (CS: 𝔚 = 1). In particular a
+good class contains an ideal of norm min(A, B, ·) — small when c and a (or b) are small — and *ideal* identities among
+these A-side representatives (e.g. 𝔄′ = 𝔄·𝔏₀ across fibres) are *class* coincidences from the e-side point of view, which
+PSC randomises.
+**Null PSF**: PSC's prime swap, plus the principal relation [𝔅_a] = T_d for every active fibre a imposed exactly (integer
+elimination with ±1 pivots, pivots preferably primes outside the good norms; primes above the largest good-norm prime get a
+uniform class of their genus coset; `scripts/z70_class_psf.py`). PSF preserves DL, CS, Lemma FIB and every ideal identity
+among all representatives; it randomises the remaining coincidences. Power caveat (seen in the smoke test, d = 1,
+[20000, 21000)): at small n most good classes are *determined* by the fixed small primes through these relations (26 of
+472 good ideals had a non-degenerate null class), so the script reports the non-degenerate fraction.
+**Registered (before the runs):** windows = the fresh windows of §1.2 for d = 1 (F1–F4), d = 2 (F1–F3), d = 3 (F1–F3),
+plus unseen windows d = 1: G1 = [500000, 503000), G2 = [2000000, 2003000), G3 = [8000000, 8002000); d = 2: G1 = [500000, 510000),
+G2 = [2000000, 2006000); R = 200.
+* **K-FIB:** against PSF |Z| < 3 for Mx, Ex, L1, L3 on every window with ≥ 20 % non-degenerate good ideals, and pooled |Z| < 4
+  per d ⟹ the residual of §1.3 is accounted for by Lemma FIB (no third mechanism visible at this resolution).
+* **RESIDUAL-2:** otherwise (same thresholds as §1.2) ⟹ decompose the OTHER-type L1 pairs and continue.
+* validity: C0 (d = 1) / A2 (d > 1) |Z| < 3 against PSF; windows with < 20 % non-degenerate ideals are reported as "no power".
+Smoke test only (excluded): d = 1, [20000, 21000), R = 100: all |Z| ≤ 1.7, C0 −0.97, L1 −0.11.
+
 ## 2. Item 2 — class-group structure beyond h vs U₇ witnesses (pre-registration)
 Samples (from `Z69_MINE.md` round 2, `data/z69/mine/`): H_train (438), H_test (411), CTRL (2 547 size-matched controls);
 exploration on H_train + CTRL only; H_test scored once.
