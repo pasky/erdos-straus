@@ -202,13 +202,49 @@ conjugation γ ↦ L^kγL^{−k}. For each action the orbit of w inside T_n is f
   conjugation action — involutions; fixed points = middle elements of odd orbits.
 * **σ_C := s∘ρ_C** (s maps C-orbits to C-orbits reversing the order, so s and ρ_C commute; an involution); fixed
   points: words whose C-orbit is s-stable with s(w) = ρ_C(w).
-* **σ_LR := s∘ρ_R∘s∘ρ_L?** — not an involution in general; replaced by the commuting pair test: ρ_L∘s∘ρ_R∘s is NOT
-  used. Instead **σ_R := s∘ρ_R∘s = ρ_L** (identity check only).
+* **σ_R := s∘ρ_R∘s** (the mirror of ρ_R; expected to coincide with ρ_L — a consistency check of the code; it does).
+  [The first draft of this bullet also floated a composite σ_LR; it was dropped before any run as not an involution.]
 * **τ_xy (x ↔ y exchange):** (x, y, z) ↦ (y, x, (n + y)/(xy − 1)) on D_xy := {xy ≥ 2, (xy − 1) | (n + y)} — an
   involution of D_xy, fixed points x = y. **σ2a** := τ_xy on D_xy, τ_yz = sτ_xy s on D_yz ∖ D_xy, s elsewhere;
   **σ2b** := τ_xy on D_xy, s elsewhere. (Each must first be checked to be an involution of T_n.)
 Stage-1 test: involution on T₇₃ and T₄₀₉, ≠ s, Fix ⊆ C_p at both (C_p: 4 | x, 4 | y, 4 | z, or x ≡ y ≡ 3 (4), or
 z ≡ y ≡ 3 (4)). Controls T₉, T₁₀₅ (C = ∅) printed.
+
+### 3.1 Stage-1 result (`scripts/z70_loose_i5.py` → `data/z70/loose/i5_stage1.txt`): all seven candidates DEAD
+|T₇₃| = 23 (|C₇₃| = 8), |T₄₀₉| = 39 (|C₄₀₉| = 8), |T₉| = |T₁₀₅| = 11 (C = ∅).
+| candidate | involution on T₇₃, T₄₀₉ | #Fix at 73 / 409 | non-certificate fixed points (examples) | verdict |
+|---|---|---|---|---|
+| ρ_L | yes | 15 / 23 (8 in C) | (2, 2, 25), (2, 13, 3) | dead |
+| ρ_R | yes | 15 / 23 | (1, 2, 74), (1, 3, 37) | dead |
+| ρ_C | yes | 15 / 23 | (1, 75, 1), (2, 2, 25) | dead |
+| σ_C = s∘ρ_C | yes | 5 / 5 (0 in C) | (1, 2, 74), (1, 75, 1) | dead |
+| σ_R = s∘ρ_R∘s (= ρ_L) | yes | 15 / 23 | as ρ_L | dead |
+| σ2a, σ2b (x ↔ y exchange) | **no** (not involutions) | — | — | dead |
+The unipotent orbits are mostly singletons (their reversals fix most words); the x ↔ y exchange is an involution only on
+its domain D_xy and the patching by s or τ_yz breaks it. Stage 2 not reached.
+
+### 3.2 Lemma P5 — where the odd parity of T_p lives (PROVED; check `i5_lemma_check.txt`)
+Let p ≡ 1 (mod 4) be prime. Split T_p = Triv_p ⊔ T′_p, Triv_p := words with a letter equal to 1. Then
+(a) |Triv_p| = 3τ(p + 1) − 1 (odd), (b) |T′_p| is even (s acts freely on T′_p), (c) Triv_p ∩ C_p ≠ ∅ iff p + 1 has a
+prime factor ≡ 3 (mod 4).
+*Proof.* (a) x = 1: z(y − 1) = p + 1 (τ(p + 1) words); z = 1: symmetric; y = 1: (x − 1)(z − 1) = p + 1 (τ(p + 1)
+words with x, z ≥ 2); the only overlap is (1, p + 2, 1); τ(p + 1) is even since p + 1 ≡ 2 (mod 4) is not a square.
+(b) s-fixed words satisfy x(xy − 2) = p, forcing x = 1 (Lemma P). (c) p + 1 ≡ 2 (mod 4). x = 1 words (1, y, z): 4 ∤ z
+(z | p + 1); 4 | y needs y − 1 ≡ 3 (mod 4), an odd divisor ≡ 3 (mod 4) of p + 1; y ≡ z ≡ 3 needs z ≡ 3 (mod 4), again
+such a divisor; z = 1 symmetric; y = 1 words (x, 1, z): 4 | x needs x − 1 ≡ 3 (mod 4) | p + 1, and the type-(iii)
+conditions need y ≡ 3. An odd divisor ≡ 3 (mod 4) exists iff the odd part of p + 1 has a prime factor ≡ 3 (mod 4).
+Conversely such a prime q gives the word (1, q + 1, (p + 1)/q) when q ≡ 3 (mod 4) with 4 | q + 1. ∎
+(Checked for all 383 primes p ≡ 1 (4) < 6000: 0 violations; 54 of them, starting 73, 193, 313, 337, 409, have no
+trivial certificate.)
+**Consequence.** The odd parity that a Zagier-type argument needs is carried *entirely* by the divisor words of p + 1
+(the swap-free part T′_p is even). At every prime with (p + 1)/2 a sum of two squares (infinitely many; 73, 409, …) a
+certificate-fixed involution σ cannot preserve the decomposition Triv ⊔ T′: it must pair at least one divisor word of
+p + 1 with a non-trivial word — i.e. it must be an arithmetic transport from divisors of p + 1 to the (MS)/(W)
+certificates. That is the B2 event again in parity clothing; no such transport is known.
+**Verdict I5 (narrowed):** the seven registered natural non-affine cross-slice maps fail stage 1 on T₇₃/T₄₀₉;
+Lemma P5 explains why any such map must be arithmetic in p + 1. Not killed in general (a map certificate-fixed only at
+primes is not excluded), but no candidate exists. F1: T₉, T₁₀₅ have C = ∅ and odd |T| — any passing family must fail
+there; F2: no candidate survived to the C-even question.
 
 ## 5. (Pell letters: below)
 

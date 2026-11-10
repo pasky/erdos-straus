@@ -1,0 +1,1 @@
+primes p=1(4) <6000: 383 violations: 0 primes with no trivial certificate: 54 [73, 193, 313, 337, 409, 457, 577, 673, 1009, 1129, 1153, 1201, 1249, 1321, 1489]
