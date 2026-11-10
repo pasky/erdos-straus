@@ -1,4 +1,4 @@
-# Z70_GEN — generative class maps (wave z70, lane GEN; final lane of the z68–z70 arc): narrowed — no generative map; eight classes of candidate maps excluded (five by scoped proof, three by blind tests); not a HOT LEAD
+# Z70_GEN — generative class maps (wave z70, lane GEN; final lane of the z68–z70 arc): narrowed — no generative map found; five scoped no-go theorems (GW, AMB, ORD, WORD, REP); the tested seed families hit G only at the rate fixed by their minimal norms; not a HOT LEAD
 
 **ES is OPEN. Nothing here proves or disproves it.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE /
 Assessment. Scripts `scripts/z70_gen_*`, data `data/z70/gen/`. Sources: `Z70_CLASS.md` (Lemmas Φ, DL′, SR, FR, FR′,
@@ -424,14 +424,46 @@ words. Primality enters only as the existence of a non-residue prime ideal in th
 sufficient. Not a HOT LEAD. ES is OPEN.
 
 ## 8. Reproduction (each command under `ulimit -v 6000000`, `timeout ≤ 1800`)
-* validation: `uv run --with cypari2 --with sympy --with numpy python scripts/z70_gen_validate.py`
-* registered runs: `scripts/z70_gen_runwin.sh W1 100000 130000`, `… W2 1000000 1030000`, `… W3 10000000 10200000`
-  (writes `data/z70/gen/run_*.jsonl`; archived as `runs_W123.tar.xz`); pooling `python3 scripts/z70_gen_pool.py run_W1_d*.jsonl run_W2_d*.jsonl`
-  and `… run_W3_d*.jsonl`; GEN2 coverage decomposition `python3 scripts/z70_gen_covdecomp.py DIR` (DIR = the unpacked archive).
-* screens: `uv run --with cypari2 python scripts/z70_gen_run.py OUT d list <inputs>` (F2, F4; raw in `screens_raw.tar.xz`),
-  `python3 scripts/z70_gen_screens.py OUT…`; F1/F3 `uv run --with cypari2 python scripts/z70_gen_f13.py data/z70/gen/screen_F13.txt`.
+* validation: `uv run --with cypari2 --with sympy --with numpy python scripts/z70_gen_validate.py` (→ `validate.txt`).
+* registered runs (post-review pipeline; refuses to overwrite, stops on error): `scripts/z70_gen_runwin.sh W1 100000 130000 DIR`,
+  `… W2 1000000 1030000 DIR`, `… W3 10000000 10200000 DIR` (raw records archived in `runs_W123.tar.xz`); pooling
+  `python3 scripts/z70_gen_pool.py DIR/run_W1_d*.jsonl DIR/run_W2_d*.jsonl` → `pool_W12.txt` and `… DIR/run_W3_d*.jsonl` →
+  `pool_W3.txt` (asserts unique (p, d)); `python3 scripts/z70_gen_covdecomp.py DIR` → `gen2_coverage_decomp.txt`;
+  `python3 scripts/z70_gen_empty.py DIR/run_W*.jsonl` → `empty_fibres.txt`.
+* screens: `uv run --with cypari2 python scripts/z70_gen_run.py OUT d list <inputs>` (F2, F4; raw in `screens_raw.tar.xz`,
+  first-pass pipeline — the registered statistics are unchanged by D9), `python3 scripts/z70_gen_screens.py OUT…`;
+  F1/F3 `uv run --with cypari2 python scripts/z70_gen_f13.py data/z70/gen/screen_F13.txt`.
 * item 1b: `uv run --with cypari2 python scripts/z70_gen_rep.py data/z70/gen/rep_fibres.txt`; item 4:
-  `uv run --with cypari2 python scripts/z70_gen_graph.py data/z70/gen/graph.jsonl <n…>`.
+  `uv run --with cypari2 python scripts/z70_gen_graph.py data/z70/gen/graph.jsonl <n…>` (appends).
 
 ## 9. Review log
-(pending: hostile deep-mode internal review)
+**Internal hostile review** (requested in deep mode through the review tool, which ran it on `openai/gpt-6-astra`; no
+provider / auth / quota error) at `14bc8dc47`: *request changes* — 12 major, 3 minor items; it reproduced both pooled files,
+both screen summaries, the coverage decomposition, all 249 validation checks and the 73/409 graphs byte-for-byte, and found
+the small-fibre enumeration, genus targets, seed construction independent of G, ORD, REP and WORD sound in their domains.
+Fixes applied (all in this memo / the scripts; full W1–W3 rerun, D9):
+1. "every hit is an ideal identity" conflated *reduced ideal natural* with *seed ideal natural* → seed-level identity check
+   added (`seedid`); GEN2: every hit is a seed identity; CYC: 2 582/2 798 … (d = 1, W3), the rest class-level coincidences of
+   𝔮*^k with small natural representatives (§3.1); headline/bottom line reworded to "tested rules".
+2. "no class-level hit below √(dp)" false at d = 2 (6 + 2 hits, all respecting FR′) → corrected (§3.3).
+3. coverage null trained on all primes but evaluated on G ≠ ∅ → matched; the d = 7 coverage excess disappears, d = 2 remains
+   and is attributed to same-norm exclusivity (§3.1).
+4. α-null variances not the conditional randomisation → "AC" null with finite-population hypergeometric variance added; X
+   null cross-fitted; all z declared model contrasts.
+5. item-3 profile censored early hits by later identities → threshold-local censoring (§3.3).
+6. K-GEN1 misreported (CYC d = 2 fails already on W1 ∪ W2; AMB has no statistic) → family × d outcome table (§3.1).
+7. GW(d) "only group-theoretic operation" overclaimed → restricted to {+, −, kx, ψ-preserving automorphisms, halving};
+   counterexample with a non-ψ-preserving automorphism recorded.
+8. AMB summaries dropped p(4d − 3) > 8d (p = 5, d = 1 counterexample) → restored everywhere.
+9. composite scope: GW(e) needs n ≡ 1 (mod 4) (n = 15 counterexample); F3 census wording "tested coprime d"; composite-family
+   claim removed.
+10. 2b χ² referred to the wrong reference → finite-population expectation reported, reading withdrawn (§3.2).
+11. ledger incomplete → D6–D8 added; the 19 omitted item-4 inputs were run (K-GEN4 unchanged).
+12. unconditional class-number cross-check claimed but not implemented → claim withdrawn (§1).
+13. numbers: 22 validation inputs; 16 078 910 seed ideals; S_AMB ∩ 𝒯 ≠ ∅ for d = 5, 7 at ≈ half the primes; r₈ d = 7 t −1.61;
+    RED A-null d = 2 +1.90; 8 088 canonical fibres, comparison up to 2.59 %; CYC first-entry "never" counts → corrected.
+14. τ_xy boundary case (x = 1 or y = 1) → proof text fixed.
+15. append-mode reruns could double count → run script refuses existing output, runwin stops on error, pooling asserts
+    unique (p, d).
+Owed: cross-model (Astra) review per the wave flow — note that this internal review was already produced by Astra; the
+orchestrator may prefer a different reviewer.
