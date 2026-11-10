@@ -135,6 +135,24 @@ def run_one(n, d, item3=True, P3=50):
     rec['fam'] = {k: score(S, G, T, CG) for k, S in fam.items()}
     rates = alpha_rates(G, T, CG)
     rec['famA'] = {k: score_alpha(S, G, T, CG, rates) for k, S in fam.items()}
+    # data for the pooled exact-alpha null and the hit decomposition (added before W3; does not change registered stats)
+    Ts, Tp = units(T, CG); ah = {}
+    for w, U in ((1, Ts), (2, Tp)):
+        for u in U:
+            al = CG.byvec[u][0]
+            if al <= 5000:
+                x = ah.setdefault(al, [0, 0]); x[0] += 1; x[1] += (u in G)
+    rec['ahist'] = ah
+    seedinfo = {}
+    for k, S in fam.items():
+        Ss, Sp = units(set(S) & T, CG); lst = []
+        for w, U in ((1, Ss), (2, Sp)):
+            for u in U:
+                al = CG.byvec[u][0]
+                lst.append([al, w, int(u in G), mnat.get(u, 0)])
+        seedinfo[k] = lst
+    rec['seeds'] = seedinfo
+    rec['base_primes'] = sorted(q for gv, (q, v) in genus_min.items())
     # ---- item 3: P3-smooth split ideals of norm <= X (amended after smoke test: X = min(dn, 64 sqrt(dn)),
     #      cumulative profile at thresholds sqrt(dn) * 2^j, j = -4..6)
     if item3:

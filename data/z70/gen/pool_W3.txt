@@ -1,0 +1,398 @@
+d=1 all  U    AMB  primes 1561 | hits      0 E      0.0 z   +nan | coverage    0/1561 (G>0: 0/1560) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=1 all  U    RED  primes 1561 | hits    354 E    383.7 z  -1.22 | coverage  117/1561 (G>0: 117/1560) exp 130.9 z  -1.45 | mean|S|/|T| 0.013
+d=1 all  U    CYC  primes 1561 | hits   2798 E    430.4 z +82.38 | coverage 1261/1561 (G>0: 1261/1560) exp 203.7 z +79.92 | mean|S|/|T| 0.013
+d=1 all  U    GEN2 primes 1561 | hits   4062 E    344.8 z +144.30 | coverage 1344/1561 (G>0: 1344/1560) exp 165.4 z +97.38 | mean|S|/|T| 0.011
+d=1 all  A    AMB  primes 1561 | hits      0 E      0.0 z   +nan | coverage    0/1561 (G>0: 0/1560) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=1 all  A    RED  primes 1561 | hits    354 E    368.5 z  -0.65 | coverage  117/1561 (G>0: 117/1560) exp 119.5 z  -0.32 | mean|S|/|T| 0.013
+d=1 all  A    CYC  primes 1561 | hits   2798 E   2779.6 z  +0.76 | coverage 1261/1561 (G>0: 1261/1560) exp 1254.3 z  +1.25 | mean|S|/|T| 0.013
+d=1 all  A    GEN2 primes 1561 | hits   4062 E   3859.5 z  +5.08 | coverage 1344/1561 (G>0: 1344/1560) exp 1329.4 z  +2.13 | mean|S|/|T| 0.011
+d=1 all  CYC first entry k (G>0, n=1560): k=1: 1228, 3: 6, 5: 6, 7: 13, 9: 8, >9: 283
+d=1 all  2a r4 constant (1)
+d=1 all  2a r8: log(1+|G|) within-p mod 840 t  -1.42 (n 1561); 1[G empty] t  +1.03; dist {0: 763, 1: 798}
+d=1 all  2b positions: chi2 5609.0 df 5732 z  -1.15
+d=1 all  empty G: 1 of 1561
+d=1 all  it3 j=-2 primes 1561 | non-I reached  59680 | III hits     0  E_unif   828.4 z -21.04  E_alpha  1568.4 z -29.86
+d=1 all  it3 j=-1 primes 1561 | non-I reached  99646 | III hits     0  E_unif  1374.1 z -27.59  E_alpha  2043.7 z -33.69
+d=1 all  it3 j= 0 primes 1561 | non-I reached 149224 | III hits     0  E_unif  2031.6 z -34.41  E_alpha  2382.4 z -36.14
+d=1 all  it3 j= 1 primes 1561 | non-I reached 225790 | III hits     0  E_unif  3062.9 z -44.06  E_alpha  2846.3 z -39.25
+d=1 all  it3 j= 2 primes 1561 | non-I reached 328164 | III hits   274  E_unif  4450.9 z -52.97  E_alpha  3731.7 z -41.37
+d=1 all  it3 j= 3 primes 1561 | non-I reached 447322 | III hits  1702  E_unif  6085.3 z -51.46  E_alpha  5020.4 z -34.10
+d=1 all  it3 j= 4 primes 1561 | non-I reached 578818 | III hits  3800  E_unif  7903.0 z -46.83  E_alpha  6728.7 z -25.99
+d=1 all  it3 j= 5 primes 1561 | non-I reached 708600 | III hits  6328  E_unif  9731.8 z -39.65  E_alpha  8641.2 z -18.18
+d=1 all  it3 j= 6 primes 1561 | non-I reached 828150 | III hits  9332  E_unif 11471.3 z -26.45  E_alpha 10960.0 z -11.52
+d=1 all  it3 first entry (G>0): type I 1508, type III 16, none within X 36; FR-violations 0
+d=1 M    U    AMB  primes  397 | hits      0 E      0.0 z   +nan | coverage    0/ 397 (G>0: 0/397) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=1 M    U    RED  primes  397 | hits     62 E     74.0 z  -1.03 | coverage   26/ 397 (G>0: 26/397) exp 31.1 z  -1.05 | mean|S|/|T| 0.009
+d=1 M    U    CYC  primes  397 | hits    606 E    102.7 z +35.79 | coverage  278/ 397 (G>0: 278/397) exp 48.8 z +35.22 | mean|S|/|T| 0.012
+d=1 M    U    GEN2 primes  397 | hits    998 E     82.3 z +72.67 | coverage  323/ 397 (G>0: 323/397) exp 39.6 z +47.68 | mean|S|/|T| 0.010
+d=1 M    A    AMB  primes  397 | hits      0 E      0.0 z   +nan | coverage    0/ 397 (G>0: 0/397) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=1 M    A    RED  primes  397 | hits     62 E     67.1 z  -0.52 | coverage   26/ 397 (G>0: 26/397) exp 26.4 z  -0.11 | mean|S|/|T| 0.009
+d=1 M    A    CYC  primes  397 | hits    606 E    600.6 z  +0.47 | coverage  278/ 397 (G>0: 278/397) exp 276.5 z  +0.44 | mean|S|/|T| 0.012
+d=1 M    A    GEN2 primes  397 | hits    998 E    966.6 z  +1.39 | coverage  323/ 397 (G>0: 323/397) exp 314.6 z  +1.74 | mean|S|/|T| 0.010
+d=1 M    CYC first entry k (G>0, n=397): k=1: 264, 3: 0, 5: 3, 7: 8, 9: 3, >9: 113
+d=1 M    2a r4 constant (1)
+d=1 M    2a r8: log(1+|G|) within-p mod 840 t  +1.26 (n 397); 1[G empty] t   +nan; dist {0: 196, 1: 201}
+d=1 M    2b positions: chi2 1048.9 df 1097 z  -1.03
+d=1 M    empty G: 0 of 397
+d=1 M    it3 j=-2 primes  397 | non-I reached  15556 | III hits     0  E_unif   227.0 z -11.01  E_alpha   430.0 z -15.65
+d=1 M    it3 j=-1 primes  397 | non-I reached  24008 | III hits     0  E_unif   350.4 z -13.88  E_alpha   538.3 z -17.33
+d=1 M    it3 j= 0 primes  397 | non-I reached  36694 | III hits     0  E_unif   531.5 z -17.51  E_alpha   629.9 z -18.62
+d=1 M    it3 j= 1 primes  397 | non-I reached  54876 | III hits     0  E_unif   794.2 z -22.19  E_alpha   750.9 z -20.20
+d=1 M    it3 j= 2 primes  397 | non-I reached  78640 | III hits    64  E_unif  1132.4 z -26.35  E_alpha   964.9 z -21.24
+d=1 M    it3 j= 3 primes  397 | non-I reached 107366 | III hits   408  E_unif  1546.2 z -25.79  E_alpha  1286.9 z -17.86
+d=1 M    it3 j= 4 primes  397 | non-I reached 143190 | III hits   980  E_unif  2065.4 z -23.51  E_alpha  1765.7 z -13.63
+d=1 M    it3 j= 5 primes  397 | non-I reached 177302 | III hits  1662  E_unif  2565.1 z -19.71  E_alpha  2278.5 z  -9.45
+d=1 M    it3 j= 6 primes  397 | non-I reached 211590 | III hits  2492  E_unif  3076.5 z -13.46  E_alpha  2941.4 z  -6.16
+d=1 M    it3 first entry (G>0): type I 380, type III 5, none within X 12; FR-violations 0
+d=1 nonM U    AMB  primes 1164 | hits      0 E      0.0 z   +nan | coverage    0/1164 (G>0: 0/1163) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=1 nonM U    RED  primes 1164 | hits    292 E    309.6 z  -0.83 | coverage   91/1164 (G>0: 91/1163) exp 99.8 z  -1.06 | mean|S|/|T| 0.014
+d=1 nonM U    CYC  primes 1164 | hits   2192 E    327.6 z +74.38 | coverage  983/1164 (G>0: 983/1163) exp 154.9 z +71.90 | mean|S|/|T| 0.014
+d=1 nonM U    GEN2 primes 1164 | hits   3064 E    262.5 z +124.69 | coverage 1021/1164 (G>0: 1021/1163) exp 125.8 z +84.92 | mean|S|/|T| 0.011
+d=1 nonM A    AMB  primes 1164 | hits      0 E      0.0 z   +nan | coverage    0/1164 (G>0: 0/1163) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=1 nonM A    RED  primes 1164 | hits    292 E    301.4 z  -0.47 | coverage   91/1164 (G>0: 91/1163) exp 93.1 z  -0.31 | mean|S|/|T| 0.014
+d=1 nonM A    CYC  primes 1164 | hits   2192 E   2179.0 z  +0.61 | coverage  983/1164 (G>0: 983/1163) exp 977.8 z  +1.27 | mean|S|/|T| 0.014
+d=1 nonM A    GEN2 primes 1164 | hits   3064 E   2892.9 z  +5.21 | coverage 1021/1164 (G>0: 1021/1163) exp 1014.7 z  +1.28 | mean|S|/|T| 0.011
+d=1 nonM CYC first entry k (G>0, n=1163): k=1: 964, 3: 6, 5: 3, 7: 5, 9: 5, >9: 170
+d=1 nonM 2a r4 constant (1)
+d=1 nonM 2a r8: log(1+|G|) within-p mod 840 t  -2.38 (n 1164); 1[G empty] t  +1.03; dist {0: 567, 1: 597}
+d=1 nonM 2b positions: chi2 4560.1 df 4635 z  -0.78
+d=1 nonM empty G: 1 of 1164
+d=1 nonM it3 j=-2 primes 1164 | non-I reached  44124 | III hits     0  E_unif   601.4 z -17.93  E_alpha  1138.4 z -25.42
+d=1 nonM it3 j=-1 primes 1164 | non-I reached  75638 | III hits     0  E_unif  1023.7 z -23.85  E_alpha  1505.5 z -28.89
+d=1 nonM it3 j= 0 primes 1164 | non-I reached 112530 | III hits     0  E_unif  1500.1 z -29.62  E_alpha  1752.5 z -30.97
+d=1 nonM it3 j= 1 primes 1164 | non-I reached 170914 | III hits     0  E_unif  2268.8 z -38.07  E_alpha  2095.5 z -33.66
+d=1 nonM it3 j= 2 primes 1164 | non-I reached 249524 | III hits   210  E_unif  3318.4 z -45.96  E_alpha  2766.8 z -35.50
+d=1 nonM it3 j= 3 primes 1164 | non-I reached 339956 | III hits  1294  E_unif  4539.1 z -44.55  E_alpha  3733.6 z -29.06
+d=1 nonM it3 j= 4 primes 1164 | non-I reached 435628 | III hits  2820  E_unif  5837.7 z -40.53  E_alpha  4963.1 z -22.14
+d=1 nonM it3 j= 5 primes 1164 | non-I reached 531298 | III hits  4666  E_unif  7166.7 z -34.45  E_alpha  6362.7 z -15.53
+d=1 nonM it3 j= 6 primes 1164 | non-I reached 616560 | III hits  6840  E_unif  8394.9 z -22.79  E_alpha  8018.6 z  -9.74
+d=1 nonM it3 first entry (G>0): type I 1128, type III 11, none within X 24; FR-violations 0
+
+d=2 all  U    AMB  primes 1561 | hits      0 E      0.0 z   +nan | coverage    0/1561 (G>0: 0/1557) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=2 all  U    RED  primes 1561 | hits    186 E    181.2 z  +0.27 | coverage   58/1561 (G>0: 58/1557) exp 70.1 z  -1.67 | mean|S|/|T| 0.005
+d=2 all  U    CYC  primes 1561 | hits    434 E    184.6 z +13.09 | coverage  208/1561 (G>0: 208/1557) exp 90.0 z +12.85 | mean|S|/|T| 0.005
+d=2 all  U    GEN2 primes 1561 | hits   2762 E    147.6 z +153.36 | coverage 1218/1561 (G>0: 1218/1557) exp 72.5 z +138.15 | mean|S|/|T| 0.004
+d=2 all  A    AMB  primes 1561 | hits      0 E      0.0 z   +nan | coverage    0/1561 (G>0: 0/1557) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=2 all  A    RED  primes 1561 | hits    186 E    165.7 z  +1.21 | coverage   58/1561 (G>0: 58/1557) exp 60.9 z  -0.47 | mean|S|/|T| 0.005
+d=2 all  A    CYC  primes 1561 | hits    434 E    595.3 z  -7.26 | coverage  208/1561 (G>0: 208/1557) exp 285.9 z  -7.53 | mean|S|/|T| 0.005
+d=2 all  A    GEN2 primes 1561 | hits   2762 E   2477.0 z  +6.53 | coverage 1218/1561 (G>0: 1218/1557) exp 919.1 z +20.80 | mean|S|/|T| 0.004
+d=2 all  CYC first entry k (G>0, n=1557): k=1: 166, 3: 0, 5: 3, 7: 17, 9: 22, >9: 1296
+d=2 all  2a r4 constant (1)
+d=2 all  2a r8: log(1+|G|) within-p mod 840 t  +1.54 (n 1561); 1[G empty] t  +0.15; dist {1: 768, 0: 793}
+d=2 all  2b positions: chi2 6509.4 df 6729 z  -1.89
+d=2 all  empty G: 4 of 1561
+d=2 all  it3 j=-2 primes 1561 | non-I reached 248400 | III hits     0  E_unif  2172.1 z -34.36  E_alpha  6513.5 z -62.28
+d=2 all  it3 j=-1 primes 1561 | non-I reached 395428 | III hits     0  E_unif  3449.2 z -44.36  E_alpha  7362.6 z -65.55
+d=2 all  it3 j= 0 primes 1561 | non-I reached 622938 | III hits     2  E_unif  5421.1 z -57.97  E_alpha  8025.7 z -67.97
+d=2 all  it3 j= 1 primes 1561 | non-I reached 918036 | III hits   342  E_unif  7980.4 z -71.48  E_alpha  8799.0 z -68.00
+d=2 all  it3 j= 2 primes 1561 | non-I reached 1301086 | III hits  2412  E_unif 11305.0 z -76.36  E_alpha 10365.4 z -58.36
+d=2 all  it3 j= 3 primes 1561 | non-I reached 1740318 | III hits  5664  E_unif 15126.4 z -79.27  E_alpha 12735.7 z -46.39
+d=2 all  it3 j= 4 primes 1561 | non-I reached 2200986 | III hits 10100  E_unif 19156.8 z -79.09  E_alpha 15953.5 z -34.08
+d=2 all  it3 j= 5 primes 1561 | non-I reached 2620598 | III hits 15122  E_unif 22856.3 z -74.94  E_alpha 19508.9 z -23.03
+d=2 all  it3 j= 6 primes 1561 | non-I reached 2950612 | III hits 20188  E_unif 25804.8 z -63.12  E_alpha 23136.8 z -14.24
+d=2 all  it3 first entry (G>0): type I 1383, type III 143, none within X 31; FR-violations 0
+d=2 M    U    AMB  primes  397 | hits      0 E      0.0 z   +nan | coverage    0/ 397 (G>0: 0/393) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=2 M    U    RED  primes  397 | hits     38 E     42.6 z  -0.59 | coverage    9/ 397 (G>0: 9/393) exp 15.4 z  -1.93 | mean|S|/|T| 0.008
+d=2 M    U    CYC  primes  397 | hits     74 E     41.5 z  +3.60 | coverage   36/ 397 (G>0: 36/393) exp 20.3 z  +3.60 | mean|S|/|T| 0.006
+d=2 M    U    GEN2 primes  397 | hits    372 E     33.2 z +41.94 | coverage  160/ 397 (G>0: 160/393) exp 16.3 z +36.46 | mean|S|/|T| 0.005
+d=2 M    A    AMB  primes  397 | hits      0 E      0.0 z   +nan | coverage    0/ 397 (G>0: 0/393) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=2 M    A    RED  primes  397 | hits     38 E     39.7 z  -0.20 | coverage    9/ 397 (G>0: 9/393) exp 13.7 z  -1.61 | mean|S|/|T| 0.008
+d=2 M    A    CYC  primes  397 | hits     74 E     78.4 z  -0.48 | coverage   36/ 397 (G>0: 36/393) exp 37.8 z  -0.42 | mean|S|/|T| 0.006
+d=2 M    A    GEN2 primes  397 | hits    372 E    298.0 z  +4.14 | coverage  160/ 397 (G>0: 160/393) exp 119.4 z  +6.17 | mean|S|/|T| 0.005
+d=2 M    CYC first entry k (G>0, n=393): k=1: 29, 3: 0, 5: 3, 7: 2, 9: 2, >9: 334
+d=2 M    2a r4 constant (1)
+d=2 M    2a r8: log(1+|G|) within-p mod 840 t  +1.21 (n 397); 1[G empty] t  +0.15; dist {1: 184, 0: 213}
+d=2 M    2b positions: chi2 2351.6 df 2413 z  -0.88
+d=2 M    empty G: 4 of 397
+d=2 M    it3 j=-2 primes  397 | non-I reached  30168 | III hits     0  E_unif   261.2 z -11.79  E_alpha   696.6 z -20.10
+d=2 M    it3 j=-1 primes  397 | non-I reached  48014 | III hits     0  E_unif   413.2 z -15.07  E_alpha   813.9 z -21.51
+d=2 M    it3 j= 0 primes  397 | non-I reached  69058 | III hits     0  E_unif   593.4 z -18.44  E_alpha   877.7 z -22.24
+d=2 M    it3 j= 1 primes  397 | non-I reached  99452 | III hits    44  E_unif   850.4 z -21.62  E_alpha   952.3 z -21.99
+d=2 M    it3 j= 2 primes  397 | non-I reached 141322 | III hits   264  E_unif  1207.7 z -22.29  E_alpha  1134.5 z -19.16
+d=2 M    it3 j= 3 primes  397 | non-I reached 194672 | III hits   626  E_unif  1663.6 z -22.38  E_alpha  1422.7 z -15.54
+d=2 M    it3 j= 4 primes  397 | non-I reached 254016 | III hits  1210  E_unif  2171.7 z -19.80  E_alpha  1832.8 z -10.64
+d=2 M    it3 j= 5 primes  397 | non-I reached 318860 | III hits  1854  E_unif  2732.9 z -18.03  E_alpha  2369.4 z  -7.74
+d=2 M    it3 j= 6 primes  397 | non-I reached 382804 | III hits  2638  E_unif  3286.9 z -13.86  E_alpha  3003.9 z  -4.90
+d=2 M    it3 first entry (G>0): type I 260, type III 102, none within X 31; FR-violations 0
+d=2 nonM U    AMB  primes 1164 | hits      0 E      0.0 z   +nan | coverage    0/1164 (G>0: 0/1164) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=2 nonM U    RED  primes 1164 | hits    148 E    138.6 z  +0.58 | coverage   49/1164 (G>0: 49/1164) exp 54.7 z  -0.88 | mean|S|/|T| 0.004
+d=2 nonM U    CYC  primes 1164 | hits    360 E    143.1 z +12.93 | coverage  172/1164 (G>0: 172/1164) exp 69.8 z +12.66 | mean|S|/|T| 0.004
+d=2 nonM U    GEN2 primes 1164 | hits   2390 E    114.5 z +151.59 | coverage 1058/1164 (G>0: 1058/1164) exp 56.2 z +137.32 | mean|S|/|T| 0.003
+d=2 nonM A    AMB  primes 1164 | hits      0 E      0.0 z   +nan | coverage    0/1164 (G>0: 0/1164) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=2 nonM A    RED  primes 1164 | hits    148 E    126.0 z  +1.51 | coverage   49/1164 (G>0: 49/1164) exp 47.1 z  +0.34 | mean|S|/|T| 0.004
+d=2 nonM A    CYC  primes 1164 | hits    360 E    517.0 z  -7.74 | coverage  172/1164 (G>0: 172/1164) exp 248.1 z  -8.07 | mean|S|/|T| 0.004
+d=2 nonM A    GEN2 primes 1164 | hits   2390 E   2179.0 z  +5.30 | coverage 1058/1164 (G>0: 1058/1164) exp 799.7 z +20.21 | mean|S|/|T| 0.003
+d=2 nonM CYC first entry k (G>0, n=1164): k=1: 137, 3: 0, 5: 0, 7: 15, 9: 20, >9: 962
+d=2 nonM 2a r4 constant (1)
+d=2 nonM 2a r8: log(1+|G|) within-p mod 840 t  +0.97 (n 1164); 1[G empty] t   +nan; dist {1: 584, 0: 580}
+d=2 nonM 2b positions: chi2 4157.9 df 4316 z  -1.70
+d=2 nonM empty G: 0 of 1164
+d=2 nonM it3 j=-2 primes 1164 | non-I reached 218232 | III hits     0  E_unif  1910.9 z -32.27  E_alpha  5816.9 z -58.94
+d=2 nonM it3 j=-1 primes 1164 | non-I reached 347414 | III hits     0  E_unif  3036.0 z -41.72  E_alpha  6548.8 z -61.92
+d=2 nonM it3 j= 0 primes 1164 | non-I reached 553880 | III hits     2  E_unif  4827.8 z -54.98  E_alpha  7148.0 z -64.24
+d=2 nonM it3 j= 1 primes 1164 | non-I reached 818584 | III hits   298  E_unif  7130.0 z -68.23  E_alpha  7846.8 z -64.34
+d=2 nonM it3 j= 2 primes 1164 | non-I reached 1159764 | III hits  2148  E_unif 10097.3 z -73.27  E_alpha  9230.9 z -55.13
+d=2 nonM it3 j= 3 primes 1164 | non-I reached 1545646 | III hits  5038  E_unif 13462.8 z -76.59  E_alpha 11313.0 z -43.71
+d=2 nonM it3 j= 4 primes 1164 | non-I reached 1946970 | III hits  8890  E_unif 16985.1 z -78.07  E_alpha 14120.8 z -32.39
+d=2 nonM it3 j= 5 primes 1164 | non-I reached 2301738 | III hits 13268  E_unif 20123.4 z -75.36  E_alpha 17139.5 z -21.70
+d=2 nonM it3 j= 6 primes 1164 | non-I reached 2567808 | III hits 17550  E_unif 22517.8 z -65.65  E_alpha 20133.0 z -13.37
+d=2 nonM it3 first entry (G>0): type I 1123, type III 41, none within X 0; FR-violations 0
+
+d=3 all  U    AMB  primes 1561 | hits      0 E      0.0 z   +nan | coverage    0/1561 (G>0: 0/1525) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=3 all  U    RED  primes 1561 | hits     90 E     85.0 z  +0.40 | coverage   33/1561 (G>0: 33/1525) exp 37.3 z  -0.79 | mean|S|/|T| 0.006
+d=3 all  U    CYC  primes 1561 | hits    232 E     93.1 z +10.24 | coverage  111/1561 (G>0: 111/1525) exp 45.9 z  +9.78 | mean|S|/|T| 0.006
+d=3 all  U    GEN2 primes 1561 | hits   1214 E     74.5 z +93.89 | coverage  498/1561 (G>0: 498/1525) exp 36.9 z +77.08 | mean|S|/|T| 0.005
+d=3 all  A    AMB  primes 1561 | hits      0 E      0.0 z   +nan | coverage    0/1561 (G>0: 0/1525) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=3 all  A    RED  primes 1561 | hits     90 E     83.6 z  +0.54 | coverage   33/1561 (G>0: 33/1525) exp 34.4 z  -0.28 | mean|S|/|T| 0.006
+d=3 all  A    CYC  primes 1561 | hits    232 E    324.3 z  -6.16 | coverage  111/1561 (G>0: 111/1525) exp 158.8 z  -6.63 | mean|S|/|T| 0.006
+d=3 all  A    GEN2 primes 1561 | hits   1214 E    843.6 z +12.32 | coverage  498/1561 (G>0: 498/1525) exp 346.0 z +12.96 | mean|S|/|T| 0.005
+d=3 all  CYC first entry k (G>0, n=1525): k=1: 99, 3: 0, 5: 2, 7: 3, 9: 7, >9: 1193
+d=3 all  2a r4 constant (1)
+d=3 all  2a r8: log(1+|G|) within-p mod 840 t  +0.65 (n 1561); 1[G empty] t  -0.03; dist {0: 764, 1: 797}
+d=3 all  2b positions: chi2 5192.6 df 5462 z  -2.58
+d=3 all  empty G: 36 of 1561
+d=3 all  it3 j=-2 primes 1561 | non-I reached 101428 | III hits     0  E_unif   502.2 z -16.20  E_alpha  1452.8 z -28.53
+d=3 all  it3 j=-1 primes 1561 | non-I reached 150600 | III hits     0  E_unif   744.6 z -19.94  E_alpha  1619.7 z -29.96
+d=3 all  it3 j= 0 primes 1561 | non-I reached 226942 | III hits     0  E_unif  1122.2 z -24.93  E_alpha  1761.3 z -31.11
+d=3 all  it3 j= 1 primes 1561 | non-I reached 337766 | III hits     0  E_unif  1668.7 z -31.24  E_alpha  1942.6 z -32.54
+d=3 all  it3 j= 2 primes 1561 | non-I reached 475928 | III hits   110  E_unif  2352.3 z -36.67  E_alpha  2275.0 z -33.32
+d=3 all  it3 j= 3 primes 1561 | non-I reached 657988 | III hits   916  E_unif  3254.2 z -34.28  E_alpha  2849.1 z -26.41
+d=3 all  it3 j= 4 primes 1561 | non-I reached 871264 | III hits  1750  E_unif  4305.0 z -34.95  E_alpha  3654.4 z -22.88
+d=3 all  it3 j= 5 primes 1561 | non-I reached 1119092 | III hits  3086  E_unif  5528.7 z -32.33  E_alpha  4779.7 z -17.76
+d=3 all  it3 j= 6 primes 1561 | non-I reached 1384324 | III hits  4660  E_unif  6838.1 z -28.91  E_alpha  6131.4 z -13.63
+d=3 all  it3 first entry (G>0): type I 836, type III 328, none within X 361; FR-violations 0
+d=3 M    U    AMB  primes  397 | hits      0 E      0.0 z   +nan | coverage    0/ 397 (G>0: 0/390) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=3 M    U    RED  primes  397 | hits     32 E     25.8 z  +0.92 | coverage   10/ 397 (G>0: 10/390) exp 10.6 z  -0.22 | mean|S|/|T| 0.007
+d=3 M    U    CYC  primes  397 | hits    122 E     22.7 z +14.83 | coverage   56/ 397 (G>0: 56/390) exp 11.2 z +13.62 | mean|S|/|T| 0.006
+d=3 M    U    GEN2 primes  397 | hits    456 E     18.2 z +73.04 | coverage  175/ 397 (G>0: 175/390) exp 9.0 z +56.16 | mean|S|/|T| 0.005
+d=3 M    A    AMB  primes  397 | hits      0 E      0.0 z   +nan | coverage    0/ 397 (G>0: 0/390) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=3 M    A    RED  primes  397 | hits     32 E     26.3 z  +0.85 | coverage   10/ 397 (G>0: 10/390) exp 10.0 z  -0.02 | mean|S|/|T| 0.007
+d=3 M    A    CYC  primes  397 | hits    122 E    122.1 z  -0.01 | coverage   56/ 397 (G>0: 56/390) exp 59.2 z  -1.27 | mean|S|/|T| 0.006
+d=3 M    A    GEN2 primes  397 | hits    456 E    295.6 z  +9.85 | coverage  175/ 397 (G>0: 175/390) exp 116.0 z  +9.73 | mean|S|/|T| 0.005
+d=3 M    CYC first entry k (G>0, n=390): k=1: 53, 3: 0, 5: 1, 7: 2, 9: 0, >9: 279
+d=3 M    2a r4 constant (1)
+d=3 M    2a r8: log(1+|G|) within-p mod 840 t  +1.76 (n 397); 1[G empty] t  -1.22; dist {1: 214, 0: 183}
+d=3 M    2b positions: chi2 1691.9 df 1810 z  -1.96
+d=3 M    empty G: 7 of 397
+d=3 M    it3 j=-2 primes  397 | non-I reached  20070 | III hits     0  E_unif    98.3 z  -7.15  E_alpha   296.0 z -12.99
+d=3 M    it3 j=-1 primes  397 | non-I reached  30146 | III hits     0  E_unif   146.7 z  -8.81  E_alpha   328.2 z -13.60
+d=3 M    it3 j= 0 primes  397 | non-I reached  45164 | III hits     0  E_unif   220.1 z -10.95  E_alpha   354.5 z -14.07
+d=3 M    it3 j= 1 primes  397 | non-I reached  67772 | III hits     0  E_unif   330.4 z -13.72  E_alpha   388.7 z -14.66
+d=3 M    it3 j= 2 primes  397 | non-I reached  94678 | III hits    16  E_unif   462.3 z -16.14  E_alpha   448.1 z -15.09
+d=3 M    it3 j= 3 primes  397 | non-I reached 131040 | III hits   162  E_unif   640.5 z -15.33  E_alpha   556.5 z -12.27
+d=3 M    it3 j= 4 primes  397 | non-I reached 174364 | III hits   334  E_unif   850.5 z -15.18  E_alpha   709.7 z -10.29
+d=3 M    it3 j= 5 primes  397 | non-I reached 227196 | III hits   628  E_unif  1109.7 z -13.39  E_alpha   949.2 z  -7.59
+d=3 M    it3 j= 6 primes  397 | non-I reached 285874 | III hits   948  E_unif  1397.5 z -12.26  E_alpha  1229.8 z  -5.85
+d=3 M    it3 first entry (G>0): type I 191, type III 104, none within X 95; FR-violations 0
+d=3 nonM U    AMB  primes 1164 | hits      0 E      0.0 z   +nan | coverage    0/1164 (G>0: 0/1135) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=3 nonM U    RED  primes 1164 | hits     58 E     59.2 z  -0.12 | coverage   23/1164 (G>0: 23/1135) exp 26.7 z  -0.78 | mean|S|/|T| 0.005
+d=3 nonM U    CYC  primes 1164 | hits    110 E     70.4 z  +3.36 | coverage   55/1164 (G>0: 55/1135) exp 34.7 z  +3.50 | mean|S|/|T| 0.006
+d=3 nonM U    GEN2 primes 1164 | hits    758 E     56.3 z +66.49 | coverage  323/1164 (G>0: 323/1135) exp 27.9 z +56.74 | mean|S|/|T| 0.005
+d=3 nonM A    AMB  primes 1164 | hits      0 E      0.0 z   +nan | coverage    0/1164 (G>0: 0/1135) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=3 nonM A    RED  primes 1164 | hits     58 E     57.2 z  +0.08 | coverage   23/1164 (G>0: 23/1135) exp 24.4 z  -0.32 | mean|S|/|T| 0.005
+d=3 nonM A    CYC  primes 1164 | hits    110 E    202.2 z  -6.65 | coverage   55/1164 (G>0: 55/1135) exp 99.5 z  -6.61 | mean|S|/|T| 0.006
+d=3 nonM A    GEN2 primes 1164 | hits    758 E    548.0 z  +8.31 | coverage  323/1164 (G>0: 323/1135) exp 230.0 z  +9.27 | mean|S|/|T| 0.005
+d=3 nonM CYC first entry k (G>0, n=1135): k=1: 46, 3: 0, 5: 1, 7: 1, 9: 7, >9: 914
+d=3 nonM 2a r4 constant (1)
+d=3 nonM 2a r8: log(1+|G|) within-p mod 840 t  -0.27 (n 1164); 1[G empty] t  +0.57; dist {0: 581, 1: 583}
+d=3 nonM 2b positions: chi2 3500.7 df 3652 z  -1.77
+d=3 nonM empty G: 29 of 1164
+d=3 nonM it3 j=-2 primes 1164 | non-I reached  81358 | III hits     0  E_unif   403.9 z -14.54  E_alpha  1156.8 z -25.40
+d=3 nonM it3 j=-1 primes 1164 | non-I reached 120454 | III hits     0  E_unif   597.9 z -17.89  E_alpha  1291.5 z -26.70
+d=3 nonM it3 j= 0 primes 1164 | non-I reached 181778 | III hits     0  E_unif   902.1 z -22.40  E_alpha  1406.9 z -27.75
+d=3 nonM it3 j= 1 primes 1164 | non-I reached 269994 | III hits     0  E_unif  1338.3 z -28.06  E_alpha  1553.9 z -29.05
+d=3 nonM it3 j= 2 primes 1164 | non-I reached 381250 | III hits    94  E_unif  1890.0 z -32.93  E_alpha  1827.0 z -29.71
+d=3 nonM it3 j= 3 primes 1164 | non-I reached 526948 | III hits   754  E_unif  2613.8 z -30.66  E_alpha  2292.6 z -23.40
+d=3 nonM it3 j= 4 primes 1164 | non-I reached 696900 | III hits  1416  E_unif  3454.4 z -31.50  E_alpha  2944.6 z -20.43
+d=3 nonM it3 j= 5 primes 1164 | non-I reached 891896 | III hits  2458  E_unif  4419.0 z -29.52  E_alpha  3830.5 z -16.05
+d=3 nonM it3 j= 6 primes 1164 | non-I reached 1098450 | III hits  3712  E_unif  5440.7 z -26.27  E_alpha  4901.6 z -12.32
+d=3 nonM it3 first entry (G>0): type I 645, type III 224, none within X 266; FR-violations 0
+
+d=5 all  U    AMB  primes 1561 | hits      0 E      0.0 z   +nan | coverage    0/1561 (G>0: 0/1524) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=5 all  U    RED  primes 1561 | hits     14 E     29.1 z  -2.01 | coverage    7/1561 (G>0: 7/1524) exp 13.7 z  -1.93 | mean|S|/|T| 0.002
+d=5 all  U    CYC  primes 1561 | hits    142 E     83.5 z  +4.55 | coverage   70/1561 (G>0: 70/1524) exp 41.3 z  +4.54 | mean|S|/|T| 0.006
+d=5 all  U    GEN2 primes 1561 | hits   1874 E    133.7 z +107.21 | coverage  783/1561 (G>0: 783/1524) exp 65.6 z +90.97 | mean|S|/|T| 0.010
+d=5 all  A    AMB  primes 1561 | hits      0 E      0.0 z   +nan | coverage    0/1561 (G>0: 0/1524) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=5 all  A    RED  primes 1561 | hits     14 E     24.1 z  -1.50 | coverage    7/1561 (G>0: 7/1524) exp 11.4 z  -1.41 | mean|S|/|T| 0.002
+d=5 all  A    CYC  primes 1561 | hits    142 E    153.3 z  -1.06 | coverage   70/1561 (G>0: 70/1524) exp 75.7 z  -1.09 | mean|S|/|T| 0.006
+d=5 all  A    GEN2 primes 1561 | hits   1874 E   1830.0 z  +1.25 | coverage  783/1561 (G>0: 783/1524) exp 730.2 z  +4.68 | mean|S|/|T| 0.010
+d=5 all  CYC first entry k (G>0, n=1524): k=1: 46, 3: 3, 5: 5, 7: 9, 9: 7, >9: 1338
+d=5 all  2a r4: log(1+|G|) within-p mod 840 t   +nan (n 0); 1[G empty] t   +nan; dist {0: 767, 1: 794}
+d=5 all  2a r8: log(1+|G|) within-p mod 840 t  +1.34 (n 1561); 1[G empty] t  +0.48; dist {0: 1162, 1: 399}
+d=5 all  2b positions: chi2 1648.6 df 1687 z  -0.66
+d=5 all  empty G: 37 of 1561
+d=5 all  it3 j=-2 primes 1561 | non-I reached 110020 | III hits     0  E_unif   478.4 z -15.85  E_alpha  1233.0 z -26.55
+d=5 all  it3 j=-1 primes 1561 | non-I reached 168050 | III hits     0  E_unif   728.4 z -19.81  E_alpha  1393.4 z -28.02
+d=5 all  it3 j= 0 primes 1561 | non-I reached 259984 | III hits     0  E_unif  1125.9 z -25.17  E_alpha  1532.3 z -29.23
+d=5 all  it3 j= 1 primes 1561 | non-I reached 376626 | III hits     0  E_unif  1628.4 z -31.18  E_alpha  1695.8 z -30.59
+d=5 all  it3 j= 2 primes 1561 | non-I reached 531390 | III hits    68  E_unif  2295.5 z -37.48  E_alpha  2006.6 z -31.91
+d=5 all  it3 j= 3 primes 1561 | non-I reached 740834 | III hits   698  E_unif  3199.5 z -37.96  E_alpha  2574.0 z -27.06
+d=5 all  it3 j= 4 primes 1561 | non-I reached 984134 | III hits  1668  E_unif  4255.2 z -36.96  E_alpha  3383.3 z -21.46
+d=5 all  it3 j= 5 primes 1561 | non-I reached 1256256 | III hits  2876  E_unif  5438.0 z -36.01  E_alpha  4421.8 z -16.89
+d=5 all  it3 j= 6 primes 1561 | non-I reached 1526842 | III hits  4462  E_unif  6623.6 z -31.23  E_alpha  5768.2 z -12.52
+d=5 all  it3 first entry (G>0): type I 791, type III 442, none within X 291; FR-violations 0
+d=5 M    U    AMB  primes  397 | hits      0 E      0.0 z   +nan | coverage    0/ 397 (G>0: 0/386) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=5 M    U    RED  primes  397 | hits      4 E     14.1 z  -1.93 | coverage    2/ 397 (G>0: 2/386) exp 6.5 z  -1.89 | mean|S|/|T| 0.003
+d=5 M    U    CYC  primes  397 | hits     32 E     19.7 z  +1.98 | coverage   16/ 397 (G>0: 16/386) exp 9.7 z  +2.04 | mean|S|/|T| 0.005
+d=5 M    U    GEN2 primes  397 | hits    398 E     31.5 z +46.50 | coverage  169/ 397 (G>0: 169/386) exp 15.5 z +40.05 | mean|S|/|T| 0.008
+d=5 M    A    AMB  primes  397 | hits      0 E      0.0 z   +nan | coverage    0/ 397 (G>0: 0/386) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=5 M    A    RED  primes  397 | hits      4 E     10.6 z  -1.47 | coverage    2/ 397 (G>0: 2/386) exp 5.0 z  -1.44 | mean|S|/|T| 0.003
+d=5 M    A    CYC  primes  397 | hits     32 E     42.3 z  -1.98 | coverage   16/ 397 (G>0: 16/386) exp 20.9 z  -1.93 | mean|S|/|T| 0.005
+d=5 M    A    GEN2 primes  397 | hits    398 E    300.3 z  +5.40 | coverage  169/ 397 (G>0: 169/386) exp 120.3 z  +7.65 | mean|S|/|T| 0.008
+d=5 M    CYC first entry k (G>0, n=386): k=1: 14, 3: 0, 5: 2, 7: 0, 9: 0, >9: 339
+d=5 M    2a r4 constant (1)
+d=5 M    2a r8: log(1+|G|) within-p mod 840 t  +0.50 (n 397); 1[G empty] t  -0.01; dist {0: 209, 1: 188}
+d=5 M    2b positions: chi2 767.4 df 757 z  +0.27
+d=5 M    empty G: 11 of 397
+d=5 M    it3 j=-2 primes  397 | non-I reached  34970 | III hits     0  E_unif   135.5 z  -8.45  E_alpha   352.2 z -14.01
+d=5 M    it3 j=-1 primes  397 | non-I reached  54602 | III hits     0  E_unif   211.0 z -10.70  E_alpha   404.6 z -14.92
+d=5 M    it3 j= 0 primes  397 | non-I reached  86208 | III hits     0  E_unif   334.0 z -13.81  E_alpha   450.7 z -15.67
+d=5 M    it3 j= 1 primes  397 | non-I reached 125970 | III hits     0  E_unif   488.1 z -17.26  E_alpha   503.2 z -16.48
+d=5 M    it3 j= 2 primes  397 | non-I reached 180078 | III hits    28  E_unif   697.9 z -20.84  E_alpha   610.4 z -17.22
+d=5 M    it3 j= 3 primes  397 | non-I reached 252708 | III hits   244  E_unif   978.5 z -20.81  E_alpha   806.0 z -14.37
+d=5 M    it3 j= 4 primes  397 | non-I reached 333852 | III hits   584  E_unif  1293.3 z -19.29  E_alpha  1085.6 z -11.01
+d=5 M    it3 j= 5 primes  397 | non-I reached 423596 | III hits   974  E_unif  1640.9 z -18.32  E_alpha  1418.0 z  -8.52
+d=5 M    it3 j= 6 primes  397 | non-I reached 510738 | III hits  1480  E_unif  1978.9 z -14.58  E_alpha  1846.0 z  -6.18
+d=5 M    it3 first entry (G>0): type I 229, type III 104, none within X 53; FR-violations 0
+d=5 nonM U    AMB  primes 1164 | hits      0 E      0.0 z   +nan | coverage    0/1164 (G>0: 0/1138) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=5 nonM U    RED  primes 1164 | hits     10 E     15.0 z  -0.93 | coverage    5/1164 (G>0: 5/1138) exp 7.3 z  -0.89 | mean|S|/|T| 0.002
+d=5 nonM U    CYC  primes 1164 | hits    110 E     63.9 z  +4.11 | coverage   54/1164 (G>0: 54/1138) exp 31.6 z  +4.06 | mean|S|/|T| 0.006
+d=5 nonM U    GEN2 primes 1164 | hits   1476 E    102.2 z +96.81 | coverage  614/1164 (G>0: 614/1138) exp 50.1 z +81.82 | mean|S|/|T| 0.010
+d=5 nonM A    AMB  primes 1164 | hits      0 E      0.0 z   +nan | coverage    0/1164 (G>0: 0/1138) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=5 nonM A    RED  primes 1164 | hits     10 E     13.4 z  -0.69 | coverage    5/1164 (G>0: 5/1138) exp 6.5 z  -0.63 | mean|S|/|T| 0.002
+d=5 nonM A    CYC  primes 1164 | hits    110 E    111.0 z  -0.11 | coverage   54/1164 (G>0: 54/1138) exp 54.8 z  -0.17 | mean|S|/|T| 0.006
+d=5 nonM A    GEN2 primes 1164 | hits   1476 E   1529.7 z  -1.78 | coverage  614/1164 (G>0: 614/1138) exp 609.9 z  +0.44 | mean|S|/|T| 0.010
+d=5 nonM CYC first entry k (G>0, n=1138): k=1: 32, 3: 3, 5: 3, 7: 9, 9: 7, >9: 999
+d=5 nonM 2a r4: log(1+|G|) within-p mod 840 t   +nan (n 0); 1[G empty] t   +nan; dist {0: 767, 1: 397}
+d=5 nonM 2a r8: log(1+|G|) within-p mod 840 t  +1.40 (n 1164); 1[G empty] t  +0.71; dist {0: 953, 1: 211}
+d=5 nonM 2b positions: chi2 881.2 df 930 z  -1.13
+d=5 nonM empty G: 26 of 1164
+d=5 nonM it3 j=-2 primes 1164 | non-I reached  75050 | III hits     0  E_unif   342.9 z -13.41  E_alpha   880.8 z -22.56
+d=5 nonM it3 j=-1 primes 1164 | non-I reached 113448 | III hits     0  E_unif   517.4 z -16.67  E_alpha   988.7 z -23.72
+d=5 nonM it3 j= 0 primes 1164 | non-I reached 173776 | III hits     0  E_unif   791.9 z -21.05  E_alpha  1081.6 z -24.67
+d=5 nonM it3 j= 1 primes 1164 | non-I reached 250656 | III hits     0  E_unif  1140.3 z -25.97  E_alpha  1192.6 z -25.77
+d=5 nonM it3 j= 2 primes 1164 | non-I reached 351312 | III hits    40  E_unif  1597.5 z -31.16  E_alpha  1396.2 z -26.88
+d=5 nonM it3 j= 3 primes 1164 | non-I reached 488126 | III hits   454  E_unif  2221.0 z -31.76  E_alpha  1767.9 z -22.95
+d=5 nonM it3 j= 4 primes 1164 | non-I reached 650282 | III hits  1084  E_unif  2961.9 z -31.53  E_alpha  2297.7 z -18.49
+d=5 nonM it3 j= 5 primes 1164 | non-I reached 832660 | III hits  1902  E_unif  3797.1 z -31.00  E_alpha  3003.8 z -14.64
+d=5 nonM it3 j= 6 primes 1164 | non-I reached 1016104 | III hits  2982  E_unif  4644.7 z -27.64  E_alpha  3922.2 z -10.95
+d=5 nonM it3 first entry (G>0): type I 562, type III 338, none within X 238; FR-violations 0
+
+d=7 all  U    AMB  primes 1561 | hits      0 E      0.0 z   +nan | coverage    0/1561 (G>0: 0/1185) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=7 all  U    RED  primes 1561 | hits      8 E      7.9 z  +0.02 | coverage    4/1561 (G>0: 4/1185) exp 3.9 z  +0.03 | mean|S|/|T| 0.002
+d=7 all  U    CYC  primes 1561 | hits     12 E     22.3 z  -1.55 | coverage    6/1561 (G>0: 6/1185) exp 11.1 z  -1.55 | mean|S|/|T| 0.005
+d=7 all  U    GEN2 primes 1561 | hits    500 E     17.9 z +80.85 | coverage  236/1561 (G>0: 236/1185) exp 8.9 z +76.40 | mean|S|/|T| 0.004
+d=7 all  A    AMB  primes 1561 | hits      0 E      0.0 z   +nan | coverage    0/1561 (G>0: 0/1185) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=7 all  A    RED  primes 1561 | hits      8 E      6.6 z  +0.38 | coverage    4/1561 (G>0: 4/1185) exp 3.2 z  +0.46 | mean|S|/|T| 0.002
+d=7 all  A    CYC  primes 1561 | hits     12 E     12.0 z  -0.01 | coverage    6/1561 (G>0: 6/1185) exp 6.0 z  -0.00 | mean|S|/|T| 0.005
+d=7 all  A    GEN2 primes 1561 | hits    500 E    226.6 z +15.69 | coverage  236/1561 (G>0: 236/1185) exp 103.9 z +17.26 | mean|S|/|T| 0.004
+d=7 all  CYC first entry k (G>0, n=1185): k=1: 0, 3: 0, 5: 0, 7: 2, 9: 4, >9: 994
+d=7 all  2a r4: log(1+|G|) within-p mod 840 t   +nan (n 0); 1[G empty] t   +nan; dist {1: 777, 0: 784}
+d=7 all  2a r8: log(1+|G|) within-p mod 840 t  -0.64 (n 1561); 1[G empty] t  +0.67; dist {0: 1189, 1: 372}
+d=7 all  2b positions: chi2 652.3 df 726 z  -1.94
+d=7 all  empty G: 376 of 1561
+d=7 all  it3 j=-2 primes 1561 | non-I reached  97016 | III hits     0  E_unif   124.5 z  -8.03  E_alpha   291.5 z -12.46
+d=7 all  it3 j=-1 primes 1561 | non-I reached 133184 | III hits     0  E_unif   170.1 z  -9.46  E_alpha   323.1 z -13.08
+d=7 all  it3 j= 0 primes 1561 | non-I reached 196500 | III hits     0  E_unif   250.9 z -11.64  E_alpha   351.1 z -13.61
+d=7 all  it3 j= 1 primes 1561 | non-I reached 289734 | III hits     0  E_unif   370.0 z -14.43  E_alpha   392.3 z -14.35
+d=7 all  it3 j= 2 primes 1561 | non-I reached 402302 | III hits    30  E_unif   512.5 z -16.42  E_alpha   462.7 z -14.52
+d=7 all  it3 j= 3 primes 1561 | non-I reached 529804 | III hits   150  E_unif   676.1 z -16.10  E_alpha   568.9 z -12.64
+d=7 all  it3 j= 4 primes 1561 | non-I reached 696654 | III hits   384  E_unif   889.1 z -14.16  E_alpha   740.9 z  -9.42
+d=7 all  it3 j= 5 primes 1561 | non-I reached 899358 | III hits   636  E_unif  1145.9 z -13.40  E_alpha   973.8 z  -7.77
+d=7 all  it3 j= 6 primes 1561 | non-I reached 1133948 | III hits   976  E_unif  1445.3 z -11.87  E_alpha  1294.4 z  -6.37
+d=7 all  it3 first entry (G>0): type I 200, type III 302, none within X 683; FR-violations 0
+d=7 M    U    AMB  primes  397 | hits      0 E      0.0 z   +nan | coverage    0/ 397 (G>0: 0/258) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=7 M    U    RED  primes  397 | hits      2 E      4.1 z  -0.76 | coverage    1/ 397 (G>0: 1/258) exp 2.0 z  -0.76 | mean|S|/|T| 0.005
+d=7 M    U    CYC  primes  397 | hits      2 E      5.3 z  -1.02 | coverage    1/ 397 (G>0: 1/258) exp 2.7 z  -1.02 | mean|S|/|T| 0.006
+d=7 M    U    GEN2 primes  397 | hits     30 E      4.3 z  +8.85 | coverage   15/ 397 (G>0: 15/258) exp 2.1 z  +8.88 | mean|S|/|T| 0.005
+d=7 M    A    AMB  primes  397 | hits      0 E      0.0 z   +nan | coverage    0/ 397 (G>0: 0/258) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=7 M    A    RED  primes  397 | hits      2 E      3.6 z  -0.60 | coverage    1/ 397 (G>0: 1/258) exp 1.7 z  -0.58 | mean|S|/|T| 0.005
+d=7 M    A    CYC  primes  397 | hits      2 E      3.2 z  -0.47 | coverage    1/ 397 (G>0: 1/258) exp 1.6 z  -0.47 | mean|S|/|T| 0.006
+d=7 M    A    GEN2 primes  397 | hits     30 E     23.9 z  +0.95 | coverage   15/ 397 (G>0: 15/258) exp 11.4 z  +1.20 | mean|S|/|T| 0.005
+d=7 M    CYC first entry k (G>0, n=258): k=1: 0, 3: 0, 5: 0, 7: 1, 9: 0, >9: 218
+d=7 M    2a r4 constant (1)
+d=7 M    2a r8: log(1+|G|) within-p mod 840 t  -1.13 (n 397); 1[G empty] t  +0.86; dist {0: 217, 1: 180}
+d=7 M    2b positions: chi2 223.0 df 250 z  -1.21
+d=7 M    empty G: 139 of 397
+d=7 M    it3 j=-2 primes  397 | non-I reached  15484 | III hits     0  E_unif    19.6 z  -3.18  E_alpha    52.3 z  -5.35
+d=7 M    it3 j=-1 primes  397 | non-I reached  19140 | III hits     0  E_unif    24.2 z  -3.54  E_alpha    55.3 z  -5.49
+d=7 M    it3 j= 0 primes  397 | non-I reached  28778 | III hits     0  E_unif    36.2 z  -4.38  E_alpha    59.4 z  -5.67
+d=7 M    it3 j= 1 primes  397 | non-I reached  44732 | III hits     0  E_unif    55.9 z  -5.54  E_alpha    65.9 z  -5.95
+d=7 M    it3 j= 2 primes  397 | non-I reached  61896 | III hits     4  E_unif    77.5 z  -6.31  E_alpha    75.1 z  -5.99
+d=7 M    it3 j= 3 primes  397 | non-I reached  79118 | III hits    14  E_unif   100.2 z  -6.64  E_alpha    87.3 z  -5.71
+d=7 M    it3 j= 4 primes  397 | non-I reached  99074 | III hits    44  E_unif   125.3 z  -5.76  E_alpha   108.2 z  -4.48
+d=7 M    it3 j= 5 primes  397 | non-I reached 131772 | III hits    78  E_unif   165.0 z  -5.65  E_alpha   141.5 z  -3.86
+d=7 M    it3 j= 6 primes  397 | non-I reached 169808 | III hits   132  E_unif   212.2 z  -4.88  E_alpha   196.6 z  -3.34
+d=7 M    it3 first entry (G>0): type I 23, type III 53, none within X 182; FR-violations 0
+d=7 nonM U    AMB  primes 1164 | hits      0 E      0.0 z   +nan | coverage    0/1164 (G>0: 0/927) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=7 nonM U    RED  primes 1164 | hits      6 E      3.8 z  +0.79 | coverage    3/1164 (G>0: 3/927) exp 1.9 z  +0.82 | mean|S|/|T| 0.001
+d=7 nonM U    CYC  primes 1164 | hits     10 E     17.0 z  -1.21 | coverage    5/1164 (G>0: 5/927) exp 8.5 z  -1.20 | mean|S|/|T| 0.005
+d=7 nonM U    GEN2 primes 1164 | hits    470 E     13.6 z +87.67 | coverage  221/1164 (G>0: 221/927) exp 6.8 z +82.55 | mean|S|/|T| 0.004
+d=7 nonM A    AMB  primes 1164 | hits      0 E      0.0 z   +nan | coverage    0/1164 (G>0: 0/927) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=7 nonM A    RED  primes 1164 | hits      6 E      3.1 z  +1.22 | coverage    3/1164 (G>0: 3/927) exp 1.5 z  +1.31 | mean|S|/|T| 0.001
+d=7 nonM A    CYC  primes 1164 | hits     10 E      8.9 z  +0.28 | coverage    5/1164 (G>0: 5/927) exp 4.4 z  +0.29 | mean|S|/|T| 0.005
+d=7 nonM A    GEN2 primes 1164 | hits    470 E    202.7 z +16.49 | coverage  221/1164 (G>0: 221/927) exp 92.5 z +18.23 | mean|S|/|T| 0.004
+d=7 nonM CYC first entry k (G>0, n=927): k=1: 0, 3: 0, 5: 0, 7: 1, 9: 4, >9: 776
+d=7 nonM 2a r4: log(1+|G|) within-p mod 840 t   +nan (n 0); 1[G empty] t   +nan; dist {1: 380, 0: 784}
+d=7 nonM 2a r8: log(1+|G|) within-p mod 840 t  +0.26 (n 1164); 1[G empty] t  -0.01; dist {0: 972, 1: 192}
+d=7 nonM 2b positions: chi2 429.3 df 476 z  -1.51
+d=7 nonM empty G: 237 of 1164
+d=7 nonM it3 j=-2 primes 1164 | non-I reached  81532 | III hits     0  E_unif   104.8 z  -7.37  E_alpha   239.2 z -11.25
+d=7 nonM it3 j=-1 primes 1164 | non-I reached 114044 | III hits     0  E_unif   146.0 z  -8.77  E_alpha   267.8 z -11.87
+d=7 nonM it3 j= 0 primes 1164 | non-I reached 167722 | III hits     0  E_unif   214.8 z -10.79  E_alpha   291.7 z -12.37
+d=7 nonM it3 j= 1 primes 1164 | non-I reached 245002 | III hits     0  E_unif   314.1 z -13.33  E_alpha   326.4 z -13.05
+d=7 nonM it3 j= 2 primes 1164 | non-I reached 340406 | III hits    26  E_unif   435.0 z -15.16  E_alpha   387.5 z -13.23
+d=7 nonM it3 j= 3 primes 1164 | non-I reached 450686 | III hits   136  E_unif   576.0 z -14.68  E_alpha   481.6 z -11.32
+d=7 nonM it3 j= 4 primes 1164 | non-I reached 597580 | III hits   340  E_unif   763.8 z -12.94  E_alpha   632.6 z  -8.34
+d=7 nonM it3 j= 5 primes 1164 | non-I reached 767586 | III hits   558  E_unif   980.9 z -12.15  E_alpha   832.2 z  -6.81
+d=7 nonM it3 j= 6 primes 1164 | non-I reached 964140 | III hits   844  E_unif  1233.1 z -10.82  E_alpha  1097.8 z  -5.50
+d=7 nonM it3 first entry (G>0): type I 177, type III 249, none within X 501; FR-violations 0
+
+d=1 all  X RED  units   7297 (dropped alpha>5000: 0) | hits   354 E_exact    385.6 z  -1.30 | coverage(G>0) 117/1560 exp 125.6 z  -1.02 | hit units: reduced ideal natural 175/177, least natural norm <=100: 60
+d=1 all  X CYC  units   7794 (dropped alpha>5000: 0) | hits  2798 E_exact   2808.2 z  -0.27 | coverage(G>0) 1261/1560 exp 1260.8 z  +0.01 | hit units: reduced ideal natural 1398/1399, least natural norm <=100: 1245
+d=1 all  X GEN2 units   6244 (dropped alpha>5000: 0) | hits  4062 E_exact   4086.6 z  -0.46 | coverage(G>0) 1344/1560 exp 1355.7 z  -0.99 | hit units: reduced ideal natural 2031/2031, least natural norm <=100: 1827
+d=1 M    X RED  units   1494 (dropped alpha>5000: 0) | hits    62 E_exact     73.9 z  -1.09 | coverage(G>0) 26/397 exp 27.6 z  -0.37 | hit units: reduced ideal natural 31/31, least natural norm <=100: 10
+d=1 M    X CYC  units   1983 (dropped alpha>5000: 0) | hits   606 E_exact    604.5 z  +0.07 | coverage(G>0) 278/397 exp 278.5 z  -0.05 | hit units: reduced ideal natural 302/303, least natural norm <=100: 270
+d=1 M    X GEN2 units   1588 (dropped alpha>5000: 0) | hits   998 E_exact   1008.0 z  -0.33 | coverage(G>0) 323/397 exp 330.4 z  -1.05 | hit units: reduced ideal natural 499/499, least natural norm <=100: 482
+d=1 nonM X RED  units   5803 (dropped alpha>5000: 0) | hits   292 E_exact    312.0 z  -0.92 | coverage(G>0) 91/1163 exp 98.0 z  -0.96 | hit units: reduced ideal natural 144/146, least natural norm <=100: 50
+d=1 nonM X CYC  units   5811 (dropped alpha>5000: 0) | hits  2192 E_exact   2220.2 z  -0.90 | coverage(G>0) 983/1163 exp 990.6 z  -0.71 | hit units: reduced ideal natural 1096/1096, least natural norm <=100: 975
+d=1 nonM X GEN2 units   4656 (dropped alpha>5000: 0) | hits  3064 E_exact   3086.1 z  -0.50 | coverage(G>0) 1021/1163 exp 1024.5 z  -0.37 | hit units: reduced ideal natural 1532/1532, least natural norm <=100: 1345
+d=2 all  X RED  units   8283 (dropped alpha>5000: 18) | hits   184 E_exact    178.3 z  +0.33 | coverage(G>0) 52/1541 exp 52.2 z  -0.04 | hit units: reduced ideal natural 92/92, least natural norm <=100: 16
+d=2 all  X CYC  units   7794 (dropped alpha>5000: 11) | hits   434 E_exact    427.3 z  +0.27 | coverage(G>0) 206/1546 exp 203.8 z  +0.19 | hit units: reduced ideal natural 216/217, least natural norm <=100: 177
+d=2 all  X GEN2 units   6244 (dropped alpha>5000: 0) | hits  2762 E_exact   2796.4 z  -0.67 | coverage(G>0) 1218/1557 exp 1076.4 z  +8.64 | hit units: reduced ideal natural 1381/1381, least natural norm <=100: 1378
+d=2 M    X RED  units   2816 (dropped alpha>5000: 5) | hits    38 E_exact     55.1 z  -1.72 | coverage(G>0) 8/389 exp 10.1 z  -0.82 | hit units: reduced ideal natural 19/19, least natural norm <=100: 3
+d=2 M    X CYC  units   1980 (dropped alpha>5000: 5) | hits    74 E_exact     73.4 z  +0.06 | coverage(G>0) 36/388 exp 34.5 z  +0.29 | hit units: reduced ideal natural 37/37, least natural norm <=100: 31
+d=2 M    X GEN2 units   1588 (dropped alpha>5000: 0) | hits   372 E_exact    354.3 z  +0.81 | coverage(G>0) 160/393 exp 156.4 z  +0.40 | hit units: reduced ideal natural 186/186, least natural norm <=100: 183
+d=2 nonM X RED  units   5467 (dropped alpha>5000: 13) | hits   146 E_exact    123.5 z  +1.55 | coverage(G>0) 44/1152 exp 42.1 z  +0.36 | hit units: reduced ideal natural 73/73, least natural norm <=100: 13
+d=2 nonM X CYC  units   5814 (dropped alpha>5000: 6) | hits   360 E_exact    352.2 z  +0.35 | coverage(G>0) 170/1158 exp 168.4 z  +0.15 | hit units: reduced ideal natural 179/180, least natural norm <=100: 146
+d=2 nonM X GEN2 units   4656 (dropped alpha>5000: 0) | hits  2390 E_exact   2437.4 z  -1.02 | coverage(G>0) 1058/1164 exp 918.5 z +10.11 | hit units: reduced ideal natural 1195/1195, least natural norm <=100: 1195
+d=3 all  X RED  units   6348 (dropped alpha>5000: 1058) | hits    86 E_exact     81.1 z  +0.42 | coverage(G>0) 14/989 exp 11.2 z  +0.97 | hit units: reduced ideal natural 43/43, least natural norm <=100: 9
+d=3 all  X CYC  units   7297 (dropped alpha>5000: 507) | hits   230 E_exact    248.5 z  -0.92 | coverage(G>0) 73/1113 exp 82.9 z  -1.22 | hit units: reduced ideal natural 115/115, least natural norm <=100: 102
+d=3 all  X GEN2 units   6244 (dropped alpha>5000: 0) | hits  1214 E_exact   1191.7 z  +0.57 | coverage(G>0) 498/1525 exp 504.5 z  -0.43 | hit units: reduced ideal natural 607/607, least natural norm <=100: 561
+d=3 M    X RED  units   1943 (dropped alpha>5000: 318) | hits    32 E_exact     25.7 z  +0.94 | coverage(G>0) 6/260 exp 2.7 z  +2.13 | hit units: reduced ideal natural 16/16, least natural norm <=100: 3
+d=3 M    X CYC  units   1815 (dropped alpha>5000: 170) | hits   122 E_exact    128.4 z  -0.45 | coverage(G>0) 40/247 exp 43.7 z  -0.64 | hit units: reduced ideal natural 61/61, least natural norm <=100: 54
+d=3 M    X GEN2 units   1588 (dropped alpha>5000: 0) | hits   456 E_exact    466.8 z  -0.48 | coverage(G>0) 175/390 exp 196.9 z  -2.59 | hit units: reduced ideal natural 228/228, least natural norm <=100: 206
+d=3 nonM X RED  units   4405 (dropped alpha>5000: 740) | hits    54 E_exact     55.1 z  -0.11 | coverage(G>0) 8/729 exp 8.4 z  -0.18 | hit units: reduced ideal natural 27/27, least natural norm <=100: 6
+d=3 nonM X CYC  units   5482 (dropped alpha>5000: 337) | hits   108 E_exact    126.0 z  -1.24 | coverage(G>0) 33/866 exp 41.5 z  -1.47 | hit units: reduced ideal natural 54/54, least natural norm <=100: 48
+d=3 nonM X GEN2 units   4656 (dropped alpha>5000: 0) | hits   758 E_exact    740.7 z  +0.55 | coverage(G>0) 323/1135 exp 312.5 z  +0.83 | hit units: reduced ideal natural 379/379, least natural norm <=100: 355
+d=5 all  X RED  units   2456 (dropped alpha>5000: 1026) | hits    14 E_exact     18.5 z  -0.75 | coverage(G>0) 1/1002 exp 2.4 z  -0.95 | hit units: reduced ideal natural 7/7, least natural norm <=100: 2
+d=5 all  X CYC  units   5743 (dropped alpha>5000: 2059) | hits   138 E_exact    155.9 z  -1.08 | coverage(G>0) 14/320 exp 10.3 z  +1.25 | hit units: reduced ideal natural 69/69, least natural norm <=100: 49
+d=5 all  X GEN2 units  13199 (dropped alpha>5000: 56) | hits  1874 E_exact   1894.8 z  -0.41 | coverage(G>0) 772/1496 exp 761.9 z  +0.54 | hit units: reduced ideal natural 937/937, least natural norm <=100: 855
+d=5 M    X RED  units    737 (dropped alpha>5000: 460) | hits     4 E_exact      6.4 z  -0.68 | coverage(G>0) 0/129 exp 0.9 z  -0.95 | hit units: reduced ideal natural 2/2, least natural norm <=100: 0
+d=5 M    X CYC  units   1460 (dropped alpha>5000: 523) | hits    32 E_exact     41.9 z  -1.14 | coverage(G>0) 0/81 exp 1.9 z  -1.42 | hit units: reduced ideal natural 16/16, least natural norm <=100: 14
+d=5 M    X GEN2 units   3163 (dropped alpha>5000: 13) | hits   398 E_exact    396.7 z  +0.05 | coverage(G>0) 166/379 exp 160.6 z  +0.58 | hit units: reduced ideal natural 199/199, least natural norm <=100: 166
+d=5 nonM X RED  units   1719 (dropped alpha>5000: 566) | hits    10 E_exact     12.0 z  -0.42 | coverage(G>0) 1/873 exp 1.5 z  -0.46 | hit units: reduced ideal natural 5/5, least natural norm <=100: 2
+d=5 nonM X CYC  units   4283 (dropped alpha>5000: 1536) | hits   106 E_exact    113.9 z  -0.55 | coverage(G>0) 14/239 exp 8.5 z  +2.11 | hit units: reduced ideal natural 53/53, least natural norm <=100: 35
+d=5 nonM X GEN2 units  10036 (dropped alpha>5000: 43) | hits  1476 E_exact   1498.0 z  -0.49 | coverage(G>0) 606/1117 exp 601.4 z  +0.29 | hit units: reduced ideal natural 738/738, least natural norm <=100: 689
+d=7 all  X RED  units   2575 (dropped alpha>5000: 1550) | hits     8 E_exact      8.1 z  -0.02 | coverage(G>0) 0/784 exp 0.2 z  -0.48 | hit units: reduced ideal natural 4/4, least natural norm <=100: 1
+d=7 all  X CYC  units   6005 (dropped alpha>5000: 1798) | hits    12 E_exact      9.5 z  +0.60 | coverage(G>0) 3/322 exp 1.6 z  +1.19 | hit units: reduced ideal natural 6/6, least natural norm <=100: 0
+d=7 all  X GEN2 units   7028 (dropped alpha>5000: 0) | hits   500 E_exact    494.2 z  +0.20 | coverage(G>0) 236/1185 exp 192.0 z  +3.80 | hit units: reduced ideal natural 250/250, least natural norm <=100: 185
+d=7 M    X RED  units    954 (dropped alpha>5000: 779) | hits     2 E_exact      4.1 z  -0.75 | coverage(G>0) 0/76 exp 0.1 z  -0.30 | hit units: reduced ideal natural 1/1, least natural norm <=100: 0
+d=7 M    X CYC  units   1421 (dropped alpha>5000: 564) | hits     2 E_exact      2.9 z  -0.39 | coverage(G>0) 0/40 exp 0.4 z  -0.64 | hit units: reduced ideal natural 1/1, least natural norm <=100: 0
+d=7 M    X GEN2 units   1588 (dropped alpha>5000: 0) | hits    30 E_exact     27.8 z  +0.32 | coverage(G>0) 15/258 exp 8.9 z  +2.19 | hit units: reduced ideal natural 15/15, least natural norm <=100: 0
+d=7 nonM X RED  units   1621 (dropped alpha>5000: 771) | hits     6 E_exact      4.2 z  +0.64 | coverage(G>0) 0/708 exp 0.1 z  -0.36 | hit units: reduced ideal natural 3/3, least natural norm <=100: 1
+d=7 nonM X CYC  units   4584 (dropped alpha>5000: 1234) | hits    10 E_exact      6.6 z  +0.96 | coverage(G>0) 3/282 exp 1.2 z  +1.74 | hit units: reduced ideal natural 5/5, least natural norm <=100: 0
+d=7 nonM X GEN2 units   5440 (dropped alpha>5000: 0) | hits   470 E_exact    471.1 z  -0.04 | coverage(G>0) 221/927 exp 184.4 z  +3.24 | hit units: reduced ideal natural 235/235, least natural norm <=100: 185
+union over d of RED : coverage 210/1561, null exp 220.7 (z -0.97) | M: 46/397 exp 52.5 | uncovered: 1351
+union over d of CYC : coverage 1348/1561, null exp 1320.0 (z +2.18) | M: 313/397 exp 298.6 | uncovered: 213
+union over d of GEN2: coverage 1543/1561, null exp 1536.5 (z +1.38) | M: 379/397 exp 380.6 | uncovered: [10001209, 10026241, 10027081, 10027921, 10051441, 10053289, 10065889, 10070449, 10071601, 10087009, 10112881, 10120489]

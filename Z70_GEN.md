@@ -82,8 +82,28 @@ components; **K-GEN4:** no certificate reachable from seeds by such moves at 73 
 known good solution" (scoped to the listed moves); any reachable certificate ⟹ extract the move word and test it as a
 uniform rule on all primes p ≡ 1 (4) < 10⁴ (stage 2; must fail at 9, 25, 105).
 
-## 1.6 Smoke tests done before registration
-None (engine written after this registration).
+## 1.6 Smoke tests and amendments (all before any registered run)
+*Validation* (`scripts/z70_gen_validate.py` → `data/z70/gen/validate.txt`): 249 (n, d) checks — the small-fibre solution
+sets equal the exhaustive `z70_class_core.solutions` sets (23 listed n incl. 73, 409, 37, 1621, 3361, 21841, composites
+33, 105, 4545, 1105, squares 9, 25, 225; 30 random primes in [10⁴, 6·10⁴); d = 1, 2, 3, 5, 7); for primes: g_b = −g_a, every
+good class in the computed target genus, the three natural ideals lie in the class, #genera = |Cl/Cl²|. (Bug found and fixed
+during validation: 2-adic genus characters must be taken from Cox Thm 3.15, not guessed — δ is *not* a character for
+D = −4N, N ≡ 3 (4).)
+*Smoke tests* (excluded from all registered samples): d = 1, 3 on primes ≡ 1 (24) in [50000, 52000) (20 primes each);
+d = 1 on [500000, 503000) (29 primes; item 3 only, and the α-null below). Observations that changed the design:
+(i) with X = dp the smooth orbit reaches **every** class of 𝒯 (d = 1 at 5·10⁴), so the item-3 (III) null is degenerate;
+(ii) class-level (III) hits are absent below N ≈ 4–8·√(dp) and then track the uniform rate — the free region (FR′; 0
+violations of N·m(g) ≥ dp); (iii) seeds with small minimal norm α (e.g. k = 1 in S_CYC) are good far above the uniform
+rate when q* = 7 and p ≡ 3, 5 (mod 7) — a Mordell-class congruence identity (A = 7), absent on 𝔐; (iv) G₁(p) = ∅ also at
+51361, 51913 (confirmed with the exhaustive engine).
+**Amendments (before the registered runs):** (A1) item 3: X := min(dp, 64√(dp)); statistics reported cumulatively at
+thresholds X_j = √(dp)·2^j, j = −4 … 6; registered thresholds for K-GEN3: j = 0, 1, 2, 3. (A2) **α-matched null (primary
+for items 1 and 3):** a negation-unit u of 𝒯 is good with probability ρ(β(u)) := (# good units)/(# target units) in the
+half-octave bin β = ⌊2 log₂ α(u)⌋ of its minimal norm α(u) (first coefficient of the reduced form), estimated over the
+whole target coset of the same prime (item 3: with the (I)-classes removed). This asks the right question — does a seed
+family hit G more often than classes *of the same minimal norm*? — because good classes have small natural
+representatives (SR) and small-norm seeds would otherwise show a trivial size bias. The uniform null is still reported.
+Kill/signal thresholds unchanged, applied to the α-matched z; strata 𝔐 / non-𝔐 reported separately.
 
 ## 2. Theorems (statements; proofs in §3 when written)
 **Theorem GW (genus wall; to be proved in §3).** (a) G_d(n) ⊂ 𝒯_d(n), a single genus coset with χ_n = −1 (n prime; for
