@@ -116,3 +116,9 @@ Statistics: S1 = log ord[𝔣] / log h(−4yp); S2 = v₂ ord[𝔣]; S3 = 1[3 | 
 (class groups by PARI), at most 8 per prime (uniform), primes from H_train, H_test, CTRL. Estimator: real − mean(decoys)
 per witness, averaged per prime, cluster-by-prime z. Signal ⟺ |z| ≥ 4 on H_train and same-sign |z| ≥ 3 on H_test;
 CTRL reported. Not a HOT LEAD unless a signal also yields a rule passing Z69_MINE K1–K4.
+**2c (added before running; same design for (★) witnesses).** For a (★) solution p = 4uBC − u − B with modulus
+d = 4uC − 1 ≤ 10⁵ (exhaustive in that range, `scripts/z70_class_star.c`): representation ideal (d, 2uC + √−Cp) ↔ form
+[4uC − 1, 4uC, C(u + B)] of discriminant −4Cp (the good form of Type II with c = 1); Cp ≤ 10¹³, ≤ 8 per prime; exact decoys
+as in 2b (odd primes of Cp); statistics S1–S3; samples H_train, H_test, CTRL and the band sample (2 000 primes of the z69
+band B, drawn with seed 7071 — the band was added to 2a/2b after the registration, as a replication with the same fixed
+statistics). Signal criterion as in 2b.
