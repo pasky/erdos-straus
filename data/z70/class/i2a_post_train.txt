@@ -1,0 +1,7 @@
+PARI stack size set to 200000000 bytes, maximum size set to 200003584
+CTRL: n=2547 share l==1(4) 0.275 median l 3
+   l==1(4): n=701 mean rho 0.7976  mean v2h-v2ord 1.663  mean log ord_odd/log h_odd 0.9336
+   l==3(4): n=1846 mean rho 0.9476  mean v2h-v2ord 0.000  mean log ord_odd/log h_odd 0.9231
+H_train: n=438 share l==1(4) 0.895 median l 5
+   l==1(4): n=392 mean rho 0.7938  mean v2h-v2ord 1.666  mean log ord_odd/log h_odd 0.9334
+   l==3(4): n=46 mean rho 0.9364  mean v2h-v2ord 0.000  mean log ord_odd/log h_odd 0.9102

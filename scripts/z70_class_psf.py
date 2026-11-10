@@ -11,7 +11,8 @@
 # Diagnostics (observed only): every L1 overlap pair (x, x+t0) realised by good ideals I, J ([I] = x, [J] = x + t0) is
 #   classified  ID  (J = I * L0^{+-1}, an ideal identity),  FIB (I and J, or I and conj J, divide a common active B_a),  OTHER.
 # Usage: python scripts/z70_class_psf.py d R seed range P0 P1 [mod res] | list n1 ...
-import sys, math, random
+import sys, math, random, os
+MATCH2 = os.environ.get('Z70_MATCH2') == '1'
 sys.path.insert(0, 'scripts')
 from collections import Counter
 from sympy import factorint, primerange
@@ -95,6 +96,19 @@ def analyse(n, d, R, rng, F):
     big = [q for q in allprimes if q not in fixed and q not in pivots and q > QPOOL]
     SP = SplitPrimes(n, d, int(QPOOL * 1.6) + 100)
     pools = {q: SP.pool(q) for q in swap}
+    if MATCH2:      # variant (post hoc diagnostic): swap only to primes whose class has the same 2-Sylow projection m*[Q]
+        m = G.h
+        while m % 2 == 0: m //= 2
+        def proj(q):
+            x = C.prime_class(q)[1]; y = G.one
+            for _ in range(m): y = G.add(y, x)
+            return y
+        for q in swap:
+            pq = proj(q); dl = 0.1; P = []
+            while len(P) < 8:
+                P = [x for x in SP.pool(q, delta=dl, kmin=8) if proj(x) == pq]; dl *= 1.5
+                if dl > 3: break
+            pools[q] = P if P else [q]
     # sanity: the real classes satisfy the eliminated system
     realc = {q: C.prime_class(q)[1] for q in allprimes}
     for q, kq, i in piv:
@@ -135,6 +149,7 @@ def analyse(n, d, R, rng, F):
         used = set(fixed)
         for q in rng.sample(swap, len(swap)):
             cand = [x for x in pools[q] if x not in used]
+            if not cand and MATCH2: cand = [q] if q not in used else []
             if not cand: cand = [x for x in SP.pool(q, delta=1.0, kmin=len(used) + 8) if x not in used]
             x = rng.choice(cand); used.add(x); cls[q] = C.prime_class(x)[1]
         for q in big:
@@ -177,7 +192,7 @@ def run(d, R, nlist, F, seed, out=sys.stdout, tag=''):
         tot['fib'] += o['nfib']; tot['unp'] += o['unpinned']; tot['var'] += o['nvar']; tot['NI'] += o['NI']
         print(line, file=out, flush=True)
     Z = lambda a: a[0]/math.sqrt(a[1]) if a[1] > 0 else float('nan')
-    print(f"# {tag} null=PSF d={d} n analysed {npr}; R={R}; seed={seed}; active fibres {tot['fib']} (unpinned {tot['unp']}); good ideals with a non-degenerate null class {tot['var']}/{tot['NI']}; "
+    print(f"# {tag} null=PSF{'(MATCH2)' if MATCH2 else ''} d={d} n analysed {npr}; R={R}; seed={seed}; active fibres {tot['fib']} (unpinned {tot['unp']}); good ideals with a non-degenerate null class {tot['var']}/{tot['NI']}; "
           f"L1 overlaps ID/FIB/OTHER = {tot['ID']}/{tot['FIB']}/{tot['OTHER']}", file=out)
     print(f"# {tag} null=PSF d={d}: " + "; ".join(f"Z_{s} = {Z(agg[s]):+.2f} (obs {tot['obs_'+s]:.0f}, null {tot['null_'+s]:.1f})" for s in SS), file=out, flush=True)
 

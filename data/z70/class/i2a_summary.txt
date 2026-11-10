@@ -1,0 +1,7 @@
+# z70 CLASS item 2a (registered): H_train / H_test vs CTRL, two-sample z (Welch)
+v2h4: CTRL mean 2.9230 (n=2547) | H_train mean 2.9977 z +1.21 | H_test mean 2.8370 z -1.34
+v2h8: CTRL mean 2.9753 (n=2547) | H_train mean 2.9863 z +0.18 | H_test mean 2.9075 z -1.09
+three4: CTRL mean 0.4268 (n=2547) | H_train mean 0.4269 z +0.01 | H_test mean 0.4063 z -0.78
+three8: CTRL mean 0.4311 (n=2547) | H_train mean 0.4338 z +0.11 | H_test mean 0.3990 z -1.23
+hp1: CTRL mean 0.7695 (n=2547) | H_train mean 0.7511 z -0.82 | H_test mean 0.7470 z -0.98
+rho_l: CTRL mean 0.9063 (n=2547) | H_train mean 0.8088 z -14.50 | H_test mean 0.8131 z -13.04
