@@ -214,10 +214,11 @@ modular, h_γ = −F⁻(z) + v⁻¹(cz + d)^{−k}F⁻(γz), and at z = r + iy, 
 *Extension (added after the review; PROVED modulo the standard regularised description of F⁻, quoted from memory —
 Bruinier–Funke 2004 / the Bringmann–Folsom–Ono–Rolen monograph):* the same holds when the shadow g is any holomorphic
 modular form of weight 2 − k (non-zero constant terms allowed). Then F⁻(z) = c·b̄₀·Y_k(y) + c′∫_{−z̄}^{i∞}(g^c(τ) − b̄₀)
-(−i(τ + z))^{−k}dτ with Y_k(y) = y^{1−k} (k ≠ 1), log y (k = 1); b₀ = 0 unless 2 − k ≥ 0, and for k = 2 the shadow is a
-constant (term O(y⁻¹)); for k < 2 the moderate-growth bound |g(τ) − b₀| ≤ C(Im τ)^{k−2} near every cusp gives, on the
-same vertical path, ∫_y^1 t^{k−2}(t + y)^{−k}dt = y⁻¹∫_1^{1/y}u^{k−2}(1 + u)^{−k}du = O(y⁻¹) uniformly in x. So
-F⁻ = O(y⁻¹ + |Y_k(y)|) = o(y⁻¹log²(1/y)) at every rational, and LS applies.
+(−i(τ + z))^{−k}dτ with Y_k(y) = y^{1−k} (k ≠ 1), log y (k = 1). Case split: for k > 2 the shadow has negative weight,
+so it vanishes and F⁻ = 0 (G modular, h_γ ≡ 0); for k = 2 the shadow is a constant and F⁻ = O(y⁻¹); for k < 2 the
+moderate-growth bound |g(τ) − b₀| ≤ C(Im τ)^{k−2} near every cusp gives, on the
+same vertical path, ∫_y^1 t^{k−2}(t + y)^{−k}dt = y⁻¹∫_1^{1/y}u^{k−2}(1 + u)^{−k}du = O(y⁻¹) uniformly in x. So for k < 2,
+F⁻ = O(y⁻¹ + |Y_k(y)|) = o(y⁻¹log²(1/y)) at every rational (|Y_k| = y^{1−k} = o(y⁻¹) as k < 2), and LS applies.
 *Not covered:* harmonic forms of exponential growth at some cusp (weakly holomorphic shadows / principal parts),
 quantum modular forms in Zagier's sense (objects defined on rational boundary points, possibly with renormalised
 boundary values — their cocycles are not the upper-half-plane cocycles bounded here), vector-valued systems with
@@ -341,7 +342,8 @@ an argument-evaluation-order bug fixed afterwards; the fixture *was* found, as t
 primes where NP missed with A = 2000 (21 rows; 102 001 is on two lists), a full scan finds points for 14 (with a up to
 102 291 — the truncation matters) but the
 **d = n_p slice is exactly empty** at 102 001 (d = 23; a (★)- and 𝔊*-zero), 3 361 (d = 11), 210 961 (23),
-1 063 969 (17), 27 020 569 (37), 103 819 081 (13) (all noprime primes, all ≡ 1 (24), all in 𝔐).
+1 063 969 (17), 27 020 569 (37), 103 819 081 (13) (all ≡ 1 (24), all in 𝔐; the last five are noprime primes,
+102 001 is on the (★)/𝔊* lists).
 
 **Two-element menu (exploratory, after the kill; `typeI_np_menu_exact.txt`, exact by Lemma S).** At each of the six
 exact NP failures the *second* prime non-residue d gives a non-empty slice (102 001: d = 29; 3 361: 13; 210 961: 29;
@@ -454,8 +456,9 @@ No idea survives as a mechanism, so the four screens are compatibility records o
 
 ## 8. Verdicts (one line each)
 * **I6 — narrowed.** Fibre law: PROVED (Theorem F). Mock status of the fibres: not decided. Level sum: no finite-index
-  law with small cocycles (Theorem LS, PROVED), hence not modular / not harmonic with cuspidal shadow (Cor. LS-M);
-  Eisenstein-shadow, boundary-defined quantum and infinite-level objects are not excluded.
+  law with small cocycles (Theorem LS, PROVED), hence not modular / not harmonic with cuspidal shadow (Cor. LS-M,
+  PROVED) nor with any holomorphic shadow (extension, PROVED modulo the standard regularised formula); exponential-growth,
+  boundary-defined quantum and infinite-level objects are not excluded.
 * **I5 — narrowed.** 407 candidate expressions (7 registered + 400 grammar) fail stage 1; Lemma P5 locates the parity
   in the divisor words of p + 1.
 * **IDEAA #10 — the four implemented rules are dead** (K10a, K10b fire; NP's failures CERTIFIED exact by Lemma S).
@@ -476,26 +479,29 @@ No idea survives as a mechanism, so the four screens are compatibility records o
 > (ii) *I5:* 407 candidate cross-slice maps fail at 73/409; the odd parity of T_p is carried by the 3τ(p + 1) − 1
 > divisor words (Lemma P5). (iii) *IDEAA #10:* four explicit d-rules fail (d = n_p leaves the Type I slice exactly
 > empty at six hard primes; Lemma S makes single-slice decisions exact). (iv) *Pell residues mod letters:* no
-> difference from exact decoys. (v) *I9:* no detected difference with disjoint controls.
+> difference from exact decoys detected. (v) *I9:* no detected difference with disjoint controls.
 
 ## 10. Bottom line
 The five loose ends were run. The new mathematics is on I6: an explicit, verified transformation law for each fibre,
 and a scoped theorem that the sum over levels admits no finite-index transformation law with small cocycles — because
 the log² singularity of G vanishes at every rational with even or non-squarefree denominator (κ = μ(c)/c²), which a
 finite-index group action cannot respect. Whether the fibres are mock, and whether non-standard automorphic objects
-could carry G, remain open. The other four items are negative within their tested scope: no involution among 407
-candidates, no working Type I d-rule among four, no Pell-letter signal, no X-coordinate signal. ES remains OPEN.
+could carry G, remain open. The other four items are negative within their tested scope: none of 407
+candidate expressions is a certificate-fixed involution at both 73 and 409, no working Type I d-rule among four, no Pell-letter signal, no X-coordinate signal. ES remains OPEN.
 
 ## Reproduction (all with `ulimit -v 6000000`, `timeout ≤ 1800`)
-* I9: `uv run --with sympy python scripts/z70_loose_i9.py`; `… scripts/z70_loose_i9b.py`.
+* I9: `uv run --with sympy python scripts/z70_loose_i9.py`; `… scripts/z70_loose_i9b.py`; `… scripts/z70_loose_i9c.py`.
 * #10: `gcc -O2 -o t scripts/z70_loose_typeI.c -lm; ./t range 50000000 2000 30 0; ./t range 100000000 2000 30 50000000;
   ./t list <file> 2000`; exact: `gcc -O2 -o f scripts/z70_loose_typeIfull.c; ./f <"p d" file>`.
-* I6: `uv run --with numpy --with scipy python scripts/z70_loose_i6law.py`; `uv run --with mpmath python
-  scripts/z70_loose_i6mp.py`; `python3 scripts/z70_loose_i6kappa.py`; `gcc -O2 scripts/z70_loose_i6sing.c -lm; ./a.out 3000000`.
+* I6: `uv run --with numpy --with scipy python scripts/z70_loose_i6law.py`; multiprecision
+  `uv run --with mpmath python scripts/z70_loose_i6mp.py [M α β dps small Re(z₀) Im(z₀) [gl]]` (grids: 4 3 3 30 3e-3 …
+  → `i6_k6a_mp_d1.txt`; 12 11 11 20 7e-4 … gl → `i6_k6a_mp_d3.txt`); `python3 scripts/z70_loose_i6kappa.py`;
+  `gcc -O2 scripts/z70_loose_i6sing.c -lm; ./a.out 3000000`.
 * I5: `python3 scripts/z70_loose_i5.py`; `uv run --with sympy python scripts/z70_loose_i5grammar.py`.
 * Pell: `uv run --with numpy --with sympy --with cypari2 python scripts/z70_loose_pell.py <wit> <list> <cap> <seed> <out>`
   (witness files = `zcat data/z69/mine/{H,CTRL}_witnesses.txt.gz`; lists `data/z69/mine/{H_train,H_test,CTRL}.txt`;
-  caps 0, 0, 10; seeds 7070, 7070, 7071); `… scripts/z70_loose_pell_recal.py in out`; `python3 scripts/z70_loose_pell_an.py <files>`.
+  caps 0, 0, 10; seeds 7070, 7070, 7071); 2-adic null: `… scripts/z70_loose_pell_recal2.py in.jsonl.gz out.jsonl.gz`
+  (the superseded partial fix is `z70_loose_pell_recal.py`); analysis `python3 scripts/z70_loose_pell_an.py <files>`.
 
 ## 11. Review log
 **Internal hostile review** (deep-mode reviewer subagent over commits 07c2edca6..8c422ab8a; verdict "changes
@@ -505,8 +511,9 @@ on ℍ (Mellin residues, Hurwitz phases, kernel signs, PV = ∫_{C₋} − πi R
 (383 primes, 54 without trivial certificate), the I5 tallies (7 failures; 246/154 grammar split) and the Pell
 aggregates. Fixes applied:
 1. *LS scope* — Theorem LS restated as a statement about holomorphic cocycles with the radial bound; the blanket
-   "not mock / not quantum / not harmonic" claims replaced by Corollary LS-M (cuspidal shadows, proved) and an explicit
-   "not covered" list (Eisenstein shadows, Zagier-type boundary objects, vector-valued systems without the bound);
+   "not mock / not quantum / not harmonic" claims replaced by Corollary LS-M (cuspidal shadows, proved; extended after
+   the review to holomorphic shadows modulo the standard regularised formula) and an explicit "not covered" list
+   (exponential-growth forms, Zagier-type boundary objects, vector-valued systems without the bound);
    "any automorphic route must…" deleted from the FRONTIER text.
 2. *Theorem F jump / §2.2* — the jump assertion withdrawn; the τ = tw path-rotation residue noted; §2.2 downgraded:
    only "S₁, S₂ ∉ M₁ (d = 1)" is PROVED, mock status not decided.
