@@ -105,13 +105,90 @@ family hit G more often than classes *of the same minimal norm*? — because goo
 representatives (SR) and small-norm seeds would otherwise show a trivial size bias. The uniform null is still reported.
 Kill/signal thresholds unchanged, applied to the α-matched z; strata 𝔐 / non-𝔐 reported separately.
 
-## 2. Theorems (statements; proofs in §3 when written)
-**Theorem GW (genus wall; to be proved in §3).** (a) G_d(n) ⊂ 𝒯_d(n), a single genus coset with χ_n = −1 (n prime; for
-general non-square n coprime to 2d the corresponding product of genus characters); 𝒯_d(m²) = ∅. (b) If Σ ⊂ Cl has all
-genus-character values of the principal genus restricted to χ_n (χ_n(Σ) = 1), then ⟨Σ⟩ ∩ G_d(n) = ∅; in particular the
-classes of all prime ideals of norm q with (q/n) = +1 (split or ramified) and the ambiguous classes whose χ_n-value is
-+1 generate a subgroup blind to G. On 𝔐 this contains every prime ideal of norm ≤ 7 and, for d | 210, all ambiguous
-classes over 2, 3, 5, 7 and over p. (c) Every class of 𝒯 has all its ideal norms N (gcd(N, n) = 1) with (N/n) = −1, hence a
-prime factor q ≥ n_p (least quadratic non-residue). (d) The only escape from a χ_n-trivial seed subgroup by group
-operations is division by 2 (𝒯 ⊂ Cl ∖ Cl², ker χ_n ⊇ Cl²): the halving closure of ⟨Σ⟩ is ⟨Σ⟩_odd + Cl[2^∞]-shifts — either
-the whole of Cl (a search) or, canonically, S_RED.
+**Deviation ledger (complete).** (D1) The memo text of the amendments A1/A2 above was written before the registered runs
+but, through a tool race, committed only together with the W1–W3 results (`git log`); the *code* implementing A1/A2
+(`scripts/z70_gen_run.py`, item-3 thresholds, `score_alpha`) was committed in `c7a1a785c`, before any registered run.
+(D2) After W1 ∪ W2 had been pooled and **before W3 was run**, three analyses were added (code committed with the W3
+data): the **exact-α pooled null** (leave-one-prime-out rate of goodness among target units with the *same* minimal norm α
+at the other primes of the same window and d; units with α > 5000 dropped and counted), the **hit decomposition** (is
+the reduced ideal of a hit class a natural representative? its least natural norm), and the **union over d** coverage
+with its null. They are post hoc relative to W1 ∪ W2 and pre-registered relative to W3. (D3) Item 2a's r₄ test is
+degenerate within p mod 840 strata (r₄ is a function of p mod 840 for these d — §3.2); only r₈ is testable within strata.
+(D4) `data/z70/gen/` holds the raw per-prime records as one xz archive (`runs_W123.tar.xz`, 12 MB) to respect the 20 MB cap.
+
+## 2. Theorems (PROVED unless labelled otherwise)
+Setting for §2: p prime, p ≡ 1 (mod 4), d ≥ 1 with p ∤ d, D = −4dp, Cl = Cl(D) (primitive forms ↔ invertible ideals of
+O = ℤ[√−dp], Cox §7). A good solution has a ≤ (p + e)/(4d) < p and e ≤ (p + 4d)/(4d − 1) < p (z69), hence p ∤ aA·e;
+gcd(A, 2ad) = 1 (A ≡ −1 mod 4ad); e odd and gcd(e, d) | gcd(N_a, d) = 1. ψ := the genus character of D attached to p,
+ψ([f]) = (m/p) for any m represented by f with p ∤ m (a class invariant — genus theory, Cox Thm 3.15); equivalently
+ψ([𝔞]) = (N𝔞/p) for invertible 𝔞 with p ∤ N𝔞.
+
+**Theorem GW (genus wall).** (a) ψ(g) = −1 for every g ∈ G_d(p). (b) For any Σ ⊂ ker ψ the subgroup ⟨Σ⟩ is disjoint from
+G_d(p); the same holds for the image of ⟨Σ⟩ under any endomorphism x ↦ kx and under any automorphism preserving ψ.
+In particular the classes of all prime ideals of norm q with (q/p) = +1 (split, or ramified over q | 2d) lie in ker ψ, and
+so does every class of order ≤ 2 when (q/p) = +1 for all q | 2d and p > 3d. On 𝔐 (where (2/p) = (3/p) = (5/p) = (7/p) = 1)
+this covers every prime ideal of norm ≤ 7 and, for squarefree d | 210, all of Cl[2]. (c) Every invertible ideal 𝔞 with
+p ∤ N𝔞 in a class with ψ = −1 has (N𝔞/p) = −1, so N𝔞 has a prime factor q with (q/p) = −1, q ≥ n_p (least quadratic
+non-residue of p); in particular every good class has minimal norm α(g) ≥ n_p and every natural norm ≥ n_p. (d) For
+H ≤ Cl let H^sat := {x : 2^j x ∈ H for some j ≥ 0}. Then H^sat = Cl₂ ⊕ (H ∩ Cl_odd) (Cl₂ = 2-Sylow subgroup). If H ⊂ ker ψ
+then H^sat ∩ ψ^{−1}(−1) = (Cl₂ ∩ ψ^{−1}(−1)) ⊕ (H ∩ Cl_odd) ≠ ∅: **division by 2 is the only group-theoretic operation that
+leaves a ψ-trivial seed group**, and what it reaches is the fixed set Cl₂ ∩ ψ^{−1}(−1) (the 2-power-torsion classes of the
+odd ψ-coset; S_RED is its intersection with the target genus) shifted by the odd part of H — the whole odd ψ-coset as soon as
+H ⊇ Cl_odd (a search, not a map). (e) For n = m² (odd, gcd(m, d) = 1) the computation of (a) gives (m²/A) = 1 = −1, so
+G_d(m²) = ∅ (= T1); for non-square n with gcd(n, 2d) = 1 the same proof works with ψ_n := (·/n) (Jacobi), a nontrivial
+product of genus characters.
+*Proof.* (a) g = [A, 4ad, de] represents A, p ∤ A. By Jacobi reciprocity (p ≡ 1 mod 4, A odd positive) (A/p) = (p/A) =
+∏_{q^k ∥ A} (p/q)^k. For q | A: q | N_a = p + 4a²d and q ∤ 2ad, so p ≡ −4a²d (mod q) and (p/q) = (−d/q); hence
+(p/A) = (−d/A) (Jacobi). For odd positive A coprime to d, (−d/A) = (−4d/A) (Kronecker), and m ↦ (−4d/m) is a character
+modulo 4d with value −1 at m ≡ −1 (it is odd: (D/−1) = sign D for D ≡ 0 mod 4; Cohen, *A Course in Computational Algebraic
+Number Theory*, §1.4.2 — standard). As A ≡ −1 (mod 4d), ψ(g) = (A/p) = −1. (b) ψ is a homomorphism Cl → {±1}; kΣ and
+automorphic images preserving ψ stay in ker ψ; ker ψ ∩ G = ∅ by (a). Prime ideals: ψ([𝔮]) = (q/p). Classes of order ≤ 2:
+by Lemma AMB below every such class contains an invertible ideal of norm k | 2d, so ψ = (k/p) = 1 under the hypothesis.
+(c) immediate from ψ([𝔞]) = (N𝔞/p) = −1 and multiplicativity of the Legendre symbol; α(g) < p as α(g) ≤ √(4dp/3) < p for
+p > 4d/3. (d) Write x = x₂ + x_o. For j ≥ the exponent of Cl₂, 2^j x = 2^j x_o, and multiplication by 2^j is an
+automorphism of Cl_odd; H = H₂ ⊕ H_o (H finite abelian), so 2^j x_o ∈ H ⟺ 2^j x_o ∈ H_o ⟺ x_o ∈ H_o. Hence
+H^sat = Cl₂ ⊕ H_o. ψ is trivial on Cl_odd = 2·Cl_odd ⊂ 2Cl, ψ ≠ 1 (by (a) when G ≠ ∅, and in general because the genus
+characters are surjective — Cox Thm 3.15), so ψ|Cl₂ ≠ 1 and Cl₂ ∩ ψ^{−1}(−1) ≠ ∅. (e) as (a) with (m²/A) = 1, resp. with
+(A/n) = (n/A) (Jacobi reciprocity, n ≡ 1 mod 4) = (−d/A) = −1 (each q | A has n ≡ −4a²d mod q; needs gcd(a, n) = 1). ∎
+
+**Lemma AMB (ambiguous classes are never good).** Let d be squarefree, p > 3d and p(4d − 3) > 8d. Then
+Cl[2] ∩ G_d(p) = ∅, and every class of order ≤ 2 contains an invertible ideal of norm k ∈ {k₀, 2k₀ : k₀ | d}.
+*Proof.* The reduced form [a, b, c] of a class x with 2x = 0 is equivalent to its inverse [a, −b, c]; by uniqueness of reduced
+forms either b = 0, or b = a, or a = c. b = 0: ac = dp, a ≤ c, so a ≤ √(dp) < p and a | dp ⟹ a | d. b = a: a(4c − a) = 4dp,
+a must be even, a = 2k, k(2c − k) = dp with 2k ≤ c, i.e. k² ≤ dp/3 < p², so k | d. a = c: b² − 4a² = −4dp, b = 2β,
+(a − β)(a + β) = dp with 0 ≤ β ≤ a/2, so the cofactor ratio (a + β)/(a − β) ≤ 3: a divisor k = a − β of dp with
+dp/3 ≤ k² ≤ dp; k | d forces p ≤ 3d, and p | k forces k ≥ p > √(dp) — both excluded. So x contains the ideal of norm a with
+a = k₀ or 2k₀, k₀ | d (primitive: gcd(a, b, c) = 1 as the form is primitive). Now let g ∈ G ∩ Cl[2]. By z69/CLASS §1.1,
+𝔄·𝔡·𝔈 = (2ad + √−dp), so [𝔈] = −g − T_d = g + T_d ∈ Cl[2] (T_d = [𝔡] has order ≤ 2). Let 𝔟 be the ideal of norm k ≤ 2d in the
+class [𝔈] = −[𝔈] (above); then 𝔈·conj 𝔟 is integral, invertible, principal = (x + y√−dp), and primitive because
+gcd(e, k) = 1 (e odd, gcd(e, d) = 1) and both factors are primitive with coprime norms. If y = 0 then (x) primitive forces
+|x| = 1 and e·k = 1, impossible (e = 1 would give 4abd = p + 1 ≡ 2 mod 4). So e·k = x² + dp y² ≥ dp. But
+e·k ≤ 2d(p + 4d)/(4d − 1) < dp ⟺ p(4d − 3) > 8d. Contradiction. ∎ (CERTIFIED consistency: S_AMB has 0 hits in all
+registered windows and screens, §3.1.)
+
+**Lemma ORD (good classes have large order).** For g ∈ G_d(p) with natural representative 𝔄 of norm A (or conj 𝔅 of
+norm B): A^{ord g} ≥ dp, i.e. ord(g) ≥ log(dp)/log min(A, B). *Proof.* 𝔄 = (A, 2ad + √−dp) is a product of split prime
+ideals "on one side" (Lemma Φ of CLASS), so 𝔄^m is primitive; if m·g = 0 then 𝔄^m = (x + y√−dp) with y ≠ 0 (else 𝔄^m = (1),
+A = 1), so A^m ≥ dp. ∎ (So a good class of order 4 — e.g. in S_RED — has min(A, B) ≥ (dp)^{1/4}.)
+
+**Proposition WORD (seed words hit G below the free-region scale only by being a natural representative).** Let 𝔰 be a
+primitive invertible ideal (e.g. any product of split prime ideals with no conjugate pair: every word in classes of small
+split primes is the class of such an ideal) with [𝔰] = g ∈ G_d(p), and let m(g) be the least norm of a natural representative
+(𝔄, conj 𝔅, or 𝔡·conj 𝔈; all primitive for squarefree d). If N(𝔰)·m(g) < dp then 𝔰 *is* that natural representative; by
+Lemma SR, m(g) ≤ √(d(2p + e)), so every 𝔰 with N(𝔰) < dp/√(d(2p + e_max)) (≈ √(dp/2)) hits G only by an ideal identity —
+i.e. N(𝔰) is itself a good norm A ≡ −1 (mod 4ad) dividing N_a (or a B- or de-norm) with the matching root: **the divisor
+event**. *Proof.* Corollary FR′ of `Z70_CLASS.md` §1.6 (two distinct primitive invertible ideals with norm product < dp lie
+in distinct classes) + Lemma SR. ∎ CERTIFIED: 0 violations of N(𝔰)·m(g) ≥ dp among all class-level (III) hits of item 3
+(W1–W3, 5 values of d, ≈ 4·10⁶ seed ideals in the target genus).
+
+**Proposition SLICE (fixed-n word moves are re-factorisations).** Let T_n = {(x, y, z) ∈ ℕ³ : xyz − x − z = n}. Each word lies
+in three slices: fixed y — (xy − 1)(zy − 1) = ny + 1; fixed x — (xy − 1)·z = n + x; fixed z — symmetric. A move preserving
+one coordinate is a re-factorisation of the fixed integer ny + 1, n + x or n + z subject to a congruence (factors ≡ −1 mod y,
+resp. the factor xy − 1 ≡ −1 mod x). The only fibrewise maps given by polynomials with integer coefficients in the slice
+parameter that preserve integrality on all fibres are the identity and the swap: on the fibre over y, (X, Z) := (xy − 1,
+zy − 1) satisfies XZ = ny + 1, a fibrewise automorphism of the hyperbola is (X, Z) ↦ (λX, Z/λ) or its composition with the
+swap, and integrality of x' = (λX + 1)/y for all words forces λ ∈ ℤ[y]^× = {±1}; λ = −1 gives x' = (2 − xy)/y ∉ ℤ for y ≥ 3.
+(PROVED for this fibration-preserving class of maps only; non-fibred maps are tested in §3.4.) Also (PROVED, Lemma P5 of
+LOOSE + direct check): s, τ_xy, τ_yz, μ, μ^s map Triv_n (words with a letter 1) into Triv_n and T_n ∖ Triv_n into itself
+wherever defined. [τ_xy(x, y, 1) is defined only for x = y (then (xy − 1) | (n + y) with n + y − (xy − 1) = y − x), and τ_xy is
+an involution on its domain; μ is defined on Triv only and lands in Triv.]
