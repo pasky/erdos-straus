@@ -1,5 +1,6 @@
 // z69 TWIST triage, IDEAA #11 (e = p+2 Type I slice):
 // for odd M <= N: coprime a,b with ab | M^2 and (2M+1) | a+b ?
+// (no coprimality imposed beyond a,b supported on disjoint prime sets; Lemma V itself needs none)
 // usage: slice11 N   -> prints every hit "M a b c tag" (tag P if 2M-1 is a prime == 1 mod 8)
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,7 +12,7 @@ int main(int argc,char**argv){
   long N=atol(argv[1]); spf=calloc(N+1,sizeof(int));
   for(long i=2;i<=N;i++) if(!spf[i]) for(long j=i;j<=N;j+=i) if(!spf[j]) spf[j]=i;
   long hits=0,hitsP=0,nM=0,nP=0;
-  for(long M=3;M<=N;M+=2){
+  for(long M=1;M<=N;M+=2){
     u64 e=2*M+1; int np=0; u64 pr[20]; int ex[20]; long m=M;
     while(m>1){ int q=spf[m],v=0; while(m%q==0){m/=q;v++;} pr[np]=q; ex[np]=2*v; np++; }
     int isP = ((2*M-1)%8==1) && isprime(2*M-1); nM++; nP+=isP;
@@ -27,6 +28,6 @@ int main(int argc,char**argv){
       sa[d+1]=a; sb[d+1]=b; idx[d+1]=0; d++;
     }
   }
-  fprintf(stderr,"N=%ld odd M tested=%ld hits=%ld ; prime(p=2M-1==1 mod 8) M tested=%ld hits=%ld\n",N,nM,hits,nP,hitsP);
+  printf("# DONE N=%ld odd M tested=%ld (M=1..N) hits=%ld ; M with 2M-1 a prime == 1 mod 8: tested=%ld hits=%ld\n",N,nM,hits,nP,hitsP);
   return 0;
 }

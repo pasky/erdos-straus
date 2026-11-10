@@ -34,19 +34,20 @@ def lifts(n,p,H):
 def valid(w,n,p):
     g,h=w.numerator,w.denominator; m=p*h*h-g*g
     return m!=0 and n%abs(m)==0 and (g!=0 or n%p==0)
-P=int(sys.argv[1]); H=int(sys.argv[2]); fails=[]; npr=0
-for p in primerange(5,P):
-    if p%4!=1: continue
-    npr+=1; T=es_triples(p); hits=0; ex=None
-    for (n1,n2,n3) in T:
-        ns=(n1,n2,n3)
-        for (i,j,k) in ((0,1,2),(0,2,1),(1,2,0)):
-            Li=lifts(ns[i],p,H); Lj=lifts(ns[j],p,H)
-            for wi in Li:
-                for wj in Lj:
-                    wk=-ns[k]*(wi/ns[i]+wj/ns[j])
-                    if valid(wk,ns[k],p):
-                        hits+=1; ex=ex or (ns,(i,j,k),(str(wi),str(wj),str(wk)))
-    print(p,len(T),hits,ex,flush=True)
-    if hits==0: fails.append(p)
-print(f"primes p==1(4) < {P}: {npr}; with ES triples but no twisted lift (h<={H} on two terms): {len(fails)}: {fails[:40]}")
+if __name__=="__main__":
+    P=int(sys.argv[1]); H=int(sys.argv[2]); fails=[]; npr=0
+    for p in primerange(5,P):
+        if p%4!=1: continue
+        npr+=1; T=es_triples(p); hits=0; ex=None
+        for (n1,n2,n3) in T:
+            ns=(n1,n2,n3)
+            for (i,j,k) in ((0,1,2),(0,2,1),(1,2,0)):
+                Li=lifts(ns[i],p,H); Lj=lifts(ns[j],p,H)
+                for wi in Li:
+                    for wj in Lj:
+                        wk=-ns[k]*(wi/ns[i]+wj/ns[j])
+                        if valid(wk,ns[k],p):
+                            hits+=1; ex=ex or (ns,(i,j,k),(str(wi),str(wj),str(wk)))
+        print(p,len(T),hits,ex,flush=True)
+        if hits==0: fails.append(p)
+    print(f"primes p==1(4) < {P}: {npr}; with ES triples but no twisted lift (h<={H} on two terms): {len(fails)}: {fails[:40]}")

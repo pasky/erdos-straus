@@ -15,3 +15,4 @@ for p in primerange(5,P):
                     if jacobi_symbol(d,p)!=-1: bad+=1; print("VIOLATION",p,a,d,f)
                     if N%p==0: pellpts+=1
 print(f"primes p==1(4) < {P}, a*d <= {AD}: Type I points {npts}, with (d/p) != -1: {bad}, with p | 4a^2d+1: {pellpts}")
+sys.exit(1 if (bad or pellpts) else 0)

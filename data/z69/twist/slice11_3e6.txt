@@ -1,0 +1,1 @@
+# DONE N=3000000 odd M tested=1500000 (M=1..N) hits=0 ; M with 2M-1 a prime == 1 mod 8: tested=103090 hits=0

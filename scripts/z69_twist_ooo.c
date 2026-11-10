@@ -1,5 +1,6 @@
 // z69 TWIST (I5 follow-up): all-odd words. For n == 1 (mod 4): every word (x,y,z) with x,y,z odd has y == 3 (mod 4);
-// A = {x == z == 1 (4)} (contains the trivial word (1,n+2,1)), B = {x == 3 or z == 3 (4)} = Type I solutions with a = 1.
+// A = {x == z == 1 (4)} (contains the trivial word (1,n+2,1)), B = {x == 3 or z == 3 (4)}; a B-word with x == 3 (4) is the Type I
+// solution (a,b,c,d,e) = (1, yz-1, z, (xy-1)/4, y); B-words <-> Type I solutions with a = 1 and c odd (not all a = 1 solutions).
 // Prints, for primes p == 1 (4), p <= N: parity statistics of |A|, |B| and the lists of primes with B empty,
 // and with B empty and no (★) word (4 | y).
 #include <stdio.h>

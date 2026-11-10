@@ -55,20 +55,25 @@ def good_classes(p):
                     G.setdefault(reduce(4*a*c-1,4*a,4*a*b-p),[]).append((a,b,c,e))
         e+=4
     return G
-P0=int(sys.argv[1]); P1=int(sys.argv[2])
-tot=dict(n=0,G=0,gen=0,J=0,Jexp=0.0,L=0,Lexp=0.0,sq=0)
-for p in primerange(P0,P1):
-    if p%8!=1: continue
-    D=-4*p; cl=classgroup_elems(D); h=len(cl); G=good_classes(p); S=set(G)
-    # sanity: inversion closed, non-principal genus (a form class is in the principal genus iff it represents an odd number == 1 mod 4 prime to p)
-    assert all((a,-b,c) in S or b in (0,a) or a==c for (a,b,c) in S), p
-    J=reduce(2,2,(p+1)//2)
+def least_split_class(p):
     l=5
     while not (l%4==1 and jacobi_symbol(-p,l)==1 and all(l%q for q in range(2,int(l**.5)+1))): l+=4
-    r=next(t for t in range(l) if (t*t+p)%l==0); Lf=reduce(l,2*r,(r*r+p)//l)
-    nJ=sum(1 for g in S if compose_std(g,J,D) in S); nL=sum(1 for g in S if compose_std(g,Lf,D) in S)
-    tot['n']+=1; tot['G']+=len(S); tot['gen']+=h//2; tot['J']+=nJ; tot['L']+=nL
-    tot['Jexp']+=len(S)**2/(h/2); tot['Lexp']+=len(S)**2/(h/2)
-    if len(sys.argv)>3: print(p,h,len(S),nJ,nL,l)
-print(f"primes p==1(8) in [{P0},{P1}): {tot['n']}; sum|G|={tot['G']} sum|genus|={tot['gen']} (mean fill {tot['G']/tot['gen']:.3f}); "
-      f"J-stable members {tot['J']} (chance {tot['Jexp']:.0f}); l-stable members {tot['L']} (chance {tot['Lexp']:.0f})")
+    r=next(t for t in range(l) if (t*t+p)%l==0)
+    return l, reduce(l,2*r,(r*r+p)//l)
+if __name__=="__main__":
+    P0=int(sys.argv[1]); P1=int(sys.argv[2])
+    tot=dict(n=0,G=0,gen=0,J=0,Jexp=0.0,L=0,Lexp=0.0,sq=0,fix=0.0)
+    for p in primerange(P0,P1):
+        if p%8!=1: continue
+        D=-4*p; cl=classgroup_elems(D); h=len(cl); G=good_classes(p); S=set(G)
+        # sanity: inversion closed, non-principal genus (a form class is in the principal genus iff it represents an odd number == 1 mod 4 prime to p)
+        assert all((a,-b,c) in S or b in (0,a) or a==c for (a,b,c) in S), p
+        J=reduce(2,2,(p+1)//2)
+        l,Lf=least_split_class(p)
+        nJ=sum(1 for g in S if compose_std(g,J,D) in S); nL=sum(1 for g in S if compose_std(g,Lf,D) in S)
+        tot['n']+=1; tot['G']+=len(S); tot['gen']+=h//2; tot['J']+=nJ; tot['L']+=nL
+        tot['Jexp']+=len(S)**2/(h/2); tot['Lexp']+=len(S)**2/(h/2)
+        tot['fix']+=len(S)*(len(S)-1)/(h/2-1) if h>2 else 0
+        if len(sys.argv)>3: print(p,h,len(S),nJ,nL,l)
+    print(f"primes p==1(8) in [{P0},{P1}): {tot['n']}; sum|G|={tot['G']} sum|genus|={tot['gen']} (mean fill {tot['G']/tot['gen']:.3f}); "
+          f"J-stable members {tot['J']}; l-stable members {tot['L']}; chance k^2/m = {tot['Jexp']:.0f}, fixed-size chance k(k-1)/(m-1) = {tot['fix']:.0f}")

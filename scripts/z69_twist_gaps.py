@@ -34,3 +34,6 @@ print("gaps with a root whose first chain element n1 <= NMAX but no brute-force 
 ex=[(j,min(roots[j])) for j in sorted(roots)[:8]]
 print("first roots (j,(n1,nu,eps,alpha,b,c,d)):",ex)
 print("brute minimal n per gap (first 8):",[(j,min(brute[j])) for j in sorted(brute)[:8]])
+assert not bad and not miss, 'Prop R cross-check FAILED'
+assert all(min(brute[j])[0]==min(roots[j])[0] for j in brute if min(roots[j])[0]<=NMAX), 'minimal n mismatch'
+print('Prop R cross-check PASSED (sterile gaps empty; root gaps realised; minimal n per gap = first chain element)')
