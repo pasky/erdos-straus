@@ -184,9 +184,13 @@ norms A = 4acd − 1, B = 4bcd − 1 and de (namely 𝔄, conj 𝔅, 𝔡·conj 
   min(A, B, de) ≤ √(d(2n + e)) ≤ √(d(2n + (n + 4d)/(4d − 1)))   (d = 1: ≤ √((7n + 4)/3)).
 *Proof.* g = φ_a(A) = T_d − φ_a(e) (Lemma Φ), and T_d − φ_a(e) is the class of [d, 0, n]∘[e, −4ad, dA], which represents
 de; g = −φ_b(B) (a ↔ b) is the class of [B, −4bd, ·]. A·de = dN_a and B·de = dN_b; take the letter min(a, b), for which
-N = n + 4 min(a,b)²d ≤ n + 4abd = 2n + e, and e ≤ (n + 4d)/(4d − 1) (z69). ∎ CERTIFIED: the least natural norm is ≤ √(dn)
-for 95 % (d = 1, n ≈ 2.7·10⁴), 97.7 % (10⁶), 98.4 % (4·10⁶) of good classes, and ≥ 96 % for d = 2, 3, 5, 7 at 2·10⁵
-(`i1_repid_*.txt`, K_small/K).
+N = n + 4 min(a,b)²d ≤ n + 4abd = 2n + e, and e ≤ (n + 4d)/(4d − 1) (z69). ∎ *Caveat (added in the final pass):* as a
+statement about classes SR is weak — every class of discriminant −4dn contains an ideal of norm ≤ √(4dn/3) (its reduced
+form). Its content is that the *natural* representatives, which carry the solution's arithmetic, are of that size; and
+when a natural representative has norm N < √(dn) it *is* the reduced form of the class (reduce B into (−N, N]; then
+C = (B² + 4dn)/(4N) > dn/N > N). CERTIFIED: the least natural norm is ≤ √(dn) — so the reduced form of the class is a natural
+good form — for 95 % (d = 1, n ≈ 2.7·10⁴), 97.7 % (10⁶), 98.4 % (4·10⁶) of good classes, and ≥ 96 % for d = 2, 3, 5, 7 at
+2·10⁵ (`i1_repid_*.txt`, K_small/K).
 
 **Lemma FR (free region). PROVED.** Let 𝔞, 𝔟, 𝔱 be invertible ideals of O with [𝔟] = [𝔞] + [𝔱] and
 N(𝔞)N(𝔟)N(𝔱) < dn. Then 𝔟·conj(𝔞)·conj(𝔱) = xO with x ∈ ℤ_{>0} and x² = N(𝔞)N(𝔟)N(𝔱).
