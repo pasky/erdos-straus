@@ -200,3 +200,71 @@ c = 1) in the coordinates (s, t). *Verdict:* re-encoding of the covering form; n
   classes out of φ(D). Tracking the uncontrolled cofactor separately changes nothing: the cofactor's divisors are
   exactly what is not controlled. No target-specific subset-product statement with deterministic hypotheses was
   found. *Verdict:* reduces to covering.
+
+## 4. Push 1 — the Vieta structure of Type I and the complete classification of the gaps e − n > 0. PROVED.
+
+Lemma V is the first instance of a general structure. Throughout this section n ≡ 1 (mod 4) is any integer (no
+primality), and a **Type I solution of n** is (a, b, c, d, e) ∈ ℕ⁵ with 4abd = ne + 1, ce = a + b. Then ne ≡ 3 (4),
+so e ≡ 3 (4), and the **gap** j := (e − n)/2 is an odd integer. Also a ≠ b (a = b gives e ∣ 2a, e ∣ a,
+e ∣ 4a²d = ne + 1, e = 1, contradicting e ≡ 3 (4)).
+
+**Lemma ι (the cross-n Vieta involution).** Let (a, b, c, d, e) be a Type I solution of n. Put
+  n′ := 4bcd − e,  e′ := 4bcd − n,  a′ := ce′ − b.
+Then (1) e·e′ = 4b²d + 1, so e′ is a positive integer ≡ 3 (4) and n′ ≡ 1 (4); (2) n′e′ + 1 = 4a′bd and
+a′ + b = ce′; (3) e′ − n′ = e − n; (4) applying the same map to (n′; a′, b, c, d, e′) returns (n; a, b, c, d, e).
+*Proof.* (1) e(4bcd − n) = 4bd(a + b) − (4abd − 1) = 4b²d + 1. (2) (4bcd − e)(4bcd − n) + 1
+= 16b²c²d² − 4bcd(n + e) + 4abd = 4bd(4bc²d − c(n + e) + a) = 4bd(4bc²d − cn − b) = 4bd·a′, using a − ce = −b.
+(3), (4) are immediate. ∎
+So ι_b : (n, e, a) ↦ (n′, e′, a′) fixes (b, c, d) and the gap; for fixed (b, c, d, j) the two values n, n′ are the
+two roots of one monic quadratic (for j = 1 this is F of Lemma V with n = 2M − 1). In K3 language e′ = f_b is the
+K3 divisor attached to b. ι_b is polynomial, not affine with a bounded menu, and it moves n: it is a "non-affine
+cross-slice involution" in the sense asked for under I5. n′ may be ≤ 0, in which case a′ < 0.
+
+**Lemma D (strict descent when e > n).** If n ≥ 1, j ≥ 1 and a > b, then n′ < n.
+*Proof.* n′ < n ⟺ 4bcd < n + e ⟺ (multiply by a, use 4abd = ne + 1) c(ne + 1) < a(n + e) = cne + ce² − b(n + e)
+⟺ c + b(n + e) < ce². Now a > b gives 2b ≤ ce − 1, and n ≤ e − 2 gives n + e ≤ 2e − 2, so
+c + b(n + e) ≤ c + (ce − 1)(e − 1) = ce² − (c + 1)(e − 1) < ce². ∎
+
+**Proposition R (gap classification).** Let j ≥ 1 be odd. The following are equivalent.
+ (i) Some integer n ≥ 1, n ≡ 1 (mod 4), has a Type I solution with e = n + 2j.
+ (ii) (**root at level j**) There are positive integers ν, ε, α, b, c, d with ν ≡ ε ≡ 3 (mod 4), ν + ε = 2j,
+   4αbd = νε − 1 and b − α = cε.
+*Proof.* (i) ⟹ (ii). Among all Type I solutions with gap j of integers n ≥ 1 take one with n minimal, and let
+a > b. By Lemmas ι and D, (n′; a′, b, c, d, e′) satisfies the Type I equations with the same gap, e′ ≥ 3 and
+n′ < n. If n′ ≥ 1 then 4a′bd = n′e′ + 1 > 0 gives a′ > 0, a Type I solution of a smaller positive integer with
+gap j: contradiction. So n′ ≤ 0, and n′ ≡ 1 (4) gives n′ ≤ −3. Put ν := −n′ ≥ 3, ε := e′, α := −a′. Then
+ν ≡ ε ≡ 3 (4), ν + ε = e′ − n′ = 2j, 4αbd = −(n′e′ + 1) = νε − 1 > 0 (so α ≥ 1) and b − α = b + a′ = cε.
+(ii) ⟹ (i). Put n := 4bcd − ε, e := 4bcd + ν, a := ce − b. Then e − n = 2j, n ≡ −ε ≡ 1 (4),
+ne + 1 = 16b²c²d² + 4bcd(ν − ε) − 4αbd = 4bd(4bc²d + cν − cε − α) = 4bd(4bc²d + cν − b) = 4abd, and a + b = ce.
+Positivity: b = α + cε ≥ 4 gives n ≥ 4b − ε > 0 (as b > ε… precisely b ≥ 1 + ε, so 4bcd ≥ 4 + 4ε > ε) and
+a ≥ 4b − b > 0. ∎
+
+**Corollaries (PROVED).**
+* j = 1: ν + ε = 2 is impossible with ν, ε ≥ 3. This re-proves Corollary V.
+* j = 3 and j = 5 are sterile: (ν, ε) = (3, 3) needs αbd = 2 with 3 ∣ b − α > 0; (3, 7), (7, 3) need αbd = 5 with
+  7 ∣ b − α or 3 ∣ b − α > 0. So **no n ≡ 1 (4) has a Type I solution with e ∈ {n + 2, n + 6, n + 10}.**
+* Every j ≡ 3 (mod 4), j ≥ 7, is non-sterile: j = 4m + 3 has the root (ν, ε, α, b, c, d) = (8m + 3, 3, 1, 3m + 1, m, 2),
+  i.e. n = 24m² + 8m − 3 has the Type I solution e = n + 2j (m = 1: n = 29, e = 43, (a, b, c, d) = (39, 4, 1, 2)).
+* **Square slices.** For a prime p, pe + 1 is a perfect square iff e = k(kp + 2) or e = k(kp − 2). For
+  e = k(kp + 2) with k ≡ 1 (4): M = (kp + 1)/2 is odd, abd = M² and (2M + 1) = kp + 2 divides e ∣ a + b, so
+  Lemma V applies: **no Type I solution has e = k(kp + 2), k ≡ 1 (mod 4)** (k = 1 is Corollary V).
+* Every Type I solution with e > n lies on a finite ι-chain n > n′ > n″ > … ending at a root (iterate Lemmas ι, D,
+  always moving the larger of the two letters). For fixed (c, d, j) the solutions are integer points of the conic
+  a² + b² − (4c²d − 2)ab − 2jc(a + b) + c² = 0 with c ∣ a + b, and ι_a, ι_b are its Vieta involutions.
+
+**CERTIFIED cross-check** (`scripts/z69_twist_gaps.py 301 3000`, `data/z69/twist/gaps_301_3000.txt`): roots
+enumerated for all odd j ≤ 301 — 38 sterile gaps: 1, 3, 5, 9, 13, 17, 21, 29, 33, 37, 41, 49, 57, 61, 69, 73, 77,
+89, 93, 113, 117, 121, 129, 133, 153, 157, 169, 173, 189, 197, 209, 213, 233, 241, 257, 261, 281, 297 (all ≡ 1 (4)
+except 3). Brute force over all n ≡ 1 (4), n ≤ 3000, all odd j ≤ 301: no solution on a sterile gap; every gap with
+a root whose first chain element is ≤ 3000 has a brute-force solution, and the minimal n per gap equals that
+first chain element in all eight printed cases (29, 109, 37, 101, 125, 277, 909, 173 for j = 7, 11, 15, 19, 23, 25, 27, 31).
+
+**What this is and is not (Assessment).** Proposition R is a complete, primality-free description of the Type I
+solutions with e > n: they are the ι-descendants of finitely many roots per gap, and the first chain element
+n = 4bcd − ε is the K3 point (b, d, f = ε) with cf < b — so for a *given* prime the statement "p has a Type I
+solution with e > p" is again a divisor-in-a-class statement (ε ∣ 4b²d + 1, ε ≡ −p mod 4bd), not a forced event.
+What is new is the method: Vieta descent proves universal statements about tied divisors on slices where the
+modulus and the factored number are algebraically tied (e − n fixed), which the campaign had only as "empirically
+empty, unproved". It yields sterility, never existence: the descent needs a solution to start from. Type II has
+no analogue — for fixed (b, c, d) its solutions satisfy the *linear* relation e(4bcd − 1) = p + 4b²d (the K2
+congruence class), so its transport (p, e) ↦ (p + t(4bcd − 1), e + t) is unipotent, not hyperbolic.
