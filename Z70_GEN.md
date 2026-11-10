@@ -1,4 +1,4 @@
-# Z70_GEN — generative class maps (wave z70, lane GEN; final lane of the z68–z70 arc) — CHECKPOINT 1 (skeleton)
+# Z70_GEN — generative class maps (wave z70, lane GEN; final lane of the z68–z70 arc): narrowed — no generative map; seven classes of candidate maps excluded (five by proof); not a HOT LEAD
 
 **ES is OPEN. Nothing here proves or disproves it.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE /
 Assessment. Scripts `scripts/z70_gen_*`, data `data/z70/gen/`. Sources: `Z70_CLASS.md` (Lemmas Φ, DL′, SR, FR, FR′,
@@ -245,7 +245,7 @@ scored once); 𝔐 = 135 (W1 ∪ W2), 397 (W3). Pooled outputs `data/z70/gen/poo
   So the union is a menu of small-norm divisor events (a B1-type congruence menu), whose failures concentrate on 𝔐, as GW(c)
   predicts (all seeds of 𝒯 have norm ≥ n_p, and n_p ≥ 11 on 𝔐).
 * **First entry along S_CYC** (k = 1, 3, 5, …; d = 1, W3): k = 1 at 1228/1560 primes (the least admissible non-residue prime
-  ideal 𝔮* is itself good — always via its own natural identity, e.g. q* = 7 with p ≡ 3, 5 mod 7), else k ≥ 11 at 283 —
+  ideal 𝔮* is itself good — via its own natural identity in 1 398 of 1 399 CYC hit units, e.g. q* = 7 with p ≡ 3, 5 mod 7), else k ≥ 11 at 283 —
   the cyclic orbit is a search with a heavy first atom, not a map.
 * **Item 1b — canonical representation fibres (Lemma REP):** the fibre a_c named by p = x² + d·(2a_c)² was barren at
   **every** prime of W1–W3 for d = 1, 2, 3, 5, 7 (0 good of 305 + 286 + 1 561 (d = 1, 2, 3), 70 + 86 + 409 (d = 5),
@@ -271,10 +271,10 @@ beyond the residue class of p (EVIDENCE; CONDITIONAL on GRH for the invariant fa
 * **Free region (Prop. WORD):** 0 class-level hits below N = √(dp) for every d and window, and **0 violations** of
   N(𝔰)·m(g) ≥ dp among all (III) hits (W1–W3).
 * (III) hits vs nulls at the registered thresholds X_j = √(dp)·2^j, j = 0…3 (W3, d = 1): 0, 0, 274, 1 702 hits vs α-null
-  2 382, 2 846, 3 732, 5 020 (z −36 … −34); same sign for every d and window (`pool_*.txt`). **No positive excess anywhere**;
+  2 382, 2 846, 3 732, 5 020 (z −36.1, −39.3, −41.4, −34.1); same sign for every d and window (`pool_*.txt`). **No positive excess anywhere**;
   the deficit is the free-region exclusion (a seed of norm N cannot share a class with a good class of natural norm
   < dp/N unless it *is* that representative) which the α-null does not model; at j = 6 (X = 64√(dp)) the deficit has shrunk to
-  z ≈ −2 … −3 (W1 ∪ W2).
+  z = −1.7 … −3.3 on W1 ∪ W2 but is still −6.4 … −14.2 on W3 (the excluded region grows relative to the budget).
 * First entry (least seed norm whose class is good): type (I) — the seed is a natural representative — at 1 508/1 560 (d = 1),
   1 383/1 557 (d = 2), 836/1 525 (d = 3), 791/1 524 (d = 5), 200/1 185 (d = 7) primes of W3 (similar on W1 ∪ W2).
   **Registered K-GEN3** (no positive (III) excess AND type I ≥ 90 %): fires for d = 1 only; for d ≥ 2 the type-I share is
@@ -291,8 +291,8 @@ beyond the residue class of p (EVIDENCE; CONDITIONAL on GRH for the invariant fa
   trivial certificates themselves. PROVED for s, τ_xy, τ_yz, μ, μ^s (Prop. SLICE: they preserve Triv_n and its complement);
   CERTIFIED for ρ_L, ρ_R, ρ_C at the tested n. **K-GEN4 fires** (scoped to these maps).
 * Slice moves (re-factorisations): every certificate reachable from Triv_n is 1–4 slice moves away (e.g. 409: 6 at distance 1,
-  2 at distance 2; 102001: distances 1–4; 4 certificates of 23929, 83449, 102001 are in slice components without trivial
-  words). The entering moves are re-factorisations of ny + 1 (y-slice) or n + x, n + z with a factor in a fixed residue class
+  2 at distance 2; 102001: distances 1–4; at each of 23929, 83449, 102001 four certificates lie in slice components without
+  trivial words). The entering moves are re-factorisations of ny + 1 (y-slice) or n + x, n + z with a factor in a fixed residue class
   (e.g. 409: (1, 2, 410) → (4, 2, 59) uses 7 | 2·409 + 1 = 819 with 7 ≡ −1 (mod 8)) — the tied divisor event itself.
 * Type II threefold (PROVED, one line): every positive solution (a, b, c, e) at fixed (c, d) lies on the hyperbola
   (4acd − 1)(4bcd − 1) = 4c²dn + 1 together with the always-present integral point (a, b) = (0, −cn) (factorisation
@@ -311,3 +311,82 @@ beyond the residue class of p (EVIDENCE; CONDITIONAL on GRH for the invariant fa
   d = 1, 2, 3, 5, 7:** every hard prime has G_d ≠ ∅ for some d ≤ 7 (59 empty (p, d) fibres of 210); AMB 0 hits; RED 36,
   CYC 110, GEN2 210 hit classes; at 3 primes (3361, 2094481, 85664329) no family hits for any d; item-3 first entries mostly
   type I; 0 FR violations.
+
+## 4. Mandatory falsifier table — final
+
+| screen | outcome | label |
+|---|---|---|
+| **F1 odd squares** | GW(e): at n = m² the character computation forces (m²/A) = −1, so G_d(m²) = ∅ for every d — the target coset 𝒯 does not exist, every seed family is vacuous. The step where non-squareness (primality) enters a generative map is GW(a)/(c): the map must output a class with ψ = −1, which requires an ideal whose norm has a prime factor q with (q/n) = −1 (q ≥ n_p). Computation: 648 (m, d) pairs, all G = ∅. | PROVED + CERTIFIED |
+| **F2 numerator 8 / C-even** | All lemmas are uniform in d (d = 2 = the numerator-8 Type II family, R₈ = its c = 1 line); nothing here distinguishes C even from C odd and nothing claims positivity. At the 12 R₈-zero primes near 10¹⁰: G₂ ≠ ∅ (c ≥ 2), seeds hit only through small natural norms; 0 FR violations. Lemma REP kills the canonical fibre for d = 2 at *every* p ≡ 1 (8). | PROVED / CERTIFIED |
+| **F3 composites** | GW holds for every non-square n with gcd(n, 2d) = 1 and gcd(a, n) = 1 (ψ_n = Jacobi (·/n)); AMB/ORD/WORD need the class dictionary, i.e. the CLASS hypotheses (gcd(n, d) = 1, gcd(e, 2dn) = 1) — not claimed for all composites. 281 of the 285 composite (★)-zeros have G_d ≠ ∅ for some d ≤ 7 (none: 57, 345, 2305, 4545). No family run on composites (genus target code is prime-specific) — **untested numerically for the families**. Nothing here separates primes from composites beyond non-squareness. | PROVED (scoped) / CERTIFIED census |
+| **F4 known zeros** | All 42 hard primes (incl. 85 664 329, 564 661 441) run at d = 1, 2, 3, 5, 7: G_d ≠ ∅ for some d at every one; no family is generative there (3 primes with no hit by any family at any d); AMB 0 hits; 0 FR violations. No positivity claimed. | CERTIFIED |
+
+## 5. Verdict
+**Narrowed (scoped theorems + blind tests); no generative map found; not a HOT LEAD. ES is OPEN.**
+* *Which generative classes are excluded, and how* (the brief's fallback question):
+  1. **Any word in ψ-trivial seeds** — principal class, ambiguous classes when (q/p) = 1 for q | 2d, prime ideals of norm q with
+     (q/p) = 1 (all of norm < n_p; on 𝔐 all of norm ≤ 7), their powers, automorphic images preserving ψ: **PROVED blind**
+     (GW(b)). The output of a generative map must contain a non-residue prime ≥ n_p (GW(c)).
+  2. **Ambiguous classes themselves** (every class of order ≤ 2): **PROVED never good** for squarefree d, p > 3d (Lemma AMB).
+  3. **Halving (2-descent / Rédei) — the unique group-theoretic escape from a ψ-trivial seed group** (GW(d)): reaches the
+     2-power-torsion classes of the odd coset (S_RED) or, with odd seeds, a whole coset (a search). S_RED tested: blind
+     (EVIDENCE, |z| ≤ 1.5 every d, W1–W3). Good classes of small order need large natural norms (Lemma ORD).
+  4. **Words in small split primes of total norm < dp/m(g) (≈ √(dp/2))**: hit G only by *being* a natural representative —
+     the divisor event (Prop. WORD, PROVED; 0 violations). Beyond that scale class-level coincidences occur, at or below the
+     uniform/α rate (no positive excess in any window, d, or threshold).
+  5. **Canonical principal seeds from representations p = x² + d(2a)²**: the named fibre is **PROVED barren** for p ≡ 1 (8)
+     (Lemma REP; CERTIFIED on ≈ 5 400 (p, d) instances) — always-present constructions produce norms from ℤ[√−2d], which are
+     "squares" for the character that separates the target residue: the T1 mechanism again.
+  6. **Small-prime genus seeds and cyclic orbits** (S_CYC, S_GEN2): hit G exactly as often as classes of the same minimal norm
+     (exact-α null, |z| ≤ 1.1 on W3), every hit an ideal identity at small norm (a congruence menu, B1); union over d ≤ 7
+     covers 98.8 % of p ≡ 1 (24), failures all in 𝔐, as predicted by the null.
+  7. **Fixed-n moves** (s, τ, μ, ρ_L, ρ_R, ρ_C): never connect always-present (trivial) words to non-trivial certificates
+     (PROVED for s, τ, μ; CERTIFIED for ρ at 13 primes); fibre-preserving uniform moves are only the swap (Prop. SLICE);
+     slice re-factorisations reach certificates in 1–4 steps but each entering step *is* the divisor event.
+  8. **Rédei 4-/8-ranks**: r₄ is a congruence invariant here; r₈ and 2-primary positions show no relation to |G| or emptiness.
+* *Escape hatches left open (Assessment).* (i) Non-group-theoretic, non-fibred maps producing ideals of norm ≫ √(dp) whose
+  classes correlate with G (nothing tested here suggests one; every tested class-level coincidence sits at or below chance);
+  (ii) maps using a *non-residue* input in an essential, non-menu way — GW forces this ingredient; the hits above use it only
+  through small natural norms; (iii) the CLASS anti-coincidence (negative residual) and the d = 2 same-norm exclusivity are
+  repulsions, not generation.
+* **Hard screens (FRONTIER §4).** T1 squares: passes (GW(e); vacuous). 8/131: no positivity claim; uniform in d. Tied
+  modulus: every hit decomposes into an ideal identity, i.e. a divisor ≡ −1 (mod 4ad) — the tie is not loosened. Fixed p: all
+  statements are per p; none produces a solution without a divisor event.
+
+## 6. Proposed FRONTIER §7 text (do not edit FRONTIER here)
+"z70 GEN (`Z70_GEN.md`; narrowed — no generative class map). Question: can a good class of Cl(−4dp) be produced from data
+present at every prime? PROVED: (GW) G_d(p) ⊂ ψ^{−1}(−1) (ψ = genus character at p), so words in ψ-trivial seeds (principal,
+ambiguous for (q/p) = 1 at q | 2d, prime ideals of norm < n_p — on 𝔐 all of norm ≤ 7) are blind, every good class has
+minimal and natural norms ≥ n_p, and 2-division (Rédei) is the only group-theoretic escape; (AMB) classes of order ≤ 2 are
+never good (squarefree d, p > 3d); (ORD) A^{ord g} ≥ dp; (WORD) a seed ideal of norm < dp/m(g) hits G only by being a natural
+representative (= the divisor event); (REP) the fibre named by p = x² + d(2a)² is barren for p ≡ 1 (8) (norms from ℤ[√−2d]);
+(SLICE) fixed-n moves are re-factorisations, uniform fibrewise moves only the swap; s, τ, μ preserve trivial words.
+CERTIFIED/EVIDENCE (p ≡ 1 (24), 10⁵–1.02·10⁷, d = 1, 2, 3, 5, 7, held-out W3): ambiguous, Rédei (2-power-torsion), cyclic and
+genus-seed families hit G exactly at the rate of classes with the same minimal norm (all hits = small-norm ideal identities);
+union over d ≤ 7 of genus seeds covers 98.8 % (failures all in 𝔐, as the null predicts); smooth-prime orbits: no class-level
+excess at any norm budget, 0 FR violations; Rédei r₈ / 2-primary positions unrelated to |G|; fixed-n explicit maps never join
+trivial words to certificates (73, 409, hard zeros). Not a HOT LEAD."
+
+## 7. Bottom line
+A good class cannot be *generated* from the data every prime carries by any of the mechanisms the brief listed. The
+reasons are now theorems rather than impressions: always-present seeds live in the kernel of the genus character ψ that
+every good class violates (GW) — the class-group face of T1 — or, when canonical (ambiguous classes, representation
+fibres), are provably never good (AMB, REP); the one group-theoretic exit, halving, lands in Rédei classes that are blind in
+the data; and below the free-region scale any seed that hits a good class *is* a natural representative, i.e. the divisor
+event (WORD). Every hit observed in 4 000+ primes × 5 d is a small-norm ideal identity, at exactly the rate predicted by the
+minimal norm of the class; fixed-n moves never start an orbit from trivial words. Primality enters only as the existence of
+a non-residue prime ideal in the target genus — necessary, nowhere near sufficient. Not a HOT LEAD. ES is OPEN.
+
+## 8. Reproduction (each command under `ulimit -v 6000000`, `timeout ≤ 1800`)
+* validation: `uv run --with cypari2 --with sympy --with numpy python scripts/z70_gen_validate.py`
+* registered runs: `scripts/z70_gen_runwin.sh W1 100000 130000`, `… W2 1000000 1030000`, `… W3 10000000 10200000`
+  (writes `data/z70/gen/run_*.jsonl`; archived as `runs_W123.tar.xz`); pooling `python3 scripts/z70_gen_pool.py run_W1_d*.jsonl run_W2_d*.jsonl`
+  and `… run_W3_d*.jsonl`; GEN2 coverage decomposition `python3 scripts/z70_gen_covdecomp.py` (reads the raw runs from /tmp path —
+  edit the path to the unpacked archive).
+* screens: `uv run --with cypari2 python scripts/z70_gen_run.py OUT d list <inputs>` (F2, F4; raw in `screens_raw.tar.xz`),
+  `python3 scripts/z70_gen_screens.py OUT…`; F1/F3 `uv run --with cypari2 python scripts/z70_gen_f13.py data/z70/gen/screen_F13.txt`.
+* item 1b: `uv run --with cypari2 python scripts/z70_gen_rep.py data/z70/gen/rep_fibres.txt`; item 4:
+  `uv run --with cypari2 python scripts/z70_gen_graph.py data/z70/gen/graph.jsonl <n…>`.
+
+## 9. Review log
+(pending: hostile deep-mode internal review)
