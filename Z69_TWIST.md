@@ -546,3 +546,56 @@ an independent engine). Not accepted: a blanket death verdict for the remaining 
    automorphic statements kept outside the PROVED label.
 Follow-ups demanded by the review (I17 full translation profile with calibrated nulls, d = 3, 5; I24 with
 t′ = t − 1, t, t + 1; I12 cofactor experiment) are round 2, §9.
+
+## 9. Round 2 — the cross-review's follow-ups (I17 profile, d = 3, 5; I24 adaptive; I12 cofactor)
+
+### 9.0 Pre-registration (committed before any round-2 computation beyond a two-prime smoke test of the I17 script)
+
+**Objects.** For d ∈ {1, 3, 5} and a prime p ≡ 1 (4): G_d(p) ⊂ Cl(−4dp) := classes of the forms
+[4acd − 1, 4ad, de] over all Type II solutions 4abd = p + e, ce = a + b (PROVED below: discriminant −4dp, primitive;
+"4d ∣ B, A ≡ −1 (mod B), d ∣ C" is the divisibility condition the review asked to retain). O(t) := #{g ∈ G : tg ∈ G}.
+Statistics per prime: stab := #{t : O(t) = |G|}; M := max_{t≠1} O(t); E := Σ_{t≠1} O(t)² (multiplicative energy
+minus the diagonal); L1 := O(class of a prime ideal over the least split prime whose class is a square);
+L3 := the sum of O over the three least such primes.
+**Nulls** (R = 200 replicates each, inversion-symmetric, drawn inside the genus coset that contains G):
+N1 uniform; N2 norm-matched — same number of inversion-orbits as G in each dyadic bin of μ(g), μ(g) := the least
+value coprime to 2d among the three smallest values of the reduced form. Aggregate
+Z_S := Σ_p (S_obs − mean_null)/√Σ_p var_null.
+**Samples** (d = 1): all primes p ≡ 1 (8) in [20000, 24000) (the round-1 window; sanity: Σ L1 must reproduce 378),
+in [200000, 202000) and in [1000000, 1001000); the hard list = the 14 (★)-zero primes, the 38 𝔊*-zero primes
+below 10⁶, and 2521, 3361, 21841, 76441. d = 3, 5: the window [20000, 24000), p ≡ 1 (8), and the hard list below 10⁵.
+**Registered outcomes.**
+* **H-COSET (hot):** stab > 1 at more than 5 % of primes with |G| ≥ 6, or M/|G| > ½ at more than half of the primes
+  with |G| ≥ 12, or Z_E ≥ 5 against N2 on a window. Then: try to prove the structure and test whether it forces
+  G ≠ ∅.
+* **K-I17b (kill of "beyond-norm stability"):** on every window |Z_L1|, |Z_L3|, |Z_M|, |Z_E| < 3 against N2 ⟹ the
+  round-1 ℓ-excess (378 vs 260) is accounted for by the norm profile of G; no translation structure beyond it.
+* Anything between (some |Z| in [3, 5) against N2) is reported as **unresolved signal** and followed up with a
+  finer null (μ-rank windows) before any conclusion.
+
+**I24 (adaptive transport), reviewer's test.** For every (★) solution (a, b, d) of p (t = ab, s = a + b,
+p = 4dt − s) test whether the fibre d + 1 has a solution with t′ ∈ {t − 1, t, t + 1}: s′ := 4(d + 1)t′ − p > 0,
+s′² − 4t′ a square, (s′ ± √·)/2 positive integers. Control: the same test started from the non-solution fibre
+d₀ = d + 7 with t₀ = ⌈p/(4d₀)⌉. Sample: all primes p ≡ 1 (4) below 2·10⁵. **K-I24b:** transported fraction
+within 3σ (binomial) of the control fraction ⟹ no adjacent-d transport through t′ ∈ {t − 1, t, t + 1}. Coverage is
+reported either way; this is a bounded test of one transport family, not a general no-go.
+
+**I12 (target-only cofactor experiment), reviewer's test.** For a prime p and Q := the product of the five least
+primes q with (p/q) = −1 (I12's forced non-residue primes): the forced shifts u ≡ −p (mod Q), u = u₀ + Qj,
+0 ≤ j < 200, u ≢ 0 (p). For each u: N = p + u = D·m with D := the Q-smooth part; count divisors f ∣ N with
+f ≡ −1 (mod 4u) — (a) with f ∣ D only, (b) all — and the heuristic mean
+λ(u) := #{f ∣ N : f ≥ 4u − 1, gcd(f, 4u) = 1}/φ(4u). Control shifts: u + 1 for each forced u (same size, no forcing),
+same counts. Separately record "full-group coverage" κ(u) := #{residues of divisors of N mod 4u coprime to 4u}/φ(4u).
+Sample: 40 primes — the 12 R₈-zero primes, 2521·…-type hard primes are too small for this; so: the 12 R₈-zero
+primes near 10¹⁰ and 28 primes p ≡ 1 (840) just above 10¹⁰. **K-I12b:** Σ hits(b) over forced u within 3σ of
+Σ λ(u) (Poisson), and hits(a) = 0 ⟹ forcing a smooth part raises the hit count only through the divisor count
+(the τ-effect), with no target-specific gain. A forced-shift hit rate significantly above Σλ would be an
+**unresolved signal**.
+
+**Falsifier table for round 2 (checkpoint version).** F1: G_d(m²) — at d = 1 the non-principal genus is empty for
+n = m², so any structure of G must use non-squareness there; for d = 3, 5 this is checked numerically (G_d(m²) for
+odd m ≤ 199) before any structural claim. F2: C-even solutions are a subset of the Type II solutions entering G;
+a structure theorem that held verbatim for the C-even sub-family would be suspect — the profile is recomputed for
+the sub-family c = 1, d even only if H-COSET fires. F3: the profile is also computed at the 285 composite
+(★)-zeros below 10⁵ if H-COSET fires (a structure forcing G ≠ ∅ must fail where G = ∅: 4545 has no Type II at all).
+F4: the hard list is in the sample by design.
