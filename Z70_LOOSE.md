@@ -371,25 +371,32 @@ raw records `data/z70/loose/pell_*.jsonl.gz`; tables `pell_analysis_registered.t
 **Registered result and its diagnosis.** With the registered null (uniform on the conic mod ℓ) the real letters
 showed an excess D-rate over the null on both H halves (cluster z = +4.11 train, +4.08 test) — formally the signal
 criterion for "real vs null". But the **exact decoys show the same excess** (+4.54, +4.76), the real-vs-decoy contrast
-is null (−0.80, −1.29), and the whole excess sits in the letters with v₂(ℓ) = 2 (train +8.60 real / +8.91 decoys;
-test +8.33 / +8.78; controls +5.37 / +5.34; every other 2-adic class |z| ≤ 1.6). *Lemma (PROVED, one line):* for
-p ≡ 1 (8), T² = pU² − 1 forces U odd and T² ≡ p − 1 ≡ 0 (mod 8), so T ≡ 0 (mod 4); the conic mod ℓ with 4 ∥ ℓ also
-contains points with T ≡ 2 (mod 4), so the registered null is miscalibrated exactly there (T ≡ 0 (4) makes T + cU + s
-divisible by 4 more often). *Post-hoc correction (disclosed):* null = conic mod ℓ restricted to T ≡ 0 (4) for
-v₂(ℓ) = 2 (= projection of the conic mod lcm(ℓ, 8); validated by brute force, `scripts/z70_loose_pell_recal.py`).
+is null (−0.80, −1.29), and the excess sits in the letters with v₂(ℓ) = 2 (real / decoys: train +8.60 / +8.91; test
++8.33 / +8.78; controls +11.23 / +10.94 — `pell_analysis_registered.txt`; review correction: the first draft quoted
+controls from a partial run). *Lemma (PROVED):* for p ≡ 1 (8), T² = pU² − 1 forces U odd and T² ≡ p − 1 ≡ 0 (mod 8),
+so T ≡ 0 (mod 4); more precisely the 2-adic solutions are T ∈ 4ℤ₂ (Haar) with U = ±√((T² + 1)/p), and their image in
+ℤ/2^v (v ≥ 2) is uniform on S_v = {T ≡ 0 (4), pU² ≡ T² + 1 (mod 2^{v+1})} (U mod 2^v is fixed up to sign by U² mod
+2^{v+1}; T² mod 2^{v+1} depends only on T mod 2^v). The conic mod ℓ ignores this for every v₂(ℓ) ≥ 2 (not only v = 2:
+the review exhibited (9 601, 56), (28 961, 24), (59 929, 24)). *Post-hoc correction (disclosed):* first a partial fix
+(v = 2 only, `scripts/z70_loose_pell_recal.py`, `pell_analysis_recal.txt`), then the full 2-adic null
+(`scripts/z70_loose_pell_recal2.py`: uniform on conic mod m × S_v; validated against the projection of the conic mod
+16ℓ for 60 random (p, ℓ) and the review's three examples — 0 mismatches) → `pell_*_recal2.jsonl.gz`,
+`pell_analysis_recal2.txt`:
 
-| sample | letters | D real / null (cluster z) | decoys vs null (z) | real vs decoy, null-adjusted (z) |
+| sample | letters | D real / 2-adic null (cluster z) | decoys vs null (z) | real vs decoy, null-adjusted (z) |
 |---|---|---|---|---|
-| H_train | 14 186 | 0.2992 / 0.2987 (+0.23) | +0.63 | −0.84 |
-| H_test | 13 384 | 0.2939 / 0.2934 (+0.17) | +0.74 | −1.28 |
-| controls | 51 023 | 0.3356 / 0.3376 (−1.59) | −2.32 | +1.61 |
-By role (x, y, z) all |z| ≤ 2.4; real-vs-decoy by role |z| ≤ 2.0 (the largest: H_test x-letters −2.01, not
-replicated on train (+1.14)).
-**Verdict (EVIDENCE):** residues of T, U, T + cU + s (|c| ≤ 3, |s| ≤ 2) and T ± 1, ± 2 modulo the witness letters
-behave exactly like those modulo exact decoy letters and like a uniformly random point of the (2-adically corrected)
-local conic; the signal criterion is not met for any witness-specific contrast. This is non-rejection for the listed
-relations, not equivalence (2-s.e. on the D-rate difference ≈ ±0.008 on each H half). Scope: letters ≤ 2·10⁵ only;
-gcd / ratio relations and larger shifts untested. The registered-null "signal" is a 2-adic artefact, now explained.
+| H_train | 14 186 | 0.2992 / 0.2985 (+0.30) | +0.70 | −0.84 |
+| H_test | 13 384 | 0.2939 / 0.2933 (+0.21) | +0.79 | −1.29 |
+| controls | 51 023 | 0.3356 / 0.3377 (−1.68) | −2.41 | +1.61 |
+By role (x, y, z): real vs null |z| ≤ 2.14 (H_test y-letters +2.14, decoys +2.45 there), real vs decoy |z| ≤ 2.01
+(H_test x-letters −2.01, not replicated on train: +1.14). By 2-adic class after recalibration all |z| ≤ 1.74 except the
+controls' odd-letter decoys (−2.38). The residual small negative drift of the controls against the null (−1.7 real,
+−2.4 decoys) is shared by real and decoy letters.
+**Verdict (EVIDENCE):** for residues of T, U, T + cU + s (|c| ≤ 3, |s| ≤ 2) and T ± 1, ± 2 modulo the witness letters,
+**no difference from exact decoy letters was detected**, and after the 2-adic recalibration no departure of either
+from the local null meets the signal criterion. This is non-rejection for the listed relations, not equivalence
+(2-s.e. on the D-rate difference ≈ ±0.008 on each H half, ignoring clustering). Scope: letters ≤ 2·10⁵ only; gcd /
+ratio relations and larger shifts untested. The registered-null "signal" was a 2-adic artefact of the null.
 
 ## 6. I9 — result (EVIDENCE; registered design with disclosed shortfalls; post-hoc checks after review)
 Run: `uv run --with sympy python scripts/z70_loose_i9.py` (seed 7070) → `data/z70/loose/i9_run.txt`, rows
