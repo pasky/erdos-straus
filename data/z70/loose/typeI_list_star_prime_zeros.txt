@@ -1,0 +1,19 @@
+fixture (1033, d=132): found a=1
+409 NP:d=7:hit(dec 7:1)[a=3] Q3:d=7:hit(dec 7:1)[a=3] CF:d=7:hit(dec 7:1)[a=3] GA:d=43:MISS(dec 39:0)
+577 NP:d=5:hit(dec 7:1)[a=1] Q3:d=7:hit(dec 5:1)[a=3] CF:undef GA:d=26:MISS(dec 28:0)
+5569 NP:d=13:hit(dec 13:1)[a=20] Q3:d=19:MISS(dec 17:1) CF:d=17:hit(dec 19:0)[a=2] GA:d=143:MISS(dec 137:0)
+9601 NP:d=13:hit(dec 13:1)[a=27] Q3:d=23:hit(dec 23:1)[a=5] CF:d=23:hit(dec 23:1)[a=5] GA:d=143:MISS(dec 157:0)
+23929 NP:d=7:hit(dec 7:1)[a=3] Q3:d=7:hit(dec 7:1)[a=3] CF:d=7:hit(dec 7:1)[a=3] GA:undef
+83449 NP:d=13:hit(dec 13:1)[a=321] Q3:d=23:hit(dec 23:1)[a=497] CF:d=115:MISS(dec 118:0) GA:d=403:MISS(dec 388:0)
+102001 NP:d=23:MISS(dec 23:0) Q3:d=23:MISS(dec 23:0) CF:d=23:MISS(dec 23:0) GA:undef
+329617 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 13:0)[a=616] CF:d=70:MISS(dec 77:0) GA:d=797:MISS(dec 731:0)
+712321 NP:d=23:hit(dec 23:1)[a=152] Q3:d=23:hit(dec 23:1)[a=152] CF:d=41:MISS(dec 43:0) GA:d=1633:MISS(dec 1635:0)
+1134241 NP:d=7:hit(dec 7:1)[a=3] Q3:d=7:hit(dec 7:1)[a=3] CF:d=133:MISS(dec 138:0) GA:d=1069:MISS(dec 1118:0)
+1724209 NP:d=13:hit(dec 13:1)[a=59] Q3:d=23:hit(dec 23:1)[a=69] CF:d=327:MISS(dec 335:0) GA:d=1693:MISS(dec 1660:0)
+1726201 NP:d=19:hit(dec 19:1)[a=27] Q3:d=19:hit(dec 19:1)[a=27] CF:d=67:MISS(dec 73:0) GA:d=1819:MISS(dec 1830:0)
+5212561 NP:d=11:hit(dec 11:1)[a=35] Q3:d=11:hit(dec 11:1)[a=35] CF:d=11:hit(dec 11:1)[a=35] GA:undef
+8813281 NP:d=17:hit(dec 17:1)[a=26] Q3:d=31:hit(dec 34:0)[a=25] CF:d=659:hit(dec 705:0)[a=1028] GA:undef
+rule NP: primes=14 undefined=0 covered=13 (0.92857 of all) decoy covered=13 (of 14 with decoy) McNemar b=0 c=0 z=+0.00 mean d=12.6 max d=23
+rule Q3: primes=14 undefined=0 covered=12 (0.85714 of all) decoy covered=11 (of 14 with decoy) McNemar b=2 c=1 z=+0.58 mean d=16.7 max d=31
+rule CF: primes=14 undefined=1 covered=6 (0.42857 of all) decoy covered=4 (of 13 with decoy) McNemar b=2 c=0 z=+1.41 mean d=115.4 max d=659
+rule GA: primes=14 undefined=4 covered=0 (0.00000 of all) decoy covered=0 (of 10 with decoy) McNemar b=0 c=0 z=+0.00 mean d=776.9 max d=1819

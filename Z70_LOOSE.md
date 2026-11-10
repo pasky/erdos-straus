@@ -95,6 +95,43 @@ a non-residue of its size; HOT LEAD only if Y = 1 on every hard prime and the ex
 
 ## 2–5. (results for I6, I5, #10, Pell letters: below as they come)
 
+## 4. IDEAA #10 — Type I with an explicit d-selection rule: DEAD as a forcing rule (CERTIFIED failures)
+
+**Lemma S (exact slice bound; PROVED).** Fix p and d. The Type I slice {(a, b, c, e) : 4abd = pe + 1, ce = a + b} is
+non-empty iff it has a point with a ≤ b, and every such point has f := (4a²d + 1)/e ≤ p + 2 and a ≤ (p + 1)/(2d).
+*Proof.* The equations are symmetric in (a, b), so swap if needed. If a ≤ b then 4a²d ≤ 4abd = pe + 1, so
+fe = 4a²d + 1 ≤ pe + 2 and f ≤ p + 2/e ≤ p + 2. In K3 form f = 4acd − p with c ≥ 1, so 4acd = p + f ≤ 2p + 2 and
+a ≤ (p + 1)/(2cd) ≤ (p + 1)/(2d). ∎ Hence the slice at (p, d) is decided exactly by scanning a ≤ (p + 1)/(2d) and
+f ≡ −p (mod 4ad), f ≤ p + 2, f | 4a²d + 1 (`scripts/z70_loose_typeIfull.c`; fixture (1033, 132): a = 1, f = 23 ✓).
+
+**Runs.** `scripts/z70_loose_typeI.c` (A = 2000 as registered; decoy as registered; fixture found, a = 1):
+`range 5e7 2000 30 0` and `range 1e8 2000 30 5e7` → `data/z70/loose/typeI_range_*.txt` (all 719 781 primes
+p ≡ 1 (24) ≤ 10⁸; the Gaussian rule GA on every 30th prime — deviation for cost, irrelevant to its verdict); `list`
+mode on the hard lists → `typeI_list_*.txt`. (The two range files' first line prints a stale "a=0" for the fixture —
+an argument-evaluation-order bug fixed afterwards; the fixture *was* found, as the corrected list runs show.)
+
+| rule | coverage, p ≡ 1 (24) ≤ 10⁸ (A = 2000) | vs matched decoy (McNemar z) | (★)-zeros 14 | 𝔊*-zeros 38 | noprime 231 | R₈-zeros 12 |
+|---|---|---|---|---|---|---|
+| NP d = n_p (mean d 7.7, max 67) | 0.9739 | +107.9 (pooled; size-confounded, see below) | 13 | 35 | 214 | 12 |
+| Q3 least prime ≡ 3 (4) non-residue | 0.9079 | −62.9 | 12 | 34 | 186 | 12 |
+| CF first non-residue partial quotient | 0.7770 (846 undefined) | +12.6 | 6 | 22 | 165 | 9 |
+| GA Gaussian combination | 0.006 (subsample 23 993) | +0.7 | 0 | 4 | 3 | 0 |
+
+**Exact (untruncated) failures of NP (CERTIFIED by Lemma S, `typeI_np_fail_exact.txt`):** of the 21 hard primes where
+NP missed with A = 2000, a full scan finds points for 15 (with a up to 102 291 — the truncation matters) but the
+**d = n_p slice is exactly empty** at 102 001 (d = 23; a (★)- and 𝔊*-zero), 3 361 (d = 11), 210 961 (23),
+1 063 969 (17), 27 020 569 (37), 103 819 081 (13) (all noprime primes, all ≡ 1 (24), all in 𝔐).
+
+**Kill tests.** K10a fires for every rule (best 97.4 % < 99.9 %). K10b fires (NP fails exactly at six hard primes).
+K10c: the decoy comparison is uninformative for NP — the least non-residue has no admissible smaller decoy, so every
+decoy is larger and the +107 measures size (expected slice count ≍ log²p / d); Q3 is far *below* its decoys
+(restricting to primes ≡ 3 (4) hurts); CF's +12.6 has the same size asymmetry and is irrelevant at 78 % coverage.
+**Verdict (#10): dead as stated** (four explicit rules; fixed-d Type I slices are p-independent covering families
+over a, expected size ≍ (log p)²/d — any rule p ↦ d with d ≥ n_p ≥ 11 on 𝔐 inherits a positive failure rate). F1:
+Type I at a square needs (d/m²) = −1 (Lemma T10), impossible — every rule fails at squares by the Jacobi step. F4:
+reported in the table. The one surviving logical possibility is a rule that is *not* a single d (a growing menu of d) —
+that is the ordinary Type I union, i.e. B2.
+
 ## 6. I9 — result (EVIDENCE; registered design; one deviation + one post-hoc size check, disclosed)
 Run: `uv run --with sympy python scripts/z70_loose_i9.py` (seed 7070) → `data/z70/loose/i9_run.txt`, rows
 `i9_rows.json`; post-hoc `scripts/z70_loose_i9b.py` → `i9b_twosided.txt`. Disjoint controls: 20 per hard prime,

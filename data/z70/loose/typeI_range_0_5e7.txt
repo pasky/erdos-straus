@@ -1,0 +1,5 @@
+fixture (1033, d=132): found a=0
+rule NP: primes=374902 undefined=0 covered=365013 (0.97362 of all) decoy covered=357673 (of 374902 with decoy) McNemar b=8114 c=774 z=+77.86 mean d=7.7 max d=67
+rule Q3: primes=374902 undefined=0 covered=340320 (0.90776 of all) decoy covered=347822 (of 374902 with decoy) McNemar b=9945 c=17447 z=-45.33 mean d=12.5 max d=139
+rule CF: primes=374902 undefined=623 covered=291225 (0.77680 of all) decoy covered=288877 (of 374279 with decoy) McNemar b=34000 c=31652 z=+9.16 mean d=66.7 max d=14118
+rule GA: primes=12497 undefined=1542 covered=91 (0.00728 of all) decoy covered=92 (of 10955 with decoy) McNemar b=90 c=91 z=-0.07 mean d=7149.7 max d=15793

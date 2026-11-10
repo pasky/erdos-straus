@@ -1,0 +1,17 @@
+fixture (1033, d=132): found a=1
+10156800001 NP:d=7:hit(dec 7:1)[a=3] Q3:d=7:hit(dec 7:1)[a=3] CF:d=19:hit(dec 17:1)[a=9] GA:d=113821:MISS(dec 105265:0)
+10243598993 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=3:hit(dec 5:1)[a=2] GA:d=138531:MISS(dec 127943:0)
+10301993881 NP:d=23:hit(dec 23:1)[a=5] Q3:d=23:hit(dec 23:1)[a=5] CF:d=298:MISS(dec 296:0) GA:d=226693:MISS(dec 210674:0)
+10529331121 NP:d=19:hit(dec 19:1)[a=27] Q3:d=19:hit(dec 19:1)[a=27] CF:d=152:MISS(dec 167:0) GA:d=134021:MISS(dec 125990:0)
+10532106649 NP:d=29:hit(dec 31:1)[a=8] Q3:d=31:hit(dec 29:1)[a=2] CF:d=43:hit(dec 43:1)[a=60] GA:d=220267:MISS(dec 204509:0)
+10553835713 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=6:hit(dec 5:1)[a=3] GA:d=128349:MISS(dec 120830:0)
+10619482193 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=6:hit(dec 7:1)[a=25] GA:d=120525:MISS(dec 109520:0)
+10663548737 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=5:hit(dec 3:1)[a=1] GA:d=124525:MISS(dec 117678:0)
+10723946017 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:hit(dec 20:1)[a=1] CF:d=5:hit(dec 5:1)[a=1] GA:d=144115:MISS(dec 131058:0)
+10773657233 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=3:hit(dec 5:1)[a=2] GA:d=105666:MISS(dec 100013:0)
+10868474401 NP:d=13:hit(dec 13:1)[a=132] Q3:d=31:hit(dec 34:1)[a=253] CF:d=39:MISS(dec 37:0) GA:d=210863:MISS(dec 195318:0)
+10917229157 NP:d=2:hit(dec 3:1)[a=1] Q3:d=3:hit(dec 5:1)[a=5] CF:d=5:hit(dec 3:1)[a=1] GA:d=117267:MISS(dec 109401:0)
+rule NP: primes=12 undefined=0 covered=12 (1.00000 of all) decoy covered=12 (of 12 with decoy) McNemar b=0 c=0 z=+0.00 mean d=9.4 max d=29
+rule Q3: primes=12 undefined=0 covered=12 (1.00000 of all) decoy covered=12 (of 12 with decoy) McNemar b=0 c=0 z=+0.00 mean d=12.3 max d=31
+rule CF: primes=12 undefined=0 covered=9 (0.75000 of all) decoy covered=9 (of 12 with decoy) McNemar b=0 c=0 z=+0.00 mean d=48.7 max d=298
+rule GA: primes=12 undefined=0 covered=0 (0.00000 of all) decoy covered=0 (of 12 with decoy) McNemar b=0 c=0 z=+0.00 mean d=148720.2 max d=226693

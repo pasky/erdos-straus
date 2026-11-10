@@ -1,0 +1,236 @@
+fixture (1033, d=132): found a=1
+2521 NP:d=11:hit(dec 11:1)[a=17] Q3:d=11:hit(dec 11:1)[a=17] CF:d=33:MISS(dec 34:0) GA:d=107:MISS(dec 111:0)
+3361 NP:d=11:MISS(dec 13:1) Q3:d=11:MISS(dec 13:1) CF:d=37:MISS(dec 34:0) GA:d=127:MISS(dec 130:0)
+9601 NP:d=13:hit(dec 13:1)[a=27] Q3:d=23:hit(dec 23:1)[a=5] CF:d=23:hit(dec 23:1)[a=5] GA:d=143:MISS(dec 155:0)
+14177 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=3:hit(dec 5:1)[a=2] GA:d=123:MISS(dec 125:0)
+14561 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=47:MISS(dec 43:1) GA:d=139:MISS(dec 151:0)
+21673 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:MISS(dec 20:1) CF:d=13:hit(dec 15:1)[a=140] GA:d=155:hit(dec 158:0)[a=1]
+21841 NP:d=11:hit(dec 11:1)[a=71] Q3:d=11:hit(dec 11:1)[a=71] CF:d=11:hit(dec 11:1)[a=71] GA:d=313:MISS(dec 326:0)
+23041 NP:d=11:hit(dec 13:1)[a=1] Q3:d=11:hit(dec 13:1)[a=1] CF:d=19:hit(dec 17:1)[a=27] GA:undef
+28961 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:d=189:MISS(dec 194:0)
+40153 NP:d=5:hit(dec 5:1)[a=1] Q3:d=43:MISS(dec 45:0) CF:d=5:hit(dec 5:1)[a=1] GA:d=259:MISS(dec 280:0)
+66529 NP:d=13:hit(dec 13:1)[a=20] Q3:d=19:hit(dec 19:1)[a=133] CF:d=13:hit(dec 13:1)[a=20] GA:d=307:MISS(dec 291:0)
+69001 NP:d=19:hit(dec 19:1)[a=1] Q3:d=19:hit(dec 19:1)[a=1] CF:d=57:hit(dec 58:0)[a=79] GA:d=371:MISS(dec 381:0)
+76441 NP:d=11:hit(dec 11:1)[a=22] Q3:d=11:hit(dec 11:1)[a=22] CF:d=11:hit(dec 11:1)[a=22] GA:d=587:MISS(dec 584:0)
+79633 NP:d=5:hit(dec 5:1)[a=1] Q3:d=23:hit(dec 23:1)[a=115] CF:d=5:hit(dec 5:1)[a=1] GA:d=379:MISS(dec 358:0)
+156241 NP:d=11:hit(dec 13:1)[a=1] Q3:d=11:hit(dec 13:1)[a=1] CF:d=13:hit(dec 11:1)[a=289] GA:undef
+180161 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:undef
+196561 NP:d=11:hit(dec 11:1)[a=239] Q3:d=11:hit(dec 11:1)[a=239] CF:d=17:hit(dec 17:1)[a=49] GA:d=571:MISS(dec 539:0)
+206641 NP:d=11:MISS(dec 13:1) Q3:d=11:MISS(dec 13:1) CF:d=11:MISS(dec 13:1) GA:d=937:MISS(dec 941:0)
+210961 NP:d=23:MISS(dec 23:0) Q3:d=23:MISS(dec 23:0) CF:d=69:hit(dec 74:0)[a=780] GA:d=967:MISS(dec 901:0)
+229937 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=13:hit(dec 12:0)[a=3] GA:d=706:MISS(dec 772:0)
+234721 NP:d=13:hit(dec 13:1)[a=74] Q3:d=19:hit(dec 19:1)[a=6] CF:d=39:hit(dec 38:1)[a=35] GA:d=737:MISS(dec 787:0)
+270601 NP:d=13:hit(dec 13:1)[a=4] Q3:d=19:MISS(dec 17:1) CF:d=129:MISS(dec 119:0) GA:undef
+272449 NP:d=13:hit(dec 13:1)[a=20] Q3:d=19:hit(dec 17:1)[a=1] CF:d=19:hit(dec 17:1)[a=1] GA:d=637:MISS(dec 593:0)
+361321 NP:d=17:hit(dec 17:1)[a=70] Q3:d=23:MISS(dec 23:0) CF:d=34:hit(dec 34:1)[a=93] GA:d=709:MISS(dec 723:0)
+384001 NP:d=11:hit(dec 13:1)[a=17] Q3:d=11:hit(dec 13:1)[a=17] CF:d=11:hit(dec 13:1)[a=17] GA:d=691:MISS(dec 737:0)
+478801 NP:d=13:hit(dec 13:1)[a=67] Q3:d=23:hit(dec 23:1)[a=5] CF:d=29:hit(dec 31:1)[a=77] GA:undef
+617761 NP:d=19:hit(dec 19:1)[a=6] Q3:d=19:hit(dec 19:1)[a=6] CF:d=1570:MISS(dec 1667:0) GA:d=971:MISS(dec 940:0)
+696361 NP:d=11:hit(dec 11:1)[a=17] Q3:d=11:hit(dec 11:1)[a=17] CF:d=33:MISS(dec 34:1) GA:d=979:MISS(dec 891:0)
+823033 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=156] CF:d=19:hit(dec 17:1)[a=32] GA:d=1994:MISS(dec 1937:0)
+918857 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=3:hit(dec 5:1)[a=2] GA:d=1774:MISS(dec 1817:0)
+961633 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:0)[a=11] CF:d=45:hit(dec 41:1)[a=1947] GA:d=2113:MISS(dec 2181:0)
+968353 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:hit(dec 20:1)[a=671] CF:d=20:hit(dec 19:1)[a=15] GA:d=2113:MISS(dec 2035:0)
+1005313 NP:d=5:hit(dec 5:1)[a=1] Q3:d=47:hit(dec 45:1)[a=7] CF:d=5:hit(dec 5:1)[a=1] GA:d=1793:MISS(dec 1620:0)
+1063969 NP:d=17:MISS(dec 17:0) Q3:d=43:MISS(dec 41:0) CF:d=29:hit(dec 29:1)[a=67] GA:d=1873:MISS(dec 1919:0)
+1095481 NP:d=11:hit(dec 11:1)[a=860] Q3:d=11:hit(dec 11:1)[a=860] CF:d=122:MISS(dec 111:0) GA:d=1309:MISS(dec 1387:0)
+1456921 NP:d=13:hit(dec 13:1)[a=4] Q3:d=47:hit(dec 47:1)[a=106] CF:d=13:hit(dec 13:1)[a=4] GA:d=1619:MISS(dec 1645:0)
+1500073 NP:d=5:hit(dec 5:1)[a=1] Q3:d=43:MISS(dec 40:0) CF:d=5:hit(dec 5:1)[a=1] GA:d=2227:MISS(dec 2417:0)
+1621369 NP:d=11:hit(dec 11:1)[a=22] Q3:d=11:hit(dec 11:1)[a=22] CF:d=34:hit(dec 33:1)[a=15] GA:d=2773:MISS(dec 2538:0)
+1632481 NP:d=13:hit(dec 13:1)[a=11] Q3:d=23:hit(dec 23:1)[a=5] CF:d=68:hit(dec 69:0)[a=1504] GA:d=2783:MISS(dec 2757:0)
+1721441 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=27:hit(dec 26:1)[a=797] GA:d=2753:MISS(dec 2724:0)
+1724209 NP:d=13:hit(dec 13:1)[a=59] Q3:d=23:hit(dec 23:1)[a=69] CF:d=327:MISS(dec 317:0) GA:d=1693:MISS(dec 1622:0)
+1757057 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=5:hit(dec 3:1)[a=1] GA:d=1635:MISS(dec 1626:0)
+2292193 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=22] CF:d=37:hit(dec 35:0)[a=121] GA:d=1931:hit(dec 1759:0)[a=99]
+3198841 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=148:MISS(dec 142:1) GA:d=2419:MISS(dec 2313:0)
+3647393 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=3:hit(dec 5:1)[a=2] GA:d=2381:MISS(dec 2242:0)
+3744217 NP:d=5:hit(dec 5:1)[a=1] Q3:d=31:hit(dec 30:1)[a=606] CF:d=120:MISS(dec 115:0) GA:d=4283:MISS(dec 4523:0)
+3767689 NP:d=11:hit(dec 11:1)[a=60] Q3:d=11:hit(dec 11:1)[a=60] CF:d=33:hit(dec 31:0)[a=8] GA:d=2363:MISS(dec 2237:0)
+3812257 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:MISS(dec 17:1) CF:d=1301:MISS(dec 1381:0) GA:d=4334:MISS(dec 4660:0)
+3819481 NP:d=11:hit(dec 11:1)[a=1268] Q3:d=11:hit(dec 11:1)[a=1268] CF:d=11:hit(dec 11:1)[a=1268] GA:d=2917:MISS(dec 2922:0)
+3830401 NP:d=17:hit(dec 17:1)[a=2] Q3:d=67:MISS(dec 71:0) CF:d=111:MISS(dec 107:0) GA:d=3103:MISS(dec 2937:0)
+4275289 NP:d=11:hit(dec 13:1)[a=1] Q3:d=11:hit(dec 13:1)[a=1] CF:d=17:hit(dec 17:1)[a=2] GA:d=4597:MISS(dec 4926:0)
+4588921 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=22:hit(dec 23:1)[a=64] GA:d=3947:MISS(dec 3993:0)
+4722433 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:hit(dec 17:1)[a=38] CF:d=62:hit(dec 67:1)[a=36] GA:d=2725:MISS(dec 2793:0)
+4809289 NP:d=17:hit(dec 17:1)[a=15] Q3:d=31:hit(dec 34:1)[a=291] CF:d=74:MISS(dec 68:0) GA:d=2837:MISS(dec 3103:0)
+5278001 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:d=4873:MISS(dec 5352:0)
+5308801 NP:d=17:hit(dec 17:1)[a=103] Q3:d=23:hit(dec 23:1)[a=5] CF:d=306:MISS(dec 311:0) GA:d=5137:MISS(dec 5583:0)
+5318881 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=17:MISS(dec 19:1) GA:undef
+6130177 NP:d=5:hit(dec 5:1)[a=1] Q3:d=23:hit(dec 23:1)[a=86] CF:d=68:hit(dec 65:1)[a=382] GA:d=2627:MISS(dec 2565:0)
+6621841 NP:d=11:hit(dec 13:1)[a=35] Q3:d=11:hit(dec 13:1)[a=35] CF:d=26:hit(dec 26:1)[a=49] GA:undef
+6749801 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=26:hit(dec 27:1)[a=1] GA:undef
+6968809 NP:d=19:hit(dec 19:1)[a=1] Q3:d=19:hit(dec 19:1)[a=1] CF:d=38:hit(dec 38:1)[a=2] GA:undef
+7570201 NP:d=13:hit(dec 13:1)[a=27] Q3:d=19:hit(dec 19:1)[a=1] CF:d=228:MISS(dec 208:0) GA:undef
+8390593 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=17] CF:d=5:hit(dec 5:1)[a=1] GA:d=4075:MISS(dec 4409:0)
+8625961 NP:d=13:hit(dec 13:1)[a=4] Q3:d=19:MISS(dec 19:0) CF:d=182:hit(dec 197:0)[a=1695] GA:d=3541:MISS(dec 3612:0)
+9187201 NP:d=17:hit(dec 17:1)[a=2] Q3:d=67:MISS(dec 71:0) CF:d=17:hit(dec 17:1)[a=2] GA:d=6527:MISS(dec 5966:1)
+9372169 NP:d=23:MISS(dec 23:0) Q3:d=23:MISS(dec 23:0) CF:d=254:MISS(dec 268:0) GA:undef
+10017841 NP:d=13:hit(dec 13:1)[a=190] Q3:d=19:hit(dec 19:1)[a=6] CF:d=74:MISS(dec 76:0) GA:undef
+10128673 NP:d=5:hit(dec 5:1)[a=1] Q3:d=31:MISS(dec 30:1) CF:d=5:hit(dec 5:1)[a=1] GA:d=3365:MISS(dec 3274:0)
+11197873 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:hit(dec 17:1)[a=6] CF:d=39:MISS(dec 40:1) GA:d=4793:MISS(dec 4833:0)
+11689801 NP:d=11:hit(dec 13:1)[a=35] Q3:d=11:hit(dec 13:1)[a=35] CF:d=39:hit(dec 38:1)[a=35] GA:d=4541:MISS(dec 4164:0)
+11850073 NP:d=5:hit(dec 5:1)[a=1] Q3:d=31:MISS(dec 30:1) CF:d=5:hit(dec 5:1)[a=1] GA:d=4789:MISS(dec 4785:0)
+14922793 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 13:1)[a=145] CF:d=321:MISS(dec 345:0) GA:d=8486:MISS(dec 9175:0)
+15665953 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=37] CF:d=41:hit(dec 44:1)[a=1146] GA:d=5341:MISS(dec 5003:0)
+16113281 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=43:MISS(dec 41:1) GA:d=4949:MISS(dec 5321:0)
+17116009 NP:d=23:hit(dec 23:1)[a=79] Q3:d=23:hit(dec 23:1)[a=79] CF:d=53:hit(dec 53:1)[a=3] GA:d=4403:MISS(dec 4239:0)
+17287201 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=34:hit(dec 33:0)[a=428] GA:undef
+17544529 NP:d=11:hit(dec 13:1)[a=98] Q3:d=11:hit(dec 13:1)[a=98] CF:d=23:hit(dec 22:1)[a=887] GA:d=9353:MISS(dec 9265:0)
+17636441 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:d=4587:MISS(dec 4620:0)
+19417729 NP:d=13:hit(dec 13:1)[a=1271] Q3:d=19:hit(dec 17:1)[a=6] CF:d=37:MISS(dec 38:0) GA:d=5387:MISS(dec 5740:0)
+20679121 NP:d=13:MISS(dec 13:0) Q3:d=19:hit(dec 19:1)[a=6] CF:d=37:hit(dec 39:0)[a=89] GA:d=5207:MISS(dec 5042:0)
+21284281 NP:d=11:hit(dec 13:0)[a=1] Q3:d=11:hit(dec 13:0)[a=1] CF:d=22:hit(dec 22:1)[a=33] GA:d=6109:MISS(dec 6162:0)
+22583233 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=55] CF:d=5:hit(dec 5:1)[a=1] GA:d=10414:MISS(dec 11386:0)
+22843153 NP:d=5:hit(dec 5:1)[a=1] Q3:d=43:hit(dec 40:0)[a=10] CF:d=10:hit(dec 10:1)[a=501] GA:d=6491:MISS(dec 6655:0)
+22883449 NP:d=11:hit(dec 11:1)[a=11] Q3:d=11:hit(dec 11:1)[a=11] CF:d=11:hit(dec 11:1)[a=11] GA:d=5827:MISS(dec 5581:0)
+23138809 NP:d=13:hit(dec 13:1)[a=163] Q3:d=31:MISS(dec 34:0) CF:d=17:hit(dec 17:1)[a=23] GA:d=7093:MISS(dec 7210:0)
+25508641 NP:d=13:hit(dec 13:1)[a=55] Q3:d=31:MISS(dec 34:1) CF:d=17:MISS(dec 17:0) GA:d=6109:MISS(dec 6352:0)
+26388121 NP:d=13:hit(dec 13:1)[a=4] Q3:d=23:hit(dec 23:1)[a=840] CF:d=62:hit(dec 68:1)[a=12] GA:d=5941:MISS(dec 5606:0)
+26913121 NP:d=29:hit(dec 31:1)[a=1] Q3:d=31:hit(dec 29:1)[a=670] CF:d=41:hit(dec 37:0)[a=461] GA:d=5539:MISS(dec 5347:0)
+27020569 NP:d=37:MISS(dec 37:0) Q3:d=59:hit(dec 59:1)[a=2] CF:d=37:MISS(dec 37:0) GA:d=5867:MISS(dec 6352:0)
+27777481 NP:d=11:hit(dec 11:1)[a=54] Q3:d=11:hit(dec 11:1)[a=54] CF:d=11:hit(dec 11:1)[a=54] GA:undef
+29157769 NP:d=19:hit(dec 19:1)[a=1] Q3:d=19:hit(dec 19:1)[a=1] CF:d=19:hit(dec 19:1)[a=1] GA:undef
+30902281 NP:d=13:hit(dec 13:1)[a=55] Q3:d=23:hit(dec 23:1)[a=5] CF:d=46:MISS(dec 43:0) GA:undef
+30992089 NP:d=11:hit(dec 13:1)[a=1] Q3:d=11:hit(dec 13:1)[a=1] CF:d=231:hit(dec 214:0)[a=31] GA:d=11813:MISS(dec 12514:0)
+31841209 NP:d=17:hit(dec 19:1)[a=49] Q3:d=19:hit(dec 17:1)[a=795] CF:d=19:hit(dec 17:1)[a=795] GA:undef
+31979201 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:undef
+38252089 NP:d=11:hit(dec 13:1)[a=1] Q3:d=11:hit(dec 13:1)[a=1] CF:d=39:MISS(dec 39:0) GA:d=8723:MISS(dec 8764:0)
+40663001 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:undef
+42683257 NP:d=5:hit(dec 5:1)[a=1] Q3:d=47:hit(dec 51:1)[a=16] CF:d=5:hit(dec 5:1)[a=1] GA:d=14533:MISS(dec 15829:0)
+43403761 NP:d=13:hit(dec 13:1)[a=563] Q3:d=43:hit(dec 41:1)[a=128] CF:d=37:MISS(dec 34:1) GA:undef
+46957681 NP:d=23:hit(dec 23:1)[a=5] Q3:d=23:hit(dec 23:1)[a=5] CF:d=71:hit(dec 74:0)[a=1] GA:d=15017:MISS(dec 15305:0)
+47559313 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=55] CF:d=20:hit(dec 19:1)[a=82] GA:d=9749:MISS(dec 8832:0)
+49067281 NP:d=11:hit(dec 11:1)[a=78] Q3:d=11:hit(dec 11:1)[a=78] CF:d=249:hit(dec 233:0)[a=448] GA:undef
+59321641 NP:d=13:hit(dec 13:1)[a=27] Q3:d=19:hit(dec 17:1)[a=1] CF:d=13:hit(dec 13:1)[a=27] GA:undef
+60497641 NP:d=11:hit(dec 11:1)[a=156] Q3:d=11:hit(dec 11:1)[a=156] CF:d=132:MISS(dec 139:0) GA:d=10739:MISS(dec 10953:0)
+60796961 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=6:hit(dec 6:1)[a=43] GA:d=11019:MISS(dec 11380:0)
+63234649 NP:d=19:hit(dec 19:1)[a=1] Q3:d=19:hit(dec 19:1)[a=1] CF:d=19:hit(dec 19:1)[a=1] GA:d=17083:MISS(dec 15390:0)
+64594009 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=22:MISS(dec 22:0) GA:d=11107:MISS(dec 10379:0)
+67494001 NP:d=17:hit(dec 17:1)[a=152] Q3:d=31:MISS(dec 34:0) CF:d=34:MISS(dec 31:0) GA:undef
+68436769 NP:d=13:hit(dec 13:1)[a=31] Q3:d=31:hit(dec 34:0)[a=2] CF:d=187:MISS(dec 204:0) GA:undef
+70030801 NP:d=19:hit(dec 19:1)[a=1] Q3:d=19:hit(dec 19:1)[a=1] CF:d=74:hit(dec 79:0)[a=198] GA:d=8891:MISS(dec 9226:0)
+70769441 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=11:hit(dec 13:0)[a=9] GA:d=11061:MISS(dec 10794:0)
+73295161 NP:d=29:hit(dec 29:1)[a=8] Q3:d=43:MISS(dec 41:1) CF:d=67:hit(dec 73:0)[a=25] GA:d=13093:MISS(dec 12178:0)
+76721089 NP:d=31:MISS(dec 31:0) Q3:d=31:MISS(dec 31:0) CF:d=62:MISS(dec 62:0) GA:d=11683:MISS(dec 12794:0)
+77035753 NP:d=5:hit(dec 5:1)[a=1] Q3:d=59:MISS(dec 55:0) CF:d=15:hit(dec 13:1)[a=111] GA:d=19597:MISS(dec 18272:0)
+82276849 NP:d=11:hit(dec 13:1)[a=98] Q3:d=11:hit(dec 13:1)[a=98] CF:d=13:hit(dec 11:1)[a=11] GA:d=11597:hit(dec 12467:0)[a=1]
+85664329 NP:d=17:hit(dec 17:1)[a=15] Q3:d=43:hit(dec 43:1)[a=60] CF:d=51:hit(dec 53:1)[a=85] GA:d=13067:MISS(dec 13596:0)
+93962761 NP:d=11:hit(dec 11:1)[a=22] Q3:d=11:hit(dec 11:1)[a=22] CF:d=23:hit(dec 22:0)[a=5] GA:d=17203:MISS(dec 18760:0)
+98418601 NP:d=11:MISS(dec 13:1) Q3:d=11:MISS(dec 13:1) CF:d=13:hit(dec 11:0)[a=1296] GA:d=12859:MISS(dec 11880:0)
+102317609 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=6:hit(dec 6:1)[a=3] GA:undef
+103067441 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=6:hit(dec 6:1)[a=11] GA:d=14349:MISS(dec 13389:0)
+103819081 NP:d=13:MISS(dec 13:0) Q3:d=19:MISS(dec 19:0) CF:d=257:MISS(dec 282:1) GA:d=22243:MISS(dec 24039:0)
+106661881 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=22:hit(dec 22:1)[a=33] GA:d=11731:MISS(dec 11051:0)
+113248241 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=266:MISS(dec 283:0) GA:d=13543:MISS(dec 14142:0)
+113419153 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:hit(dec 20:1)[a=43] CF:d=5:hit(dec 5:1)[a=1] GA:d=11509:MISS(dec 11775:0)
+116594641 NP:d=13:hit(dec 13:1)[a=31] Q3:d=23:hit(dec 23:1)[a=121] CF:d=17:hit(dec 17:1)[a=117] GA:d=15221:MISS(dec 15322:0)
+117691921 NP:d=11:hit(dec 11:1)[a=329] Q3:d=11:hit(dec 11:1)[a=329] CF:d=11:hit(dec 11:1)[a=329] GA:d=17657:MISS(dec 17166:0)
+123849289 NP:d=13:hit(dec 13:1)[a=40] Q3:d=19:hit(dec 17:1)[a=1] CF:d=13:hit(dec 13:1)[a=40] GA:d=12643:MISS(dec 12166:0)
+125104393 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 13:1)[a=1] CF:d=133:MISS(dec 120:0) GA:d=22234:MISS(dec 22142:0)
+125929721 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:d=16053:MISS(dec 16243:0)
+128066401 NP:d=13:MISS(dec 13:0) Q3:d=79:MISS(dec 78:0) CF:d=34:MISS(dec 34:0) GA:d=14939:MISS(dec 15906:0)
+137187233 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=3:hit(dec 5:1)[a=2] GA:d=13755:MISS(dec 15123:0)
+139499809 NP:d=13:hit(dec 13:1)[a=27] Q3:d=31:MISS(dec 31:0) CF:d=41:hit(dec 43:0)[a=10] GA:d=25103:MISS(dec 26087:0)
+141237121 NP:d=19:MISS(dec 19:0) Q3:d=19:MISS(dec 19:0) CF:d=19:MISS(dec 19:0) GA:d=16771:MISS(dec 16402:0)
+142705921 NP:d=11:hit(dec 13:1)[a=577] Q3:d=11:hit(dec 13:1)[a=577] CF:d=13:hit(dec 11:1)[a=9] GA:d=13579:MISS(dec 12782:0)
+143403121 NP:d=17:hit(dec 19:0)[a=2] Q3:d=19:MISS(dec 17:1) CF:d=106:MISS(dec 113:1) GA:d=24137:MISS(dec 25517:0)
+147707569 NP:d=23:MISS(dec 23:0) Q3:d=23:MISS(dec 23:0) CF:d=46:hit(dec 43:1)[a=31] GA:d=16877:MISS(dec 15899:0)
+149646961 NP:d=11:hit(dec 11:1)[a=22] Q3:d=11:hit(dec 11:1)[a=22] CF:d=33:hit(dec 34:0)[a=365] GA:undef
+156258649 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=47:hit(dec 43:0)[a=289] GA:d=25093:MISS(dec 23958:0)
+158893921 NP:d=11:hit(dec 11:1)[a=129] Q3:d=11:hit(dec 11:1)[a=129] CF:d=11:hit(dec 11:1)[a=129] GA:d=15823:MISS(dec 16044:0)
+158918761 NP:d=17:hit(dec 17:1)[a=697] Q3:d=47:hit(dec 51:1)[a=7] CF:d=17:hit(dec 17:1)[a=697] GA:d=26237:MISS(dec 24055:0)
+163024681 NP:d=11:hit(dec 11:1)[a=11] Q3:d=11:hit(dec 11:1)[a=11] CF:d=44:MISS(dec 41:1) GA:d=14581:MISS(dec 15216:0)
+163673329 NP:d=11:hit(dec 11:1)[a=181] Q3:d=11:hit(dec 11:1)[a=181] CF:d=19:hit(dec 19:1)[a=6] GA:undef
+164777281 NP:d=13:hit(dec 13:1)[a=213] Q3:d=23:hit(dec 23:1)[a=889] CF:d=71:hit(dec 69:0)[a=58] GA:undef
+171255457 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=78] CF:d=5:hit(dec 5:1)[a=1] GA:d=16667:MISS(dec 17828:0)
+179203537 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=1] CF:d=22:MISS(dec 20:1) GA:d=17507:MISS(dec 18393:0)
+179459281 NP:d=17:hit(dec 17:1)[a=436] Q3:d=23:hit(dec 23:1)[a=5] CF:d=17:hit(dec 17:1)[a=436] GA:d=18019:MISS(dec 19349:0)
+180887953 NP:d=5:hit(dec 5:1)[a=1] Q3:d=23:MISS(dec 23:0) CF:d=5:hit(dec 5:1)[a=1] GA:d=23806:MISS(dec 22813:0)
+186073801 NP:d=17:hit(dec 19:1)[a=2] Q3:d=19:hit(dec 17:1)[a=707] CF:d=19:hit(dec 17:1)[a=707] GA:d=29347:MISS(dec 27764:0)
+188238793 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 13:1)[a=1554] CF:d=117:MISS(dec 120:0) GA:d=29266:MISS(dec 26663:0)
+196495489 NP:d=13:hit(dec 13:1)[a=20] Q3:d=71:hit(dec 65:1)[a=854] CF:d=13:hit(dec 13:1)[a=20] GA:d=24113:MISS(dec 25130:0)
+199310161 NP:d=11:hit(dec 13:1)[a=11] Q3:d=11:hit(dec 13:1)[a=11] CF:d=13:hit(dec 11:1)[a=166] GA:d=19949:MISS(dec 18040:0)
+207025009 NP:d=17:hit(dec 19:1)[a=2] Q3:d=19:hit(dec 17:1)[a=562] CF:d=31:MISS(dec 29:0) GA:d=29623:MISS(dec 32501:0)
+211683361 NP:d=11:hit(dec 13:1)[a=9] Q3:d=11:hit(dec 13:1)[a=9] CF:d=11:hit(dec 13:1)[a=9] GA:undef
+213583561 NP:d=29:MISS(dec 29:0) Q3:d=79:MISS(dec 83:1) CF:d=29:MISS(dec 29:0) GA:d=16091:MISS(dec 16941:0)
+214979209 NP:d=17:hit(dec 17:1)[a=1] Q3:d=31:hit(dec 34:1)[a=39] CF:d=17:hit(dec 17:1)[a=1] GA:undef
+218676481 NP:d=17:hit(dec 17:1)[a=157] Q3:d=59:MISS(dec 61:1) CF:d=41:hit(dec 37:0)[a=61] GA:undef
+224326489 NP:d=11:hit(dec 11:1)[a=60] Q3:d=11:hit(dec 11:1)[a=60] CF:d=11:hit(dec 11:1)[a=60] GA:d=17507:MISS(dec 18475:0)
+224532361 NP:d=19:hit(dec 19:1)[a=27] Q3:d=19:hit(dec 19:1)[a=27] CF:d=284:MISS(dec 266:0) GA:d=31747:MISS(dec 30841:0)
+229897873 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=1] CF:d=5:hit(dec 5:1)[a=1] GA:d=21355:MISS(dec 23233:0)
+239870681 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:d=21741:MISS(dec 21606:0)
+246092113 NP:d=5:hit(dec 5:1)[a=1] Q3:d=47:hit(dec 51:0)[a=1154] CF:d=10:hit(dec 10:1)[a=89] GA:d=21995:MISS(dec 22420:0)
+274955689 NP:d=11:hit(dec 13:0)[a=1] Q3:d=11:hit(dec 13:0)[a=1] CF:d=118:MISS(dec 123:0) GA:d=22243:MISS(dec 23680:0)
+280401697 NP:d=5:hit(dec 5:1)[a=1] Q3:d=43:MISS(dec 40:0) CF:d=5:hit(dec 5:1)[a=1] GA:d=36586:MISS(dec 34869:0)
+284582257 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:hit(dec 20:1)[a=9] CF:d=5:hit(dec 5:1)[a=1] GA:d=26966:MISS(dec 27410:0)
+285255601 NP:d=13:MISS(dec 13:0) Q3:d=19:hit(dec 19:1)[a=167] CF:d=13:MISS(dec 13:0) GA:d=18661:MISS(dec 19117:0)
+293094481 NP:d=17:hit(dec 17:1)[a=1] Q3:d=23:hit(dec 23:1)[a=5] CF:d=267:MISS(dec 263:0) GA:undef
+294179929 NP:d=11:hit(dec 11:1)[a=9] Q3:d=11:hit(dec 11:1)[a=9] CF:d=22:hit(dec 22:1)[a=12] GA:undef
+309048601 NP:d=31:hit(dec 31:1)[a=2] Q3:d=31:hit(dec 31:1)[a=2] CF:d=93:MISS(dec 86:0) GA:d=39173:MISS(dec 41666:0)
+309823273 NP:d=5:hit(dec 5:1)[a=1] Q3:d=59:hit(dec 55:0)[a=1678] CF:d=13:hit(dec 15:1)[a=4] GA:d=38246:MISS(dec 34801:0)
+312777721 NP:d=29:hit(dec 29:1)[a=1] Q3:d=59:hit(dec 61:0)[a=1737] CF:d=59:hit(dec 61:0)[a=1737] GA:d=17821:MISS(dec 19157:0)
+313005529 NP:d=13:hit(dec 13:1)[a=13] Q3:d=31:MISS(dec 29:1) CF:d=13:hit(dec 13:1)[a=13] GA:d=19357:MISS(dec 19002:0)
+333275737 NP:d=5:hit(dec 5:1)[a=1] Q3:d=23:hit(dec 23:1)[a=47] CF:d=5:hit(dec 5:1)[a=1] GA:d=23557:MISS(dec 23199:0)
+340181857 NP:d=5:hit(dec 5:1)[a=1] Q3:d=43:MISS(dec 47:1) CF:d=5:hit(dec 5:1)[a=1] GA:d=21883:MISS(dec 23876:0)
+350008849 NP:d=13:hit(dec 13:1)[a=20] Q3:d=43:MISS(dec 39:0) CF:d=43:MISS(dec 39:0) GA:d=23437:MISS(dec 21677:0)
+350283553 NP:d=5:hit(dec 5:1)[a=1] Q3:d=47:hit(dec 45:1)[a=1531] CF:d=5:hit(dec 5:1)[a=1] GA:d=26285:MISS(dec 25369:0)
+361293601 NP:d=13:hit(dec 13:1)[a=409] Q3:d=19:MISS(dec 19:0) CF:d=73:MISS(dec 78:0) GA:d=37727:MISS(dec 37364:0)
+362855809 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=11:hit(dec 11:1)[a=1] GA:d=19307:MISS(dec 20605:0)
+375493633 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:hit(dec 20:1)[a=6] CF:d=10:hit(dec 10:1)[a=1968] GA:d=39793:MISS(dec 36640:0)
+387637321 NP:d=13:hit(dec 13:1)[a=4] Q3:d=31:hit(dec 34:1)[a=2] CF:d=124:hit(dec 131:0)[a=1] GA:d=43853:MISS(dec 41702:0)
+394885009 NP:d=11:hit(dec 11:1)[a=91] Q3:d=11:hit(dec 11:1)[a=91] CF:d=11:hit(dec 11:1)[a=91] GA:d=22627:MISS(dec 20538:0)
+407319697 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:hit(dec 17:1)[a=6] CF:d=10:hit(dec 10:1)[a=283] GA:d=21085:MISS(dec 19054:0)
+432231073 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=9] CF:d=5:hit(dec 5:1)[a=1] GA:d=26165:MISS(dec 26907:0)
+432811969 NP:d=11:hit(dec 13:1)[a=1] Q3:d=11:hit(dec 13:1)[a=1] CF:d=34:hit(dec 33:1)[a=179] GA:d=28493:MISS(dec 28128:0)
+442774753 NP:d=5:hit(dec 5:1)[a=1] Q3:d=23:hit(dec 23:1)[a=241] CF:d=5:hit(dec 5:1)[a=1] GA:d=33167:MISS(dec 35719:0)
+470073529 NP:d=11:hit(dec 11:1)[a=60] Q3:d=11:hit(dec 11:1)[a=60] CF:d=22:hit(dec 22:1)[a=5] GA:undef
+477195889 NP:d=17:hit(dec 19:1)[a=1076] Q3:d=19:hit(dec 17:1)[a=9] CF:d=34:MISS(dec 31:1) GA:d=47657:MISS(dec 43955:0)
+504972001 NP:d=11:hit(dec 11:1)[a=22] Q3:d=11:hit(dec 11:1)[a=22] CF:d=11:hit(dec 11:1)[a=22] GA:d=35647:MISS(dec 34004:0)
+506316857 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=6:hit(dec 5:1)[a=3] GA:d=30725:MISS(dec 28840:0)
+506393281 NP:d=19:hit(dec 19:1)[a=208] Q3:d=19:hit(dec 19:1)[a=208] CF:d=151:MISS(dec 149:0) GA:d=28949:MISS(dec 29197:0)
+510308177 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=3:hit(dec 5:1)[a=2] GA:d=31877:MISS(dec 30149:0)
+516062233 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:hit(dec 20:1)[a=153] CF:d=315:MISS(dec 339:0) GA:d=45446:MISS(dec 46118:0)
+516313921 NP:d=11:hit(dec 13:1)[a=35] Q3:d=11:hit(dec 13:1)[a=35] CF:d=13:hit(dec 11:1)[a=31] GA:d=30977:MISS(dec 32357:0)
+516390337 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:hit(dec 17:0)[a=6] CF:d=17:MISS(dec 19:1) GA:d=35713:MISS(dec 32586:0)
+518163769 NP:d=11:hit(dec 13:1)[a=60] Q3:d=11:hit(dec 13:1)[a=60] CF:d=11:hit(dec 13:1)[a=60] GA:d=31957:MISS(dec 29067:0)
+523956241 NP:d=11:MISS(dec 11:0) Q3:d=11:MISS(dec 11:0) CF:d=11:MISS(dec 11:0) GA:d=28331:MISS(dec 26027:0)
+531281521 NP:d=17:hit(dec 17:1)[a=51] Q3:d=59:hit(dec 61:0)[a=1973] CF:d=17:hit(dec 17:1)[a=51] GA:undef
+536576041 NP:d=29:hit(dec 31:0)[a=8] Q3:d=31:MISS(dec 29:1) CF:d=222:hit(dec 202:0)[a=282] GA:undef
+545160169 NP:d=13:hit(dec 13:1)[a=1296] Q3:d=43:hit(dec 39:0)[a=64] CF:d=13:hit(dec 13:1)[a=1296] GA:d=32677:MISS(dec 29876:0)
+567050177 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=24:hit(dec 26:1)[a=1781] GA:d=32605:MISS(dec 30412:0)
+578469049 NP:d=13:hit(dec 13:1)[a=9] Q3:d=19:hit(dec 19:1)[a=1] CF:d=37:MISS(dec 38:1) GA:undef
+579588073 NP:d=5:hit(dec 5:1)[a=1] Q3:d=19:hit(dec 20:0)[a=1] CF:d=57:hit(dec 55:0)[a=1769] GA:d=26989:MISS(dec 26855:0)
+606959929 NP:d=19:hit(dec 19:1)[a=1] Q3:d=19:hit(dec 19:1)[a=1] CF:d=469:MISS(dec 498:0) GA:d=27253:MISS(dec 27542:0)
+616943681 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=23:hit(dec 24:1)[a=5] GA:d=35019:MISS(dec 32732:0)
+623448977 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=24:hit(dec 22:1)[a=1560] GA:d=34595:MISS(dec 35685:0)
+632655241 NP:d=17:hit(dec 17:1)[a=85] Q3:d=23:MISS(dec 23:0) CF:d=17:hit(dec 17:1)[a=85] GA:d=33739:MISS(dec 32036:0)
+640182097 NP:d=5:hit(dec 5:1)[a=1] Q3:d=23:hit(dec 23:1)[a=1006] CF:d=23:hit(dec 23:1)[a=1006] GA:d=56423:MISS(dec 58734:0)
+650256049 NP:d=17:hit(dec 17:1)[a=1] Q3:d=43:MISS(dec 41:1) CF:d=41:hit(dec 43:0)[a=1] GA:d=31763:MISS(dec 29169:0)
+650577937 NP:d=5:hit(dec 5:1)[a=1] Q3:d=43:hit(dec 40:0)[a=5] CF:d=10:hit(dec 10:1)[a=36] GA:d=33707:MISS(dec 35788:0)
+652681121 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:d=35811:MISS(dec 35323:0)
+673885769 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:d=36603:MISS(dec 33508:0)
+694465801 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=38:hit(dec 41:1)[a=2] GA:undef
+705053633 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=5:hit(dec 6:1)[a=1] GA:d=36595:MISS(dec 35692:0)
+709694329 NP:d=13:hit(dec 13:1)[a=4] Q3:d=19:hit(dec 19:1)[a=9] CF:d=950:MISS(dec 954:0) GA:d=37643:MISS(dec 34149:0)
+713409481 NP:d=13:hit(dec 13:1)[a=858] Q3:d=19:hit(dec 17:1)[a=1] CF:d=29:hit(dec 29:1)[a=2] GA:d=27691:MISS(dec 25224:0)
+720579721 NP:d=17:hit(dec 17:1)[a=329] Q3:d=47:hit(dec 51:1)[a=1] CF:d=17:hit(dec 17:1)[a=329] GA:undef
+739607681 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=218:MISS(dec 212:0) GA:undef
+764935201 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=23:hit(dec 22:1)[a=38] GA:undef
+796083257 NP:d=3:hit(dec 5:1)[a=2] Q3:d=3:hit(dec 5:1)[a=2] CF:d=6:hit(dec 5:1)[a=3] GA:d=37245:MISS(dec 40460:0)
+805537961 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=1534:MISS(dec 1615:0) GA:d=38309:MISS(dec 38955:0)
+808253569 NP:d=11:hit(dec 13:1)[a=40] Q3:d=11:hit(dec 13:1)[a=40] CF:d=55:hit(dec 52:1)[a=9] GA:d=39803:MISS(dec 38148:0)
+809997281 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:d=32589:MISS(dec 30114:0)
+856901809 NP:d=31:MISS(dec 31:0) Q3:d=31:MISS(dec 31:0) CF:d=31:MISS(dec 31:0) GA:d=40523:MISS(dec 42873:0)
+869697553 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=9] CF:d=5:hit(dec 5:1)[a=1] GA:d=41195:MISS(dec 39723:0)
+885813289 NP:d=41:hit(dec 43:0)[a=39] Q3:d=43:MISS(dec 41:1) CF:d=734:MISS(dec 745:0) GA:d=37717:MISS(dec 35381:0)
+895356001 NP:d=13:hit(dec 13:1)[a=53] Q3:d=67:MISS(dec 73:1) CF:d=2849:MISS(dec 2909:0) GA:d=39899:MISS(dec 38270:0)
+921623473 NP:d=5:hit(dec 5:1)[a=1] Q3:d=71:MISS(dec 65:1) CF:d=5:hit(dec 5:1)[a=1] GA:d=42811:MISS(dec 40732:0)
+921867601 NP:d=11:hit(dec 13:1)[a=389] Q3:d=11:hit(dec 13:1)[a=389] CF:d=178:MISS(dec 176:0) GA:d=32393:MISS(dec 32427:0)
+924811721 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=6:hit(dec 6:1)[a=4] GA:d=62413:MISS(dec 63364:0)
+941817241 NP:d=11:hit(dec 11:1)[a=71] Q3:d=11:hit(dec 11:1)[a=71] CF:d=29:hit(dec 29:1)[a=243] GA:d=33869:MISS(dec 33631:0)
+948824801 NP:d=3:hit(dec 3:1)[a=2] Q3:d=3:hit(dec 3:1)[a=2] CF:d=3:hit(dec 3:1)[a=2] GA:undef
+997459201 NP:d=11:hit(dec 13:1)[a=35] Q3:d=11:hit(dec 13:1)[a=35] CF:d=63164:MISS(dec 63933:0) GA:undef
+rule NP: primes=231 undefined=0 covered=214 (0.92641 of all) decoy covered=212 (of 231 with decoy) McNemar b=5 c=3 z=+0.71 mean d=10.8 max d=41
+rule Q3: primes=231 undefined=0 covered=186 (0.80519 of all) decoy covered=193 (of 231 with decoy) McNemar b=13 c=20 z=-1.22 mean d=20.1 max d=79
+rule CF: primes=231 undefined=0 covered=165 (0.71429 of all) decoy covered=152 (of 231 with decoy) McNemar b=28 c=15 z=+1.98 mean d=358.8 max d=63164
+rule GA: primes=231 undefined=43 covered=3 (0.01299 of all) decoy covered=1 (of 188 with decoy) McNemar b=3 c=1 z=+1.00 mean d=16446.8 max d=62413

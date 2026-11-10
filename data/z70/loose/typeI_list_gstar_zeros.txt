@@ -1,0 +1,43 @@
+fixture (1033, d=132): found a=1
+37 NP:d=2:hit(dec 2:1)[a=1] Q3:d=19:MISS(dec 20:0) CF:undef GA:d=5:hit(dec 6:0)[a=1]
+157 NP:d=2:hit(dec 2:1)[a=1] Q3:d=7:hit(dec 6:1)[a=3] CF:d=7:hit(dec 5:1)[a=3] GA:d=5:hit(dec 6:1)[a=1]
+409 NP:d=7:hit(dec 7:1)[a=3] Q3:d=7:hit(dec 7:1)[a=3] CF:d=7:hit(dec 7:1)[a=3] GA:d=43:MISS(dec 42:0)
+577 NP:d=5:hit(dec 7:1)[a=1] Q3:d=7:hit(dec 5:1)[a=3] CF:undef GA:d=26:MISS(dec 28:0)
+1621 NP:d=2:hit(dec 2:1)[a=1] Q3:d=23:MISS(dec 24:0) CF:d=2:hit(dec 2:1)[a=1] GA:d=29:hit(dec 30:0)[a=1]
+4357 NP:d=2:hit(dec 2:1)[a=1] Q3:d=7:hit(dec 6:1)[a=3] CF:undef GA:d=67:MISS(dec 68:0)
+5569 NP:d=13:hit(dec 13:1)[a=20] Q3:d=19:MISS(dec 17:1) CF:d=17:hit(dec 19:0)[a=2] GA:d=143:MISS(dec 141:0)
+9601 NP:d=13:hit(dec 13:1)[a=27] Q3:d=23:hit(dec 23:1)[a=5] CF:d=23:hit(dec 23:1)[a=5] GA:d=143:MISS(dec 138:0)
+12301 NP:d=2:hit(dec 2:1)[a=1] Q3:d=19:hit(dec 18:1)[a=1] CF:d=10:hit(dec 8:1)[a=21] GA:d=149:MISS(dec 142:0)
+23041 NP:d=11:hit(dec 13:1)[a=1] Q3:d=11:hit(dec 13:1)[a=1] CF:d=19:hit(dec 17:1)[a=27] GA:undef
+23929 NP:d=7:hit(dec 7:1)[a=3] Q3:d=7:hit(dec 7:1)[a=3] CF:d=7:hit(dec 7:1)[a=3] GA:undef
+26209 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=19:hit(dec 17:1)[a=1] GA:undef
+60217 NP:d=5:hit(dec 7:1)[a=1] Q3:d=7:hit(dec 5:1)[a=3] CF:d=5:hit(dec 7:1)[a=1] GA:d=347:MISS(dec 367:0)
+83449 NP:d=13:hit(dec 13:1)[a=321] Q3:d=23:hit(dec 23:1)[a=497] CF:d=115:MISS(dec 123:1) GA:d=403:MISS(dec 368:0)
+98017 NP:d=5:hit(dec 7:1)[a=1] Q3:d=7:hit(dec 5:1)[a=3] CF:d=23:hit(dec 22:0)[a=299] GA:d=347:MISS(dec 378:1)
+102001 NP:d=23:MISS(dec 23:0) Q3:d=23:MISS(dec 23:0) CF:d=23:MISS(dec 23:0) GA:undef
+184837 NP:d=2:hit(dec 2:1)[a=1] Q3:d=31:hit(dec 34:0)[a=166] CF:d=5:hit(dec 6:1)[a=1] GA:d=35:hit(dec 38:1)[a=95]
+329617 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 10:1)[a=616] CF:d=70:MISS(dec 73:0) GA:d=797:MISS(dec 773:1)
+330697 NP:d=5:hit(dec 7:1)[a=1] Q3:d=7:hit(dec 5:1)[a=3] CF:d=15:hit(dec 14:0)[a=8] GA:d=787:MISS(dec 836:0)
+434437 NP:d=2:hit(dec 2:1)[a=1] Q3:d=7:hit(dec 8:1)[a=3] CF:d=8:hit(dec 7:1)[a=14] GA:d=907:MISS(dec 960:0)
+560641 NP:d=19:hit(dec 19:1)[a=1] Q3:d=19:hit(dec 19:1)[a=1] CF:d=37:MISS(dec 38:1) GA:d=1663:MISS(dec 1577:0)
+571741 NP:d=2:hit(dec 2:1)[a=1] Q3:d=19:hit(dec 18:1)[a=1] CF:d=2:hit(dec 2:1)[a=1] GA:d=469:MISS(dec 459:0)
+597577 NP:d=5:hit(dec 5:1)[a=1] Q3:d=11:hit(dec 13:1)[a=289] CF:d=47:MISS(dec 46:1) GA:d=827:MISS(dec 792:0)
+706801 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=69:MISS(dec 73:1) GA:d=1139:MISS(dec 1119:1)
+712321 NP:d=23:hit(dec 23:1)[a=152] Q3:d=23:hit(dec 23:1)[a=152] CF:d=41:MISS(dec 43:0) GA:d=1633:MISS(dec 1602:0)
+963481 NP:d=11:hit(dec 11:1)[a=61] Q3:d=11:hit(dec 11:1)[a=61] CF:d=11:hit(dec 11:1)[a=61] GA:d=1867:MISS(dec 1684:0)
+1105441 NP:d=11:hit(dec 11:1)[a=1] Q3:d=11:hit(dec 11:1)[a=1] CF:d=87:hit(dec 93:0)[a=1730] GA:d=1411:MISS(dec 1270:0)
+1134241 NP:d=7:hit(dec 7:1)[a=3] Q3:d=7:hit(dec 7:1)[a=3] CF:d=133:MISS(dec 140:0) GA:d=1069:MISS(dec 1054:0)
+1724209 NP:d=13:hit(dec 13:1)[a=59] Q3:d=23:hit(dec 23:1)[a=69] CF:d=327:MISS(dec 351:0) GA:d=1693:MISS(dec 1616:0)
+1726201 NP:d=19:hit(dec 19:1)[a=27] Q3:d=19:hit(dec 19:1)[a=27] CF:d=67:MISS(dec 73:0) GA:d=1819:MISS(dec 1703:0)
+2094481 NP:d=29:hit(dec 29:1)[a=2] Q3:d=43:hit(dec 47:1)[a=125] CF:d=37:hit(dec 37:1)[a=650] GA:undef
+4617649 NP:d=17:MISS(dec 19:1) Q3:d=19:hit(dec 17:0)[a=43] CF:d=17:MISS(dec 19:1) GA:undef
+5212561 NP:d=11:hit(dec 11:1)[a=35] Q3:d=11:hit(dec 11:1)[a=35] CF:d=11:hit(dec 11:1)[a=35] GA:undef
+8813281 NP:d=17:hit(dec 17:1)[a=26] Q3:d=31:hit(dec 34:0)[a=25] CF:d=659:hit(dec 632:0)[a=1028] GA:undef
+11814001 NP:d=7:hit(dec 7:1)[a=3] Q3:d=7:hit(dec 7:1)[a=3] CF:d=14:hit(dec 14:1)[a=274] GA:undef
+20445289 NP:d=11:hit(dec 13:1)[a=1] Q3:d=11:hit(dec 13:1)[a=1] CF:d=22:MISS(dec 23:0) GA:d=5467:MISS(dec 5686:0)
+85664329 NP:d=17:hit(dec 17:1)[a=15] Q3:d=43:hit(dec 43:1)[a=60] CF:d=51:hit(dec 53:1)[a=85] GA:d=13067:MISS(dec 11977:0)
+564661441 NP:d=13:MISS(dec 13:0) Q3:d=23:hit(dec 23:1)[a=5] CF:d=13:MISS(dec 13:0) GA:undef
+rule NP: primes=38 undefined=0 covered=35 (0.92105 of all) decoy covered=36 (of 38 with decoy) McNemar b=0 c=1 z=-1.00 mean d=10.0 max d=29
+rule Q3: primes=38 undefined=0 covered=34 (0.89474 of all) decoy covered=32 (of 38 with decoy) McNemar b=3 c=1 z=+1.00 mean d=16.3 max d=43
+rule CF: primes=38 undefined=3 covered=22 (0.57895 of all) decoy covered=22 (of 35 with decoy) McNemar b=5 c=5 z=+0.00 mean d=57.7 max d=659
+rule GA: primes=38 undefined=10 covered=4 (0.10526 of all) decoy covered=5 (of 28 with decoy) McNemar b=2 c=3 z=-0.45 mean d=1298.5 max d=13067
