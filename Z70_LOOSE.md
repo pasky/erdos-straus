@@ -5,7 +5,7 @@ EVIDENCE / CONJECTURE / Assessment. Internal review only. Scripts `scripts/z70_l
 Status: **final** (all five items run; internal hostile review done and applied — §11). Awaiting cross-review.
 
 **Summary.** I6: the d = 1 and d = 3 fibres satisfy an explicit S-transformation (Theorem F, PROVED; checked at
-machine precision at 28 points and to 34 digits at one point — the registered multiprecision grid was not completed);
+machine precision at 28 points and in multiprecision at 5 + 5 points, relative error ≤ 2·10⁻¹⁹);
 its period is an integral transform of dual partial Lambert series that are not weight-1 modular (PROVED for d = 1),
 but mock status is **not decided**. The level sum G has leading singular coefficients κ(a₀/c) = 1[c odd]μ(c)/c²
 (Lemma K, PROVED), hence **no finite-index law whose cocycles are o(y⁻¹log²(1/y)) at rationals** (Theorem LS, PROVED) —
