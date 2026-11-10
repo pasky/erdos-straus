@@ -17,6 +17,9 @@ from z70_class_null import translations
 from z70_class_repid import vec_of
 
 def divides(I, J):
+    # registered definition (§1.6b): the D_d-parts must be EQUAL (review fix: earlier version allowed a rep without D to
+    # divide one with D)
+    if ('D' in I) != ('D' in J): return False
     return all((q in J) and (J[q] * k > 0) and abs(J[q]) >= abs(k) for q, k in I.items())
 
 def analyse(n, d, F):

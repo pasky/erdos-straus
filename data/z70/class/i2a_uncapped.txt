@@ -1,0 +1,2 @@
+v2h(-4p) uncapped: CTRL mean 2.9941 | H_train mean 3.0160 z +0.33 | H_test mean 2.8686 z -1.79
+v2h(-8p) uncapped: CTRL mean 3.0420 | H_train mean 3.0457 z +0.05 | H_test mean 2.9611 z -1.12

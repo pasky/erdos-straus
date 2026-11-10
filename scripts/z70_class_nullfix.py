@@ -12,6 +12,9 @@
 #   larger q -> uniform class in the genus coset of x_q.  Pivots are then solved exactly (coefficient +-1).
 # Every replicate is checked: every imposed ORIGINAL fibre equation is asserted.
 # Power: for each statistic the number of n whose null variance is > 0 is reported (n with zero variance contribute nothing).
+# Mode ALLF (post hoc diagnostic, after the registered FIX-ALL runs): as ALL, but pivots are never primes of good norms; rows
+#   whose only unit coefficients sit on good primes are frozen at the real classes.  Purpose: test whether the negative
+#   deviations of FIX-ALL come from pivot-solved small good ideals losing their free-region protection (Lemma FR).
 # Usage: python scripts/z70_class_nullfix.py MODE d R seed range P0 P1 [mod res] | list n1 ...
 import sys, math, random
 sys.path.insert(0, 'scripts')
@@ -71,7 +74,7 @@ def analyse(n, d, R, rng, F, mode):
         for i in range(len(cons)):
             if i in pivot_of: continue
             co, rhs = cons[i]
-            cands = [q for q, k in co.items() if abs(k) == 1 and q not in pivset]
+            cands = [q for q, k in co.items() if abs(k) == 1 and q not in pivset and not (mode == 'ALLF' and q in gp)]
             if not cands: continue
             q = max(cands, key=lambda q: (q not in gp, q)); kq = co[q]
             for j in range(len(cons)):
@@ -157,7 +160,7 @@ def run(mode, d, R, nlist, F, seed, out=sys.stdout, tag=''):
 
 if __name__ == "__main__":
     mode = sys.argv[1]; d = int(sys.argv[2]); R = int(sys.argv[3]); seed = int(sys.argv[4]); spec = sys.argv[5:]
-    assert mode in ('CS', 'ALL')
+    assert mode in ('CS', 'ALL', 'ALLF')
     if spec[0] == 'range':
         P0, P1 = int(spec[1]), int(spec[2])
         mod, res = (int(spec[3]), int(spec[4])) if len(spec) > 4 else (8, 1)

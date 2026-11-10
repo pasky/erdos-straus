@@ -6,8 +6,8 @@
 #   E-ID   : realised by an e-side ideal identity  R_E' = R_E * L^{+-1}         (what the PSC null preserves)
 #   REP-ID : realised by an identity between ANY natural representatives  R' = R * L^{+-1}  (not E-ID)
 #   OTHER  : neither (a class coincidence that is not an identity of natural representatives).
-# REPID:AA pairs are split by whether the two A-representatives come from the same c (Lemma DL' — c-fibre divisor lattice)
-#   and the same a (then they are Lemma-DL pairs seen from the A side).
+# REPID pairs are labelled by the first identity found, with the representative types, same/different c (Lemma DL' is
+#   the A-A same-c case) and same/different fibre letter.
 # Also reported: min-norm statistics (norm of the smallest natural representative) of the classes in REP-ID pairs.
 # Usage: python scripts/z70_class_repid.py d range P0 P1 [mod res] | list n1 ...
 import sys, math
@@ -56,9 +56,9 @@ def analyse(n, d, F):
                     diff = {q: k for q, k in diff.items() if k}
                     if len(diff) == 1 and l in diff and abs(diff[l]) == 1:
                         if s1 == 'E' and s2 == 'E': kind = 'EID'; break
-                        if kind == 'OTHER' or (kind == 'REPID:AA' and s1 + s2 == 'AA' and ac1[1] == ac2[1]):
-                            kind = 'REPID:' + ''.join(sorted(s1 + s2))
-                            kind += ('_samec' if ac1[1] == ac2[1] else '_diffc') + ('_samea' if ac1[0] == ac2[0] else '_diffa')
+                        if kind == 'OTHER':      # first identity found (review fix: no subtype preference logic)
+                            kind = 'REPID:' + ''.join(sorted(s1 + s2)) + ('_samec' if ac1[1] == ac2[1] else '_diffc') \
+                                   + ('_samea' if ac1[0] == ac2[0] else '_diffa')
                 if kind == 'EID': break
             out[tag + '_' + kind] += 1; out[tag] += 1
             if kind.startswith('REPID'):
