@@ -400,8 +400,12 @@ algebraically tied (e − n fixed), and it produces existence only along the spa
 n = 24m² + 8m − 3), never at an arbitrary prescribed prime: it needs a solution to start from. For Type II the
 same construction gives nothing: for fixed (b, c, d) its solutions satisfy the *linear* relation
 e(4bcd − 1) = p + 4b²d (the K2 congruence class), so this particular fixed-(b, c, d) exchange is a translation
-(p, e) ↦ (p + t(4bcd − 1), e + t), not a two-root exchange. Whether Type II has a non-linear transport in other
-coordinates was not examined.
+(p, e) ↦ (p + t(4bcd − 1), e + t), not a two-root exchange. More precisely (PROVED, by substitution a = ce − b):
+the Type II solutions of all n are the image of the free parameters (b, c, d, e) ∈ ℕ⁴, ce > b, under the
+polynomial n = 4bd(ce − b) − e, whereas Type I needs the divisibility e ∣ 4b²d + 1 (n = 4bcd − (4b²d + 1)/e), and
+it is this divisibility whose solutions the Vieta chains organise. So for Type II any "transport" is a change of
+free parameters; no hidden two-root structure of this kind exists there. (After the third review round; a
+one-line substitution, not reviewed.)
 
 ## 5. Mandatory falsifier table — final
 
@@ -452,8 +456,7 @@ at a prime, and nothing here is progress toward a proof of ES beyond removing ca
   by n = 9 (as in `INVOLUTION_ES.md`).
 * Not done: I6 has no test; I17 only d = 1, two translations, one range; I9 has little power on three of the four
   hard sets; the I23 certificate covers p < 400 only; Prop R's sterile list is computed only for j ≤ 301 and no
-  closed description of the sterile j ≡ 1 (4) was found; whether Type II has a non-linear transport in other
-  coordinates was not examined.
+  closed description of the sterile j ≡ 1 (4) was found.
 
 ## 7. Review log
 
