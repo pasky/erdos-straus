@@ -1,0 +1,3 @@
+primes p==1(8) in [1000,6000): 149; sum|G|=1138 sum|genus|=3340 (mean fill 0.341); J-stable members 168 (chance 431); l-stable members 468 (chance 431)
+primes p==1(8) in [20000,24000): 99; sum|G|=1232 sum|genus|=6034 (mean fill 0.204); J-stable members 72 (chance 276); l-stable members 378 (chance 276)
+primes p==1(8) in [20000,24000) with G nonempty: 99; sum|G|=1232 J-stable 72 | null sum|N|=1266 J-stable 0 | chance 276 | |G∩N|=740
