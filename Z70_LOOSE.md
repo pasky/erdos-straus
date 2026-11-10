@@ -2,7 +2,7 @@
 
 **ES is OPEN.** This memo proves or computes nothing that settles ES. Labels: PROVED / CONDITIONAL / CERTIFIED /
 EVIDENCE / CONJECTURE / Assessment. Internal review only. Scripts `scripts/z70_loose_*`, data `data/z70/loose/`.
-Status: **final draft** (all five items run; internal hostile review pending — §11).
+Status: **final** (all five items run; internal hostile review done and applied — §11). Awaiting cross-review.
 
 **Summary.** I6: the d = 1 and d = 3 fibres satisfy an explicit S-transformation (Theorem F, PROVED; checked at
 machine precision at 28 points and to 34 digits at one point — the registered multiprecision grid was not completed);
@@ -494,4 +494,29 @@ candidates, no working Type I d-rule among four, no Pell-letter signal, no X-coo
   caps 0, 0, 10; seeds 7070, 7070, 7071); `… scripts/z70_loose_pell_recal.py in out`; `python3 scripts/z70_loose_pell_an.py <files>`.
 
 ## 11. Review log
-(pending)
+**Internal hostile review** (deep-mode reviewer subagent over commits 07c2edca6..8c422ab8a; verdict "changes
+requested", 0 FATAL, 8 MAJOR, 7 MINOR; no provider/auth/quota error). The reviewer independently re-derived Theorem F
+on ℍ (Mellin residues, Hurwitz phases, kernel signs, PV = ∫_{C₋} − πi Res), Lemma K's local factors (reran
+`z70_loose_i6kappa.py`), the narrow LS argument, Lemma S (reran all six EMPTY pairs and the fixture), Lemma P5
+(383 primes, 54 without trivial certificate), the I5 tallies (7 failures; 246/154 grammar split) and the Pell
+aggregates. Fixes applied:
+1. *LS scope* — Theorem LS restated as a statement about holomorphic cocycles with the radial bound; the blanket
+   "not mock / not quantum / not harmonic" claims replaced by Corollary LS-M (cuspidal shadows, proved) and an explicit
+   "not covered" list (Eisenstein shadows, Zagier-type boundary objects, vector-valued systems without the bound);
+   "any automorphic route must…" deleted from the FRONTIER text.
+2. *Theorem F jump / §2.2* — the jump assertion withdrawn; the τ = tw path-rotation residue noted; §2.2 downgraded:
+   only "S₁, S₂ ∉ M₁ (d = 1)" is PROVED, mock status not decided.
+3. *K6a* — max relative error corrected to 8.9·10⁻¹⁵; recorded as NOT completed as registered; a post-review
+   multiprecision grid started (results below / in `i6_k6a_mp_d{1,3}.txt`).
+4. *Lemma P5 consequence* — condition corrected to "p + 1 has no prime factor ≡ 3 (mod 4)" (counterexample p = 17,
+   (p + 1)/2 = 9 = 3² + 0²); "infinitely many" removed.
+5. *Pell 2-adic null* — full 2-adic recalibration (all v₂ ≥ 2), validated; numbers corrected; "behave exactly like"
+   → "no difference detected".
+6. *I9 strata* — partial strata disclosed, means recomputed on retained strata with stratum weighting, variance model
+   stated.
+7. *I9 diagnosis* — same-subset comparison added (nearest decoy z = +0.09 on the 1 233-pair subset); verdict
+   rephrased as "consistent with size/selection confounding", "no excess detected".
+8. *#10 scope* — verdict limited to the four implemented rules; exact-failure accounting corrected (20 distinct primes,
+   14 recovered, 6 empty); heuristics labelled as such.
+Minor: Lemma K's K-squeeze written out; deviation ledger §1.6 added; "407 candidate expressions"; Gaussian decoy cap
+disclosed; section order and table bars fixed.
