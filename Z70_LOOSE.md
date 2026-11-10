@@ -236,7 +236,9 @@ Contrast (PROVED by the same class-splitting, one log instead of two): the singl
 g_d(z) := Σ_{a,b ≥ 1} e((4abd − a − b)z) = e(−z/4d)Φ_d(z/4d) has leading singular coefficient (relative to
 g_d(iy) ~ log(1/y)/(8πdy)·…) κ_d(a₀/c) = c⁻¹Σ_{α mod c, 4dα ≡ 1 (c)} e(−a₀α/c) = c⁻¹e(−a₀·\overline{4d}/c) if
 gcd(c, 4d) = 1 and 0 otherwise — finite-level data (it depends on c only through gcd(c, 4d) and the class of a₀
-modulo c), consistent with Theorem F. Summing over d, the phases e(−a₀\overline{4d}/c) average over the units mod c
+modulo c), consistent with Theorem F. (Numerical check for d = 1: `scripts/z70_loose_i6fibre.c` (r₁(4n + 1),
+n ≤ 3·10⁶) + `scripts/z70_loose_i6fibrefit.py` (fit (A log(1/y) + B)/y + C) → `i6_fibre_fit.txt`: A(r)/A(0) matches
+c⁻¹e(−a₀·4̄/c) to 4 digits at r = 1/2, 1/3, 2/3, 1/4, 1/5, 2/5, 1/7, 1/9, e.g. 1/5: 0.0618 + 0.1902i.) Summing over d, the phases e(−a₀\overline{4d}/c) average over the units mod c
 (weights ≍ 1/d) into a Ramanujan-sum-type quantity, which is how μ(c)/c² — vanishing at every non-squarefree c —
 appears in Lemma K: the obstruction is exactly the **infinite** union of levels 4d. The mechanism of the proof is the vanishing of the log² singularity
 at every non-squarefree or even denominator (μ(c)/c²), i.e. the arithmetic of the *three* free divisor variables.
