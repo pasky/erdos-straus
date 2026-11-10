@@ -5,12 +5,13 @@ EVIDENCE / CONJECTURE / Assessment. Internal review only. Scripts `scripts/z70_l
 Status: **final** (all five items run; internal hostile review done and applied — §11). Awaiting cross-review.
 
 **Summary.** I6: the d = 1 and d = 3 fibres satisfy an explicit S-transformation (Theorem F, PROVED; checked at
-machine precision at 28 points and in multiprecision at 5 + 5 points, relative error ≤ 2·10⁻¹⁹);
+machine precision at 28 points; registered multiprecision K6a met for d = 1 by the lane (30 digits) and for d = 3 only by
+the cross-review's independent 35-digit grid — the lane's own d = 3 run at 20 digits failed the registered precision);
 its period is an integral transform of dual partial Lambert series that are not weight-1 modular (PROVED for d = 1),
 but mock status is **not decided**. The level sum G has leading singular coefficients κ(a₀/c) = 1[c odd]μ(c)/c²
 (Lemma K, PROVED), hence **no finite-index law whose cocycles are o(y⁻¹log²(1/y)) at rationals** (Theorem LS, PROVED) —
 in particular G is not modular and not the holomorphic part of a harmonic Maass form with cuspidal shadow
-(Cor. LS-M). I5: 7 registered maps + 400 grammar expressions fail on T₇₃/T₄₀₉; Lemma P5: the odd parity of T_p lives in
+(Cor. LS-M). I5: 7 amended, pre-run-specified expressions + 400 grammar expressions fail on T₇₃/T₄₀₉; Lemma P5: the odd parity of T_p lives in
 the divisor words of p + 1. #10: four implemented d-selection rules dead (best coverage 97.4 %; NP's slice exactly
 empty at six hard primes). Pell letters: no witness-specific signal against exact decoys (the registered null was
 2-adically miscalibrated; recalibrated). I9: no detected difference; no detected q-to-word information. **No HOT LEAD;
@@ -107,7 +108,7 @@ a non-residue of its size; HOT LEAD only if Y = 1 on every hard prime and the ex
 ### 1.6 Deviations from the registration (complete ledger; added after the internal review)
 | item | registered | done | consequence |
 |---|---|---|---|
-| I6 K6a | ≥ 5 points each for d = 1, 3, mpmath ≥ 30 digits, rel. error < 10⁻¹⁵ | first draft: 28 double-precision points only (claimed "pass" — wrong); after review: d = 1 five points at 30 digits (rel ≤ 4.4·10⁻³⁰), d = 3 five points at **20** digits (rel ≤ 2.1·10⁻¹⁹) | criterion met; d = 3 at 20 instead of 30 digits |
+| I6 K6a | ≥ 5 points each for d = 1, 3, mpmath ≥ 30 digits, rel. error < 10⁻¹⁵ | first draft: 28 double-precision points only (claimed "pass" — wrong); after review: d = 1 five points at 30 digits (rel ≤ 4.4·10⁻³⁰), d = 3 five points at **20** digits (rel ≤ 2.1·10⁻¹⁹) | d = 1 met; d = 3 **failed the registered precision requirement** (20 < 30 digits); repaired only by the cross-review's independent 35-digit grid (`scripts/z70_xrev_loose_mp.py`, rel. ≤ 4.8·10⁻³⁵ at five d = 3 points) |
 | I6 K6b | discontinuity → decide mock / not mock | the jump claim was withdrawn after review; only "S₁, S₂ ∉ M₁" (d = 1) is proved | K6b inconclusive |
 | I5 | σ1 "coset swap with unipotent correction, nearest in a fixed norm", σ3 "continuant-flip maps" | replaced (before any run) by the precise ρ_L, ρ_R, ρ_C, s∘ρ_C, s∘ρ_R∘s maps of §3 (the unipotent-orbit reading of σ1); σ3 was not implemented (the length-changing continuant identity M(a)M(1)M(b) = M(a − 1)M(b − 1) maps words with y = 1 to length-2 words, not to T_n) | the registered σ1/σ3 wording was not tested literally |
 | #10 | R-sm (least non-square non-residue d) | not run separately: the least non-residue is prime, so R-sm = NP | none |
@@ -154,7 +155,7 @@ first draft claimed a pass without having run it (review fix). Post-review multi
 d = 1 (`i6_k6a_mp_d1.txt`, 30 digits, tanh-sinh): 5 points done (z₀ = 0.5i, 0.25i, 0.3 + 0.4i, −0.2 + 0.5i,
 0.05 + 0.15i, z = z₀·1.6/9), relative errors 8.3·10⁻³⁴ … 4.4·10⁻³⁰ — **criterion met for d = 1**;
 d = 3 (`i6_k6a_mp_d3.txt`, **20 digits** (deviation: 30-digit tanh-sinh was too slow), Gauss–Legendre, asymptotic
-series below |τ| = 7·10⁻⁴): 5 points (z₀ = 0.5i, 0.3 + 0.4i, −0.2 + 0.5i, 1.0 + 0.3i, 0.13 + 0.08i, z = z₀·1.6/121), relative errors 2.2·10⁻²¹ … 2.1·10⁻¹⁹ — criterion (< 10⁻¹⁵) met at 20 rather than 30 digits. The identity itself is PROVED; the double-precision points with
+series below |τ| = 7·10⁻⁴): 5 points (z₀ = 0.5i, 0.3 + 0.4i, −0.2 + 0.5i, 1.0 + 0.3i, 0.13 + 0.08i, z = z₀·1.6/121), relative errors 2.2·10⁻²¹ … 2.1·10⁻¹⁹ — **this does not meet the registered 30-digit requirement** (procedural failure of the lane); the cross-review supplied an independent 35-digit grid (different contour angle, explicit tail bound): d = 1 rel. ≤ 1.2·10⁻²⁷, d = 3 rel. ≤ 4.8·10⁻³⁵ at five points each, so K6a now passes on the reviewer's run. The identity itself is PROVED; the double-precision points with
 relative error between 10⁻¹⁵ and 10⁻¹⁴ are at the double-precision floor. A first run with a too-coarse small-τ series (switch at |τ| < 2·10⁻³) gave 10⁻⁸
 errors for M = 12; with the switch at 2·10⁻⁴ the errors fell to 10⁻¹⁷ at a test point.
 
@@ -215,15 +216,19 @@ part of a harmonic Maass form F of real weight k on a finite-index Γ with unita
 G itself is modular (h_γ ≡ 0). If k < 2, F⁻(z) = c_k∫_{−z̄}^{i∞} g^c(τ)(−i(τ + z))^{−k}dτ with g a cusp form of weight
 2 − k, |g(τ)| ≤ C(Im τ)^{(k−2)/2}; on the vertical path τ = −x + it (z = x + iy) |τ + z| = t + y, so |F⁻(x + iy)| ≤ C∫_y^1 t^{(k−2)/2}(t + y)^{−k}dt + O(1) = O(y^{−k/2} + log(1/y) + 1) = o(y⁻¹), uniformly in x. Since F is
 modular, h_γ = −F⁻(z) + v⁻¹(cz + d)^{−k}F⁻(γz), and at z = r + iy, Im γz ≍ y, so h_γ(r + iy) = o(y⁻¹): LS applies. ∎
-*Extension (added after the review; PROVED modulo the standard regularised description of F⁻, quoted from memory —
-Bruinier–Funke 2004 / the Bringmann–Folsom–Ono–Rolen monograph):* the same holds when the shadow g is any holomorphic
-modular form of weight 2 − k (non-zero constant terms allowed). Then F⁻(z) = c·b̄₀·Y_k(y) + c′∫_{−z̄}^{i∞}(g^c(τ) − b̄₀)
+*Extension (PROVED; source checked by the cross-review: Bruinier–Funke, "On two geometric theta lifts",
+arXiv math/0212286, §3, (3.2), Lemma 3.1, Prop. 3.2 — stated there for half-integral k ≠ 1; for arbitrary real k and
+k = 1 the Fourier-mode ODE of ξ_k gives the same non-zero modes, and the zero mode is supplied directly by
+ξ_k(y^{1−k}) = (1 − k)·const and ξ₁(log y) = const):* the same holds when the shadow g is any modular form of
+weight 2 − k **holomorphic at every cusp** (non-zero constant terms allowed). Then F⁻(z) = c·b̄₀·Y_k(y) + c′∫_{−z̄}^{i∞}(g^c(τ) − b̄₀)
 (−i(τ + z))^{−k}dτ with Y_k(y) = y^{1−k} (k ≠ 1), log y (k = 1). Case split: for k > 2 the shadow has negative weight,
 so it vanishes and F⁻ = 0 (G modular, h_γ ≡ 0); for k = 2 the shadow is a constant and F⁻ = O(y⁻¹); for k < 2 the
 moderate-growth bound |g(τ) − b₀| ≤ C(Im τ)^{k−2} near every cusp gives, on the
 same vertical path, ∫_y^1 t^{k−2}(t + y)^{−k}dt = y⁻¹∫_1^{1/y}u^{k−2}(1 + u)^{−k}du = O(y⁻¹) uniformly in x. So for k < 2,
 F⁻ = O(y⁻¹ + |Y_k(y)|) = o(y⁻¹log²(1/y)) at every rational (|Y_k| = y^{1−k} = o(y⁻¹) as k < 2), and LS applies.
-*Not covered:* harmonic forms of exponential growth at some cusp (weakly holomorphic shadows / principal parts),
+*Not covered:* shadows with actual poles at cusps (weakly holomorphic shadows). [Cross-review fix: holomorphic
+principal parts in F⁺ with a cuspidal or holomorphic-at-cusps shadow are already excluded by the argument above —
+the earlier "exponential growth / principal parts" escape hatch was too broad.]
 quantum modular forms in Zagier's sense (objects defined on rational boundary points, possibly with renormalised
 boundary values — their cocycles are not the upper-half-plane cocycles bounded here), vector-valued systems with
 infinite-image representation or without the radial bound, and infinite-level constructions.
@@ -317,9 +322,9 @@ involution, or a non-certificate fixed point) at 9 and 105. Survivor of both = H
 *Result* (`scripts/z70_loose_i5grammar.py` → `i5_grammar.txt`): 400 maps; 246 are involutions on both T₇₃ and T₄₀₉
 but have non-certificate fixed points at both; 154 are not involutions at either. **No stage-1 survivor.**
 
-**Verdict I5 (narrowed):** the seven registered candidate maps and all 400 candidate expressions of the round-2 grammar fail stage 1 on T₇₃/T₄₀₉ (not all are distinct maps; many are not involutions);
+**Verdict I5 (narrowed):** the seven amended, pre-run-specified expressions (the originally registered coset-nearest and continuant-flip proposals remain **untested**) and all 400 candidate expressions of the round-2 grammar fail stage 1 on T₇₃/T₄₀₉ (not all are distinct maps; many are not involutions);
 Lemma P5 explains why any such map must be arithmetic in p + 1. Not killed in general (a map certificate-fixed only at
-primes is not excluded), but no candidate exists. F1: T₉, T₁₀₅ have C = ∅ and odd |T| — any passing family must fail
+primes is not excluded), but no candidate exists. F1/F3: T₉ (square) and T₁₀₅ (an F3 composite) have C = ∅ and odd |T| — any passing family must fail
 there; F2: no candidate survived to the C-even question.
 
 ## 4. IDEAA #10 — Type I with an explicit d-selection rule: DEAD as a forcing rule (CERTIFIED failures)
@@ -380,7 +385,9 @@ K10c: the decoy comparison is uninformative for NP — the least non-residue has
 decoy is larger and the +107 measures size (expected slice count ≍ log²p / d); Q3 is far *below* its decoys
 (restricting to primes ≡ 3 (4) hurts); CF's +12.6 has the same size asymmetry and is irrelevant at 78 % coverage.
 **Verdict (#10): the four implemented rules are dead as forcing rules** (K10a with the registered truncation A = 2000;
-K10b for NP also *exactly*, by Lemma S, at six hard primes; GA/Q3/CF failures on hard lists are at A = 2000 only).
+K10b *exactly* for all four, by Lemma S: NP at six hard primes; at p = 102 001 the rules NP, Q3, CF all select d = 23,
+whose full slice is empty; at p = 409 the GA rule selects d = 43 (3, 5, 23, 17 are residues), full slice empty
+(amax = 4) — exact counterexamples found by the cross-review, rechecked here with `z70_loose_typeIfull.c`).
 Nothing here excludes other single-d rules or bounded menus (*Assessment/heuristic*, not a theorem: fixed-d Type I
 slices are p-independent covering families over a with expected size ≍ (log p)²/d, so any such rule is a B1/B2-type
 covering statement). F1: Type I at a square needs (d/m²) = −1 (Lemma T10), impossible — every rule fails at squares
@@ -426,10 +433,13 @@ the local null is still slightly miscalibrated for that population; it is not wi
 (mod 5): χ² p-values 3·10⁻⁴, 2·10⁻³; q = 7, p ≡ 2 (mod 7): 4·10⁻⁵ (35 tests; these survive Bonferroni); the inert classes
 and q = 3, 11, 13 look uniform. So the global unit carries residue structure at split small primes beyond the local
 conic (*Assessment:* plausibly Scholz-type reciprocity for the quadratic/quartic character of ε at split primes —
-quoted from memory, not checked). This explains why no purely local null is exact; the witness-vs-decoy contrast,
-which shares p and hence the unit, is unaffected.
+quoted from memory, not checked). This explains why no purely local null is exact. (Cross-review fix: the earlier claim that the witness-vs-decoy
+contrast is "unaffected" because it shares p is withdrawn — different letter moduli are not exchangeable under this
+bias.) *Self-decoys (cross-review disclosure):* 17 043 / 28 272 (60.3 %) H_train, 15 896 / 26 664 (59.6 %) H_test and
+65 877 / 101 620 (64.8 %) control decoys **equal the real letter** (small odd parts have no other admissible value),
+so the effective paired sample of the contrast is ≈ 40 % of the nominal one.
 **Verdict (EVIDENCE):** for residues of T, U, T + cU + s (|c| ≤ 3, |s| ≤ 2) and T ± 1, ± 2 modulo the witness letters,
-**no difference from exact decoy letters was detected**, and after the 2-adic recalibration no departure of either
+**no difference from exact decoy letters was detected** (on the ≈ 40 % informative decoys), and after the 2-adic recalibration no departure of either
 from the local null meets the signal criterion. This is non-rejection for the listed relations, not equivalence
 (2-s.e. on the D-rate difference ≈ ±0.008 on each H half, ignoring clustering). Scope: letters ≤ 2·10⁵ only; gcd /
 ratio relations and larger shifts untested. The registered-null "signal" was a 2-adic artefact of the null.
@@ -479,7 +489,7 @@ together with Y, and the small-q region without admissible decoys.
 | item | F1 odd squares | F2 C-even / R₈ | F3 composites | F4 known zeros |
 |---|---|---|---|---|
 | I6 Theorem F / LS | Theorem F is coefficient-blind (Mellin ⟺ Hurwitz functional equations); r_d(4dm² + 1) = 0 is invisible to it; LS is a no-go, needs no primality | the C-even fibres (d even) obey Theorem F too; no positivity claimed | n/a (no positivity claimed) | n/a |
-| I5 involutions | T₉, T₁₀₅ printed as controls (C = ∅, #T odd); every candidate already fails at primes | no survivor reached the C-even question | 105 control as F1 | 73, 409 are themselves the stage-1 test (B₇₃ = ∅ in `Z69_TWIST.md` P′; 409 is a (★)-zero) |
+| I5 involutions | T₉, T₁₀₅ printed as controls (C = ∅, #T odd); every candidate already fails at primes | no survivor reached the C-even question | 105 (F3 member: 11 words, no certificates) is a control here; no full F3 screen run | 73, 409 are themselves the stage-1 test (B₇₃ = ∅ in `Z69_TWIST.md` P′; 409 is a (★)-zero) |
 | #10 rules | Type I at m² impossible (Lemma T10): every rule fails at squares by the Jacobi step | all rules cover all 12 R₈ zeros except CF (9/12), GA (0/12) — irrelevant, rules dead | not tested (rules use p's quadratic data) | NP exactly fails at 102 001 ((★)- and 𝔊*-zero) and five noprime primes |
 | Pell letters | no witnesses at squares | n/a | n/a | H sets: null |
 | I9 | Q = 0 at squares (every q ∣ X has (840/q) = +1) | 𝔐-members of R₈ zeros: Δ = −0.14 ± 0.25 | n/a | hard sets: null |
@@ -490,9 +500,9 @@ No idea survives as a mechanism, so the four screens are compatibility records o
   law with small cocycles (Theorem LS, PROVED), hence not modular / not harmonic with cuspidal shadow (Cor. LS-M,
   PROVED) nor with any holomorphic shadow (extension, PROVED modulo the standard regularised formula); exponential-growth,
   boundary-defined quantum and infinite-level objects are not excluded.
-* **I5 — narrowed.** 407 candidate expressions (7 registered + 400 grammar) fail stage 1; Lemma P5 locates the parity
+* **I5 — narrowed.** 407 candidate expressions (7 amended pre-run-specified + 400 grammar; the original coset/continuant proposals untested) fail stage 1; Lemma P5 locates the parity
   in the divisor words of p + 1.
-* **IDEAA #10 — the four implemented rules are dead** (K10a, K10b fire; NP's failures CERTIFIED exact by Lemma S).
+* **IDEAA #10 — the four implemented rules are dead** (K10a, K10b fire; every rule has a CERTIFIED exact counterexample by Lemma S: NP/Q3/CF at 102 001, GA at 409).
   Other single-d rules and bounded menus are not excluded (heuristically B1/B2-type).
 * **Pell letters — non-rejection** for the listed relations against exact decoys; the registered-null excess was a
   2-adic miscalibration (PROVED source; recalibrated null — see §5 for the final numbers).
@@ -508,9 +518,10 @@ No idea survives as a mechanism, so the four screens are compatibility records o
 > in particular G is not modular and not the holomorphic part of a harmonic Maass form with cuspidal shadow. Automorphic
 > routes through G must use objects outside that class (e.g. infinitely many levels kept separate — hatch H-A).
 > (ii) *I5:* 407 candidate cross-slice maps fail at 73/409; the odd parity of T_p is carried by the 3τ(p + 1) − 1
-> divisor words (Lemma P5). (iii) *IDEAA #10:* four explicit d-rules fail (d = n_p leaves the Type I slice exactly
-> empty at six hard primes; Lemma S makes single-slice decisions exact). (iv) *Pell residues mod letters:* no
-> difference from exact decoys detected. (v) *I9:* no detected difference with disjoint controls.
+> divisor words (Lemma P5). (iii) *IDEAA #10:* four explicit d-rules fail, each with an exact counterexample (d = n_p leaves the Type I slice
+> exactly empty at six hard primes; NP/Q3/CF at 102 001, GA at 409; Lemma S makes single-slice decisions exact). (iv) *Pell residues mod letters:* no
+> difference from exact decoys detected. (v) *I9:* no detected difference with disjoint controls (model-based intervals; under-filled strata; the
+> registered two-sided equivalence criterion fails: noprime CI (−0.101, +0.058)).
 
 ## 10. Bottom line
 The five loose ends were run. The new mathematics is on I6: an explicit, verified transformation law for each fibre,
@@ -570,3 +581,19 @@ three samples regenerated, numbers updated; (2) the I9 "excluded subset" statist
 §§2.4/8/11, "no difference *detected*" in §9, the bottom-line I5 wording, reproduction recipe (recal2, i9c, mp grids),
 102 001 list membership. Also completed after the reviews: the registered K6a multiprecision grids (d = 1, 30 digits;
 d = 3, 20 digits) and the odd-q diagnostic of the Pell null.
+
+## 12. Cross-model review (`data/z70/xreview/REVIEW_LOOSE.md`, ACCEPT-WITH-FIXES)
+The reviewer independently re-derived Theorem F, Lemma K, Theorem LS, Cor. LS-M, Lemmas P5, S, T10 and the 2-adic null,
+reproduced the #10, I5, I9 and Pell numbers, and ran an independent 35-digit K6a grid. Fixes applied:
+1. K6a: the lane's 20-digit d = 3 run is recorded as a failed procedural requirement, repaired only by the
+   reviewer's 35-digit grid (summary, §2.1, ledger).
+2. Pell: self-decoy shares (60.3 / 59.6 / 64.8 %) disclosed; the "contrast unaffected" claim withdrawn; verdict stays
+   non-rejection on the informative decoys.
+3. LS-M extension: memory citation replaced by the checked Bruinier–Funke source plus the real-weight / weight-1
+   zero-mode remark; scope = shadows holomorphic at every cusp; "not covered" narrowed to cusp-polar shadows.
+4. I5: "seven registered maps" → seven amended pre-run-specified expressions; the original coset-nearest and
+   continuant-flip proposals are recorded as untested; 105 moved to the F3 column.
+5. #10: exact counterexamples for all four rules (NP/Q3/CF at 102 001, d = 23; GA at 409, d = 43; rechecked); I9's
+   under-filled-strata / model-interval qualification and the failed equivalence criterion carried into §9.
+Still live (reviewer's register): fibre mock completion; the original I5 proposals; other d-rules / larger menus;
+Pell with distinct-decoy conditioning; a q,Y-dependent I9 builder.
