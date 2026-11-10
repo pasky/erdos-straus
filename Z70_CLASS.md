@@ -1,6 +1,6 @@
-# Z70_CLASS — the I17 residual and the class-group structure of good forms (wave z70, lane CLASS): on the tested windows the residual is divisor-lattice structure seen through a class map injective on small primitive ideals; no forcing mechanism; not a HOT LEAD
+# Z70_CLASS — the I17 residual and the class-group structure of good forms (wave z70, lane CLASS): substantial divisor-lattice contribution; no positive excess against the tested full-fibre null (unresolved negative departures, failed pooled control); no forcing mechanism; not a HOT LEAD
 
-**ES is OPEN. Nothing here proves or disproves it.** Status: final; internal hostile review rounds 1–3 applied (§8): the first PSC/PSF null implementations were wrong — their calibrated readings (§§1.3, 1.5) are withdrawn and replaced by corrected runs (§§1.9–1.10). Verdict (§4): **narrowed descriptively, not closed — the I17 residual beyond DL + CS is real (d = 1; d = 3 at larger n) and, on the tested windows, no positive excess is detected once all divisor-lattice relations (Lemmas Φ, DL′) and ideal identities are kept (negative departures unresolved); no forcing mechanism established; item 2 null apart from a genus effect.** Not a HOT LEAD.
+**ES is OPEN. Nothing here proves or disproves it.** Status: final; internal hostile review rounds 1–3 applied (§8): the first PSC/PSF null implementations were wrong — their calibrated readings (§§1.3, 1.5) are withdrawn and replaced by corrected runs (§§1.9–1.10). Verdict (§4): **narrowed descriptively, not closed — the I17 residual beyond DL + CS is real (d = 1; d = 3 at larger n) and, on the tested windows, no positive excess is detected once all divisor-lattice relations (Lemmas Φ, DL′) and ideal identities are kept (negative departures unresolved; pooled d = 1 control fails; the nulls are model contrasts, not a validated randomisation law); no forcing mechanism established; item 2 null apart from a genus effect.** Not a HOT LEAD.
 Scripts `scripts/z70_class_*`, data `data/z70/class/`. Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE /
 Assessment. Sources: `Z69_TWIST.md` §9 (I17 round 2: Lemmas DL, CS; residual d = 3 energy Z_Ex = +3.6 and a small d = 1
 residual on the 10⁶ window, both against nulls that do not contain DL/CS), `Z69_MINE.md` §§3, 12 (open: class-group
@@ -18,13 +18,18 @@ structure beyond the class number vs U₇ / (★) witnesses), `data/z69/xreview/
 ## 1. Item 1 — the I17 residual
 
 ### 1.1 Precise objects (PROVED, elementary; checked by `scripts/z70_class_core.py`)
-d ≥ 1, n ≡ 1 (4), D = −4dn, Cl(D) the form class group. Type II solution: (a, b, c, e) ∈ ℕ⁴, 4abd = n + e, ce = a + b;
+d ≥ 1, n ≡ 1 (4), **gcd(n, d) = 1** (required for the class dictionary below — cross-model review: at n = 105, d = 3,
+(a, b, c, e) = (3, 3, 2, 3), A = 71, the forms [3, 36, 213] and [3, 0, 105] are imprimitive and the ideal identity fails),
+D = −4dn, Cl(D) the form class group. Type II solution: (a, b, c, e) ∈ ℕ⁴, 4abd = n + e, ce = a + b;
 A := 4acd − 1, N_a := n + 4a²d = A·e (z69 §9.1). Good class g = [A, 4ad, de] ↔ ideal 𝔄 = (A, 2ad + √−dn);
 **e-ideal** 𝔈 = (e, 2ad + √−dn) ↔ [e, 4ad, dA]. Since 𝔄·𝔡·𝔈 = (2ad + √−dn) (𝔡 = (d, √−dn), [𝔡] = T_d = [d, 0, n]),
   **G_d(n) = T_d + X_d(n),  X_d(n) := {±[𝔈] : 𝔈 an e-ideal of a solution}**
 (the b-side solution (b, a, c, e) has e-ideal conj(𝔈) because e | a + b). Check: `selftest` reproduces the z69 sets for
 ten (n, d) incl. 409, 4545, 21841. Translation statistics of G and X coincide. Every e-ideal factors into split prime
-ideals: [𝔈] = Σ_q ε_q k_q [𝔔_q] (𝔔_q the prime ideal over q with the least root; ε_q = ±1) — checked exactly.
+ideals **when gcd(e, 2dn) = 1**: [𝔈] = Σ_q ε_q k_q [𝔔_q] (𝔔_q the prime ideal over q with the least root; ε_q = ±1) —
+checked exactly. (For composite n this can fail: n = 33, (3, 3, 2, 3) gives the ramified ideal (3, √−33); at n = 315,
+(9, 9, 2, 9) the norm meets the conductor. The scripts skip such n; the composite description of G via Lemma Φ covers only
+the admissible fibres, gcd(a, n) = 1.)
 Equivalent description (PROVED): for gcd(e, 2dn) = 1 the ideal (e, ρ + √−dn) is an e-ideal of a solution iff
 4d | n + e and M_e := (n + e)/(4d) has a divisor a ≡ ρ/(2d) (mod e) (then b = M_e/a ≡ −a (mod e) automatically).
 * **Lemma DL in this language**: two e-ideals of the same fibre a with norms e and e/ℓ are related by the *ideal identity*
@@ -530,20 +535,20 @@ normalisation); all item-2 numbers are therefore CONDITIONAL (GRH) computations.
 witness rows and 132 948 decoys (representation identities, roots, window, residue, coprimality, characters) and 120
 sampled orders. Non-rejection, not equivalence: 2-s.e. half-widths ≈ 0.002–0.007 on
 S1 (relative to a spread of ρ-values of order 0.1).
-*Reading (Assessment):* by Lemma SR/FR the representation ideal of a witness is a small-norm ideal whose class is
-"generic" among small-norm ideals of the same norm range and genus; the data show no trace of the class-group position of
-witness ideals beyond that.
-**Verdict item 2: null; one registered signal (ρ_ℓ) fired and is fully explained by the genus position of the least
-split prime (local data).** Not a HOT LEAD.
+*Reading (Assessment):* within the registered conditional comparison (same discriminant, genus, residue mod 8 and norm
+window; witnesses with a decoy found; caps on witnesses, yp and Cp), no difference in class orders between witness ideals and
+decoys was detected. This is non-rejection, not equivalence, and SR/FR do not imply any probabilistic "genericity".
+**Verdict item 2: null; one registered signal (ρ_ℓ) fired; it is carried by the genus position of the least split prime
+(local data), with no within-stratum residual detected.** Not a HOT LEAD.
 
 ## 3. Mandatory falsifier table — final
 
 | screen | outcome | label |
 |---|---|---|
-| **F1 odd squares** | G_d(m²) = ∅ for all d (T1); in this memo's language: every divisor M of m² + 4a²d prime to 2dm (good A always are) has χ_{−4d}(M) = +1 while the target residue −1 has χ_{−4d} = −1 (Prop. NG); the identified structure (Φ, DL′, SR, FR, Cor. J) consists of statements about existing divisors/solutions and is vacuous at squares. The non-squareness step a generative mechanism must use is exactly the availability of divisors q \| N_a with (−d/q) = −1 (equivalently (p/q) = −1 at a prime). Item 2 statistics are about witnesses of primes (none exist at squares). | PROVED |
-| **F2 numerator 8 / C-even** | Lemmas Φ, DL′, SR, FR hold for every d, in particular even d (d = 2 runs: no positive residual against FIX-ALL; the FIX-CS d = 2 runs are uninterpretable because the A2 control fails); Type II with d even is the C-even side; nothing here distinguishes C odd from C even, and nothing claims positivity. 2c includes (★) witnesses of both parities of C. | PROVED / CERTIFIED |
-| **F3 composites** | The lemmas need gcd(n, d) = 1 and, for Φ, gcd(a, n) = 1; the scripts skip n where an ideal norm shares a prime with n (not the same as non-invertibility — those ideals are simply not handled). Composite (★)-zeros below 10⁵ (d = 1): 61 of 93 skipped, 8 with \|G\| < 2, 24 analysed: all \|Z\| ≤ 1.7 against FIX-CS and FIX-ALL (`i1_FIX*_d1_compzeros.txt`); decomposition L1: 9 EID / 0 REP-ID / 13 OTHER (22 pairs). A symmetry of existing solutions cannot separate primes from composite zeros. | PROVED / CERTIFIED |
-| **F4 known zeros** | Hard list (d = 1: the 14 (★)-zero primes, the 26 𝔊*-zero primes below 10⁶ and 2521, 3361, 21841, 76441 — 35 distinct, 32 with \|G\| ≥ 2): all \|Z\| ≤ 1.8 against FIX-CS and FIX-ALL; d = 3, full list: 18 analysed, all \|Z\| ≤ 1.5 (FIX-CS). H_train/H_test (incl. 2521, 3361, 21841, 76441) in item 2: no class-group difference beyond the local ρ_ℓ effect. | CERTIFIED |
+| **F1 odd squares** | G_d(m²) = ∅ for all d (T1); in this memo's language: every divisor M of m² + 4a²d prime to 2dm (good A always are) has χ_{−4d}(M) = +1 while the target residue −1 has χ_{−4d} = −1 (Prop. NG); the identified structure (Φ, DL′, SR, FR, Cor. J) consists of statements about existing divisors/solutions and is vacuous at squares. A generative mechanism must use the availability of divisors q \| N_a with (−d/q) = −1 (equivalently (p/q) = −1 at a prime) — a necessary, not a sufficient, ingredient for the tied residue. Item 2 statistics are about witnesses of primes (none exist at squares). | PROVED |
+| **F2 numerator 8 / C-even** | Lemmas Φ, DL′, SR, FR hold for every d, in particular even d (d = 2 runs: no positive residual against FIX-ALL; the FIX-CS d = 2 runs are uninterpretable because the A2 control fails); Type II with d even is the numerator-8 family (R₈ counts its c = 1 subline); nothing here distinguishes C odd from C even, and nothing claims positivity. 2c includes (★) witnesses of both parities of C. **The 12 R₈-zero primes near 10¹⁰ were not screened numerically** (the Python engines are O(n); the d = 2 windows are not a substitute). | PROVED / CERTIFIED; numerical screen untested |
+| **F3 composites** | The lemmas need gcd(n, d) = 1 and, for Φ, gcd(a, n) = 1; the scripts skip n where an ideal norm shares a prime with n (not the same as non-invertibility — those ideals are simply not handled). Composite (★)-zeros below 10⁵ (d = 1): 61 of 93 skipped, 8 with \|G\| < 2, 24 analysed: all \|Z\| ≤ 1.7 against FIX-CS and FIX-ALL (`i1_FIX*_d1_compzeros.txt`); decomposition L1: 9 EID / 0 REP-ID / 13 OTHER (22 pairs). **Coverage: only the 93 composite zeros below 10⁵ of the 285** (61 skipped by the coprimality filter — e.g. 105, where the dictionary hypotheses fail); the other 192 untested. No tested identity establishes a prime/composite separation. | PROVED / CERTIFIED (partial coverage) |
+| **F4 known zeros** | Hard list (d = 1: the 14 (★)-zero primes, the 26 𝔊*-zero primes below 10⁶ and 2521, 3361, 21841, 76441 — 35 distinct, 32 with \|G\| ≥ 2; together with the overlap of the two lists this covers 31 of the 38 𝔊*-zero primes): all \|Z\| ≤ 1.8 against FIX-CS and FIX-ALL; after the cross-model review five of the seven missing 𝔊*-zero primes were run (1105441, 2094481, 4617649, 11814001, 20445289; `i1_FIX{CS,ALL}_d1_hardbig.txt`): all \|Z\| ≤ 2.0 (FIX-CS L1 +1.7, FIX-ALL L1 +2.0; 4 n with nonzero variance — little power); **85664329 and 564661441 untested** (too large for the O(n) engine); d = 3, full list: 18 analysed, all \|Z\| ≤ 1.5 (FIX-CS). H_train/H_test (incl. 2521, 3361, 21841, 76441) in item 2: no class-group difference beyond the local ρ_ℓ effect. | CERTIFIED |
 
 ## 4. Verdict
 **Narrowed descriptively, not closed; no forcing mechanism established; not a HOT LEAD. ES is OPEN.**
@@ -564,10 +569,13 @@ split prime (local data).** Not a HOT LEAD.
 * Item 2 (CONDITIONAL on GRH for the PARI class groups). 2- and 3-parts of h(−4p), h(−8p) and h(p) = 1 do not separate the
   hard primes (uncapped registered statistics too); the order of the least split prime's class does (z −14.5 / −13.0),
   but the effect sits in the genus of that prime (ℓ mod 4) and no within-stratum residual was detected (H_train,
-  H_test, band); orders of U₇ and (★) representation-ideal classes match exact decoys on H_train, H_test, CTRL and a
-  disjoint band.
-* What this buys: a calibrated, corrected account of I17 (structure = divisor lattices of n + 4a²d and 4c²dn + 1 seen
-  through a class map that is injective on small primitive ideals), two short new lemmas (DL′, Cor. J) and the
+  H_test, band); orders of U₇ and (★) representation-ideal classes show no detected difference from exact decoys on
+  H_train, H_test, CTRL and a disjoint band (conditional non-rejection).
+* What this buys: a corrected, reproducible model contrast for I17 — a substantial divisor-lattice contribution (n + 4a²d
+  and 4c²dn + 1, seen through a class map injective on small primitive ideals with norm product < dn) and no positive excess
+  against the tested full-fibre null, *alongside* unresolved negative departures and a failed pooled d = 1 control; these
+  nulls preserve the equations but are not a validated exchangeable randomisation law, so this is not an exhaustive
+  arithmetic explanation; two short new lemmas (DL′, Cor. J) and the
   free-region principle — and the negative information that, in these tests, class-group *positions* of good forms and
   witness ideals showed no detected *positive* excess beyond divisor identities and local data (the negative departures
   against FIX-ALL are unresolved).
@@ -588,7 +596,8 @@ c-fibre lattice), Lemma SR (least natural norm ≤ √(d(2n + e))), Lemma FR (cl
 rational ideal identities; primitive small ideals lie in distinct classes), Cor. J (g, g + J ∈ G₁ ⟹ 2m(g)m(g+J) ≥ n).
 CERTIFIED: at n ≈ 4·10⁶ (d = 1) 216 of 218 L1 overlaps are explicit ideal identities. No forcing mechanism (Prop. NG is a
 reformulation). MINE class-group item (GRH-conditional): h-parts, h(p) null; least-split-prime class order separates hard
-primes only through its genus; U₇ and (★) representation-ideal class orders match exact decoys (H_train/H_test/CTRL/band)."
+primes through its genus (no within-stratum residual detected); U₇ and (★) representation-ideal class orders show no
+detected difference from exact decoys (H_train/H_test/CTRL/band; non-rejection)."
 
 ## 6. Bottom line
 The good-form class sets G_d(p) have translation structure beyond DL and CS (d = 1; d = 3 at n ≈ 3·10⁶ and 6·10⁶). Descriptively,
@@ -698,3 +707,22 @@ primes get uniform classes; widened swaps can cross the bound): stated in §1.10
 ("ALLS retains …" instead of "survives every null tried"); (2) MAJOR — the MATCH2 exhaustion fallback could silently drop the
 matching (latent; did not trigger in the committed runs): fixed to fail closed; MINOR — RF "majority" scoped to d = 1 (41 %
 for d = 3); "no positive excess" scoped to the registered FIX-ALL windows (ALLS G3 has Mx +3.1).
+
+## 9. Cross-model review (Astra, `data/z70/xreview/REVIEW_CLASS.md`, at `29abb44c2`): ACCEPT-WITH-FIXES
+Accepted: Lemma Φ (with the §1.6 hypotheses), DL′, SR/RF (scoped), FR, FR′, Cor. J, Remark V / Prop. NG as scoped; the
+corrected FIX-CS / FIX-ALL implementation (independently reproduced, incl. a new seed); the repid counts; item 2 as
+conditional evidence. Required fixes, all applied:
+1. §1.1 dictionary now requires gcd(n, d) = 1 (counterexample n = 105, d = 3 kept as a fixture) and gcd(e, 2dn) = 1 for the
+   split-prime vectors (n = 33, n = 315); the composite description via Φ is restricted to admissible fibres.
+2. Title and §4 conclusion: "substantial divisor-lattice contribution; no positive excess against the tested full-fibre
+   null", with the unresolved negative departures, the failed pooled control and the model-contrast (not calibrated-law)
+   status stated next to it.
+3. "generic"/"match"/"fully explained" replaced by conditional non-rejection / within-stratum wording (§2.4, §4, §5).
+4. Falsifier coverage made explicit: F2 numerical screen of the 12 R₈ zeros untested; F3 only 93 of 285 (61 skipped);
+   F4 31 of 38 𝔊*-zeros in the original run — five of the seven missing ones were run after the review (all |Z| ≤ 2.0, low
+   power), 85664329 and 564661441 remain untested; F1 wording "necessary, not sufficient"; F3 "no tested identity
+   establishes a prime/composite separation".
+The review's list of concrete next tests (ambiguous/genus seeding with first-entry statistics, Rédei matrices for
+multi-factor discriminants, exhaustive small-split-prime composition by the FR threshold, an exact lattice-point null for
+the negative residual, fixed-n nonlinear moves on complete solution graphs, witness-decoy blind spots) is endorsed as the
+open agenda; none was run here.
