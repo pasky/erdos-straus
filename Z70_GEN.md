@@ -181,6 +181,18 @@ event**. *Proof.* Corollary FR′ of `Z70_CLASS.md` §1.6 (two distinct primitiv
 in distinct classes) + Lemma SR. ∎ CERTIFIED: 0 violations of N(𝔰)·m(g) ≥ dp among all class-level (III) hits of item 3
 (W1–W3, 5 values of d, ≈ 4·10⁶ seed ideals in the target genus).
 
+**Lemma REP (canonical representation fibres are barren).** Let p ≡ 1 (mod 8) be prime, d ≥ 1, and suppose
+p = x² + 4d·a² with a ≥ 1 (the fibre "named" by a representation of p by x² + d·w², w = 2a). Then N_a = p + 4a²d has no
+divisor A ≡ −1 (mod 4ad): the fibre a contributes nothing to G_d(p).
+*Proof.* N_a = x² + 8d·a² = x² + 2d·(2a)². gcd(x, 2da) = 1 (a common prime would divide p). Every prime q | N_a is odd,
+q ∤ d·a (else q | x), and −2d·(2a)² ≡ x² (mod q) gives (−2d/q) = 1, i.e. χ_{−8d}(q) = 1 for the Kronecker character
+χ_{−8d}(m) = (−8d/m), a character modulo 8d with χ_{−8d}(−1) = −1. Hence χ_{−8d}(A) = 1 for every divisor A of N_a.
+Since p ≡ 1 (mod 8) and x is odd, 4da² ≡ 0 (mod 8): da² is even. If a is even then 8d | 4ad and A ≡ −1 (mod 4ad) gives
+χ_{−8d}(A) = χ_{−8d}(−1) = −1, impossible. If a is odd then d is even, d = 2d′, and N_a = x² + 16d′a²: every prime factor
+has (−4d′/q) = 1 and the character χ_{−16d′} (modulo 16d′ | 4ad = 8ad′) is odd, so again A ≡ −1 (mod 4ad) is impossible.
+∎ (The mechanism is T1's: the representation makes N_a a norm from ℤ[√−2d] (resp. ℤ[2√−d′]), whose norms are "squares" for
+the character that separates the target residue −1.)
+
 **Proposition SLICE (fixed-n word moves are re-factorisations).** Let T_n = {(x, y, z) ∈ ℕ³ : xyz − x − z = n}. Each word lies
 in three slices: fixed y — (xy − 1)(zy − 1) = ny + 1; fixed x — (xy − 1)·z = n + x; fixed z — symmetric. A move preserving
 one coordinate is a re-factorisation of the fixed integer ny + 1, n + x or n + z subject to a congruence (factors ≡ −1 mod y,
@@ -192,3 +204,12 @@ swap, and integrality of x' = (λX + 1)/y for all words forces λ ∈ ℤ[y]^× 
 LOOSE + direct check): s, τ_xy, τ_yz, μ, μ^s map Triv_n (words with a letter 1) into Triv_n and T_n ∖ Triv_n into itself
 wherever defined. [τ_xy(x, y, 1) is defined only for x = y (then (xy − 1) | (n + y) with n + y − (xy − 1) = y − x), and τ_xy is
 an involution on its domain; μ is defined on Triv only and lands in Triv.]
+
+**Supplementary pre-registration (item 1b, added after W1–W3 and the screens, before any run of it): canonical
+representation fibres.** Always-present *principal* seeds: the ideals (2a + √−p)·… attached to representations of p.
+For d ∈ {1, 2, 3, 5, 7} let a_c(p) := w/2 where p = x² + d·w² with w even (exists and is unique up to sign for d = 1, 2, 3, 7
+when p ≡ 1 (mod 24) and, for d = 7, (p/7) = 1; for d = 5 only when p is represented by the principal form of
+discriminant −20); then N_{a_c} = p + 4a_c²d = x² + 2d·w². Prediction (Lemma REP, §2, proved before the run): the fibre
+a_c is *barren* (no divisor A ≡ −1 mod 4a_c d) for every p ≡ 1 (mod 8) and every such d. Kill/check: any good divisor in a
+canonical fibre refutes the lemma (bug); otherwise CERTIFIED on W1–W3. Comparison (descriptive): fraction of good
+fibres among a ∈ [a_c/2, 2a_c] ∖ {a_c}.
