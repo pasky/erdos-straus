@@ -1,0 +1,3 @@
+# jcheck d=1 p==1(8) in [20000,30000): primes 240, good classes 2968, J-overlap pairs 148, violations of 2 m m' >= n: 0; classes with 2 m^2 < n: 2492
+# jcheck d=1 p==1(8) in [1000000,1004000): primes 83, good classes 2104, J-overlap pairs 28, violations of 2 m m' >= n: 0; classes with 2 m^2 < n: 1870
+# jcheck d=1 p==1(8) in [4000000,4003000): primes 47, good classes 1510, J-overlap pairs 6, violations of 2 m m' >= n: 0; classes with 2 m^2 < n: 1364

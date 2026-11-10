@@ -131,6 +131,51 @@ def part2b(setname, out, cap=8, seed=7070):
         for l_ in lines: fh.write('# ' + l_ + '\n')
     print(setname, len(dsum['S1']), nwit, ndec_fail); print('\n'.join(lines))
 
+def part2c(setname, out, starfile, cap=8, seed=7171):
+    # (*) witnesses: p = 4uBC - u - B, d = 4uC - 1 <= 1e5; ideal (d, 2uC + sqrt(-Cp)) <-> form [d, 4uC, C(u+B)], disc -4Cp
+    rng = random.Random(seed + {'H_train': 1, 'H_test': 2, 'CTRL': 3, 'BAND': 4}[setname])
+    keep = set(prime_set(setname)); S = {}; cur = None
+    for l in gzip.open(starfile, 'rt'):
+        t = l.split()
+        if t[0] == 'S': cur = int(t[1]) if int(t[1]) in keep else None; continue
+        if cur is not None: S.setdefault(cur, []).append(tuple(int(x) for x in t[:4]))
+    dsum = {'S1': [], 'S2': [], 'S3': []}; nwit = 0; nfail = 0
+    with open(out, 'w') as fh:
+        fh.write('# p u B C d h | real S1 S2 S3 | decoy1 (f r S1 S2 S3) | decoy2\n')
+        for p in sorted(S):
+            ws = [w for w in S[p] if w[2]*p <= 10**13]
+            if not ws: continue
+            ws = rng.sample(ws, min(cap, len(ws)))
+            per = {'S1': [], 'S2': [], 'S3': []}
+            for (u, B, Cc, dd) in ws:
+                assert 4*u*B*Cc - u - B == p and dd == 4*u*Cc - 1
+                D = -4*Cc*p; h = h_of(D); hf = list(factorint(h))
+                def st(fr):
+                    o = form_order(fr, D, h, hf)
+                    return (math.log(o)/math.log(h) if h > 1 else 0.0, v2(o), int(o % 3 == 0))
+                real = st(pari.Qfb(dd, 4*u*Cc, Cc*(u + B)))
+                decs = []
+                for _ in range(2):
+                    x = decoy(dd, Cc, p, rng)
+                    if x is None: break
+                    g, r = x; decs.append((g, r) + st(pari.Qfb(g, 2*r, (r*r + Cc*p)//g)))
+                if len(decs) < 2: nfail += 1; continue
+                nwit += 1
+                for i, k in enumerate(('S1', 'S2', 'S3')):
+                    per[k].append(real[i] - (decs[0][2+i] + decs[1][2+i])/2)
+                fh.write(f"{p} {u} {B} {Cc} {dd} {h} | {real[0]:.4f} {real[1]} {real[2]} | " +
+                         ' | '.join(f"{g} {r} {a:.4f} {b} {c}" for (g, r, a, b, c) in decs) + '\n')
+            if per['S1']:
+                for k in per: dsum[k].append(sum(per[k])/len(per[k]))
+        lines = []
+        for k, v in dsum.items():
+            m = sum(v)/len(v); s_ = math.sqrt(sum((x-m)**2 for x in v)/(len(v)-1)/len(v))
+            lines.append(f"{k}: mean(real - decoy) {m:+.4f} ± {s_:.4f}  z {m/s_ if s_ > 0 else float('nan'):+.2f}")
+        fh.write(f"# {setname} (star): primes {len(dsum['S1'])}, witnesses {nwit}, decoy failures {nfail}\n")
+        for l_ in lines: fh.write('# ' + l_ + '\n')
+    print(setname, len(dsum['S1']), nwit, nfail); print('\n'.join(lines))
+
 if __name__ == "__main__":
     if sys.argv[1] == '2a': part2a(sys.argv[2])
+    elif sys.argv[1] == '2c': part2c(sys.argv[2], sys.argv[3], sys.argv[4])
     else: part2b(sys.argv[2], sys.argv[3])
