@@ -1,7 +1,7 @@
 # Z69_TWIST — pushing the surviving twists of the z69 ideation lanes: no forcing mechanism found (tested proposals killed, reduced, or left unresolved); by-product = fixed-gap Vieta-descent sterility theorems for Type I; not a HOT LEAD
 
-**ES is OPEN. Nothing here proves or disproves it.** Status: final draft (verdict §6: **narrowed / dead on the
-triaged twists**; no forcing mechanism found).
+**ES is OPEN. Nothing here proves or disproves it.** Status: final; internal hostile review ×3 applied (§7); waiting for
+the cross-model review; not merged (verdict §6: **narrowed / dead on the triaged twists**; no forcing mechanism).
 Sources: `Z69_IDEAB.md` §1 (branch `side-agent/z69-ideab`), `data/z69/xreview/REVIEW_IDEAB.md` table A
 (branch `side-agent/z69-xrev-ideab`), `Z69_IDEAA.md` + `data/z69/xreview/REVIEW_IDEAA.md` "Possibly-premature
 dismissals". Scripts `scripts/z69_twist_*`, data `data/z69/twist/`. Labels: PROVED / CONDITIONAL / CERTIFIED /
@@ -16,7 +16,7 @@ Notation (IDEAB §1.0, p ≡ 1 (4) prime, all letters positive integers):
 
 ## 0. Mandatory falsifier table (checkpoint-1 version; restated at the end)
 
-Checkpoint 1 holds only *triage* objects (kill lemmas and census tests); the table for the pushed survivors is in §4.
+Checkpoint 1 holds only *triage* objects (kill lemmas and census tests); the final table is in §5.
 
 | screen | behaviour of the triage results | label |
 |---|---|---|
@@ -25,7 +25,9 @@ Checkpoint 1 holds only *triage* objects (kill lemmas and census tests); the tab
 | **F3 composites** | Lemma V needs no primality (it holds for all odd M = (n+1)/2). The parity lemma P (§3, I5: total word count odd) holds at primes *and* at 105 and at 9, where U₇ fails — this is exactly why it cannot force anything (§3). | PROVED |
 | **F4 known zeros** | No positivity claim at checkpoint 1. | — |
 
-**Pre-registered kill tests (fixed before the corresponding computation):**
+**Pre-registered kill tests** (K-I9, K-I17, K-I23 were fixed before their computations; K-#11 was written down
+only after its search had returned 0 hits and Lemma V had been found — listed for completeness, not as a
+pre-registration; the I5 word census also preceded this list):
 * K-I9: on the hard sets (14 (★)-zero primes, 38 𝔊*-zero primes, 231 prime-witness-free primes ≤ 10⁹, restricted to
   the six Mordell classes mod 840 where p = X² + 840Y²), the indicator Q(p) := [∃ prime q ∣ X with (840/q) = −1]
   has frequency within 3σ of matched random primes of the same classes and size ⟹ classifier dead.
