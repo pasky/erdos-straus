@@ -47,7 +47,7 @@ Checkpoint 1 holds only *triage* objects (kill lemmas and census tests); the tab
 | **I23** twisted trace at √p | every ES-solvable p has a triple with a twisted lift | K-I23 fired: no lift for 36 of the 37 primes p ≡ 1 (4) below 400 (only p = 5 has one) (§3) | **dead as mechanism, EVIDENCE** |
 | **I24** cross-d transport | the d ↦ d + 1 lattice map carries solutions | **proved** to be the K1 t-form: (★) ⟺ ∃ t, a ∣ t: a + t/a ≡ −p (mod 4t) (§3) | **reduces (PROVED)**; no transport |
 | **I5** non-affine involution | a cross-slice involution with controllable fixed points | Lemma P + census: no parity law (§3); the Vieta map ι of §4 *is* a non-affine cross-n involution for Type I, but it never fixes n | **open in general; the one specified map gives sterility only** |
-| **I6** mock completion | G(q) = Σ q^{4abd−a−b} has a GL₂ (mock) modular completion | not testable in 30 min; G(e^{−t}) ~ (8t)⁻¹ log²(1/t) (three free divisor variables) — a ζ³-type object (§3) | **untested; Assessment: low** |
+| **I6** mock completion | G(q) = Σ q^{4abd−a−b} has a GL₂ (mock) modular completion | no numerical test; fibrewise the series is ½(Maass weight-0 Eisenstein − holomorphic weight-1 Eisenstein), nothing to complete (§3) | **no content fibrewise (PROVED decomposition); sum over d untested; Assessment: low** |
 | **I12** target-only forcing | CRT-forced smooth part of p + u hits −1 (mod 4u) | algebra: the forced part is exactly the C-form covering class (§3) | **reduces (PROVED)** to covering |
 
 **Blunt summary of the triage.** None of the ten items yields a mechanism that forces a tied divisor event. Two
@@ -213,12 +213,20 @@ c = 1) in the coordinates (s, t). *Verdict:* re-encoding of the covering form; n
 
 ### I6 (mock / harmonic completion) and I12 (target-only forcing). Statements only.
 
-* **I6.** #{(a, b, d) : 4abd − a − b ≤ x} ~ (x/8) log²x (three free divisor variables), so G(e^{−t}) ~ (8t)⁻¹ log²(1/t)
-  as t → 0⁺ (PROVED, elementary Abelian theorem). The d-fibres are weight-1 Eisenstein-type series of level growing
-  with d (`METAPLECTIC_ES.md` Thm K); the full sum is a triple Lambert series with a cubic exponent, of the type of
-  Σ d₃(n)qⁿ. No completion or transformation law was derived here and none was tested. *Assessment:* even a
-  completion would give an identity for the generating function, and positivity of one coefficient would still
-  need a pointwise bound for the non-Eisenstein part at a single prime.
+* **I6.** (a) #{(a, b, d) : 4abd − a − b ≤ x} ~ (x/8) log²x (three free divisor variables), so
+  G(e^{−t}) ~ (8t)⁻¹ log²(1/t) as t → 0⁺ (PROVED, elementary Abelian theorem). (b) Fibre decomposition (PROVED,
+  orthogonality of characters): R(n) = Σ_d r_d(4dn + 1), r_d(N) := #{A ∣ N : A ≡ −1 (4d)}, and for N ≡ 1 (4d)
+    r_d(N) = ½(E_d(N) − O_d(N)),  E_d := #{A ∣ N : A ≡ ±1 (4d)} = (2/φ(4d)) Σ_{χ even} Σ_{A∣N} χ(A),
+    O_d := #{A ≡ 1} − #{A ≡ −1} = (2/φ(4d)) Σ_{χ odd} Σ_{A∣N} χ(A).
+  For odd χ, Σ_{A∣N} χ(A) is the N-th coefficient of Hecke's holomorphic weight-1 Eisenstein series; for even χ it
+  is the N-th coefficient of the weight-0 real-analytic Eisenstein series at s = ½ (standard facts, not
+  re-derived here). So each fibre is already a difference of two honest Eisenstein coefficients of *different*
+  type (holomorphic weight 1 and Maass weight 0, eigenvalue ¼) with no cuspidal part and no shadow to complete:
+  the "mock" question has no content fibrewise, and the whole difficulty is the sum over d of coefficients of
+  level-4d objects at the tied argument 4dn + 1 (this is the E/O decomposition of `Z69_IDEAA.md` §3.1). No
+  completion or transformation law for the sum over d was derived or tested. *Assessment:* low; a completion would
+  have to mix weights 0 and 1 and growing levels, and positivity of one coefficient would still need a pointwise
+  statement at a single prime.
 * **I12.** Let D be any integer ≡ 3 (4) and k ∣ (D + 1)/4, u := (D + 1)/(4k). Then D ∣ p + u ⟺ D ∣ 4kp + 1
   (PROVED: 4k(p + u) = 4kp + 1 + D). So "choose u by CRT so that a prescribed D divides p + u and D ≡ −1 (4u)" is
   the condition p ≡ −(4k)⁻¹ (mod D) with k ∣ (D + 1)/4 — a class of the covering system (C-form), τ((D+1)/4)
