@@ -183,6 +183,6 @@ if __name__ == "__main__":
         nl = [int(l.split()[0]) for l in open(spec[1]) if l.strip() and not l.startswith('#')]
         if len(spec) > 2: nl = [x for x in nl if x <= int(spec[2])]
     else:
-        nl = [int(x) for x in spec[1:]]
+        nl = sorted(set(int(x) for x in spec[1:]))
     F = Fact(max(nl)//3 + 10)
     run(null, d, R, nl, F, seed=seed, tag=' '.join(spec[:3]))
