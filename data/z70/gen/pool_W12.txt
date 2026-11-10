@@ -6,20 +6,35 @@ d=1 all  A    AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0
 d=1 all  A    RED  primes  591 | hits    368 E    388.4 z  -0.94 | coverage  107/ 591 (G>0: 107/590) exp 107.6 z  -0.10 | mean|S|/|T| 0.065
 d=1 all  A    CYC  primes  591 | hits   1210 E   1225.7 z  -0.74 | coverage  486/ 591 (G>0: 486/590) exp 482.6 z  +0.78 | mean|S|/|T| 0.083
 d=1 all  A    GEN2 primes  591 | hits   1480 E   1378.8 z  +4.23 | coverage  497/ 591 (G>0: 497/590) exp 488.0 z  +2.02 | mean|S|/|T| 0.067
-d=1 all  CYC first entry k (G>0, n=590): k=1: 451, 3: 5, 5: 9, 7: 13, 9: 8, >9: 91
+d=1 all  AC   AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0/ 591 (G>0: 0/590) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=1 all  AC   RED  primes  591 | hits    368 E    388.4 z  -1.21 | coverage  107/ 591 (G>0: 107/590) exp 109.0 z  -0.31 | mean|S|/|T| 0.065
+d=1 all  AC   CYC  primes  591 | hits   1210 E   1225.7 z  -0.77 | coverage  486/ 591 (G>0: 486/590) exp 483.5 z  +0.56 | mean|S|/|T| 0.083
+d=1 all  AC   GEN2 primes  591 | hits   1480 E   1378.8 z  +5.24 | coverage  497/ 591 (G>0: 497/590) exp 491.5 z  +1.26 | mean|S|/|T| 0.067
+d=1 all  CYC first entry k (G>0, n=590): k=1: 451, 3: 5, 5: 9, 7: 13, 9: 8, >9: 91, none (G meets no odd multiple): 13
+d=1 all  seed-identity CYC: hit classes 1210 | a generating seed ideal is itself natural 956 | reduced ideal natural 1208 | no generating ideal 0
+d=1 all  seed-identity GEN2: hit classes 1480 | a generating seed ideal is itself natural 1480 | reduced ideal natural 1480 | no generating ideal 0
 d=1 all  2a r4 constant (1)
 d=1 all  2a r8: log(1+|G|) within-p mod 840 t  +0.54 (n 591); 1[G empty] t  -0.98; dist {1: 318, 0: 273}
-d=1 all  2b positions: chi2 1701.6 df 1876 z  -2.85
+d=1 all  2b positions: chi2 1701.6, nominal df 1876, finite-population expectation (B-1)(N-K)/(N-1) = 1740.1 (descriptive; no calibrated z)
 d=1 all  empty G: 1 of 591
 d=1 all  it3 j=-2 primes  591 | non-I reached   5614 | III hits     0  E_unif   137.1 z  -8.68  E_alpha   135.7 z  -9.12
+d=1 all  it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   235.5 z -11.49  E_alphaC   154.5 z -11.22
 d=1 all  it3 j=-1 primes  591 | non-I reached  10726 | III hits     0  E_unif   256.4 z -12.21  E_alpha   253.5 z -12.20
+d=1 all  it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   386.1 z -15.12  E_alphaC   310.2 z -15.45
 d=1 all  it3 j= 0 primes  591 | non-I reached  20198 | III hits     0  E_unif   485.1 z -17.85  E_alpha   380.9 z -14.75
+d=1 all  it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   625.5 z -20.45  E_alphaC   492.1 z -19.14
 d=1 all  it3 j= 1 primes  591 | non-I reached  30350 | III hits     0  E_unif   730.4 z -23.58  E_alpha   501.5 z -16.81
+d=1 all  it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   852.2 z -25.66  E_alphaC   571.9 z -21.69
 d=1 all  it3 j= 2 primes  591 | non-I reached  42608 | III hits   108  E_unif  1039.4 z -28.24  E_alpha   752.2 z -17.67
+d=1 all  it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits   114  E_unif  1139.4 z -29.88  E_alphaC   801.5 z -24.64
 d=1 all  it3 j= 3 primes  591 | non-I reached  56294 | III hits   648  E_unif  1381.2 z -22.42  E_alpha  1160.0 z -11.47
+d=1 all  it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits   666  E_unif  1434.7 z -23.13  E_alphaC  1195.9 z -18.61
 d=1 all  it3 j= 4 primes  591 | non-I reached  68826 | III hits  1226  E_unif  1710.3 z -15.97  E_alpha  1587.0 z  -7.01
+d=1 all  it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits  1244  E_unif  1742.6 z -16.34  E_alphaC  1613.1 z -13.54
 d=1 all  it3 j= 5 primes  591 | non-I reached  79132 | III hits  1732  E_unif  2007.9 z -10.52  E_alpha  1941.5 z  -3.71
+d=1 all  it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits  1742  E_unif  2017.3 z -10.49  E_alphaC  1951.3 z  -8.85
 d=1 all  it3 j= 6 primes  591 | non-I reached  85326 | III hits  2038  E_unif  2195.9 z  -7.01  E_alpha  2169.8 z  -2.22
+d=1 all  it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits  2038  E_unif  2195.9 z  -7.01  E_alphaC  2169.8 z  -6.41
 d=1 all  it3 first entry (G>0): type I 567, type III 13, none within X 10; FR-violations 0
 d=1 M    U    AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0/ 135 (G>0: 0/135) exp 0.0 z   +nan | mean|S|/|T| 0.000
 d=1 M    U    RED  primes  135 | hits     72 E     77.7 z  -0.64 | coverage   23/ 135 (G>0: 23/135) exp 23.5 z  -0.12 | mean|S|/|T| 0.058
@@ -29,20 +44,35 @@ d=1 M    A    AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0
 d=1 M    A    RED  primes  135 | hits     72 E     72.0 z  +0.00 | coverage   23/ 135 (G>0: 23/135) exp 20.7 z  +0.73 | mean|S|/|T| 0.058
 d=1 M    A    CYC  primes  135 | hits    222 E    239.8 z  -1.79 | coverage  101/ 135 (G>0: 101/135) exp 98.8 z  +0.80 | mean|S|/|T| 0.075
 d=1 M    A    GEN2 primes  135 | hits    316 E    311.6 z  +0.34 | coverage  105/ 135 (G>0: 105/135) exp 103.1 z  +0.69 | mean|S|/|T| 0.060
-d=1 M    CYC first entry k (G>0, n=135): k=1: 89, 3: 1, 5: 5, 7: 5, 9: 1, >9: 30
+d=1 M    AC   AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0/ 135 (G>0: 0/135) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=1 M    AC   RED  primes  135 | hits     72 E     72.0 z  +0.01 | coverage   23/ 135 (G>0: 23/135) exp 21.0 z  +0.66 | mean|S|/|T| 0.058
+d=1 M    AC   CYC  primes  135 | hits    222 E    239.8 z  -1.86 | coverage  101/ 135 (G>0: 101/135) exp 99.2 z  +0.67 | mean|S|/|T| 0.075
+d=1 M    AC   GEN2 primes  135 | hits    316 E    311.6 z  +0.39 | coverage  105/ 135 (G>0: 105/135) exp 104.7 z  +0.12 | mean|S|/|T| 0.060
+d=1 M    CYC first entry k (G>0, n=135): k=1: 89, 3: 1, 5: 5, 7: 5, 9: 1, >9: 30, none (G meets no odd multiple): 4
+d=1 M    seed-identity CYC: hit classes 222 | a generating seed ideal is itself natural 180 | reduced ideal natural 222 | no generating ideal 0
+d=1 M    seed-identity GEN2: hit classes 316 | a generating seed ideal is itself natural 316 | reduced ideal natural 316 | no generating ideal 0
 d=1 M    2a r4 constant (1)
 d=1 M    2a r8: log(1+|G|) within-p mod 840 t  +0.74 (n 135); 1[G empty] t   +nan; dist {1: 65, 0: 70}
-d=1 M    2b positions: chi2 378.4 df 394 z  -0.56
+d=1 M    2b positions: chi2 378.4, nominal df 394, finite-population expectation (B-1)(N-K)/(N-1) = 370.9 (descriptive; no calibrated z)
 d=1 M    empty G: 0 of 135
 d=1 M    it3 j=-2 primes  135 | non-I reached   1328 | III hits     0  E_unif    32.5 z  -4.22  E_alpha    37.7 z  -4.88
+d=1 M    it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    48.7 z  -5.20  E_alphaC    41.3 z  -5.95
 d=1 M    it3 j=-1 primes  135 | non-I reached   2420 | III hits     0  E_unif    60.0 z  -5.89  E_alpha    63.0 z  -6.17
+d=1 M    it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    79.7 z  -6.83  E_alphaC    72.3 z  -7.47
 d=1 M    it3 j= 0 primes  135 | non-I reached   4462 | III hits     0  E_unif   109.5 z  -8.42  E_alpha    92.9 z  -7.34
+d=1 M    it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   129.4 z  -9.19  E_alphaC   106.4 z  -8.84
 d=1 M    it3 j= 1 primes  135 | non-I reached   6666 | III hits     0  E_unif   164.6 z -11.03  E_alpha   121.2 z  -8.30
+d=1 M    it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   184.7 z -11.74  E_alphaC   130.5 z -10.26
 d=1 M    it3 j= 2 primes  135 | non-I reached   9582 | III hits    30  E_unif   238.5 z -12.92  E_alpha   183.1 z  -8.52
+d=1 M    it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits    30  E_unif   254.7 z -13.50  E_alphaC   188.8 z -11.36
 d=1 M    it3 j= 3 primes  135 | non-I reached  12616 | III hits   136  E_unif   315.2 z -11.06  E_alpha   269.4 z  -6.18
+d=1 M    it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits   136  E_unif   319.4 z -11.25  E_alphaC   272.6 z  -9.50
 d=1 M    it3 j= 4 primes  135 | non-I reached  15658 | III hits   286  E_unif   396.9 z  -7.33  E_alpha   375.7 z  -3.58
+d=1 M    it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits   286  E_unif   399.7 z  -7.49  E_alphaC   376.4 z  -6.47
 d=1 M    it3 j= 5 primes  135 | non-I reached  18288 | III hits   394  E_unif   468.5 z  -5.68  E_alpha   457.6 z  -2.30
+d=1 M    it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits   394  E_unif   468.5 z  -5.68  E_alphaC   457.6 z  -5.16
 d=1 M    it3 j= 6 primes  135 | non-I reached  20020 | III hits   478  E_unif   517.1 z  -3.48  E_alpha   510.4 z  -1.11
+d=1 M    it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits   478  E_unif   517.1 z  -3.48  E_alphaC   510.4 z  -3.10
 d=1 M    it3 first entry (G>0): type I 127, type III 5, none within X 3; FR-violations 0
 d=1 nonM U    AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0/ 456 (G>0: 0/455) exp 0.0 z   +nan | mean|S|/|T| 0.000
 d=1 nonM U    RED  primes  456 | hits    296 E    352.3 z  -2.83 | coverage   84/ 456 (G>0: 84/455) exp 104.7 z  -2.73 | mean|S|/|T| 0.067
@@ -52,20 +82,35 @@ d=1 nonM A    AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0
 d=1 nonM A    RED  primes  456 | hits    296 E    316.4 z  -1.05 | coverage   84/ 456 (G>0: 84/455) exp 86.9 z  -0.50 | mean|S|/|T| 0.067
 d=1 nonM A    CYC  primes  456 | hits    988 E    985.9 z  +0.11 | coverage  385/ 456 (G>0: 385/455) exp 383.8 z  +0.36 | mean|S|/|T| 0.085
 d=1 nonM A    GEN2 primes  456 | hits   1164 E   1067.2 z  +4.82 | coverage  392/ 456 (G>0: 392/455) exp 385.0 z  +2.03 | mean|S|/|T| 0.069
-d=1 nonM CYC first entry k (G>0, n=455): k=1: 362, 3: 4, 5: 4, 7: 8, 9: 7, >9: 61
+d=1 nonM AC   AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0/ 456 (G>0: 0/455) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=1 nonM AC   RED  primes  456 | hits    296 E    316.4 z  -1.34 | coverage   84/ 456 (G>0: 84/455) exp 88.1 z  -0.71 | mean|S|/|T| 0.067
+d=1 nonM AC   CYC  primes  456 | hits    988 E    985.9 z  +0.12 | coverage  385/ 456 (G>0: 385/455) exp 384.3 z  +0.19 | mean|S|/|T| 0.085
+d=1 nonM AC   GEN2 primes  456 | hits   1164 E   1067.2 z  +6.15 | coverage  392/ 456 (G>0: 392/455) exp 386.9 z  +1.51 | mean|S|/|T| 0.069
+d=1 nonM CYC first entry k (G>0, n=455): k=1: 362, 3: 4, 5: 4, 7: 8, 9: 7, >9: 61, none (G meets no odd multiple): 9
+d=1 nonM seed-identity CYC: hit classes 988 | a generating seed ideal is itself natural 776 | reduced ideal natural 986 | no generating ideal 0
+d=1 nonM seed-identity GEN2: hit classes 1164 | a generating seed ideal is itself natural 1164 | reduced ideal natural 1164 | no generating ideal 0
 d=1 nonM 2a r4 constant (1)
 d=1 nonM 2a r8: log(1+|G|) within-p mod 840 t  +0.19 (n 456); 1[G empty] t  -0.98; dist {1: 253, 0: 203}
-d=1 nonM 2b positions: chi2 1323.2 df 1482 z  -2.92
+d=1 nonM 2b positions: chi2 1323.2, nominal df 1482, finite-population expectation (B-1)(N-K)/(N-1) = 1369.2 (descriptive; no calibrated z)
 d=1 nonM empty G: 1 of 456
 d=1 nonM it3 j=-2 primes  456 | non-I reached   4286 | III hits     0  E_unif   104.6 z  -7.59  E_alpha    98.1 z  -7.70
+d=1 nonM it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   186.8 z -10.25  E_alphaC   113.2 z  -9.52
 d=1 nonM it3 j=-1 primes  456 | non-I reached   8306 | III hits     0  E_unif   196.5 z -10.70  E_alpha   190.4 z -10.52
+d=1 nonM it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   306.4 z -13.49  E_alphaC   237.9 z -13.52
 d=1 nonM it3 j= 0 primes  456 | non-I reached  15736 | III hits     0  E_unif   375.6 z -15.75  E_alpha   287.9 z -12.79
+d=1 nonM it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   496.1 z -18.27  E_alphaC   385.7 z -16.98
 d=1 nonM it3 j= 1 primes  456 | non-I reached  23684 | III hits     0  E_unif   565.9 z -20.85  E_alpha   380.3 z -14.62
+d=1 nonM it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   667.4 z -22.82  E_alphaC   441.4 z -19.11
 d=1 nonM it3 j= 2 primes  456 | non-I reached  33026 | III hits    78  E_unif   800.9 z -25.13  E_alpha   569.1 z -15.48
+d=1 nonM it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits    84  E_unif   884.7 z -26.68  E_alphaC   612.7 z -21.89
 d=1 nonM it3 j= 3 primes  456 | non-I reached  43678 | III hits   512  E_unif  1066.0 z -19.50  E_alpha   890.6 z  -9.69
+d=1 nonM it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits   530  E_unif  1115.3 z -20.21  E_alphaC   923.3 z -16.00
 d=1 nonM it3 j= 4 primes  456 | non-I reached  53168 | III hits   940  E_unif  1313.4 z -14.20  E_alpha  1211.3 z  -6.03
+d=1 nonM it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits   958  E_unif  1342.9 z -14.54  E_alphaC  1236.7 z -11.90
 d=1 nonM it3 j= 5 primes  456 | non-I reached  60844 | III hits  1338  E_unif  1539.4 z  -8.87  E_alpha  1483.9 z  -2.96
+d=1 nonM it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits  1348  E_unif  1548.8 z  -8.84  E_alphaC  1493.7 z  -7.21
 d=1 nonM it3 j= 6 primes  456 | non-I reached  65306 | III hits  1560  E_unif  1678.9 z  -6.08  E_alpha  1659.4 z  -1.92
+d=1 nonM it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits  1560  E_unif  1678.9 z  -6.08  E_alphaC  1659.4 z  -5.61
 d=1 nonM it3 first entry (G>0): type I 440, type III 8, none within X 7; FR-violations 0
 
 d=2 all  U    AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0/ 591 (G>0: 0/586) exp 0.0 z   +nan | mean|S|/|T| 0.000
@@ -76,20 +121,35 @@ d=2 all  A    AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0
 d=2 all  A    RED  primes  591 | hits    208 E    176.7 z  +1.90 | coverage   61/ 591 (G>0: 61/586) exp 55.1 z  +1.07 | mean|S|/|T| 0.024
 d=2 all  A    CYC  primes  591 | hits    264 E    333.6 z  -3.81 | coverage  115/ 591 (G>0: 115/586) exp 148.8 z  -4.38 | mean|S|/|T| 0.029
 d=2 all  A    GEN2 primes  591 | hits   1062 E    966.7 z  +3.55 | coverage  470/ 591 (G>0: 470/586) exp 361.3 z +12.39 | mean|S|/|T| 0.024
-d=2 all  CYC first entry k (G>0, n=586): k=1: 63, 3: 3, 5: 20, 7: 15, 9: 14, >9: 440
+d=2 all  AC   AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0/ 591 (G>0: 0/586) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=2 all  AC   RED  primes  591 | hits    208 E    176.7 z  +2.22 | coverage   61/ 591 (G>0: 61/586) exp 55.8 z  +0.95 | mean|S|/|T| 0.024
+d=2 all  AC   CYC  primes  591 | hits    264 E    333.6 z  -3.91 | coverage  115/ 591 (G>0: 115/586) exp 150.5 z  -4.62 | mean|S|/|T| 0.029
+d=2 all  AC   GEN2 primes  591 | hits   1062 E    966.7 z  +5.17 | coverage  470/ 591 (G>0: 470/586) exp 408.3 z  +8.88 | mean|S|/|T| 0.024
+d=2 all  CYC first entry k (G>0, n=586): k=1: 63, 3: 3, 5: 20, 7: 15, 9: 14, >9: 440, none (G meets no odd multiple): 31
+d=2 all  seed-identity CYC: hit classes 264 | a generating seed ideal is itself natural 128 | reduced ideal natural 264 | no generating ideal 0
+d=2 all  seed-identity GEN2: hit classes 1062 | a generating seed ideal is itself natural 1062 | reduced ideal natural 1062 | no generating ideal 0
 d=2 all  2a r4 constant (1)
 d=2 all  2a r8: log(1+|G|) within-p mod 840 t  -1.00 (n 591); 1[G empty] t  +0.25; dist {0: 292, 1: 299}
-d=2 all  2b positions: chi2 1704.3 df 1857 z  -2.51
+d=2 all  2b positions: chi2 1704.3, nominal df 1857, finite-population expectation (B-1)(N-K)/(N-1) = 1794.4 (descriptive; no calibrated z)
 d=2 all  empty G: 5 of 591
 d=2 all  it3 j=-2 primes  591 | non-I reached  28446 | III hits     0  E_unif   583.9 z -18.30  E_alpha  1134.9 z -27.19
+d=2 all  it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   790.9 z -21.41  E_alphaC  1287.0 z -35.48
 d=2 all  it3 j=-1 primes  591 | non-I reached  46460 | III hits     0  E_unif   953.2 z -24.37  E_alpha  1434.5 z -29.89
+d=2 all  it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif  1242.2 z -27.98  E_alphaC  1684.2 z -39.39
 d=2 all  it3 j= 0 primes  591 | non-I reached  78612 | III hits     4  E_unif  1613.6 z -34.46  E_alpha  1709.7 z -32.04
+d=2 all  it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     6  E_unif  1991.9 z -38.55  E_alphaC  2053.4 z -42.40
 d=2 all  it3 j= 1 primes  591 | non-I reached 116558 | III hits   190  E_unif  2384.0 z -43.64  E_alpha  2005.6 z -31.15
+d=2 all  it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits   224  E_unif  2792.0 z -47.65  E_alphaC  2314.1 z -42.83
 d=2 all  it3 j= 2 primes  591 | non-I reached 158024 | III hits  1002  E_unif  3230.4 z -45.07  E_alpha  2531.5 z -23.08
+d=2 all  it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits  1060  E_unif  3591.5 z -49.04  E_alphaC  2770.3 z -35.69
 d=2 all  it3 j= 3 primes  591 | non-I reached 198904 | III hits  2160  E_unif  4048.0 z -42.83  E_alpha  3262.3 z -14.57
+d=2 all  it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits  2220  E_unif  4355.3 z -47.17  E_alphaC  3440.6 z -27.90
 d=2 all  it3 j= 4 primes  591 | non-I reached 232096 | III hits  3284  E_unif  4697.6 z -39.34  E_alpha  3999.2 z  -8.56
+d=2 all  it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits  3344  E_unif  4900.2 z -42.74  E_alphaC  4118.8 z -20.94
 d=2 all  it3 j= 5 primes  591 | non-I reached 254130 | III hits  4194  E_unif  5121.3 z -33.27  E_alpha  4651.6 z  -5.12
+d=2 all  it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits  4226  E_unif  5222.7 z -35.57  E_alphaC  4710.8 z -16.56
 d=2 all  it3 j= 6 primes  591 | non-I reached 266618 | III hits  5002  E_unif  5364.1 z -17.03  E_alpha  5195.5 z  -2.08
+d=2 all  it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits  5002  E_unif  5364.1 z -17.03  E_alphaC  5195.5 z  -9.00
 d=2 all  it3 first entry (G>0): type I 526, type III 54, none within X 6; FR-violations 0
 d=2 M    U    AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0/ 135 (G>0: 0/130) exp 0.0 z   +nan | mean|S|/|T| 0.000
 d=2 M    U    RED  primes  135 | hits     36 E     28.1 z  +1.10 | coverage   14/ 135 (G>0: 14/130) exp 12.1 z  +0.62 | mean|S|/|T| 0.021
@@ -99,20 +159,35 @@ d=2 M    A    AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0
 d=2 M    A    RED  primes  135 | hits     36 E     23.4 z  +1.96 | coverage   14/ 135 (G>0: 14/130) exp 10.0 z  +1.54 | mean|S|/|T| 0.021
 d=2 M    A    CYC  primes  135 | hits     48 E     56.0 z  -0.96 | coverage   22/ 135 (G>0: 22/130) exp 25.4 z  -0.93 | mean|S|/|T| 0.039
 d=2 M    A    GEN2 primes  135 | hits    124 E    111.0 z  +1.16 | coverage   56/ 135 (G>0: 56/130) exp 43.9 z  +3.04 | mean|S|/|T| 0.032
-d=2 M    CYC first entry k (G>0, n=130): k=1: 8, 3: 3, 5: 4, 7: 2, 9: 5, >9: 96
+d=2 M    AC   AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0/ 135 (G>0: 0/130) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=2 M    AC   RED  primes  135 | hits     36 E     23.4 z  +2.03 | coverage   14/ 135 (G>0: 14/130) exp 10.2 z  +1.47 | mean|S|/|T| 0.021
+d=2 M    AC   CYC  primes  135 | hits     48 E     56.0 z  -1.01 | coverage   22/ 135 (G>0: 22/130) exp 26.3 z  -1.20 | mean|S|/|T| 0.039
+d=2 M    AC   GEN2 primes  135 | hits    124 E    111.0 z  +1.46 | coverage   56/ 135 (G>0: 56/130) exp 49.0 z  +1.94 | mean|S|/|T| 0.032
+d=2 M    CYC first entry k (G>0, n=130): k=1: 8, 3: 3, 5: 4, 7: 2, 9: 5, >9: 96, none (G meets no odd multiple): 12
+d=2 M    seed-identity CYC: hit classes 48 | a generating seed ideal is itself natural 16 | reduced ideal natural 48 | no generating ideal 0
+d=2 M    seed-identity GEN2: hit classes 124 | a generating seed ideal is itself natural 124 | reduced ideal natural 124 | no generating ideal 0
 d=2 M    2a r4 constant (1)
 d=2 M    2a r8: log(1+|G|) within-p mod 840 t  -0.10 (n 135); 1[G empty] t  +0.25; dist {1: 73, 0: 62}
-d=2 M    2b positions: chi2 259.6 df 278 z  -0.78
+d=2 M    2b positions: chi2 259.6, nominal df 278, finite-population expectation (B-1)(N-K)/(N-1) = 270.2 (descriptive; no calibrated z)
 d=2 M    empty G: 5 of 135
 d=2 M    it3 j=-2 primes  135 | non-I reached   3562 | III hits     0  E_unif    75.9 z  -6.55  E_alpha   110.6 z  -8.22
+d=2 M    it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    92.1 z  -7.24  E_alphaC   116.3 z -10.14
 d=2 M    it3 j=-1 primes  135 | non-I reached   5400 | III hits     0  E_unif   113.0 z  -8.19  E_alpha   148.1 z  -9.36
+d=2 M    it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   131.4 z  -8.86  E_alphaC   157.7 z -11.32
 d=2 M    it3 j= 0 primes  135 | non-I reached   9152 | III hits     0  E_unif   193.0 z -11.39  E_alpha   185.5 z -10.35
+d=2 M    it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   215.9 z -12.08  E_alphaC   203.1 z -12.57
 d=2 M    it3 j= 1 primes  135 | non-I reached  13274 | III hits    26  E_unif   278.9 z -13.41  E_alpha   222.2 z  -9.92
+d=2 M    it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits    28  E_unif   301.3 z -13.99  E_alphaC   236.2 z -12.34
 d=2 M    it3 j= 2 primes  135 | non-I reached  18574 | III hits   148  E_unif   391.8 z -12.29  E_alpha   306.3 z  -6.77
+d=2 M    it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits   152  E_unif   411.8 z -12.82  E_alphaC   318.3 z  -9.23
 d=2 M    it3 j= 3 primes  135 | non-I reached  23946 | III hits   304  E_unif   501.6 z -10.15  E_alpha   420.7 z  -4.28
+d=2 M    it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits   306  E_unif   511.9 z -10.49  E_alphaC   426.4 z  -6.65
 d=2 M    it3 j= 4 primes  135 | non-I reached  30070 | III hits   490  E_unif   621.6 z  -7.42  E_alpha   574.1 z  -2.67
+d=2 M    it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits   492  E_unif   626.1 z  -7.54  E_alphaC   575.7 z  -4.98
 d=2 M    it3 j= 5 primes  135 | non-I reached  35456 | III hits   660  E_unif   722.9 z  -4.16  E_alpha   701.9 z  -1.20
+d=2 M    it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits   662  E_unif   724.8 z  -4.16  E_alphaC   703.9 z  -2.89
 d=2 M    it3 j= 6 primes  135 | non-I reached  38734 | III hits   752  E_unif   783.6 z  -2.45  E_alpha   777.4 z  -0.69
+d=2 M    it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits   752  E_unif   783.6 z  -2.45  E_alphaC   777.4 z  -2.02
 d=2 M    it3 first entry (G>0): type I 87, type III 39, none within X 4; FR-violations 0
 d=2 nonM U    AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0/ 456 (G>0: 0/456) exp 0.0 z   +nan | mean|S|/|T| 0.000
 d=2 nonM U    RED  primes  456 | hits    172 E    165.9 z  +0.41 | coverage   47/ 456 (G>0: 47/456) exp 53.5 z  -1.09 | mean|S|/|T| 0.025
@@ -122,20 +197,35 @@ d=2 nonM A    AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0
 d=2 nonM A    RED  primes  456 | hits    172 E    153.3 z  +1.23 | coverage   47/ 456 (G>0: 47/456) exp 45.2 z  +0.38 | mean|S|/|T| 0.025
 d=2 nonM A    CYC  primes  456 | hits    216 E    277.5 z  -3.80 | coverage   93/ 456 (G>0: 93/456) exp 123.4 z  -4.47 | mean|S|/|T| 0.027
 d=2 nonM A    GEN2 primes  456 | hits    938 E    855.7 z  +3.37 | coverage  414/ 456 (G>0: 414/456) exp 317.4 z +12.35 | mean|S|/|T| 0.021
-d=2 nonM CYC first entry k (G>0, n=456): k=1: 55, 3: 0, 5: 16, 7: 13, 9: 9, >9: 344
+d=2 nonM AC   AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0/ 456 (G>0: 0/456) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=2 nonM AC   RED  primes  456 | hits    172 E    153.3 z  +1.47 | coverage   47/ 456 (G>0: 47/456) exp 45.6 z  +0.28 | mean|S|/|T| 0.025
+d=2 nonM AC   CYC  primes  456 | hits    216 E    277.5 z  -3.86 | coverage   93/ 456 (G>0: 93/456) exp 124.2 z  -4.58 | mean|S|/|T| 0.027
+d=2 nonM AC   GEN2 primes  456 | hits    938 E    855.7 z  +5.10 | coverage  414/ 456 (G>0: 414/456) exp 359.3 z  +9.23 | mean|S|/|T| 0.021
+d=2 nonM CYC first entry k (G>0, n=456): k=1: 55, 3: 0, 5: 16, 7: 13, 9: 9, >9: 344, none (G meets no odd multiple): 19
+d=2 nonM seed-identity CYC: hit classes 216 | a generating seed ideal is itself natural 112 | reduced ideal natural 216 | no generating ideal 0
+d=2 nonM seed-identity GEN2: hit classes 938 | a generating seed ideal is itself natural 938 | reduced ideal natural 938 | no generating ideal 0
 d=2 nonM 2a r4 constant (1)
 d=2 nonM 2a r8: log(1+|G|) within-p mod 840 t  -1.21 (n 456); 1[G empty] t   +nan; dist {0: 230, 1: 226}
-d=2 nonM 2b positions: chi2 1444.7 df 1579 z  -2.39
+d=2 nonM 2b positions: chi2 1444.7, nominal df 1579, finite-population expectation (B-1)(N-K)/(N-1) = 1524.2 (descriptive; no calibrated z)
 d=2 nonM empty G: 0 of 456
 d=2 nonM it3 j=-2 primes  456 | non-I reached  24884 | III hits     0  E_unif   508.0 z -17.09  E_alpha  1024.3 z -25.93
+d=2 nonM it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   698.7 z -20.15  E_alphaC  1170.7 z -34.02
 d=2 nonM it3 j=-1 primes  456 | non-I reached  41060 | III hits     0  E_unif   840.2 z -22.96  E_alpha  1286.4 z -28.39
+d=2 nonM it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif  1110.8 z -26.54  E_alphaC  1526.5 z -37.76
 d=2 nonM it3 j= 0 primes  456 | non-I reached  69460 | III hits     4  E_unif  1420.6 z -32.54  E_alpha  1524.2 z -30.33
+d=2 nonM it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     6  E_unif  1776.0 z -36.64  E_alphaC  1850.2 z -40.53
 d=2 nonM it3 j= 1 primes  456 | non-I reached 103284 | III hits   164  E_unif  2105.1 z -41.65  E_alpha  1783.4 z -29.54
+d=2 nonM it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits   196  E_unif  2490.7 z -45.68  E_alphaC  2077.9 z -41.10
 d=2 nonM it3 j= 2 primes  456 | non-I reached 139450 | III hits   854  E_unif  2838.6 z -43.83  E_alpha  2225.2 z -22.11
+d=2 nonM it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits   908  E_unif  3179.8 z -47.85  E_alphaC  2451.9 z -34.77
 d=2 nonM it3 j= 3 primes  456 | non-I reached 174958 | III hits  1856  E_unif  3546.4 z -42.74  E_alpha  2841.6 z -13.96
+d=2 nonM it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits  1914  E_unif  3843.4 z -47.30  E_alphaC  3014.2 z -27.63
 d=2 nonM it3 j= 4 primes  456 | non-I reached 202026 | III hits  2794  E_unif  4076.0 z -41.01  E_alpha  3425.1 z  -8.15
+d=2 nonM it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits  2852  E_unif  4274.1 z -44.77  E_alphaC  3543.1 z -20.96
 d=2 nonM it3 j= 5 primes  456 | non-I reached 218674 | III hits  3534  E_unif  4398.5 z -36.90  E_alpha  3949.7 z  -5.05
+d=2 nonM it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits  3564  E_unif  4497.9 z -39.58  E_alphaC  4006.9 z -17.42
 d=2 nonM it3 j= 6 primes  456 | non-I reached 227884 | III hits  4250  E_unif  4580.5 z -19.54  E_alpha  4418.1 z  -1.97
+d=2 nonM it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits  4250  E_unif  4580.5 z -19.54  E_alphaC  4418.1 z  -9.63
 d=2 nonM it3 first entry (G>0): type I 439, type III 15, none within X 2; FR-violations 0
 
 d=3 all  U    AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0/ 591 (G>0: 0/521) exp 0.0 z   +nan | mean|S|/|T| 0.000
@@ -146,20 +236,35 @@ d=3 all  A    AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0
 d=3 all  A    RED  primes  591 | hits     80 E     77.5 z  +0.22 | coverage   33/ 591 (G>0: 33/521) exp 31.7 z  +0.28 | mean|S|/|T| 0.026
 d=3 all  A    CYC  primes  591 | hits    134 E    151.7 z  -1.41 | coverage   59/ 591 (G>0: 59/521) exp 70.6 z  -2.03 | mean|S|/|T| 0.036
 d=3 all  A    GEN2 primes  591 | hits    418 E    277.0 z  +7.96 | coverage  177/ 591 (G>0: 177/521) exp 115.4 z  +8.65 | mean|S|/|T| 0.029
-d=3 all  CYC first entry k (G>0, n=521): k=1: 28, 3: 2, 5: 10, 7: 7, 9: 12, >9: 358
+d=3 all  AC   AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0/ 591 (G>0: 0/521) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=3 all  AC   RED  primes  591 | hits     80 E     77.5 z  +0.24 | coverage   33/ 591 (G>0: 33/521) exp 32.6 z  +0.09 | mean|S|/|T| 0.026
+d=3 all  AC   CYC  primes  591 | hits    134 E    151.7 z  -1.44 | coverage   59/ 591 (G>0: 59/521) exp 71.3 z  -2.16 | mean|S|/|T| 0.036
+d=3 all  AC   GEN2 primes  591 | hits    418 E    277.0 z  +9.04 | coverage  177/ 591 (G>0: 177/521) exp 123.9 z  +7.59 | mean|S|/|T| 0.029
+d=3 all  CYC first entry k (G>0, n=521): k=1: 28, 3: 2, 5: 10, 7: 7, 9: 12, >9: 358, none (G meets no odd multiple): 104
+d=3 all  seed-identity CYC: hit classes 134 | a generating seed ideal is itself natural 58 | reduced ideal natural 134 | no generating ideal 0
+d=3 all  seed-identity GEN2: hit classes 418 | a generating seed ideal is itself natural 418 | reduced ideal natural 418 | no generating ideal 0
 d=3 all  2a r4 constant (1)
 d=3 all  2a r8: log(1+|G|) within-p mod 840 t  -0.15 (n 591); 1[G empty] t  -0.11; dist {0: 312, 1: 279}
-d=3 all  2b positions: chi2 1434.4 df 1546 z  -2.01
+d=3 all  2b positions: chi2 1434.4, nominal df 1546, finite-population expectation (B-1)(N-K)/(N-1) = 1526.4 (descriptive; no calibrated z)
 d=3 all  empty G: 70 of 591
 d=3 all  it3 j=-2 primes  591 | non-I reached  12626 | III hits     0  E_unif   145.6 z  -8.86  E_alpha   255.6 z -12.33
+d=3 all  it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   180.5 z  -9.89  E_alphaC   285.5 z -14.72
 d=3 all  it3 j=-1 primes  591 | non-I reached  21070 | III hits     0  E_unif   242.4 z -11.70  E_alpha   336.3 z -13.95
+d=3 all  it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   289.6 z -12.83  E_alphaC   383.4 z -16.65
 d=3 all  it3 j= 0 primes  591 | non-I reached  33396 | III hits     0  E_unif   388.9 z -15.39  E_alpha   409.6 z -15.25
+d=3 all  it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   449.1 z -16.60  E_alphaC   471.2 z -18.19
 d=3 all  it3 j= 1 primes  591 | non-I reached  48252 | III hits     0  E_unif   565.5 z -19.54  E_alpha   482.2 z -16.43
+d=3 all  it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   634.3 z -20.79  E_alphaC   539.4 z -19.79
 d=3 all  it3 j= 2 primes  591 | non-I reached  69830 | III hits    68  E_unif   812.5 z -23.19  E_alpha   637.4 z -16.74
+d=3 all  it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits    72  E_unif   881.8 z -24.36  E_alphaC   686.1 z -21.08
 d=3 all  it3 j= 3 primes  591 | non-I reached  94222 | III hits   414  E_unif  1087.5 z -20.14  E_alpha   890.4 z -11.83
+d=3 all  it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits   420  E_unif  1142.1 z -21.17  E_alphaC   926.9 z -16.64
 d=3 all  it3 j= 4 primes  591 | non-I reached 122480 | III hits   810  E_unif  1416.5 z -18.41  E_alpha  1253.2 z  -9.33
+d=3 all  it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits   818  E_unif  1453.2 z -19.12  E_alphaC  1281.2 z -15.08
 d=3 all  it3 j= 5 primes  591 | non-I reached 148198 | III hits  1292  E_unif  1711.5 z -13.64  E_alpha  1602.6 z  -5.82
+d=3 all  it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits  1294  E_unif  1718.4 z -13.79  E_alphaC  1606.2 z -10.86
 d=3 all  it3 j= 6 primes  591 | non-I reached 170076 | III hits  1720  E_unif  1959.9 z  -8.71  E_alpha  1909.8 z  -3.27
+d=3 all  it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits  1720  E_unif  1959.9 z  -8.71  E_alphaC  1909.8 z  -7.29
 d=3 all  it3 first entry (G>0): type I 287, type III 170, none within X 64; FR-violations 0
 d=3 M    U    AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0/ 135 (G>0: 0/118) exp 0.0 z   +nan | mean|S|/|T| 0.000
 d=3 M    U    RED  primes  135 | hits     10 E     15.0 z  -0.97 | coverage    5/ 135 (G>0: 5/118) exp 6.9 z  -0.81 | mean|S|/|T| 0.022
@@ -169,20 +274,35 @@ d=3 M    A    AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0
 d=3 M    A    RED  primes  135 | hits     10 E     10.9 z  -0.21 | coverage    5/ 135 (G>0: 5/118) exp 4.9 z  +0.06 | mean|S|/|T| 0.022
 d=3 M    A    CYC  primes  135 | hits     46 E     49.7 z  -0.74 | coverage   20/ 135 (G>0: 20/118) exp 23.2 z  -1.48 | mean|S|/|T| 0.036
 d=3 M    A    GEN2 primes  135 | hits    148 E     89.2 z  +6.45 | coverage   57/ 135 (G>0: 57/118) exp 36.4 z  +5.69 | mean|S|/|T| 0.029
-d=3 M    CYC first entry k (G>0, n=118): k=1: 17, 3: 0, 5: 2, 7: 1, 9: 0, >9: 82
+d=3 M    AC   AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0/ 135 (G>0: 0/118) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=3 M    AC   RED  primes  135 | hits     10 E     10.9 z  -0.22 | coverage    5/ 135 (G>0: 5/118) exp 5.0 z  +0.01 | mean|S|/|T| 0.022
+d=3 M    AC   CYC  primes  135 | hits     46 E     49.7 z  -0.75 | coverage   20/ 135 (G>0: 20/118) exp 23.2 z  -1.50 | mean|S|/|T| 0.036
+d=3 M    AC   GEN2 primes  135 | hits    148 E     89.2 z  +6.78 | coverage   57/ 135 (G>0: 57/118) exp 37.2 z  +5.44 | mean|S|/|T| 0.029
+d=3 M    CYC first entry k (G>0, n=118): k=1: 17, 3: 0, 5: 2, 7: 1, 9: 0, >9: 82, none (G meets no odd multiple): 16
+d=3 M    seed-identity CYC: hit classes 46 | a generating seed ideal is itself natural 34 | reduced ideal natural 46 | no generating ideal 0
+d=3 M    seed-identity GEN2: hit classes 148 | a generating seed ideal is itself natural 148 | reduced ideal natural 148 | no generating ideal 0
 d=3 M    2a r4 constant (1)
 d=3 M    2a r8: log(1+|G|) within-p mod 840 t  +1.31 (n 135); 1[G empty] t  -1.37; dist {0: 76, 1: 59}
-d=3 M    2b positions: chi2 200.6 df 235 z  -1.58
+d=3 M    2b positions: chi2 200.6, nominal df 235, finite-population expectation (B-1)(N-K)/(N-1) = 231.7 (descriptive; no calibrated z)
 d=3 M    empty G: 17 of 135
 d=3 M    it3 j=-2 primes  135 | non-I reached   2424 | III hits     0  E_unif    28.6 z  -3.92  E_alpha    49.7 z  -5.50
+d=3 M    it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    32.4 z  -4.18  E_alphaC    50.5 z  -6.00
 d=3 M    it3 j=-1 primes  135 | non-I reached   4016 | III hits     0  E_unif    46.8 z  -5.11  E_alpha    65.8 z  -6.24
+d=3 M    it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    51.9 z  -5.39  E_alphaC    69.2 z  -6.89
 d=3 M    it3 j= 0 primes  135 | non-I reached   6360 | III hits     0  E_unif    76.0 z  -6.76  E_alpha    79.8 z  -6.80
+d=3 M    it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    82.3 z  -7.04  E_alphaC    84.5 z  -7.55
 d=3 M    it3 j= 1 primes  135 | non-I reached   9006 | III hits     0  E_unif   107.6 z  -8.37  E_alpha    91.3 z  -7.21
+d=3 M    it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   113.6 z  -8.62  E_alphaC    94.1 z  -8.04
 d=3 M    it3 j= 2 primes  135 | non-I reached  13232 | III hits    10  E_unif   155.7 z -10.07  E_alpha   119.9 z  -7.51
+d=3 M    it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits    12  E_unif   164.1 z -10.26  E_alphaC   123.7 z  -8.70
 d=3 M    it3 j= 3 primes  135 | non-I reached  17986 | III hits    64  E_unif   210.8 z  -9.57  E_alpha   161.1 z  -5.70
+d=3 M    it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits    64  E_unif   218.9 z  -9.94  E_alphaC   164.5 z  -7.40
 d=3 M    it3 j= 4 primes  135 | non-I reached  23932 | III hits   134  E_unif   277.5 z  -9.27  E_alpha   231.1 z  -4.79
+d=3 M    it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits   136  E_unif   282.1 z  -9.40  E_alphaC   234.9 z  -6.95
 d=3 M    it3 j= 5 primes  135 | non-I reached  29610 | III hits   236  E_unif   342.6 z  -7.23  E_alpha   302.6 z  -2.89
+d=3 M    it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits   238  E_unif   344.4 z  -7.21  E_alphaC   304.3 z  -4.85
 d=3 M    it3 j= 6 primes  135 | non-I reached  34966 | III hits   328  E_unif   399.7 z  -5.36  E_alpha   383.7 z  -2.16
+d=3 M    it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits   328  E_unif   399.7 z  -5.36  E_alphaC   383.7 z  -4.41
 d=3 M    it3 first entry (G>0): type I 63, type III 38, none within X 17; FR-violations 0
 d=3 nonM U    AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0/ 456 (G>0: 0/403) exp 0.0 z   +nan | mean|S|/|T| 0.000
 d=3 nonM U    RED  primes  456 | hits     70 E     65.8 z  +0.40 | coverage   28/ 456 (G>0: 28/403) exp 28.3 z  -0.06 | mean|S|/|T| 0.027
@@ -192,20 +312,35 @@ d=3 nonM A    AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0
 d=3 nonM A    RED  primes  456 | hits     70 E     66.6 z  +0.33 | coverage   28/ 456 (G>0: 28/403) exp 26.8 z  +0.28 | mean|S|/|T| 0.027
 d=3 nonM A    CYC  primes  456 | hits     88 E    102.0 z  -1.21 | coverage   39/ 456 (G>0: 39/403) exp 47.4 z  -1.60 | mean|S|/|T| 0.036
 d=3 nonM A    GEN2 primes  456 | hits    270 E    187.7 z  +5.41 | coverage  120/ 456 (G>0: 120/403) exp 78.9 z  +6.69 | mean|S|/|T| 0.029
-d=3 nonM CYC first entry k (G>0, n=403): k=1: 11, 3: 2, 5: 8, 7: 6, 9: 12, >9: 276
+d=3 nonM AC   AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0/ 456 (G>0: 0/403) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=3 nonM AC   RED  primes  456 | hits     70 E     66.6 z  +0.36 | coverage   28/ 456 (G>0: 28/403) exp 27.6 z  +0.10 | mean|S|/|T| 0.027
+d=3 nonM AC   CYC  primes  456 | hits     88 E    102.0 z  -1.24 | coverage   39/ 456 (G>0: 39/403) exp 48.1 z  -1.72 | mean|S|/|T| 0.036
+d=3 nonM AC   GEN2 primes  456 | hits    270 E    187.7 z  +6.34 | coverage  120/ 456 (G>0: 120/403) exp 86.7 z  +5.58 | mean|S|/|T| 0.029
+d=3 nonM CYC first entry k (G>0, n=403): k=1: 11, 3: 2, 5: 8, 7: 6, 9: 12, >9: 276, none (G meets no odd multiple): 88
+d=3 nonM seed-identity CYC: hit classes 88 | a generating seed ideal is itself natural 24 | reduced ideal natural 88 | no generating ideal 0
+d=3 nonM seed-identity GEN2: hit classes 270 | a generating seed ideal is itself natural 270 | reduced ideal natural 270 | no generating ideal 0
 d=3 nonM 2a r4 constant (1)
 d=3 nonM 2a r8: log(1+|G|) within-p mod 840 t  -0.91 (n 456); 1[G empty] t  +0.66; dist {0: 236, 1: 220}
-d=3 nonM 2b positions: chi2 1233.8 df 1311 z  -1.51
+d=3 nonM 2b positions: chi2 1233.8, nominal df 1311, finite-population expectation (B-1)(N-K)/(N-1) = 1294.6 (descriptive; no calibrated z)
 d=3 nonM empty G: 53 of 456
 d=3 nonM it3 j=-2 primes  456 | non-I reached  10202 | III hits     0  E_unif   117.0 z  -7.94  E_alpha   205.9 z -11.03
+d=3 nonM it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   148.1 z  -8.96  E_alphaC   235.0 z -13.44
 d=3 nonM it3 j=-1 primes  456 | non-I reached  17054 | III hits     0  E_unif   195.6 z -10.53  E_alpha   270.5 z -12.48
+d=3 nonM it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   237.7 z -11.65  E_alphaC   314.2 z -15.17
 d=3 nonM it3 j= 0 primes  456 | non-I reached  27036 | III hits     0  E_unif   312.9 z -13.83  E_alpha   329.8 z -13.65
+d=3 nonM it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   366.9 z -15.04  E_alphaC   386.7 z -16.55
 d=3 nonM it3 j= 1 primes  456 | non-I reached  39246 | III hits     0  E_unif   458.0 z -17.66  E_alpha   390.9 z -14.76
+d=3 nonM it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   520.6 z -18.92  E_alphaC   445.4 z -18.09
 d=3 nonM it3 j= 2 primes  456 | non-I reached  56598 | III hits    58  E_unif   656.7 z -20.90  E_alpha   517.5 z -14.97
+d=3 nonM it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits    60  E_unif   717.7 z -22.11  E_alphaC   562.4 z -19.21
 d=3 nonM it3 j= 3 primes  456 | non-I reached  76236 | III hits   350  E_unif   876.7 z -17.73  E_alpha   729.3 z -10.39
+d=3 nonM it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits   356  E_unif   923.2 z -18.70  E_alphaC   762.3 z -14.90
 d=3 nonM it3 j= 4 primes  456 | non-I reached  98548 | III hits   676  E_unif  1138.9 z -15.92  E_alpha  1022.1 z  -8.06
+d=3 nonM it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits   682  E_unif  1171.1 z -16.66  E_alphaC  1046.3 z -13.39
 d=3 nonM it3 j= 5 primes  456 | non-I reached 118588 | III hits  1056  E_unif  1368.9 z -11.59  E_alpha  1299.9 z  -5.06
+d=3 nonM it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits  1056  E_unif  1374.0 z -11.77  E_alphaC  1301.9 z  -9.72
 d=3 nonM it3 j= 6 primes  456 | non-I reached 135110 | III hits  1392  E_unif  1560.2 z  -6.98  E_alpha  1526.2 z  -2.58
+d=3 nonM it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits  1392  E_unif  1560.2 z  -6.98  E_alphaC  1526.2 z  -5.89
 d=3 nonM it3 first entry (G>0): type I 224, type III 132, none within X 47; FR-violations 0
 
 d=5 all  U    AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0/ 591 (G>0: 0/533) exp 0.0 z   +nan | mean|S|/|T| 0.002
@@ -216,20 +351,35 @@ d=5 all  A    AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0
 d=5 all  A    RED  primes  591 | hits     32 E     26.2 z  +0.89 | coverage   12/ 591 (G>0: 12/533) exp 12.2 z  -0.05 | mean|S|/|T| 0.017
 d=5 all  A    CYC  primes  591 | hits    110 E    106.0 z  +0.37 | coverage   52/ 591 (G>0: 52/533) exp 50.6 z  +0.28 | mean|S|/|T| 0.037
 d=5 all  A    GEN2 primes  591 | hits    698 E    712.9 z  -0.70 | coverage  300/ 591 (G>0: 300/533) exp 284.6 z  +2.28 | mean|S|/|T| 0.062
-d=5 all  CYC first entry k (G>0, n=533): k=1: 13, 3: 7, 5: 9, 7: 15, 9: 8, >9: 417
+d=5 all  AC   AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0/ 591 (G>0: 0/533) exp 0.0 z   +nan | mean|S|/|T| 0.002
+d=5 all  AC   RED  primes  591 | hits     32 E     26.2 z  +0.92 | coverage   12/ 591 (G>0: 12/533) exp 12.5 z  -0.17 | mean|S|/|T| 0.017
+d=5 all  AC   CYC  primes  591 | hits    110 E    106.0 z  +0.38 | coverage   52/ 591 (G>0: 52/533) exp 51.1 z  +0.17 | mean|S|/|T| 0.037
+d=5 all  AC   GEN2 primes  591 | hits    698 E    712.9 z  -0.91 | coverage  300/ 591 (G>0: 300/533) exp 301.2 z  -0.20 | mean|S|/|T| 0.062
+d=5 all  CYC first entry k (G>0, n=533): k=1: 13, 3: 7, 5: 9, 7: 15, 9: 8, >9: 417, none (G meets no odd multiple): 64
+d=5 all  seed-identity CYC: hit classes 110 | a generating seed ideal is itself natural 26 | reduced ideal natural 106 | no generating ideal 0
+d=5 all  seed-identity GEN2: hit classes 698 | a generating seed ideal is itself natural 698 | reduced ideal natural 696 | no generating ideal 0
 d=5 all  2a r4: log(1+|G|) within-p mod 840 t   +nan (n 0); 1[G empty] t   +nan; dist {0: 290, 1: 301}
 d=5 all  2a r8: log(1+|G|) within-p mod 840 t  +0.21 (n 591); 1[G empty] t  -0.15; dist {0: 443, 1: 148}
-d=5 all  2b positions: chi2 432.1 df 443 z  -0.37
+d=5 all  2b positions: chi2 432.1, nominal df 443, finite-population expectation (B-1)(N-K)/(N-1) = 436.4 (descriptive; no calibrated z)
 d=5 all  empty G: 58 of 591
 d=5 all  it3 j=-2 primes  591 | non-I reached  13340 | III hits     0  E_unif   147.4 z  -8.96  E_alpha   201.7 z -11.25
+d=5 all  it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   179.2 z  -9.90  E_alphaC   225.6 z -14.54
 d=5 all  it3 j=-1 primes  591 | non-I reached  21488 | III hits     0  E_unif   239.4 z -11.71  E_alpha   258.9 z -12.49
+d=5 all  it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   281.0 z -12.71  E_alphaC   291.1 z -15.82
 d=5 all  it3 j= 0 primes  591 | non-I reached  33334 | III hits     0  E_unif   369.1 z -15.10  E_alpha   307.6 z -13.45
+d=5 all  it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   417.8 z -16.11  E_alphaC   355.0 z -16.89
 d=5 all  it3 j= 1 primes  591 | non-I reached  50828 | III hits     0  E_unif   566.7 z -19.95  E_alpha   387.9 z -14.92
+d=5 all  it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   619.1 z -20.92  E_alphaC   430.5 z -18.90
 d=5 all  it3 j= 2 primes  591 | non-I reached  72612 | III hits    74  E_unif   807.2 z -23.66  E_alpha   533.4 z -14.91
+d=5 all  it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits    76  E_unif   859.4 z -24.59  E_alphaC   565.3 z -19.70
 d=5 all  it3 j= 3 primes  591 | non-I reached  97890 | III hits   370  E_unif  1084.4 z -22.49  E_alpha   766.7 z -10.70
+d=5 all  it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits   380  E_unif  1129.6 z -23.21  E_alphaC   790.3 z -15.53
 d=5 all  it3 j= 4 primes  591 | non-I reached 124860 | III hits   732  E_unif  1382.1 z -21.41  E_alpha  1039.0 z  -7.15
+d=5 all  it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits   742  E_unif  1412.1 z -21.91  E_alphaC  1056.6 z -11.97
 d=5 all  it3 j= 5 primes  591 | non-I reached 150696 | III hits  1158  E_unif  1662.4 z -18.48  E_alpha  1355.0 z  -4.08
+d=5 all  it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits  1160  E_unif  1676.4 z -18.88  E_alphaC  1358.4 z  -8.26
 d=5 all  it3 j= 6 primes  591 | non-I reached 170056 | III hits  1526  E_unif  1871.7 z -14.69  E_alpha  1642.1 z  -2.24
+d=5 all  it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits  1526  E_unif  1871.7 z -14.69  E_alphaC  1642.1 z  -5.61
 d=5 all  it3 first entry (G>0): type I 282, type III 192, none within X 59; FR-violations 0
 d=5 M    U    AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0/ 135 (G>0: 0/122) exp 0.0 z   +nan | mean|S|/|T| 0.000
 d=5 M    U    RED  primes  135 | hits     20 E     15.3 z  +0.93 | coverage    7/ 135 (G>0: 7/122) exp 6.9 z  +0.03 | mean|S|/|T| 0.025
@@ -239,20 +389,35 @@ d=5 M    A    AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0
 d=5 M    A    RED  primes  135 | hits     20 E     13.3 z  +1.36 | coverage    7/ 135 (G>0: 7/122) exp 6.1 z  +0.44 | mean|S|/|T| 0.025
 d=5 M    A    CYC  primes  135 | hits     20 E     21.5 z  -0.28 | coverage   10/ 135 (G>0: 10/122) exp 10.3 z  -0.11 | mean|S|/|T| 0.031
 d=5 M    A    GEN2 primes  135 | hits    120 E     94.5 z  +2.53 | coverage   53/ 135 (G>0: 53/122) exp 37.6 z  +4.24 | mean|S|/|T| 0.050
-d=5 M    CYC first entry k (G>0, n=122): k=1: 3, 3: 2, 5: 1, 7: 3, 9: 1, >9: 104
+d=5 M    AC   AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0/ 135 (G>0: 0/122) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=5 M    AC   RED  primes  135 | hits     20 E     13.3 z  +1.44 | coverage    7/ 135 (G>0: 7/122) exp 6.3 z  +0.32 | mean|S|/|T| 0.025
+d=5 M    AC   CYC  primes  135 | hits     20 E     21.5 z  -0.28 | coverage   10/ 135 (G>0: 10/122) exp 10.4 z  -0.17 | mean|S|/|T| 0.031
+d=5 M    AC   GEN2 primes  135 | hits    120 E     94.5 z  +3.33 | coverage   53/ 135 (G>0: 53/122) exp 42.0 z  +3.35 | mean|S|/|T| 0.050
+d=5 M    CYC first entry k (G>0, n=122): k=1: 3, 3: 2, 5: 1, 7: 3, 9: 1, >9: 104, none (G meets no odd multiple): 8
+d=5 M    seed-identity CYC: hit classes 20 | a generating seed ideal is itself natural 6 | reduced ideal natural 18 | no generating ideal 0
+d=5 M    seed-identity GEN2: hit classes 120 | a generating seed ideal is itself natural 120 | reduced ideal natural 120 | no generating ideal 0
 d=5 M    2a r4 constant (1)
 d=5 M    2a r8: log(1+|G|) within-p mod 840 t  -0.95 (n 135); 1[G empty] t  -0.06; dist {1: 70, 0: 65}
-d=5 M    2b positions: chi2 247.7 df 245 z  +0.12
+d=5 M    2b positions: chi2 247.7, nominal df 245, finite-population expectation (B-1)(N-K)/(N-1) = 241.9 (descriptive; no calibrated z)
 d=5 M    empty G: 13 of 135
 d=5 M    it3 j=-2 primes  135 | non-I reached   3882 | III hits     0  E_unif    35.4 z  -4.39  E_alpha    44.9 z  -5.21
+d=5 M    it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    45.0 z  -4.96  E_alphaC    50.9 z  -6.49
 d=5 M    it3 j=-1 primes  135 | non-I reached   6572 | III hits     0  E_unif    59.8 z  -5.87  E_alpha    62.5 z  -6.03
+d=5 M    it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    74.7 z  -6.58  E_alphaC    72.5 z  -7.50
 d=5 M    it3 j= 0 primes  135 | non-I reached  10150 | III hits     0  E_unif    93.7 z  -7.68  E_alpha    80.4 z  -6.74
+d=5 M    it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   109.6 z  -8.34  E_alphaC    95.3 z  -8.37
 d=5 M    it3 j= 1 primes  135 | non-I reached  15430 | III hits     0  E_unif   142.5 z -10.16  E_alpha   108.6 z  -7.75
+d=5 M    it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   160.4 z -10.82  E_alphaC   122.9 z  -9.82
 d=5 M    it3 j= 2 primes  135 | non-I reached  22220 | III hits    20  E_unif   204.8 z -12.18  E_alpha   150.7 z  -7.86
+d=5 M    it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits    22  E_unif   222.7 z -12.72  E_alphaC   161.7 z -10.43
 d=5 M    it3 j= 3 primes  135 | non-I reached  30256 | III hits   120  E_unif   278.9 z -10.48  E_alpha   222.6 z  -5.06
+d=5 M    it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits   126  E_unif   297.3 z -11.00  E_alphaC   233.9 z  -7.70
 d=5 M    it3 j= 4 primes  135 | non-I reached  38050 | III hits   242  E_unif   348.3 z  -7.66  E_alpha   306.2 z  -2.74
+d=5 M    it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits   248  E_unif   356.7 z  -7.79  E_alphaC   313.5 z  -4.92
 d=5 M    it3 j= 5 primes  135 | non-I reached  44898 | III hits   336  E_unif   409.4 z  -6.27  E_alpha   377.4 z  -1.60
+d=5 M    it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits   338  E_unif   411.4 z  -6.26  E_alphaC   379.4 z  -3.62
 d=5 M    it3 j= 6 primes  135 | non-I reached  49860 | III hits   432  E_unif   453.1 z  -2.27  E_alpha   446.9 z  -0.53
+d=5 M    it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits   432  E_unif   453.1 z  -2.27  E_alphaC   446.9 z  -1.66
 d=5 M    it3 first entry (G>0): type I 66, type III 52, none within X 4; FR-violations 0
 d=5 nonM U    AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0/ 456 (G>0: 0/411) exp 0.0 z   +nan | mean|S|/|T| 0.002
 d=5 nonM U    RED  primes  456 | hits     12 E     17.0 z  -0.92 | coverage    5/ 456 (G>0: 5/411) exp 7.7 z  -1.09 | mean|S|/|T| 0.014
@@ -262,20 +427,35 @@ d=5 nonM A    AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0
 d=5 nonM A    RED  primes  456 | hits     12 E     12.9 z  -0.20 | coverage    5/ 456 (G>0: 5/411) exp 6.1 z  -0.53 | mean|S|/|T| 0.014
 d=5 nonM A    CYC  primes  456 | hits     90 E     84.5 z  +0.57 | coverage   42/ 456 (G>0: 42/411) exp 40.3 z  +0.38 | mean|S|/|T| 0.039
 d=5 nonM A    GEN2 primes  456 | hits    578 E    618.4 z  -2.13 | coverage  247/ 456 (G>0: 247/411) exp 247.0 z  -0.00 | mean|S|/|T| 0.065
-d=5 nonM CYC first entry k (G>0, n=411): k=1: 10, 3: 5, 5: 8, 7: 12, 9: 7, >9: 313
+d=5 nonM AC   AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0/ 456 (G>0: 0/411) exp 0.0 z   +nan | mean|S|/|T| 0.002
+d=5 nonM AC   RED  primes  456 | hits     12 E     12.9 z  -0.20 | coverage    5/ 456 (G>0: 5/411) exp 6.2 z  -0.58 | mean|S|/|T| 0.014
+d=5 nonM AC   CYC  primes  456 | hits     90 E     84.5 z  +0.59 | coverage   42/ 456 (G>0: 42/411) exp 40.7 z  +0.29 | mean|S|/|T| 0.039
+d=5 nonM AC   GEN2 primes  456 | hits    578 E    618.4 z  -2.79 | coverage  247/ 456 (G>0: 247/411) exp 259.2 z  -2.37 | mean|S|/|T| 0.065
+d=5 nonM CYC first entry k (G>0, n=411): k=1: 10, 3: 5, 5: 8, 7: 12, 9: 7, >9: 313, none (G meets no odd multiple): 56
+d=5 nonM seed-identity CYC: hit classes 90 | a generating seed ideal is itself natural 20 | reduced ideal natural 88 | no generating ideal 0
+d=5 nonM seed-identity GEN2: hit classes 578 | a generating seed ideal is itself natural 578 | reduced ideal natural 576 | no generating ideal 0
 d=5 nonM 2a r4: log(1+|G|) within-p mod 840 t   +nan (n 0); 1[G empty] t   +nan; dist {0: 290, 1: 166}
 d=5 nonM 2a r8: log(1+|G|) within-p mod 840 t  +1.22 (n 456); 1[G empty] t  -0.14; dist {0: 378, 1: 78}
-d=5 nonM 2b positions: chi2 184.5 df 198 z  -0.68
+d=5 nonM 2b positions: chi2 184.5, nominal df 198, finite-population expectation (B-1)(N-K)/(N-1) = 194.5 (descriptive; no calibrated z)
 d=5 nonM empty G: 45 of 456
 d=5 nonM it3 j=-2 primes  456 | non-I reached   9458 | III hits     0  E_unif   112.0 z  -7.81  E_alpha   156.8 z  -9.97
+d=5 nonM it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   134.2 z  -8.57  E_alphaC   174.6 z -13.05
 d=5 nonM it3 j=-1 primes  456 | non-I reached  14916 | III hits     0  E_unif   179.6 z -10.13  E_alpha   196.4 z -10.94
+d=5 nonM it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   206.3 z -10.88  E_alphaC   218.6 z -13.97
 d=5 nonM it3 j= 0 primes  456 | non-I reached  23184 | III hits     0  E_unif   275.4 z -13.00  E_alpha   227.2 z -11.64
+d=5 nonM it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   308.2 z -13.78  E_alphaC   259.7 z -14.70
 d=5 nonM it3 j= 1 primes  456 | non-I reached  35398 | III hits     0  E_unif   424.2 z -17.18  E_alpha   279.3 z -12.75
+d=5 nonM it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   458.7 z -17.91  E_alphaC   307.6 z -16.16
 d=5 nonM it3 j= 2 primes  456 | non-I reached  50392 | III hits    54  E_unif   602.4 z -20.29  E_alpha   382.7 z -12.67
+d=5 nonM it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits    54  E_unif   636.7 z -21.05  E_alphaC   403.6 z -16.72
 d=5 nonM it3 j= 3 primes  456 | non-I reached  67634 | III hits   250  E_unif   805.5 z -19.90  E_alpha   544.1 z  -9.48
+d=5 nonM it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits   254  E_unif   832.3 z -20.44  E_alphaC   556.4 z -13.50
 d=5 nonM it3 j= 4 primes  456 | non-I reached  86810 | III hits   490  E_unif  1033.9 z -20.14  E_alpha   732.7 z  -6.75
+d=5 nonM it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits   494  E_unif  1055.5 z -20.63  E_alphaC   743.0 z -10.99
 d=5 nonM it3 j= 5 primes  456 | non-I reached 105798 | III hits   822  E_unif  1252.9 z -17.48  E_alpha   977.6 z  -3.82
+d=5 nonM it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits   822  E_unif  1265.0 z -17.93  E_alphaC   979.0 z  -7.44
 d=5 nonM it3 j= 6 primes  456 | non-I reached 120196 | III hits  1094  E_unif  1418.6 z -15.02  E_alpha  1195.2 z  -2.32
+d=5 nonM it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits  1094  E_unif  1418.6 z -15.02  E_alphaC  1195.2 z  -5.42
 d=5 nonM it3 first entry (G>0): type I 216, type III 140, none within X 55; FR-violations 0
 
 d=7 all  U    AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0/ 591 (G>0: 0/311) exp 0.0 z   +nan | mean|S|/|T| 0.002
@@ -286,20 +466,35 @@ d=7 all  A    AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0
 d=7 all  A    RED  primes  591 | hits     10 E      6.4 z  +1.06 | coverage    5/ 591 (G>0: 5/311) exp 3.0 z  +1.24 | mean|S|/|T| 0.011
 d=7 all  A    CYC  primes  591 | hits     16 E     14.2 z  +0.36 | coverage    8/ 591 (G>0: 8/311) exp 7.0 z  +0.42 | mean|S|/|T| 0.032
 d=7 all  A    GEN2 primes  591 | hits    168 E     72.4 z +10.08 | coverage   80/ 591 (G>0: 80/311) exp 33.6 z +11.09 | mean|S|/|T| 0.027
-d=7 all  CYC first entry k (G>0, n=311): k=1: 0, 3: 0, 5: 4, 7: 0, 9: 4, >9: 255
+d=7 all  AC   AMB  primes  591 | hits      0 E      0.0 z   +nan | coverage    0/ 591 (G>0: 0/311) exp 0.0 z   +nan | mean|S|/|T| 0.002
+d=7 all  AC   RED  primes  591 | hits     10 E      6.4 z  +1.09 | coverage    5/ 591 (G>0: 5/311) exp 3.1 z  +1.19 | mean|S|/|T| 0.011
+d=7 all  AC   CYC  primes  591 | hits     16 E     14.2 z  +0.36 | coverage    8/ 591 (G>0: 8/311) exp 7.1 z  +0.37 | mean|S|/|T| 0.032
+d=7 all  AC   GEN2 primes  591 | hits    168 E     72.4 z +11.09 | coverage   80/ 591 (G>0: 80/311) exp 35.5 z +10.63 | mean|S|/|T| 0.027
+d=7 all  CYC first entry k (G>0, n=311): k=1: 0, 3: 0, 5: 4, 7: 0, 9: 4, >9: 255, none (G meets no odd multiple): 48
+d=7 all  seed-identity CYC: hit classes 16 | a generating seed ideal is itself natural 0 | reduced ideal natural 14 | no generating ideal 0
+d=7 all  seed-identity GEN2: hit classes 168 | a generating seed ideal is itself natural 168 | reduced ideal natural 168 | no generating ideal 0
 d=7 all  2a r4: log(1+|G|) within-p mod 840 t   +nan (n 0); 1[G empty] t   +nan; dist {0: 301, 1: 290}
 d=7 all  2a r8: log(1+|G|) within-p mod 840 t  -1.61 (n 591); 1[G empty] t  +1.37; dist {0: 447, 1: 144}
-d=7 all  2b positions: chi2 162.0 df 172 z  -0.54
+d=7 all  2b positions: chi2 162.0, nominal df 172, finite-population expectation (B-1)(N-K)/(N-1) = 171.1 (descriptive; no calibrated z)
 d=7 all  empty G: 280 of 591
 d=7 all  it3 j=-2 primes  591 | non-I reached  13790 | III hits     0  E_unif    43.5 z  -4.83  E_alpha    44.0 z  -4.91
+d=7 all  it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    48.0 z  -5.08  E_alphaC    45.5 z  -5.54
 d=7 all  it3 j=-1 primes  591 | non-I reached  20648 | III hits     0  E_unif    64.2 z  -5.96  E_alpha    64.5 z  -5.90
+d=7 all  it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    70.2 z  -6.24  E_alphaC    67.5 z  -6.67
 d=7 all  it3 j= 0 primes  591 | non-I reached  31148 | III hits     0  E_unif    99.8 z  -7.70  E_alpha    81.2 z  -6.59
+d=7 all  it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   106.2 z  -7.95  E_alphaC    85.7 z  -7.50
 d=7 all  it3 j= 1 primes  591 | non-I reached  45042 | III hits     0  E_unif   142.1 z  -9.59  E_alpha    98.8 z  -7.25
+d=7 all  it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   148.8 z  -9.84  E_alphaC   104.1 z  -8.44
 d=7 all  it3 j= 2 primes  591 | non-I reached  61044 | III hits    14  E_unif   191.1 z -10.86  E_alpha   130.8 z  -7.42
+d=7 all  it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits    14  E_unif   198.5 z -11.14  E_alphaC   136.3 z  -9.08
 d=7 all  it3 j= 3 primes  591 | non-I reached  83816 | III hits    84  E_unif   263.7 z -10.22  E_alpha   198.6 z  -5.92
+d=7 all  it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits    86  E_unif   267.9 z -10.28  E_alphaC   201.7 z  -7.77
 d=7 all  it3 j= 4 primes  591 | non-I reached 109518 | III hits   218  E_unif   343.7 z  -7.04  E_alpha   292.7 z  -3.22
+d=7 all  it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits   220  E_unif   347.0 z  -7.09  E_alphaC   295.7 z  -4.76
 d=7 all  it3 j= 5 primes  591 | non-I reached 134164 | III hits   296  E_unif   418.6 z  -7.06  E_alpha   375.5 z  -3.04
+d=7 all  it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits   298  E_unif   420.6 z  -7.05  E_alphaC   377.4 z  -4.98
 d=7 all  it3 j= 6 primes  591 | non-I reached 156538 | III hits   412  E_unif   484.5 z  -4.42  E_alpha   460.4 z  -1.69
+d=7 all  it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits   412  E_unif   484.5 z  -4.42  E_alphaC   460.4 z  -3.12
 d=7 all  it3 first entry (G>0): type I 55, type III 142, none within X 114; FR-violations 0
 d=7 M    U    AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0/ 135 (G>0: 0/55) exp 0.0 z   +nan | mean|S|/|T| 0.000
 d=7 M    U    RED  primes  135 | hits      2 E      2.1 z  -0.07 | coverage    1/ 135 (G>0: 1/55) exp 1.1 z  -0.07 | mean|S|/|T| 0.023
@@ -309,20 +504,35 @@ d=7 M    A    AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0
 d=7 M    A    RED  primes  135 | hits      2 E      1.7 z  +0.16 | coverage    1/ 135 (G>0: 1/55) exp 0.8 z  +0.21 | mean|S|/|T| 0.023
 d=7 M    A    CYC  primes  135 | hits      2 E      3.2 z  -0.48 | coverage    1/ 135 (G>0: 1/55) exp 1.5 z  -0.47 | mean|S|/|T| 0.038
 d=7 M    A    GEN2 primes  135 | hits      0 E      3.0 z  -1.30 | coverage    0/ 135 (G>0: 0/55) exp 1.4 z  -1.34 | mean|S|/|T| 0.030
-d=7 M    CYC first entry k (G>0, n=55): k=1: 0, 3: 0, 5: 0, 7: 0, 9: 1, >9: 48
+d=7 M    AC   AMB  primes  135 | hits      0 E      0.0 z   +nan | coverage    0/ 135 (G>0: 0/55) exp 0.0 z   +nan | mean|S|/|T| 0.000
+d=7 M    AC   RED  primes  135 | hits      2 E      1.7 z  +0.17 | coverage    1/ 135 (G>0: 1/55) exp 0.9 z  +0.17 | mean|S|/|T| 0.023
+d=7 M    AC   CYC  primes  135 | hits      2 E      3.2 z  -0.50 | coverage    1/ 135 (G>0: 1/55) exp 1.6 z  -0.49 | mean|S|/|T| 0.038
+d=7 M    AC   GEN2 primes  135 | hits      0 E      3.0 z  -1.39 | coverage    0/ 135 (G>0: 0/55) exp 1.5 z  -1.39 | mean|S|/|T| 0.030
+d=7 M    CYC first entry k (G>0, n=55): k=1: 0, 3: 0, 5: 0, 7: 0, 9: 1, >9: 48, none (G meets no odd multiple): 6
+d=7 M    seed-identity CYC: hit classes 2 | a generating seed ideal is itself natural 0 | reduced ideal natural 2 | no generating ideal 0
+d=7 M    seed-identity GEN2: hit classes 0 | a generating seed ideal is itself natural 0 | reduced ideal natural 0 | no generating ideal 0
 d=7 M    2a r4 constant (1)
 d=7 M    2a r8: log(1+|G|) within-p mod 840 t  -2.32 (n 135); 1[G empty] t  +2.14; dist {1: 65, 0: 70}
-d=7 M    2b positions: chi2 10.0 df 8 z  +0.50
+d=7 M    2b positions: chi2 10.0, nominal df 8, finite-population expectation (B-1)(N-K)/(N-1) = 8.0 (descriptive; no calibrated z)
 d=7 M    empty G: 80 of 135
 d=7 M    it3 j=-2 primes  135 | non-I reached   2080 | III hits     0  E_unif     5.9 z  -1.77  E_alpha     5.7 z  -1.80
+d=7 M    it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif     6.2 z  -1.81  E_alphaC     5.7 z  -1.97
 d=7 M    it3 j=-1 primes  135 | non-I reached   3056 | III hits     0  E_unif     8.6 z  -2.16  E_alpha     7.1 z  -1.99
+d=7 M    it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif     8.7 z  -2.18  E_alphaC     7.1 z  -2.17
 d=7 M    it3 j= 0 primes  135 | non-I reached   4506 | III hits     0  E_unif    13.7 z  -2.83  E_alpha     9.8 z  -2.31
+d=7 M    it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    13.9 z  -2.84  E_alphaC     9.8 z  -2.52
 d=7 M    it3 j= 1 primes  135 | non-I reached   6046 | III hits     0  E_unif    18.1 z  -3.34  E_alpha    11.8 z  -2.53
+d=7 M    it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    18.4 z  -3.36  E_alphaC    12.1 z  -2.80
 d=7 M    it3 j= 2 primes  135 | non-I reached   8274 | III hits     2  E_unif    24.1 z  -3.64  E_alpha    15.1 z  -2.46
+d=7 M    it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits     2  E_unif    24.4 z  -3.67  E_alphaC    15.3 z  -2.80
 d=7 M    it3 j= 3 primes  135 | non-I reached  11812 | III hits    16  E_unif    34.9 z  -2.77  E_alpha    24.3 z  -1.24
+d=7 M    it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits    16  E_unif    35.2 z  -2.80  E_alphaC    24.6 z  -1.52
 d=7 M    it3 j= 4 primes  135 | non-I reached  15606 | III hits    38  E_unif    46.4 z  -1.18  E_alpha    35.1 z  +0.36
+d=7 M    it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits    38  E_unif    46.9 z  -1.24  E_alphaC    35.7 z  +0.38
 d=7 M    it3 j= 5 primes  135 | non-I reached  19312 | III hits    44  E_unif    56.8 z  -1.79  E_alpha    44.8 z  -0.09
+d=7 M    it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits    44  E_unif    56.8 z  -1.79  E_alphaC    44.8 z  -0.13
 d=7 M    it3 j= 6 primes  135 | non-I reached  22696 | III hits    58  E_unif    66.1 z  -1.15  E_alpha    55.4 z  +0.26
+d=7 M    it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits    58  E_unif    66.1 z  -1.15  E_alphaC    55.4 z  +0.40
 d=7 M    it3 first entry (G>0): type I 6, type III 28, none within X 21; FR-violations 0
 d=7 nonM U    AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0/ 456 (G>0: 0/256) exp 0.0 z   +nan | mean|S|/|T| 0.002
 d=7 nonM U    RED  primes  456 | hits      8 E      4.9 z  +1.04 | coverage    4/ 456 (G>0: 4/256) exp 2.3 z  +1.25 | mean|S|/|T| 0.007
@@ -332,67 +542,82 @@ d=7 nonM A    AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0
 d=7 nonM A    RED  primes  456 | hits      8 E      4.6 z  +1.13 | coverage    4/ 456 (G>0: 4/256) exp 2.2 z  +1.32 | mean|S|/|T| 0.007
 d=7 nonM A    CYC  primes  456 | hits     14 E     11.0 z  +0.67 | coverage    7/ 456 (G>0: 7/256) exp 5.4 z  +0.73 | mean|S|/|T| 0.030
 d=7 nonM A    GEN2 primes  456 | hits    168 E     69.4 z +10.72 | coverage   80/ 456 (G>0: 80/256) exp 32.2 z +11.82 | mean|S|/|T| 0.026
-d=7 nonM CYC first entry k (G>0, n=256): k=1: 0, 3: 0, 5: 4, 7: 0, 9: 3, >9: 207
+d=7 nonM AC   AMB  primes  456 | hits      0 E      0.0 z   +nan | coverage    0/ 456 (G>0: 0/256) exp 0.0 z   +nan | mean|S|/|T| 0.002
+d=7 nonM AC   RED  primes  456 | hits      8 E      4.6 z  +1.16 | coverage    4/ 456 (G>0: 4/256) exp 2.2 z  +1.29 | mean|S|/|T| 0.007
+d=7 nonM AC   CYC  primes  456 | hits     14 E     11.0 z  +0.68 | coverage    7/ 456 (G>0: 7/256) exp 5.5 z  +0.69 | mean|S|/|T| 0.030
+d=7 nonM AC   GEN2 primes  456 | hits    168 E     69.4 z +11.82 | coverage   80/ 456 (G>0: 80/256) exp 34.0 z +11.37 | mean|S|/|T| 0.026
+d=7 nonM CYC first entry k (G>0, n=256): k=1: 0, 3: 0, 5: 4, 7: 0, 9: 3, >9: 207, none (G meets no odd multiple): 42
+d=7 nonM seed-identity CYC: hit classes 14 | a generating seed ideal is itself natural 0 | reduced ideal natural 12 | no generating ideal 0
+d=7 nonM seed-identity GEN2: hit classes 168 | a generating seed ideal is itself natural 168 | reduced ideal natural 168 | no generating ideal 0
 d=7 nonM 2a r4: log(1+|G|) within-p mod 840 t   +nan (n 0); 1[G empty] t   +nan; dist {0: 301, 1: 155}
 d=7 nonM 2a r8: log(1+|G|) within-p mod 840 t  -0.27 (n 456); 1[G empty] t  -0.07; dist {0: 377, 1: 79}
-d=7 nonM 2b positions: chi2 152.0 df 164 z  -0.66
+d=7 nonM 2b positions: chi2 152.0, nominal df 164, finite-population expectation (B-1)(N-K)/(N-1) = 163.1 (descriptive; no calibrated z)
 d=7 nonM empty G: 200 of 456
 d=7 nonM it3 j=-2 primes  456 | non-I reached  11710 | III hits     0  E_unif    37.6 z  -4.49  E_alpha    38.2 z  -4.57
+d=7 nonM it3L j=-2 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    41.9 z  -4.74  E_alphaC    39.8 z  -5.18
 d=7 nonM it3 j=-1 primes  456 | non-I reached  17592 | III hits     0  E_unif    55.6 z  -5.56  E_alpha    57.3 z  -5.56
+d=7 nonM it3L j=-1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    61.5 z  -5.85  E_alphaC    60.4 z  -6.30
 d=7 nonM it3 j= 0 primes  456 | non-I reached  26642 | III hits     0  E_unif    86.1 z  -7.16  E_alpha    71.4 z  -6.18
+d=7 nonM it3L j= 0 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif    92.3 z  -7.43  E_alphaC    76.0 z  -7.07
 d=7 nonM it3 j= 1 primes  456 | non-I reached  38996 | III hits     0  E_unif   123.9 z  -8.99  E_alpha    87.0 z  -6.79
+d=7 nonM it3L j= 1 (threshold-local censoring, conditional alpha null) | III hits     0  E_unif   130.4 z  -9.25  E_alphaC    92.0 z  -7.96
 d=7 nonM it3 j= 2 primes  456 | non-I reached  52770 | III hits    12  E_unif   167.0 z -10.24  E_alpha   115.7 z  -7.00
+d=7 nonM it3L j= 2 (threshold-local censoring, conditional alpha null) | III hits    12  E_unif   174.1 z -10.53  E_alphaC   120.9 z  -8.65
 d=7 nonM it3 j= 3 primes  456 | non-I reached  72004 | III hits    68  E_unif   228.8 z  -9.92  E_alpha   174.3 z  -5.85
+d=7 nonM it3L j= 3 (threshold-local censoring, conditional alpha null) | III hits    70  E_unif   232.7 z  -9.97  E_alphaC   177.2 z  -7.77
 d=7 nonM it3 j= 4 primes  456 | non-I reached  93912 | III hits   180  E_unif   297.4 z  -7.16  E_alpha   257.7 z  -3.57
+d=7 nonM it3L j= 4 (threshold-local censoring, conditional alpha null) | III hits   182  E_unif   300.1 z  -7.19  E_alphaC   260.0 z  -5.30
 d=7 nonM it3 j= 5 primes  456 | non-I reached 114852 | III hits   252  E_unif   361.9 z  -6.93  E_alpha   330.7 z  -3.21
+d=7 nonM it3L j= 5 (threshold-local censoring, conditional alpha null) | III hits   254  E_unif   363.8 z  -6.93  E_alphaC   332.7 z  -5.33
 d=7 nonM it3 j= 6 primes  456 | non-I reached 133842 | III hits   354  E_unif   418.5 z  -4.35  E_alpha   405.0 z  -1.89
+d=7 nonM it3L j= 6 (threshold-local censoring, conditional alpha null) | III hits   354  E_unif   418.5 z  -4.35  E_alphaC   405.0 z  -3.62
 d=7 nonM it3 first entry (G>0): type I 49, type III 114, none within X 93; FR-violations 0
 
-d=1 all  X RED  units   2493 (dropped alpha>5000: 0) | hits   368 E_exact    402.6 z  -1.46 | coverage(G>0) 107/590 exp 120.2 z  -1.75 | hit units: reduced ideal natural 182/184, least natural norm <=100: 93
-d=1 all  X CYC  units   2940 (dropped alpha>5000: 0) | hits  1210 E_exact   1258.5 z  -1.68 | coverage(G>0) 486/590 exp 489.3 z  -0.41 | hit units: reduced ideal natural 604/605, least natural norm <=100: 501
-d=1 all  X GEN2 units   2364 (dropped alpha>5000: 0) | hits  1480 E_exact   1472.0 z  +0.25 | coverage(G>0) 497/590 exp 501.6 z  -0.60 | hit units: reduced ideal natural 740/740, least natural norm <=100: 655
-d=1 M    X RED  units    530 (dropped alpha>5000: 0) | hits    72 E_exact     69.1 z  +0.29 | coverage(G>0) 23/135 exp 23.1 z  -0.03 | hit units: reduced ideal natural 36/36, least natural norm <=100: 17
-d=1 M    X CYC  units    670 (dropped alpha>5000: 0) | hits   222 E_exact    238.3 z  -1.16 | coverage(G>0) 101/135 exp 97.9 z  +0.63 | hit units: reduced ideal natural 111/111, least natural norm <=100: 98
-d=1 M    X GEN2 units    540 (dropped alpha>5000: 0) | hits   316 E_exact    309.7 z  +0.37 | coverage(G>0) 105/135 exp 108.0 z  -0.67 | hit units: reduced ideal natural 158/158, least natural norm <=100: 153
-d=1 nonM X RED  units   1963 (dropped alpha>5000: 0) | hits   296 E_exact    334.1 z  -1.78 | coverage(G>0) 84/455 exp 97.5 z  -1.99 | hit units: reduced ideal natural 146/148, least natural norm <=100: 76
-d=1 nonM X CYC  units   2270 (dropped alpha>5000: 0) | hits   988 E_exact   1022.9 z  -1.39 | coverage(G>0) 385/455 exp 392.2 z  -1.11 | hit units: reduced ideal natural 493/494, least natural norm <=100: 403
-d=1 nonM X GEN2 units   1824 (dropped alpha>5000: 0) | hits  1164 E_exact   1154.3 z  +0.35 | coverage(G>0) 392/455 exp 391.9 z  +0.02 | hit units: reduced ideal natural 582/582, least natural norm <=100: 502
-d=2 all  X RED  units   2464 (dropped alpha>5000: 0) | hits   208 E_exact    179.1 z  +1.75 | coverage(G>0) 61/586 exp 53.5 z  +1.43 | hit units: reduced ideal natural 103/104, least natural norm <=100: 40
-d=2 all  X CYC  units   2945 (dropped alpha>5000: 0) | hits   264 E_exact    293.4 z  -1.43 | coverage(G>0) 115/586 exp 131.6 z  -1.86 | hit units: reduced ideal natural 132/132, least natural norm <=100: 91
-d=2 all  X GEN2 units   2364 (dropped alpha>5000: 0) | hits  1062 E_exact   1076.3 z  -0.45 | coverage(G>0) 470/586 exp 411.5 z  +5.79 | hit units: reduced ideal natural 531/531, least natural norm <=100: 531
-d=2 M    X RED  units    424 (dropped alpha>5000: 0) | hits    36 E_exact     23.2 z  +2.02 | coverage(G>0) 14/130 exp 9.6 z  +1.76 | hit units: reduced ideal natural 18/18, least natural norm <=100: 6
-d=2 M    X CYC  units    673 (dropped alpha>5000: 0) | hits    48 E_exact     55.0 z  -0.73 | coverage(G>0) 22/130 exp 24.1 z  -0.51 | hit units: reduced ideal natural 24/24, least natural norm <=100: 16
-d=2 M    X GEN2 units    540 (dropped alpha>5000: 0) | hits   124 E_exact    125.1 z  -0.08 | coverage(G>0) 56/130 exp 53.5 z  +0.47 | hit units: reduced ideal natural 62/62, least natural norm <=100: 62
-d=2 nonM X RED  units   2040 (dropped alpha>5000: 0) | hits   172 E_exact    156.3 z  +1.03 | coverage(G>0) 47/456 exp 44.2 z  +0.62 | hit units: reduced ideal natural 85/86, least natural norm <=100: 34
-d=2 nonM X CYC  units   2272 (dropped alpha>5000: 0) | hits   216 E_exact    241.7 z  -1.40 | coverage(G>0) 93/456 exp 108.6 z  -1.96 | hit units: reduced ideal natural 108/108, least natural norm <=100: 75
-d=2 nonM X GEN2 units   1824 (dropped alpha>5000: 0) | hits   938 E_exact    957.3 z  -0.66 | coverage(G>0) 414/456 exp 360.1 z  +6.25 | hit units: reduced ideal natural 469/469, least natural norm <=100: 469
-d=3 all  X RED  units   2474 (dropped alpha>5000: 0) | hits    80 E_exact     89.3 z  -0.77 | coverage(G>0) 33/521 exp 32.8 z  +0.05 | hit units: reduced ideal natural 40/40, least natural norm <=100: 9
-d=3 all  X CYC  units   2942 (dropped alpha>5000: 0) | hits   134 E_exact    139.3 z  -0.35 | coverage(G>0) 59/521 exp 58.0 z  +0.16 | hit units: reduced ideal natural 67/67, least natural norm <=100: 42
-d=3 all  X GEN2 units   2364 (dropped alpha>5000: 0) | hits   418 E_exact    423.4 z  -0.23 | coverage(G>0) 177/521 exp 166.8 z  +1.10 | hit units: reduced ideal natural 209/209, least natural norm <=100: 190
-d=3 M    X RED  units    446 (dropped alpha>5000: 0) | hits    10 E_exact      9.7 z  +0.08 | coverage(G>0) 5/118 exp 4.2 z  +0.48 | hit units: reduced ideal natural 5/5, least natural norm <=100: 0
-d=3 M    X CYC  units    671 (dropped alpha>5000: 0) | hits    46 E_exact     51.0 z  -0.55 | coverage(G>0) 20/118 exp 22.2 z  -0.54 | hit units: reduced ideal natural 23/23, least natural norm <=100: 22
-d=3 M    X GEN2 units    540 (dropped alpha>5000: 0) | hits   148 E_exact    157.1 z  -0.68 | coverage(G>0) 57/118 exp 60.6 z  -0.74 | hit units: reduced ideal natural 74/74, least natural norm <=100: 67
-d=3 nonM X RED  units   2028 (dropped alpha>5000: 0) | hits    70 E_exact     80.1 z  -0.89 | coverage(G>0) 28/403 exp 28.7 z  -0.18 | hit units: reduced ideal natural 35/35, least natural norm <=100: 9
-d=3 nonM X CYC  units   2271 (dropped alpha>5000: 0) | hits    88 E_exact     91.0 z  -0.24 | coverage(G>0) 39/403 exp 37.0 z  +0.39 | hit units: reduced ideal natural 44/44, least natural norm <=100: 20
-d=3 nonM X GEN2 units   1824 (dropped alpha>5000: 0) | hits   270 E_exact    276.8 z  -0.34 | coverage(G>0) 120/403 exp 109.7 z  +1.32 | hit units: reduced ideal natural 135/135, least natural norm <=100: 123
-d=5 all  X RED  units   1385 (dropped alpha>5000: 0) | hits    32 E_exact     34.4 z  -0.31 | coverage(G>0) 12/533 exp 11.6 z  +0.15 | hit units: reduced ideal natural 14/16, least natural norm <=100: 2
-d=5 all  X CYC  units   2941 (dropped alpha>5000: 0) | hits   110 E_exact    110.6 z  -0.04 | coverage(G>0) 52/533 exp 47.9 z  +0.67 | hit units: reduced ideal natural 53/55, least natural norm <=100: 23
-d=5 all  X GEN2 units   5015 (dropped alpha>5000: 0) | hits   698 E_exact    715.0 z  -0.55 | coverage(G>0) 300/533 exp 277.2 z  +2.07 | hit units: reduced ideal natural 348/349, least natural norm <=100: 319
-d=5 M    X RED  units    509 (dropped alpha>5000: 0) | hits    20 E_exact     17.7 z  +0.41 | coverage(G>0) 7/122 exp 6.7 z  +0.16 | hit units: reduced ideal natural 9/10, least natural norm <=100: 1
-d=5 M    X CYC  units    672 (dropped alpha>5000: 0) | hits    20 E_exact     24.3 z  -0.65 | coverage(G>0) 10/122 exp 10.1 z  -0.03 | hit units: reduced ideal natural 9/10, least natural norm <=100: 3
-d=5 M    X GEN2 units   1079 (dropped alpha>5000: 0) | hits   120 E_exact    124.9 z  -0.35 | coverage(G>0) 53/122 exp 49.1 z  +0.73 | hit units: reduced ideal natural 60/60, least natural norm <=100: 50
-d=5 nonM X RED  units    876 (dropped alpha>5000: 0) | hits    12 E_exact     17.0 z  -0.90 | coverage(G>0) 5/411 exp 5.1 z  -0.03 | hit units: reduced ideal natural 5/6, least natural norm <=100: 1
-d=5 nonM X CYC  units   2269 (dropped alpha>5000: 0) | hits    90 E_exact     86.0 z  +0.33 | coverage(G>0) 42/411 exp 37.5 z  +0.82 | hit units: reduced ideal natural 44/45, least natural norm <=100: 20
-d=5 nonM X GEN2 units   3936 (dropped alpha>5000: 0) | hits   578 E_exact    589.3 z  -0.41 | coverage(G>0) 247/411 exp 227.5 z  +2.02 | hit units: reduced ideal natural 288/289, least natural norm <=100: 269
-d=7 all  X RED  units   1247 (dropped alpha>5000: 0) | hits    10 E_exact      7.1 z  +0.79 | coverage(G>0) 5/311 exp 2.1 z  +2.13 | hit units: reduced ideal natural 5/5, least natural norm <=100: 0
-d=7 all  X CYC  units   2952 (dropped alpha>5000: 0) | hits    16 E_exact     11.9 z  +0.88 | coverage(G>0) 8/311 exp 2.8 z  +3.23 | hit units: reduced ideal natural 7/8, least natural norm <=100: 0
-d=7 all  X GEN2 units   2665 (dropped alpha>5000: 0) | hits   168 E_exact    173.8 z  -0.35 | coverage(G>0) 80/311 exp 50.9 z  +4.77 | hit units: reduced ideal natural 84/84, least natural norm <=100: 60
-d=7 M    X RED  units    370 (dropped alpha>5000: 0) | hits     2 E_exact      3.0 z  -0.41 | coverage(G>0) 1/55 exp 0.5 z  +0.71 | hit units: reduced ideal natural 1/1, least natural norm <=100: 0
-d=7 M    X CYC  units    674 (dropped alpha>5000: 0) | hits     2 E_exact      3.9 z  -0.71 | coverage(G>0) 1/55 exp 0.7 z  +0.35 | hit units: reduced ideal natural 1/1, least natural norm <=100: 0
-d=7 M    X GEN2 units    540 (dropped alpha>5000: 0) | hits     0 E_exact      6.4 z  -1.87 | coverage(G>0) 0/55 exp 1.3 z  -1.19 | hit units: reduced ideal natural 0/0, least natural norm <=100: 0
-d=7 nonM X RED  units    877 (dropped alpha>5000: 0) | hits     8 E_exact      4.2 z  +1.33 | coverage(G>0) 4/256 exp 1.6 z  +2.05 | hit units: reduced ideal natural 4/4, least natural norm <=100: 0
-d=7 nonM X CYC  units   2278 (dropped alpha>5000: 0) | hits    14 E_exact      7.8 z  +1.63 | coverage(G>0) 7/256 exp 2.1 z  +3.59 | hit units: reduced ideal natural 6/7, least natural norm <=100: 0
-d=7 nonM X GEN2 units   2125 (dropped alpha>5000: 0) | hits   168 E_exact    168.0 z  -0.00 | coverage(G>0) 80/256 exp 49.8 z  +5.02 | hit units: reduced ideal natural 84/84, least natural norm <=100: 60
+d=1 all  X RED  units   2493 (dropped alpha>5000: 0) | LOO: hits   368 E    402.6 z  -1.46 ; coverage(G>0, G>0-trained) 107/590 exp 120.4 z  -1.76 | XF: E    400.7 z  -1.39 ; coverage 107/590 exp 119.7 z  -1.69 | hit units: reduced ideal natural 182/184, least natural norm <=100: 93
+d=1 all  X CYC  units   2940 (dropped alpha>5000: 0) | LOO: hits  1210 E   1258.5 z  -1.68 ; coverage(G>0, G>0-trained) 486/590 exp 490.2 z  -0.52 | XF: E   1257.2 z  -1.64 ; coverage 486/590 exp 490.2 z  -0.52 | hit units: reduced ideal natural 604/605, least natural norm <=100: 501
+d=1 all  X GEN2 units   2364 (dropped alpha>5000: 0) | LOO: hits  1480 E   1472.0 z  +0.25 ; coverage(G>0, G>0-trained) 497/590 exp 502.3 z  -0.69 | XF: E   1472.1 z  +0.24 ; coverage 497/590 exp 502.5 z  -0.72 | hit units: reduced ideal natural 740/740, least natural norm <=100: 655
+d=1 M    X RED  units    530 (dropped alpha>5000: 0) | LOO: hits    72 E     69.1 z  +0.29 ; coverage(G>0, G>0-trained) 23/135 exp 23.1 z  -0.03 | XF: E     68.1 z  +0.40 ; coverage 23/135 exp 22.7 z  +0.09 | hit units: reduced ideal natural 36/36, least natural norm <=100: 17
+d=1 M    X CYC  units    670 (dropped alpha>5000: 0) | LOO: hits   222 E    238.3 z  -1.16 ; coverage(G>0, G>0-trained) 101/135 exp 97.9 z  +0.63 | XF: E    239.7 z  -1.25 ; coverage 101/135 exp 98.1 z  +0.60 | hit units: reduced ideal natural 111/111, least natural norm <=100: 98
+d=1 M    X GEN2 units    540 (dropped alpha>5000: 0) | LOO: hits   316 E    309.7 z  +0.37 ; coverage(G>0, G>0-trained) 105/135 exp 108.0 z  -0.67 | XF: E    309.3 z  +0.39 ; coverage 105/135 exp 107.9 z  -0.65 | hit units: reduced ideal natural 158/158, least natural norm <=100: 153
+d=1 nonM X RED  units   1963 (dropped alpha>5000: 0) | LOO: hits   296 E    334.1 z  -1.78 ; coverage(G>0, G>0-trained) 84/455 exp 97.6 z  -2.01 | XF: E    333.4 z  -1.75 ; coverage 84/455 exp 97.4 z  -1.99 | hit units: reduced ideal natural 146/148, least natural norm <=100: 76
+d=1 nonM X CYC  units   2270 (dropped alpha>5000: 0) | LOO: hits   988 E   1022.9 z  -1.39 ; coverage(G>0, G>0-trained) 385/455 exp 393.0 z  -1.23 | XF: E   1023.0 z  -1.39 ; coverage 385/455 exp 392.9 z  -1.22 | hit units: reduced ideal natural 493/494, least natural norm <=100: 403
+d=1 nonM X GEN2 units   1824 (dropped alpha>5000: 0) | LOO: hits  1164 E   1154.3 z  +0.35 ; coverage(G>0, G>0-trained) 392/455 exp 392.5 z  -0.08 | XF: E   1154.7 z  +0.33 ; coverage 392/455 exp 392.4 z  -0.07 | hit units: reduced ideal natural 582/582, least natural norm <=100: 502
+d=2 all  X RED  units   2464 (dropped alpha>5000: 0) | LOO: hits   208 E    179.1 z  +1.75 ; coverage(G>0, G>0-trained) 61/586 exp 53.7 z  +1.40 | XF: E    178.2 z  +1.81 ; coverage 61/586 exp 53.2 z  +1.50 | hit units: reduced ideal natural 103/104, least natural norm <=100: 40
+d=2 all  X CYC  units   2945 (dropped alpha>5000: 0) | LOO: hits   264 E    293.4 z  -1.43 ; coverage(G>0, G>0-trained) 115/586 exp 131.8 z  -1.88 | XF: E    294.5 z  -1.48 ; coverage 115/586 exp 132.3 z  -1.93 | hit units: reduced ideal natural 132/132, least natural norm <=100: 91
+d=2 all  X GEN2 units   2364 (dropped alpha>5000: 0) | LOO: hits  1062 E   1076.3 z  -0.45 ; coverage(G>0, G>0-trained) 470/586 exp 411.6 z  +5.78 | XF: E   1079.0 z  -0.54 ; coverage 470/586 exp 412.2 z  +5.75 | hit units: reduced ideal natural 531/531, least natural norm <=100: 531
+d=2 M    X RED  units    424 (dropped alpha>5000: 0) | LOO: hits    36 E     23.2 z  +2.02 ; coverage(G>0, G>0-trained) 14/130 exp 9.8 z  +1.66 | XF: E     22.6 z  +2.15 ; coverage 14/130 exp 9.4 z  +1.85 | hit units: reduced ideal natural 18/18, least natural norm <=100: 6
+d=2 M    X CYC  units    673 (dropped alpha>5000: 0) | LOO: hits    48 E     55.0 z  -0.73 ; coverage(G>0, G>0-trained) 22/130 exp 24.6 z  -0.62 | XF: E     54.8 z  -0.72 ; coverage 22/130 exp 24.6 z  -0.64 | hit units: reduced ideal natural 24/24, least natural norm <=100: 16
+d=2 M    X GEN2 units    540 (dropped alpha>5000: 0) | LOO: hits   124 E    125.1 z  -0.08 ; coverage(G>0, G>0-trained) 56/130 exp 53.9 z  +0.40 | XF: E    123.3 z  +0.05 ; coverage 56/130 exp 53.3 z  +0.51 | hit units: reduced ideal natural 62/62, least natural norm <=100: 62
+d=2 nonM X RED  units   2040 (dropped alpha>5000: 0) | LOO: hits   172 E    156.3 z  +1.03 ; coverage(G>0, G>0-trained) 47/456 exp 44.2 z  +0.62 | XF: E    155.0 z  +1.12 ; coverage 47/456 exp 44.0 z  +0.66 | hit units: reduced ideal natural 85/86, least natural norm <=100: 34
+d=2 nonM X CYC  units   2272 (dropped alpha>5000: 0) | LOO: hits   216 E    241.7 z  -1.40 ; coverage(G>0, G>0-trained) 93/456 exp 108.6 z  -1.96 | XF: E    239.5 z  -1.29 ; coverage 93/456 exp 107.6 z  -1.84 | hit units: reduced ideal natural 108/108, least natural norm <=100: 75
+d=2 nonM X GEN2 units   1824 (dropped alpha>5000: 0) | LOO: hits   938 E    957.3 z  -0.66 ; coverage(G>0, G>0-trained) 414/456 exp 360.1 z  +6.25 | XF: E    955.5 z  -0.60 ; coverage 414/456 exp 359.9 z  +6.27 | hit units: reduced ideal natural 469/469, least natural norm <=100: 469
+d=3 all  X RED  units   2474 (dropped alpha>5000: 0) | LOO: hits    80 E     89.3 z  -0.77 ; coverage(G>0, G>0-trained) 33/521 exp 35.2 z  -0.50 | XF: E     89.8 z  -0.81 ; coverage 33/521 exp 35.4 z  -0.55 | hit units: reduced ideal natural 40/40, least natural norm <=100: 9
+d=3 all  X CYC  units   2942 (dropped alpha>5000: 0) | LOO: hits   134 E    139.3 z  -0.35 ; coverage(G>0, G>0-trained) 59/521 exp 62.2 z  -0.48 | XF: E    138.1 z  -0.27 ; coverage 59/521 exp 61.7 z  -0.41 | hit units: reduced ideal natural 67/67, least natural norm <=100: 42
+d=3 all  X GEN2 units   2364 (dropped alpha>5000: 0) | LOO: hits   418 E    423.4 z  -0.23 ; coverage(G>0, G>0-trained) 177/521 exp 174.9 z  +0.23 | XF: E    421.8 z  -0.16 ; coverage 177/521 exp 173.8 z  +0.35 | hit units: reduced ideal natural 209/209, least natural norm <=100: 190
+d=3 M    X RED  units    446 (dropped alpha>5000: 0) | LOO: hits    10 E      9.7 z  +0.08 ; coverage(G>0, G>0-trained) 5/118 exp 4.6 z  +0.22 | XF: E      9.6 z  +0.11 ; coverage 5/118 exp 4.6 z  +0.22 | hit units: reduced ideal natural 5/5, least natural norm <=100: 0
+d=3 M    X CYC  units    671 (dropped alpha>5000: 0) | LOO: hits    46 E     51.0 z  -0.55 ; coverage(G>0, G>0-trained) 20/118 exp 24.2 z  -1.02 | XF: E     49.0 z  -0.34 ; coverage 20/118 exp 23.5 z  -0.86 | hit units: reduced ideal natural 23/23, least natural norm <=100: 22
+d=3 M    X GEN2 units    540 (dropped alpha>5000: 0) | LOO: hits   148 E    157.1 z  -0.68 ; coverage(G>0, G>0-trained) 57/118 exp 65.3 z  -1.74 | XF: E    154.1 z  -0.46 ; coverage 57/118 exp 64.3 z  -1.52 | hit units: reduced ideal natural 74/74, least natural norm <=100: 67
+d=3 nonM X RED  units   2028 (dropped alpha>5000: 0) | LOO: hits    70 E     80.1 z  -0.89 ; coverage(G>0, G>0-trained) 28/403 exp 30.6 z  -0.65 | XF: E     80.1 z  -0.89 ; coverage 28/403 exp 30.8 z  -0.69 | hit units: reduced ideal natural 35/35, least natural norm <=100: 9
+d=3 nonM X CYC  units   2271 (dropped alpha>5000: 0) | LOO: hits    88 E     91.0 z  -0.24 ; coverage(G>0, G>0-trained) 39/403 exp 39.6 z  -0.10 | XF: E     90.7 z  -0.22 ; coverage 39/403 exp 39.5 z  -0.09 | hit units: reduced ideal natural 44/44, least natural norm <=100: 20
+d=3 nonM X GEN2 units   1824 (dropped alpha>5000: 0) | LOO: hits   270 E    276.8 z  -0.34 ; coverage(G>0, G>0-trained) 120/403 exp 114.3 z  +0.73 | XF: E    276.0 z  -0.30 ; coverage 120/403 exp 113.9 z  +0.79 | hit units: reduced ideal natural 135/135, least natural norm <=100: 123
+d=5 all  X RED  units   1385 (dropped alpha>5000: 0) | LOO: hits    32 E     34.4 z  -0.31 ; coverage(G>0, G>0-trained) 12/533 exp 12.7 z  -0.22 | XF: E     35.2 z  -0.40 ; coverage 12/533 exp 12.8 z  -0.28 | hit units: reduced ideal natural 14/16, least natural norm <=100: 2
+d=5 all  X CYC  units   2941 (dropped alpha>5000: 0) | LOO: hits   110 E    110.6 z  -0.04 ; coverage(G>0, G>0-trained) 52/533 exp 51.8 z  +0.03 | XF: E    109.7 z  +0.02 ; coverage 52/533 exp 51.7 z  +0.04 | hit units: reduced ideal natural 53/55, least natural norm <=100: 23
+d=5 all  X GEN2 units   5015 (dropped alpha>5000: 0) | LOO: hits   698 E    715.0 z  -0.55 ; coverage(G>0, G>0-trained) 300/533 exp 291.4 z  +0.78 | XF: E    714.0 z  -0.52 ; coverage 300/533 exp 290.7 z  +0.85 | hit units: reduced ideal natural 348/349, least natural norm <=100: 319
+d=5 M    X RED  units    509 (dropped alpha>5000: 0) | LOO: hits    20 E     17.7 z  +0.41 ; coverage(G>0, G>0-trained) 7/122 exp 7.1 z  -0.07 | XF: E     17.1 z  +0.53 ; coverage 7/122 exp 6.8 z  +0.07 | hit units: reduced ideal natural 9/10, least natural norm <=100: 1
+d=5 M    X CYC  units    672 (dropped alpha>5000: 0) | LOO: hits    20 E     24.3 z  -0.65 ; coverage(G>0, G>0-trained) 10/122 exp 11.1 z  -0.37 | XF: E     24.0 z  -0.61 ; coverage 10/122 exp 11.1 z  -0.36 | hit units: reduced ideal natural 9/10, least natural norm <=100: 3
+d=5 M    X GEN2 units   1079 (dropped alpha>5000: 0) | LOO: hits   120 E    124.9 z  -0.35 ; coverage(G>0, G>0-trained) 53/122 exp 52.2 z  +0.15 | XF: E    122.2 z  -0.16 ; coverage 53/122 exp 51.3 z  +0.33 | hit units: reduced ideal natural 60/60, least natural norm <=100: 50
+d=5 nonM X RED  units    876 (dropped alpha>5000: 0) | LOO: hits    12 E     17.0 z  -0.90 ; coverage(G>0, G>0-trained) 5/411 exp 5.7 z  -0.33 | XF: E     17.7 z  -1.00 ; coverage 5/411 exp 5.8 z  -0.40 | hit units: reduced ideal natural 5/6, least natural norm <=100: 1
+d=5 nonM X CYC  units   2269 (dropped alpha>5000: 0) | LOO: hits    90 E     86.0 z  +0.33 ; coverage(G>0, G>0-trained) 42/411 exp 40.5 z  +0.27 | XF: E     87.9 z  +0.17 ; coverage 42/411 exp 41.4 z  +0.11 | hit units: reduced ideal natural 44/45, least natural norm <=100: 20
+d=5 nonM X GEN2 units   3936 (dropped alpha>5000: 0) | LOO: hits   578 E    589.3 z  -0.41 ; coverage(G>0, G>0-trained) 247/411 exp 238.6 z  +0.88 | XF: E    584.5 z  -0.24 ; coverage 247/411 exp 235.9 z  +1.16 | hit units: reduced ideal natural 288/289, least natural norm <=100: 269
+d=7 all  X RED  units   1247 (dropped alpha>5000: 0) | LOO: hits    10 E      7.1 z  +0.79 ; coverage(G>0, G>0-trained) 5/311 exp 3.5 z  +0.85 | XF: E      7.4 z  +0.71 ; coverage 5/311 exp 3.7 z  +0.73 | hit units: reduced ideal natural 5/5, least natural norm <=100: 0
+d=7 all  X CYC  units   2952 (dropped alpha>5000: 0) | LOO: hits    16 E     11.9 z  +0.88 ; coverage(G>0, G>0-trained) 8/311 exp 4.8 z  +1.53 | XF: E     11.5 z  +0.98 ; coverage 8/311 exp 4.6 z  +1.69 | hit units: reduced ideal natural 7/8, least natural norm <=100: 0
+d=7 all  X GEN2 units   2665 (dropped alpha>5000: 0) | LOO: hits   168 E    173.8 z  -0.35 ; coverage(G>0, G>0-trained) 80/311 exp 78.6 z  +0.20 | XF: E    172.9 z  -0.29 ; coverage 80/311 exp 78.2 z  +0.27 | hit units: reduced ideal natural 84/84, least natural norm <=100: 60
+d=7 M    X RED  units    370 (dropped alpha>5000: 0) | LOO: hits     2 E      3.0 z  -0.41 ; coverage(G>0, G>0-trained) 1/55 exp 1.1 z  -0.11 | XF: E      3.4 z  -0.57 ; coverage 1/55 exp 1.4 z  -0.36 | hit units: reduced ideal natural 1/1, least natural norm <=100: 0
+d=7 M    X CYC  units    674 (dropped alpha>5000: 0) | LOO: hits     2 E      3.9 z  -0.71 ; coverage(G>0, G>0-trained) 1/55 exp 1.5 z  -0.47 | XF: E      3.8 z  -0.67 ; coverage 1/55 exp 1.7 z  -0.57 | hit units: reduced ideal natural 1/1, least natural norm <=100: 0
+d=7 M    X GEN2 units    540 (dropped alpha>5000: 0) | LOO: hits     0 E      6.4 z  -1.87 ; coverage(G>0, G>0-trained) 0/55 exp 2.6 z  -1.81 | XF: E      6.2 z  -1.84 ; coverage 0/55 exp 2.7 z  -1.83 | hit units: reduced ideal natural 0/0, least natural norm <=100: 0
+d=7 nonM X RED  units    877 (dropped alpha>5000: 0) | LOO: hits     8 E      4.2 z  +1.33 ; coverage(G>0, G>0-trained) 4/256 exp 2.5 z  +1.01 | XF: E      4.0 z  +1.43 ; coverage 4/256 exp 2.4 z  +1.09 | hit units: reduced ideal natural 4/4, least natural norm <=100: 0
+d=7 nonM X CYC  units   2278 (dropped alpha>5000: 0) | LOO: hits    14 E      7.8 z  +1.63 ; coverage(G>0, G>0-trained) 7/256 exp 3.3 z  +2.16 | XF: E      8.4 z  +1.41 ; coverage 7/256 exp 4.0 z  +1.69 | hit units: reduced ideal natural 6/7, least natural norm <=100: 0
+d=7 nonM X GEN2 units   2125 (dropped alpha>5000: 0) | LOO: hits   168 E    168.0 z  -0.00 ; coverage(G>0, G>0-trained) 80/256 exp 76.6 z  +0.51 | XF: E    165.5 z  +0.15 ; coverage 80/256 exp 75.8 z  +0.64 | hit units: reduced ideal natural 84/84, least natural norm <=100: 60
 union over d of RED : coverage 192/591, null exp 200.3 (z -0.90) | M: 43/135 exp 42.0 | uncovered: 399
 union over d of CYC : coverage 528/591, null exp 522.7 (z +0.75) | M: 113/135 exp 111.0 | uncovered: 63
 union over d of GEN2: coverage 584/591, null exp 581.3 (z +0.89) | M: 128/135 exp 129.0 | uncovered: [107641, 110881, 118801, 1010881, 1017361, 1027321, 1029001]
