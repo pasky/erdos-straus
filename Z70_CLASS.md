@@ -205,8 +205,8 @@ in review round 3; the earlier "≈ 97 %" conflated the sides): of the good clas
 = 33 %, 286/956 = 30 % (d = 1) and 96/474 = 20 % (d = 3); together with the inverse classes (small B-side representative,
 the form [B, 4bd, ·] of g⁻¹) 816/1232 = 66 %, 572/956 = 60 %, 192/474 = 41 %; the remaining classes with a small natural
 representative (1194, 934, 458 in all) are small only on the de-side, where the condition sits on the third coefficient.
-So for a majority of good classes membership in G is visible on the reduced form of g or g⁻¹ — the tied divisor condition
-again, now on the list of reduced forms.
+So for a majority of good classes in the two d = 1 samples (41 % for d = 3) membership in G is visible on the reduced form of
+g or g⁻¹ — the tied divisor condition again, now on the list of reduced forms.
 
 **Lemma FR (free region). PROVED.** Let 𝔞, 𝔟, 𝔱 be invertible ideals of O with [𝔟] = [𝔞] + [𝔱] and
 N(𝔞)N(𝔟)N(𝔱) < dn. Then 𝔟·conj(𝔞)·conj(𝔱) = xO with x ∈ ℤ_{>0} and x² = N(𝔞)N(𝔟)N(𝔱).
@@ -329,7 +329,7 @@ J-check. EVIDENCE: the d = 1 (and n ≈ 3·10⁶ / 6·10⁶, d = 3) residual bey
 fibre relation and every ideal identity no positive excess is detected for d = 1, 2, 3; at n ≈ 4·10⁶ (d = 1) 216 of 218
 L1 overlaps are explicit ideal identities. Unresolved: negative deviations against FIX-ALL (d = 1 pooled L3 −6.2; pooled
 control C0 −6.2) — the post hoc diagnostics (ALLF, DIAG) do not distinguish a null artefact from additional arithmetic
-avoidance (a pooled L1/L3 deficit of about −3 to −4 survives even the most protective null, ALLS). Proposition NG is a
+avoidance (the most protective, still partial, null ALLS retains a pooled L1/L3 deficit of about −3 to −4). Proposition NG is a
 reformulation: **no forcing mechanism was established** — none of the operations supplies
 the divisor event. Not a HOT LEAD.
 
@@ -419,20 +419,22 @@ nor does it decompose the registered class-level deficit. ALLF and DIAG therefor
 additional arithmetic avoidance; the negative deviations remain **unresolved** (whatever they are, they are deficits,
 not a forcing mechanism).
 Third post hoc diagnostic (final pass, after review round 3; `i1_FIXALLS_d1_*.txt`, `i1_FIXALLS2_d1_*.txt`): mode ALLS never
-pivots on a prime of any *small* natural representative (A-, B- or de-side, norm² < dn), so all of them are built from
-swapped / fixed / frozen classes and keep their free-region protection. Over the nine d = 1 windows (smoke excluded)
+pivots on a prime of any *small* natural representative (A-, B- or de-side, norm² < dn). This is only a **partial**
+protection (review round 4): such primes above the largest good e-prime still get uniform classes (e.g. n = 4001617, A =
+1319), and size-matched swaps whose windows had to be widened can carry a pair of small representatives across the
+free-region bound (e.g. n = 3000073: 𝔔₄₃₁, conj 𝔔₇₂₇ ↦ 𝔔₁₁₀₃, conj 𝔔₂₇₉₁, whose classes then coincide). Over the nine d = 1 windows (smoke excluded)
 pooled Z: Mx +0.4, Ex −0.5, **L1 −3.1, L3 −3.9**, C0 −2.7, A2 −1.1 (FIX-ALL: −0.6, +0.6, −4.6, −6.2, −6.2, −3.5); per window
 L1 between −2.7 and +0.6, L3 between −2.6 and −0.4 (G3 has Mx +3.1). Adding 2-Sylow matching of the swapped prime classes
-(`Z70_MATCH2=1`, H1 and F4 only) leaves L1 −2.7 / −1.6, L3 −2.7 / −2.3. So protecting the small representatives roughly
-halves the deficit and removes most of the collision deficit, but a **negative L1/L3 deviation of about −3 to −4 pooled
-survives** every null tried. Open (post hoc, not a registered finding): either a remaining property of the nulls (e.g.
+(`Z70_MATCH2=1`, H1 and F4 only) leaves L1 −2.7 / −1.6, L3 −2.7 / −2.3. So this partial protection roughly
+halves the deficit and removes most of the collision deficit; **ALLS retains pooled L1/L3 deficits (−3.1, −3.9), and
+2-Sylow matching retains negative departures on the two windows tested**. Open (post hoc, not a registered finding): either a remaining property of the nulls (e.g.
 the uniform classes of large cofactor primes, or finer-than-genus structure of prime classes) or a genuine
 *anti-coincidence* — good classes avoiding small-prime translates of each other beyond ideal identities. A natural
 calibration for a follow-up is an exact lattice-point null: for each pair of good classes, the probability that
 N(R)N(R′)ℓ = x² + dny² with the right ideal compatibility, instead of a randomised class map.
 **Summary of the calibrated evidence:** beyond DL + CS there is a positive residual for d = 1 and, at n ≈ 3·10⁶, for d = 3
 (d = 2: not interpreted, control fails); against the null that keeps every relation of Lemma Φ in every active fibre and
-every ideal identity (incl. Lemma DL′) **no positive excess is detected** in any window for d = 1, 2, 3; the remaining
+every ideal identity (incl. Lemma DL′) **no positive excess is detected** in any registered FIX-ALL window for d = 1, 2, 3; the remaining
 deviations are negative (fewer coincidences than that null) and unresolved.
 
 ### 1.11 z69's windows with the corrected nulls (the §1.2 replication; run after review round 2)
@@ -552,8 +554,8 @@ split prime (local data).** Not a HOT LEAD.
   and not seen for d = 5, 7 (low power). Against a null that keeps every relation of Lemma Φ in every active fibre and
   every ideal identity (incl. the new Lemma DL′), no positive excess is detected for d = 1, 2, 3; what remains is a
   negative deviation (fewer coincidences than the null), unresolved; the pooled d = 1 control also fails; the post hoc
-  diagnostics (ALLF, DIAG, ALLS, 2-Sylow matching) shrink it but a pooled L1/L3 deficit of about −3 to −4 survives the most
-  protective null tried — a remaining null property or a genuine anti-coincidence (open). Descriptively, almost all
+  diagnostics (ALLF, DIAG, ALLS, 2-Sylow matching; all partial) shrink it, and ALLS retains a pooled L1/L3 deficit of about
+  −3 to −4 — a remaining null property or a genuine anti-coincidence (open). Descriptively, almost all
   small-prime translation overlaps are explicit ideal identities between small natural representatives (Lemmas Φ, DL′; at
   n ≈ 4·10⁶, 216/218), and Lemma FR / Cor. FR′ explain why small classes cannot carry other coincidences; Corollary J is
   the one class-level exclusion found. No operation found produces a good class without exhibiting the divisor event
@@ -578,8 +580,8 @@ loosen the tie. Fixed p: all statements are per n, none produces a solution.
 variables, fibre relations solved exactly, all ideal identities kept): residual beyond z69's DL + CS is real for d = 1
 (pooled Z_L1 +18.7) and appears for d = 3 at n ≈ 3·10⁶ and 6·10⁶; against the null keeping all relations of the fibres
 n + 4a²d no positive excess detected (d = 1, 2, 3); negative departures (fewer coincidences than the null; pooled d = 1
-control also fails) unresolved — post hoc diagnostics shrink them, but a pooled L1/L3 deficit of about −3 to −4 survives the
-most protective null tried (possible anti-coincidence of good classes at small-prime translations; open). PROVED: Lemma Φ
+control also fails) unresolved — partial post hoc diagnostics shrink them; the most protective one (ALLS) retains a pooled
+L1/L3 deficit of about −3 to −4 (possible anti-coincidence of good classes at small-prime translations; open). PROVED: Lemma Φ
 (divisors M of N_a = n + 4a²d ↦ classes is additive on products MM′ | N_a, with φ_a(N_a) = T_d; contains DL, CS), Lemma DL′ ((4acd − 1)(4bcd − 1) = 4c²dn + 1,
 c-fibre lattice), Lemma SR (least natural norm ≤ √(d(2n + e))), Lemma FR (class relations with norm product < dn are
 rational ideal identities; primitive small ideals lie in distinct classes), Cor. J (g, g + J ∈ G₁ ⟹ 2m(g)m(g+J) ≥ n).
@@ -687,3 +689,11 @@ FRONTIER text harmonised with that ("partly a null artefact", "possibly a genuin
 removed); MINOR — pooled d = 1 L3 +13.1 (not +13.2) and L1 +18.7 (not +18.8) in §§4–5; the reproduction note now warns that
 `pool2` includes the smoke primes; low power of the small FIX-ALL windows (§1.11, §1.12 d = 7 L1) stated; the 6–8 % figure
 attributed to L3 pairs (collisions 9–18 %).
+
+**Internal review, round 4 (short final delta)** (deep reviewer on `649b89f26..8b1e8ce14`; `openai/gpt-6-astra`; no provider /
+auth / quota error). No FATAL; it reproduced CS, ALL, ALLS F1 and both ALLS+MATCH2 files byte-for-byte, the nine-window ALLS
+pooling and all 216 RF cases. Findings, applied: (1) MAJOR — ALLS is only a partial free-region protection (large small-rep
+primes get uniform classes; widened swaps can cross the bound): stated in §1.10 and the script header, summaries scoped
+("ALLS retains …" instead of "survives every null tried"); (2) MAJOR — the MATCH2 exhaustion fallback could silently drop the
+matching (latent; did not trigger in the committed runs): fixed to fail closed; MINOR — RF "majority" scoped to d = 1 (41 %
+for d = 3); "no positive excess" scoped to the registered FIX-ALL windows (ALLS G3 has Mx +3.1).

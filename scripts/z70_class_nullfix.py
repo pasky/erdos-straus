@@ -16,8 +16,9 @@
 #   whose only unit coefficients sit on good primes are frozen at the real classes.  Purpose: test whether the negative
 #   deviations of FIX-ALL come from pivot-solved small good ideals losing their free-region protection (Lemma FR).
 # Mode ALLS (post hoc, final pass, after review round 3): as ALL, but no prime of any SMALL natural representative
-#   (A-, B- or de-side, norm^2 < dn) is ever a pivot, so all small natural representatives are built from swapped / fixed /
-#   frozen prime classes and keep the free-region protection of the real ones (Lemma FR, Cor. FR').
+#   (A-, B- or de-side, norm^2 < dn) is ever a pivot.  PARTIAL protection only (review round 4): such primes above the largest
+#   good e-prime are still 'big' (uniform class), and size-matched swaps (windows widened until 8 candidates) can move a
+#   pair of small representatives across the free-region bound N N' l < dn.
 # Usage: python scripts/z70_class_nullfix.py MODE d R seed range P0 P1 [mod res] | list n1 ...
 import sys, math, random, os
 MATCH2 = os.environ.get('Z70_MATCH2') == '1'   # post hoc: swap only to primes with the same 2-Sylow projection of the class
@@ -148,7 +149,12 @@ def analyse(n, d, R, rng, F, mode):
         used = set(fixed) | set(frozen)
         for q in rng.sample(swap, len(swap)):
             cand = [x for x in pools[q] if x not in used]
-            if not cand and MATCH2: cand = [q] if q not in used else []
+            if not cand and MATCH2:      # review round 4: never drop the 2-Sylow matching in a fallback; fail closed
+                cand = [q] if q not in used else []
+                if not cand:
+                    pq = proj(q)
+                    cand = [x for x in SP.pool(q, delta=6.0, kmin=len(used) + 8) if x not in used and proj(x) == pq]
+                assert cand, (n, q, 'MATCH2 pool exhausted')
             if not cand: cand = [x for x in SP.pool(q, delta=1.0, kmin=len(used) + 8) if x not in used]
             x = rng.choice(cand); used.add(x); cls[q] = C.prime_class(x)[1]
         for q in big: cls[q] = G.add(realc[q], rng.choice(Hl))
