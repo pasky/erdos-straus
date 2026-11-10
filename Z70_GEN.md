@@ -127,7 +127,7 @@ gcd(A, 2ad) = 1 (A ≡ −1 mod 4ad); e odd and gcd(e, d) | gcd(N_a, d) = 1. ψ 
 **Theorem GW (genus wall).** (a) ψ(g) = −1 for every g ∈ G_d(p). (b) For any Σ ⊂ ker ψ the subgroup ⟨Σ⟩ is disjoint from
 G_d(p); the same holds for the image of ⟨Σ⟩ under any endomorphism x ↦ kx and under any automorphism preserving ψ.
 In particular the classes of all prime ideals of norm q with (q/p) = +1 (split, or ramified over q | 2d) lie in ker ψ, and
-so does every class of order ≤ 2 when (q/p) = +1 for all q | 2d and p > 3d. On 𝔐 (where (2/p) = (3/p) = (5/p) = (7/p) = 1)
+so does every class of order ≤ 2 when d is squarefree, (q/p) = +1 for all q | 2d and p > 3d. On 𝔐 (where (2/p) = (3/p) = (5/p) = (7/p) = 1)
 this covers every prime ideal of norm ≤ 7 and, for squarefree d | 210, all of Cl[2]. (c) Every invertible ideal 𝔞 with
 p ∤ N𝔞 in a class with ψ = −1 has (N𝔞/p) = −1, so N𝔞 has a prime factor q with (q/p) = −1, q ≥ n_p (least quadratic
 non-residue of p); in particular every good class has minimal norm α(g) ≥ n_p and every natural norm ≥ n_p. (d) For
@@ -162,8 +162,10 @@ dp/3 ≤ k² ≤ dp; k | d forces p ≤ 3d, and p | k forces k ≥ p > √(dp) �
 a = k₀ or 2k₀, k₀ | d (primitive: gcd(a, b, c) = 1 as the form is primitive). Now let g ∈ G ∩ Cl[2]. By z69/CLASS §1.1,
 𝔄·𝔡·𝔈 = (2ad + √−dp), so [𝔈] = −g − T_d = g + T_d ∈ Cl[2] (T_d = [𝔡] has order ≤ 2). Let 𝔟 be the ideal of norm k ≤ 2d in the
 class [𝔈] = −[𝔈] (above); then 𝔈·conj 𝔟 is integral, invertible, principal = (x + y√−dp), and primitive because
-gcd(e, k) = 1 (e odd, gcd(e, d) = 1) and both factors are primitive with coprime norms. If y = 0 then (x) primitive forces
-|x| = 1 and e·k = 1, impossible (e = 1 would give 4abd = p + 1 ≡ 2 mod 4). So e·k = x² + dp y² ≥ dp. But
+gcd(e, k) = 1 (e odd, gcd(e, d) = 1) and both factors are primitive with coprime norms. If y = 0, multiply 𝔈·conj 𝔟 = xO by
+𝔟 (𝔟·conj 𝔟 = kO for invertible 𝔟, Cox Lemma 7.14): k𝔈 = x𝔟; comparing contents (𝔈, 𝔟 primitive) gives |x| = k and 𝔈 = 𝔟,
+so e = k; as gcd(e, 2d) = 1 and k | 2d this forces e = 1, impossible (4abd = p + 1 ≡ 2 mod 4). So y ≠ 0 and
+e·k = x² + dp y² ≥ dp. But
 e·k ≤ 2d(p + 4d)/(4d − 1) < dp ⟺ p(4d − 3) > 8d. Contradiction. ∎ (CERTIFIED consistency: S_AMB has 0 hits in all
 registered windows and screens, §3.1.)
 
@@ -194,14 +196,14 @@ has (−4d′/q) = 1 and the character χ_{−4d′}(m) = (−4d′/m) (modulo 4
 ∎ (The mechanism is T1's: the representation makes N_a a norm from ℤ[√−2d] (resp. ℤ[2√−d′]), whose norms are "squares" for
 the character that separates the target residue −1.)
 
-**Proposition SLICE (fixed-n word moves are re-factorisations).** Let T_n = {(x, y, z) ∈ ℕ³ : xyz − x − z = n}. Each word lies
+**Proposition SLICE (fixed-n word moves are re-factorisations; PROVED except the Remark).** Let T_n = {(x, y, z) ∈ ℕ³ : xyz − x − z = n}. Each word lies
 in three slices: fixed y — (xy − 1)(zy − 1) = ny + 1; fixed x — (xy − 1)·z = n + x; fixed z — symmetric. A move preserving
 one coordinate is a re-factorisation of the fixed integer ny + 1, n + x or n + z subject to a congruence (factors ≡ −1 mod y,
-resp. the factor xy − 1 ≡ −1 mod x). The only fibrewise maps given by polynomials with integer coefficients in the slice
-parameter that preserve integrality on all fibres are the identity and the swap: on the fibre over y, (X, Z) := (xy − 1,
-zy − 1) satisfies XZ = ny + 1, a fibrewise automorphism of the hyperbola is (X, Z) ↦ (λX, Z/λ) or its composition with the
-swap, and integrality of x' = (λX + 1)/y for all words forces λ ∈ ℤ[y]^× = {±1}; λ = −1 gives x' = (2 − xy)/y ∉ ℤ for y ≥ 3.
-(PROVED for this fibration-preserving class of maps only; non-fibred maps are tested in §3.4.) Also (PROVED, Lemma P5 of
+resp. the factor xy − 1 ≡ −1 mod x). *Remark (Assessment, sketch — not a proof):* on the fibre over y, (X, Z) := (xy − 1, zy − 1) satisfies XZ = ny + 1; the
+fibrewise automorphisms of this hyperbola over ℚ(y) are (X, Z) ↦ (λX, Z/λ) and their compositions with the swap; a scaling λ
+that is a *fixed* rational function (not chosen from the factorisation of ny + 1) and keeps both letters integral on every
+fibre is plausibly only ±1, and λ = −1 gives x' = (2 − xy)/y ∉ ℤ for y ≥ 3 — so the only uniform fibrewise move would be the
+swap; every other fibrewise move picks a divisor. (Non-fibred maps are tested in §3.4.) Also (PROVED, Lemma P5 of
 LOOSE + direct check): s, τ_xy, τ_yz, μ, μ^s map Triv_n (words with a letter 1) into Triv_n and T_n ∖ Triv_n into itself
 wherever defined. [τ_xy(x, y, 1) is defined only for x = y (then (xy − 1) | (n + y) with n + y − (xy − 1) = y − x), and τ_xy is
 an involution on its domain; μ is defined on Triv only and lands in Triv.]
@@ -299,7 +301,7 @@ beyond the residue class of p (EVIDENCE; CONDITIONAL on GRH for the invariant fa
   (4acd − 1)(4bcd − 1) = 4c²dn + 1 together with the always-present integral point (a, b) = (0, −cn) (factorisation
   (−1)·(−(4c²dn + 1))); the move between them is the choice of a divisor ≡ −1 (mod 4cd). Orbits *can* start at
   always-present points, but the first step is the divisor event; no uniform (polynomial, fibre-preserving) move exists
-  besides the swap (Prop. SLICE).
+  besides the swap is known (SLICE Remark, Assessment).
 
 ### 3.5 Screens (`screen_F2.txt`, `screen_F4.txt`, `screen_F13.txt`)
 * **F1:** G_d(m²) = ∅ for all 648 pairs (m ≤ 301 odd, d ∈ {1, 2, 3, 5, 7}, gcd(m, d) = 1) — the computational face of GW(e).
@@ -342,7 +344,7 @@ beyond the residue class of p (EVIDENCE; CONDITIONAL on GRH for the invariant fa
      (exact-α null, |z| ≤ 1.1 on W3), every hit an ideal identity at small norm (a congruence menu, B1); union over d ≤ 7
      covers 98.8 % of p ≡ 1 (24), failures all in 𝔐, as predicted by the null.
   7. **Fixed-n moves** (s, τ, μ, ρ_L, ρ_R, ρ_C): never connect always-present (trivial) words to non-trivial certificates
-     (PROVED for s, τ, μ; CERTIFIED for ρ at 13 primes); fibre-preserving uniform moves are only the swap (Prop. SLICE);
+     (PROVED for s, τ, μ; CERTIFIED for ρ at 13 primes); fibre-preserving uniform moves are plausibly only the swap (SLICE Remark, Assessment);
      slice re-factorisations reach certificates in 1–4 steps but each entering step *is* the divisor event.
   8. **Rédei 4-/8-ranks**: r₄ is a congruence invariant here; r₈ and 2-primary positions show no relation to |G| or emptiness.
 * *Escape hatches left open (Assessment).* (i) Non-group-theoretic, non-fibred maps producing ideals of norm ≫ √(dp) whose
@@ -361,7 +363,7 @@ ambiguous for (q/p) = 1 at q | 2d, prime ideals of norm < n_p — on 𝔐 all of
 minimal and natural norms ≥ n_p, and 2-division (Rédei) is the only group-theoretic escape; (AMB) classes of order ≤ 2 are
 never good (squarefree d, p > 3d); (ORD) A^{ord g} ≥ dp; (WORD) a seed ideal of norm < dp/m(g) hits G only by being a natural
 representative (= the divisor event); (REP) the fibre named by p = x² + d(2a)² is barren for p ≡ 1 (8) (norms from ℤ[√−2d]);
-(SLICE) fixed-n moves are re-factorisations, uniform fibrewise moves only the swap; s, τ, μ preserve trivial words.
+(SLICE) fixed-n coordinate-preserving moves are re-factorisations; s, τ, μ preserve trivial words.
 CERTIFIED/EVIDENCE (p ≡ 1 (24), 10⁵–1.02·10⁷, d = 1, 2, 3, 5, 7, held-out W3): ambiguous, Rédei (2-power-torsion), cyclic and
 genus-seed families hit G exactly at the rate of classes with the same minimal norm (all hits = small-norm ideal identities);
 union over d ≤ 7 of genus seeds covers 98.8 % (failures all in 𝔐, as the null predicts); smooth-prime orbits: no class-level
