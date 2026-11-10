@@ -15,8 +15,12 @@
 # Mode ALLF (post hoc diagnostic, after the registered FIX-ALL runs): as ALL, but pivots are never primes of good norms; rows
 #   whose only unit coefficients sit on good primes are frozen at the real classes.  Purpose: test whether the negative
 #   deviations of FIX-ALL come from pivot-solved small good ideals losing their free-region protection (Lemma FR).
+# Mode ALLS (post hoc, final pass, after review round 3): as ALL, but no prime of any SMALL natural representative
+#   (A-, B- or de-side, norm^2 < dn) is ever a pivot, so all small natural representatives are built from swapped / fixed /
+#   frozen prime classes and keep the free-region protection of the real ones (Lemma FR, Cor. FR').
 # Usage: python scripts/z70_class_nullfix.py MODE d R seed range P0 P1 [mod res] | list n1 ...
 import sys, math, random, os
+MATCH2 = os.environ.get('Z70_MATCH2') == '1'   # post hoc: swap only to primes with the same 2-Sylow projection of the class
 DIAG = os.environ.get('Z70_DIAG') == '1'   # post hoc diagnostic (final pass): split ideal-pair coincidences by whether an
 # ideal involves a pivot-solved or uniformly drawn ("solved") prime class
 sys.path.insert(0, 'scripts')
@@ -56,6 +60,13 @@ def analyse(n, d, R, rng, F, mode):
     allprimes = sorted(set(q for v in fib.values() for q, _ in v) | set(goodprimes))
     fixed = set(q for q in allprimes if q <= QFIX) | set(tlp)
     gp = set(goodprimes)
+    # ALLS: primes of every SMALL natural representative (A-, B- or de-side norm N with N^2 < dn) are never pivots
+    smallp = set()
+    if mode == 'ALLS':
+        for (a, b, c, e) in sols:
+            for N in (4*a*c*d - 1, 4*b*c*d - 1):
+                if N*N < d*n: smallp |= set(F.factor(N)) if N <= F.N else set(factorint(N))
+            if (d*e)**2 < d*n: smallp |= set(F.factor(e))
     def gmul(x, m):
         y = G.one; c = x if m > 0 else G.negd[x]
         for _ in range(abs(m)): y = G.add(y, c)
@@ -76,7 +87,8 @@ def analyse(n, d, R, rng, F, mode):
         for i in range(len(cons)):
             if i in pivot_of: continue
             co, rhs = cons[i]
-            cands = [q for q, k in co.items() if abs(k) == 1 and q not in pivset and not (mode == 'ALLF' and q in gp)]
+            cands = [q for q, k in co.items() if abs(k) == 1 and q not in pivset and not (mode == 'ALLF' and q in gp)
+                     and not (mode == 'ALLS' and q in smallp)]
             if not cands: continue
             q = max(cands, key=lambda q: (q not in gp, q)); kq = co[q]
             for j in range(len(cons)):
@@ -104,6 +116,18 @@ def analyse(n, d, R, rng, F, mode):
     swap = [q for q in free if q <= QPOOL]; big = [q for q in free if q > QPOOL]
     SP = SplitPrimes(n, d, int(QPOOL * 1.6) + 100) if swap else None
     pools = {q: SP.pool(q) for q in swap}
+    if MATCH2:
+        m2 = G.h
+        while m2 % 2 == 0: m2 //= 2
+        def proj(q):
+            x = C.prime_class(q)[1]; y = G.one
+            for _ in range(m2): y = G.add(y, x)
+            return y
+        for q in swap:
+            pq = proj(q); dl = 0.1; P = []
+            while len(P) < 8 and dl <= 3:
+                P = [x for x in SP.pool(q, delta=dl, kmin=8) if proj(x) == pq]; dl *= 1.5
+            pools[q] = P if P else [q]
     H = set(G.add(u, u) for u in G.coords.values()); Hl = sorted(H)
     acc = {s: [] for s in SS}; first = None; varied = [False]*len(vecs)
     solved = [any(q in pivset or q in big for q, _ in v) for v in vecs]
@@ -124,6 +148,7 @@ def analyse(n, d, R, rng, F, mode):
         used = set(fixed) | set(frozen)
         for q in rng.sample(swap, len(swap)):
             cand = [x for x in pools[q] if x not in used]
+            if not cand and MATCH2: cand = [q] if q not in used else []
             if not cand: cand = [x for x in SP.pool(q, delta=1.0, kmin=len(used) + 8) if x not in used]
             x = rng.choice(cand); used.add(x); cls[q] = C.prime_class(x)[1]
         for q in big: cls[q] = G.add(realc[q], rng.choice(Hl))
@@ -171,7 +196,7 @@ def run(mode, d, R, nlist, F, seed, out=sys.stdout, tag=''):
             for k in ('coll_S', 'coll_P', 'L3_S', 'L3_P'): tot['dobs_' + k] += o['dobs'][k]; tot['dnull_' + k] += o['dnull'].get(k, 0)
         print(line, file=out, flush=True)
     Z = lambda a: a[0]/math.sqrt(a[1]) if a[1] > 0 else float('nan')
-    print(f"# {tag} null=FIX-{mode} d={d} n analysed {npr} (skipped: {dict(skipped)}); R={R}; seed={seed}; imposed fibres {tot['nfib']}, "
+    print(f"# {tag} null=FIX-{mode}{'(MATCH2)' if MATCH2 else ''} d={d} n analysed {npr} (skipped: {dict(skipped)}); R={R}; seed={seed}; imposed fibres {tot['nfib']}, "
           f"frozen rows {tot['frows']} (vars {tot['frozen']}); ideal-class variability {tot['nvar']}/{tot['NI']}; "
           f"n with null variance > 0: " + ', '.join(f"{s} {powr[s]}" for s in ('Mx', 'Ex', 'L1', 'L3', 'C0', 'A2')), file=out)
     if DIAG:
@@ -182,7 +207,7 @@ def run(mode, d, R, nlist, F, seed, out=sys.stdout, tag=''):
 
 if __name__ == "__main__":
     mode = sys.argv[1]; d = int(sys.argv[2]); R = int(sys.argv[3]); seed = int(sys.argv[4]); spec = sys.argv[5:]
-    assert mode in ('CS', 'ALL', 'ALLF')
+    assert mode in ('CS', 'ALL', 'ALLF', 'ALLS')
     if spec[0] == 'range':
         P0, P1 = int(spec[1]), int(spec[2])
         mod, res = (int(spec[3]), int(spec[4])) if len(spec) > 4 else (8, 1)

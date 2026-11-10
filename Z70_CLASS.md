@@ -1,6 +1,6 @@
 # Z70_CLASS — the I17 residual and the class-group structure of good forms (wave z70, lane CLASS): on the tested windows the residual is divisor-lattice structure seen through a class map injective on small primitive ideals; no forcing mechanism; not a HOT LEAD
 
-**ES is OPEN. Nothing here proves or disproves it.** Status: final; internal hostile review rounds 1–3 applied (§8): the first PSC/PSF null implementations were wrong — their calibrated readings (§§1.3, 1.5) are withdrawn and replaced by corrected runs (§§1.9–1.10). Verdict (§4): **narrowed descriptively, not closed — the I17 residual beyond DL + CS is real (d = 1; d = 3 at larger n) and, on the tested windows, no positive residual remains once all divisor-lattice relations (Lemmas Φ, DL′) and ideal identities are kept; no forcing mechanism established; item 2 null apart from a genus effect.** Not a HOT LEAD.
+**ES is OPEN. Nothing here proves or disproves it.** Status: final; internal hostile review rounds 1–3 applied (§8): the first PSC/PSF null implementations were wrong — their calibrated readings (§§1.3, 1.5) are withdrawn and replaced by corrected runs (§§1.9–1.10). Verdict (§4): **narrowed descriptively, not closed — the I17 residual beyond DL + CS is real (d = 1; d = 3 at larger n) and, on the tested windows, no positive excess is detected once all divisor-lattice relations (Lemmas Φ, DL′) and ideal identities are kept (negative departures unresolved); no forcing mechanism established; item 2 null apart from a genus effect.** Not a HOT LEAD.
 Scripts `scripts/z70_class_*`, data `data/z70/class/`. Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE /
 Assessment. Sources: `Z69_TWIST.md` §9 (I17 round 2: Lemmas DL, CS; residual d = 3 energy Z_Ex = +3.6 and a small d = 1
 residual on the 10⁶ window, both against nulls that do not contain DL/CS), `Z69_MINE.md` §§3, 12 (open: class-group
@@ -417,6 +417,18 @@ review found 86 (G2) / 105 (H1) solutions with a P-labelled e-ideal whose small 
 nor does it decompose the registered class-level deficit. ALLF and DIAG therefore do not distinguish a null artefact from
 additional arithmetic avoidance; the negative deviations remain **unresolved** (whatever they are, they are deficits,
 not a forcing mechanism).
+Third post hoc diagnostic (final pass, after review round 3; `i1_FIXALLS_d1_*.txt`, `i1_FIXALLS2_d1_*.txt`): mode ALLS never
+pivots on a prime of any *small* natural representative (A-, B- or de-side, norm² < dn), so all of them are built from
+swapped / fixed / frozen classes and keep their free-region protection. Over the nine d = 1 windows (smoke excluded)
+pooled Z: Mx +0.4, Ex −0.5, **L1 −3.1, L3 −3.9**, C0 −2.7, A2 −1.1 (FIX-ALL: −0.6, +0.6, −4.6, −6.2, −6.2, −3.5); per window
+L1 between −2.7 and +0.6, L3 between −2.6 and −0.4 (G3 has Mx +3.1). Adding 2-Sylow matching of the swapped prime classes
+(`Z70_MATCH2=1`, H1 and F4 only) leaves L1 −2.7 / −1.6, L3 −2.7 / −2.3. So protecting the small representatives roughly
+halves the deficit and removes most of the collision deficit, but a **negative L1/L3 deviation of about −3 to −4 pooled
+survives** every null tried. Open (post hoc, not a registered finding): either a remaining property of the nulls (e.g.
+the uniform classes of large cofactor primes, or finer-than-genus structure of prime classes) or a genuine
+*anti-coincidence* — good classes avoiding small-prime translates of each other beyond ideal identities. A natural
+calibration for a follow-up is an exact lattice-point null: for each pair of good classes, the probability that
+N(R)N(R′)ℓ = x² + dny² with the right ideal compatibility, instead of a randomised class map.
 **Summary of the calibrated evidence:** beyond DL + CS there is a positive residual for d = 1 and, at n ≈ 3·10⁶, for d = 3
 (d = 2: not interpreted, control fails); against the null that keeps every relation of Lemma Φ in every active fibre and
 every ideal identity (incl. Lemma DL′) **no positive excess is detected** in any window for d = 1, 2, 3; the remaining
@@ -539,7 +551,8 @@ split prime (local data).** Not a HOT LEAD.
   and not seen for d = 5, 7 (low power). Against a null that keeps every relation of Lemma Φ in every active fibre and
   every ideal identity (incl. the new Lemma DL′), no positive excess is detected for d = 1, 2, 3; what remains is a
   negative deviation (fewer coincidences than the null), unresolved; the pooled d = 1 control also fails; the post hoc
-  diagnostics ALLF and DIAG do not distinguish a null artefact from additional arithmetic avoidance. Descriptively, almost all
+  diagnostics (ALLF, DIAG, ALLS, 2-Sylow matching) shrink it but a pooled L1/L3 deficit of about −3 to −4 survives the most
+  protective null tried — a remaining null property or a genuine anti-coincidence (open). Descriptively, almost all
   small-prime translation overlaps are explicit ideal identities between small natural representatives (Lemmas Φ, DL′; at
   n ≈ 4·10⁶, 216/218), and Lemma FR / Cor. FR′ explain why small classes cannot carry other coincidences; Corollary J is
   the one class-level exclusion found. No operation found produces a good class without exhibiting the divisor event
@@ -587,7 +600,8 @@ of the least split prime (no within-stratum residual detected). Not a HOT LEAD. 
 
 ## 7. Reproduction
 Corrected nulls (the valid calibrated runs): `bash scripts/z70_class_run2.sh P|Q` (FIX-CS / FIX-ALL, §1.9), single runs
-`uv run --with sympy --with numpy python scripts/z70_class_nullfix.py CS|ALL|ALLF d R seed range P0 P1` (or `list n …`),
+`uv run --with sympy --with numpy python scripts/z70_class_nullfix.py CS|ALL|ALLF|ALLS d R seed range P0 P1` (or `list n …`;
+`Z70_DIAG=1`, `Z70_MATCH2=1` for the post hoc diagnostics),
 pooled Z: `python3 scripts/z70_class_reagg.py FILE [excluded n …]` per file (the §1.10 pooled values sum these per-n
 records with the smoke primes 24001, 25169 (d = 1) and 24481 (d = 2) excluded from F1); `scripts/z70_class_pool2.py` pools
 the printed aggregates and therefore *includes* the smoke primes — not to be used for the registered F1 numbers.
@@ -638,8 +652,9 @@ fixes:
 * MINOR — exact pooled sums replace rounded pooling (`pool2`); REP-ID subtype labelling simplified (first identity found);
   decoy wording ("no decoy in 4 000 draws"), 2c failure fraction 21–30 %; PARI class groups labelled CONDITIONAL (GRH);
   the new run script propagates failures and writes via temporary files; the cyclic 2-Sylow (2-, 4-, 8-ranks ⊂ v₂h) stated.
-Not done: a separate Rédei-symbol analysis; a fully calibrated (dependence-aware) version of the OTHER comparison; a null
-that keeps free-region protection for pivot-solved classes (ALLF is a partial diagnostic).
+Not done: a separate Rédei-symbol analysis; a fully calibrated (dependence-aware) version of the OTHER comparison; an exact
+lattice-point null for the surviving negative L1/L3 deviation (the ALLS / 2-Sylow diagnostics of the final pass shrink but do
+not remove it, §1.10).
 
 **Internal hostile review, round 2 (delta)** (deep reviewer on `ea81a6405..b36b6f061`; reviewer model reported as
 `openai/gpt-6-astra`; no provider / auth / quota error). No FATAL. It audited `z70_class_nullfix.py` (valid: ±1-pivot
