@@ -382,14 +382,14 @@ is null (−0.80, −1.29), and the excess sits in the letters with v₂(ℓ) = 
 +8.33 / +8.78; controls +11.23 / +10.94 — `pell_analysis_registered.txt`; review correction: the first draft quoted
 controls from a partial run). *Lemma (PROVED):* for p ≡ 1 (8), T² = pU² − 1 forces U odd and T² ≡ p − 1 ≡ 0 (mod 8),
 so T ≡ 0 (mod 4); more precisely the 2-adic solutions are T ∈ 4ℤ₂ (Haar) with U = ±√((T² + 1)/p), and their image in
-ℤ/2^v (v ≥ 2) is uniform on S_v = {T ≡ 0 (4), pU² ≡ T² + 1 (mod 2^{v+1})} (U mod 2^v is fixed up to sign by U² mod
+ℤ/2^v (v ≥ 1) is uniform on S_v = {T ≡ 0 (mod 2^{min(v,2)}), pU² ≡ T² + 1 (mod 2^{v+1})} (U mod 2^v is fixed up to sign by U² mod
 2^{v+1}; T² mod 2^{v+1} depends only on T mod 2^v; for v = 1 the image is the single point (0, 1) mod 2). The conic mod
 ℓ ignores this for every v₂(ℓ) ≥ 1 (the review exhibited (9 601, 56), (28 961, 24), (59 929, 24); the second review
 found that v = 1 was still uncorrected — the conic mod 2 contains the non-liftable point (1, 0); e.g. (241, 22): 2/3 →
 1/3). *Post-hoc correction (disclosed):* a partial fix (v = 2 only, `scripts/z70_loose_pell_recal.py`,
 `pell_analysis_recal.txt`, superseded), then the full 2-adic null (`scripts/z70_loose_pell_recal2.py`: uniform on
 conic mod m × S_v for all v ≥ 1; validated against the projection of the conic mod 16ℓ for 140 random (p, ℓ) with
-v ∈ {1, 2, 3}, the review's examples and (241, 22) — 0 mismatches) → `pell_*_recal2.jsonl.gz`,
+v₂(ℓ) ∈ {1, …, 6}, the review's examples and (241, 22) — 0 mismatches) → `pell_*_recal2.jsonl.gz`,
 `pell_analysis_recal2.txt`:
 
 | sample | letters | D real / 2-adic null (cluster z) | decoys vs null (z) | real vs decoy, null-adjusted (z) |
