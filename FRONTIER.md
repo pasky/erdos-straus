@@ -2728,6 +2728,23 @@ mechanism; no HOT LEAD.**
   lattice translation; complement swap when 4ad | p − 1) that only move existing good classes (hold also where G = ∅);
   residual excess (d = 3, Z = +3.6) unexplained. I12, I9: bounded nulls; I6 untested.
 
+**z70 (z69 leftovers; both ACCEPT-WITH-FIXES in Astra cross-review, fixes applied; internal, unrefereed). No mechanism;
+no HOT LEAD.**
+* **I17 residual + class groups (`Z70_CLASS.md`; narrowed descriptively, not closed).** PROVED (prime case): good classes
+  G_d(n) = T_d + X_d(n) with X_d the classes of "e-ideals" (𝔄·𝔡·𝔈 = (2ad + √−dn)); the composite-n dictionary needs extra
+  hypotheses (cross-review counterexample). The I17 residual beyond the two z69 symmetries is real (d = 1; d = 3 at larger n)
+  but, on the tested windows, no positive excess remains once all divisor-lattice relations (Lemmas Φ, DL′) and ideal
+  identities are kept (negative departures unresolved; nulls are model contrasts). Class orders of U₇ / (★) witness ideals:
+  no signal against same-genus decoys beyond a genus effect. Open (cross-review list): genus/ambiguous seeding of G (a
+  *generative* map), Rédei 4-rank structure, small-split-prime composition orbits from principal seeds, fixed-n solution-graph moves.
+* **Ideation leftovers (`Z70_LOOSE.md`; null).** PROVED: explicit S-transformation for the d = 1, 3 fibre series Φ_d
+  (Theorem F; d = 3 multiprecision only via the cross-review's 35-digit grid); the level sum G = Σ R(n)qⁿ has leading
+  singular coefficients 1[c odd]μ(c)/c² at a₀/c (Lemma K), hence no finite-index law with cocycles o(y⁻¹log²(1/y)) at
+  rationals (Theorem LS): G is not modular nor the holomorphic part of a harmonic Maass form with cuspidal shadow; mock
+  status of the d-fibres undecided. I5: tested fixed-p involution candidates fail on T₇₃/T₄₀₉; Lemma P5 (odd parity of T_p
+  lives in the divisor words of p + 1). IDEAA #10: four nonlinear d-selection rules dead (exact counterexamples, e.g.
+  p = 102 001, 409). Pell-letter residues and I9: no signal against exact / matched controls (bounded nulls).
+
 ## 8. Pointers into the repository
 
 * **Start:** `STATUS.md` (wave headlines, newest first; ES-not-solved banner), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
