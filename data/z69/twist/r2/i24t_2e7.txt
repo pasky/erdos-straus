@@ -1,0 +1,7 @@
+N=20000000 TMIN=1000: solution instances (a<=b, counted with multiplicity over a): 9828471
+near lags k (t' = t+2k): -8:4824 -7:7261 -6:7532 -5:7629 -4:5337 -3:10244 -2:6358 -1:7085 +1:7085 +2:6356 +3:10234 +4:5323 +5:7619 +6:7512 +7:7232 +8:4800 
+far lags +-20..27: 5978/5895 8656/8579 5303/5208 5381/5266 6377/6159 5861/5810 4661/4586 6857/6717 
+mean rate near 0.000715 (hits 112431), far 0.000619 (hits 97294); ratio 1.156; Poisson z of the difference = +33.05
+local-class null (p -> next prime == p mod 6720; 9828471 instances; E_t itself true at p' in 12532): -8:2693 -7:2703 -6:2994 -5:2687 -4:2696 -3:3415 -2:2177 -1:2185 +1:2300 +2:2452 +3:3811 +4:2789 +5:3215 +6:3609 +7:3295 +8:2910 
+near-lag hits: observed 112431, local-class null 45931; ratio 2.4478; Poisson z = +167.11
+cross-fibre only (hits at t+2k whose fibre d' differs from the fibre of t): observed 25635, local-class null 31399; ratio 0.8164; Poisson z = -24.14

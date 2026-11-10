@@ -71,8 +71,11 @@ def mu(f,d):
 def stats(G,X,tl):
     C=G.autocorr(X); k=len(X)
     vals=list(C.values())
+    # A2 = total overlap under translations of order 2; Mx, Ex = M, E with the order-2 translations left out
+    o2=[v for t,v in C.items() if G.add(t,t)==G.one]; rest=[v for t,v in C.items() if G.add(t,t)!=G.one]
     return dict(stab=1+sum(1 for v in vals if v==k), M=max(vals) if vals else 0, E=sum(v*v for v in vals),
-                L1=C.get(tl[0],0) if tl else 0, L3=sum(C.get(t,0) for t in tl))
+                L1=C.get(tl[0],0) if tl else 0, L3=sum(C.get(t,0) for t in tl),
+                A2=sum(o2), Mx=max(rest) if rest else 0, Ex=sum(v*v for v in rest))
 
 def analyse(p,d,R,rng):
     D=-4*d*p; S=good_classes_d(p,d)
@@ -124,18 +127,19 @@ if __name__=="__main__":
     if spec[0]=='range': P=[p for p in primerange(int(spec[1]),int(spec[2])) if p%8==int(spec[3])] if len(spec)>3 else [p for p in primerange(int(spec[1]),int(spec[2])) if p%4==1]
     else: P=[int(x) for x in spec]
     rng=random.Random(69)
-    agg={n:{s:[0.0,0.0] for s in ('M','E','L1','L3')} for n in ('N1','N2')}; npr=0; stabs=Counter(); Mfrac=[]
+    SS=('M','E','L1','L3','A2','Mx','Ex')
+    agg={n:{s:[0.0,0.0] for s in SS} for n in ('N1','N2')}; npr=0; stabs=Counter(); Mfrac=[]
     for p in P:
         o=analyse(p,d,R,rng)
         if 'obs' not in o: print(f"p={p} d={d} k={o['k']} (skipped)",flush=True); continue
         npr+=1; ob=o['obs']; stabs[ob['stab']]+=1; Mfrac.append(ob['M']/o['k'])
-        line=f"p={p} d={d} h={o['h']} genus={o['m']} k={o['k']} gens={o['r']} lowmu={o['lowmu']:.2f} stab={ob['stab']} M={ob['M']} E={ob['E']} L1={ob['L1']} L3={ob['L3']}"
+        line=f"p={p} d={d} h={o['h']} genus={o['m']} k={o['k']} gens={o['r']} lowmu={o['lowmu']:.2f} stab={ob['stab']} M={ob['M']} E={ob['E']} L1={ob['L1']} L3={ob['L3']} A2={ob['A2']} Mx={ob['Mx']} Ex={ob['Ex']}"
         for n in ('N1','N2'):
             line+=f" | {n}:"
-            for s in ('M','E','L1','L3'):
+            for s in SS:
                 mu_,sd=o[n][s]; line+=f" {s} {mu_:.1f}±{sd:.1f}"
                 agg[n][s][0]+=ob[s]-mu_; agg[n][s][1]+=sd*sd
         print(line,flush=True)
     print(f"# d={d} primes analysed {npr}; stabiliser orders {dict(stabs)}; M/k: median {sorted(Mfrac)[len(Mfrac)//2]:.2f} max {max(Mfrac):.2f}; share with M/k > 1/2: {sum(1 for x in Mfrac if x>0.5)/len(Mfrac):.2f}")
     for n in ('N1','N2'):
-        print(f"# aggregate vs {n}: "+"; ".join(f"Z_{s} = {agg[n][s][0]/math.sqrt(agg[n][s][1]) if agg[n][s][1]>0 else float('nan'):+.2f} (sum excess {agg[n][s][0]:+.1f})" for s in ('M','E','L1','L3')))
+        print(f"# aggregate vs {n}: "+"; ".join(f"Z_{s} = {agg[n][s][0]/math.sqrt(agg[n][s][1]) if agg[n][s][1]>0 else float('nan'):+.2f} (sum excess {agg[n][s][0]:+.1f})" for s in SS))

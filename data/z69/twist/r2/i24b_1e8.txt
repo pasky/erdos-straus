@@ -1,0 +1,4 @@
+N=100000000: (★) solutions (a<=b) of primes p==1(4): 71326725
+arm S (from a solution at d, test d+1): eligible 20102195, transported 0 (t'-t = -1: 0, 0: 0, +1: 0); rate among eligible 0.00000
+arm C (from the non-solution fibre d+7, test d+8): eligible 19648785, hits 1140; rate among eligible 0.00006
+difference of rates -0.00006, pooled-binomial z = -34.15

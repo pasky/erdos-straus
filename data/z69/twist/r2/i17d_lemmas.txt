@@ -1,0 +1,3 @@
+d=1 primes p==1(8) in [20000,24000) with >=2 solutions: 99; sum|G|=1232; sum O(T_d)=0, of which in CS fibres (4ad | p-1): 0; CS violations: 0; primes with all classes in CS fibres: 0, primes with T_d*G = G: 0; DL instances checked: 182, violations: 0
+d=3 primes p==1(8) in [20000,24000) with >=2 solutions: 82; sum|G|=388; sum O(T_d)=76, of which in CS fibres (4ad | p-1): 76; CS violations: 0; primes with all classes in CS fibres: 5, primes with T_d*G = G: 5; DL instances checked: 9, violations: 0
+d=5 primes p==1(8) in [20000,24000) with >=2 solutions: 60; sum|G|=194; sum O(T_d)=24, of which in CS fibres (4ad | p-1): 24; CS violations: 0; primes with all classes in CS fibres: 3, primes with T_d*G = G: 3; DL instances checked: 2, violations: 0

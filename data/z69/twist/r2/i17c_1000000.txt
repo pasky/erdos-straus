@@ -1,0 +1,24 @@
+p=1000033 k=8 fibres>1:2 obs M=2 E=104 L1=2 L3=2 | res M=2 E=80 L1=0 L3=0 | N2w M 2.8 E 115 L1 0.4 L3 0.4 | lemma-pairs in L1: 0
+p=1000081 k=16 fibres>1:4 obs M=6 E=784 L1=4 L3=4 | res M=6 E=736 L1=4 L3=4 | N2w M 4.5 E 577 L1 1.1 L3 2.6 | lemma-pairs in L1: 0
+p=1000121 k=60 fibres>1:5 obs M=32 E=32148 L1=32 L3=40 | res M=16 E=20992 L1=12 L3=20 | N2w M 16.9 E 27024 L1 13.3 L3 23.1 | lemma-pairs in L1: 18
+p=1000193 k=32 fibres>1:3 obs M=8 E=3680 L1=0 L3=10 | res M=8 E=3136 L1=0 L3=10 | N2w M 7.9 E 3400 L1 2.8 L3 7.9 | lemma-pairs in L1: 0
+p=1000249 k=24 fibres>1:4 obs M=8 E=2088 L1=0 L3=8 | res M=8 E=1776 L1=0 L3=6 | N2w M 7.2 E 1885 L1 3.1 L3 6.6 | lemma-pairs in L1: 0
+p=1000273 k=22 fibres>1:2 obs M=8 E=1742 L1=2 L3=10 | res M=8 E=1552 L1=2 L3=8 | N2w M 7.1 E 1591 L1 1.9 L3 5.2 | lemma-pairs in L1: 0
+p=1000289 k=76 fibres>1:7 obs M=20 E=56484 L1=16 L3=34 | res M=20 E=50400 L1=16 L3=32 | N2w M 19.8 E 53408 L1 13.5 L3 31.3 | lemma-pairs in L1: 0
+p=1000313 k=28 fibres>1:2 obs M=7 E=2420 L1=4 L3=8 | res M=6 E=2160 L1=4 L3=8 | N2w M 7.3 E 2467 L1 2.1 L3 4.7 | lemma-pairs in L1: 0
+p=1000393 k=8 fibres>1:1 obs M=2 E=104 L1=0 L3=0 | res M=2 E=80 L1=0 L3=0 | N2w M 2.8 E 117 L1 0.0 L3 0.2 | lemma-pairs in L1: 0
+p=1000409 k=32 fibres>1:4 obs M=11 E=5128 L1=4 L3=15 | res M=10 E=4768 L1=2 L3=10 | N2w M 9.1 E 4058 L1 4.3 L3 9.3 | lemma-pairs in L1: 0
+p=1000457 k=32 fibres>1:4 obs M=10 E=4088 L1=4 L3=6 | res M=8 E=2336 L1=4 L3=6 | N2w M 8.1 E 3511 L1 2.2 L3 5.7 | lemma-pairs in L1: 0
+p=1000537 k=14 fibres>1:1 obs M=4 E=422 L1=0 L3=0 | res M=4 E=384 L1=0 L3=0 | N2w M 4.7 E 462 L1 0.7 L3 1.8 | lemma-pairs in L1: 0
+p=1000577 k=22 fibres>1:3 obs M=6 E=1454 L1=0 L3=4 | res M=6 E=1248 L1=0 L3=4 | N2w M 6.4 E 1393 L1 1.9 L3 4.0 | lemma-pairs in L1: 0
+p=1000609 k=18 fibres>1:3 obs M=6 E=890 L1=0 L3=2 | res M=6 E=784 L1=0 L3=2 | N2w M 5.6 E 844 L1 2.0 L3 3.5 | lemma-pairs in L1: 0
+p=1000697 k=24 fibres>1:2 obs M=6 E=1616 L1=4 L3=8 | res M=6 E=1360 L1=0 L3=4 | N2w M 6.7 E 1707 L1 3.2 L3 6.5 | lemma-pairs in L1: 4
+p=1000721 k=42 fibres>1:5 obs M=18 E=8818 L1=18 L3=21 | res M=12 E=7216 L1=10 L3=12 | N2w M 10.8 E 7855 L1 7.7 L3 13.9 | lemma-pairs in L1: 8
+p=1000777 k=14 fibres>1:2 obs M=4 E=466 L1=4 L3=6 | res M=4 E=408 L1=4 L3=4 | N2w M 5.0 E 504 L1 1.0 L3 3.0 | lemma-pairs in L1: 0
+p=1000793 k=38 fibres>1:6 obs M=11 E=6462 L1=8 L3=14 | res M=8 E=5840 L1=8 L3=14 | N2w M 10.6 E 6645 L1 4.7 L3 9.3 | lemma-pairs in L1: 0
+p=1000849 k=8 fibres>1:2 obs M=4 E=128 L1=0 L3=0 | res M=4 E=112 L1=0 L3=0 | N2w M 2.4 E 109 L1 0.4 L3 0.4 | lemma-pairs in L1: 0
+p=1000889 k=20 fibres>1:3 obs M=6 E=956 L1=4 L3=6 | res M=6 E=832 L1=4 L3=6 | N2w M 5.6 E 1032 L1 3.4 L3 4.8 | lemma-pairs in L1: 0
+p=1000921 k=20 fibres>1:3 obs M=4 E=1012 L1=4 L3=4 | res M=4 E=928 L1=4 L3=4 | N2w M 5.8 E 1077 L1 1.7 L3 3.6 | lemma-pairs in L1: 0
+p=1000969 k=12 fibres>1:2 obs M=4 E=300 L1=2 L3=2 | res M=4 E=256 L1=2 L3=2 | N2w M 3.7 E 297 L1 1.0 L3 1.4 | lemma-pairs in L1: 0
+# primes 22; sum k 570; totals obs M/E/L1/L3 = 187/131294/112/204; residual (same-fibre pairs removed) = 158/107384/76/156; N2w null means = 161/120078/72/149; L1 counts that are Lemma-DL pairs: 30
+# vs N2w (mu-rank window +-4): Z_M = +4.50 (excess +26.3); Z_E = +6.31 (excess +11215.9); Z_L1 = +4.17 (excess +39.7); Z_L3 = +3.79 (excess +54.9)

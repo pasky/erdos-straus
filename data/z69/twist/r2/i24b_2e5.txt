@@ -1,0 +1,4 @@
+N=200000: (★) solutions (a<=b) of primes p==1(4): 96414
+arm S (from a solution at d, test d+1): eligible 28443, transported 0 (t'-t = -1: 0, 0: 0, +1: 0); rate among eligible 0.00000
+arm C (from the non-solution fibre d+7, test d+8): eligible 28392, hits 27; rate among eligible 0.00095
+difference of rates -0.00095, pooled-binomial z = -5.20
