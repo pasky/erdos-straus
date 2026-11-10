@@ -207,17 +207,24 @@ weight k ∈ ℝ and multiplier v : Γ → S¹ such that for every γ = (∗ ∗
 h_γ(z) := G(z) − v(γ)⁻¹(cz + d)^{−k}G(γz) (z ∈ ℍ) satisfies h_γ(r + iy) = o(y⁻¹log²(1/y)) (y → 0⁺) at every
 rational r ≠ −d/c. (Equivalently for a finite-dimensional vector-valued system containing G with finite-image
 representation, **provided** its cocycles satisfy the same radial bound — pass to the kernel.)
-**Corollary LS-M (PROVED modulo the standard Bruinier–Funke description of harmonic Maass forms).** G is neither a
-modular form nor the holomorphic part of a harmonic Maass form F of real weight k on a finite-index Γ with unitary
-multiplier whose shadow ξ_k F is a **cusp** form. *Proof.* If k ≥ 2 the shadow (weight 2 − k ≤ 0 cusp form) is 0 and
+**Corollary LS-M (PROVED for cuspidal shadows; extension below).** G is neither a modular form nor the holomorphic
+part of a harmonic Maass form F of real weight k on a finite-index Γ with unitary multiplier whose shadow ξ_k F is a
+**cusp** form. *Proof.* If k ≥ 2 the shadow (weight 2 − k ≤ 0 cusp form) is 0 and
 G itself is modular (h_γ ≡ 0). If k < 2, F⁻(z) = c_k∫_{−z̄}^{i∞} g^c(τ)(−i(τ + z))^{−k}dτ with g a cusp form of weight
 2 − k, |g(τ)| ≤ C(Im τ)^{(k−2)/2}; on the vertical path τ = −x + it (z = x + iy) |τ + z| = t + y, so
 |F⁻(x + iy)| ≤ C∫_y^1 t^{(k−2)/2}(t + y)^{−k}dt + O(1) = O(y^{−k/2} + log(1/y) + 1) = o(y⁻¹), uniformly in x. Since F is
 modular, h_γ = −F⁻(z) + v⁻¹(cz + d)^{−k}F⁻(γz), and at z = r + iy, Im γz ≍ y, so h_γ(r + iy) = o(y⁻¹): LS applies. ∎
-*Not covered (review fix):* shadows with non-zero constant terms (Eisenstein shadows — Assessment: the extra terms are
-O(y^{−1}log(1/y)) at worst, so the corollary should extend, but this was not checked), weakly holomorphic / exponentially
-growing objects, and quantum modular forms in Zagier's sense (objects defined on rational boundary points, possibly
-with renormalised boundary values — their cocycles are not the upper-half-plane cocycles bounded here).
+*Extension (added after the review; PROVED modulo the standard regularised description of F⁻, quoted from memory —
+Bruinier–Funke 2004 / the Bringmann–Folsom–Ono–Rolen monograph):* the same holds when the shadow g is any holomorphic
+modular form of weight 2 − k (non-zero constant terms allowed). Then F⁻(z) = c·b̄₀·Y_k(y) + c′∫_{−z̄}^{i∞}(g^c(τ) − b̄₀)
+(−i(τ + z))^{−k}dτ with Y_k(y) = y^{1−k} (k ≠ 1), log y (k = 1); b₀ = 0 unless 2 − k ≥ 0, and for k = 2 the shadow is a
+constant (term O(y⁻¹)); for k < 2 the moderate-growth bound |g(τ) − b₀| ≤ C(Im τ)^{k−2} near every cusp gives, on the
+same vertical path, ∫_y^1 t^{k−2}(t + y)^{−k}dt = y⁻¹∫_1^{1/y}u^{k−2}(1 + u)^{−k}du = O(y⁻¹) uniformly in x. So
+F⁻ = O(y⁻¹ + |Y_k(y)|) = o(y⁻¹log²(1/y)) at every rational, and LS applies.
+*Not covered:* harmonic forms of exponential growth at some cusp (weakly holomorphic shadows / principal parts),
+quantum modular forms in Zagier's sense (objects defined on rational boundary points, possibly with renormalised
+boundary values — their cocycles are not the upper-half-plane cocycles bounded here), vector-valued systems with
+infinite-image representation or without the radial bound, and infinite-level constructions.
 *Proof.* Γ has finite index, so U^j = (1 0; j 1) ∈ Γ for some j ≥ 1 (pigeonhole on the cosets ΓUⁱ). Choose a prime ℓ ∤ j
 and an integer r ≥ 1 with jr ≡ −1 (mod ℓ²). Then U^j(r) = r/(jr + 1) is in lowest terms with ℓ² | jr + 1, so
 κ(U^j r) = 0, while κ(r) = κ(0) = 1 ≠ 0. At z = r + iy, U^j z − U^j r = iy/((jz + 1)(jr + 1)) lies in a fixed sector
@@ -242,8 +249,9 @@ at every non-squarefree or even denominator (μ(c)/c²), i.e. the arithmetic of 
   an integral transform of dual partial Lambert series that are not in M₁ (PROVED for d = 1), but no shadow-uniqueness
   argument excludes a mock completion. (S3) **the levels do not sum to a small-period law**: Theorem LS excludes every
   finite-index law whose cocycles are o(y⁻¹log²(1/y)) at rationals, hence (Cor. LS-M) modular forms and harmonic Maass
-  forms with cuspidal shadow; other classes (Eisenstein shadows, boundary-defined quantum forms, infinite-image
-  vector-valued systems, laws with infinitely many levels — METAPLECTIC hatch H-A) are not excluded. Pointwise use of any of
+  forms with cuspidal shadow (and, modulo the standard regularised formula, any holomorphic shadow); other classes
+  (exponential-growth harmonic forms, boundary-defined quantum forms, infinite-image vector-valued systems, laws with
+  infinitely many levels — METAPLECTIC hatch H-A) are not excluded. Pointwise use of any of
   this would still need a single-coefficient statement (H-E), which these generating-function laws do not provide.
 
 ## 3. I5 — candidate involutions (precise list, committed BEFORE running them on T₇₃ / T₄₀₉)
