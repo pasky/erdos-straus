@@ -71,6 +71,8 @@ def analyse(n, d, R, rng, F, null):
     sols = solutions(n, d, F)
     gi = good_ideals(n, d, F, sols)
     if not gi: return dict(n=n, d=d, k=0)
+    # composite n: an ideal norm sharing a prime with dn is not coprime to the discriminant -> not handled; skip n (reported)
+    if any(math.gcd(x, d*n) > 1 for (a, b, c, e) in sols for x in (e, 4*a*c*d - 1)): return dict(n=n, d=d, k=-1)
     C = ClassData(n, d); G = C.G
     vk = {}
     for (e, rho) in gi:

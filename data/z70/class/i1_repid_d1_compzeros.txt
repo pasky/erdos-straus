@@ -1,0 +1,1 @@
+# z70 repid d=1 list 57 105: K=106; K_small=106; L1=22; L1_EID=9; L1_OTHER=13; Lx=32; Lx_OTHER=31; Lx_REPID=1; Lx_REPID:AE_samec_diffa=1; Lx_REPIDminnorm_le_sqrt=1; nprimes=24; skipped_gcd=61

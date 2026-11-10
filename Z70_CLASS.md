@@ -1,6 +1,6 @@
-# Z70_CLASS — the I17 residual and the class-group structure of good forms (wave z70, lane CLASS)
+# Z70_CLASS — the I17 residual and the class-group structure of good forms (wave z70, lane CLASS): the residual is integer divisor structure seen through a class map injective on small ideals; nothing generative; not a HOT LEAD
 
-**ES is OPEN. Nothing here proves or disproves it.** Status: checkpoint 1 (pre-registration; no registered run yet).
+**ES is OPEN. Nothing here proves or disproves it.** Status: final draft (all registered runs done; internal review pending). Verdict (§4): **narrowed — the I17 residual is identified as integer divisor structure (Lemmas Φ, DL′, SR, FR, Cor. J); no generative symmetry (Prop. NG); item 2 null.** Not a HOT LEAD.
 Scripts `scripts/z70_class_*`, data `data/z70/class/`. Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE /
 Assessment. Sources: `Z69_TWIST.md` §9 (I17 round 2: Lemmas DL, CS; residual d = 3 energy Z_Ex = +3.6 and a small d = 1
 residual on the 10⁶ window, both against nulls that do not contain DL/CS), `Z69_MINE.md` §§3, 12 (open: class-group
@@ -101,6 +101,151 @@ G2 = [2000000, 2006000); R = 200.
 * validity: C0 (d = 1) / A2 (d > 1) |Z| < 3 against PSF; windows with < 20 % non-degenerate ideals are reported as "no power".
 Smoke test only (excluded): d = 1, [20000, 21000), R = 100: all |Z| ≤ 1.7, C0 −0.97, L1 −0.11.
 
+### 1.5 Results (CERTIFIED computations; Z as registered; `data/z70/class/i1_*.txt`)
+**PSC (DL + CS exact)** — fresh windows (registered statistics Mx, Ex, L1, L3; controls C0 for d = 1, A2 for d > 1):
+
+| d | window (primes p ≡ 1 (8)) | n analysed | Z_Mx | Z_Ex | Z_L1 | Z_L3 | control |
+|---|---|---|---|---|---|---|---|
+| 1 | F1 [24000, 30000) | 141 | +3.80 | +3.02 | **+4.05** | +2.73 | C0 −2.72 |
+| 1 | F2 [202000, 206000) | 77 | +4.05 | +1.75 | **+5.18** | +2.96 | C0 +0.12 |
+| 1 | F3 [1001000, 1004000) | 61 | +6.37 | +3.34 | **+7.47** | +6.94 | C0 +1.12 |
+| 1 | F4 [4000000, 4003000) | 47 | +5.60 | +3.68 | **+8.44** | +7.29 | C0 +0.50 |
+| 2 | F1 / F2 / F3′ | 129 / 156 / 78 | +2.09 / +1.98 / +3.42 | +2.29 / +2.13 / +4.20 | −0.17 / +0.10 / −0.91 | +0.25 / −1.15 / +0.21 | A2 ≤ 1.1 |
+| 3 | F1 / F2 / F3′ | 120 / 147 / 74 | +1.22 / +1.03 / +1.67 | +0.89 / +1.94 / +1.82 | +0.59 / +0.38 / −0.70 | +0.75 / −0.51 / −1.02 | A2 ≤ 0.8 |
+| 5 | F1 / F2 / F3′ | 96 / 129 / 70 | +1.16 / +1.07 / +0.83 | +0.90 / +0.55 / +0.84 | −0.44 / +1.30 / −0.93 | +0.31 / +0.64 / +2.16 | A2 ≤ 0.9 |
+| 7 | F1 / F2 / F3′ | 70 / 110 / 58 | −1.31 / +1.93 / +1.55 | −0.81 / +2.46 / +0.93 | −0.20 / +1.12 / −0.27 | −0.96 / +0.30 / +0.28 | A2 ≤ 1.4 |
+
+Pooled over the fresh windows (`scripts/z70_class_pool.py`): d = 1 Mx +9.7, Ex +5.8, L1 +11.5, L3 +8.9; d = 2 Mx +4.3,
+Ex +5.0; d = 3 Mx +2.1, Ex +2.7; d = 5, 7 all ≤ 2.3. Replication of z69's windows against PSC: d = 1 L1 +4.83, +3.64, +3.99
+(Mx +2.7, +3.9, +3.0); d = 3 Ex +1.82 (z69 against N2: +3.55); d = 5 Ex +0.19. Hard list (d = 1, 32 primes with |G| ≥ 2;
+d = 3, 4 primes): all |Z| ≤ 1.7. Composite (★)-zeros below 10⁵ (d = 1; 24 analysed, 61 skipped because an ideal norm
+shares a prime with n, 8 with |G| < 2): all |Z| ≤ 1.9. Power checks against PS (no CS): C0 +23.7 (d = 1, F1), A2 +17.9
+(d = 3, F2). Not registered but notable: against PSC the d = 1 order-2 overlap A2 = O(J) is *below* the null (pooled −6.65)
+— explained exactly in §1.6 (Corollary J).
+**Registered verdicts (§1.2):** d = 1 **RESIDUAL** (L1 ≥ 3 on all four fresh windows); d = 2 **RESIDUAL** by the pooled
+clause (Ex +5.0); d = 3, 5, 7 **K-RES** (every registered |Z| < 3 on every fresh window): the z69 d = 3 "residual energy"
+is accounted for by DL + CS.
+
+**PSF (all active-fibre principal relations exact)** — registered §1.4 (non-degenerate fraction = good ideals whose null
+class varies; "no power" if < 20 %):
+
+| d | window | non-degenerate | Z_Mx | Z_Ex | Z_L1 | Z_L3 | control |
+|---|---|---|---|---|---|---|---|
+| 1 | F1 / F2 | 8 % / 15 % (no power) | −1.03 / −0.03 | +0.54 / −0.91 | −2.47 / −2.18 | −1.11 / −1.93 | C0 −2.28 / 0.00 |
+| 1 | F3 / F4 | 22 % / 26 % | +1.40 / −1.17 | +1.57 / +0.08 | −0.66 / −2.02 | −1.67 / −2.58 | C0 −1.71 / −1.10 |
+| 1 | G1 / G2 / G3 | 20 % / 26 % / 34 % | −0.43 / −0.25 / +1.31 | +0.72 / −0.30 / −1.15 | −1.11 / −0.85 / −0.67 | −1.47 / **−3.04** / −2.96 | C0 −2.40 / −2.09 / −1.33 |
+| 2 | F1 / F2 / F3′ | 5 % / 15 % / 26 % | +0.70 / −1.52 / −0.16 | −0.11 / −0.55 / −1.25 | +1.84 / +1.39 / −1.02 | +2.87 / −0.66 / −1.74 | A2 ≤ 1.3 |
+| 2 | G1 / G2 | 20 % / 25 % | −0.44 / −0.85 | −0.41 / +0.95 | −0.24 / +0.81 | −0.51 / −0.36 | A2 ≤ 1.1 |
+| 3 | F1 / F2 / F3′ | 13 % / 26 % / 32 % | +0.92 / +0.62 / −0.33 | +1.26 / +0.78 / −0.73 | +1.15 / −1.34 / +0.17 | +1.03 / **−3.18** / −1.53 | A2 ≤ 0.7 |
+
+Pooled (all windows): d = 1 Mx −0.2, Ex −0.2, L1 −3.9, L3 −5.3 (C0 −4.5, A2 −3.2); d = 2 all |Z| ≤ 1.3 except none; d = 3
+L3 −2.5, others ≤ 1.3. **Registered verdict:** the *positive* residual is gone everywhere (largest positive Z among the
+registered statistics on a window with power: +1.57); RESIDUAL-2 does not fire. K-FIB fails formally, and only in the
+*negative* direction (L3 −3.04 on d = 1 G2, −3.18 on d = 3 F2): PSF over-produces coincidences (pooled d = 1 L1 −3.9, L3 −5.3,
+C0 −4.5). Diagnostic (post hoc, not registered): restricting the swap to primes with the same 2-Sylow projection of
+their class (`Z70_MATCH2=1`) moves L3 on G2 from −3.04 to −2.32 and leaves the rest similar. *Assessment:* the overshoot
+is a property of the null — pivot-solved classes of small primes lose the "free region" protection of §1.6 (distinct small
+ideals lie in distinct classes), so the null has more chance coincidences than the data; it is an anti-coincidence, not a
+symmetry candidate. Recorded as **unresolved (negative direction)**.
+
+### 1.6 What the structure is — three principal relations per solution and the free region (PROVED + CERTIFIED)
+Notation of §1.1; O = ℤ[√−dn] (discriminant −4dn), invertible ideals ↔ primitive forms (standard; e.g. Cox, *Primes of the form
+x² + ny²*, §7). For a ≥ 1 with gcd(a, n) = 1 put B_a := 4ad and, for M | N_a, φ_a(M) := class of [M, 4ad, dN_a/M].
+
+**Lemma Φ (fibre homomorphism; generalises DL, CS and FIB). PROVED.** (i) [M, 4ad, dN_a/M] is primitive of discriminant
+−4dn; (ii) φ_a(MM′) = φ_a(M) + φ_a(M′) whenever MM′ | N_a and gcd(M, M′) = 1; (iii) φ_a(N_a) = T_d, φ_a(1) = 0;
+(iv) if a′ ≡ a (mod M) and M | N_{a′} then φ_{a′}(M) = φ_a(M).
+*Proof.* (i) (4ad)² − 4M·dN_a/M = 16a²d² − 4d(n + 4a²d) = −4dn. A common prime of M and 4ad divides gcd(N_a, 4ad), which
+divides gcd(n, 4ad) = gcd(n, a) = 1 (n odd, gcd(n, d) = 1). (ii) Dirichlet composition of the concordant forms
+[M, B, M′·(dN_a/(MM′))] and [M′, B, M·(dN_a/(MM′))] (same middle coefficient B = 4ad, gcd(M, M′, B) = 1) is
+[MM′, B, dN_a/(MM′)] (Dirichlet composition; Cox §3). (iii) [N_a, 4ad, d] ~ [d, −4ad, N_a] and (x, y) ↦ (x + 2ay, y) turns it
+into [d, 0, N_a − 4a²d] = [d, 0, n]; [1, B, ·] is principal. (iv) the middle coefficients 4ad, 4a′d agree mod 2M. ∎
+Reading: the good classes are G_d(n) = {φ_a(A) : a ≥ 1, A | N_a, A ≡ −1 (mod 4ad)} (§1.1), and the e-side classes are
+φ_a(e) = T_d − φ_a(A). Lemma DL = (ii) with M′ = ℓ; Lemma CS = (ii)+(iii) with M′ = N_a/M; FIB (§1.4) = (ii)+(iii) with
+three coprime factors. (For composite n with gcd(a, n) > 1 the statements need the usual coprimality and were not used.)
+
+**Lemma DL′ (the c-fibre lattice). PROVED.** For a solution (a, b, c, e): (4acd − 1)(4bcd − 1) = 4c²dn + 1, i.e. A·B =
+4c²dn + 1 = N(1 + 2c√−dn); conversely every factorisation 4c²dn + 1 = A·B with A ≡ B ≡ −1 (mod 4cd) is a solution with this
+(c, d) (a = (A+1)/(4cd), b = (B+1)/(4cd), e = (a+b)/c). Hence moving a factor ℓ ≡ 1 (mod 4cd) of B into A gives a second
+solution (a + kA, ·, c, ·), k = (ℓ − 1)/(4cd), whose A-ideal is 𝔄·𝔏 — an ideal identity between the A-representatives of two
+good classes in *different* a-fibres. *Proof.* (4acd − 1)(4bcd − 1) = 16abc²d² − 4cd(a + b) + 1 = 4cd(c(4abd) − ce) + 1 = 4cd·cn + 1, using 4abd = n + e and
+a + b = ce. Conversely, with a := (A + 1)/(4cd), b := (B + 1)/(4cd) ∈ ℕ the same expansion gives 4c²dn = 16abc²d² − 4cd(a + b),
+i.e. a + b = c(4abd − n); so e := 4abd − n = (a + b)/c is a positive integer and (a, b, c, e) is a solution. Moving
+ℓ ≡ 1 (mod 4cd) with gcd(ℓ, A) = 1 from B to A keeps both factors ≡ −1 (mod 4cd); the new first letter is
+a′ = (ℓA + 1)/(4cd) = a + kA (as ℓ − 1 = 4cdk, A + 1 = 4acd), so a′ ≡ a (mod A) and the new A-ideal (ℓA, 2a′d + √−dn) is
+the product of 𝔄 = (A, 2ad + √−dn) and 𝔏 = (ℓ, 2a′d + √−dn) (coprime norms, compatible roots). ∎ (Lemma DL′ is the c-fibre analogue of z69's DL; the complement in the c-fibre is the a ↔ b inversion.)
+
+**Lemma SR (small natural representatives). PROVED.** Every good class g of a solution (a, b, c, e) contains ideals of
+norms A = 4acd − 1, B = 4bcd − 1 and de (namely 𝔄, conj 𝔅, 𝔡·conj 𝔈), and
+  min(A, B, de) ≤ √(d(2n + e)) ≤ √(d(2n + (n + 4d)/(4d − 1)))   (d = 1: ≤ √((7n + 4)/3)).
+*Proof.* g = φ_a(A) = T_d − φ_a(e) (Lemma Φ), and T_d − φ_a(e) is the class of [d, 0, n]∘[e, −4ad, dA], which represents
+de; g = −φ_b(B) (a ↔ b) is the class of [B, −4bd, ·]. A·de = dN_a and B·de = dN_b; take the letter min(a, b), for which
+N = n + 4 min(a,b)²d ≤ n + 4abd = 2n + e, and e ≤ (n + 4d)/(4d − 1) (z69). ∎ CERTIFIED: the least natural norm is ≤ √(dn)
+for 95 % (d = 1, n ≈ 2.7·10⁴), 97.7 % (10⁶), 98.4 % (4·10⁶) of good classes, and ≥ 96 % for d = 2, 3, 5, 7 at 2·10⁵
+(`i1_repid_*.txt`, K_small/K).
+
+**Lemma FR (free region). PROVED.** Let 𝔞, 𝔟, 𝔱 be invertible ideals of O with [𝔟] = [𝔞] + [𝔱] and
+N(𝔞)N(𝔟)N(𝔱) < dn. Then 𝔟·conj(𝔞)·conj(𝔱) = xO with x ∈ ℤ_{>0} and x² = N(𝔞)N(𝔟)N(𝔱).
+*Proof.* conj(𝔞) has class −[𝔞] (𝔞·conj 𝔞 = N(𝔞)O for invertible 𝔞; Cox §7), so the product is invertible and principal, = αO with
+α ∈ O (it is integral), α = x + y√−dn, N(α) = x² + dny² = N(𝔞)N(𝔟)N(𝔱) < dn (norms are multiplicative on invertible
+ideals), so y = 0. ∎
+**Corollary J (d = 1). PROVED.** J = [2, 2, (n + 1)/2] (n ≡ 1 (4)). If g and g + J both lie in G_1(n), then
+2·m(g)·m(g + J) ≥ n, where m(·) is the least norm of an odd-norm ideal in the class (in particular of a natural
+representative). *Proof.* FR with 𝔱 = (2, 1 + √−n) (norm 2) would give x² = 2·(odd)·(odd), impossible. ∎
+CERTIFIED (`i1_jcheck.txt`): 148 + 28 + 6 J-overlap pairs in three d = 1 windows, 0 violations; 84–90 % of good classes have
+2m² < n and therefore no J-partner at all. This is the J-avoidance seen by z69 (K-I17 fired for J) and by PSC (A2 −6.65):
+an arithmetic exclusion, not a norm-profile artefact.
+
+**Explicit decomposition (CERTIFIED; `scripts/z70_class_repid.py`).** Every overlap pair (g, g + [𝔏]) at a translation
+prime ℓ is classified as EID (e-side ideal identity — preserved by PSC), REP-ID (identity between other natural
+representatives: A–A pairs, all of them inside one c-fibre = Lemma DL′; A–E and B–E pairs = Lemma Φ in a common fibre or a
+shared divisor of two N's), or OTHER (no identity of natural representatives):
+
+| d | window | good classes (least natural norm ≤ √(dn)) | L1 pairs: EID / REP-ID / OTHER | other translation primes: EID / REP-ID / OTHER |
+|---|---|---|---|---|
+| 1 | [24000, 30000) | 1736 (95.2 %) | 264 / 159 / 81 | 153 / 172 / 345 |
+| 1 | [1001000, 1004000) | 1534 (97.7 %) | 192 / 94 / 18 | 172 / 97 / 79 |
+| 1 | [4000000, 4003000) | 1510 (98.4 %) | 132 / 84 / **2** | 124 / 86 / 28 |
+| 2 | [202000, 210000) / [1001000, 1005000) | 1716 / 1166 | 6 / 4 / 29 ; 4 / 2 / 5 | 48 / 20 / 63 ; 36 / 18 / 24 |
+| 3, 5, 7 | [202000, 210000) | 984 / 582 / 400 | 8/4/4 ; 8/4/4 ; 0/2/1 | 18/18/7 ; 14/8/9 ; 10/0/3 |
+
+At d = 1 the PSC excess on L1 (F3: 304 − 237 = 67; F4: 218 − 156 = 62) is matched by the REP-ID pairs (94; 84), and the
+OTHER share falls from 16 % to 1 % as n grows. **Identification (PROVED lemmas + CERTIFIED counts):** the "translation
+structure beyond the norm profile" of G_d(n) is the multiplicative structure of the norms of its small natural
+representatives (divisor lattices of N_a = n + 4a²d *and* of 4c²dn + 1, Lemmas Φ, DL′), transported into Cl(−4dn) by a
+class map that is injective on small ideals (Lemma FR). The residual of z69/§1.3 is not a third symmetry of the class
+group: it is DL′ (the c-fibre twin of DL) plus a-fibre identities between A-side and e-side representatives — all of them
+ideal identities, i.e. statements about integers, not about the group.
+
+### 1.7 Is any of it generative? No (PROVED, scoped) — and where squares and primality enter
+**Proposition NG.** Let Σ be the set of partial maps on pairs (a, M) with M | N_a generated by: multiplication or
+division of M by a divisor of N_a (Lemma Φ; DL), complement M ↦ N_a/M (CS), moving a factor between A and B in a c-fibre
+(DL′), a ↔ b, and transport along free-region identities (FR). (i) Every element of Σ maps (a, M) to some (a′, M′) with
+M′ | N_{a′}, and the class changes by the class of an ideal dividing 𝔅_a, 𝔅_{a′} or 1 + 2c√−dn. (ii) The image is a good
+pair iff M′ ≡ −1 (mod 4a′d). (iii) For every n and a the divisor residues R_a := {M mod 4ad : M | N_a} form a set closed
+under M ↦ nM⁻¹ and under products of coprime divisors; G_d(n) ≠ ∅ ⟺ −1 ∈ R_a for some a. Hence a composition of Σ
+produces a good class only if it starts from a good class or if it exhibits −1 ∈ R_a — which is the original divisor
+event; in particular Σ produces nothing at every n with G_d(n) = ∅: all odd squares (where χ_{−4d}(M) = +1 for every
+M | N_a while χ_{−4d}(−1) = −1 — this is T1, a genus statement) and, for d = 1, the primes 37, 1621, 3361.
+*Proof.* (i)–(ii) are the statements of Lemmas Φ, DL′, FR and §1.1; (iii) N_a ≡ n (mod 4ad) and the residues of coprime
+divisors multiply. The square case: every prime q | m² + 4a²d with q ∤ 2dm has (−d/q) = 1, so χ_{−4d}(M) = 1. ∎
+**Where primality must enter (Assessment).** At a prime p, divisors of N_a can contain primes q with (−d/q) = −1 =
+(p/q) — the genus character attached to p makes the coset {χ_{−4d} = −1} available. A generative mechanism would have to
+produce, from data present for every p, an M | N_a in the class −1 mod 4ad; the class group adds nothing to that task in the
+region where G lives, because there (Lemmas SR, FR) the class map is injective on the relevant ideals and every class
+relation is an ideal identity between integers. The always-present data (the principal relations φ_a(N_a) = T_d for
+every a, the ambiguous classes, the classes of small split primes) generate only the divisor monoids of the N_a and
+4c²dn + 1, not a residue class inside them. The J-exclusion (Corollary J) is the only "negative" class-level law found;
+it constrains where good classes sit but forces nothing.
+
+### 1.8 Verdict for item 1
+**Narrowed (structure identified, non-generative).** PROVED: Lemmas Φ (a-fibre homomorphism, containing DL, CS and FIB),
+DL′ (c-fibre lattice), SR (small natural representatives), FR (free region), Corollary J, Proposition NG. CERTIFIED: the
+registered PSC/PSF runs (§1.5), the explicit decomposition, the J-check. EVIDENCE: on the windows tested, no positive
+residual remains against PSF; the d = 1 residual against PSC is carried by Lemma DL′ / Φ identities (REP-ID) and the
+OTHER share decays to 1 % at 4·10⁶. Unresolved: a negative (anti-coincidence) deviation of the data against PSF
+(pooled d = 1 L3 −5.3), attributed (Assessment) to the null. **No forcing mechanism; not a HOT LEAD.**
+
 ## 2. Item 2 — class-group structure beyond h vs U₇ witnesses (pre-registration)
 Samples (from `Z69_MINE.md` round 2, `data/z69/mine/`): H_train (438), H_test (411), CTRL (2 547 size-matched controls);
 exploration on H_train + CTRL only; H_test scored once.
@@ -122,3 +267,121 @@ d = 4uC − 1 ≤ 10⁵ (exhaustive in that range, `scripts/z70_class_star.c`): 
 as in 2b (odd primes of Cp); statistics S1–S3; samples H_train, H_test, CTRL and the band sample (2 000 primes of the z69
 band B, drawn with seed 7071 — the band was added to 2a/2b after the registration, as a replication with the same fixed
 statistics). Signal criterion as in 2b.
+
+### 2.4 Results (CERTIFIED computations; EVIDENCE for the readings; `data/z70/class/i2*`)
+**2a (registered).** H_train / H_test vs CTRL (Welch z; `scripts/z70_class_mine2.py 2a`, `i2a_summary.txt`):
+
+| invariant | CTRL (2 547) | H_train (438): mean, z | H_test (411): mean, z |
+|---|---|---|---|
+| v₂ h(−4p) (cap 6) | 2.923 | 2.998, +1.21 | 2.837, −1.34 |
+| v₂ h(−8p) (cap 6) | 2.975 | 2.986, +0.18 | 2.908, −1.09 |
+| 3 \| h(−4p) | 0.427 | 0.427, +0.01 | 0.406, −0.78 |
+| 3 \| h(−8p) | 0.431 | 0.434, +0.11 | 0.399, −1.23 |
+| h(p) = 1 | 0.770 | 0.751, −0.82 | 0.747, −0.98 |
+| ρ_ℓ = log ord[𝔏] / log h(−4p) | 0.906 | 0.809, **−14.50** | 0.813, **−13.04** |
+
+The registered signal criterion **fires for ρ_ℓ** (and for nothing else). Follow-up (post hoc, explored on H_train + CTRL,
+then H_test scored once; `scripts/z70_class_mine2a_post.py`): ℓ is the least prime with (−p/ℓ) = 1, and for p ≡ 1 (8)
+[𝔏] lies in the principal genus iff ℓ ≡ 1 (mod 4), which caps its 2-part below that of h. The share of ℓ ≡ 1 (4) is
+0.275 (CTRL), 0.895 (H_train), 0.900 (H_test) — the pseudo-square profile of the hard primes ((p/3) = +1 makes 3 inert,
+etc.). **Within the strata the groups agree**: ℓ ≡ 1 (4): ρ = 0.798 / 0.794 / 0.796, v₂h − v₂ord = 1.66 / 1.67 / 1.64,
+odd-part ratio 0.934 / 0.933 / 0.932; ℓ ≡ 3 (4): ρ = 0.948 / 0.936 / 0.966 (CTRL / H_train / H_test). Disjoint band
+(added after registration; 2 000 primes of band B, seed 7071, W(p) by `z69_mine_allwit.c`; `i2a_band.txt`): corr(log W, ρ_ℓ)
+= +0.141 (z = +6.35) overall, −0.009 and +0.006 within the two strata; all other invariants |z| ≤ 1.7 overall and
+within strata. *Reading:* the ρ_ℓ "signal" is the genus position of the least split prime, i.e. local (quadratic-character)
+data of p already known to separate the hard primes (Z69_MINE §3.1(b)); no class-group information beyond it.
+**2b (registered; U₇ representation ideals vs exact decoys)** — real − decoy, cluster-by-prime z:
+
+| sample | primes / witnesses (decoy failures) | S1 = log ord / log h | S2 = v₂ ord | S3 = 1[3 \| ord] |
+|---|---|---|---|---|
+| H_train | 436 / 2 984 (407) | +0.0007 ± 0.0021 (+0.34) | +0.0040 ± 0.0032 (+1.26) | +0.0075 ± 0.0067 (+1.12) |
+| H_test | 406 / 2 759 (409) | +0.0001 ± 0.0023 (+0.05) | −0.0036 ± 0.0042 (−0.87) | −0.0074 ± 0.0077 (−0.97) |
+| CTRL | 2 541 / 17 451 (2 875) | +0.0012 ± 0.0008 (+1.48) | −0.0016 ± 0.0017 (−0.93) | −0.0021 ± 0.0028 (−0.74) |
+| band (added) | 2 000 / 14 153 (1 847) | −0.0002 ± 0.0007 (−0.33) | +0.0012 ± 0.0015 (+0.83) | −0.0012 ± 0.0031 (−0.38) |
+
+**2c ((★) representation ideals, d = 4uC − 1 ≤ 10⁵; registered before running):**
+
+| sample | primes / witnesses (decoy failures) | S1 | S2 | S3 |
+|---|---|---|---|---|
+| H_train | 428 / 1 927 (554) | −0.0035 ± 0.0032 (−1.11) | +0.0026 ± 0.0033 (+0.77) | −0.0118 ± 0.0090 (−1.31) |
+| H_test | 400 / 1 876 (489) | −0.0005 ± 0.0034 (−0.16) | −0.0071 ± 0.0075 (−0.95) | −0.0081 ± 0.0108 (−0.75) |
+| CTRL | 2 540 / 14 229 (6 010) | +0.0018 ± 0.0010 (+1.79) | +0.0011 ± 0.0015 (+0.71) | +0.0052 ± 0.0032 (+1.63) |
+| band | 2 000 / 11 095 (4 840) | +0.0003 ± 0.0009 (+0.38) | −0.0010 ± 0.0016 (−0.60) | −0.0012 ± 0.0037 (−0.33) |
+
+No signal (all |z| < 1.8). Scope and caveats: witnesses whose ±5 % window has no admissible decoy are dropped (12 % in 2b,
+30–42 % in 2c — the smallest moduli d, where the window contains no other integer of the right residue and symbols); at
+most 8 witnesses per prime; yp ≤ 10¹³ resp. Cp ≤ 10¹³; class groups by PARI `quadclassunit` (GRH-conditional for the
+group structure — immaterial for these statistics). Non-rejection, not equivalence: 2-s.e. half-widths ≈ 0.002–0.007 on
+S1 (relative to a spread of ρ-values of order 0.1).
+*Reading (Assessment):* by Lemma SR/FR the representation ideal of a witness is a small-norm ideal whose class is
+"generic" among small-norm ideals of the same norm range and genus; the data show no trace of the class-group position of
+witness ideals beyond that.
+**Verdict item 2: null; one registered signal (ρ_ℓ) fired and is fully explained by the genus position of the least
+split prime (local data).** Not a HOT LEAD.
+
+## 3. Mandatory falsifier table — final
+
+| screen | outcome | label |
+|---|---|---|
+| **F1 odd squares** | G_d(m²) = ∅ for all d (T1); in this memo's language: every divisor M of m² + 4a²d has χ_{−4d}(M) = +1 while the target residue −1 has χ_{−4d} = −1 (Prop. NG); the identified structure (Φ, DL′, SR, FR, Cor. J) consists of statements about existing divisors/solutions and is vacuous at squares. The non-squareness step a generative mechanism must use is exactly the availability of divisors q \| N_a with (−d/q) = −1 (equivalently (p/q) = −1 at a prime). Item 2 statistics are about witnesses of primes (none exist at squares). | PROVED |
+| **F2 numerator 8 / C-even** | Lemmas Φ, DL′, SR, FR hold for every d, in particular even d (d = 2 runs: same picture — PSC residual explained by PSF and REP-ID); Type II with d even is the C-even side; nothing here distinguishes C odd from C even, and nothing claims positivity. 2c includes (★) witnesses of both parities of C. | PROVED / CERTIFIED |
+| **F3 composites** | All lemmas hold for n ≡ 1 (4) with the stated coprimality (gcd(a, n) = 1 for Φ). Composite (★)-zeros below 10⁵ (d = 1): 61 of 93 skipped (an ideal norm shares a prime with n), 8 with \|G\| < 2, 24 analysed: all \|Z\| ≤ 1.9 against PSC and PSF; decomposition L1: 9 EID / 0 REP-ID / 13 OTHER (22 pairs). A symmetry of existing solutions cannot separate primes from composite zeros. | PROVED / CERTIFIED |
+| **F4 known zeros** | Hard list (d = 1: 32 primes analysed incl. the 14 (★)-zero and 38 𝔊*-zero primes below 10⁶ where \|G\| ≥ 2; d = 3: 4): all \|Z\| ≤ 1.7 against PSC. H_train/H_test (incl. 2521, 3361, 21841, 76441) in item 2: no class-group difference beyond the local ρ_ℓ effect. | CERTIFIED |
+
+## 4. Verdict
+**Narrowed; no forcing mechanism; not a HOT LEAD. ES is OPEN.**
+* Item 1: the I17 residual is real for d = 1 (and d = 2) against a null that keeps DL and CS exactly (PSC; registered,
+  fresh windows, pooled d = 1 L1 Z = +11.5); the z69 d = 3 residual is *not* (K-RES). The residual is identified: it is the
+  multiplicative structure of the small natural representatives of the good classes — the c-fibre lattice (Lemma DL′, the
+  twin of DL in the factorisation 4c²dn + 1 = A·B), a-fibre identities between A- and e-side representatives (Lemma Φ) —
+  carried into the class group by a map that is injective on small ideals (Lemmas SR, FR). Against a null that keeps all
+  fibre relations (PSF) no positive residual remains; the leftover is a negative deviation attributed to the null.
+  Corollary J proves the J-avoidance. Proposition NG: none of these maps is generative; each needs a divisor M ≡ −1
+  (mod 4ad) of some N_a to start, which is the B2 event.
+* Item 2: class-group invariants beyond h (2-, 3-parts of h(−4p), h(−8p), h(p) = 1) do not separate the hard primes; the
+  order of the least split prime's class does, but only through its genus (local data); orders of U₇ and (★)
+  representation-ideal classes match exact decoys on H_train, H_test, CTRL and a disjoint band.
+* What this buys: a closed account of I17 (no hidden group law in G_d), two new short lemmas (DL′, Cor. J) and the
+  free-region principle (class relations among good classes are integer identities), which tells future lanes that
+  class-group *positions* of good forms carry no information beyond the divisor structure of n + 4a²d and 4c²dn + 1.
+
+**Hard screens (FRONTIER §4).** T1 squares: passes (vacuous; NG names the genus step). 8/131: no positivity claim.
+Tied modulus: the identified structure lives entirely inside the tied divisor event (it presupposes M ≡ −1 (mod 4ad));
+it does not loosen the tie. Fixed p: all statements are per n (per p), but none produces a solution.
+
+## 5. Proposed FRONTIER §7 text (do not edit FRONTIER here)
+"z70 CLASS (`Z70_CLASS.md`; narrowed). I17 closed: against a registered null that keeps Lemmas DL and CS exactly (prime-swap
+of the ideal factorisation, CS imposed), G_d(n) still shows translation structure for d = 1, 2 (pooled d = 1 L1 Z = +11.5)
+but not for d = 3, 5, 7 (z69's d = 3 residual = DL + CS). PROVED: Lemma Φ (n + 4a²d fibres: φ_a is a homomorphism on coprime
+divisors with φ_a(N_a) = T_d; contains DL, CS); Lemma DL′ ((4acd − 1)(4bcd − 1) = 4c²dn + 1, c-fibre divisor lattice); Lemma
+SR (every good class has a natural ideal of norm ≤ √(d(2n + e))); Lemma FR (free region: class relations with norm product
+< dn are rational ideal identities); Corollary J (g, g + J ∈ G₁ ⟹ 2m(g)m(g+J) ≥ n). CERTIFIED: at n ≈ 4·10⁶ (d = 1) 216 of
+218 L1-overlaps are explicit ideal identities between natural representatives. So the class-group 'structure' of good
+forms is integer divisor structure; Prop. NG: none of it is generative. MINE class-group item: h-parts, h(p) null; the
+least split prime's class order separates hard primes only via its genus (local); U₇ and (★) representation-ideal class
+orders match exact decoys (H_train/H_test/CTRL/band)."
+
+## 6. Bottom line
+The good-form class sets G_d(p) do have structure beyond their norm profile, and it is now fully identified: every good
+class contains a small ideal (norm A = 4acd − 1, B = 4bcd − 1 or de), and in the region where these ideals live the class
+group is a faithful copy of the ideal monoid (Lemma FR), so the "translations" are divisor-lattice identities of the
+integers n + 4a²d and 4c²dn + 1 (Lemmas Φ, DL′) — not a group law. The one class-level law (Corollary J) is an exclusion.
+Nothing here can create a first solution: all maps start from a divisor M ≡ −1 (mod 4ad), which is the B2 event; the
+class group is a spectator. Item 2 (class-group invariants vs U₇/(★) witnesses) is null, its single registered signal
+being the genus of the least split prime. Not a HOT LEAD. ES is OPEN.
+
+## 7. Reproduction
+`scripts/z70_class_run1.sh A|B|C|D` (PSC runs, §1.2), `… E|F` (PSF runs, §1.4); single runs:
+`uv run --with sympy --with numpy python scripts/z70_class_null.py PSC d R seed range P0 P1`,
+`… scripts/z70_class_psf.py d R seed range P0 P1` (`Z70_MATCH2=1` for the 2-adic diagnostic),
+`… scripts/z70_class_repid.py d range P0 P1`, `… scripts/z70_class_jcheck.py P0 P1`,
+`python3 scripts/z70_class_pool.py FILES` (pooled Z), `… scripts/z70_class_core.py` (selftest of the dictionary).
+Item 2: `uv run --with cypari2 --with sympy python scripts/z70_class_mine2.py 2a data/z70/class/i2a`,
+`… 2b SET data/z70/class/i2b_SET.txt`, `… 2c SET data/z70/class/i2c_SET.txt data/z70/class/star_d1e5.txt.gz`,
+`… scripts/z70_class_mine2a_post.py CTRL H_train` / `H_test`, `… scripts/z70_class_mine2a_band.py`; band witnesses
+`gcc -O2 scripts/z69_mine_allwit.c -o allwit` on the 2 000 band primes (seed 7071 sample of `raw_r2_gen2_band.jsonl.gz`);
+(★) solutions `gcc -O2 scripts/z70_class_star.c -o star; ./star 100000 < primes`. All runs: `ulimit -v 6000000`,
+`timeout` ≤ 1800, ≤ 2 compute processes. Run time of everything: < 30 min.
+
+## 8. Review log
+(pending: internal hostile deep review)

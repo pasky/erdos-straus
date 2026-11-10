@@ -6,6 +6,8 @@
 #   E-ID   : realised by an e-side ideal identity  R_E' = R_E * L^{+-1}         (what the PSC null preserves)
 #   REP-ID : realised by an identity between ANY natural representatives  R' = R * L^{+-1}  (not E-ID)
 #   OTHER  : neither (a class coincidence that is not an identity of natural representatives).
+# REPID:AA pairs are split by whether the two A-representatives come from the same c (Lemma DL' — c-fibre divisor lattice)
+#   and the same a (then they are Lemma-DL pairs seen from the A side).
 # Also reported: min-norm statistics (norm of the smallest natural representative) of the classes in REP-ID pairs.
 # Usage: python scripts/z70_class_repid.py d range P0 P1 [mod res] | list n1 ...
 import sys, math
@@ -24,6 +26,7 @@ def vec_of(C, F, N, root, conj=False, D=False):
 def analyse(n, d, F):
     sols = solutions(n, d, F)
     if not sols: return None
+    if any(math.gcd(x, d*n) > 1 for (a, b, c, e) in sols for x in (e, 4*a*c*d - 1, 4*b*c*d - 1)): return 'gcd'
     C = ClassData(n, d); G = C.G
     reps = {}                                    # class -> list of (vector, norm)
     for (a, b, c, e) in sols:
@@ -35,7 +38,7 @@ def analyse(n, d, F):
             x = C.vec_class([(q, k) for q, k in R.items() if q != 'D'])
             if 'D' in R: x = G.add(x, C.Td)
             assert x == g, (n, d, (a, b, c, e))
-        reps.setdefault(g, []).extend([(RA, A, 'A'), (RB, B, 'B'), (RE, d*e, 'E')])
+        reps.setdefault(g, []).extend([(RA, A, 'A', (a, c)), (RB, B, 'B', (b, c)), (RE, d*e, 'E', (a, c))])   # (fibre letter, c)
     X = list(reps)
     if len(X) < 2: return None
     tl, tlp = translations(C)
@@ -46,21 +49,23 @@ def analyse(n, d, F):
             y = G.add(g, t)
             if y not in reps: continue
             kind = 'OTHER'
-            for (R1, N1, s1) in reps[g]:
-                for (R2, N2, s2) in reps[y]:
+            for (R1, N1, s1, ac1) in reps[g]:
+                for (R2, N2, s2, ac2) in reps[y]:
                     diff = dict(R2)
                     for q, k in R1.items(): diff[q] = diff.get(q, 0) - k
                     diff = {q: k for q, k in diff.items() if k}
                     if len(diff) == 1 and l in diff and abs(diff[l]) == 1:
                         if s1 == 'E' and s2 == 'E': kind = 'EID'; break
-                        if kind == 'OTHER': kind = 'REPID:' + ''.join(sorted(s1 + s2))
+                        if kind == 'OTHER' or (kind == 'REPID:AA' and s1 + s2 == 'AA' and ac1[1] == ac2[1]):
+                            kind = 'REPID:' + ''.join(sorted(s1 + s2))
+                            kind += ('_samec' if ac1[1] == ac2[1] else '_diffc') + ('_samea' if ac1[0] == ac2[0] else '_diffa')
                 if kind == 'EID': break
             out[tag + '_' + kind] += 1; out[tag] += 1
             if kind.startswith('REPID'):
                 out[tag + '_REPID'] += 1
-                out[tag + '_REPIDminnorm_le_sqrt'] += int(min(N for _, N, _ in reps[g]) <= math.isqrt(d*n))
+                out[tag + '_REPIDminnorm_le_sqrt'] += int(min(r[1] for r in reps[g]) <= math.isqrt(d*n))
     out['K'] = len(X)
-    out['K_small'] = sum(1 for g in X if min(N for _, N, _ in reps[g]) <= math.isqrt(d*n))
+    out['K_small'] = sum(1 for g in X if min(r[1] for r in reps[g]) <= math.isqrt(d*n))
     return out
 
 if __name__ == "__main__":
@@ -73,6 +78,7 @@ if __name__ == "__main__":
     tot = Counter()
     for n in nl:
         o = analyse(n, d, F)
-        if o: tot.update(o); tot['nprimes'] += 1
+        if o == 'gcd': tot['skipped_gcd'] += 1
+        elif o: tot.update(o); tot['nprimes'] += 1
     keys = sorted(tot)
     print(f"# z70 repid d={d} {' '.join(spec[:3])}: " + '; '.join(f"{k}={tot[k]}" for k in keys))
