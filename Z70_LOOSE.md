@@ -325,6 +325,10 @@ non-empty iff it has a point with a ≤ b, and every such point has f := (4a²d 
 fe = 4a²d + 1 ≤ pe + 2 and f ≤ p + 2/e ≤ p + 2. In K3 form f = 4acd − p with c ≥ 1, so 4acd = p + f ≤ 2p + 2 and
 a ≤ (p + 1)/(2cd) ≤ (p + 1)/(2d). ∎ Hence the slice at (p, d) is decided exactly by scanning a ≤ (p + 1)/(2d) and
 f ≡ −p (mod 4ad), f ≤ p + 2, f | 4a²d + 1 (`scripts/z70_loose_typeIfull.c`; fixture (1033, 132): a = 1, f = 23 ✓).
+*Implementation cross-check (CERTIFIED, added at the end):* `scripts/z70_loose_typeI_crosscheck.py` →
+`typeI_lemmaS_crosscheck.txt` decides all 8 440 pairs (p ≡ 1 (4) prime < 3000, d ≤ 40) both by Lemma S and by a direct
+search over e (4d | pe + 1, a | (pe + 1)/4d, e | a + b): identical answers (six pairs needed the full e-range
+e ≤ (p + 1)²/d + 1; largest e used 40 735).
 
 **Runs.** `scripts/z70_loose_typeI.c` (A = 2000 as registered; decoy as registered; fixture found, a = 1):
 `range 5e7 2000 30 0` and `range 1e8 2000 30 5e7` → `data/z70/loose/typeI_range_*.txt` (all 719 781 primes

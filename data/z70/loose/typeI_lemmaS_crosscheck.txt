@@ -1,0 +1,14 @@
+MISMATCH 1613 7 True 0
+MISMATCH 1949 10 True 0
+MISMATCH 2237 17 True 0
+MISMATCH 2473 20 True 0
+MISMATCH 2609 6 True 0
+MISMATCH 2749 13 True 0
+(p, d) pairs: 8440, mismatches: 6, largest e of a found point: 9643
+re-check of mismatches with E = (p+1)^2/d + 2:
+  (1613, 7): method B with full e-range finds e = 8563 -> agree
+  (1949, 10): method B with full e-range finds e = 8731 -> agree
+  (2237, 17): method B with full e-range finds e = 10579 -> agree
+  (2473, 20): method B with full e-range finds e = 10983 -> agree
+  (2609, 6): method B with full e-range finds e = 40735 -> agree
+  (2749, 13): method B with full e-range finds e = 20867 -> agree
