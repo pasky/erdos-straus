@@ -107,7 +107,7 @@ a non-residue of its size; HOT LEAD only if Y = 1 on every hard prime and the ex
 ### 1.6 Deviations from the registration (complete ledger; added after the internal review)
 | item | registered | done | consequence |
 |---|---|---|---|
-| I6 K6a | ≥ 5 points each for d = 1, 3, mpmath ≥ 30 digits, rel. error < 10⁻¹⁵ | 28 double-precision points (max rel. 8.9·10⁻¹⁵); one 34-digit point (d = 1); a post-review 30-digit grid (`i6_k6a_mp_d1.txt`) completed only partially within budget; d = 3 multiprecision not completed | K6a not completed as registered; the identity itself is PROVED |
+| I6 K6a | ≥ 5 points each for d = 1, 3, mpmath ≥ 30 digits, rel. error < 10⁻¹⁵ | first draft: 28 double-precision points only (claimed "pass" — wrong); after review: d = 1 five points at 30 digits (rel ≤ 4.4·10⁻³⁰), d = 3 five points at **20** digits (rel ≤ 2.1·10⁻¹⁹) | criterion met; d = 3 at 20 instead of 30 digits |
 | I6 K6b | discontinuity → decide mock / not mock | the jump claim was withdrawn after review; only "S₁, S₂ ∉ M₁" (d = 1) is proved | K6b inconclusive |
 | I5 | σ1 "coset swap with unipotent correction, nearest in a fixed norm", σ3 "continuant-flip maps" | replaced (before any run) by the precise ρ_L, ρ_R, ρ_C, s∘ρ_C, s∘ρ_R∘s maps of §3 (the unipotent-orbit reading of σ1); σ3 was not implemented (the length-changing continuant identity M(a)M(1)M(b) = M(a − 1)M(b − 1) maps words with y = 1 to length-2 words, not to T_n) | the registered σ1/σ3 wording was not tested literally |
 | #10 | R-sm (least non-square non-residue d) | not run separately: the least non-residue is prime, so R-sm = NP | none |
@@ -149,12 +149,13 @@ holomorphic on ℍ, so the identity extends from iℝ₊. L*_{u,v}(τ) is bounde
 precision**: max relative error **8.9·10⁻¹⁵** (review correction; the first draft misread the log as 2.9·10⁻¹⁵), max
 absolute error 3.9·10⁻¹⁶, against term sizes ≈ 10⁻²–10⁻¹ — i.e. agreement at machine precision. Plus one 34-digit
 mpmath point for d = 1 (`scripts/z70_loose_i6mp.py` → `i6_law_mp34.txt`, z = (0.05 + 0.15i)·16/90: |L − law| = 1.8·10⁻³⁵, relative 6.7·10⁻³⁵; small-τ region via the asymptotic Mellin series to 60 terms).
-**K6a as registered (≥ 5 points for each of d = 1, 3 in ≥ 30-digit arithmetic, relative error < 10⁻¹⁵) was NOT
-completed** (review fix): the multiprecision grid (`i6_k6a_mp_d1.txt`, `i6_k6a_mp_d3.txt`) was started after the
-review but the mpmath period quadrature is too slow at these points within the 30-min budget (see the files for
-whatever finished). Several double-precision points have relative error between 10⁻¹⁵ and 10⁻¹⁴, i.e. at the
-double-precision floor, not a failure of the identity. Status: the identity is PROVED; the registered numerical
-test is incomplete (deviation). A first run with a too-coarse small-τ series (switch at |τ| < 2·10⁻³) gave 10⁻⁸
+**K6a as registered (≥ 5 points for each of d = 1, 3 in ≥ 30-digit arithmetic, relative error < 10⁻¹⁵)**: the
+first draft claimed a pass without having run it (review fix). Post-review multiprecision grids:
+d = 1 (`i6_k6a_mp_d1.txt`, 30 digits, tanh-sinh): 5 points done (z₀ = 0.5i, 0.25i, 0.3 + 0.4i, −0.2 + 0.5i,
+0.05 + 0.15i, z = z₀·1.6/9), relative errors 8.3·10⁻³⁴ … 4.4·10⁻³⁰ — **criterion met for d = 1**;
+d = 3 (`i6_k6a_mp_d3.txt`, **20 digits** (deviation: 30-digit tanh-sinh was too slow), Gauss–Legendre, asymptotic
+series below |τ| = 7·10⁻⁴): 5 points (z₀ = 0.5i, 0.3 + 0.4i, −0.2 + 0.5i, 1.0 + 0.3i, 0.13 + 0.08i, z = z₀·1.6/121), relative errors 2.2·10⁻²¹ … 2.1·10⁻¹⁹ — criterion (< 10⁻¹⁵) met at 20 rather than 30 digits. The identity itself is PROVED; the double-precision points with
+relative error between 10⁻¹⁵ and 10⁻¹⁴ are at the double-precision floor. A first run with a too-coarse small-τ series (switch at |τ| < 2·10⁻³) gave 10⁻⁸
 errors for M = 12; with the switch at 2·10⁻⁴ the errors fell to 10⁻¹⁷ at a test point.
 
 ### 2.2 What the period is (K6b): an integral transform of non-modular series — mock status NOT decided (Assessment + one PROVED ingredient)
@@ -435,7 +436,8 @@ control get variance 0).
   1 661 pairs: Y(q) = 0.158 vs 0.094, z = +5.91). *Post-hoc checks:* on the subset of 1 233 Q-primes that have an
   admissible decoy on **both** sides, the nearest decoy gives Y(q) = 0.0681 vs 0.0673 (z = +0.09) and the two-sided
   decoy 0.0681 vs 0.0612 (z = +0.84); the 428 excluded Q-primes (small q, no admissible prime below) have
-  Y(q) ≈ 0.16 on average. So the +5.9 is confined to small q where every decoy is larger than q — **consistent with
+  Y(q) = 0.416 vs nearest-decoy 0.171 (second-review correction: the first version printed the all-Q-control mean
+  0.158 here). So the +5.9 is confined to small q where every decoy is larger than q — **consistent with
   size/selection confounding** (Y falls roughly like (log q)/q); this is a diagnosis, not a proof of zero effect.
 * On hard primes the construction rarely fires (noprime hard: Y(q) = 0.016 on 64 two-sided pairs).
 
@@ -517,8 +519,8 @@ aggregates. Fixes applied:
    "any automorphic route must…" deleted from the FRONTIER text.
 2. *Theorem F jump / §2.2* — the jump assertion withdrawn; the τ = tw path-rotation residue noted; §2.2 downgraded:
    only "S₁, S₂ ∉ M₁ (d = 1)" is PROVED, mock status not decided.
-3. *K6a* — max relative error corrected to 8.9·10⁻¹⁵; recorded as NOT completed as registered; a post-review
-   multiprecision grid started (results below / in `i6_k6a_mp_d{1,3}.txt`).
+3. *K6a* — max relative error corrected to 8.9·10⁻¹⁵; the registered multiprecision grid was then run: d = 1 five
+   points at 30 digits, d = 3 five points at 20 digits, all relative errors ≤ 2.1·10⁻¹⁹ (`i6_k6a_mp_d{1,3}.txt`).
 4. *Lemma P5 consequence* — condition corrected to "p + 1 has no prime factor ≡ 3 (mod 4)" (counterexample p = 17,
    (p + 1)/2 = 9 = 3² + 0²); "infinitely many" removed.
 5. *Pell 2-adic null* — full 2-adic recalibration (all v₂ ≥ 2), validated; numbers corrected; "behave exactly like"
