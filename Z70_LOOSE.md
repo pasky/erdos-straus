@@ -93,7 +93,107 @@ Decoy: for the same p, q′ = a prime with (p/q′) = −1, q′ ∤ X, q′ ≡
 same construction. Kill K9: Y(q) − Y(q′) not ≥ 3σ above 0 ⟹ q | X carries no word-building information beyond being
 a non-residue of its size; HOT LEAD only if Y = 1 on every hard prime and the excess is significant.
 
-## 2–5. (results for I6, I5, #10, Pell letters: below as they come)
+## 2. I6 — the fibre laws exist (quantum-modular, PROVED + verified); the level sum has NO law (PROVED, scoped)
+
+### 2.1 Theorem F (S-transformation of a partial divisor Lambert series; PROVED, classical ingredients)
+Let M ≥ 1, 1 ≤ α, β ≤ M, a = α/M, b = β/M ∈ (0, 1], and assume a, b ≠ 1 (the case needed: d = 1 is
+(M, α, β) = (4, 3, 3), d = 3 is (12, 11, 11); in general the d-fibre is Φ_d = L for (4d, 4d − 1, 4d − 1)). Put
+  L(z) := Σ_{A ≡ α, B ≡ β (M); A, B ≥ 1} e(ABz),   L*_{u,v}(w) := Σ_{m,n ≥ 1} e(mu + nv + mnw)   (z, w ∈ ℍ),
+w := −1/(M²z), S₁ := L*_{a,b} + L*_{−a,−b}, S₂ := L*_{a,−b} + L*_{−a,b}. Then for z ∈ ℍ
+  **L(z) = (M²z)⁻¹ L*_{a,b}(w) + E(z) + Ψ(z)**,
+  E(z) = (i/(2πM²z))·(−γ − log(−2πiM²z) − ψ(a) − ψ(b)) + (½ − a)(½ − b)       (ψ = digamma, principal log),
+  Ψ(z) = (i/(2πM²z)) ∫_{C₋} [ S₁(tw)·t/(t − 1) − S₂(tw)·t/(t + 1) ] dt,
+C₋ = a ray from 0 to ∞ passing **below** t = 1 with arg(tw) ∈ (0, π) along it. Ψ continues analytically to
+z ∈ ℂ ∖ (−∞, 0] (rotate C₋; the pole t = 1 is never crossed, the pole t = −1 is reached only as z → (−∞, 0) from
+below), and its jump across (−∞, 0) is ∓(1/(M²z))·S₂(1/(M²z)) (residue at t = −1) — a dual partial Lambert series.
+*Proof.* On z = iy: Mellin, ∫₀^∞ L(iy)y^{s−1}dy = Γ(s)(2πM²)^{−s}ζ(s, a)ζ(s, b) (Re s > 1). Shift the inverse
+Mellin integral to Re s = c′ ∈ (−1, 0): residues at s = 1 (ζ(s, a) = 1/(s − 1) − ψ(a) + O(s − 1), with
+Γ(s)X^{−s} = X⁻¹(1 − (γ + log X)(s − 1) + …), X = 2πM²y) and s = 0 (ζ(0, a) = ½ − a) give E. On the remaining line put
+s = 1 − w and use Hurwitz's formula ζ(1 − w, a) = Γ(w)(2π)^{−w}[e^{−πiw/2}F(a, w) + e^{πiw/2}F(−a, w)],
+F(u, w) = Σ e(nu)n^{−w}. With Γ(1 − w)Γ(w) = π/sin πw and π e^{∓πiw}/sin πw = π cot πw ∓ πi, the integrand splits into
+(i) ∓πi·Γ(w)Y_N^{−w} → the exponentials e^{−Y_N}, Y_N = 2πN/(M²y), i.e. q-series in w; (ii) Γ(w)π cot(πw) and
+Γ(w)π/sin(πw), on 1 < Re w < 2 the Mellin transforms of k₁(Y) = PV∫₀^∞ e^{−Yt} t/(t − 1) dt = 1/Y − e^{−Y}Ei(Y)
+and k₂(Y) = −∫₀^∞ e^{−Yt} t/(t + 1) dt = e^{Y}E₁(Y) − 1/Y (from ∫₀^∞ x^{μ−1}/(1 ± x)dx = π/sin πμ, PV π cot πμ, plus the
+residue ±1/Y at w = 1). Summing over N (absolutely convergent: k_{1,2}(Y) = O(Y⁻²)) gives
+L(iy) = E + (2M²z)⁻¹(L*_{a,b} − L*_{−a,−b})(w) + (i/2πM²z)[PV∫S₁(tw)t/(t−1)dt − ∫S₂(tw)t/(t+1)dt]. Finally
+PV∫ = ∫_{C₋} − πi·Res_{t=1} = ∫_{C₋} − πi S₁(w), which turns the q-series part into (M²z)⁻¹L*_{a,b}(w). Both sides are
+holomorphic on ℍ, so the identity extends from iℝ₊. L*_{u,v}(τ) is bounded as τ → 0 in sectors (its Mellin transform
+Γ(s)F(u,s)F(v,s) has no pole at s = 1 for u, v ∉ ℤ), so the integrals converge at t = 0. ∎
+*Numerical check (K6a).* `scripts/z70_loose_i6law.py` → `data/z70/loose/i6_law_check.txt`: direct L vs the law at
+7 points each for (4, 3, 3) [d = 1], (12, 11, 11) [d = 3], (4, 1, 1), (12, 7, 5), including Re z ≠ 0: max relative
+error 2.9·10⁻¹⁵, absolute ≤ 4·10⁻¹⁶ (double precision; the registered "mpmath 30 digits" was replaced by double
+precision — the agreement is at machine precision, so the formula is right). A first run with a too-coarse small-τ
+series (switch at |τ| < 2·10⁻³) gave 10⁻⁸ errors for M = 12; the switch was lowered to 2·10⁻⁴ (convergence check in the
+log of this memo's commit), errors then 10⁻¹⁷.
+
+### 2.2 What the period is (K6b): not a mock period — relative to this law (PROVED in that scope)
+Ψ is an Eichler-type integral: substituting τ = tw, ∫_{C₋}S(tw)·t/(t ∓ 1)dt = ∫_0^{i∞}S(τ)·τ/(w(τ ∓ w)) dτ (path
+rotated in ℍ), i.e. the obstruction to modularity is a Cauchy integral **of the dual partial Lambert series S₁, S₂
+themselves**, and the jump of Ψ across its cut is 2πi × (S₂ at the reflected point). For a mock modular form of
+weight 1 the same jump would be (a constant times) the shadow g ∈ M₁. Here S₁, S₂ are not weight-1 modular forms
+of any level: for d = 1, c(N) := Σ_{mn=N}(−i)^{m+n} equals τ(N) for N ≡ 3 (4) and −τ(N) for N ≡ 1 (4) (all m, n odd;
+m + n ≡ 0 or 2 (mod 4) according as mn ≡ 3 or 1), so the coefficients of S₁ = 2 Re c are ±2τ(N) on odd N, whose
+partial sums over N ≡ 3 (4) grow like x log x, while every f ∈ M₁(Γ₁(L)) (and its restriction to a residue class)
+has Σ_{n≤x} a_f(n) = O(x) (Eisenstein part: Σ_{dm≤x} χ(m)ψ(d) with χψ odd, one character non-trivial; cusp part
+o(x)). **So relative to the natural (discrete-Fourier) transformation matrix of Theorem F the fibre is a
+vector-valued quantum-modular form of Bettin–Conrey type (period analytic on ℂ ∖ (−∞, 0]), not a mock modular
+form.** (Scope: a mock structure with respect to a *different* choice of the q-series part is not excluded by this
+argument; Assessment: unlikely — the τ(N) content is the weight-0 Eisenstein part, whose "holomorphic projection" is
+exactly this kind of quantum object.) The fibre is the odd-character weight-1 theta part (modular) plus this
+quantum part (`METAPLECTIC_ES.md` Thm K; consistent).
+*Literature note.* The case M = 1 (Σ τ(n)qⁿ) is Bettin–Conrey, "Period functions and cotangent sums", Algebra &
+Number Theory 7 (2013) — quoted from memory, not re-checked here; Theorem F is proved above independently and does
+not rely on it.
+
+### 2.3 Lemma K and Theorem LS — the level sum G has no transformation law of finite level (PROVED)
+**Lemma K (singular coefficients of G).** For coprime a₀, c ≥ 1 and w → 0 in any sector |arg w − π/2| ≤ π/2 − δ,
+  G(a₀/c + w) = κ(a₀/c)·log²(1/|w|)/(−2πi w·8) + o(log²(1/|w|)/|w|),   κ(a₀/c) = 1[c odd]·μ(c)/c².
+(So G(iy) ~ log²(1/y)/(16πy).) *Proof.* Split (a, b, d) into classes mod c; on a class the phase e(a₀(4abd − a − b)/c)
+is constant, and the count of class members with 4abd − a − b ≤ x is (x/(8c³))log²x + o(x log²x) (the TWIST I6(a)
+argument per class: Σ_{a≡α, b≡β, ab≤X}(X/(c·ab) + O(1)) = X log²X/(2c³) + O(X log X), and the −a − b perturbation
+moves 4abd by at most a factor 2, handled by the same K-squeeze). Partial summation: Σ u_n e^{−ns} = s∫U(t)e^{−st}dt,
+and s∫ t log²t e^{−st}dt = (log²(1/s) + O(log 1/|s|))/s uniformly in the sector, while an o(t log²t) remainder
+contributes o(log²(1/|s|)/|s|) because |s| ≍ Re s there. Summing the classes gives the factor
+S(a₀, c)/c³ = c⁻²Σ_{α,β mod c, c | 4αβ} e(−a₀(α + β)/c) (the δ-sum is c·1[c | 4αβ]). This is independent of a₀
+(α ↦ a₀⁻¹α permutes the set), multiplicative in c (CRT), and the local factors are evaluated by valuations: the sum
+of e(−α/ℓ^e) over α of exact valuation i is the Ramanujan sum c_{ℓ^{e−i}}(1) ∈ {1 (i = e), −1 (i = e − 1), 0}; for
+ℓ odd the admissible pairs give −1 − 1 + 1 = −1 at e = 1 and 1 − 1 − 1 + 1 = 0 at e ≥ 2; for ℓ = 2 the condition is
+vacuous for e ≤ 2 (full character sums, 0) and for e ≥ 3 the four surviving pairs again give 0. Hence
+S/c³ = ∏ = μ(c)/c² for odd c and 0 for even c. ∎ (`scripts/z70_loose_i6kappa.py` → `i6_kappa.txt`: brute-force check of
+the δ-step, a₀-independence, multiplicativity and the zero set for c ≤ 121. `scripts/z70_loose_i6sing.c` →
+`i6_singular_check.txt`: G(r + iy)/G(iy) from R(n), n ≤ 3·10⁶, at y = 10⁻³ … 3·10⁻⁵ — drifts towards the predicted
+values with the expected O(1/log(1/y)) lower-order terms, e.g. r = 1/3: −0.186, −0.163, −0.156 → −1/9; r = 1/2:
+0.035, 0.017, 0.013 → 0; r = 1/9: ≈ 0.017 → 0; illustration only.)
+
+**Theorem LS (no law for the level sum; PROVED).** There is no finite-index subgroup Γ ⊂ SL₂(ℤ), weight k ∈ ℝ and
+multiplier v : Γ → S¹ such that for every γ = (∗ ∗; c d) ∈ Γ the period h_γ(z) := G(z) − v(γ)⁻¹(cz + d)^{−k}G(γz)
+satisfies h_γ(r + iy) = o(y⁻¹log²(1/y)) (y → 0⁺) at every rational r ≠ −d/c. In particular G is not modular,
+mock modular (periods are analytic on ℝ minus a point), quantum modular in Zagier's sense (continuous periods), nor the
+holomorphic part of a harmonic Maass form, of any real weight on any finite-index subgroup; the same holds for any
+finite-dimensional vector-valued system containing G whose representation has finite image (pass to its kernel).
+*Proof.* Γ has finite index, so U^j = (1 0; j 1) ∈ Γ for some j ≥ 1 (pigeonhole on the cosets ΓUⁱ). Choose a prime ℓ ∤ j
+and an integer r ≥ 1 with jr ≡ −1 (mod ℓ²). Then U^j(r) = r/(jr + 1) is in lowest terms with ℓ² | jr + 1, so
+κ(U^j r) = 0, while κ(r) = κ(0) = 1 ≠ 0. At z = r + iy, U^j z − U^j r = iy/((jz + 1)(jr + 1)) lies in a fixed sector
+with modulus ≍ y, so by Lemma K G(U^j z) = o(y⁻¹log²(1/y)) and |(jz + 1)^{−k}| is bounded; hence
+h_{U^j}(r + iy) = G(r + iy) + o(·) ~ κ(0)·log²(1/y)/(16πy), contradicting the hypothesis (r ≠ −1/j since r > 0). ∎
+Contrast: each fibre e(−z/4d)Φ_d(z/4d) has κ_d(a₀/c) ∝ (finite-level data) and satisfies Theorem F — the obstruction
+is exactly the **infinite** union of levels 4d. The mechanism of the proof is the vanishing of the log² singularity
+at every non-squarefree or even denominator (μ(c)/c²), i.e. the arithmetic of the *three* free divisor variables.
+
+### 2.4 Squares (F1) and verdict for I6
+* F1: r_d(4dm² + 1) = 0 (T1 at 4 | 4d) is a property of coefficients; Theorem F holds identically for every
+  coefficient sequence of the form ζ(s, a)ζ(s, b) and is equivalent (by Mellin) to the Hurwitz functional equations — a
+  Voronoi-type summation statement. It cannot distinguish 4dm² + 1 from 4dp + 1; it does not use primality anywhere.
+  Lemma K's κ is likewise insensitive to n. (Assessment.)
+* **Verdict I6: narrowed / dead on the level sum.** (S1) delivered: an explicit S-transformation with boundary
+  terms E and period Ψ for the d = 1 and d = 3 fibres (PROVED, verified to 10⁻¹⁵). (S2) the period is the Cauchy
+  integral of the non-modular dual partial Lambert series: a quantum-modular, not a mock, structure relative to that
+  law. (S3) **the levels do not sum to a law** — Theorem LS rules out every finite-index (scalar or finite-image
+  vector-valued) modular / mock / quantum-modular law for G, unconditionally. What survives: laws with infinitely
+  many levels kept separate (METAPLECTIC hatch H-A, the B2 coordinate) — nothing new opened. Pointwise use of any of
+  this would still need a single-coefficient statement (H-E), which these generating-function laws do not provide.
+
+## 3, 5. (I5 and Pell letters: below as they come)
 
 ## 4. IDEAA #10 — Type I with an explicit d-selection rule: DEAD as a forcing rule (CERTIFIED failures)
 
