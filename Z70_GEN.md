@@ -1,4 +1,4 @@
-# Z70_GEN — generative class maps (wave z70, lane GEN; final lane of the z68–z70 arc): narrowed — no generative map; seven classes of candidate maps excluded (five by proof); not a HOT LEAD
+# Z70_GEN — generative class maps (wave z70, lane GEN; final lane of the z68–z70 arc): narrowed — no generative map; eight classes of candidate maps excluded (five by scoped proof, three by blind tests); not a HOT LEAD
 
 **ES is OPEN. Nothing here proves or disproves it.** Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE /
 Assessment. Scripts `scripts/z70_gen_*`, data `data/z70/gen/`. Sources: `Z70_CLASS.md` (Lemmas Φ, DL′, SR, FR, FR′,
@@ -114,7 +114,8 @@ at the other primes of the same window and d; units with α > 5000 dropped and c
 the reduced ideal of a hit class a natural representative? its least natural norm), and the **union over d** coverage
 with its null. They are post hoc relative to W1 ∪ W2 and pre-registered relative to W3. (D3) Item 2a's r₄ test is
 degenerate within p mod 840 strata (r₄ is a function of p mod 840 for these d — §3.2); only r₈ is testable within strata.
-(D4) `data/z70/gen/` holds the raw per-prime records as one xz archive (`runs_W123.tar.xz`, 12 MB) to respect the 20 MB cap.
+(D5) The checkpoint-1 falsifier table promised a family run on the composite (★)-zeros ≤ 10⁵; it was not done (the genus
+target code is prime-specific) — the final table (§4) marks it untested. (D4) `data/z70/gen/` holds the raw per-prime records as one xz archive (`runs_W123.tar.xz`, 12 MB) to respect the 20 MB cap.
 
 ## 2. Theorems (PROVED unless labelled otherwise)
 Setting for §2: p prime, p ≡ 1 (mod 4), d ≥ 1 with p ∤ d, D = −4dp, Cl = Cl(D) (primitive forms ↔ invertible ideals of
@@ -373,7 +374,7 @@ reasons are now theorems rather than impressions: always-present seeds live in t
 every good class violates (GW) — the class-group face of T1 — or, when canonical (ambiguous classes, representation
 fibres), are provably never good (AMB, REP); the one group-theoretic exit, halving, lands in Rédei classes that are blind in
 the data; and below the free-region scale any seed that hits a good class *is* a natural representative, i.e. the divisor
-event (WORD). Every hit observed in 4 000+ primes × 5 d is a small-norm ideal identity, at exactly the rate predicted by the
+event (WORD). Every hit observed in 2 152 primes × 5 values of d is a small-norm ideal identity, at exactly the rate predicted by the
 minimal norm of the class; fixed-n moves never start an orbit from trivial words. Primality enters only as the existence of
 a non-residue prime ideal in the target genus — necessary, nowhere near sufficient. Not a HOT LEAD. ES is OPEN.
 
@@ -381,8 +382,7 @@ a non-residue prime ideal in the target genus — necessary, nowhere near suffic
 * validation: `uv run --with cypari2 --with sympy --with numpy python scripts/z70_gen_validate.py`
 * registered runs: `scripts/z70_gen_runwin.sh W1 100000 130000`, `… W2 1000000 1030000`, `… W3 10000000 10200000`
   (writes `data/z70/gen/run_*.jsonl`; archived as `runs_W123.tar.xz`); pooling `python3 scripts/z70_gen_pool.py run_W1_d*.jsonl run_W2_d*.jsonl`
-  and `… run_W3_d*.jsonl`; GEN2 coverage decomposition `python3 scripts/z70_gen_covdecomp.py` (reads the raw runs from /tmp path —
-  edit the path to the unpacked archive).
+  and `… run_W3_d*.jsonl`; GEN2 coverage decomposition `python3 scripts/z70_gen_covdecomp.py DIR` (DIR = the unpacked archive).
 * screens: `uv run --with cypari2 python scripts/z70_gen_run.py OUT d list <inputs>` (F2, F4; raw in `screens_raw.tar.xz`),
   `python3 scripts/z70_gen_screens.py OUT…`; F1/F3 `uv run --with cypari2 python scripts/z70_gen_f13.py data/z70/gen/screen_F13.txt`.
 * item 1b: `uv run --with cypari2 python scripts/z70_gen_rep.py data/z70/gen/rep_fibres.txt`; item 4:

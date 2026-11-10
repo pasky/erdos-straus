@@ -1,6 +1,8 @@
+# z70 GEN — GEN2 coverage decomposition (same-norm exclusivity).  usage: python3 scripts/z70_gen_covdecomp.py DIR (unpacked runs_W123)
 import json, collections, math, sys
+DIR = sys.argv[1] if len(sys.argv) > 1 else '/tmp/z70gen/raw'
 for d in (1, 2, 7):
-    recs = [json.loads(l) for f in ('W1', 'W2', 'W3') for l in open('/tmp/z70gen/raw/run_%s_d%d.jsonl' % (f, d))]
+    recs = [json.loads(l) for f in ('W1', 'W2', 'W3') for l in open('%s/run_%s_d%d.jsonl' % (DIR, f, d))]
     tot = collections.Counter(); good = collections.Counter()
     for r in recs:
         for a, (u, g) in r['ahist'].items(): tot[int(a)] += u; good[int(a)] += g
