@@ -41,3 +41,18 @@ FRONTIER §3, §6). Current cleanest targets: (MS-U₇) and (MS⁺₁₀₅) (`Z
 ## Cross-model reviews owed (Astra unavailable: quota, then expired Codex auth token, 2026-11-08)
 None currently owed. Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`,
 `Z64_EQUIV.md`, `Z64_SDEEP.md`, `Z64_SDEEPF.md` (reviews in `data/z6{4,5}/xreview/REVIEW_*_ASTRA.md`).
+
+## Campaign status (2026-11-10): PAUSED after z70 (user: "wrap it up")
+Waves z67–z70 (FRONTIER blocks z67–z70) found **no mechanism**; every lane ended at the B2 atom (one tied divisor event
+at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cross-reviewed and merged; no reviews owed.
+* Fable 5.2 (z69, informed + independent ideation): no new mechanism; the independent lane's ideas were mostly already
+  in the campaign (4 narrow twists, since tested in `Z69_TWIST.md` / `Z70_*`). Its "nothing new" claim was rejected by
+  Astra, so this is evidence of coverage, not proof of saturation.
+* Process lessons: tryhard/ideation lanes stop well short of their time box (state a minimum duration in the brief);
+  `agent-wait-any` may return a stale `waiting_user` right after a send — sleep ~30 s and re-check; Anthropic ToS
+  classifier ("reverse engineering / duplicating model outputs") falsely blocked a Fable 5.2 lane twice while it read
+  many AI-written memos — a plain "please continue" cleared it.
+* **Open, concrete, cheap (if resuming):** the three generative-class-map candidates in
+  `data/z70/xreview/REVIEW_GEN.md` (frozen tests specified); `Z70_CLASS.md` open list (Rédei 4-rank, small-split-prime
+  orbits from principal seeds, fixed-n solution-graph moves); conjecture (S); U₇ (Conjectures B, C in `Z68_U7F.md`);
+  (MS⁺₁₀₅). Resume only with a genuinely new idea for forcing one tied divisor event at a fixed prime.
