@@ -1,0 +1,2 @@
+n == 1 (4), n <= 1000000000 with C_n empty (non-squares listed): 105C
+C-empty: primes 0, non-square composites 1, squares 15810 of 15810 ; U7-empty among n == 1 (8) non-squares: primes 0, composites 8

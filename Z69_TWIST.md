@@ -154,6 +154,26 @@ parity (mirror: z ≡ y ≡ 3 (4)). Let C_n ⊂ T_n be the words of types (i)–
 (i) or (ii); B_n is the all-odd part of (iii). C_n is swap-invariant, and for a prime p ≥ 5 the only swap-fixed
 word (1, p + 2, 1) is not in C_p; so |C_p| is even and |T_p ∖ C_p| is odd.
 
+**Census of C_n (CERTIFIED, one engine; added after the second review round, checked in a third).**
+`scripts/z69_twist_cert.c 1000000000`, `data/z69/twist/cert_1e9.txt`: among all n ≡ 1 (mod 4), n ≤ 10⁹,
+**C_n = ∅ exactly for the 15 810 odd squares and for n = 105** — no prime and no other non-square composite.
+(Engine cross-checks in the same run: the non-square n ≡ 1 (8) without a U₇ word number 8 composites and 0
+primes, matching the campaign's Z₇; C_{m²} = ∅ is forced by T1.) Relation to known targets: the types (i) ∪ (ii)
+are the campaign's U_II = (c = 1) ∪ (a = 1) ⊂ Type II (`Z60_SUMMARY.md`), whose non-square zeros are 105 and 4545
+(`Z60_LOPEZ.md` §0, F3 row); type (iii) adds the a = 1 line of Type I and removes 4545, which has the type-(iii)
+word (47, 7, 14), i.e. the Type I solution (a, b, c, d, e) = (1, 97, 14, 82, 7). So the single word equation
+carries the statement
+
+  **(W) for every non-square n ≡ 1 (mod 4), n ≠ 105, there are x, y, z ≥ 1 with xyz − x − z = n and
+  (4 ∣ x or 4 ∣ y or x ≡ y ≡ 3 (mod 4))** — CONJECTURE; true for n ≤ 10⁹; (W) ⟹ ES for those n.
+
+(W) is weaker than U₇ on n ≡ 1 (8) (every U₇ word is in C_n) and, unlike (MS⁺₁₀₅) or U₇, it has no threshold, no
+coprimality condition and one exception instead of eight; it is a statement about all non-squares, so a proof
+could not use primality beyond non-squareness, and it must fail at 105 and at every odd square. *Assessment:*
+this is a cleaner bookkeeping target, not a mechanism — it is the union of three known one-parameter lines and
+asks for the same kind of tied divisor event (a divisor of ny + 1 in the class −1 mod y with a 2-adic side
+condition); nothing here makes it easier to force.
+
 **Consequences for I5 (PROVED / CERTIFIED as marked).**
 * On the odd set O_p alone a Zagier-type argument is impossible **already at primes**: |O_p| is odd while B_p = ∅
   at 154 primes ≤ 2·10⁷ (CERTIFIED), the first being 73, where O₇₃ = {(1, 75, 1), (1, 3, 37), (37, 3, 1)}. So no
@@ -464,4 +484,4 @@ wrong for case (b) (63× at p = 109): corrected. (4) MINOR — the certificate c
 60-digit decimals: replaced by an exact rational test (sign-aware squaring); rerun, same result. (5) MINOR — I9
 matched-design description and power statement: qualified. (6) MINOR — summaries contradicted the scoped I17
 text, and the headline said "all ten die or reduce": reworded. (7) MINOR — this log claimed a second review
-before it existed: now recorded. Nothing was added after the second round except these corrections.
+before it existed: now recorded. After the second round one item was added: the census of C_n and the statement (W) in §3 — see the third round.
