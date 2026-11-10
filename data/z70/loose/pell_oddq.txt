@@ -1,0 +1,35 @@
+primes p = 1 (mod 8) in [1000000, 3000000]: 34519
+q= 3 p mod q= 1 ((p/q)=+): N= 17251 conic points=  2 off-conic=0 chi2=     0.0 df=1 p-value=0.897
+q= 3 p mod q= 2 ((p/q)=-): N= 17268 conic points=  4 off-conic=0 chi2=     0.5 df=3 p-value=0.911
+q= 5 p mod q= 1 ((p/q)=+): N=  8611 conic points=  4 off-conic=0 chi2=    19.0 df=3 p-value=0.000268
+q= 5 p mod q= 2 ((p/q)=-): N=  8608 conic points=  6 off-conic=0 chi2=     4.3 df=5 p-value=0.514
+q= 5 p mod q= 3 ((p/q)=-): N=  8689 conic points=  6 off-conic=0 chi2=     5.3 df=5 p-value=0.38
+q= 5 p mod q= 4 ((p/q)=+): N=  8611 conic points=  4 off-conic=0 chi2=    14.6 df=3 p-value=0.00216
+q= 7 p mod q= 1 ((p/q)=+): N=  5732 conic points=  6 off-conic=0 chi2=     1.8 df=5 p-value=0.877
+q= 7 p mod q= 2 ((p/q)=+): N=  5724 conic points=  6 off-conic=0 chi2=    27.9 df=5 p-value=3.88e-05
+q= 7 p mod q= 3 ((p/q)=-): N=  5802 conic points=  8 off-conic=0 chi2=    11.0 df=7 p-value=0.138
+q= 7 p mod q= 4 ((p/q)=+): N=  5763 conic points=  6 off-conic=0 chi2=     8.6 df=5 p-value=0.126
+q= 7 p mod q= 5 ((p/q)=-): N=  5741 conic points=  8 off-conic=0 chi2=    14.0 df=7 p-value=0.0521
+q= 7 p mod q= 6 ((p/q)=-): N=  5757 conic points=  8 off-conic=0 chi2=     6.3 df=7 p-value=0.507
+q=11 p mod q= 1 ((p/q)=+): N=  3442 conic points= 10 off-conic=0 chi2=     7.1 df=9 p-value=0.627
+q=11 p mod q= 2 ((p/q)=-): N=  3443 conic points= 12 off-conic=0 chi2=    16.4 df=11 p-value=0.128
+q=11 p mod q= 3 ((p/q)=+): N=  3430 conic points= 10 off-conic=0 chi2=    12.3 df=9 p-value=0.196
+q=11 p mod q= 4 ((p/q)=+): N=  3451 conic points= 10 off-conic=0 chi2=     3.9 df=9 p-value=0.921
+q=11 p mod q= 5 ((p/q)=+): N=  3429 conic points= 10 off-conic=0 chi2=     8.9 df=9 p-value=0.446
+q=11 p mod q= 6 ((p/q)=-): N=  3480 conic points= 12 off-conic=0 chi2=     4.6 df=11 p-value=0.947
+q=11 p mod q= 7 ((p/q)=-): N=  3487 conic points= 12 off-conic=0 chi2=    10.1 df=11 p-value=0.523
+q=11 p mod q= 8 ((p/q)=-): N=  3450 conic points= 12 off-conic=0 chi2=    12.8 df=11 p-value=0.309
+q=11 p mod q= 9 ((p/q)=+): N=  3476 conic points= 10 off-conic=0 chi2=     9.4 df=9 p-value=0.398
+q=11 p mod q=10 ((p/q)=-): N=  3431 conic points= 12 off-conic=0 chi2=     8.8 df=11 p-value=0.641
+q=13 p mod q= 1 ((p/q)=+): N=  2863 conic points= 12 off-conic=0 chi2=     7.5 df=11 p-value=0.757
+q=13 p mod q= 2 ((p/q)=-): N=  2906 conic points= 14 off-conic=0 chi2=    13.1 df=13 p-value=0.439
+q=13 p mod q= 3 ((p/q)=+): N=  2884 conic points= 12 off-conic=0 chi2=     8.7 df=11 p-value=0.649
+q=13 p mod q= 4 ((p/q)=+): N=  2887 conic points= 12 off-conic=0 chi2=    18.2 df=11 p-value=0.0768
+q=13 p mod q= 5 ((p/q)=-): N=  2876 conic points= 14 off-conic=0 chi2=    15.0 df=13 p-value=0.305
+q=13 p mod q= 6 ((p/q)=-): N=  2882 conic points= 14 off-conic=0 chi2=     8.9 df=13 p-value=0.783
+q=13 p mod q= 7 ((p/q)=-): N=  2894 conic points= 14 off-conic=0 chi2=    14.1 df=13 p-value=0.366
+q=13 p mod q= 8 ((p/q)=-): N=  2883 conic points= 14 off-conic=0 chi2=    14.5 df=13 p-value=0.339
+q=13 p mod q= 9 ((p/q)=+): N=  2852 conic points= 12 off-conic=0 chi2=    11.3 df=11 p-value=0.418
+q=13 p mod q=10 ((p/q)=+): N=  2853 conic points= 12 off-conic=0 chi2=     7.4 df=11 p-value=0.769
+q=13 p mod q=11 ((p/q)=-): N=  2872 conic points= 14 off-conic=0 chi2=     8.4 df=13 p-value=0.816
+q=13 p mod q=12 ((p/q)=+): N=  2867 conic points= 12 off-conic=0 chi2=     9.6 df=11 p-value=0.57

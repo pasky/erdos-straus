@@ -400,8 +400,14 @@ v₂(ℓ) ∈ {1, …, 6}, the review's examples and (241, 22) — 0 mismatches)
 By role (x, y, z): real vs null |z| ≤ 2.18 (H_test x-letters −2.18), real vs decoy |z| ≤ 1.98 (H_test x-letters −1.98,
 not replicated on train: +1.18). By 2-adic class all |z| ≤ 1.92 except the controls' odd-letter decoys (−2.38). The
 controls show a small negative drift against the null that is **shared by real and decoy letters** (−2.25 / −3.02):
-the local null is still slightly miscalibrated for that population (cause not identified — possibly global
-constraints on the reduction of the fundamental unit at odd primes); it is not witness-specific.
+the local null is still slightly miscalibrated for that population; it is not witness-specific. *Diagnostic
+(`scripts/z70_loose_pell_oddq.py 1000000 3000000` → `pell_oddq.txt`; EVIDENCE):* over the 34 519 primes p ≡ 1 (8) in
+[10⁶, 3·10⁶] the reduction of (T, U) mod q is **not** uniform on the conic for some split classes: q = 5, p ≡ 1, 4
+(mod 5): χ² p-values 3·10⁻⁴, 2·10⁻³; q = 7, p ≡ 2 (mod 7): 4·10⁻⁵ (35 tests; these survive Bonferroni); the inert classes
+and q = 3, 11, 13 look uniform. So the global unit carries residue structure at split small primes beyond the local
+conic (*Assessment:* plausibly Scholz-type reciprocity for the quadratic/quartic character of ε at split primes —
+quoted from memory, not checked). This explains why no purely local null is exact; the witness-vs-decoy contrast,
+which shares p and hence the unit, is unaffected.
 **Verdict (EVIDENCE):** for residues of T, U, T + cU + s (|c| ≤ 3, |s| ≤ 2) and T ± 1, ± 2 modulo the witness letters,
 **no difference from exact decoy letters was detected**, and after the 2-adic recalibration no departure of either
 from the local null meets the signal criterion. This is non-rejection for the listed relations, not equivalence
@@ -536,3 +542,11 @@ aggregates. Fixes applied:
    14 recovered, 6 empty); heuristics labelled as such.
 Minor: Lemma K's K-squeeze written out; deviation ledger §1.6 added; "407 candidate expressions"; Gaussian decoy cap
 disclosed; section order and table bars fixed.
+
+**Second internal pass** (deep reviewer over 8c422ab8a..0d38ba96d; 0 FATAL, 2 MAJOR, 5 MINOR): (1) the "full" 2-adic
+null still left v₂(ℓ) = 1 on the plain conic (non-liftable point (1, 0) mod 2) — fixed in `recal2`, revalidated, all
+three samples regenerated, numbers updated; (2) the I9 "excluded subset" statistic used the wrong population — fixed
+(0.416, not 0.16); minor: k > 2 case split in the LS-M extension, Eisenstein-shadow wording made consistent across
+§§2.4/8/11, "no difference *detected*" in §9, the bottom-line I5 wording, reproduction recipe (recal2, i9c, mp grids),
+102 001 list membership. Also completed after the reviews: the registered K6a multiprecision grids (d = 1, 30 digits;
+d = 3, 20 digits) and the odd-q diagnostic of the Pell null.
