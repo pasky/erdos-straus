@@ -1,0 +1,4 @@
+# other d=1 range 1001000 1004000: n analysed 61 (gcd-skipped 0); classes 1534; ordered pairs 48726, explained 7874; U1 18 vs 88.3 (z -7.48); U3 93 vs 265.0 (z -10.57); U1sum_obs_exp 18 88.345 U3sum_obs_exp 93 265.034
+# other d=1 range 4000000 4003000: n analysed 47 (gcd-skipped 0); classes 1510; ordered pairs 65390, explained 8442; U1 2 vs 54.7 (z -7.12); U3 30 vs 164.1 (z -10.47); U1sum_obs_exp 2 54.685 U3sum_obs_exp 30 164.055
+# other d=1 range 2000000 2003000: n analysed 54 (gcd-skipped 0); classes 1490; ordered pairs 50874, explained 7884; U1 17 vs 67.2 (z -6.13); U3 63 vs 201.7 (z -9.77); U1sum_obs_exp 17 67.235 U3sum_obs_exp 63 201.704
+# other d=1 range 8000000 8002000: n analysed 21 (gcd-skipped 0); classes 798; ordered pairs 38014, explained 4668; U1 4 vs 23.9 (z -4.07); U3 10 vs 71.6 (z -7.28); U1sum_obs_exp 4 23.864 U3sum_obs_exp 10 71.592
