@@ -1,0 +1,24 @@
+pell_Htrain_recal.jsonl: letters=14186 (P0 undefined 0; no decoy 50) | real D rate 0.2992 vs exact null 0.2987 (O-E=+8.1, binomial z=+0.25, cluster z=+0.23) | decoys (14136 letters): D 0.3017 vs null 0.3002 (cluster z=+0.63) | real-vs-decoy (null-adjusted) cluster z=-0.84
+pell_Htrain_recal.jsonl roles=x: letters=5693 (P0 undefined 0; no decoy 14) | real D rate 0.2890 vs exact null 0.2838 (O-E=+29.1, binomial z=+1.45, cluster z=+1.43) | decoys (5679 letters): D 0.2883 vs null 0.2847 (cluster z=+1.06) | real-vs-decoy (null-adjusted) cluster z=+1.14
+pell_Htrain_recal.jsonl roles=y: letters=4779 (P0 undefined 0; no decoy 10) | real D rate 0.3402 vs exact null 0.3422 (O-E=-9.1, binomial z=-0.48, cluster z=-0.47) | decoys (4769 letters): D 0.3429 vs null 0.3432 (cluster z=-0.06) | real-vs-decoy (null-adjusted) cluster z=-1.08
+pell_Htrain_recal.jsonl roles=z: letters=5878 (P0 undefined 0; no decoy 33) | real D rate 0.3180 vs exact null 0.3160 (O-E=+11.3, binomial z=+0.54, cluster z=+0.50) | decoys (5845 letters): D 0.3198 vs null 0.3187 (cluster z=+0.30) | real-vs-decoy (null-adjusted) cluster z=+0.40
+pell_Htest_recal.jsonl: letters=13384 (P0 undefined 0; no decoy 52) | real D rate 0.2939 vs exact null 0.2934 (O-E=+5.8, binomial z=+0.18, cluster z=+0.17) | decoys (13332 letters): D 0.2970 vs null 0.2951 (cluster z=+0.74) | real-vs-decoy (null-adjusted) cluster z=-1.28
+pell_Htest_recal.jsonl roles=x: letters=5400 (P0 undefined 0; no decoy 17) | real D rate 0.2819 vs exact null 0.2895 (O-E=-41.1, binomial z=-2.09, cluster z=-2.01) | decoys (5383 letters): D 0.2862 vs null 0.2907 (cluster z=-1.20) | real-vs-decoy (null-adjusted) cluster z=-2.01
+pell_Htest_recal.jsonl roles=y: letters=4564 (P0 undefined 0; no decoy 10) | real D rate 0.3477 vs exact null 0.3386 (O-E=+41.8, binomial z=+2.22, cluster z=+2.05) | decoys (4554 letters): D 0.3496 vs null 0.3395 (cluster z=+2.36) | real-vs-decoy (null-adjusted) cluster z=-0.53
+pell_Htest_recal.jsonl roles=z: letters=5598 (P0 undefined 0; no decoy 33) | real D rate 0.2964 vs exact null 0.2980 (O-E=-9.5, binomial z=-0.47, cluster z=-0.45) | decoys (5565 letters): D 0.2984 vs null 0.3011 (cluster z=-0.80) | real-vs-decoy (null-adjusted) cluster z=+0.50
+pell_CTRL_recal.jsonl: letters=51023 (P0 undefined 0; no decoy 213) | real D rate 0.3356 vs exact null 0.3376 (O-E=-104.0, binomial z=-1.74, cluster z=-1.59) | decoys (50810 letters): D 0.3366 vs null 0.3394 (cluster z=-2.32) | real-vs-decoy (null-adjusted) cluster z=+1.61
+pell_CTRL_recal.jsonl roles=x: letters=18349 (P0 undefined 0; no decoy 65) | real D rate 0.3481 vs exact null 0.3503 (O-E=-39.6, binomial z=-1.13, cluster z=-1.07) | decoys (18284 letters): D 0.3494 vs null 0.3518 (cluster z=-1.19) | real-vs-decoy (null-adjusted) cluster z=+0.28
+pell_CTRL_recal.jsonl roles=y: letters=17856 (P0 undefined 0; no decoy 50) | real D rate 0.3446 vs exact null 0.3474 (O-E=-50.3, binomial z=-1.43, cluster z=-1.35) | decoys (17806 letters): D 0.3447 vs null 0.3483 (cluster z=-1.80) | real-vs-decoy (null-adjusted) cluster z=+1.13
+pell_CTRL_recal.jsonl roles=z: letters=17788 (P0 undefined 0; no decoy 104) | real D rate 0.3624 vs exact null 0.3638 (O-E=-25.0, binomial z=-0.70, cluster z=-0.70) | decoys (17684 letters): D 0.3643 vs null 0.3669 (cluster z=-1.32) | real-vs-decoy (null-adjusted) cluster z=+1.05
+  pell_Htrain_recal.jsonl v2(l) in [0,0]: letters=5956 real 0.3256 vs null 0.3272 cluster z=-0.41; decoys-vs-null cluster z=-0.14
+  pell_Htrain_recal.jsonl v2(l) in [1,1]: letters=2666 real 0.3080 vs null 0.3082 cluster z=-0.05; decoys-vs-null cluster z=-0.21
+  pell_Htrain_recal.jsonl v2(l) in [2,2]: letters=2674 real 0.2846 vs null 0.2855 cluster z=-0.18; decoys-vs-null cluster z=+0.18
+  pell_Htrain_recal.jsonl v2(l) in [3,99]: letters=2890 real 0.2505 vs null 0.2432 cluster z=+1.33; decoys-vs-null cluster z=+1.58
+  pell_Htest_recal.jsonl v2(l) in [0,0]: letters=5614 real 0.3094 vs null 0.3073 cluster z=+0.58; decoys-vs-null cluster z=+0.16
+  pell_Htest_recal.jsonl v2(l) in [1,1]: letters=2581 real 0.3092 vs null 0.3101 cluster z=-0.16; decoys-vs-null cluster z=+0.80
+  pell_Htest_recal.jsonl v2(l) in [2,2]: letters=2547 real 0.2870 vs null 0.2909 cluster z=-0.75; decoys-vs-null cluster z=-0.13
+  pell_Htest_recal.jsonl v2(l) in [3,99]: letters=2642 real 0.2525 vs null 0.2502 cluster z=+0.39; decoys-vs-null cluster z=+0.75
+  pell_CTRL_recal.jsonl v2(l) in [0,0]: letters=19107 real 0.3627 vs null 0.3652 cluster z=-1.25; decoys-vs-null cluster z=-2.38
+  pell_CTRL_recal.jsonl v2(l) in [1,1]: letters=10167 real 0.3395 vs null 0.3386 cluster z=+0.34; decoys-vs-null cluster z=+0.16
+  pell_CTRL_recal.jsonl v2(l) in [2,2]: letters=8287 real 0.2888 vs null 0.2906 cluster z=-0.65; decoys-vs-null cluster z=-1.25
+  pell_CTRL_recal.jsonl v2(l) in [3,99]: letters=13462 real 0.3230 vs null 0.3267 cluster z=-1.52; decoys-vs-null cluster z=-1.17
