@@ -2,7 +2,15 @@
 
 **ES is OPEN.** This memo proves or computes nothing that settles ES. Labels: PROVED / CONDITIONAL / CERTIFIED /
 EVIDENCE / CONJECTURE / Assessment. Internal review only. Scripts `scripts/z70_loose_*`, data `data/z70/loose/`.
-Status: **checkpoint 1** (statements + pre-registered kill tests; no result yet).
+Status: **final draft** (all five items run; internal hostile review pending — §11).
+
+**Summary.** I6: the d = 1 and d = 3 fibres satisfy an explicit S-transformation (Theorem F, PROVED, verified to
+34 digits) whose period is a Cauchy integral of non-modular dual Lambert series (quantum-modular, not mock, relative
+to that law); the level sum G has **no** finite-index modular / mock / quantum-modular law of any weight (Theorem LS,
+PROVED, via κ(a₀/c) = μ(c)/c²·1[c odd]). I5: 7 registered + 400 grammar involutions fail on T₇₃/T₄₀₉; Lemma P5: the
+odd parity of T_p lives in the divisor words of p + 1. #10: four d-selection rules dead (best coverage 97.4 %; exact
+empty slices at six hard primes). Pell letters: no witness-specific signal (registered-null excess = a 2-adic artefact,
+explained). I9: null with disjoint controls; q-to-word construction carries no information. **No HOT LEAD; ES OPEN.**
 
 Notation. (★) / R(n) as in `z52bbriefs/z58_lanes.md`. Fibre form: R(n) = Σ_{d ≥ 1} r_d(4dn + 1),
 r_d(N) := #{A | N : A ≡ −1 (mod 4d)} (A = 4ad − 1, B = 4bd − 1, AB = 4dn + 1 ⟺ 4abd − a − b = n).
@@ -374,3 +382,59 @@ difference (|z| ≤ 1.05 everywhere); a q | X with (840/q) = −1 builds (★) w
 non-residue prime not dividing X. K9 fires (no word-building information). Nothing here is a mechanism; the
 remaining untested direction is any construction using q *together with* Y (e.g. f built from q and Y) — not
 pursued.
+
+## 7. Falsifier table — final
+| item | F1 odd squares | F2 C-even / R₈ | F3 composites | F4 known zeros |
+|---|---|---|---|---|
+| I6 Theorem F / LS | laws are coefficient-blind (Mellin ⟺ Hurwitz functional equations); r_d(4dm² + 1) = 0 is invisible to them; LS is a no-go, needs no primality | the C-even fibres (d even) obey Theorem F too; no positivity claimed | n/a (no positivity claimed) | n/a |
+| I5 involutions | T₉, T₁₀₅ printed as controls (C = ∅, |T| odd); every candidate already fails at primes | no survivor reached the C-even question | 105 control as F1 | 73, 409 are themselves the stage-1 test (B₇₃ = ∅ in `Z69_TWIST.md` P′; 409 is a (★)-zero) |
+| #10 rules | Type I at m² impossible (Lemma T10): every rule fails at squares by the Jacobi step | all rules cover all 12 R₈ zeros except CF (9/12), GA (0/12) — irrelevant, rules dead | not tested (rules use p's quadratic data) | NP exactly fails at 102 001 ((★)- and 𝔊*-zero) and five noprime primes |
+| Pell letters | no witnesses at squares | n/a | n/a | H sets: null |
+| I9 | Q = 0 at squares (every q | X has (840/q) = +1) | 𝔐-members of R₈ zeros: Δ = −0.14 ± 0.25 | n/a | hard sets: null |
+No idea survives as a mechanism, so the four screens are compatibility records only. **Not a HOT LEAD.**
+
+## 8. Verdicts (one line each)
+* **I6 — narrowed; the level-sum completion is dead (Theorem LS, PROVED, scoped to finite-index scalar or finite-image
+  vector-valued laws).** Fibre laws exist (Theorem F) and are quantum-modular, not mock, relative to their natural form.
+* **I5 — narrowed.** 407 explicit candidate maps fail stage 1; Lemma P5 locates the parity in the divisors of p + 1.
+* **IDEAA #10 — dead as stated** (K10a, K10b fire; CERTIFIED exact failures). Menus of d are B1/B2.
+* **Pell letters — inconclusive / non-rejection** (no witness-specific contrast; the registered-null signal is a
+  2-adic artefact, PROVED explanation).
+* **I9 — non-rejection; q-to-word construction carries no information (K9 fires).** The registered ±0.10 equivalence
+  band is met on the + side only (CI (−0.101, +0.058)).
+
+## 9. Proposed FRONTIER §7 / §6 text (do not edit FRONTIER here)
+> **z70 LOOSE (Z70_LOOSE.md).** (i) *I6 closed on the level sum:* the fibre series Φ_d obey an explicit
+> S-transformation (Theorem F: Hurwitz/Mellin, boundary term E, period = Cauchy integral of the dual partial Lambert
+> series; verified to 34 digits for d = 1, double precision for d = 3) — quantum-modular (Bettin–Conrey type), not
+> mock relative to that law. The level sum G = Σ R(n)qⁿ has leading singular coefficients κ(a₀/c) = 1[c odd]μ(c)/c²
+> at rationals (Lemma K), hence **no** modular, mock, harmonic or quantum-modular law of any real weight on any
+> finite-index subgroup (Theorem LS). Any automorphic route must keep the infinitely many levels separate (hatch H-A).
+> (ii) *I5:* 407 natural cross-slice involutions of T_p fail at 73/409; the odd parity of T_p is carried by the
+> 3τ(p + 1) − 1 divisor words (Lemma P5), so a parity proof must transport divisors of p + 1 to certificates.
+> (iii) *IDEAA #10 dead:* d = n_p (and three other explicit rules) leave the Type I slice exactly empty at six hard
+> primes (Lemma S makes the slice decision exact). (iv) *Pell residues mod letters:* null against exact decoys;
+> registered-null excess explained by T ≡ 0 (4). (v) *I9:* null with disjoint factor-two controls; q | X builds words
+> no better than a size-matched non-residue.
+
+## 10. Bottom line
+Five loose ends were tied off. The only genuinely new mathematics is on I6: an explicit, verified transformation law
+for each fibre and a clean theorem that the sum over levels admits no transformation law of finite level — because the
+log² singularity of G vanishes at every rational with even or non-squarefree denominator (κ = μ(c)/c²), which no
+finite-index group action can respect. This converts "levels do not sum to a law" from an assessment into a scoped
+theorem and leaves only infinite-level (H-A) constructions. The other four items are negative: no involution, no
+Type I d-rule, no Pell-letter signal, no X-coordinate signal. ES remains OPEN.
+
+## Reproduction (all with `ulimit -v 6000000`, `timeout ≤ 1800`)
+* I9: `uv run --with sympy python scripts/z70_loose_i9.py`; `… scripts/z70_loose_i9b.py`.
+* #10: `gcc -O2 -o t scripts/z70_loose_typeI.c -lm; ./t range 50000000 2000 30 0; ./t range 100000000 2000 30 50000000;
+  ./t list <file> 2000`; exact: `gcc -O2 -o f scripts/z70_loose_typeIfull.c; ./f <"p d" file>`.
+* I6: `uv run --with numpy --with scipy python scripts/z70_loose_i6law.py`; `uv run --with mpmath python
+  scripts/z70_loose_i6mp.py`; `python3 scripts/z70_loose_i6kappa.py`; `gcc -O2 scripts/z70_loose_i6sing.c -lm; ./a.out 3000000`.
+* I5: `python3 scripts/z70_loose_i5.py`; `uv run --with sympy python scripts/z70_loose_i5grammar.py`.
+* Pell: `uv run --with numpy --with sympy --with cypari2 python scripts/z70_loose_pell.py <wit> <list> <cap> <seed> <out>`
+  (witness files = `zcat data/z69/mine/{H,CTRL}_witnesses.txt.gz`; lists `data/z69/mine/{H_train,H_test,CTRL}.txt`;
+  caps 0, 0, 10; seeds 7070, 7070, 7071); `… scripts/z70_loose_pell_recal.py in out`; `python3 scripts/z70_loose_pell_an.py <files>`.
+
+## 11. Review log
+(pending)
