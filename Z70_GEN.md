@@ -300,8 +300,8 @@ beyond the residue class of p (EVIDENCE; CONDITIONAL on GRH for the invariant fa
 * Type II threefold (PROVED, one line): every positive solution (a, b, c, e) at fixed (c, d) lies on the hyperbola
   (4acd − 1)(4bcd − 1) = 4c²dn + 1 together with the always-present integral point (a, b) = (0, −cn) (factorisation
   (−1)·(−(4c²dn + 1))); the move between them is the choice of a divisor ≡ −1 (mod 4cd). Orbits *can* start at
-  always-present points, but the first step is the divisor event; no uniform (polynomial, fibre-preserving) move exists
-  besides the swap is known (SLICE Remark, Assessment).
+  always-present points, but the first step is the divisor event; no uniform (polynomial, fibre-preserving) move other
+  than the swap is known (SLICE Remark, Assessment).
 
 ### 3.5 Screens (`screen_F2.txt`, `screen_F4.txt`, `screen_F13.txt`)
 * **F1:** G_d(m²) = ∅ for all 648 pairs (m ≤ 301 odd, d ∈ {1, 2, 3, 5, 7}, gcd(m, d) = 1) — the computational face of GW(e).
