@@ -1,7 +1,9 @@
-# Z69_TWIST — pushing the surviving twists of the z69 ideation lanes: no forcing mechanism found (tested proposals killed, reduced, or left unresolved); by-product = fixed-gap Vieta-descent sterility theorems for Type I; not a HOT LEAD
+# Z69_TWIST — pushing the surviving twists of the z69 ideation lanes: no forcing mechanism found (three specified proposals refuted; the other directions narrowed, bounded-null, or untested); by-product = fixed-gap Vieta-descent sterility theorems for Type I; not a HOT LEAD
 
-**ES is OPEN. Nothing here proves or disproves it.** Status: final; internal hostile review ×3 applied (§7); waiting for
-the cross-model review; not merged (verdict §6: **narrowed / dead on the triaged twists**; no forcing mechanism).
+**ES is OPEN. Nothing here proves or disproves it.** Status: round 1 final, internal hostile review ×3 (§7) and cross-model review
+(§8, `data/z69/xreview/REVIEW_TWIST.md`: ACCEPT-WITH-FIXES) applied; round 2 in §9; not merged. Verdict §6: **three
+specified proposals refuted (the #11 slice, the I10 substitution, the I23 lift model); the other directions are
+narrowed, bounded-null, or untested**; no forcing mechanism.
 Sources: `Z69_IDEAB.md` §1 (branch `side-agent/z69-ideab`), `data/z69/xreview/REVIEW_IDEAB.md` table A
 (branch `side-agent/z69-xrev-ideab`), `Z69_IDEAA.md` + `data/z69/xreview/REVIEW_IDEAA.md` "Possibly-premature
 dismissals". Scripts `scripts/z69_twist_*`, data `data/z69/twist/`. Labels: PROVED / CONDITIONAL / CERTIFIED /
@@ -39,8 +41,9 @@ pre-registration; the I5 word census also preceded this list):
 
 *Honest record of how the kills were evaluated (added after the internal review).* K-I9: the first run did not
 implement the registered matched design; a class-matched rerun was added (§3); the outcome is "no difference
-detected", which is weaker than "classifier refuted". K-I17: fired for J; for ℓ the overlap is above chance but
-reproduced by a null model (§3). K-I23: the bounded search alone did not meet the registered criterion; with the
+detected", which is weaker than "classifier refuted". **K-I17: fired for J; it did NOT fire for ℓ** — the overlap 378 exceeds chance 260, i.e. beyond-chance
+stability under the registered criterion; the null-model figure 339 has no variance or test attached and is not
+a registered kill (cross-review finding; chased in §9). K-I23: the bounded search alone did not meet the registered criterion; with the
 truncation Lemma T it does, at 36 primes (§3).
 
 ## 1. Triage table (10 items; details §2–§3)
@@ -50,21 +53,22 @@ truncation Lemma T it does, at 36 primes (§3).
 | **IDEAA #11** e = p + 2 | M odd ⟹ no a, b with ab ∣ M², (2M+1) ∣ a + b | search M ≤ 3·10⁶: 0 hits; then **proved** (Lemma V, Vieta descent) | **closed: sterile, PROVED** (all n ≡ 1 (4)); extended to all gaps e − n (Prop R, §4) |
 | **I10** Pell d > 1 | a Type I point with p ∣ 4a²d + 1 | **proved impossible** for every d (Cor T10); 6 718 points checked | **dead, PROVED** |
 | **IDEAA #10** nonsquare d | Type I at (a, d) forces (d/p) = −1 | Lemma T10; the fixture (1033, 1, 132) has (132/1033) = −1 | sharpened necessary condition (PROVED); no forcing lemma |
-| **I9** X of p = X² + 840Y² | Q(p) = [∃ q ∣ X, (840/q) = −1] separates hard primes | no difference detected: exploratory pooled run all \|z\| < 2; class-matched rerun all \|z\| < 1 (§3) | **no support (EVIDENCE)**; low power on the small sets |
-| **I17** class-set stability | G(p) ⊂ Cl(−4p) stable under J or a fixed class | exact invariance fails: J-overlap 72 (chance 260), ℓ-overlap 378 (chance 260); a small-norm null set gives 0 and 339 (§3) | **no evidence of coset structure (d = 1, two translations; EVIDENCE)** |
+| **I9** X of p = X² + 840Y² | Q(p) = [∃ q ∣ X, (840/q) = −1] separates hard primes | no difference detected: exploratory pooled run all \|z\| < 2; class-matched rerun all \|z\| < 1 (§3) | **bounded, underpowered null (EVIDENCE)**: non-rejection, not equivalence; neither run is the registered random size-matched design |
+| **I17** class-set stability | G(p) ⊂ Cl(−4p) stable under J or a fixed class | exact invariance fails: J-overlap 72 (chance 260), ℓ-overlap 378 (chance 260); a small-norm null set gives 0 and 339 (§3) | **exact invariance under J and ℓ refuted (d = 1); the registered kill K-I17 fired for J but NOT for ℓ (378 > 260); bounded otherwise** → round 2 (§9) |
 | **I23** twisted trace at √p | every ES-solvable p has a triple with a twisted lift | K-I23 fired: 36 of the 37 primes p ≡ 1 (4) below 400 provably have no twisted lift (Lemma T + finite search); p = 5 has one (§3) | **dead as universal mechanism (PROVED at those primes)** |
-| **I24** cross-d transport | the d ↦ d + 1 lattice map carries solutions | **proved** to be the K1 t-form: (★) ⟺ ∃ t, a ∣ t: a + t/a ≡ −p (mod 4t) (§3) | **reduces (PROVED)**; no transport found |
+| **I24** cross-d transport | the d ↦ d + 1 lattice map carries solutions | **proved** to be the K1 t-form: (★) ⟺ ∃ t, a ∣ t: a + t/a ≡ −p (mod 4t) (§3) | **identity PROVED; only the fixed-t transport fails; adaptive t untested in round 1** → round 2 (§9) |
 | **I5** non-affine involution | a cross-slice involution with controllable fixed points | Lemmas P, P′, Remark C + census (§3): no prime-forcing parity law; on the odd set O_p the idea fails at 154 primes; the Vieta map ι of §4 is a cross-n involution for Type I but it moves n | **open in general; nothing found** |
 | **I6** mock completion | G(q) = Σ q^{4abd−a−b} has a GL₂ (mock) modular completion | no numerical test; PROVED character / divisor-sum decomposition r_d = ½(E_d − O_d) (§3); no completion or transformation law established, fibrewise or after summing over d | **unresolved; Assessment: low priority** |
-| **I12** target-only forcing | CRT-forced smooth part of p + u hits −1 (mod 4u) | algebra: the forced part is exactly the C-form covering class (§3) | **reduces (PROVED)** to covering |
+| **I12** target-only forcing | CRT-forced smooth part of p + u hits −1 (mod 4u) | algebra: the forced part is exactly the C-form covering class (§3) | **prescribed-part identity PROVED; the target-only cofactor experiment was not run in round 1** → round 2 (§9) |
 
 **Blunt summary of the triage.** None of the ten items yields a mechanism that forces a tied divisor event. Two
 items became theorems of the *opposite* kind (sterility of Type I slices: #11, I10); I23 is refuted as a universal
 mechanism at 36 explicit primes; I9 detects no separation; I17 rejects exact invariance under the two tested
 translations, and its overlap pattern is qualitatively reproduced by small-norm selection (EVIDENCE; other
 translations and d > 1 untested);
-I24 and I12 reduce by short proofs to the known covering form; I5 and I6 stay open in the unspecific sense in
-which they were open before.
+for I24 and I12 only an algebraic identity is proved (the fixed-t transport and the prescribed part reduce to the
+covering form) — their adaptive versions were not tested in round 1; I5 and I6 stay open in the unspecific sense
+in which they were open before. Round 1 took ≈ 1.5 h of a 4–5 h box and did not exhaust the survivor directions.
 
 ## 2. Two kills that are now theorems
 
@@ -183,7 +187,8 @@ condition); nothing here makes it easier to force.
 values, the largest 4 808 265. Minimum over the blocks (4^k, 4^{k+1}] from 4⁵ to 10⁹ — all non-squares:
 4, 2, 4, 2, 6, 8, 6, 14, 19, 18; primes only: 4, 8, 14, 14, 18, 18, 24, 30, 36, 46 (minimisers 2521, 9601, 21841,
 76441, 351289, 4149601, 5516281, 17287201, 111664081, 278893729 — the campaign's familiar hard primes). The
-minimum grows steadily; no sign of a late exception to (W) below 10⁹.
+prime-block minima are non-decreasing in this range; the all-n minima fluctuate (8 → 6, 19 → 18). Neither pattern
+controls a later exception.
 
 **Consequences for I5 (PROVED / CERTIFIED as marked).**
 * On the odd set O_p alone a Zagier-type argument is impossible **already at primes**: |O_p| is odd while B_p = ∅
@@ -259,8 +264,9 @@ more strongly for J (0) and comparably for ℓ (339). (The random-subset figures
 ideal of small odd norm e has J-translate with reduced form [2e, ·, ·], whose odd values are ≳ p/2e; its
 ℓ-translate has an ideal of norm ℓe); no sign of a hidden character or coset structure. **Scope:** exact
 invariance is refuted only for these two translations, d = 1, this range. The registered kill K-I17 asked for "no
-stability beyond chance overlap": it fired for J; for ℓ the overlap is *above* chance but matched by the null
-model. Other fixed classes and d > 1 were not tested. *Verdict:* no evidence for a coset-like structure.
+stability beyond chance overlap": it fired for J; **for ℓ it did not fire** (378 > 260), and 378 versus the
+null's 339 has no calibrated significance. Other fixed classes and d > 1 were not tested in round 1. *Verdict:*
+exact invariance under J and ℓ refuted; whether G(p) has beyond-chance translation structure is open → §9.
 
 ### I23 (twisted trace at √p). Kill K-I23 fired — rigorously at 36 primes (PROVED truncation + CERTIFIED search).
 
@@ -308,7 +314,7 @@ c = 1) in the coordinates (s, t). *Verdict:* re-encoding of the covering form; n
 
 * **I6.** (a) #{(a, b, d) : 4abd − a − b ≤ x} ~ (x/8) log²x (three free divisor variables), so
   G(e^{−t}) ~ (8t)⁻¹ log²(1/t) as t → 0⁺ (PROVED, elementary Abelian theorem). (b) Fibre decomposition (PROVED,
-  orthogonality of characters): R(n) = Σ_d r_d(4dn + 1), r_d(N) := #{A ∣ N : A ≡ −1 (4d)}, and for N ≡ 1 (4d)
+  orthogonality of characters; the automorphic identifications quoted after it are NOT part of the PROVED claim): R(n) = Σ_d r_d(4dn + 1), r_d(N) := #{A ∣ N : A ≡ −1 (4d)}, and for N ≡ 1 (4d)
     r_d(N) = ½(E_d(N) − O_d(N)),  E_d := #{A ∣ N : A ≡ ±1 (4d)} = (2/φ(4d)) Σ_{χ even} Σ_{A∣N} χ(A),
     O_d := #{A ≡ 1} − #{A ≡ −1} = (2/φ(4d)) Σ_{χ odd} Σ_{A∣N} χ(A).
   For odd χ, Σ_{A∣N} χ(A) are the coefficients of Hecke's holomorphic weight-1 Eisenstein series; for even χ the
@@ -404,10 +410,11 @@ same construction gives nothing: for fixed (b, c, d) its solutions satisfy the *
 e(4bcd − 1) = p + 4b²d (the K2 congruence class), so this particular fixed-(b, c, d) exchange is a translation
 (p, e) ↦ (p + t(4bcd − 1), e + t), not a two-root exchange. More precisely (PROVED, by substitution a = ce − b):
 the Type II solutions of all n are the image of the free parameters (b, c, d, e) ∈ ℕ⁴, ce > b, under the
-polynomial n = 4bd(ce − b) − e, whereas Type I needs the divisibility e ∣ 4b²d + 1 (n = 4bcd − (4b²d + 1)/e), and
-it is this divisibility whose solutions the Vieta chains organise. So for Type II any "transport" is a change of
-free parameters; no hidden two-root structure of this kind exists there. (After the third review round; a
-one-line substitution, not reviewed.)
+polynomial n = 4bd(ce − b) − e (the locus n ≡ 1 (4) is e ≡ 3 (4)), whereas Type I needs the divisibility e ∣ 4b²d + 1 (n = 4bcd − (4b²d + 1)/e), and
+it is this divisibility whose solutions the Vieta chains organise. So for Type II the fixed-(b, c, d) two-root construction does not exist. This excludes only that construction:
+it is not an obstruction at a prescribed p (hitting a given prime with a polynomial in free parameters is the
+original problem) and it does not exclude a non-linear transport in other coordinates. (Added after the third
+internal round; checked by the cross-review.)
 
 ## 5. Mandatory falsifier table — final
 
@@ -415,10 +422,18 @@ The lane ends with no positivity mechanism, so the table is for the objects actu
 
 | screen | Lemma V / Prop R / Cor T10 (sterility of Type I slices) | Lemmas P, P′ (parity of word sets) | the triaged twists as would-be mechanisms |
 |---|---|---|---|
-| **F1 odd squares** | V, ι, D, R hold for every n ≡ 1 (4), squares included (T10 in the Jacobi form (d/n) = −1 likewise); they assert absence of solutions on slices, compatible with R(m²) = 0. No step uses non-squareness and none is needed. | \|T_n\| and \|O_n\| are odd whenever x(xy − 2) = n forces x = 1 — e.g. at n = 9 — while B₉ = ∅ and U₇(9) fails. So parity alone forces nothing; an involution argument must break at squares, and no candidate was found. | I17 would use "χ₋₄ is a non-trivial genus character of disc −4dn" (fails for n = m²) — but exact invariance fails for the two translations tested (d = 1). I9: Y = 0. I23: ℤ[√n] degenerates. None reached a stage where the screen bites. |
+| **F1 odd squares** | V, ι, D, R hold for every n ≡ 1 (4), squares included (T10 in the Jacobi form (d/n) = −1 likewise); they assert absence of solutions on slices, compatible with R(m²) = 0. No step uses non-squareness and none is needed. | \|T_n\| and \|O_n\| are odd whenever x(xy − 2) = n forces x = 1 — e.g. at n = 9 — while B₉ = ∅ and U₇(9) fails. So parity alone forces nothing; an involution argument must break at squares, and no candidate was found. | I17 (d = 1 only) would use "χ₋₄ is a non-trivial genus character of disc −4n" (fails for n = m²; discriminants −4dn need separate hypotheses) — but exact invariance fails for the two translations tested. I9: a square has primitive representations with Y ≠ 0 (29² = 1² + 840·1²); the correct discriminator is that for n = m² every prime q ∣ X (coprime to 840Y) has (840/q) = (n/q) = +1, so Q(m²) = 0. I23: ℤ[√n] degenerates. None reached a stage where the screen bites. |
 | **F2 numerator 8 / C-even** | Type I only; says nothing about the C-even line of (★). | Lemma P′ separates the fibres y ≡ 0 (4), y ≡ 7 (8), y ≡ 3 (8); 8 ∣ y is the C-even line and has 286 zeros among primes ≡ 1 (8) below 10⁶ (census §3), consistent with F2. No positivity claim. | n/a (no mechanism survived). |
 | **F3 composites** | V, ι, D, R, T10 (Jacobi form) are primality-free (valid for all n ≡ 1 (4)). The square-slice parametrisation e = k(kp ± 2) does use primality (n = 21, e = 3: ne + 1 = 64, and (1, 8, 3, 2, 3) is a Type I solution). | \|T₁₀₅\| = 11 is odd and 105 ∈ Z₇: parity cannot be the whole argument at composites either. Even at primes, \|O_p\| is odd with B_p = ∅ at 154 primes ≤ 2·10⁷. | n/a. |
 | **F4 known zeros** | Compatible: sterility of the gaps e − n ∈ {2, 6, 10, 18, …} removes candidate solutions, it never adds one. The census finds B_p = ∅ at 154 primes ≤ 2·10⁷ and (★) ∪ B empty only at 409, which has the Type II c = 2 solution (1, 117, 2, 1, 59) (REVIEW_IDEAA). | No positivity claim at the 14 (★)-zeros or the 38 𝔊*-zeros. | n/a. |
+
+**The late target (W) on the screens** (`scripts/z69_twist_screens.py 20000 3000`, `data/z69/twist/screens_W.txt`;
+CERTIFIED, and independently by the cross-review). F1: C_{m²} = ∅ at all 15 810 odd squares 9 ≤ m² ≤ 10⁹ (forced
+by T1: types (i)–(iii) are Type I/II solutions). F2: each of the 12 R₈-zero primes has a certificate word — an
+odd-C (★) word, e.g. (2, 4, 1450971429) at 10 156 800 001; (W) does not use and does not claim the C-even line.
+F3: 284 of the 285 composite (★)-zeros have a certificate word; the exception is 105, which (W) must exclude.
+F4: all 14 (★)-zero and all 38 𝔊*-zero primes have a certificate word (409: (4, 2, 59), type (ii)). These are
+compatibility checks for a CONJECTURE, not a mechanism.
 
 Where primality enters: in Lemma P / P′(d) / Remark C (uniqueness of the swap-fixed word needs
 "x ∣ n ⟹ x ∈ {1, n}", and holds at some composites and squares too), in the square-slice parametrisation, and in
@@ -427,13 +442,14 @@ at a prime, and nothing here is progress toward a proof of ES beyond removing ca
 
 ## 6. Verdict
 
-**Narrowed / dead on the triaged twists; not a HOT LEAD. ES is OPEN.**
+**Three specified proposals refuted (IDEAA #11 slice; I10 substitution; I23 lift model, at 36 primes); the other
+directions are narrowed, bounded-null, or untested. Not a HOT LEAD. ES is OPEN.**
 * Of the ten twists handed over by the two cross-reviews, **none** yields a mechanism. I23 is refuted as a
   universal mechanism (36 explicit primes provably without a twisted lift). I9 detects no separation (EVIDENCE;
   low power on the small hard sets). I17 rejects exact invariance under the two tested translations (d = 1); its
   J-avoidance and ℓ-enrichment relative to a random subset are qualitatively reproduced by small-norm selection
-  (EVIDENCE; other translations and d > 1 untested). I24 and I12
-  reduce by short proofs to the covering form (PROVED). I10 is dead for every d and IDEAA #11 is closed, both by
+  (EVIDENCE; other translations and d > 1 untested). For I24 and
+  I12 only the fixed-t / prescribed-part identities are PROVED; these are not kills of the adaptive versions (§9). I10 is dead for every d and IDEAA #11 is closed, both by
   proof (PROVED). IDEAA #10 gets the necessary condition (d/p) = −1 (PROVED, known in substance). I5 and I6 remain
   open in the generic sense; for I5 the odd-word version is excluded at 154 primes.
 * **What is new here and PROVED** (specific statements; the method — Vieta descent on Type I — is prior art,
@@ -509,5 +525,24 @@ any odd square; the 4545 example is exact (4/4545 = 1/1148 + 1/111356 + 1/361509
 (1) MAJOR — the U_II zero list was stated without its certified range (10¹⁰): range and CONJECTURE status added.
 (2) MINOR — the census starts at n = 5 (the square 1 is not counted): stated. (3) MINOR — the text referred to a
 third round before it was recorded: recorded here. (4) MINOR — "a proof could not use primality" and the
-comparison with U₇ were overstated: reworded. After the third round only the tail-calibration paragraph for (W) (§3) was added;
-it is a single-engine census and was not reviewed.
+comparison with U₇ were overstated: reworded. After the third round two items were added and not reviewed internally: the tail-calibration paragraph for (W)
+(§3) and the Type II polynomial-parametrisation remark (§4); both were then checked by the cross-model review.
+
+## 8. Cross-model review (Astra, `data/z69/xreview/REVIEW_TWIST.md`, at `6e2e8eee3`): ACCEPT-WITH-FIXES
+
+Accepted: Lemma V (and the original M⁴-divisor form of #11), T10, ι, D, R and corollaries, P / P′ / Remark C, the
+I23 dictionary and the certified kill at 36 primes, the finite (W) census and tail (reproduced in full to 10⁹ by
+an independent engine). Not accepted: a blanket death verdict for the remaining twists. Required fixes, all applied:
+1. Umbrella verdict replaced by "three specified proposals refuted; other directions narrowed, bounded-null, or
+   untested" (title, status, §1, §6); I24 / I12 are identities, not kills of the adaptive versions.
+2. Stated explicitly (§0, §1, §3) that **K-I17 did not fire for ℓ**; 378 vs 339 has no calibrated significance.
+   I9's non-rejection / power warning kept in every summary.
+3. F1: "I9: Y = 0" was false (29² = 1² + 840·1²); replaced by the correct discriminator Q(m²) = 0. The I17
+   genus-character comment scoped to d = 1. The (W) target now has its own F1–F4 paragraph (§5).
+4. e ≡ 3 (4) added to the Type II parametrisation; its scope limited to the fixed-(b, c, d) construction.
+5. Tail sentence corrected (prime minima non-decreasing, all-n minima fluctuate); both late additions recorded
+   in §7.
+6. Shortfall recorded (≈ 1.5 h; I6 untested, adaptive I24 and cofactor I12 not run in round 1); I6's quoted
+   automorphic statements kept outside the PROVED label.
+Follow-ups demanded by the review (I17 full translation profile with calibrated nulls, d = 3, 5; I24 with
+t′ = t − 1, t, t + 1; I12 cofactor experiment) are round 2, §9.

@@ -1,0 +1,4 @@
+F4 star14: 14 numbers; C-certificate found at 14; none found at [] (x <= 3000 only for n > 20000); examples [(409, (4, 2, 59, '/ii')), (577, (3, 2, 116, '/ii'))]
+F4 gstar38: 38 numbers; C-certificate found at 38; none found at [] (x <= 3000 only for n > 20000); examples [(37, (1, 3, 19, '/iii')), (157, (1, 3, 79, '/iii'))]
+F3 composite285: 285 numbers; C-certificate found at 284; none found at [105] (x <= 3000 only for n > 20000); examples [(57, (3, 2, 12, '/ii')), (177, (3, 2, 36, '/ii'))]
+F2 r8zeros12: 12 numbers; C-certificate found at 12; none found at [] (x <= 3000 only for n > 20000); examples [(10156800001, (2, 4, 1450971429, 'i')), (10243598993, (1, 4, 3414532998, 'i'))]
