@@ -13,7 +13,7 @@ structure beyond the class number vs U₇ / (★) witnesses), `data/z69/xreview/
 | **F1 odd squares** | G_d(m²) = ∅ for every d and odd m (T1). In the language of §1.1 this is a genus statement: a good form [A, 4ad, de] has A ≡ −1 (mod 4d), so χ_{−4d}(A) = χ_{−4d}(−1) = −1, while a positive form of discriminant −4dm² can represent A (coprime to 2dm) only with χ_{−4d}(A) = +1; for n prime the same computation gives the Jacobi condition (n/A) = −1. Every symmetry studied here (DL, CS, anything found by the residual hunt) is a map *on existing solutions* and is vacuous at squares; a generative map would have to produce a good class in the target genus coset, which does not exist at squares — that is where non-squareness must enter. | PROVED (elementary; §1.1) |
 | **F2 numerator 8 / C-even** | Type II with even d (d = 2) is in the sample; DL and CS hold verbatim for every d, so no statement here distinguishes C even from C odd. No positivity claim. | PROVED (lemmas) |
 | **F3 composites** | DL, CS and the e-ideal dictionary (§1.1) hold for every n ≡ 1 (4) (composite n: primes dividing gcd(e, n) need care, handled in the scripts). The residual profile is also run on the composite (★)-zeros below 10⁵ (d = 1). | PROVED / run registered |
-| **F4 known zeros** | The hard list (14 (★)-zero primes, 38 𝔊*-zero primes below 10⁶, 2521, 3361, 21841, 76441) is in the d = 1 and d = 3 samples. | run registered |
+| **F4 known zeros** | The hard list (14 (★)-zero primes, 38 𝔊*-zero primes below 10⁶ [correction: 26 — the file has 38 up to 10¹⁰], 2521, 3361, 21841, 76441) is in the d = 1 and d = 3 samples. | run registered |
 
 ## 1. Item 1 — the I17 residual
 
@@ -262,8 +262,8 @@ identity, so unexplained coincidences at small translations need both classes ou
 registered controls (all translations of order > 2) are mostly classes of large minimal norm, where FR excludes much less.
 The post hoc control by the next 20 split primes (norm closer to ℓ₀, still larger) reduces but does not remove the deficit,
 as expected from the ℓ-dependence of the free region (the control design was not norm-matched — a flaw of the
-registration exposed by its outcome). **Reading:** beyond explicit ideal identities, the small-prime translations carry
-*fewer* coincidences than chance, never more. There is no hidden class-level law here.
+registration exposed by its outcome). **Reading:** in this descriptive comparison the small-prime translations carry *fewer* unexplained coincidences than
+the in-sample rates, never more; no positive excess was detected (this is not a calibrated proof of absence).
 
 **Remark V (no coordinate-wise Vieta moves for Type II at fixed n; PROVED, scoped).** Eliminating e, Type II at fixed n is
 cn = 4abcd − a − b, which has degree 1 in each of a, b, c, d. A Vieta root swap in one of these coordinates needs degree 2
@@ -280,8 +280,9 @@ The (★) line is the c = 1 slice of Lemma DL′ with d = C: (4uC − 1)(4BC −
 division of M by a divisor of N_a (Lemma Φ; DL), complement M ↦ N_a/M (CS), moving a factor between A and B in a c-fibre
 (DL′), a ↔ b, and transport along free-region identities (FR). (i) Every element of Σ maps (a, M) to some (a′, M′) with
 M′ | N_{a′}, and the class changes by the class of an ideal dividing 𝔅_a, 𝔅_{a′} or 1 + 2c√−dn. (ii) The image is a good
-pair iff M′ ≡ −1 (mod 4a′d). (iii) For every n and a the residues R_a := {M mod 4ad : M | N_a, gcd(M, 4ad) = 1} are closed under
-M ↦ nM⁻¹ and under products of divisors whose product divides N_a; G_d(n) ≠ ∅ ⟺ −1 ∈ R_a for some a. So exhibiting a good
+pair iff M′ ≡ −1 (mod 4a′d). (iii) Under the hypotheses of §1.6 (gcd(n, d) = 1, gcd(a, n) = 1, so gcd(N_a, 4ad) = 1) the residues R_a := {M mod 4ad :
+M | N_a} are closed under M ↦ nM⁻¹ (complement) and under products of divisors whose product divides N_a (without these
+hypotheses the complement can leave the unit residues: n = 9, a = 3, d = 1); G_d(n) ≠ ∅ ⟺ −1 ∈ R_a for some a. So exhibiting a good
 class by these operations *is* exhibiting −1 ∈ R_a — the original divisor event (the operations may start anywhere, e.g. at
 n = 73, a = 1, N_1 = 77: 1 ↦ 7 ≡ −1 (mod 4) is a good divisor; nothing forces such a step). At every n with G_d(n) = ∅ they
 produce nothing — tautologically; in particular at odd squares, where every M | m² + 4a²d with gcd(M, 2dm) = 1 has
@@ -338,50 +339,64 @@ F3′ (FIX-CS only). Statistics Mx, Ex, L1, L3 (controls C0 for d = 1, A2 for d 
 * validity: controls |Z| < 3 against both modes (they are imposed).
 
 ### 1.10 Results with the corrected nulls (CERTIFIED computations; `data/z70/class/i1_FIX*.txt`; registered in §1.9)
-Per window Z (in brackets: number of n with null variance > 0 for that statistic); pooled = Σ excess / √Σ var from the
-exact sums (`scripts/z70_class_pool2.py`).
+Per-window Z (one rounding, from the per-n lines); pooled = Σ excess / √Σ var over the listed windows. The §1.9 smoke-test
+primes (24001, 25169 for d = 1; 24481 for d = 2) lie in window F1 and were — contrary to §1.9 — included in the first
+aggregates; the numbers below **exclude** them (`scripts/z70_class_reagg.py`; effect: FIX-CS d = 1 F1 L1 +3.6 → +3.3, the
+other entries unchanged or changed by ≤ 0.3). Power (number of n with null variance > 0 per statistic) is printed in the
+data files; for d = 1–3 it is 10–140 per window and statistic, for d = 5, 7 only 2–46.
 
 **FIX-CS (DL + CS exact, all ideal identities among e-ideals exact):**
 
 | d | windows (n analysed) | Z_Mx | Z_Ex | Z_L1 | Z_L3 | control | pooled (Mx, Ex, L1, L3; control) |
 |---|---|---|---|---|---|---|---|
-| 1 | F1 F2 F3 F4 G1 G2 G3 H1 H2 (141 77 61 47 59 54 21 54 30) | +3.3 +4.2 +6.0 +4.9 +4.0 +6.2 +10.2 +3.9 +5.7 | +2.5 +1.9 +3.1 +3.3 +1.7 +3.2 +6.0 +0.6 +2.4 | **+3.6 +5.0 +7.0 +7.6 +6.8 +9.3 +9.8 +6.7 +6.9** | +2.4 +2.7 +6.0 +6.6 +2.5 +6.1 +8.9 +4.7 +5.9 | C0 −2.7 … +2.5 | +14.8, +7.9, **+18.8**, +13.3; C0 +0.4 |
-| 2 | F1 F2 F3′ G1 G2 H1 (129 156 78 181 108 104) | +2.0 +1.9 +3.3 +4.5 +3.6 +1.9 | +2.3 +2.0 +4.2 +4.0 +8.1 +2.3 | −0.6 −0.3 −1.0 −1.1 +0.2 −1.0 | +0.6 −1.1 0.0 +0.2 +2.1 −0.3 | A2 +0.2 −0.8 +1.1 **+3.3 +4.2 +3.4** | +7.2, +10.0, −1.5, +0.5; A2 +4.8 |
-| 3 | F1 F2 F3′ H1 (120 147 74 169) | +1.2 +1.1 +1.8 **+4.9** | +1.0 +2.0 +1.6 **+4.4** | 0.0 −0.5 −0.7 +1.3 | −0.2 −1.1 −1.2 +2.6 | A2 ≤ 0.8 | **+4.9, +5.2**, +0.3, +0.3; A2 −0.2 |
-| 5 | F1 F2 F3′ (96 129 70) | +1.7 +1.0 +0.8 | +1.1 +0.4 +1.1 | −0.4 +1.4 −1.0 | 0.0 +0.6 +2.0 | A2 ≤ 0.8 | +1.9, +1.3, +0.2, +1.3 |
-| 7 | F1 F2 F3′ (70 110 58) | −0.6 +1.9 +1.5 | −0.7 +2.4 +0.8 | −0.2 +1.2 −0.3 | −1.0 +0.5 +0.3 | A2 ≤ 0.3 | +2.0, +2.0, +1.0, +0.1 |
+| 1 | F1 F2 F3 F4 G1 G2 G3 H1 H2 (139 77 61 47 59 54 21 54 30) | +3.4 +4.2 +6.0 +4.9 +4.0 +6.2 +10.2 +3.9 +5.7 | +2.5 +1.9 +3.1 +3.3 +1.7 +3.2 +6.0 +0.6 +2.4 | **+3.3 +5.0 +7.0 +7.6 +6.8 +9.3 +9.8 +6.7 +6.9** | +2.1 +2.7 +5.9 +6.6 +2.5 +6.1 +8.9 +4.7 +5.9 | C0 −2.7 −0.2 +0.9 +0.7 −0.6 −0.2 +0.8 +2.5 +2.4 | +14.9, +7.9, **+18.7**, +13.2; C0 +0.4 |
+| 2 | F1 F2 F3′ G1 G2 H1 (128 156 78 181 108 104) | +2.0 +1.9 +3.3 +4.5 +3.6 +1.9 | +2.3 +2.0 +4.2 +4.0 +8.1 +2.3 | −0.6 −0.3 −1.0 −1.1 +0.2 −0.9 | +0.6 −1.1 −0.0 +0.2 +2.1 −0.3 | A2 +0.2 −0.8 +1.1 **+3.3 +4.2 +3.4** | +7.2, +10.0, −1.5, +0.5; A2 +4.8 |
+| 3 | F1 F2 F3′ H1 (120 147 74 169) | +1.2 +1.1 +1.8 **+4.9** | +1.0 +2.0 +1.6 **+4.4** | −0.0 −0.5 −0.7 +1.3 | −0.2 −1.1 −1.2 +2.6 | A2 −0.4 −0.8 −0.1 +0.8 | **+4.9, +5.2**, +0.3, +0.3; A2 −0.2 |
+| 5 | F1 F2 F3′ (96 129 70) | +1.7 +1.0 +0.8 | +1.1 +0.4 +1.1 | −0.4 +1.4 −0.9 | −0.0 +0.6 +2.0 | A2 −0.4 −0.6 −0.8 | +1.9, +1.3, +0.2, +1.3 |
+| 7 | F1 F2 F3′ (70 110 58) | −0.6 +1.9 +1.5 | −0.7 +2.4 +0.7 | −0.2 +1.2 −0.3 | −1.0 +0.4 +0.3 | A2 −0.2 −0.2 −0.3 | +2.0, +2.0, +1.0, +0.1 |
 
-(d = 5, 7 have little power: 2–46 n per statistic with nonzero null variance.) Hard list, d = 3, full 35-prime list
-(z69 used the sub-list below 10⁵ for d = 3; the full list was added after the review): 18 analysed, all |Z| ≤ 1.5.
+Hard list, d = 3, full 35-prime list (z69 used the sub-list below 10⁵ for d = 3; the full list was added after review
+round 1): 18 analysed, all |Z| ≤ 1.5. z69's own windows (the §1.2 replication) were rerun with both corrected nulls after
+review round 2 (§1.11).
 **Registered verdicts:** d = 1 **RESIDUAL** (L1 ≥ 3 on all nine windows); d = 3 **RESIDUAL** by the pooled clause (Ex +5.2,
 Mx +4.9), driven by the new window H1 = [3·10⁶, 3.01·10⁶) — on F1–F3′ alone every |Z| < 3, which is what the withdrawn PSC
 run saw; the z69 d = 3 energy residual is therefore **not** explained by DL + CS at larger n (correcting §1.3); d = 2: the
 positive control A2 fails (|Z| ≥ 3 on G1, G2, H1), so by the validity rule the d = 2 FIX-CS runs are **not interpreted**
-— the reason is CERTIFIED (`scripts/z70_class_a2check.py`, `i1_a2check.txt`, post hoc): every ordered pair (g, g + T_d) of
-good classes is an ideal identity between natural representatives, 𝔡·conj 𝔈₁ = 𝔡·𝔄₂ (A₂ = e₁, a₂ ≡ b₁ (mod e₁)) or its
-B-side mirror; with a₂ = b₁ this is Lemma CS, with a₂ ≠ b₁ a cross-fibre identity that FIX-CS does not impose: d = 2 G1:
-946 pairs = 898 CS + 48 cross-fibre + 0 other (FIX-CS null 917.5); G2: 748 = 708 + 40 + 0; H1: 630 = 598 + 32 + 0; d = 3 H1:
-356 = 352 + 4 + 0. d = 5, 7 **K-RES** (low power).
+— the reason is CERTIFIED (`scripts/z70_class_a2check.py`, `i1_a2check.txt`, post hoc; independently reproduced by the
+round-2 reviewer on G1): every ordered pair (g, g + T_d) of good classes is an ideal identity between natural
+representatives, 𝔡·conj 𝔈₁ = 𝔡·𝔄₂ (A₂ = e₁, a₂ ≡ b₁ (mod e₁)) or its B-side mirror; with a₂ = b₁ this is Lemma CS, with
+a₂ ≠ b₁ a cross-fibre identity that FIX-CS does not impose: d = 2 G1: 946 pairs = 898 CS + 48 cross-fibre + 0 other (FIX-CS
+null 917.5); G2: 748 = 708 + 40 + 0; H1: 630 = 598 + 32 + 0; d = 3 H1: 356 = 352 + 4 + 0. d = 5, 7 **K-RES** (low power).
 
 **FIX-ALL (every active-fibre relation exact):**
 
 | d | windows | Z_Mx | Z_Ex | Z_L1 | Z_L3 | control | pooled (Mx, Ex, L1, L3; control) |
 |---|---|---|---|---|---|---|---|
-| 1 | F1 F2 F3 F4 G1 G2 G3 H1 H2 | −0.6 +0.5 +1.3 −1.0 −0.4 −0.5 +1.4 −1.6 −0.4 | +0.5 +1.5 +2.2 +1.0 +0.7 +0.2 −1.0 −0.6 −0.5 | −2.7 −1.6 −0.4 −2.1 −1.2 −0.8 −0.6 −3.0 −1.1 | −1.2 −1.2 −1.4 −2.7 −1.3 **−3.0** −3.0 **−4.0** −1.6 | C0 −2.4 … −1.4 | −0.6, +0.6, **−4.6**, **−6.2**; C0 **−6.2** |
-| 2 | F1 F2 F3′ G1 G2 H1 | +0.4 −1.5 −0.1 −0.5 −0.8 −1.8 | +0.3 −0.5 −1.3 −0.4 +1.0 −1.7 | +1.2 +1.1 −0.8 −0.4 +0.9 −1.6 | +2.9 −0.8 −1.5 −0.7 −0.4 −1.6 | A2 ≤ 2.0 | −2.0, −1.2, +0.2, −1.1; A2 −2.0 |
-| 3 | F1 F2 F3′ H1 | +0.9 +0.8 −0.3 +0.5 | +1.2 +0.9 −0.7 −0.2 | +0.8 −1.4 +0.3 −0.3 | +0.7 **−3.1** −1.4 −0.7 | A2 ≤ 0.7 | +1.0, 0.0, −0.7, −2.6; A2 −0.7 |
+| 1 | F1 F2 F3 F4 G1 G2 G3 H1 H2 | −0.6 +0.5 +1.3 −1.0 −0.4 −0.5 +1.4 −1.6 −0.4 | +0.5 +1.5 +2.2 +1.0 +0.7 +0.2 −1.0 −0.6 −0.5 | −2.7 −1.6 −0.4 −2.1 −1.2 −0.8 −0.6 −3.0 −1.1 | −1.2 −1.2 −1.3 −2.7 −1.3 **−3.0** −2.9 **−4.0** −1.6 | C0 −2.3 −2.2 −2.3 −1.8 −2.4 −2.2 −1.4 −2.1 −1.8 | −0.6, +0.6, **−4.6**, **−6.2**; C0 **−6.2** |
+| 2 | F1 F2 F3′ G1 G2 H1 | +0.4 −1.5 −0.1 −0.5 −0.8 −1.8 | +0.3 −0.5 −1.3 −0.4 +1.0 −1.6 | +1.2 +1.1 −0.8 −0.4 +0.9 −1.6 | +2.9 −0.8 −1.5 −0.7 −0.4 −1.6 | A2 −0.6 −1.0 −0.5 −1.0 −1.0 −0.7 | −2.0, −1.2, +0.2, −1.1; A2 −2.0 |
+| 3 | F1 F2 F3′ H1 | +0.9 +0.8 −0.3 +0.5 | +1.2 +0.9 −0.7 −0.2 | +0.8 −1.4 +0.3 −0.3 | +0.7 **−3.1** −1.4 −0.7 | A2 −0.4 −0.4 −0.1 −0.4 | +1.0, −0.0, −0.6, −2.6; A2 −0.7 |
 
-(power: 13–114 n per statistic, except d = 3 F1/F3′ L1 with 10/13.) **Registered verdicts:** no positive Z ≥ 3 anywhere —
-**RESIDUAL-2 does not fire** for d = 1, 2, 3; d = 2 meets **K-FIB**; d = 1 and d = 3 fail K-FIB only in the negative direction
-(d = 1 pooled L1 −4.6, L3 −6.2, control C0 −6.2: **unresolved (negative)**; d = 3 one window L3 −3.1). Post hoc diagnostic
-(mode ALLF: never pivot on a prime of a good norm, freeze instead; `i1_FIXALLF_d1_*.txt`): d = 1 F3 all |Z| ≤ 1.2 (FIX-ALL:
-L3 −1.35, C0 −2.29), H1 L1 −2.6, L3 −2.4, C0 −1.2 (FIX-ALL: −3.0, −4.0, −2.1). *Assessment:* most of the negative deviation
-comes from pivot-solved classes of small good ideals, which in the null lose the free-region protection (Lemma FR,
-Cor. FR′) that the real small ideals have; a remainder (≈ −2.5 at H1) is unexplained.
-**Summary of the calibrated evidence:** beyond DL + CS there is real structure for d = 1, 2 (d = 2 with an invalid control)
-and, at n ≈ 3·10⁶, d = 3; beyond *all* fibre relations of Lemma Φ (with every ideal identity, incl. Lemma DL′, kept) no
-positive excess is detected in any window for d = 1, 2, 3; the remaining deviations are negative (fewer coincidences than
-the null).
+**Registered verdicts:** no positive Z ≥ 3 anywhere — **RESIDUAL-2 does not fire** for d = 1, 2, 3; d = 2 meets **K-FIB**;
+d = 1 and d = 3 fail K-FIB only in the negative direction (d = 1 pooled L1 −4.6, L3 −6.2: **unresolved (negative)**; d = 3
+one window L3 −3.1). The validity rule ("controls |Z| < 3") was applied per window, where it passes; the *pooled* d = 1
+control C0 = −6.2 fails it — a warning that FIX-ALL over-produces collisions, so the pooled d = 1 FIX-ALL readings are to be
+taken with caution. Post hoc diagnostic (mode ALLF: never pivot on a prime of a good norm, freeze instead;
+`i1_FIXALLF_d1_*.txt`, two windows only): d = 1 F3 all |Z| ≤ 1.2 (FIX-ALL: L3 −1.35, C0 −2.29); H1 L1 −2.6, L3 −2.4, C0 −1.2
+(FIX-ALL: −3.0, −4.0, −2.1). ALLF also freezes 371 variables on H1 (varied good ideals 272/2234 against 646/2234), so it is
+a *confounded* diagnostic: the shrinking deficit is consistent with — not a demonstration of — the explanation that
+pivot-solved classes of small good ideals lose the free-region protection (Lemma FR, Cor. FR′) of the real small ideals.
+The negative deviations remain **unresolved**.
+**Summary of the calibrated evidence:** beyond DL + CS there is a positive residual for d = 1 and, at n ≈ 3·10⁶, for d = 3
+(d = 2: not interpreted, control fails); against the null that keeps every relation of Lemma Φ in every active fibre and
+every ideal identity (incl. Lemma DL′) **no positive excess is detected** in any window for d = 1, 2, 3; the remaining
+deviations are negative (fewer coincidences than that null) and unresolved.
+
+### 1.11 z69's windows with the corrected nulls (the §1.2 replication; run after review round 2)
+`i1_FIXCS_*_z69w*.txt`, `i1_FIXALL_*_z69w*.txt` (R = 200). FIX-CS: d = 1 [20000, 24000) / [200000, 202000) / [10⁶, 10⁶ + 1000):
+L1 +4.6 / +3.2 / +3.9, Mx +2.8 / +3.3 / +2.8, Ex +2.4 / +2.1 / +3.2, L3 +2.3 / +3.4 / +2.7 (C0 −2.2 / −0.8 / −1.9); d = 3
+[20000, 24000): Ex +1.8, others ≤ 0.3 in absolute value (A2 −1.2); d = 5: all |Z| ≤ 2.0. FIX-ALL: every |Z| ≤ 1.9 on all five.
+So z69's d = 1 excess is reproduced against DL + CS and disappears against the full fibre structure; z69's d = 3 window is
+too small to show the residual that appears at n ≈ 3·10⁶.
 
 ## 2. Item 2 — class-group structure beyond h vs U₇ witnesses (pre-registration)
 Samples (from `Z69_MINE.md` round 2, `data/z69/mine/`): H_train (438), H_test (411), CTRL (2 547 size-matched controls);
@@ -482,21 +497,22 @@ split prime (local data).** Not a HOT LEAD.
   withdrawn): the I17 residual beyond DL + CS is real for d = 1 (pooled L1 Z = +18.8 over nine windows), present at
   n ≈ 3·10⁶ for d = 3 (pooled Ex +5.2; absent on the three smaller windows), not interpretable for d = 2 (control fails),
   and not seen for d = 5, 7 (low power). Against a null that keeps every relation of Lemma Φ in every active fibre and
-  every ideal identity (incl. the new Lemma DL′), no positive residual is detected for d = 1, 2, 3; what remains is a
-  negative deviation (fewer coincidences than the null), mostly a property of that null. Descriptively, almost all
+  every ideal identity (incl. the new Lemma DL′), no positive excess is detected for d = 1, 2, 3; what remains is a
+  negative deviation (fewer coincidences than the null; pooled d = 1 control also negative), unresolved — a confounded
+  diagnostic (ALLF) is consistent with a null artefact. Descriptively, almost all
   small-prime translation overlaps are explicit ideal identities between small natural representatives (Lemmas Φ, DL′; at
   n ≈ 4·10⁶, 216/218), and Lemma FR / Cor. FR′ explain why small classes cannot carry other coincidences; Corollary J is
   the one class-level exclusion found. No operation found produces a good class without exhibiting the divisor event
   (Prop. NG, a reformulation — not a no-go theorem).
 * Item 2 (CONDITIONAL on GRH for the PARI class groups). 2- and 3-parts of h(−4p), h(−8p) and h(p) = 1 do not separate the
   hard primes (uncapped registered statistics too); the order of the least split prime's class does (z −14.5 / −13.0),
-  but the effect sits in the genus of that prime (ℓ mod 4) and no residual was detected within the strata (H_train,
+  but the effect sits in the genus of that prime (ℓ mod 4) and no within-stratum residual was detected (H_train,
   H_test, band); orders of U₇ and (★) representation-ideal classes match exact decoys on H_train, H_test, CTRL and a
   disjoint band.
 * What this buys: a calibrated, corrected account of I17 (structure = divisor lattices of n + 4a²d and 4c²dn + 1 seen
   through a class map that is injective on small primitive ideals), two short new lemmas (DL′, Cor. J) and the
-  free-region principle — and the negative information that class-group *positions* of good forms and witness ideals
-  showed nothing beyond divisor structure and local data in these tests.
+  free-region principle — and the negative information that, in these tests, class-group *positions* of good forms and
+  witness ideals showed no detected signal beyond divisor identities and local data.
 
 **Hard screens (FRONTIER §4).** T1 squares: passes (vacuous; NG names the genus step). 8/131: no positivity claim.
 Tied modulus: the identified structure lives inside the tied divisor event (it presupposes M ≡ −1 (mod 4ad)); it does not
@@ -506,8 +522,8 @@ loosen the tie. Fixed p: all statements are per n, none produces a solution.
 "z70 CLASS (`Z70_CLASS.md`; narrowed descriptively). I17 rerun with corrected symmetry-preserving nulls (prime-class
 variables, fibre relations solved exactly, all ideal identities kept): residual beyond z69's DL + CS is real for d = 1
 (pooled Z_L1 +18.8) and appears for d = 3 at n ≈ 3·10⁶; against the null keeping all relations of the fibres n + 4a²d
-no positive residual (d = 1, 2, 3), only negative deviations (null artefact, mostly). PROVED: Lemma Φ (divisors of
-N_a = n + 4a²d ↦ classes is a monoid map with φ_a(N_a) = T_d; contains DL, CS), Lemma DL′ ((4acd − 1)(4bcd − 1) = 4c²dn + 1,
+no positive excess detected (d = 1, 2, 3); negative deviations unresolved (possibly a null artefact). PROVED: Lemma Φ
+(divisors M of N_a = n + 4a²d ↦ classes is additive on products MM′ | N_a, with φ_a(N_a) = T_d; contains DL, CS), Lemma DL′ ((4acd − 1)(4bcd − 1) = 4c²dn + 1,
 c-fibre lattice), Lemma SR (least natural norm ≤ √(d(2n + e))), Lemma FR (class relations with norm product < dn are
 rational ideal identities; primitive small ideals lie in distinct classes), Cor. J (g, g + J ∈ G₁ ⟹ 2m(g)m(g+J) ≥ n).
 CERTIFIED: at n ≈ 4·10⁶ (d = 1) 216 of 218 L1 overlaps are explicit ideal identities. No forcing mechanism (Prop. NG is a
@@ -515,14 +531,15 @@ reformulation). MINE class-group item (GRH-conditional): h-parts, h(p) null; lea
 primes only through its genus; U₇ and (★) representation-ideal class orders match exact decoys (H_train/H_test/CTRL/band)."
 
 ## 6. Bottom line
-The good-form class sets G_d(p) have translation structure beyond DL and CS, and on the tested windows it is accounted for
-by divisor-lattice identities: every good class has small natural ideal representatives (norms 4acd − 1, 4bcd − 1, de), and
-the overlaps at small-prime translations are, almost always, explicit identities among them coming from the factorisations
-of n + 4a²d and 4c²dn + 1 (Lemmas Φ, DL′); for pairs of small primitive ideals the class group adds no further relation
-(Lemma FR). A null that keeps all these relations leaves no positive residual (corrected runs; the first implementation of
-the nulls was wrong and is withdrawn). The one class-level law found is an exclusion (Corollary J). None of it creates a
-first solution: every operation needs a divisor M ≡ −1 (mod 4ad), the B2 event. Item 2 is null apart from a genus effect
-of the least split prime. Not a HOT LEAD. ES is OPEN.
+The good-form class sets G_d(p) have translation structure beyond DL and CS (d = 1; d = 3 at n ≈ 3·10⁶). Descriptively,
+the overlaps at small-prime translations are almost always explicit identities among small natural ideal representatives
+(norms 4acd − 1, 4bcd − 1, de) coming from the factorisations of n + 4a²d and 4c²dn + 1 (Lemmas Φ, DL′); for pairs of small
+primitive ideals the class group adds no further relation (Lemma FR, Cor. FR′). Against a null that keeps all these
+relations no positive excess is detected (corrected runs; the first implementation of the nulls was wrong and is
+withdrawn); the negative deviations left are unresolved. The one class-level law found is an exclusion (Corollary J). No
+forcing mechanism was established: exhibiting a good class by these operations is exhibiting a divisor M ≡ −1 (mod 4ad)
+of some N_a, the B2 event. Item 2 is null apart from a genus effect
+of the least split prime (no within-stratum residual detected). Not a HOT LEAD. ES is OPEN.
 
 ## 7. Reproduction
 Corrected nulls (the valid calibrated runs): `bash scripts/z70_class_run2.sh P|Q` (FIX-CS / FIX-ALL, §1.9), single runs
@@ -552,8 +569,8 @@ and the first J-check window, and re-verified all 66 474 item-2 witness rows, 13
 fixes:
 * **FATAL 1 — PSC broke DL identities and CS self-loops** (BFS overwrite; e.g. n = 24001; n = 24481, d = 2, A = e = 159).
   Fixed: PSC/PSF calibrated conclusions withdrawn; corrected nulls with prime-class variables, exact elimination, frozen
-  non-unit rows and per-replicate assertion of every imposed equation (§1.9), pre-registered and rerun on all windows plus
-  new ones (§1.10). Outcome changed: the d = 3 "K-RES" became RESIDUAL at n ≈ 3·10⁶; d = 2 FIX-CS is uninterpretable
+  non-unit rows and per-replicate assertion of every imposed equation (§1.9), pre-registered and run on every window listed
+  in §1.9 (z69's replication windows were added after round 2, §1.11). Outcome changed: the d = 3 "K-RES" became RESIDUAL at n ≈ 3·10⁶; d = 2 FIX-CS is uninterpretable
   (control fails).
 * **FATAL 2 — PSF skipped rows without a ±1 coefficient** (n = 25169, a = 3). Fixed as above (FIX-ALL).
 * MAJOR — FR's consequences overstated ("faithful copy", "fully identified", injectivity without primitivity): FR now
@@ -575,3 +592,19 @@ fixes:
   the new run script propagates failures and writes via temporary files; the cyclic 2-Sylow (2-, 4-, 8-ranks ⊂ v₂h) stated.
 Not done: a separate Rédei-symbol analysis; a fully calibrated (dependence-aware) version of the OTHER comparison; a null
 that keeps free-region protection for pivot-solved classes (ALLF is a partial diagnostic).
+
+**Internal hostile review, round 2 (delta)** (deep reviewer on `ea81a6405..b36b6f061`; reviewer model reported as
+`openai/gpt-6-astra`; no provider / auth / quota error). No FATAL. It audited `z70_class_nullfix.py` (valid: ±1-pivot
+Gauss–Jordan over an abelian group, repeated passes, frozen rows satisfied, frozen ∩ pivots = ∅, every imposed equation
+asserted; 18 instrumented runs with extra genus / representative / CS-self-loop checks passed; FIX-CS d = 1 F1 reproduced
+byte-for-byte), confirmed the §1.9 commit precedes the FIX data, re-pooled all outcomes, re-checked Lemma Φ(ii) (also in the
+non-maximal order ℤ[√−39]), Cor. FR′ and NG's square argument, and reproduced the A2 decomposition (946 = 898 + 48 + 0)
+independently. Findings, all applied: (1) MAJOR — the §1.9 smoke-test primes had been included in the F1 aggregates: now
+excluded (`z70_class_reagg.py`; d = 1 F1 L1 +3.6 → +3.3, verdicts unchanged); (2) MAJOR — NG(iii)'s complement closure was
+false without coprimality (n = 9, a = 3): hypotheses added; (3) MAJOR — surviving overclaims ("real structure for d = 2",
+"no hidden class-level law", "accounted for", "every operation needs a divisor", "fully explained") reworded; (4) MAJOR —
+ALLF is a confounded diagnostic (it freezes 371 variables on H1) and the pooled d = 1 FIX-ALL control fails (C0 −6.2):
+"mostly a null artefact" replaced by "unresolved; consistent with a null artefact", per-window application of the validity
+rule stated, pooled failure recorded as a warning; MINOR — §0 count (26, not 38) annotated, "monoid map" made precise,
+single rounding of the table entries, power legend corrected, z69 windows rerun with the corrected nulls (§1.11).
+
