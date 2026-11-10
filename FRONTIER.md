@@ -2744,6 +2744,13 @@ no HOT LEAD.**
   status of the d-fibres undecided. I5: tested fixed-p involution candidates fail on T₇₃/T₄₀₉; Lemma P5 (odd parity of T_p
   lives in the divisor words of p + 1). IDEAA #10: four nonlinear d-selection rules dead (exact counterexamples, e.g.
   p = 102 001, 409). Pell-letter residues and I9: no signal against exact / matched controls (bounded nulls).
+* **Generative class maps (`Z70_GEN.md`; narrowed — final lane of the z68–z70 arc).** Question: a rule computable from p
+  alone (principal / ambiguous / genus classes, small split primes) that outputs a good class of G_d(p) at every prime.
+  PROVED scoped exclusions: GW (seeds in the kernel of the genus character χ_p are blind at every n — the T1 wall in
+  class-group form), AMB (ambiguous seeds), REP (the representation fibre a_c); PROVED constraints (not exclusions): ORD,
+  WORD. EVIDENCE: tested seed families hit G only at the rate fixed by their minimal norms. OPEN (cross-review, with frozen
+  tests specified in `data/z70/xreview/REVIEW_GEN.md`): mixed non-residue words with root-sensitive selection; halving with an
+  odd-part anchor; representation-neighbour seeds a = a_c ± 1, q | p + 4a², (q/p) = −1.
 
 ## 8. Pointers into the repository
 
