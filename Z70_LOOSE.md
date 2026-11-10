@@ -359,6 +359,17 @@ B1/B2 problem; and n_p is unbounded, so "d = n_p" is not even a bounded menu. Co
 (0.9736 on p ≤ 5·10⁷, 0.9742 on (5·10⁷, 10⁸]) but the truncation A = 2000 confounds any trend (Lemma S allows
 a ≤ (p + 1)/2d).
 
+**Exact failure counts of bounded NP-menus (exploratory EVIDENCE, CERTIFIED counts; `scripts/z70_loose_npmenu.py`
+with the Lemma S decider → `typeI_npmenu_1e6.txt`, `typeI_npmenu_1e7.txt`).** Menu NP_k = {first k prime
+non-residues}; primes p ≡ 1 (24):
+| range | primes | NP₁ (= rule NP, untruncated) | NP₂ | NP₃ |
+|---|---|---|---|---|
+| ≤ 10⁶ | 9 732 | 136 (1.40 %) | 13 | 4 (largest 893 929) |
+| ≤ 10⁷ | 82 887 | 429 (0.52 %) | 56 | 10 (largest 9 033 649) |
+So the untruncated NP rule also fails K10a (99.48 % < 99.9 % on p ≤ 10⁷); the failure *rates* fall with p (NP₁:
+1.40 % below 10⁶, 0.40 % in (10⁶, 10⁷]) while the absolute counts still grow — the usual B2 picture (expected slice size
+≍ (log p)²/d), with no sign of a cut-off in this range.
+
 **Kill tests.** K10a fires for every rule (best 97.4 % < 99.9 %). K10b fires (NP fails exactly at six hard primes).
 K10c: the decoy comparison is uninformative for NP — the least non-residue has no admissible smaller decoy, so every
 decoy is larger and the +107 measures size (expected slice count ≍ log²p / d); Q3 is far *below* its decoys

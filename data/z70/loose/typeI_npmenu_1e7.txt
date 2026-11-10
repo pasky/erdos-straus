@@ -1,0 +1,3 @@
+N=10000000: primes p = 1 (24): 82887; menu NP_1 exact failures: 429; largest: [9866761, 9867841, 9937321, 9959041, 9971641]
+N=10000000: primes p = 1 (24): 82887; menu NP_2 exact failures: 56; largest: [9371569, 9524761, 9737281, 9867841, 9959041]
+N=10000000: primes p = 1 (24): 82887; menu NP_3 exact failures: 10; largest: [5412961, 5956129, 6294649, 6970681, 9033649]
