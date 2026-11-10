@@ -43,7 +43,7 @@ Checkpoint 1 holds only *triage* objects (kill lemmas and census tests); the tab
 | **IDEAA #10** nonsquare d | Type I at (a, d) forces (d/p) = −1 | Lemma T10; the fixture (1033, 1, 132) has (132/1033) = −1 | sharpened necessary condition (PROVED); no forcing lemma |
 | **I9** X of p = X² + 840Y² | Q(p) = [∃ q ∣ X, (840/q) = −1] separates hard primes | K-I9 fired: 4 hard sets vs 200 matched controls each, all \|z\| < 2 (§3) | **dead as classifier, EVIDENCE** |
 | **I17** class-set stability | G(p) ⊂ Cl(−4p) stable under J or a fixed class | K-I17 fired: J-overlap 72 vs chance 276 (anti-stable), explained by a small-norm null model (§3) | **dead (d = 1), EVIDENCE** |
-| **I23** twisted trace at √p | every ES-solvable p has a triple with a twisted lift | K-I23 fired: 0 lifts for all 37 primes p ≡ 1 (4) below 400 (§3) | **dead as mechanism, EVIDENCE** |
+| **I23** twisted trace at √p | every ES-solvable p has a triple with a twisted lift | K-I23 fired: no lift for 36 of the 37 primes p ≡ 1 (4) below 400 (only p = 5 has one) (§3) | **dead as mechanism, EVIDENCE** |
 | **I24** cross-d transport | the d ↦ d + 1 lattice map carries solutions | **proved** to be the K1 t-form: (★) ⟺ ∃ t, a ∣ t: a + t/a ≡ −p (mod 4t) (§3) | **reduces (PROVED)**; no transport |
 | **I5** non-affine involution | a cross-slice involution with controllable fixed points | Lemma P + census: no parity law (§3); the Vieta map ι of §4 *is* a non-affine cross-n involution for Type I, but it never fixes n | **open in general; the one specified map gives sterility only** |
 | **I6** mock completion | G(q) = Σ q^{4abd−a−b} has a GL₂ (mock) modular completion | not testable in 30 min; G(e^{−t}) ~ (8t)⁻¹ log²(1/t) (three free divisor variables) — a ζ³-type object (§3) | **untested; Assessment: low** |
@@ -116,6 +116,25 @@ of words by 2-adic pattern modulo 4. "all" and "OOO" (x, y, z all odd) are odd a
 tested sub-count (x even; 8 ∣ xy; x even with xy ≡ 4 (8); x even with xy ≡ 2 (4); x ≤ z; x < z with 4 ∣ y;
 16 ∣ xy; …) is equidistributed mod 4 (each class 24.3–25.7 % of the 19 552 primes). No parity law beyond Lemma P.
 
+**Lemma P′ (all-odd words; PROVED).** Let n ≡ 1 (mod 8) and let O_n ⊂ T_n be the words with x, y, z all odd.
+(a) Every word of O_n has y ≡ 3 (mod 4). (b) Split O_n = A_n ⊔ B_n with A_n := {x ≡ z ≡ 1 (4)},
+B_n := {x ≡ 3 or z ≡ 3 (4)}. Then a word of O_n is in A_n iff y ≡ 3 (mod 8) and in B_n iff y ≡ 7 (mod 8).
+(c) Every word of B_n with x ≡ 3 (4) is the Type I solution (a, b, c, d, e) = (1, yz − 1, z, (xy − 1)/4, y) of n
+(f = x in K3 form); so B_p ≠ ∅ ⟹ ES(p). (d) For p prime, |A_p| is odd and |B_p| is even.
+*Proof.* (a) y ≡ 1 (4) would give xz − x − z ≡ 1, i.e. (x − 1)(z − 1) ≡ 2 (mod 4), impossible for x, z odd.
+(b) With f = xy − 1, f′ = zy − 1 we have ff′ = ny + 1 ≡ y + 1 (mod 8), and for y ≡ 3 (4): f ≡ 2 (4) iff x ≡ 1 (4),
+f ≡ 0 (4) iff x ≡ 3 (4). So x ≡ z ≡ 1 (4) iff ff′ ≡ 4 (8) iff y ≡ 3 (8). (c) 4·1·(yz − 1)·(xy − 1)/4 =
+(xy − 1)(yz − 1) = ny + 1 (from xyz − x − z = n: (xy − 1)(yz − 1) = y(xyz − x − z) + 1), and a + b = yz = ce.
+(d) the swap preserves A_p and B_p; its only fixed point (1, p + 2, 1) lies in A_p (Lemma P). ∎
+Census (`scripts/z69_twist_ooo.c 20000000`, `data/z69/twist/ooo_2e7.txt`; all primes p ≡ 1 (4), where the roles of
+3 and 7 (mod 8) are exchanged for p ≡ 5 (8)): |A_p| odd and |B_p| even at all 635 170 primes; B_p = ∅ at 154 primes
+(all ≡ 1 (24), last 17 662 681); B_p = ∅ and no (★) word only at p = 409; B_{m²} = ∅ at all 2 235 odd squares.
+**Consequence for I5 (PROVED).** The odd set O_p has odd cardinality, its certificates are exactly the fibres
+y ≡ 7 (8), and its forced element (1, p + 2, 1) sits in a fibre y ≡ 3 (8). A Zagier-type second involution on O_p
+with all fixed points certificates must therefore move y between the classes 3 and 7 (mod 8) — it must be
+cross-slice in y — and it cannot be defined uniformly in n: O₉ = A₉ = {(1, 11, 1), (1, 3, 5), (5, 3, 1)} has odd
+cardinality and no certificate (this is the T1 constraint of `INVOLUTION_ES.md` Prop 2.3 in word coordinates).
+
 *Assessment.* The cross-review asked for a specified non-affine cross-slice involution rather than a raw parity
 count. One exists for Type I — the Vieta map ι of §4 — and it is tested there; it moves n, so it cannot serve as
 the second involution of a Zagier-type argument at a fixed prime.
@@ -160,18 +179,23 @@ not a hidden character. Only d = 1 was tested. *Verdict:* dead as a coset-like s
 ### I23 (twisted trace at √p). EVIDENCE; pre-registered kill K-I23 fired.
 
 **Lemma (PROVED).** Let αᵢ = xᵢ + yᵢ√p ∈ ℤ[√p], yᵢ ≠ 0, Dᵢ = pyᵢ² − xᵢ². Then 4/√p = Σ 1/αᵢ ⟺ (4/p = Σ yᵢ/Dᵢ
-and 0 = Σ xᵢ/Dᵢ). Writing wᵢ = xᵢ/yᵢ = gᵢ/hᵢ in lowest terms and nᵢ = Dᵢ/yᵢ: yᵢ/Dᵢ = 1/nᵢ is a positive unit
-fraction with integral αᵢ iff mᵢ := phᵢ² − gᵢ² > 0 divides nᵢ (then yᵢ = nᵢhᵢ²/mᵢ, xᵢ = nᵢgᵢhᵢ/mᵢ), and the
-second equation is the **twist equation Σ wᵢ/nᵢ = 0**. (Proof: 1/(√p·α) = y/D − (x/(pD))√p; gcd(m, h) = 1.)
+and 0 = Σ xᵢ/Dᵢ). Writing wᵢ = xᵢ/yᵢ = gᵢ/hᵢ in lowest terms and nᵢ = Dᵢ/yᵢ: yᵢ/Dᵢ = 1/nᵢ with a prescribed
+positive integer nᵢ and integral αᵢ iff mᵢ := phᵢ² − gᵢ² ≠ 0 divides nᵢ (then yᵢ = nᵢhᵢ²/mᵢ, xᵢ = nᵢgᵢhᵢ/mᵢ;
+mᵢ < 0, i.e. |wᵢ| > √p, is allowed and gives yᵢ < 0), and the second equation is the **twist equation
+Σ wᵢ/nᵢ = 0**. (Proof: 1/(√p·α) = y/D − (x/(pD))√p; n = y(p − w²) = ym/h²; gcd(m, h) = 1.)
 So a twisted lift is an ES triple (n₁, n₂, n₃) plus three rationals wᵢ with (phᵢ² − gᵢ²) ∣ nᵢ and Σ wᵢ/nᵢ = 0;
 w = 0 is allowed iff p ∣ nᵢ. IDEAB's "the descent condition is the original problem verbatim" dropped the twist
 equation; the review was right that this was a gap.
 Test (`scripts/z69_twist_i23.py 400 40`, `data/z69/twist/i23_lifts_400_h40.txt`): for every prime p ≡ 1 (4) below
-400 and every ES triple (all triples, both types), lifts of two of the nᵢ with h ≤ 40 were enumerated and the forced
-third w tested exactly. **No twisted lift exists in that range for any of the 37 primes.** Reason (Assessment):
-lifts with m small relative to ph² have |w| close to √p, and three such cannot satisfy Σ ±√p/nᵢ ≈ 0 together with
-Σ 1/nᵢ = 4/p; the remaining lifts need a large divisor m of nᵢ of the special shape ph² − g² *and* an exact linear
-relation. The bound h ≤ 40 on two of the three terms is a search limit, not a proof of non-existence.
+400 and every ES triple (all triples, both types), lifts of two of the nᵢ with h ≤ 40 (both signs of m) were
+enumerated and the forced third w tested exactly. **Lifts exist at p = 5 only**:
+4/√5 = 1/(4 + 2√5) + 1/(3 − √5) + 1/(5 − √5), the lift (w₁, w₂, w₃) = (2, −3, −5) of 4/5 = 1/2 + 1/4 + 1/20 (all
+three αᵢ are 2 or √5 times a unit; ℚ(√5) has the smallest fundamental unit). **None of the other 36 primes has a
+twisted lift in the search range.** (A first run that wrongly required m > 0 found none at all; corrected.)
+Reason (Assessment): lifts with |m| small relative to ph² have |w| close to √p, and three such cannot satisfy
+Σ ±√p/nᵢ ≈ 0 together with Σ 1/nᵢ = 4/p; the remaining lifts need a large divisor m of nᵢ of the special shape
+±(ph² − g²) *and* an exact linear relation. The bound h ≤ 40 on two of the three terms is a search limit, not a
+proof of non-existence.
 *Verdict:* the lift is an extra constraint, not a relaxation; dead as a mechanism.
 
 ### I24 (cross-d lattice transport). PROVED reduction.
@@ -236,8 +260,7 @@ gap j: contradiction. So n′ ≤ 0, and n′ ≡ 1 (4) gives n′ ≤ −3. Put
 ν ≡ ε ≡ 3 (4), ν + ε = e′ − n′ = 2j, 4αbd = −(n′e′ + 1) = νε − 1 > 0 (so α ≥ 1) and b − α = b + a′ = cε.
 (ii) ⟹ (i). Put n := 4bcd − ε, e := 4bcd + ν, a := ce − b. Then e − n = 2j, n ≡ −ε ≡ 1 (4),
 ne + 1 = 16b²c²d² + 4bcd(ν − ε) − 4αbd = 4bd(4bc²d + cν − cε − α) = 4bd(4bc²d + cν − b) = 4abd, and a + b = ce.
-Positivity: b = α + cε ≥ 4 gives n ≥ 4b − ε > 0 (as b > ε… precisely b ≥ 1 + ε, so 4bcd ≥ 4 + 4ε > ε) and
-a ≥ 4b − b > 0. ∎
+Positivity: b = α + cε ≥ 1 + ε, so n = 4bcd − ε ≥ 4b − ε ≥ 4 + 3ε > 0, and a = 4bc²d + cν − b ≥ 3b > 0. ∎
 
 **Corollaries (PROVED).**
 * j = 1: ν + ε = 2 is impossible with ν, ε ≥ 3. This re-proves Corollary V.

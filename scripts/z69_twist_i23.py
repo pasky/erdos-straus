@@ -2,7 +2,8 @@
 # A solution 4/sqrt(p) = sum 1/alpha_i, alpha_i = x_i + y_i sqrt(p) in Z[sqrt p], gives
 #   4/p = sum y_i/D_i  and  0 = sum x_i/D_i,   D_i = p y_i^2 - x_i^2.
 # With w_i = x_i/y_i = g_i/h_i (lowest terms; w = 0 iff x = 0) and n_i = D_i/y_i:
-#   y_i/D_i = 1/n_i is a unit fraction  <=>  m_i := p h_i^2 - g_i^2 > 0 divides n_i   (then y = n h^2/m, x = n g h/m)
+#   y_i/D_i = 1/n_i is a unit fraction  <=>  m_i := p h_i^2 - g_i^2 != 0 divides n_i   (then y = n h^2/m, x = n g h/m;
+#   m < 0, i.e. |w| > sqrt p, is allowed: then y < 0)
 #   twist equation: sum_i w_i/n_i = 0.
 # Test K-I23: for each prime p == 1 (4) below P, does some ES triple (n1<=n2<=n3) admit lifts (w1,w2,w3)?
 # Enumerate lifts of two of the n_i with h <= H; the third w is then forced and is tested exactly.
@@ -24,15 +25,15 @@ def lifts(n,p,H):
     L=[]
     if n%p==0: L.append(Fr(0))
     for h in range(1,H+1):
-        g=1; lim=math.isqrt(p*h*h)
+        lim=math.isqrt(p*h*h+n)
         for g in range(1,lim+1):
             if math.gcd(g,h)!=1: continue
             m=p*h*h-g*g
-            if m>0 and n%m==0: L.append(Fr(g,h)); L.append(Fr(-g,h))
+            if m!=0 and n%abs(m)==0: L.append(Fr(g,h)); L.append(Fr(-g,h))
     return L
 def valid(w,n,p):
     g,h=w.numerator,w.denominator; m=p*h*h-g*g
-    return m>0 and n%m==0 and (g!=0 or n%p==0)
+    return m!=0 and n%abs(m)==0 and (g!=0 or n%p==0)
 P=int(sys.argv[1]); H=int(sys.argv[2]); fails=[]; npr=0
 for p in primerange(5,P):
     if p%4!=1: continue
