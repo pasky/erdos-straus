@@ -115,8 +115,8 @@ the reduced ideal of a hit class a natural representative? its least natural nor
 with its null. They are post hoc relative to W1 ∪ W2 and pre-registered relative to W3. (D3) Item 2a's r₄ test is
 degenerate within p mod 840 strata (r₄ is a function of p mod 840 for these d — §3.2); only r₈ is testable within strata.
 (D6) Item 4 as implemented is narrower than registered: the graph contains the words T_n only (no Type II vertices, no
-trivial integral points, no CS/DL/DL′ edges — the Type II part is the one-line PROVED remark of §3.4), and of the registered
-inputs (the 14 (★)-zeros and the 𝔊*-zeros ≤ 10⁶) the ones > 1.1·10⁵ were run only partially (§3.4 lists what was run).
+trivial integral points, no CS/DL/DL′ edges — the Type II part is the one-line PROVED remark of §3.4), all registered inputs
+(73, the 14 (★)-zeros, the 26 𝔊*-zeros ≤ 10⁶, controls) were run after the review (the first pass had omitted 19 of them).
 (D7) First-entry orderings were implemented only for S_CYC (not S_RED, S_GEN2); the registered list of every empty (p, d)
 with r₄, r₈ is given as counts plus `empty_fibres.txt`. (D8) D2's chronology (analyses added after W1 ∪ W2, before W3) is
 author-reported: the code and the W3 data entered git in the same commit. (D9) After the internal review (§9) the pipeline
@@ -234,166 +234,194 @@ fibres among a ∈ [a_c/2, 2a_c] ∖ {a_c}.
 
 ## 3. Results (CERTIFIED computations; readings labelled; group structures CONDITIONAL on GRH via `quadclassunit`, every "∈ G" test unconditional)
 Samples: primes p ≡ 1 (mod 24); W1 = [10⁵, 1.3·10⁵) 305 primes, W2 = [10⁶, 1.03·10⁶) 286, W3 = [10⁷, 1.02·10⁷) 1 561 (held out,
-scored once); 𝔐 = 135 (W1 ∪ W2), 397 (W3). Pooled outputs `data/z70/gen/pool_W12.txt`, `pool_W3.txt` (registered statistics:
-"U" = uniform null, "A" = per-prime half-octave α-null of A2; "X" = exact-α pooled null of D2).
+scored once — the post-review rerun (D9) is deterministic and reproduces every registered W1–W3 statistic exactly); 𝔐 = 135
+(W1 ∪ W2), 397 (W3). Pooled outputs `data/z70/gen/pool_W12.txt`, `pool_W3.txt`. Nulls: "U" uniform in 𝒯 (registered);
+"A" per-prime half-octave α-null with independent-Bernoulli variance (registered A2); "AC" the same bins with the
+finite-population (hypergeometric) variance — the correct conditional randomisation (review fix); "X" exact-α null: rate of
+goodness among target units with the *same* minimal norm α at the *other* primes (LOO) and, as a check, 2-fold cross-fitted
+rates ("XF", disjoint training primes); coverage nulls are trained and evaluated on primes with G ≠ ∅ only (review fix).
+**All z-scores are model contrasts, not calibrated p-values** (dependence within primes and shared fitted rates are not
+modelled; XF agrees with LOO to |Δz| ≤ 0.1, which addresses rate leakage only).
 
-### 3.1 Item 1 — genus / ambiguous / Rédei / small-prime seeding: every family BLIND relative to its minimal norms
-| family (mean \|S\|/\|𝒯\|, W3) | W1 ∪ W2: hits vs E (z) — A-null; X-null | W3 (held out): A-null; X-null | coverage (G ≠ ∅), W3 | reading |
-|---|---|---|---|---|
-| S_AMB (0.000) | 0 hits everywhere (S_AMB ∩ 𝒯 empty for d = 1, 2, 3, 7; 0.2 % of 𝒯 for d = 5 in W1 ∪ W2) | 0 | 0 | **PROVED blind** (Lemma AMB) |
-| S_RED (0.002–0.013) | d=1: 368 vs 388.4 (−0.9); X: 368 vs 402.6 (−1.5); d = 2–7: \|z\| ≤ 1.9 | d=1 −0.65; X −1.3; all d \|z\| ≤ 1.5 | d=1: 117/1560 (exp. 125.6) | blind (EVIDENCE) |
-| S_CYC (≈0.006–0.013) | d=1: 1210 vs 1225.7 (−0.7); X: −1.7 | d=1 +0.8; d=2 −7.3, d=3 −6.2 (A); **X: all \|z\| ≤ 1.1** | d=1: 1261/1560 (exp. 1260.8) | blind vs exact minimal norm |
-| S_GEN2 (≈0.004–0.011) | A: d=1 +4.2, d=3 +8.0, d=7 +10.1; **X: all \|z\| ≤ 0.6** | A: d=1 +5.1, d=3 +12.3, d=7 +15.7; **X: \|z\| ≤ 0.7** | d=2: 1218/1557 (X-exp. 1076, z +8.6) | BIAS vs the coarse null fully explained by exact minimal norm; coverage excess = same-norm exclusivity (below) |
+### 3.1 Item 1 — genus / ambiguous / Rédei / small-prime seeding
+**Registered outcomes (K-GEN1 on W1 ∪ W2, A-null; BIAS needs z ≥ 4 there and same sign ≥ 3 on W3):**
 
-* **Registered verdicts.** K-GEN1 fires (blind) for S_AMB, S_RED, S_CYC on the registered A-null except S_CYC at d = 2, 3 on W3
-  (negative z — fewer hits than the coarse null; X-null: |z| ≤ 1.1). **BIAS fires for S_GEN2** (A-null z ≥ 4 on W1 ∪ W2 and
-  ≥ 3 on W3 at d = 1, 3, 7) — decomposed: (i) against the exact-α null (pre-registered for W3, D2) the hit counts agree at
-  every d (|z| ≤ 0.7 on W3; W1 ∪ W2 |z| ≤ 0.6): a GEN2 class is good exactly as often as any target class with the same
-  minimal norm at another prime; (ii) **100 % of hit units have a reduced ideal that is itself a natural representative**
-  (W3: 2031/2031, 1381/1381, 607/607, 937/937, 250/250 for d = 1, 2, 3, 5, 7), with least natural norm ≤ 100 in 90 % (d = 1),
-  i.e. every hit is an *ideal identity at small norm* — a congruence condition on p modulo that norm (Prop. WORD); (iii) the
-  remaining coverage excess (d = 2: X-z +5.8 / +8.6; d = 7 +4.8 / +3.8) is within-prime **exclusivity of same-norm seeds**: at
-  d = 2, among 2 143 groups of GEN2 seed units with equal minimal norm, 0 had ≥ 2 good units vs 272.7 expected under
-  independence (`gen2_coverage_decomp.txt`; d = 1: 180 vs 190.2) — two different ideals of one small norm are rarely both
-  natural, which spreads a fixed number of hits over more primes (EVIDENCE; a partial proof: for prime norm N two natural
-  A-ideals of the same norm in different units would need N | (a₁ − a₂)(a₁ + a₂) with a₁ + a₂ < N, impossible).
-* **No GEN-CANDIDATE**: no family reaches coverage 1 at any d (best: S_CYC / S_GEN2 at d = 1, 81–86 %). **Union over
-  d ∈ {1, 2, 3, 5, 7}** of S_GEN2 covers 584/591 (W1 ∪ W2) and 1 543/1 561 (W3) primes — exactly the exact-α expectation
-  (581.3, z +0.9; 1 536.5, z +1.4); every uncovered prime is in 𝔐 (W3: 18 of 397 𝔐-primes uncovered, 0 of 1 164 others).
-  So the union is a menu of small-norm divisor events (a B1-type congruence menu), whose failures concentrate on 𝔐, as GW(c)
-  predicts (all seeds of 𝒯 have norm ≥ n_p, and n_p ≥ 11 on 𝔐).
-* **First entry along S_CYC** (k = 1, 3, 5, …; d = 1, W3): k = 1 at 1228/1560 primes (the least admissible non-residue prime
-  ideal 𝔮* is itself good — via its own natural identity in 1 398 of 1 399 CYC hit units, e.g. q* = 7 with p ≡ 3, 5 mod 7), else k ≥ 11 at 283 —
-  the cyclic orbit is a search with a heavy first atom, not a map.
-* **Item 1b — canonical representation fibres (Lemma REP):** the fibre a_c named by p = x² + d·(2a_c)² was barren at
-  **every** prime of W1–W3 for d = 1, 2, 3, 5, 7 (0 good of 305 + 286 + 1 561 (d = 1, 2, 3), 70 + 86 + 409 (d = 5),
-  150 + 140 + 777 (d = 7)); comparison fibres a ∈ [a_c/2, 2a_c] are good with probability 0.1–2 % each
-  (`rep_fibres.txt`). CERTIFIED check of the PROVED lemma: the always-present principal seeds are *anti*-generative.
+| family | d = 1 | d = 2 | d = 3 | d = 5 | d = 7 |
+|---|---|---|---|---|---|
+| S_AMB (∩ 𝒯 ≠ ∅ at 0/0/0/290/301 of 591 primes; W3 0/0/0/767/784 of 1 561) | no statistic | no statistic | no statistic | 0 hits | 0 hits |
+| S_RED: hits z / coverage z | −0.9 / −0.1 blind | +1.9 / +1.1 blind | +0.2 / +0.3 blind | +0.9 / −0.1 blind | +1.1 / +1.2 blind |
+| S_CYC | −0.7 / +0.8 blind | **−3.8 / −4.4: K-GEN1 fails (negative)**; W3 −7.3 / −7.5 | −1.4 / −2.0 blind (W3 −6.2 / −6.6) | +0.4 / +0.3 blind | +0.4 / +0.4 blind |
+| S_GEN2 | **+4.2** / +2.0 → W3 +5.1: **BIAS** | +3.6 / **+12.4** → W3 +20.8: **BIAS (coverage)** | **+8.0 / +8.7** → W3 +12.3 / +13.0: **BIAS** | −0.7 / +2.3 blind | **+10.1 / +11.1** → W3 +15.7 / +17.3: **BIAS** |
 
-### 3.2 Item 2 — Rédei / 2-primary structure vs G: null
-* r₄ for D = −4dp with d ∈ {1, 2, 3, 5, 7} is a function of p mod 840 on this sample (Rédei's 4-rank is governed by Legendre
-  symbols among the prime discriminants of D, i.e. by (p/q), q | 2d, and fixed symbols among q | d): r₄ = 1 for d = 1, 2, 3;
-  r₄ ∈ {0, 1} by residue class for d = 5, 7 — so the registered within-stratum test is degenerate for r₄ (D3); between strata
-  it is confounded with the Mordell classes (local divisor effects) and not interpreted.
-* r₈ (not a congruence invariant: for d = 1, 8 | h(−4p) iff p = x² + 32y², Barrucand–Cohn — quoted from memory, not used):
-  within-stratum t for log(1 + |G_d|): W1 ∪ W2 d = 1 +0.54, 2 −1.00, 3 −0.15, 5 +0.21, 7 (𝔐 −2.32, all −0.6); W3 −1.42, +1.54,
-  +0.65, +1.34, −0.64; for 1[G_d = ∅]: all |t| ≤ 2.14 (W1 ∪ W2), ≤ 1.03 (W3). Signal criterion (|z| ≥ 4 then ≥ 3) not met.
-* 2-primary positions of good classes inside the target 2-coset: pooled χ² below its df everywhere (z −0.6 … −2.9 on
-  W1 ∪ W2, −0.7 … −2.6 on W3): no preferred 2-primary position (slight under-dispersion, attributable to the pairing
-  structure of G — not a signal).
-* Emptiness: G₁ = ∅ at 1 of 591 (W1 ∪ W2) and 1 of 1 561 (W3) primes; G₇ = ∅ at 376/1561; no relation to r₈ (above).
-**Verdict item 2: null.** The 2-primary class-group structure carries no detected information about |G_d| or its emptiness
-beyond the residue class of p (EVIDENCE; CONDITIONAL on GRH for the invariant factors).
+S_AMB: where S_AMB ∩ 𝒯 ≠ ∅ (d = 5, 7, about half the primes) it has 0 hits, as Lemma AMB proves; for d = 1, 2, 3 the set is
+empty on this sample (no statistic). **No GEN-CANDIDATE**: no family reaches coverage 1 at any d (best S_CYC / S_GEN2 at
+d = 1: 81–86 % of primes with G ≠ ∅).
 
-### 3.3 Item 3 — small-split-prime orbits (primes ≤ 50, norm budget 64√(dp)): a divisor search; class level only at or below chance
-* **Free region (Prop. WORD):** 0 class-level hits below N = √(dp) for every d and window, and **0 violations** of
-  N(𝔰)·m(g) ≥ dp among all (III) hits (W1–W3).
-* (III) hits vs nulls at the registered thresholds X_j = √(dp)·2^j, j = 0…3 (W3, d = 1): 0, 0, 274, 1 702 hits vs α-null
-  2 382, 2 846, 3 732, 5 020 (z −36.1, −39.3, −41.4, −34.1); same sign for every d and window (`pool_*.txt`). **No positive excess anywhere**;
-  the deficit is the free-region exclusion (a seed of norm N cannot share a class with a good class of natural norm
-  < dp/N unless it *is* that representative) which the α-null does not model; at j = 6 (X = 64√(dp)) the deficit has shrunk to
-  z = −1.7 … −3.3 on W1 ∪ W2 but is still −6.4 … −14.2 on W3 (the excluded region grows relative to the budget).
-* First entry (least seed norm whose class is good): type (I) — the seed is a natural representative — at 1 508/1 560 (d = 1),
-  1 383/1 557 (d = 2), 836/1 525 (d = 3), 791/1 524 (d = 5), 200/1 185 (d = 7) primes of W3 (similar on W1 ∪ W2).
-  **Registered K-GEN3** (no positive (III) excess AND type I ≥ 90 %): fires for d = 1 only; for d ≥ 2 the type-I share is
-  below 90 % (89–90 % at d = 2; 17–55 % at d = 3, 5, 7) because 50-smooth natural norms are rare there and the orbit reaches
-  most of 𝒯 by 8√(dp) — these first entries are class-level coincidences occurring *below* the chance rate. Registered
-  outcome for d ≥ 2: **unresolved by the letter of K-GEN3, no BIAS-3** (Assessment: the 90 % clause was a poor choice; it
-  measures smoothness of natural norms, not generation).
+**Decomposition of the BIAS and of the negative CYC departures (pre-registered for W3 only, D2):**
+* *Exact minimal norm explains the hit counts.* Against X, every family and d has |z| ≤ 1.8 on W1 ∪ W2 and |z| ≤ 1.1 on W3
+  (GEN2: +0.25, −0.45, −0.23, −0.55, −0.35 and −0.46, −0.67, +0.57, −0.41, +0.20 for d = 1, 2, 3, 5, 7; CYC W3 d = 2: +0.27,
+  d = 3: −0.92 — the negative A-null departures of CYC disappear too). Read: a seed class is good as often as a target class
+  with the *same minimal norm* at another prime; the coarse half-octave null misjudges the very small norms.
+* *Which ideal carries the hit (seed-level identity, review fix).* S_GEN2: for **every** hit class one of its generating seed
+  ideals (a product of two base ideals) *is itself a natural representative* — W3 4 062/4 062, 2 762/2 762, 1 214/1 214,
+  1 874/1 874, 500/500 (d = 1, 2, 3, 5, 7), W1 ∪ W2 likewise 100 % — i.e. each GEN2 hit is the divisor event at a small norm
+  (least natural norm ≤ 100 for 90 % of d = 1 hit units). S_CYC: the generating ideal 𝔮*^{±k} is natural for 2 582/2 798
+  (d = 1), 342/434, 198/232, 92/142, 0/12 hit classes (W3); in the remaining cases the seed power is *not* natural but the
+  class's reduced ideal is (2 796/2 798 …) — a class-level coincidence between 𝔮*^k (k ≥ 3) and a small natural
+  representative (example found by the review: p = 106 537, d = 1, 𝔮*³ of norm 11³ = 1 331 lies in the class of the natural
+  ideal of norm 127). These coincidences occur at the X-null rate (above). S_RED has no generating ideal; its hit classes'
+  reduced ideals are natural in 175/177 units (W3, d = 1).
+* *Coverage.* With matched conditioning the X-null coverage agrees for every family and d except S_GEN2 at d = 2
+  (W1 ∪ W2 470/586 vs 411.6, z +5.8; W3 1 218/1 557 vs 1 076.6, z +8.6; d = 7 is now +0.2 / +1.0 — the earlier d = 7 excess was
+  the conditioning artefact found by the review). The d = 2 excess is within-prime **exclusivity of same-norm seeds**: among
+  2 143 groups of d = 2 GEN2 seed units with equal minimal norm, 0 had ≥ 2 good units vs 272.7 expected under independence
+  (`gen2_coverage_decomp.txt`; d = 1: 180 vs 190.2): a fixed number of hits spread over more primes (EVIDENCE; for prime
+  norms two natural A-ideals in different units would need N | (a₁ − a₂)(a₁ + a₂) with a₁ + a₂ < N — the composite-norm
+  case is not proved). A repulsion, not generation.
+* **Union over d ∈ {1, 2, 3, 5, 7}** of S_GEN2 covers 584/591 (W1 ∪ W2) and 1 543/1 561 (W3) primes, vs 581.3 and 1 536.5
+  under X with independence across seeds and d (an approximation — the d = 2 exclusivity shows it is not exact); every
+  uncovered prime is in 𝔐 (W3: 18 of 397 𝔐-primes, 0 of 1 164 others). The union is a menu of small-norm divisor events
+  (B1-type); its failures concentrate on 𝔐, where all ψ = −1 seeds have norm ≥ n_p ≥ 11 (GW(c)).
+* **First entry along S_CYC** (k = 1, 3, 5, …; W3): d = 1 — k = 1 at 1 228/1 560 primes, k = 3…9 at 33, k ≥ 11 at 283, never
+  (G meets no odd multiple of [𝔮*]) at 16; for d ≥ 2, k = 1 is rare (166, 99, 46, 0 of 1 557, 1 525, 1 524, 1 185) and
+  "never" occurs at 53, 221, 116, 185 primes. The cyclic orbit is a search with a heavy first atom at d = 1 (𝔮* natural when
+  e.g. q* = 7, p ≡ 3, 5 mod 7), not a map. (RED / GEN2 first-entry orders were not implemented — D7.)
+* **Item 1b — canonical representation fibres (Lemma REP):** the fibre a_c named by p = x² + d·(2a_c)² was barren in all
+  **8 088** instances (d = 1, 2, 3: 2 152 each; d = 5: 565; d = 7: 1 067; W1–W3); comparison fibres a ∈ [a_c/2, 2a_c] ∖ {a_c}
+  are good with mean probability 0.12–2.59 % each (`rep_fibres.txt`). CERTIFIED check of the PROVED lemma.
 
-### 3.4 Item 4 — fixed-n solution graphs: no orbit starts without a known good solution (scoped to the listed moves)
-`scripts/z70_gen_graph.py` → `graph.jsonl`; n = 73, 409, 577, 5569, 9601, 23929, 83449, 102001 (no trivial certificate),
-37, 157, 1621, 4357, 12301 (with trivial certificates), controls 9, 25, 105, 4545.
-* Explicit maps s, τ_xy, τ_yz, μ, μ^s, ρ_L, ρ_R (ρ_C for n ≤ 3·10⁴): **no component of T_n contains both a trivial word and a
-  non-trivial certificate** at any tested n; at the five p ≡ 5 (8) inputs the only certificates in Triv-components are the
-  trivial certificates themselves. PROVED for s, τ_xy, τ_yz, μ, μ^s (Prop. SLICE: they preserve Triv_n and its complement);
-  CERTIFIED for ρ_L, ρ_R, ρ_C at the tested n. **K-GEN4 fires** (scoped to these maps).
-* Slice moves (re-factorisations): every certificate reachable from Triv_n is 1–4 slice moves away (e.g. 409: 6 at distance 1,
-  2 at distance 2; 102001: distances 1–4; at each of 23929, 83449, 102001 four certificates lie in slice components without
-  trivial words). The entering moves are re-factorisations of ny + 1 (y-slice) or n + x, n + z with a factor in a fixed residue class
-  (e.g. 409: (1, 2, 410) → (4, 2, 59) uses 7 | 2·409 + 1 = 819 with 7 ≡ −1 (mod 8)) — the tied divisor event itself.
-* Type II threefold (PROVED, one line): every positive solution (a, b, c, e) at fixed (c, d) lies on the hyperbola
-  (4acd − 1)(4bcd − 1) = 4c²dn + 1 together with the always-present integral point (a, b) = (0, −cn) (factorisation
-  (−1)·(−(4c²dn + 1))); the move between them is the choice of a divisor ≡ −1 (mod 4cd). Orbits *can* start at
-  always-present points, but the first step is the divisor event; no uniform (polynomial, fibre-preserving) move other
-  than the swap is known (SLICE Remark, Assessment).
+### 3.2 Item 2 — Rédei / 2-primary structure vs G: null (EVIDENCE; GRH-conditional invariant factors)
+* r₄ is constant within p mod 840 strata on this sample (= 1 for d = 1, 2, 3; ∈ {0, 1} by residue class for d = 5, 7 —
+  Rédei: the 4-rank is governed by quadratic symbols among the prime discriminants dividing D, here functions of p mod 840),
+  so the registered within-stratum r₄ test is degenerate (D3); between strata r₄ is confounded with Mordell classes — not
+  interpreted.
+* r₈ within strata (registered; signal needs |t| ≥ 4 then ≥ 3): log(1 + |G_d|): W1 ∪ W2 t = +0.54, −1.00, −0.15, +0.21, −1.61
+  (d = 1, 2, 3, 5, 7; 𝔐 only d = 7: −2.32); W3 −1.42, +1.54, +0.65, +1.34, −0.64; 1[G_d = ∅]: |t| ≤ 2.14 (W1 ∪ W2),
+  ≤ 1.03 (W3). Not met.
+* 2-primary positions of good classes in the target 2-coset: the registered χ² was referred to a with-replacement
+  reference; against the finite-population expectation (B − 1)(N − K)/(N − 1) the observed values are close (W3:
+  5 609 vs 5 599, 6 509 vs 6 663, 5 193 vs 5 436, 1 649 vs 1 679, 652 vs 725 for d = 1, 2, 3, 5, 7) — no excess of preferred
+  positions; no calibrated statistic (sparse tables, the orbit count is approximated by npos/2), so this is descriptive.
+  (The earlier "under-dispersion due to pairing" reading is withdrawn.)
+* Emptiness: every (p, d) with G_d(p) = ∅ is listed with r₄, r₈ in `empty_fibres.txt` (868 pairs: d = 1: 2, d = 2: 9,
+  d = 3: 106, d = 5: 95, d = 7: 656 — W1–W3); no within-stratum relation to r₈ (above).
+
+### 3.3 Item 3 — small-split-prime orbits (primes ≤ 50, norm budget 64√(dp)): a divisor search; class level only below chance
+* **Free region (Prop. WORD):** **0 violations** of N(𝔰)·m(g) ≥ dp among all class-level (III) hits (W1–W3, d = 1–7). Below
+  N = √(dp) (j ≤ 0) there are no (III) hits except at d = 2: 6 (W1 ∪ W2) and 2 (W3) hit classes at j = 0, all with
+  N·m(g) ≥ dp (e.g. p = 1 009 993: seed norm 1 421 < √(2p) ≈ 1 421.3, least natural norm 1 422; p = 10 023 553: 4 477 and
+  4 478 — review). The earlier sentence "0 class-level hits below √(dp) for every d" was wrong and is withdrawn.
+* (III) hits with threshold-local censoring (review fix: an identity is removed only once reached) vs the conditional α-null
+  (AC) at the registered thresholds X_j = √(dp)·2^j, j = 0…3 — W3, d = 1: 0, 0, 280, 1 712 vs 2 562, 3 004, 3 850, 5 103;
+  every d and window is negative (z −7.5 … −83). **No positive excess anywhere** (BIAS-3 does not fire). The deficit is the
+  free-region exclusion — a seed of norm N cannot share a class with a good class of natural norm < dp/N unless it *is*
+  that representative — which none of the nulls models; it is not evidence of an additional anti-coincidence.
+* First entry (least seed norm with a good class): type (I) at 1 508/1 560 (d = 1), 1 383/1 557, 836/1 525, 791/1 524,
+  200/1 185 primes of W3 (W1 ∪ W2: 567/590, 526/586, 287/521, 282/533, 55/311). **Registered K-GEN3** (no positive (III)
+  excess AND type I ≥ 90 %): **fires for d = 1 only**; for d ≥ 2 it is **unresolved by its letter** (type I 89–90 % at d = 2,
+  17–55 % at d = 3, 5, 7: 50-smooth natural norms are rare there, and the orbit reaches most of 𝒯 by 8√(dp)); no BIAS-3.
+
+### 3.4 Item 4 — fixed-n word graphs: no orbit from trivial words to non-trivial certificates under the explicit maps
+`scripts/z70_gen_graph.py` → `graph.jsonl` (34 inputs). Run: all 14 (★)-zero primes (409 … 8 813 281), all 26 𝔊*-zero primes
+≤ 10⁶, 73, controls 9, 25, 105, 4545. The registered combined graph (Type II vertices, trivial integral points, CS/DL/DL′
+edges) was **not** built — D6; the Type II part is the one-line remark below.
+* Explicit maps s, τ_xy, τ_yz, μ, μ^s, ρ_L, ρ_R (and ρ_C for n ≤ 3·10⁴): **no component contains a trivial word and a
+  non-trivial certificate** at any of the 34 inputs; where trivial certificates exist (p ≡ 5 mod 8 cases such as 37, 157,
+  1621, 4357, 12301, 184837, 434437, 571741) the certificates in Triv-components are exactly those trivial ones. PROVED for
+  s, τ_xy, τ_yz, μ, μ^s (Prop. SLICE: Triv_n and its complement are preserved); CERTIFIED for ρ_L, ρ_R, ρ_C at the tested n.
+  **K-GEN4 fires**, scoped to these maps and the word graph.
+* Slice moves (re-factorisations): certificates reachable from Triv_n lie 1–4 slice moves away; at several inputs some
+  certificates lie in slice components without trivial words (e.g. 4 at 23929, 18 at 5 212 561, 28 at 8 813 281). Each
+  entering move re-factorises ny + 1, n + x or n + z with a factor in a fixed residue class (e.g. 409: (1, 2, 410) → (4, 2, 59)
+  uses 7 | 819 = 2·409 + 1 with 7 ≡ −1 mod 8) — the tied divisor event.
+* Type II threefold (PROVED, one line): every positive solution at fixed (c, d) lies on (4acd − 1)(4bcd − 1) = 4c²dn + 1
+  with the always-present integral point (a, b) = (0, −cn); the move between them is the choice of a divisor ≡ −1 (mod 4cd).
+  Orbits can start at always-present points, but the first step is the divisor event.
 
 ### 3.5 Screens (`screen_F2.txt`, `screen_F4.txt`, `screen_F13.txt`)
-* **F1:** G_d(m²) = ∅ for all 648 pairs (m ≤ 301 odd, d ∈ {1, 2, 3, 5, 7}, gcd(m, d) = 1) — the computational face of GW(e).
+* **F1:** G_d(m²) = ∅ for all 648 pairs (odd m ≤ 301, d ∈ {1, 2, 3, 5, 7}, gcd(m, d) = 1) — the computational face of GW(e).
 * **F2 (12 R₈-zero primes near 10¹⁰), d = 1, 2:** G₂ ≠ ∅ at all 12 (|G₂| = 12–72: the C-even c = 1 line is empty, other c are
-  not); seed hits: AMB/RED 0, CYC 30 + GEN2 36 hit classes in total, all via small natural norms; FR violations 0. Nothing in
-  the families distinguishes C even from C odd.
-* **F3 (285 composite (★)-zeros):** G_d ≠ ∅ for some d ≤ 7 at 281; none at 57, 345, 2305, 4545 (4545 = the known Type II
-  exception). GW holds verbatim for non-square composites (ψ_n = (·/n)); the seed families are blind there for the same reasons.
+  not); hit classes: AMB/RED 0, CYC 30, GEN2 36; 0 FR violations. Nothing distinguishes C even from C odd.
+* **F3 (285 composite (★)-zeros), census only:** G_d ≠ ∅ for some *tested coprime* d ≤ 7 at 281; at 57, 345, 2305 no
+  solution among the tested coprime d (they have Type II solutions at excluded d: (1, 5, 2, 3) with d = 3; (1, 29, 10, 3),
+  d = 3; (2, 58, 4, 15), d = 5 — review), and 4545 (the known Type II exception). The seed families were not run on
+  composites (D5); GW(e) applies to non-square n ≡ 1 (mod 4) under its gcd hypotheses.
 * **F4 (42 hard primes: 14 (★)-zeros, 38 𝔊*-zeros incl. 85 664 329 and 564 661 441, + 2521, 3361, 21841, 76441),
-  d = 1, 2, 3, 5, 7:** every hard prime has G_d ≠ ∅ for some d ≤ 7 (59 empty (p, d) fibres of 210); AMB 0 hits; RED 36,
-  CYC 110, GEN2 210 hit classes; at 3 primes (3361, 2094481, 85664329) no family hits for any d; item-3 first entries mostly
-  type I; 0 FR violations.
+  d = 1, 2, 3, 5, 7:** every hard prime has G_d ≠ ∅ for some d ≤ 7 (59 empty (p, d) of 210); AMB 0 hits; RED 36, CYC 110,
+  GEN2 210 hit classes; at 3 primes (3361, 2094481, 85664329) no family hits for any d; 0 FR violations.
 
 ## 4. Mandatory falsifier table — final
 
 | screen | outcome | label |
 |---|---|---|
-| **F1 odd squares** | GW(e): at n = m² the character computation forces (m²/A) = −1, so G_d(m²) = ∅ for every d — the target coset 𝒯 does not exist, every seed family is vacuous. The step where non-squareness (primality) enters a generative map is GW(a)/(c): the map must output a class with ψ = −1, which requires an ideal whose norm has a prime factor q with (q/n) = −1 (q ≥ n_p). Computation: 648 (m, d) pairs, all G = ∅. | PROVED + CERTIFIED |
-| **F2 numerator 8 / C-even** | All lemmas are uniform in d (d = 2 = the numerator-8 Type II family, R₈ = its c = 1 line); nothing here distinguishes C even from C odd and nothing claims positivity. At the 12 R₈-zero primes near 10¹⁰: G₂ ≠ ∅ (c ≥ 2), seeds hit only through small natural norms; 0 FR violations. Lemma REP kills the canonical fibre for d = 2 at *every* p ≡ 1 (8). | PROVED / CERTIFIED |
-| **F3 composites** | GW holds for every non-square n with gcd(n, 2d) = 1 and gcd(a, n) = 1 (ψ_n = Jacobi (·/n)); AMB/ORD/WORD need the class dictionary, i.e. the CLASS hypotheses (gcd(n, d) = 1, gcd(e, 2dn) = 1) — not claimed for all composites. 281 of the 285 composite (★)-zeros have G_d ≠ ∅ for some d ≤ 7 (none: 57, 345, 2305, 4545). No family run on composites (genus target code is prime-specific) — **untested numerically for the families**. Nothing here separates primes from composites beyond non-squareness. | PROVED (scoped) / CERTIFIED census |
-| **F4 known zeros** | All 42 hard primes (incl. 85 664 329, 564 661 441) run at d = 1, 2, 3, 5, 7: G_d ≠ ∅ for some d at every one; no family is generative there (3 primes with no hit by any family at any d); AMB 0 hits; 0 FR violations. No positivity claimed. | CERTIFIED |
+| **F1 odd squares** | GW(e): at n = m² the character computation forces (m²/A) = −1, so G_d(m²) = ∅ for every d — the target coset does not exist and every seed family is vacuous. Where non-squareness (primality) enters a generative map: GW(a)/(c) — its output must be a class with ψ = −1, i.e. contain an ideal whose norm has a prime factor q with (q/n) = −1 (q ≥ n_p). 648 (m, d) pairs computed, all G = ∅. | PROVED + CERTIFIED |
+| **F2 numerator 8 / C-even** | All lemmas are uniform in d (d = 2 = the numerator-8 Type II family; R₈ = its c = 1 line); nothing distinguishes C even from C odd, nothing claims positivity. At the 12 R₈-zero primes G₂ ≠ ∅ (c ≥ 2); hits only through small natural norms; 0 FR violations. Lemma REP kills the canonical d = 2 fibre at every p ≡ 1 (8). | PROVED / CERTIFIED |
+| **F3 composites** | GW(e) holds for non-square n ≡ 1 (mod 4) with gcd(n, 2d) = 1 and gcd(a, n) = 1 (ψ_n = Jacobi (·/n)); AMB/ORD/WORD rely on the CLASS dictionary hypotheses — not claimed for all composites. Census: 281 of 285 composite (★)-zeros have G_d ≠ ∅ for a tested coprime d ≤ 7. Families **not run** on composites. Nothing here separates primes from composites beyond non-squareness. | PROVED (scoped) / CERTIFIED census / untested |
+| **F4 known zeros** | All 42 hard primes run at d = 1, 2, 3, 5, 7: G_d ≠ ∅ for some d at each; no family is generative there (3 primes with no hit by any family at any d); AMB 0 hits; 0 FR violations. Item 4 run on all 14 (★)-zeros and all 26 𝔊*-zeros ≤ 10⁶. No positivity claimed. | CERTIFIED |
 
 ## 5. Verdict
-**Narrowed (scoped theorems + blind tests); no generative map found; not a HOT LEAD. ES is OPEN.**
+**Narrowed: the tested generative rules fail, and five scoped theorems explain why for whole classes of rules; no
+generative map found; not a HOT LEAD. ES is OPEN.** (Non-rejection of a null is not proof of impossibility: classes 3, 6, 8
+below are excluded only as *tested rules*.)
 * *Which generative classes are excluded, and how* (the brief's fallback question):
-  1. **Any word in ψ-trivial seeds** — principal class, ambiguous classes when (q/p) = 1 for q | 2d, prime ideals of norm q with
-     (q/p) = 1 (all of norm < n_p; on 𝔐 all of norm ≤ 7), their powers, automorphic images preserving ψ: **PROVED blind**
-     (GW(b)). The output of a generative map must contain a non-residue prime ≥ n_p (GW(c)).
-  2. **Ambiguous classes themselves** (every class of order ≤ 2): **PROVED never good** for squarefree d, p > 3d (Lemma AMB).
-  3. **Halving (2-descent / Rédei) — the unique group-theoretic escape from a ψ-trivial seed group** (GW(d)): reaches the
-     2-power-torsion classes of the odd coset (S_RED) or, with odd seeds, a whole coset (a search). S_RED tested: blind
-     (EVIDENCE, |z| ≤ 1.5 every d, W1–W3). Good classes of small order need large natural norms (Lemma ORD).
-  4. **Words in small split primes of total norm < dp/m(g) (≈ √(dp/2))**: hit G only by *being* a natural representative —
-     the divisor event (Prop. WORD, PROVED; 0 violations). Beyond that scale class-level coincidences occur, at or below the
-     uniform/α rate (no positive excess in any window, d, or threshold).
-  5. **Canonical principal seeds from representations p = x² + d(2a)²**: the named fibre is **PROVED barren** for p ≡ 1 (8)
-     (Lemma REP; CERTIFIED on ≈ 5 400 (p, d) instances) — always-present constructions produce norms from ℤ[√−2d], which are
-     "squares" for the character that separates the target residue: the T1 mechanism again.
-  6. **Small-prime genus seeds and cyclic orbits** (S_CYC, S_GEN2): hit G exactly as often as classes of the same minimal norm
-     (exact-α null, |z| ≤ 1.1 on W3), every hit an ideal identity at small norm (a congruence menu, B1); union over d ≤ 7
-     covers 98.8 % of p ≡ 1 (24), failures all in 𝔐, as predicted by the null.
-  7. **Fixed-n moves** (s, τ, μ, ρ_L, ρ_R, ρ_C): never connect always-present (trivial) words to non-trivial certificates
-     (PROVED for s, τ, μ; CERTIFIED for ρ at 13 primes); fibre-preserving uniform moves are plausibly only the swap (SLICE Remark, Assessment);
-     slice re-factorisations reach certificates in 1–4 steps but each entering step *is* the divisor event.
-  8. **Rédei 4-/8-ranks**: r₄ is a congruence invariant here; r₈ and 2-primary positions show no relation to |G| or emptiness.
+  1. **Words in ψ-trivial seeds** — principal class, prime ideals of norm q with (q/p) = 1 (all of norm < n_p; on 𝔐 all of
+     norm ≤ 7), classes of order ≤ 2 when d is squarefree, p > 3d and (q/p) = 1 for q | 2d; with x ↦ kx and ψ-preserving
+     automorphisms: **PROVED blind** (GW(b)). Any generative output must involve a non-residue prime ≥ n_p (GW(c)).
+  2. **Classes of order ≤ 2**: **PROVED never good** for squarefree d with p > 3d and p(4d − 3) > 8d (Lemma AMB; the second
+     condition is needed: p = 5, d = 1 has the good class [2, 2, 3] of order 2); non-vacuous test: S_AMB ∩ 𝒯 ≠ ∅ at about half
+     of the primes for d = 5, 7, 0 hits.
+  3. **Halving (2-descent / Rédei)** — within {+, −, kx, ψ-preserving automorphisms, halving} the only step that leaves ker ψ
+     (GW(d)); its canonical target S_RED is **blind as tested** (A- and X-null |z| ≤ 1.9; uniform null d = 1 W1 ∪ W2: −2.8). Good classes of small
+     order need large natural norms (Lemma ORD).
+  4. **Seed ideals of norm < dp/m(g) (≈ √(dp/2))**: hit G only by *being* a natural representative — the divisor event
+     (Prop. WORD, PROVED; 0 violations in ≈ 1.6·10⁷ seed ideals). Beyond that scale class-level coincidences occur, below
+     every null tried.
+  5. **Canonical principal seeds from representations p = x² + d(2a)²**: the named fibre is **PROVED barren** for
+     p ≡ 1 (8) (Lemma REP; 8 088 instances CERTIFIED) — the representation makes N_a a norm from ℤ[√−2d], a "square" for
+     the character separating the target residue: the T1 mechanism again.
+  6. **Small-prime genus seeds and cyclic orbits** (S_CYC, S_GEN2): **as tested**, they hit G as often as classes of the same
+     minimal norm (X-null |z| ≤ 1.1 on W3); every GEN2 hit is a seed-ideal identity at small norm; CYC hits are seed
+     identities or class-level coincidences of 𝔮*^k with a small natural representative at the null rate. A congruence menu
+     (B1): union over d ≤ 7 covers 98.8 %, failures all in 𝔐.
+  7. **Fixed-n explicit maps** (s, τ, μ, ρ_L, ρ_R, ρ_C): never connect trivial words to non-trivial certificates (PROVED for
+     s, τ, μ; CERTIFIED for ρ at 34 inputs); slice re-factorisations reach certificates, but each entering step is the
+     divisor event; a uniform fibrewise move other than the swap is not known (Assessment).
+  8. **Rédei 4-/8-ranks**: r₄ is a congruence invariant on this sample; r₈ and 2-primary positions show no detected relation
+     to |G| or emptiness.
 * *Escape hatches left open (Assessment).* (i) Non-group-theoretic, non-fibred maps producing ideals of norm ≫ √(dp) whose
-  classes correlate with G (nothing tested here suggests one; every tested class-level coincidence sits at or below chance);
-  (ii) maps using a *non-residue* input in an essential, non-menu way — GW forces this ingredient; the hits above use it only
-  through small natural norms; (iii) the CLASS anti-coincidence (negative residual) and the d = 2 same-norm exclusivity are
-  repulsions, not generation.
+  classes correlate with G — nothing tested here points to one (every class-level coincidence observed is at or below the
+  nulls); (ii) maps using a non-residue input in an essential, non-menu way — GW forces this ingredient, the observed hits use
+  it only through small natural norms; (iii) automorphisms not preserving ψ (not canonical); (iv) the d = 2 same-norm
+  exclusivity and the CLASS anti-coincidence are repulsions, not generation.
 * **Hard screens (FRONTIER §4).** T1 squares: passes (GW(e); vacuous). 8/131: no positivity claim; uniform in d. Tied
-  modulus: every hit decomposes into an ideal identity, i.e. a divisor ≡ −1 (mod 4ad) — the tie is not loosened. Fixed p: all
-  statements are per p; none produces a solution without a divisor event.
+  modulus: every GEN2 hit and most CYC hits are seed-ideal identities, i.e. divisors ≡ −1 (mod 4ad); the rest are
+  coincidences with small natural representatives — the tie is not loosened. Fixed p: no statement produces a solution
+  without a divisor event.
 
 ## 6. Proposed FRONTIER §7 text (do not edit FRONTIER here)
-"z70 GEN (`Z70_GEN.md`; narrowed — no generative class map). Question: can a good class of Cl(−4dp) be produced from data
-present at every prime? PROVED: (GW) G_d(p) ⊂ ψ^{−1}(−1) (ψ = genus character at p), so words in ψ-trivial seeds (principal,
-ambiguous for (q/p) = 1 at q | 2d, prime ideals of norm < n_p — on 𝔐 all of norm ≤ 7) are blind, every good class has
-minimal and natural norms ≥ n_p, and 2-division (Rédei) is the only group-theoretic escape; (AMB) classes of order ≤ 2 are
-never good (squarefree d, p > 3d); (ORD) A^{ord g} ≥ dp; (WORD) a seed ideal of norm < dp/m(g) hits G only by being a natural
-representative (= the divisor event); (REP) the fibre named by p = x² + d(2a)² is barren for p ≡ 1 (8) (norms from ℤ[√−2d]);
-(SLICE) fixed-n coordinate-preserving moves are re-factorisations; s, τ, μ preserve trivial words.
-CERTIFIED/EVIDENCE (p ≡ 1 (24), 10⁵–1.02·10⁷, d = 1, 2, 3, 5, 7, held-out W3): ambiguous, Rédei (2-power-torsion), cyclic and
-genus-seed families hit G exactly at the rate of classes with the same minimal norm (all hits = small-norm ideal identities);
-union over d ≤ 7 of genus seeds covers 98.8 % (failures all in 𝔐, as the null predicts); smooth-prime orbits: no class-level
-excess at any norm budget, 0 FR violations; Rédei r₈ / 2-primary positions unrelated to |G|; fixed-n explicit maps never join
-trivial words to certificates (73, 409, hard zeros). Not a HOT LEAD."
+"z70 GEN (`Z70_GEN.md`; narrowed — no generative class map found). Question: can a good class of Cl(−4dp) be produced from
+data present at every prime? PROVED: (GW) G_d(p) ⊂ ψ^{−1}(−1) (ψ = genus character at p): words in ψ-trivial seeds (principal,
+prime ideals of norm < n_p — on 𝔐 all of norm ≤ 7 — and, under AMB's hypotheses, the ambiguous classes) are blind; every good
+class has minimal and natural norms ≥ n_p; within {+, −, kx, ψ-preserving automorphisms, halving} only halving (Rédei)
+leaves ker ψ; (AMB) classes of order ≤ 2 are never good (squarefree d, p > 3d, p(4d − 3) > 8d); (ORD) A^{ord g} ≥ dp; (WORD) a
+seed ideal of norm < dp/m(g) hits G only by being a natural representative (= the divisor event); (REP) the fibre named by
+p = x² + d(2a)² is barren for p ≡ 1 (8) (norms from ℤ[√−2d]); (SLICE) fixed-n coordinate-preserving moves are
+re-factorisations; s, τ, μ preserve trivial words. EVIDENCE (p ≡ 1 (24) in 10⁵–1.02·10⁷, d = 1, 2, 3, 5, 7, held-out W3; z's
+are model contrasts): Rédei (2-power-torsion), cyclic and genus-seed families hit G at the rate of classes with the same
+minimal norm; every genus-seed hit is a small-norm seed-ideal identity; union over d ≤ 7 covers 98.8 % (failures all in 𝔐);
+smooth-prime orbits show no class-level excess, 0 FR violations; r₈ / 2-primary positions unrelated to |G|; fixed-n
+explicit maps never join trivial words to certificates (all 14 (★)-zeros, 𝔊*-zeros ≤ 10⁶). Not a HOT LEAD."
 
 ## 7. Bottom line
-A good class cannot be *generated* from the data every prime carries by any of the mechanisms the brief listed. The
-reasons are now theorems rather than impressions: always-present seeds live in the kernel of the genus character ψ that
-every good class violates (GW) — the class-group face of T1 — or, when canonical (ambiguous classes, representation
-fibres), are provably never good (AMB, REP); the one group-theoretic exit, halving, lands in Rédei classes that are blind in
-the data; and below the free-region scale any seed that hits a good class *is* a natural representative, i.e. the divisor
-event (WORD). Every hit observed in 2 152 primes × 5 values of d is a small-norm ideal identity, at exactly the rate predicted by the
-minimal norm of the class; fixed-n moves never start an orbit from trivial words. Primality enters only as the existence of
-a non-residue prime ideal in the target genus — necessary, nowhere near sufficient. Not a HOT LEAD. ES is OPEN.
+No tested rule generates a good class from the data every prime carries, and for whole classes of rules the reason is now a
+theorem: always-present seeds lie in the kernel of the genus character ψ that every good class violates (GW — the
+class-group face of T1); the canonical ones (ambiguous classes, representation fibres) are provably never good (AMB, REP);
+within the natural operation set, halving is the only exit and its Rédei targets are blind in the data; and below the
+free-region scale a seed that hits a good class *is* a natural representative — the divisor event (WORD). In 2 152 primes ×
+5 values of d the tested families hit G at the rate predicted by the minimal norm of the class; their hits are small-norm
+divisor events or coincidences with small natural representatives; fixed-n explicit moves never start an orbit from trivial
+words. Primality enters only as the existence of a non-residue prime ideal in the target genus — necessary, nowhere near
+sufficient. Not a HOT LEAD. ES is OPEN.
 
 ## 8. Reproduction (each command under `ulimit -v 6000000`, `timeout ≤ 1800`)
 * validation: `uv run --with cypari2 --with sympy --with numpy python scripts/z70_gen_validate.py`
