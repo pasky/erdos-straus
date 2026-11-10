@@ -2697,6 +2697,37 @@ unrefereed). No new mechanism; no HOT LEAD.**
   large primes" (ES-strength modulo GRH); 1/2 < c < 1 would give a new exceptional-set bound X^{c+o(1)}, not ES.
   Assessment: park fable-3 (not a no-go for dense many-prime (PC)).
 
+**z69 (hard-prime mining, nonlinear U₇ rules, Fable 5.2 ideation informed + independent, twist follow-up; all Astra
+cross-reviewed (IDEAB REJECT-as-written → fixed; others ACCEPT-WITH-FIXES), fixes applied; internal, unrefereed). No
+mechanism; no HOT LEAD.**
+* **Hard-prime mining (`Z69_MINE.md`; null, narrowed).** CERTIFIED: U₇ witness count W(p) ≥ 1 for all primes p ≡ 1 (8)
+  ≤ 10⁸, minimum W(2521) = 1 (only witness f = 87), mean ≈ 0.179 log²p. PROVED (elementary): a witness never divides
+  the Gaussian/norm-form coordinates, any CF norm Q_i of √p, or the Pell T, U, T ± 1. EVIDENCE (sampler-specific
+  non-rejection): no relation between p's Gaussian / norm-form / Pell / CF / class-number / n_p data and its witnesses
+  beyond the local event; round 2 (pre-registered, held-out H half + disjoint band at 5·10⁹): the Q-set letter excess
+  is a decoy size-drift artefact (exact decoys: nothing); witness-blind generators fail K4 (best union 68.5 % of the
+  band; 2/3 of its letters lie in the Prop-K bounded-shift menu); the surviving z-relation is the n_p profile. Open:
+  small letters vs the Q-set, Pell residues mod candidate letters, class-group structure, adaptive generators.
+* **Nonlinear-data U₇ rules (`Z69_NL7.md`; narrowed).** CONDITIONAL on Schinzel H: on positive definite quadratic curves
+  p = P(t) with (LC) (Gaussian, Pell, CF, ℚ(√p)-norm data polynomial on p = t² + 1; ℚ(√−2) data on t² + 2d₀²) every
+  finite polynomial divisor rule (letter: Thm NL; witness f: Thm NL-W) fails infinitely often; joint ℚ(i), ℚ(√−2),
+  ℚ(√2) letter rules fail on the norm quartic t⁴ + 2t² − 4t + 2 (Thm NL-J). PROVED: Lemma 4 (fixed-letter collapse via
+  transfer to odd squares). Prop SG (U₇ for n = 16s⁴ + 1, s ≡ ±18 (126)) is an ET Type II instance inside U⁽⁸⁾ — no novelty.
+* **Ideation, Fable 5.2 (`Z69_IDEAA.md`, `Z69_IDEAB.md`; null).** Informed (21 ideas): each tested idea collapsed to B2 or
+  to repo content; by-products: α-class search-cost census to 10¹⁰ (max K = 5777; one engine, recomputed to 10⁸),
+  Type I/II-α failures positively dependent at depths 21–3152 (no same-cap inversion rescue), Lemma T (CM reciprocity
+  forces only the trivial hit). Independent (24 unprimed ideas, Phase 1 ≈ 57 min, below brief): after cross-review 4
+  narrow NEW-TWISTs (I9, I17, I23, I24), ~11 TRIED-OPEN, rest TRIED-DEAD in scope — not "saturation"; Type I zeros
+  {105, 2961, 3705} extended to 8·10⁶; finite certificates that any ET cover of K₂, K₆ (n ≡ 1 (840), n ≡ 2, 6 (11)) needs
+  modulus > 10⁴.
+* **Twist follow-up (`Z69_TWIST.md`; narrowed).** PROVED: Lemma V (the slice e = p + 2: for odd M, M⁴ has no divisor
+  ≡ −M² (mod 2M + 1)); Lemma T10 (d-substitution with p | 4a²d + 1 sterile); fixed-gap Vieta-descent sterility theorems
+  for Type I; in every (★) solution at p ≡ 1 (4) t = ab is even, so the I24 cross-d transport has coverage 0. Refuted in
+  the specified models: #11 slice, I10 substitution, I23 lift (p = 13). I17: good-form class sets G(p) ⊂ Cl(−4dp) have
+  translation structure beyond a norm-matched null (Z up to +5.8), mostly explained by two PROVED symmetries (divisor-
+  lattice translation; complement swap when 4ad | p − 1) that only move existing good classes (hold also where G = ∅);
+  residual excess (d = 3, Z = +3.6) unexplained. I12, I9: bounded nulls; I6 untested.
+
 ## 8. Pointers into the repository
 
 * **Start:** `STATUS.md` (wave headlines, newest first; ES-not-solved banner), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
