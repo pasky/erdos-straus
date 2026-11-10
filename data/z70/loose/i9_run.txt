@@ -1,0 +1,30 @@
+star14: hard primes without any control in [p/2,2p]: []
+star14: n=9 hard Q=0.444 ctl Q=0.524 Delta=-0.0093 (strata=9) se=0.1577 z=-0.06 95%CI=(-0.318,+0.300)
+   q-to-word hard: pairs=1 Y(q)=0.000 Y(q')=0.000 McNemar b=0 c=0 z=+0.00; Q-primes without decoy=3
+   q-to-word ctl: pairs=40 Y(q)=0.025 Y(q')=0.050 McNemar b=1 c=2 z=-0.58; Q-primes without decoy=37
+   q-to-word hard/amended: pairs=4 Y(q)=0.000 Y(q')=0.000 McNemar b=0 c=0 z=+0.00; Q-primes without decoy=0
+   q-to-word ctl/amended: pairs=77 Y(q)=0.078 Y(q')=0.065 McNemar b=6 c=5 z=+0.30; Q-primes without decoy=0
+gstar38: hard primes without any control in [p/2,2p]: [5569, 9601]
+gstar38: n=18 hard Q=0.450 ctl Q=0.569 Delta=-0.1208 (strata=18) se=0.1148 z=-1.05 95%CI=(-0.346,+0.104)
+   q-to-word hard: pairs=2 Y(q)=0.000 Y(q')=0.000 McNemar b=0 c=0 z=+0.00; Q-primes without decoy=7
+   q-to-word ctl: pairs=89 Y(q)=0.022 Y(q')=0.011 McNemar b=2 c=1 z=+0.58; Q-primes without decoy=109
+   q-to-word hard/amended: pairs=9 Y(q)=0.000 Y(q')=0.000 McNemar b=0 c=0 z=+0.00; Q-primes without decoy=0
+   q-to-word ctl/amended: pairs=198 Y(q)=0.162 Y(q')=0.106 McNemar b=24 c=13 z=+1.81; Q-primes without decoy=0
+noprime231: hard primes without any control in [p/2,2p]: [9601, 23041]
+noprime231: n=143 hard Q=0.559 ctl Q=0.590 Delta=-0.0216 (strata=143) se=0.0406 z=-0.53 95%CI=(-0.101,+0.058)
+   q-to-word hard: pairs=48 Y(q)=0.000 Y(q')=0.000 McNemar b=0 c=0 z=+0.00; Q-primes without decoy=33
+   q-to-word ctl: pairs=889 Y(q)=0.026 Y(q')=0.022 McNemar b=23 c=20 z=+0.46; Q-primes without decoy=772
+   q-to-word hard/amended: pairs=81 Y(q)=0.086 Y(q')=0.012 McNemar b=7 c=1 z=+2.12; Q-primes without decoy=0
+   q-to-word ctl/amended: pairs=1661 Y(q)=0.158 Y(q')=0.094 McNemar b=214 c=108 z=+5.91; Q-primes without decoy=0
+u8zero: hard primes without any control in [p/2,2p]: [1129, 2521, 3361]
+u8zero: n=8 hard Q=0.636 ctl Q=0.598 Delta=+0.1574 (strata=8) se=0.1785 z=+0.88 95%CI=(-0.192,+0.507)
+   q-to-word hard: pairs=2 Y(q)=0.500 Y(q')=0.000 McNemar b=1 c=0 z=+1.00; Q-primes without decoy=5
+   q-to-word ctl: pairs=24 Y(q)=0.083 Y(q')=0.000 McNemar b=2 c=0 z=+1.41; Q-primes without decoy=37
+   q-to-word hard/amended: pairs=7 Y(q)=0.143 Y(q')=0.000 McNemar b=1 c=0 z=+1.00; Q-primes without decoy=0
+   q-to-word ctl/amended: pairs=61 Y(q)=0.164 Y(q')=0.033 McNemar b=10 c=2 z=+2.31; Q-primes without decoy=0
+r8zero12: hard primes without any control in [p/2,2p]: []
+r8zero12: n=4 hard Q=0.500 ctl Q=0.637 Delta=-0.1375 (strata=4) se=0.2454 z=-0.56 95%CI=(-0.618,+0.343)
+   q-to-word hard: pairs=0 Y(q)=0.000 Y(q')=0.000 McNemar b=0 c=0 z=+0.00; Q-primes without decoy=2
+   q-to-word ctl: pairs=32 Y(q)=0.031 Y(q')=0.000 McNemar b=1 c=0 z=+1.00; Q-primes without decoy=19
+   q-to-word hard/amended: pairs=2 Y(q)=0.000 Y(q')=0.000 McNemar b=0 c=0 z=+0.00; Q-primes without decoy=0
+   q-to-word ctl/amended: pairs=51 Y(q)=0.078 Y(q')=0.059 McNemar b=4 c=3 z=+0.38; Q-primes without decoy=0

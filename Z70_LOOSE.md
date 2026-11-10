@@ -93,4 +93,38 @@ Decoy: for the same p, q′ = a prime with (p/q′) = −1, q′ ∤ X, q′ ≡
 same construction. Kill K9: Y(q) − Y(q′) not ≥ 3σ above 0 ⟹ q | X carries no word-building information beyond being
 a non-residue of its size; HOT LEAD only if Y = 1 on every hard prime and the excess is significant.
 
-## 2–6. (results; to be filled)
+## 2–5. (results for I6, I5, #10, Pell letters: below as they come)
+
+## 6. I9 — result (EVIDENCE; registered design; one deviation + one post-hoc size check, disclosed)
+Run: `uv run --with sympy python scripts/z70_loose_i9.py` (seed 7070) → `data/z70/loose/i9_run.txt`, rows
+`i9_rows.json`; post-hoc `scripts/z70_loose_i9b.py` → `i9b_twosided.txt`. Disjoint controls: 20 per hard prime,
+same class mod 840, uniform in [p/2, 2p], no hard-list member, no reuse (hard primes with no admissible control:
+5569, 9601 (𝔊*), 9601, 23041 (noprime), 1129, 2521, 3361 (U⁽⁸⁾) — dropped from Δ).
+
+| hard set (𝔐-members with controls) | Q hard | Q controls | Δ (stratified) ± s.e. | z | 95 % CI |
+|---|---|---|---|---|---|
+| (★)-zeros (9) | 0.444 | 0.524 | −0.009 ± 0.158 | −0.06 | (−0.32, +0.30) |
+| 𝔊*-zeros (18) | 0.450 | 0.569 | −0.121 ± 0.115 | −1.05 | (−0.35, +0.10) |
+| noprime (143) | 0.559 | 0.590 | −0.022 ± 0.041 | −0.53 | (−0.101, +0.058) |
+| U⁽⁸⁾-zeros (8) | 0.636 | 0.598 | +0.157 ± 0.179 | +0.88 | (−0.19, +0.51) |
+| R₈-zeros (4, F2) | 0.500 | 0.637 | −0.138 ± 0.245 | −0.56 | (−0.62, +0.34) |
+
+* **Registered effect bound:** on the noprime set the 95 % CI is (−0.101, +0.058): it reaches −0.101, just outside the
+  registered (−0.10, 0.10) band, so the equivalence criterion is **narrowly not met** (it is met for +0.10, not for
+  −0.10); no effect criterion (|z| ≥ 3) fires anywhere. Reading (EVIDENCE): no detected difference; an effect of
+  size ≥ 0.10 in the direction "hard primes have Q *more* often" is excluded at 95 %; a deficit of ≈ 0.10 is not.
+* **q-to-word construction (registered decoy, |q′ − q| ≤ 0.1 q):** Y(q) is tiny (≈ 0.02–0.03 on controls) and equal
+  to the decoy rate (noprime controls 889 pairs: McNemar b = 23, c = 20, z = +0.46). The 10 % window is empty for
+  most small q (772 of the noprime-control Q-primes had no decoy) — a design flaw of the registration.
+  *Deviation (disclosed):* a window-free "nearest admissible prime" decoy gave a large apparent excess on controls
+  (noprime controls: Y(q) = 0.158 vs Y(q′) = 0.094, z = +5.91). *Post-hoc size check:* that decoy is
+  biased upward in size for small q (Y falls like ≈ (log q)/q); with a **two-sided** decoy (mean of the nearest
+  admissible prime below and above q; mean log(decoy/q) ≈ −0.02) the excess disappears: noprime controls
+  1 233 pairs, Y(q) = 0.068 vs 0.061, z = +0.84; all sets |z| ≤ 1.0. So the +5.9 was a size artifact.
+* On hard primes the construction essentially never fires (noprime hard: Y(q) = 0.016 on 64 two-sided pairs).
+
+**Verdict I9 (EVIDENCE):** with disjoint factor-two-matched controls the X-coordinate classifier shows no
+difference (|z| ≤ 1.05 everywhere); a q | X with (840/q) = −1 builds (★) words exactly as often as a size-matched
+non-residue prime not dividing X. K9 fires (no word-building information). Nothing here is a mechanism; the
+remaining untested direction is any construction using q *together with* Y (e.g. f built from q and Y) — not
+pursued.
