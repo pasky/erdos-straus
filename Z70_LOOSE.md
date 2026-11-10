@@ -547,7 +547,7 @@ aggregates. Fixes applied:
    points at 30 digits, d = 3 five points at 20 digits, all relative errors ≤ 2.1·10⁻¹⁹ (`i6_k6a_mp_d{1,3}.txt`).
 4. *Lemma P5 consequence* — condition corrected to "p + 1 has no prime factor ≡ 3 (mod 4)" (counterexample p = 17,
    (p + 1)/2 = 9 = 3² + 0²); "infinitely many" removed.
-5. *Pell 2-adic null* — full 2-adic recalibration (all v₂ ≥ 2), validated; numbers corrected; "behave exactly like"
+5. *Pell 2-adic null* — full 2-adic recalibration (all v₂ ≥ 2 in the first pass; v₂ = 1 added after the second pass), validated; numbers corrected; "behave exactly like"
    → "no difference detected".
 6. *I9 strata* — partial strata disclosed, means recomputed on retained strata with stratum weighting, variance model
    stated.
