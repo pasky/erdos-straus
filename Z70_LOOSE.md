@@ -121,8 +121,9 @@ holomorphic on ℍ, so the identity extends from iℝ₊. L*_{u,v}(τ) is bounde
 Γ(s)F(u,s)F(v,s) has no pole at s = 1 for u, v ∉ ℤ), so the integrals converge at t = 0. ∎
 *Numerical check (K6a).* `scripts/z70_loose_i6law.py` → `data/z70/loose/i6_law_check.txt`: direct L vs the law at
 7 points each for (4, 3, 3) [d = 1], (12, 11, 11) [d = 3], (4, 1, 1), (12, 7, 5), including Re z ≠ 0: max relative
-error 2.9·10⁻¹⁵, absolute ≤ 4·10⁻¹⁶ (double precision; the registered "mpmath 30 digits" was replaced by double
-precision — the agreement is at machine precision, so the formula is right). A first run with a too-coarse small-τ
+error 2.9·10⁻¹⁵, absolute ≤ 4·10⁻¹⁶ (double precision), plus one 34-digit mpmath check for d = 1
+(`scripts/z70_loose_i6mp.py` → `i6_law_mp34.txt`, z = (0.05 + 0.15i)·16/90: |L − law| = 1.8·10⁻³⁵, relative
+6.7·10⁻³⁵; the small-τ region uses the asymptotic Mellin series to 60 terms). K6a passes. A first run with a too-coarse small-τ
 series (switch at |τ| < 2·10⁻³) gave 10⁻⁸ errors for M = 12; the switch was lowered to 2·10⁻⁴ (convergence check in the
 log of this memo's commit), errors then 10⁻¹⁷.
 
@@ -249,7 +250,10 @@ divisor-word exchange y = 1 ↔ x = 1; an involution on its domain), μ^s := s�
 involution on T₇₃ and T₄₀₉, ≠ s, Fix ⊆ C_p at both; stage 2: every prime p ≡ 1 (4) < 2000 and failure (not an
 involution, or a non-certificate fixed point) at 9 and 105. Survivor of both = HOT LEAD.
 
-**Verdict I5 (narrowed):** the seven registered natural non-affine cross-slice maps fail stage 1 on T₇₃/T₄₀₉;
+*Result* (`scripts/z70_loose_i5grammar.py` → `i5_grammar.txt`): 400 maps; 246 are involutions on both T₇₃ and T₄₀₉
+but have non-certificate fixed points at both; 154 are not involutions at either. **No stage-1 survivor.**
+
+**Verdict I5 (narrowed):** the seven registered natural non-affine cross-slice maps and all 400 maps of the round-2 grammar fail stage 1 on T₇₃/T₄₀₉;
 Lemma P5 explains why any such map must be arithmetic in p + 1. Not killed in general (a map certificate-fixed only at
 primes is not excluded), but no candidate exists. F1: T₉, T₁₀₅ have C = ∅ and odd |T| — any passing family must fail
 there; F2: no candidate survived to the C-even question.

@@ -1,0 +1,4 @@
+maps tested: 400
+  (73, 409) outcome ('badfix', 'badfix') : 246
+  (73, 409) outcome ('notinv', 'notinv') : 154
+stage-1 survivors: []
