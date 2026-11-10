@@ -599,3 +599,10 @@ a structure theorem that held verbatim for the C-even sub-family would be suspec
 the sub-family c = 1, d even only if H-COSET fires. F3: the profile is also computed at the 285 composite
 (★)-zeros below 10⁵ if H-COSET fires (a structure forcing G ≠ ∅ must fail where G = ∅: 4545 has no Type II at all).
 F4: the hard list is in the sample by design.
+
+**Amendment to the I12 registration (before any I12 computation).** With five forced primes Q ≈ 10⁶ and u up to
+2·10⁸, the heuristic mean Σλ over the whole sample is ≈ 10⁻³: the registered design has no power (it only
+re-states I12's counting objection). It is run as registered, and in addition with Q_r := the product of the r
+least non-residue primes, r = 1, 2, 3 (same 200 shifts, same controls u + 1). K-I12b is evaluated on the pooled
+arms r ∈ {1, 2, 3}: forced-arm hits within 3σ (Poisson) of Σλ, and the ratio (hits/Σλ)_forced / (hits/Σλ)_control
+within 3σ of 1 ⟹ no target-specific gain from forcing.
