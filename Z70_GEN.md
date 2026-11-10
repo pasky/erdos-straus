@@ -32,8 +32,8 @@ compared with the target genus (else it is a search). A rule with coverage < 1 b
 **Samples.** Primes p ≡ 1 (mod 24) in W1 = [10⁵, 1.3·10⁵), W2 = [10⁶, 1.03·10⁶), W3 = [10⁷, 10⁷ + 2·10⁵) (W3 = held-out:
 scored once after W1, W2), d ∈ {1, 2, 3, 5, 7}; the 𝔐 subset (p mod 840 ∈ {1, 121, 169, 289, 361, 529}) reported
 separately; screens F1–F4 as in §0.1. Class groups by PARI `quadclassunit` + full enumeration of the group (dict of
-reduced forms → exponent vectors); **CONDITIONAL on GRH** for the group structure (h is cross-checked by counting
-reduced forms for |D| ≤ 4·10⁸ — unconditional there); every membership test "class ∈ G" is an equality of reduced
+reduced forms → exponent vectors); **CONDITIONAL on GRH** for the group structure [the promised independent
+count of reduced forms was NOT implemented — review item 12; completeness-dependent statistics stay GRH-conditional]; every membership test "class ∈ G" is an equality of reduced
 forms (unconditional). G_d(p) is enumerated exactly by the small-fibre engine (a ≤ a_max := ⌊√((p + e_max)/(4d))⌋,
 e_max = ⌊(p + 4d)/(4d − 1)⌋; every solution has min(a, b) ≤ a_max and G = −G), validated against
 `scripts/z70_class_core.py:solutions` on ≥ 50 inputs (primes and composites) before any registered run.
@@ -84,7 +84,7 @@ uniform rule on all primes p ≡ 1 (4) < 10⁴ (stage 2; must fail at 9, 25, 105
 
 ## 1.6 Smoke tests and amendments (all before any registered run)
 *Validation* (`scripts/z70_gen_validate.py` → `data/z70/gen/validate.txt`): 249 (n, d) checks — the small-fibre solution
-sets equal the exhaustive `z70_class_core.solutions` sets (23 listed n incl. 73, 409, 37, 1621, 3361, 21841, composites
+sets equal the exhaustive `z70_class_core.solutions` sets (22 listed n incl. 73, 409, 37, 1621, 3361, 21841, composites
 33, 105, 4545, 1105, squares 9, 25, 225; 30 random primes in [10⁴, 6·10⁴); d = 1, 2, 3, 5, 7); for primes: g_b = −g_a, every
 good class in the computed target genus, the three natural ideals lie in the class, #genera = |Cl/Cl²|. (Bug found and fixed
 during validation: 2-adic genus characters must be taken from Cox Thm 3.15, not guessed — δ is *not* a character for
@@ -114,6 +114,15 @@ at the other primes of the same window and d; units with α > 5000 dropped and c
 the reduced ideal of a hit class a natural representative? its least natural norm), and the **union over d** coverage
 with its null. They are post hoc relative to W1 ∪ W2 and pre-registered relative to W3. (D3) Item 2a's r₄ test is
 degenerate within p mod 840 strata (r₄ is a function of p mod 840 for these d — §3.2); only r₈ is testable within strata.
+(D6) Item 4 as implemented is narrower than registered: the graph contains the words T_n only (no Type II vertices, no
+trivial integral points, no CS/DL/DL′ edges — the Type II part is the one-line PROVED remark of §3.4), and of the registered
+inputs (the 14 (★)-zeros and the 𝔊*-zeros ≤ 10⁶) the ones > 1.1·10⁵ were run only partially (§3.4 lists what was run).
+(D7) First-entry orderings were implemented only for S_CYC (not S_RED, S_GEN2); the registered list of every empty (p, d)
+with r₄, r₈ is given as counts plus `empty_fibres.txt`. (D8) D2's chronology (analyses added after W1 ∪ W2, before W3) is
+author-reported: the code and the W3 data entered git in the same commit. (D9) After the internal review (§9) the pipeline
+was corrected and **all of W1–W3 was rerun** (conditional within-bin α-null with finite-population correction `famAC`,
+threshold-local item-3 censoring, seed-level identity check, matched conditioning of the coverage null, cross-fitted
+exact-α null); §3 reports the rerun.
 (D5) The checkpoint-1 falsifier table promised a family run on the composite (★)-zeros ≤ 10⁵; it was not done (the genus
 target code is prime-specific) — the final table (§4) marks it untested. (D4) `data/z70/gen/` holds the raw per-prime records as one xz archive (`runs_W123.tar.xz`, 12 MB) to respect the 20 MB cap.
 
@@ -132,12 +141,16 @@ this covers every prime ideal of norm ≤ 7 and, for squarefree d | 210, all of 
 p ∤ N𝔞 in a class with ψ = −1 has (N𝔞/p) = −1, so N𝔞 has a prime factor q with (q/p) = −1, q ≥ n_p (least quadratic
 non-residue of p); in particular every good class has minimal norm α(g) ≥ n_p and every natural norm ≥ n_p. (d) For
 H ≤ Cl let H^sat := {x : 2^j x ∈ H for some j ≥ 0}. Then H^sat = Cl₂ ⊕ (H ∩ Cl_odd) (Cl₂ = 2-Sylow subgroup). If H ⊂ ker ψ
-then H^sat ∩ ψ^{−1}(−1) = (Cl₂ ∩ ψ^{−1}(−1)) ⊕ (H ∩ Cl_odd) ≠ ∅: **division by 2 is the only group-theoretic operation that
-leaves a ψ-trivial seed group**, and what it reaches is the fixed set Cl₂ ∩ ψ^{−1}(−1) (the 2-power-torsion classes of the
-odd ψ-coset; S_RED is its intersection with the target genus) shifted by the odd part of H — the whole odd ψ-coset as soon as
-H ⊇ Cl_odd (a search, not a map). (e) For n = m² (odd, gcd(m, d) = 1) the computation of (a) gives (m²/A) = 1 = −1, so
-G_d(m²) = ∅ (= T1); for non-square n with gcd(n, 2d) = 1 the same proof works with ψ_n := (·/n) (Jacobi), a nontrivial
-product of genus characters.
+then H^sat ∩ ψ^{−1}(−1) = (Cl₂ ∩ ψ^{−1}(−1)) ⊕ (H ∩ Cl_odd) ≠ ∅. Consequently, **within the operation set
+{+, −, x ↦ kx, ψ-preserving automorphisms, "all x with 2x = h"}** the only operation that leaves a ψ-trivial seed group is
+the halving step, and the closure reaches exactly (H′)^sat, H′ ⊂ ker ψ the closure of H under the first four operations:
+the fixed set Cl₂ ∩ ψ^{−1}(−1) (the 2-power-torsion classes of the odd ψ-coset; S_RED is its intersection with the target
+genus) shifted by H′ ∩ Cl_odd — the whole odd ψ-coset as soon as H′ ⊇ Cl_odd (a search, not a map). (Automorphisms *not*
+preserving ψ can leave ker ψ without halving — e.g. Cl(−260) ≅ C₄ × C₂ at p = 13, d = 5, (x, y) ↦ (x, y + x mod 2), review
+item 7 — they are outside this statement; they are not canonical, since ψ is.) (e) For n = m² (odd, gcd(m, d) = 1) the computation of (a) gives (m²/A) = 1 = −1, so
+G_d(m²) = ∅ (= T1); for non-square **n ≡ 1 (mod 4)** with gcd(n, 2d) = 1 and solutions with gcd(a, n) = 1 the same proof
+works with ψ_n := (·/n) (Jacobi), a nontrivial product of genus characters (n ≡ 1 mod 4 is needed for Jacobi reciprocity:
+at n = 15, d = 1 the solution (1, 4, 5, 1) has A = 19 and (19/15) = +1).
 *Proof.* (a) g = [A, 4ad, de] represents A, p ∤ A. By Jacobi reciprocity (p ≡ 1 mod 4, A odd positive) (A/p) = (p/A) =
 ∏_{q^k ∥ A} (p/q)^k. For q | A: q | N_a = p + 4a²d and q ∤ 2ad, so p ≡ −4a²d (mod q) and (p/q) = (−d/q); hence
 (p/A) = (−d/A) (Jacobi). For odd positive A coprime to d, (−d/A) = (−4d/A) (Kronecker), and m ↦ (−4d/m) is a character
@@ -182,7 +195,7 @@ Lemma SR, m(g) ≤ √(d(2p + e)), so every 𝔰 with N(𝔰) < dp/√(d(2p + e_
 i.e. N(𝔰) is itself a good norm A ≡ −1 (mod 4ad) dividing N_a (or a B- or de-norm) with the matching root: **the divisor
 event**. *Proof.* Corollary FR′ of `Z70_CLASS.md` §1.6 (two distinct primitive invertible ideals with norm product < dp lie
 in distinct classes) + Lemma SR. ∎ CERTIFIED: 0 violations of N(𝔰)·m(g) ≥ dp among all class-level (III) hits of item 3
-(W1–W3, 5 values of d, ≈ 4·10⁶ seed ideals in the target genus).
+(W1–W3, 5 values of d, 16 078 910 seed ideals in the target genus — review count).
 
 **Lemma REP (canonical representation fibres are barren).** Let p ≡ 1 (mod 8) be prime, d ≥ 1, and suppose
 p = x² + 4d·a² with a ≥ 1 (the fibre "named" by a representation of p by x² + d·w², w = 2a). Then N_a = p + 4a²d has no
@@ -205,8 +218,10 @@ that is a *fixed* rational function (not chosen from the factorisation of ny + 1
 fibre is plausibly only ±1, and λ = −1 gives x' = (2 − xy)/y ∉ ℤ for y ≥ 3 — so the only uniform fibrewise move would be the
 swap; every other fibrewise move picks a divisor. (Non-fibred maps are tested in §3.4.) Also (PROVED, Lemma P5 of
 LOOSE + direct check): s, τ_xy, τ_yz, μ, μ^s map Triv_n (words with a letter 1) into Triv_n and T_n ∖ Triv_n into itself
-wherever defined. [τ_xy(x, y, 1) is defined only for x = y (then (xy − 1) | (n + y) with n + y − (xy − 1) = y − x), and τ_xy is
-an involution on its domain; μ is defined on Triv only and lands in Triv.]
+wherever defined. [τ_xy keeps the letters x, y (swapped), so a word with x = 1 or y = 1 stays trivial. For (x, y, 1) with
+x, y ≥ 2: n = xy − x − 1, n + y − (xy − 1) = y − x and |y − x| < xy − 1, so τ_xy is defined only for x = y, where it fixes the
+word. τ_xy is an involution on its domain, so no non-trivial word maps to a trivial one. μ is defined on Triv only and lands
+in Triv. (Boundary case found by the review: τ_xy(1, 75, 1) = (75, 1, 2) — trivial, as claimed.)]
 
 **Supplementary pre-registration (item 1b, added after W1–W3 and the screens, before any run of it): canonical
 representation fibres.** Always-present *principal* seeds: the ideals (2a + √−p)·… attached to representations of p.

@@ -61,6 +61,31 @@ def score_alpha(S, G, T, CG, rates):
     pc = 1 - math.exp(l0) if l0 > float('-inf') else 1.0
     return dict(n=len(S), hit=hit, E=E, V=V, cov=int(cov), pcov=pc)
 
+def score_alphaC(S, G, T, CG):
+    """review fix: conditional within-bin randomisation (finite-population hypergeometric per half-octave alpha bin,
+    singleton and pair units separately) -- replaces the independent-Bernoulli variance of score_alpha."""
+    S = set(S) & T
+    Ts, Tp = units(T, CG); Ss, Sp = units(S, CG)
+    bins = {}
+    for w, U in ((1, Ts), (2, Tp)):
+        for u in U:
+            b = (w, int(2 * math.log2(CG.byvec[u][0])))
+            x = bins.setdefault(b, [0, 0, 0, 0])  # N, K, n, hits
+            x[0] += 1; x[1] += (u in G)
+    for w, U in ((1, Ss), (2, Sp)):
+        for u in U:
+            x = bins[(w, int(2 * math.log2(CG.byvec[u][0])))]
+            x[2] += 1; x[3] += (u in G)
+    hit = E = V = l0 = 0.0
+    for (w, b), (N, K, n_, h_) in bins.items():
+        if n_ == 0: continue
+        m, v = hyp(N, K, n_)
+        hit += w * h_; E += w * m; V += w * w * v
+        l0 += lognochance(N, K, n_)
+    pc = 1 - math.exp(l0) if l0 > float('-inf') else 1.0
+    cov = int(any(u in G for u in S))
+    return dict(n=len(S), hit=int(hit), E=E, V=V, cov=cov, pcov=pc)
+
 def two_comp(v, CG):
     out = []
     for x, m in zip(v, CG.cyc):
@@ -112,10 +137,10 @@ def run_one(n, d, item3=True, P3=50):
     qstar = None
     for (q, r) in C.split_primes(n, d, 20000):
         v = CG.vec(C.ideal_form(n, d, q, r)); gv = Gn.of(v)
-        if gv not in genus_min: genus_min[gv] = (q, v)
+        if gv not in genus_min: genus_min[gv] = (q, v, r)
         if len(genus_min) == len({Gn.of(u) for u in CG.byvec}): break
     if Gn.target in genus_min:
-        qstar, vq = genus_min[Gn.target]
+        qstar, vq, rq = genus_min[Gn.target]
         cyc = set()
         for k in (1, 3, 5, 7, 9):
             cyc.add(CG.mul(k, vq)); cyc.add(CG.mul(-k, vq))
@@ -129,12 +154,48 @@ def run_one(n, d, item3=True, P3=50):
         while any(x): x = CG.add(x, vq); o += 1
         rec['cyc_ord'] = o
     base = {v for v in CG.byvec if CG.is2tors(v)}
-    for gv, (q, v) in genus_min.items():
+    for gv, (q, v, r) in genus_min.items():
         base.add(v); base.add(CG.neg(v))
     fam['GEN2'] = {CG.add(x, y) for x in base for y in base}
     rec['fam'] = {k: score(S, G, T, CG) for k, S in fam.items()}
     rates = alpha_rates(G, T, CG)
     rec['famA'] = {k: score_alpha(S, G, T, CG, rates) for k, S in fam.items()}
+    rec['famAC'] = {k: score_alphaC(S, G, T, CG) for k, S in fam.items()}
+    # review fix: generating ideals of the CYC / GEN2 seed classes, and whether a generating ideal is itself natural
+    N4 = d * n
+    gen_ideals = {'CYC': {}, 'GEN2': {}}
+    if qstar is not None:
+        for k in (1, 3, 5, 7, 9):
+            x = lift_root(qstar, rq, k, N4); Nk = qstar ** k
+            gen_ideals['CYC'].setdefault(CG.mul(k, vq), []).append((Nk, x % Nk))
+            gen_ideals['CYC'].setdefault(CG.mul(-k, vq), []).append((Nk, (-x) % Nk))
+    bideals = []
+    for v in CG.byvec:
+        if CG.is2tors(v):
+            a_, b_, c_ = CG.byvec[v]; bideals.append((v, (a_, (b_ // 2) % a_ if a_ > 1 else 0)))
+    for gv, (q, v, r) in genus_min.items():
+        bideals.append((v, (q, r % q))); bideals.append((CG.neg(v), (q, (-r) % q)))
+    for v1, (N1, r1) in bideals:
+        for v2, (N2, r2) in bideals:
+            cls = CG.add(v1, v2)
+            if N1 == 1: idl = (N2, r2)
+            elif N2 == 1: idl = (N1, r1)
+            elif N1 == N2 and r1 == r2 and pari.isprime(N1) and math.gcd(N1, 2 * d * n) == 1:
+                idl = (N1 * N1, lift_root(N1, r1, 2, N4))
+            elif math.gcd(N1, N2) == 1:
+                idl = (N1 * N2, int(pari.chinese(pari.Mod(r1, N1), pari.Mod(r2, N2)).lift()))
+            else:
+                continue
+            gen_ideals['GEN2'].setdefault(cls, []).append((idl[0], idl[1] % idl[0]))
+    sid = {}
+    for k in ('CYC', 'GEN2'):
+        if k not in fam: continue
+        hitc = [v for v in fam[k] & T if v in G]
+        n_seed = sum(1 for v in hitc if any(I in NR for I in gen_ideals[k].get(v, [])))
+        n_red = sum(1 for v in hitc if mnat.get(v) == CG.byvec[v][0])
+        n_noideal = sum(1 for v in hitc if not gen_ideals[k].get(v))
+        sid[k] = dict(hits=len(hitc), seed_ideal_natural=n_seed, reduced_natural=n_red, no_generating_ideal=n_noideal)
+    rec['seedid'] = sid
     # data for the pooled exact-alpha null and the hit decomposition (added before W3; does not change registered stats)
     Ts, Tp = units(T, CG); ah = {}
     for w, U in ((1, Ts), (2, Tp)):
@@ -152,7 +213,7 @@ def run_one(n, d, item3=True, P3=50):
                 lst.append([al, w, int(u in G), mnat.get(u, 0)])
         seedinfo[k] = lst
     rec['seeds'] = seedinfo
-    rec['base_primes'] = sorted(q for gv, (q, v) in genus_min.items())
+    rec['base_primes'] = sorted(q for gv, (q, v, r) in genus_min.items())
     # ---- item 3: P3-smooth split ideals of norm <= X (amended after smoke test: X = min(dn, 64 sqrt(dn)),
     #      cumulative profile at thresholds sqrt(dn) * 2^j, j = -4..6)
     if item3:
@@ -200,7 +261,12 @@ def run_one(n, d, item3=True, P3=50):
             Cres = Rj - Iall
             sc = score(Cres, G - Iall, T - Iall, CG)
             sa = score_alpha(Cres, G - Iall, T - Iall, CG, rates3)
-            prof[j] = dict(I=len(Ij), reach=len(Rj), n=sc['n'], hit=sc['hit'], E=sc['E'], V=sc['V'], EA=sa['E'], VA=sa['V'])
+            # review fix: threshold-local censoring (only identities already reached at X_j) + conditional alpha null
+            CresL = Rj - Ij
+            scL = score(CresL, G - Ij, T - Ij, CG)
+            saL = score_alphaC(CresL, G - Ij, T - Ij, CG)
+            prof[j] = dict(I=len(Ij), reach=len(Rj), n=sc['n'], hit=sc['hit'], E=sc['E'], V=sc['V'], EA=sa['E'], VA=sa['V'],
+                           nL=scL['n'], hitL=scL['hit'], EL=scL['E'], VL=scL['V'], EAL=saL['E'], VAL=saL['V'])
         rec['it3'] = dict(nseeds=cnt, nT=len(seeds), X=X, Icl=len(Iall), firstI=firstI, firstIII=firstIII,
                           frviol=frviol, minnat=(min(mnat.values()) if mnat else None), prof=prof)
     rec['sec'] = round(time.time() - t0, 2)
@@ -214,11 +280,13 @@ if __name__ == '__main__':
         ns = [int(p) for p in pari.primes([P0, P1]) if int(p) % 24 == 1]
     else:
         ns = [int(x) for x in sys.argv[4:]]
-    with open(out, 'a') as fo:
+    if os.path.exists(out): sys.exit('output exists: ' + out)
+    with open(out, 'w') as fo:
         for n in ns:
             if n % d == 0 and d > 1: continue
             try:
                 rec = run_one(n, d, item3, P3)
             except ValueError as ex:
+                if 'h too large' not in str(ex): raise
                 rec = dict(n=n, d=d, skipped=str(ex))
             fo.write(json.dumps(rec) + '\n'); fo.flush()
