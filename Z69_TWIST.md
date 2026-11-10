@@ -623,13 +623,18 @@ same root multiply.)
 **Lemma CS (complement swap; PROVED).** Let 4ad ∣ n − 1. Then N_a ≡ 1 (mod 4ad), so A ↦ e = N_a/A is an involution
 of the divisors ≡ −1 (mod 4ad) of N_a, i.e. of the solutions with first letter a, and
   class[A, 4ad, de] · class[e, 4ad, dA] = class[Ae, 4ad, d] = class[d, 0, n] =: T_d
-(Dirichlet composition of concordant forms, then x ↦ x + 2ay). T_d has order ≤ 2 and T_1 = 1. Hence for d = 1 the
-complement is the inverse class (two different solutions, one class), and for d > 1: **g ∈ F_a with
-4ad ∣ n − 1 ⟹ T_d·g ∈ G_d(n)** (the complement gives T_d·g⁻¹, and G is inversion-closed).
+(Dirichlet composition of concordant forms — gcd(A, 4ad) = 1 suffices, A and e need not be coprime — then
+x ↦ x + 2ay). gcd(d, n) = 1 here, so [d, 0, n] is primitive; T_d has order ≤ 2, T_1 = 1, and T_d ≠ 1 for d, n > 1.
+Hence for d = 1 the complement has the inverse class g⁻¹ (the same class as the b-side solution (b, a, c): two
+different solutions, (a, b′, c′) and (b, a, c), with one class), and for d > 1: **g ∈ F_a with 4ad ∣ n − 1 ⟹
+T_d·g ∈ G_d(n)** (the complement gives T_d·g⁻¹, and G is inversion-closed). Put
+  C_d(n) := ⋃_{a : 4ad ∣ n−1} (F_a ∪ F_a⁻¹);  then T_d·C_d(n) = C_d(n), and T_d·G = G whenever G = C_d(n).
+CS does not make G itself T_d-invariant (p = 20113, d = 3: |G| = 10, O(T₃) = 8).
 
 Exact check (`scripts/z69_twist_i17d.py`, `data/z69/twist/r2/i17d_lemmas.txt`; p ≡ 1 (8) in [20000, 24000)):
-CS: 0 violations for d = 1, 3, 5; Σ O(T₃) = 76 and Σ O(T₅) = 24, **all** of it in CS fibres; T_d·G = G at exactly the
-5 (d = 3) resp. 3 (d = 5) primes all of whose classes lie in CS fibres (all five d = 3 primes are ≡ 1 (24)).
+CS: 0 violations for d = 1, 3, 5; Σ O(T₃) = 76 and Σ O(T₅) = 24, **all** of it inside C_d(p) (half of it, 38 resp. 12,
+in the fibres F_a themselves, the other half in their inverses — internal review); T_d·G = G at exactly the 5 (d = 3)
+resp. 3 (d = 5) primes with G = C_d(p) (all five d = 3 primes are ≡ 1 (24)).
 DL: 182 + 9 + 2 instances, 0 violations.
 
 **Profile data** (`scripts/z69_twist_i17b.py`, `data/z69/twist/r2/i17b_*.txt`; R = 200; Z as registered).
@@ -642,8 +647,15 @@ DL: 182 + 9 + 2 instances, 0 violations.
 | d = 1, hard list (35; G = ∅ at 37, 1621, 3361) | 32 | 1 (5569, \|G\| = 4) | 0.50, 1.00 | −1.0, −1.2, +2.7, +2.0 | −0.4, −1.0, +0.3, +1.3 |
 | d = 3, [20000, 24000) | 82 (17 more with \|G\| < 2) | 5 | 0.50, 1.00 | **+6.2**, **+6.3**, −0.7, −1.1 | **+5.6**, **+5.6**, +0.1, +0.2 |
 | d = 5, [20000, 24000) | 60 | 3 | 0.50, 1.00 | **+4.3**, **+4.3**, −1.9, −1.5 | **+4.1**, **+4.6**, −1.8, −0.9 |
+| d = 2 (even d; added after the review), [20000, 24000) | 89 | 9 | 0.50, 1.00 | **+13.3**, **+8.3**, −3.0, −1.0 | **+10.1**, **+6.1**, **−3.7**, −0.7 |
+| d = 3 / d = 5, hard list below 10⁵ (19 primes) | 4 / 12 (the rest \|G\| < 2) | — | — | +2.0, +2.1, −0.9, −1.7 / −0.7, −0.5, 0.0, +0.7 | +1.8, +2.0, −0.8, −1.7 / −0.7, −0.6, +0.1, +0.3 |
+| d = 1, the 93 composite (★)-zeros below 10⁵ | 80 (13 with \|G\| < 2) | 7 (orders 2, 2, 2, 2, 3, 3, 4) | 0.50, 1.00 | +0.1, +0.6, +0.3, +0.4 | +1.2, +0.7, +0.7, +1.2 |
 
-Sanity: Σ L1 on the first window is 378, the round-1 figure. The round-1 J-avoidance is a pure norm effect
+Implementation notes: L3 is computed over the first three *distinct* non-identity classes (modulo inversion) of
+split primes, which differs from the registered "three least primes" when two of them give the same class (it
+changes the hard-list entries 157 and 577, not the window samples); N1 conditions on the numbers of one- and
+two-element inversion orbits; for composite n the good classes can meet several genus cosets and both nulls keep
+the count per coset. Sanity: Σ L1 on the first window is 378, the round-1 figure. The round-1 J-avoidance is a pure norm effect
 (order-2 overlap A2: Z = −7.8 against N1, −0.8 against N2). Over all d = 1 samples: stab > 1 at 0 of 170 primes with
 |G| ≥ 6; M/|G| > ½ at 22 of 111 primes with |G| ≥ 12.
 
@@ -656,12 +668,13 @@ Sanity: Σ L1 on the first window is 378, the round-1 figure. The round-1 J-avoi
   occurs for d = 1 beyond one |G| = 4 coincidence.
 * As registered, the structure was then identified and proved: it is Lemmas DL and CS.
 
-**The lemmas account for the excess (EVIDENCE; partly post hoc).** (i) d = 3, 5: with the order-2 translations
-left out the max-overlap excess disappears (Z_Mx = +1.5, +1.6 against N2) and the order-2 overlap carries it
-(Z_A2 = +8.5, +4.5); all of O(T_d) is in CS fibres (exact, above). A residual energy excess remains for d = 3
-(Z_Ex = +3.6). (ii) d = 1 (`scripts/z69_twist_i17c.py`, `data/z69/twist/r2/i17c_*.txt`): against the registered
-finer null N2w (μ-rank windows ± 4) the excess is Z_L1 = +5.2, +3.8, +4.2 on the three windows. Deleting the
-ordered pairs of G that lie in a common fibre F_a ∪ F_a⁻¹ (post hoc) gives
+**How much of the excess the lemmas explain (EVIDENCE; partly post hoc; not a calibrated decomposition).**
+(i) d = 2, 3, 5: with the order-2 translations left out the max-overlap excess disappears (Z_Mx = +1.5, +1.5, +1.6
+against N2) and the order-2 overlap carries it (Z_A2 = +13.1, +8.5, +4.5); all of O(T_d) is inside C_d(p) (exact,
+above; checked for d = 3, 5). A residual energy excess remains for d = 3 (Z_Ex = +3.6; +2.5 for d = 2, 5) and was
+**not** followed up with a finer null. (ii) d = 1 (`scripts/z69_twist_i17c.py`, `data/z69/twist/r2/i17c_*.txt`):
+against the registered finer null N2w (μ-rank windows ± 4) the excess is Z_L1 = +5.2, +3.8, +4.2 on the three
+windows. Deleting the ordered pairs of G that lie in a common fibre F_a ∪ F_a⁻¹ (post hoc) gives
 
 | window | observed M / E / L1 / L3 | same-fibre pairs removed | N2w null mean | L1 counts that are Lemma-DL pairs (A, ℓA) |
 |---|---|---|---|---|
@@ -669,19 +682,24 @@ ordered pairs of G that lie in a common fibre F_a ∪ F_a⁻¹ (post hoc) gives
 | [200000, 202000) | 356 / 175628 / 193 / 424 | 304 / 141368 / 140 / 336 | 325 / 170331 / 144 / 335 | 36 (excess 49) |
 | [10⁶, 10⁶ + 1000) | 187 / 131294 / 112 / 204 | 158 / 107384 / 76 / 156 | 161 / 120078 / 72 / 149 | 30 (excess 40) |
 
-After removal every statistic is at or below the null mean. (Removing pairs can only lower the statistics, and
-the null was not thinned correspondingly, so this shows that the excess is *carried by* same-fibre pairs, not
-that the residual is null-distributed. A "cube shuffle" null was tried and discarded as invalid — the fibres are
-coupled through a ↔ b — see the script header.)
+Deleting same-fibre pairs removes most of the excess: the residual is below the null mean on the first two
+windows and slightly above it for L1 and L3 on the third (76 vs 72, 156 vs 149). This shows that the excess is
+largely *carried by* same-fibre pairs; it is not a calibrated test — pairs were deleted from the observation and
+not from the null — so it does not show that DL and CS exhaust the structure. (A "cube shuffle" null was tried
+and discarded as invalid — the fibres are coupled through a ↔ b — see the script header.)
 
 **Does the structure force G_d(p) ≠ ∅? No (PROVED scope).** DL and CS are maps on F_a: they produce a good class
 from a good class. G_d(n) ≠ ∅ ⟺ some N_a = n + 4a²d has a divisor ≡ −1 (mod 4ad), and neither lemma supplies one.
-CS makes |F_a| even whenever 4ad ∣ n − 1 and N_a is not a square (0 is even); DL makes F_a a slice of the divisor
-lattice of N_a. The translations are by classes that depend on n (primes ℓ ∣ N_a; T_d), there is no fixed subgroup,
+CS makes the number of solutions with first letter a even whenever 4ad ∣ n − 1 and N_a is not a square (0 is
+even); DL makes F_a the image of a slice of the divisor lattice of N_a. The translations are by classes that depend on n (primes ℓ ∣ N_a; T_d), there is no fixed subgroup,
 and all of this holds verbatim for every n ≡ 1 (4), in particular where G = ∅ (odd squares; 37, 1621, 3361 for d = 1).
-*Verdict for I17:* the "existential class-set stability" twist is resolved: G_d(p) is not a union of cosets; its
-beyond-norm translation structure is real, is exactly the divisor-fibre structure (Lemmas DL, CS), and is not a
-forcing mechanism. Scope: d ∈ {1, 3, 5}; windows as listed; the attribution of the d = 1 excess is statistical.
+This is a statement about these two symmetries, not an impossibility theorem for other uses of the structure.
+*Verdict for I17:* G_d(p) is in general not a union of cosets of a nontrivial subgroup (exceptions: the listed
+primes with G = C_d(p), d > 1, and small |G|); it has real translation structure beyond its norm profile; two
+proved symmetries (DL, CS) account for identifiable parts of it — all of the order-2 overlap for d = 3, 5 and most
+of the d = 1 excess — and neither produces a first solution. Unexplained remainder: the d = 3 residual energy and
+the small positive d = 1 residual on the 10⁶ window. Scope: d ∈ {1, 2, 3, 5}; the windows listed; EVIDENCE for the
+attribution, PROVED for the lemmas.
 
 ### 9.2 I24 — adaptive transport. The reviewer's test has coverage exactly 0, with a two-line proof; K-I24b did not fire as worded.
 
@@ -697,27 +715,34 @@ t − t′ < (4d(d+1) + 4d(d+1))/(4d(d+1)) = 2.
 Lower bound: 4(d+1)t′ = n + s′ ≤ n + t′ + 1 gives t′ ≤ (n+1)/(4d+3), so s′d ≤ ((n+1)/(4d+3) + 1)d < n + 4d(d+1), hence
 t − t′ > −1. So t − t′ ∈ {0, 1}, and both are excluded by the Corollary. ∎
 Data (`scripts/z69_twist_i24b.c`, `i24c.c`, `data/z69/twist/r2/i24b_*.txt`, `i24c_1e8.txt`):
-* registered sample (primes p ≡ 1 (4) below 2·10⁵): 96 414 solutions, 28 443 eligible, **0 transported**; control
-  arm (from the non-solution fibre d + 7): 27 hits in 28 392 (z = −5.2). To 10⁸ (not registered): 0 of 20 102 195
+* registered sample (primes p ≡ 1 (4) below 2·10⁵): 96 414 solutions, 28 443 "eligible", **0 transported**;
+  control arm (from the shifted fibre d + 7 with its natural t₀ — an unconditioned control: 450 of these source
+  fibres are themselves solutions): 27 hits in 28 392 (z = −5.2). "Eligible" (⌈p/4d₁⌉ ∈ {t − 1, t, t + 1}) is a
+  heuristic filter, not a necessary condition for a hit (p = 181, d₁ = 2, t = 26 is a counterexample); no control
+  hit lies outside it in this sample (internal review). To 10⁸ (not registered): 0 of 20 102 195
   against 1 140 of 19 648 785.
-* lag profile, solutions with 4d² ≥ p, p ≤ 10⁸ (18 836 141 solutions; exploratory): fibre d + k non-empty at rate
+* lag profile, solutions with 4d² ≥ p and d > 8, p ≤ 10⁸ (18 836 141 solutions; exploratory): fibre d + k non-empty at rate
   0 (k = ±1), 2.3·10⁻⁵ (±2), 3.9·10⁻⁵ (±3), 4.0·10⁻⁵ (±4), 4.8·10⁻⁵ (±5), 5.4·10⁻⁵ (±6…8).
+Lemma AE is not sharp: for n ≤ 2·10⁵ adjacent non-empty fibres occur 33 584 times, always with n > 4d(d+1), first
+at n = 41, d = 1 (internal review).
 **K-I24b as registered** ("transported fraction within 3σ of control ⟹ no transport") **did not fire**: the
 transported fraction is exactly 0 and significantly *below* control — an exclusion, not a null. The exclusion
 is the trivial one of the t-form: each even t serves exactly one fibre d(t), and consecutive d share t.
 **In the t-coordinate** (`scripts/z69_twist_i24t.c 20000000 1000`, `data/z69/twist/r2/i24t_2e7.txt`; exploratory):
-given a solution at t ≥ 1000, the events at t + 2k, |k| ≤ 8, occur 2.45 times as often as for the local-class null
-(p replaced by the next prime ≡ p mod 6720): 112 431 against 45 931. This enhancement is the same-d-fibre
-multiplicity (two factorisations of 4dp + 1 have nearby t): counting only hits in a *different* fibre gives 25 635
-against 31 399 (ratio 0.82), a deficit that reflects the position of t at the bottom of its block of d (Assessment;
-not modelled). Finally (PROVED, trivial): whether (t, d, s) and (t′, d′, s′) are both solutions is a p-free
+given a solution at t ≥ 1000, the events at t + 2k, |k| ≤ 8, occur 2.45 times as often as for the local-class
+comparison (p replaced by the next prime ≡ p mod 6720): 112 431 against 45 931; counting only hits in a
+*different* fibre gives 25 635 against 31 399 (ratio 0.82). These two ratios are descriptive: the comparison
+prime does not satisfy E_t (it does in 12 532 of 9 828 471 instances), so this is not a conditioned null, and the
+printed Poisson z ignore dependence. *Assessment:* the surplus sits in same-fibre hits (two factorisations of
+4dp + 1 have nearby t); the cross-fibre deficit is plausibly the position of t at the bottom of its block of d,
+but that was not modelled and no calibrated cross-fibre correlation test was done. Finally (PROVED, trivial): whether (t, d, s) and (t′, d′, s′) are both solutions is a p-free
 condition, F(a, b, d) = F(a′, b′, d′) for F = 4abd − a − b; a transport rule is a parametrised family of collisions
 of F. None was found; none is excluded.
 *Verdict for I24:* the specified adjacent-d transport (t′ = t − 1, t, t + 1) is impossible (PROVED); neighbouring
 fibres repel in d and cluster in t for elementary reasons; no cross-fibre correlation beyond those was seen. Bounded
 exploration, not a general no-go.
 
-### 9.3 I12 — target-only cofactor experiment. K-I12b fired (pooled r = 1, 2, 3); the registered r = 5 design has no power.
+### 9.3 I12 — target-only cofactor experiment. The amended K-I12b criterion is met nominally (pooled r = 1, 2, 3); the registered r = 5 design has no power.
 
 `scripts/z69_twist_i12b.py 200 1,2,3,5`, `data/z69/twist/r2/i12b.txt`; 40 primes near 10¹⁰ (the 12 R₈-zero primes
 and 28 primes ≡ 1 (840)), 200 forced shifts each, control = u + 1.
@@ -730,29 +755,68 @@ and 28 primes ≡ 1 (840)), 200 forced shifts each, control = u + 1.
 | 5 (registered) | forced / control | 250.9 / 19.0 | 0 / 0 | 0 / 0 | 0.016 / 0.001 | — | 7·10⁻⁶ / 3·10⁻⁷ |
 
 Pooled r ∈ {1, 2, 3}: forced 354 hits against Σλ = 403.4 (z = −2.5); control 135 against 174.4; ratio of
-(hits/Σλ), forced/control: 1.13 ± 0.12. Both registered conditions hold (|z| < 3; ratio within 3σ of 1): **forcing
-smooth factors into p + u raises the number of target hits exactly as much as it raises the divisor count, and
-no more.** Target hits do occur at coverage κ ≈ 1–4 % (the review's point that covering the group is not needed),
+(hits/Σλ), forced/control: 1.13 ± 0.12. Both conditions of the amended criterion hold nominally (|z| < 3; ratio within 3σ of 1): **no target-specific
+enhancement was detected under this heuristic calibration.** This is non-rejection, not equivalence: the
+interval 1.13 ± 3·0.12 allows a sizeable effect; the pooled arms reuse shifts (22 992 distinct (p, u) among
+24 000, which raises the forced-arm Poisson variance from 403 to about 515); and every arm undershoots λ, so the
+uniform-residue heuristic is itself uncalibrated (internal review). By group: the 12 R₈-zero primes give 130
+forced hits against Σλ = 195.6, the 28 comparison primes 224 against 207.7. Target hits do occur at coverage κ ≈ 1–4 % (the review's point that covering the group is not needed),
 but at the heuristic rate. The clause "hits from D alone = 0" is false at r = 1 (15 hits, at the smallest u, where
 a power of the forced prime is itself ≡ −1 mod 4u — the covering classes of the round-1 identity); 1 at r = 2.
 With five forced primes Σλ = 0.016: the modulus 4u outruns the forced divisors, which is I12's counting objection
-in numbers. *Verdict for I12:* no target-specific gain (EVIDENCE; 40 primes near 10¹⁰, one Q-family, one engine).
+in numbers. *Verdict for I12:* no target-specific gain detected (EVIDENCE, bounded: 40 primes near 10¹⁰, one Q-family, one
+engine, heuristic null).
 
 ### 9.4 Falsifier table for round 2 (final) and verdict
 
 | screen | round-2 objects |
 |---|---|
 | **F1 odd squares** | G_d(m²) = ∅ for d = 1, 3, 5 and all odd m ≤ 199 (CERTIFIED, `i17b_squares.txt`). Lemmas DL, CS, PAR, AE use no primality and no non-squareness; they are statements about solutions that exist and are vacuous at squares. Nothing in round 2 claims positivity. |
-| **F2 numerator 8 / C-even** | No positivity claim. PAR concerns t = uB (even), not C; the I12 sample contains all 12 R₈-zero primes and behaves like the 28 controls. |
-| **F3 composites** | DL, CS, PAR, AE hold for every n ≡ 1 (4). The d = 1 profile at G = ∅ cases (37, 1621, 3361) is empty; a structure that is a symmetry of an existing solution set cannot distinguish primes from the composite zeros. |
-| **F4 known zeros** | The hard list is in the I17 sample: no stabiliser, Z against N2 all below 1.3 in absolute value except Z_A2 = +2.5; nothing special at 409, 2521, 21841 or the (★)-zero primes. |
+| **F2 numerator 8 / C-even** | No positivity claim. DL and CS are identities valid for every d, even d included (profile for d = 2: the same order-2 structure, stronger, Z_A2 = +13) — they could not distinguish the C-even line, and they do not need to, since they assert no positivity. The registered recomputation for the sub-family "c = 1, d even" was not done (with c = 1 each fibre has one divisor and the lemmas are vacuous); d = 2 with all c was run instead. PAR concerns t = uB (even), not C. I12: the 12 R₈-zero primes are in the sample (130 forced hits against Σλ = 195.6; the 28 others 224 against 207.7 — not shown to behave alike). |
+| **F3 composites** | DL, CS, PAR, AE hold for every n ≡ 1 (4). Profile at the 93 composite (★)-zeros below 10⁵ (d = 1; registered, run after the review): G₁ = ∅ or a single class at 13 of them; at the other 80 no excess against either null (all \|Z\| ≤ 1.2) and 7 exact stabilisers of order 2–4 (small sets, several genera). A symmetry of an existing solution set cannot distinguish primes from composite zeros. |
+| **F4 known zeros** | The hard list is in the I17 sample (d = 1; d = 3, 5 below 10⁵, where most have \|G\| < 2): no nontrivial stabiliser among cases with \|G\| ≥ 6, one of order 2 at 5569 (\|G\| = 4); Z against N2 below 1.3 in absolute value except Z_A2 = +2.5 (d = 1) and +3.8 (d = 3, four primes). Nothing special seen at 409, 2521, 21841 or the (★)-zero primes. |
 
 **Round-2 verdict.** The cross-review's main objection is upheld and resolved: the round-1 "no structure" reading
 of I17 was wrong — G_d(p) has significant translation structure beyond its norm profile — and that structure is
-now identified and proved (divisor-lattice translations DL; complement swap CS, which for d > 1 and 4ad ∣ p − 1
-gives T_d-invariance and exact stabilisers of order 2). It is a symmetry of the solution set, valid for all
-n ≡ 1 (4), and does not force G ≠ ∅. I24's specified adjacent transport is impossible by parity and size
-(PAR, AE); I12's cofactor experiment shows no target-specific gain. **No forcing mechanism; not a HOT LEAD; ES is
+partly identified: two proved symmetries (divisor-lattice translations DL; complement swap CS, which for d > 1
+gives T_d-invariance of C_d(p) and exact stabilisers of order 2 when G = C_d(p)) account for identifiable parts of
+it; a remainder is unexplained. Both are symmetries of an existing solution set, valid for all n ≡ 1 (4), and
+neither produces a first solution. I24's specified adjacent transport is impossible by parity and size
+(PAR, AE); I12's cofactor experiment detects no target-specific gain (non-rejection). **No forcing mechanism; not a HOT LEAD; ES is
 OPEN.** Not done in round 2: I6 (no completion law attempted), I9 with disjoint factor-two-matched controls, the
-I5 map search on T₇₃ / T₄₀₉, IDEAA #10 with an explicit d-selection rule; d = 3, 5 only on one window; the
-attribution of the d = 1 energy excess to same-fibre pairs is by deletion, not by a fitted null.
+I5 map search on T₇₃ / T₄₀₉, IDEAA #10 with an explicit d-selection rule; d = 2, 3, 5 only on one window (plus a
+nearly empty hard list); no finer null for the d = 3 residual energy; the registered "c = 1, d even" profile; the
+attribution of the d = 1 excess to same-fibre pairs is by deletion, not by a fitted null; the I12 statistics are
+not covariance-aware; no calibrated cross-fibre test for I24.
+
+### 9.5 Round-2 review log
+
+**Internal hostile review** (deep-mode reviewer subagent via the `review` tool on commits `a2679adb1..78309448d`;
+reviewer model reported as `openai/gpt-6-astra`; no provider / auth / quota error in round 2). No FATAL finding.
+Survived independent checking: the divisor/solution bijection, primitivity, DL, the CS composition identity (by
+ideal-lattice composition, including gcd(A, e) > 1), the group machinery (11 880 random products; discriminants
+−12p and −20p handled correctly), all G_d(p) and least-prime overlaps on the 99-prime window for d = 1, 3, 5, the
+DL counts 182 / 9 / 2, the registered-outcome readings (K-I17b not fired; H-COSET fired by energy and by the d = 3
+stabiliser clause, 2/31), PAR, the Corollary and every inequality of AE (brute force to n ≤ 2·10⁵: 33 584 adjacent
+non-empty pairs, none with n ≤ 4d(d+1)), all four C data sets, all I12 arms, G_d(m²) = ∅; commit order of the
+registration and of the I12 amendment before the data. Findings, all applied:
+1. MAJOR — "after removal every statistic is at or below the null mean" was false on the 10⁶ window (L1 76 vs 72,
+   L3 156 vs 149), and "exactly the divisor-fibre structure" overclaimed an uncalibrated deletion: reworded
+   (identifiable parts explained; remainder stated; d = 3 residual energy not followed up).
+2. MAJOR — "all overlap lies in CS fibres" used inversion-enlarged fibres without saying so: C_d(n) defined, the
+   38 / 76 and 12 / 24 split stated, T_d-invariance claimed for C_d(n) only (p = 20113 as the counterexample for G);
+   "two solutions, one class" made precise; "not a union of cosets" qualified; evenness stated for solutions, not
+   classes.
+3. MAJOR — I12: "exactly as much and no more" replaced by non-rejection wording; duplicate shifts, undershoot of
+   λ and the per-group split recorded.
+4. MAJOR — registered follow-ups missing and F4 contradicted §9.1: the d = 3, 5 hard-list runs and the composite
+   (★)-zero profile were run and added; the "c = 1, d even" profile is listed as not done (d = 2, all c, run
+   instead); F4 and F2 cells corrected.
+5. MINOR — L3 as implemented differs from the registration at 157 and 577: documented. 6. MINOR — the I24 control
+   is unconditioned (450 source fibres are solutions) and "eligible" is not a necessary condition: stated.
+   7. MINOR — the t-coordinate comparison is not a conditioned null: both ratios marked descriptive, explanation
+   marked Assessment; the d > 8 restriction of the lag profile stated. 8. MINOR — latent duplicate-orbit bug in
+   the N2w sampler: fixed (redraw on exhaustion, uniqueness asserted); all three windows rerun, outputs identical.
+Added after this review and not re-reviewed: the d = 2 profile, the d = 3, 5 hard-list and composite-zero rows
+(script change: several genus cosets for composite n; prime outputs verified unchanged), and the wording changes
+above.

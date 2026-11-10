@@ -66,11 +66,14 @@ def analyse(p,R,W,rng):
     gidx=[i for i,o in enumerate(orbs) if o[0] in Xs]
     acc={s:[] for s in ('M','E','L1','L3')}
     for _ in range(R):
-        used=set(); Y=[]
-        for i in gidx:
-            cand=[j for j in range(max(0,i-W),min(len(orbs),i+W+1)) if j not in used and len(orbs[j])==len(orbs[i])]
-            j=rng.choice(cand) if cand else i
-            used.add(j); Y.extend(orbs[j])
+        while True:                      # redraw on exhaustion, so that Y is always a set of |G| distinct classes
+            used=set(); Y=[]; ok=True
+            for i in gidx:
+                cand=[j for j in range(max(0,i-W),min(len(orbs),i+W+1)) if j not in used and len(orbs[j])==len(orbs[i])]
+                if not cand: ok=False; break
+                j=rng.choice(cand); used.add(j); Y.extend(orbs[j])
+            if ok: break
+        assert len(set(Y))==len(Y)==k
         st=stats(G,Y,tl)
         for s in acc: acc[s].append(st[s])
     n2w={s:(sum(v)/R,(sum(x*x for x in v)/R-(sum(v)/R)**2)**0.5) for s,v in acc.items()}

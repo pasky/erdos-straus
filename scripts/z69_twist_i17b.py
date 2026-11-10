@@ -3,9 +3,11 @@
 # For every class t:  O(t) = #{g in G : t*g in G}  (autocorrelation of G).  Statistics (pre-registered, Z69_TWIST §9):
 #   stab = #{t : O(t) = |G|} (order of the stabiliser),  M = max_{t != 1} O(t),  E = sum_{t != 1} O(t)^2,
 #   L1 = O(class of a prime ideal over the least split prime l whose class lies in the principal genus),
-#   L3 = sum of O over the three least such primes.
+#   L3 = sum of O over the first three DISTINCT non-identity classes (modulo inversion) met among such primes
+#        (this differs from "the three least primes" when two of them give the same class, e.g. p = 157, 577).
 # Nulls (R replicates each), both inversion-symmetric, drawn inside the genus coset containing G:
-#   N1 uniform;  N2 norm-matched: same number of inversion-orbits as G in every dyadic bin of mu(g),
+#   (for composite n, G can meet several genus cosets; both nulls then keep the number of orbits per coset)
+#   N1 uniform (same numbers of 1- and 2-element inversion orbits);  N2 norm-matched: same number of inversion-orbits as G in every dyadic bin of mu(g),
 #   mu(g) = least value coprime to 2d among the three smallest values (a, c, a-|b|+c) of the reduced form (else a).
 import sys, math, random
 sys.path.insert(0,'scripts')
@@ -82,16 +84,24 @@ def analyse(p,d,R,rng):
     if len(S)<2: return dict(p=p,d=d,k=len(S))
     G=Grp(D); X=[G.coords[f] for f in S]
     H=set(G.add(u,u) for u in G.coords.values())            # squares = principal genus
-    x0=X[0]; assert all(G.sub(x,x0) in H for x in X), "good classes not in one genus"
-    pool=[u for u in G.coords.values() if G.sub(u,x0) in H]
-    # inversion orbits of the pool (the genus coset is inversion-stable because G is)
+    # genus cosets met by G (one for prime n; several are possible for composite n).  lab = index of the coset.
+    reps=[]
+    def lab(u):
+        for i,r in enumerate(reps):
+            if G.sub(u,r) in H: return i
+        return -1
+    for x in X:
+        if lab(x)<0: reps.append(x)
+    pool=[u for u in G.coords.values() if lab(u)>=0]
+    # inversion orbits of the pool (each genus coset is inversion-stable)
     seen=set(); orbs=[]
     for u in pool:
         if u in seen: continue
         v=G.negd[u]; seen.add(u); seen.add(v); orbs.append((u,) if u==v else (u,v))
     Xs=set(X); assert all(G.negd[x] in Xs for x in X), "G not inversion-closed"
     gorb=[o for o in orbs if o[0] in Xs]
-    def bin_(o): return (int(math.log2(mu(G.form[o[0]],d))), len(o))
+    olab={o:lab(o[0]) for o in orbs}
+    def bin_(o): return (olab[o], int(math.log2(mu(G.form[o[0]],d))), len(o))
     # translations by small split primes whose class is a square
     tl=[]; l=3
     while len(tl)<3 and l<10**5:
@@ -102,9 +112,10 @@ def analyse(p,d,R,rng):
     obs=stats(G,X,tl)
     by={}
     for o in orbs: by.setdefault(bin_(o),[]).append(o)
-    need=Counter(bin_(o) for o in gorb); typ=Counter(len(o) for o in gorb)
-    bylen={1:[o for o in orbs if len(o)==1],2:[o for o in orbs if len(o)==2]}
-    out=dict(p=p,d=d,h=G.h,m=len(pool),k=len(X),r=G.r,obs=obs)
+    need=Counter(bin_(o) for o in gorb); typ=Counter((olab[o],len(o)) for o in gorb)
+    bylen={}
+    for o in orbs: bylen.setdefault((olab[o],len(o)),[]).append(o)
+    out=dict(p=p,d=d,h=G.h,m=len(pool),k=len(X),r=G.r,obs=obs,ncos=len(reps))
     # how norm-driven is G: fraction of G among the k classes of smallest mu
     ranked=sorted(pool,key=lambda u:mu(G.form[u],d)); out['lowmu']=len(Xs&set(ranked[:len(X)]))/len(X)
     for name in ('N1','N2'):
