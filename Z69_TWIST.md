@@ -1,4 +1,4 @@
-# Z69_TWIST — pushing the surviving twists of the z69 ideation lanes: all ten die or reduce; by-product = Vieta-descent sterility theorems for Type I; no mechanism, not a HOT LEAD
+# Z69_TWIST — pushing the surviving twists of the z69 ideation lanes: no forcing mechanism found (tested proposals killed, reduced, or left unresolved); by-product = fixed-gap Vieta-descent sterility theorems for Type I; not a HOT LEAD
 
 **ES is OPEN. Nothing here proves or disproves it.** Status: final draft (verdict §6: **narrowed / dead on the
 triaged twists**; no forcing mechanism found).
@@ -53,12 +53,14 @@ truncation Lemma T it does, at 36 primes (§3).
 | **I23** twisted trace at √p | every ES-solvable p has a triple with a twisted lift | K-I23 fired: 36 of the 37 primes p ≡ 1 (4) below 400 provably have no twisted lift (Lemma T + finite search); p = 5 has one (§3) | **dead as universal mechanism (PROVED at those primes)** |
 | **I24** cross-d transport | the d ↦ d + 1 lattice map carries solutions | **proved** to be the K1 t-form: (★) ⟺ ∃ t, a ∣ t: a + t/a ≡ −p (mod 4t) (§3) | **reduces (PROVED)**; no transport found |
 | **I5** non-affine involution | a cross-slice involution with controllable fixed points | Lemmas P, P′, Remark C + census (§3): no prime-forcing parity law; on the odd set O_p the idea fails at 154 primes; the Vieta map ι of §4 is a cross-n involution for Type I but it moves n | **open in general; nothing found** |
-| **I6** mock completion | G(q) = Σ q^{4abd−a−b} has a GL₂ (mock) modular completion | no numerical test; fibrewise the series is ½(Maass weight-0 Eisenstein − holomorphic weight-1 Eisenstein), nothing to complete (§3) | **no content fibrewise (PROVED decomposition); sum over d untested; Assessment: low** |
+| **I6** mock completion | G(q) = Σ q^{4abd−a−b} has a GL₂ (mock) modular completion | no numerical test; PROVED character / divisor-sum decomposition r_d = ½(E_d − O_d) (§3); no completion or transformation law established, fibrewise or after summing over d | **unresolved; Assessment: low priority** |
 | **I12** target-only forcing | CRT-forced smooth part of p + u hits −1 (mod 4u) | algebra: the forced part is exactly the C-form covering class (§3) | **reduces (PROVED)** to covering |
 
 **Blunt summary of the triage.** None of the ten items yields a mechanism that forces a tied divisor event. Two
 items became theorems of the *opposite* kind (sterility of Type I slices: #11, I10); I23 is refuted as a universal
-mechanism at 36 explicit primes; I9 and I17 show no signal in the tests run (EVIDENCE, with the stated scope);
+mechanism at 36 explicit primes; I9 detects no separation; I17 rejects exact invariance under the two tested
+translations, and its overlap pattern is qualitatively reproduced by small-norm selection (EVIDENCE; other
+translations and d > 1 untested);
 I24 and I12 reduce by short proofs to the known covering form; I5 and I6 stay open in the unspecific sense in
 which they were open before.
 
@@ -134,8 +136,9 @@ prime-forcing parity law was found beyond these swap-forced ones.
 B_n := {x ≡ 3 or z ≡ 3 (4)}. Then a word of O_n is in A_n iff y ≡ 3 (mod 8) and in B_n iff y ≡ 7 (mod 8).
 (c) Every word of B_n with x ≡ 3 (4) is the Type I solution (a, b, c, d, e) = (1, yz − 1, z, (xy − 1)/4, y) of n
 (f = x in K3 form); so B_p ≠ ∅ ⟹ ES(p). Conversely the Type I solutions with a = 1 are the words with
-x ≡ y ≡ 3 (4) (z = c of either parity), so B-words ↔ Type I solutions with a = 1 **and c odd** — not all a = 1
-solutions (p = 73: (a, b, c, d, e) = (1, 11, 4, 5, 3) is the word (7, 3, 4); found by the internal review). (d) For p prime, |A_p| is odd and |B_p| is even.
+x ≡ y ≡ 3 (4) (z = c of either parity). So with B_n^L := {words of O_n with x ≡ 3 (4)}: B_n^L ↔ Type I solutions
+with a = 1 **and c odd** (a bijection), and B_n = B_n^L ∪ swap(B_n^L) — not all a = 1 solutions are reached
+(p = 73: (a, b, c, d, e) = (1, 11, 4, 5, 3) is the word (7, 3, 4); found by the internal review). (d) For p prime, |A_p| is odd and |B_p| is even.
 *Proof.* (a) y ≡ 1 (4) would give xz − x − z ≡ 1, i.e. (x − 1)(z − 1) ≡ 2 (mod 4), impossible for x, z odd.
 (b) With f = xy − 1, f′ = zy − 1 we have ff′ = ny + 1 ≡ y + 1 (mod 8), and for y ≡ 3 (4): f ≡ 2 (4) iff x ≡ 1 (4),
 f ≡ 0 (4) iff x ≡ 3 (4). So x ≡ z ≡ 1 (4) iff ff′ ≡ 4 (8) iff y ≡ 3 (8). (c) 4·1·(yz − 1)·(xy − 1)/4 =
@@ -185,14 +188,16 @@ pooled-binomial z. A fourth hard set (U⁽⁸⁾-zeros) and the feature "q < 100
 | U⁽⁸⁾-zero primes ≤ 10⁸ (11) | 0.636 | 0.539 | +0.65 | 0.182 / 0.196 (−0.12) |
 
 *Second run (after the internal review; class-matched).* `scripts/z69_twist_i9m.py 50`,
-`data/z69/twist/i9_matched.txt`: controls = the 50 nearest primes below and the 50 nearest above in the *same*
-residue class mod 840; stratified z = Σ(Qᵢ − c̄ᵢ)/√Σ c̄ᵢ(1 − c̄ᵢ)(1 + 1/mᵢ). Results: (★)-zeros z = −0.55 (control
-mean 0.546); 𝔊*-zeros −0.73 (0.538); witness-free −0.65 (0.587; 14 220 controls, size-matched: median largest
-control/p = 1.00); U⁽⁸⁾-zeros +0.47 (0.582; poorly size-matched, ratio 4.5).
+`data/z69/twist/i9_matched.txt`: deterministic controls = up to 50 nearest primes below and the 50 nearest above in the
+*same* residue class mod 840 (fewer below for small p — none for 2521; controls are reused across strata and hard
+primes can occur as controls; for the smallest hard primes the upper controls are far larger than p);
+approximate stratified z = Σ(Qᵢ − c̄ᵢ)/√Σ c̄ᵢ(1 − c̄ᵢ)(1 + 1/mᵢ), ignoring the covariance from reuse. Results: (★)-zeros z = −0.55 (control
+mean 0.546); 𝔊*-zeros −0.73 (0.538); witness-free −0.65 (0.587; 14 220 control occurrences; median largest
+control/p = 1.00, worst 43); U⁽⁸⁾-zeros +0.47 (0.582; poorly size-matched, ratio 4.5).
 
 **Reading.** No difference between hard primes and controls was detected in either design (all |z| < 2; < 1 in the
-matched design). With 9–20 members three of the four hard sets have little power; the 145-member set would have
-shown a frequency difference of ≳ 0.12 at 3σ. This is absence of a detected signal, not a proof that X carries no
+matched design; the reviewer's covariance-aware recalculation also gave |z| < 1). With 9–20 members three of the four hard sets have little power; for the 145-member set the nominal
+3σ scale is a frequency difference of about 0.12. This is absence of a detected signal, not a proof that X carries no
 information. The "half law" of IDEAB is not a law: the control frequency of Q is 0.54–0.59 at these sizes
 (heuristically it tends to 1 like 1 − c(log X)^{−1/2}); nothing was proved. *Verdict:* no support for the
 classifier (EVIDENCE); as a forcing rule it would be a "divisor of a nonlinear expression" rule, conditionally
@@ -244,8 +249,9 @@ the quantity in (b) over the finite list of small lifts and signs is ≥ 2/(H²�
 two small lifts, and those are found by a finite search (two small lifts enumerated, the third w forced).
 Test (`scripts/z69_twist_i23.py 400 40`, `scripts/z69_twist_i23cert.py`, `data/z69/twist/i23_lifts_400_h40.txt`,
 `data/z69/twist/i23_cert_400_h40.txt`): all 37 primes p ≡ 1 (4) below 400, every ES triple (both types), H = 40
-(both signs of m; exact rational arithmetic, √p to 60 digits). The conditions on μ₁, μ₂ hold for every triple of
-every prime, with margin ≥ 99×. **Result: p = 5 has twisted lifts, e.g.
+(both signs of m; exact rational arithmetic). The conditions on μ₁, μ₂ hold for every triple of
+every prime (tested exactly in rational arithmetic, by sign-aware squaring for the irrational comparison); the
+smallest margins are ≈ 99× for (a) and ≈ 63× for (b) (p = 109, triple (50, 60, 32700)). **Result: p = 5 has twisted lifts, e.g.
 4/√5 = 1/(4 + 2√5) + 1/(3 − √5) + 1/(5 − √5)** (the lift (w₁, w₂, w₃) = (2, −3, −5) of 4/5 = 1/2 + 1/4 + 1/20;
 here 4 + 2√5 = 2(2 + √5), 3 − √5 = 2·((3 − √5)/2) and 5 − √5 = 2√5·((√5 − 1)/2) with units of the maximal order of
 ℚ(√5)); **each of the other 36 primes has ES triples and provably no twisted lift.** So the registered kill K-I23
@@ -374,7 +380,7 @@ The lane ends with no positivity mechanism, so the table is for the objects actu
 
 | screen | Lemma V / Prop R / Cor T10 (sterility of Type I slices) | Lemmas P, P′ (parity of word sets) | the triaged twists as would-be mechanisms |
 |---|---|---|---|
-| **F1 odd squares** | V, ι, D, R hold for every n ≡ 1 (4), squares included (T10 in the Jacobi form (d/n) = −1 likewise); they assert absence of solutions on slices, compatible with R(m²) = 0. No step uses non-squareness and none is needed. | \|T_n\| and \|O_n\| are odd whenever x(xy − 2) = n forces x = 1 — e.g. at n = 9 — while B₉ = ∅ and U₇(9) fails. So parity alone forces nothing; an involution argument must break at squares, and no candidate was found. | I17 would use "χ₋₄ is a non-trivial genus character of disc −4dn" (fails for n = m²) — but the stability it needs is refuted. I9: Y = 0. I23: ℤ[√n] degenerates. None reached a stage where the screen bites. |
+| **F1 odd squares** | V, ι, D, R hold for every n ≡ 1 (4), squares included (T10 in the Jacobi form (d/n) = −1 likewise); they assert absence of solutions on slices, compatible with R(m²) = 0. No step uses non-squareness and none is needed. | \|T_n\| and \|O_n\| are odd whenever x(xy − 2) = n forces x = 1 — e.g. at n = 9 — while B₉ = ∅ and U₇(9) fails. So parity alone forces nothing; an involution argument must break at squares, and no candidate was found. | I17 would use "χ₋₄ is a non-trivial genus character of disc −4dn" (fails for n = m²) — but exact invariance fails for the two translations tested (d = 1). I9: Y = 0. I23: ℤ[√n] degenerates. None reached a stage where the screen bites. |
 | **F2 numerator 8 / C-even** | Type I only; says nothing about the C-even line of (★). | Lemma P′ separates the fibres y ≡ 0 (4), y ≡ 7 (8), y ≡ 3 (8); 8 ∣ y is the C-even line and has 286 zeros among primes ≡ 1 (8) below 10⁶ (census §3), consistent with F2. No positivity claim. | n/a (no mechanism survived). |
 | **F3 composites** | V, ι, D, R, T10 (Jacobi form) are primality-free (valid for all n ≡ 1 (4)). The square-slice parametrisation e = k(kp ± 2) does use primality (n = 21, e = 3: ne + 1 = 64, and (1, 8, 3, 2, 3) is a Type I solution). | \|T₁₀₅\| = 11 is odd and 105 ∈ Z₇: parity cannot be the whole argument at composites either. Even at primes, \|O_p\| is odd with B_p = ∅ at 154 primes ≤ 2·10⁷. | n/a. |
 | **F4 known zeros** | Compatible: sterility of the gaps e − n ∈ {2, 6, 10, 18, …} removes candidate solutions, it never adds one. The census finds B_p = ∅ at 154 primes ≤ 2·10⁷ and (★) ∪ B empty only at 409, which has the Type II c = 2 solution (1, 117, 2, 1, 59) (REVIEW_IDEAA). | No positivity claim at the 14 (★)-zeros or the 38 𝔊*-zeros. | n/a. |
@@ -388,8 +394,10 @@ at a prime, and nothing here is progress toward a proof of ES beyond removing ca
 
 **Narrowed / dead on the triaged twists; not a HOT LEAD. ES is OPEN.**
 * Of the ten twists handed over by the two cross-reviews, **none** yields a mechanism. I23 is refuted as a
-  universal mechanism (36 explicit primes provably without a twisted lift). I9 and I17 show no signal in the tests
-  run (EVIDENCE; I9 with low power on the small hard sets, I17 for d = 1 and two translations only). I24 and I12
+  universal mechanism (36 explicit primes provably without a twisted lift). I9 detects no separation (EVIDENCE;
+  low power on the small hard sets). I17 rejects exact invariance under the two tested translations (d = 1); its
+  J-avoidance and ℓ-enrichment relative to a random subset are qualitatively reproduced by small-norm selection
+  (EVIDENCE; other translations and d > 1 untested). I24 and I12
   reduce by short proofs to the covering form (PROVED). I10 is dead for every d and IDEAA #11 is closed, both by
   proof (PROVED). IDEAA #10 gets the necessary condition (d/p) = −1 (PROVED, known in substance). I5 and I6 remain
   open in the generic sense; for I5 the odd-word version is excluded at 154 primes.
@@ -399,8 +407,8 @@ at a prime, and nothing here is progress toward a proof of ES beyond removing ca
   are exactly the descendants of finitely many explicit roots per gap; the gaps j = 1, 3, 5 (and 35 further
   j ≤ 301, by finite computation of roots) are empty for all n ≡ 1 (4), every j ≡ 3 (4), j ≥ 7 is not; no Type I
   solution of a prime p has e = k(kp + 2), k ≡ 1 (4); (3) Cor T10: no Type I point has p ∣ 4a²d + 1; (4) Lemma P′
-  and Remark C: for n ≡ 1 (8) the all-odd words have y ≡ 3 (4); those with y ≡ 7 (8) are Type I solutions with
-  a = 1 (exactly the ones with c odd); those with y ≡ 3 (8) are not certificates of the types (i)–(iii); for
+  and Remark C: for n ≡ 1 (8) the all-odd words have y ≡ 3 (4); those with y ≡ 7 (8) give, after orienting x ≡ 3 (4),
+  exactly the Type I solutions with a = 1 and c odd; those with y ≡ 3 (8) are not certificates of the types (i)–(iii); for
   primes the latter set has odd cardinality; (5) Lemma T and the certified absence of twisted lifts at 36 primes.
 * **What the pushes say about a mechanism (Assessment).** On slices where modulus and factored number are
   algebraically tied (fixed gap), descent decides emptiness completely — but it proves non-existence, or existence
@@ -443,5 +451,17 @@ fixes, all applied:
    unit description: corrected (maximal order). 12. MINOR — artifacts: slice search now starts at M = 1 and
    records a completion line; checkers exit non-zero on violation; scripts import each other through
    `__main__` guards.
-New material added while applying the fixes (Lemma T, Remark C, the matched I9 run, the I17 table) was checked in
-a second, narrower review round — see below.
+**Second review round** (same tool, commits `ff0dfd7f6..f10374845`, on the new material). Outcome: no FATAL
+finding; Lemma T, its case analysis and the script's lift enumeration survived; the reviewer independently
+re-enumerated all 647 ES triples of the 37 primes and all small lifts, redid every case-(a)/(b) comparison exactly,
+and confirmed that only p = 5 has a twisted lift; verified the three readings of Remark C on all 7 589 words of
+the 147 primes p ≡ 1 (4) below 2000 (6 422 certificate readings, explicit triples (xyz/4, nxy/4, nzy/4),
+(x(yz−1)/4, nxy/4, nxy(yz−1)/4), (n(yz−1)(xy−1)/4, z(xy−1)/4, z(yz−1)(xy−1)/4)); reran both word censuses, I17,
+the matched I9, T10, the gap classification and the slice search; confirmed the prior-art descriptions.
+Findings, all applied: (1) MAJOR — the old I6 claim survived in the triage table: row rewritten. (2) MINOR — the
+B-word correspondence needs the orientation x ≡ 3 (4): stated with B_n^L. (3) MINOR — the margin "≥ 99×" was
+wrong for case (b) (63× at p = 109): corrected. (4) MINOR — the certificate compared an irrational quantity with
+60-digit decimals: replaced by an exact rational test (sign-aware squaring); rerun, same result. (5) MINOR — I9
+matched-design description and power statement: qualified. (6) MINOR — summaries contradicted the scoped I17
+text, and the headline said "all ten die or reduce": reworded. (7) MINOR — this log claimed a second review
+before it existed: now recorded. Nothing was added after the second round except these corrections.

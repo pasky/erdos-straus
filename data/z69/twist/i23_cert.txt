@@ -1,5 +1,0 @@
-p=13 H=60: ES triples 4; truncation certificate (a),(b) holds: True (margins a: 1440.00x, b: 2152.79x); lifts found in (c): 0; NO TWISTED LIFT (certified)
-p=17 H=60: ES triples 4; truncation certificate (a),(b) holds: True (margins a: 2000.00x, b: 2847.73x); lifts found in (c): 0; NO TWISTED LIFT (certified)
-p=29 H=60: ES triples 7; truncation certificate (a),(b) holds: True (margins a: 1527.27x, b: 2290.42x); lifts found in (c): 0; NO TWISTED LIFT (certified)
-p=37 H=60: ES triples 9; truncation certificate (a),(b) holds: True (margins a: 750.00x, b: 1068.36x); lifts found in (c): 0; NO TWISTED LIFT (certified)
-p=41 H=60: ES triples 7; truncation certificate (a),(b) holds: True (margins a: 666.67x, b: 713.36x); lifts found in (c): 0; NO TWISTED LIFT (certified)

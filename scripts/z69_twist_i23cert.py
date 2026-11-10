@@ -4,7 +4,8 @@
 # Twist equation: sum_i w_i/n_i = 0.
 #  (a) three large lifts  =>  | sum sigma_i/n_i | < 3/(H^2 p).            Excluded if mu1 := min_signs |sum sigma_i/n_i| >= 3/(H^2 p).
 #  (b) exactly one small lift w_i (finite list)  =>  | w_i/n_i + sqrt(p)(sigma_j/n_j + sigma_k/n_k) | < 2/(H^2 sqrt p).
-#      Excluded if mu2 := min over the finite list and signs of that quantity is >= 2/(H^2 sqrt p).
+#      Excluded if mu2 := min over the finite list and signs of that quantity is >= 2/(H^2 sqrt p)
+#      (tested EXACTLY in rational arithmetic; the printed margins use 60-digit decimals and are informational).
 #  (c) at least two small lifts: finite search (two small lifts enumerated, the third w forced and tested exactly).
 # If (a),(b) are excluded and (c) finds nothing for every ES triple of p, then p has NO twisted lift (PROVED for that p).
 import sys, math
@@ -29,9 +30,14 @@ def cert(p,H):
                 for sj in (1,-1):
                     for sk in (1,-1):
                         q=Fr(sj,ns[j])+Fr(sk,ns[k])
+                        # exact test of |A + B sqrt p| >= 2/(H^2 sqrt p)  <=>  R + S sqrt p >= 0,
+                        # R = A^2 + p B^2 - 4/(H^4 p), S = 2AB (rational); decided by sign-aware squaring.
+                        A=w/ns[i]; R=A*A+p*q*q-Fr(4,H**4*p); S=2*A*q
+                        if S>=0: good = (R>=0) or (S*S*p>=R*R)
+                        else:    good = (R>=0) and (R*R>=S*S*p)
+                        if not good: ok=False
                         val=abs(Decimal(w.numerator)/Decimal(w.denominator*ns[i]) + sp*Decimal(q.numerator)/Decimal(q.denominator))
-                        r2=val/thr; worst2=r2 if worst2 is None else min(worst2,r2)
-                        if not val>=thr*(1+Decimal(10)**-40): ok=False
+                        r2=val/thr; worst2=r2 if worst2 is None else min(worst2,r2)   # margin: informational only
         # (c)
         for (i,j,k) in ((0,1,2),(0,2,1),(1,2,0)):
             for wi in L[i]:
