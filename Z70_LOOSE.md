@@ -383,22 +383,25 @@ is null (−0.80, −1.29), and the excess sits in the letters with v₂(ℓ) = 
 controls from a partial run). *Lemma (PROVED):* for p ≡ 1 (8), T² = pU² − 1 forces U odd and T² ≡ p − 1 ≡ 0 (mod 8),
 so T ≡ 0 (mod 4); more precisely the 2-adic solutions are T ∈ 4ℤ₂ (Haar) with U = ±√((T² + 1)/p), and their image in
 ℤ/2^v (v ≥ 2) is uniform on S_v = {T ≡ 0 (4), pU² ≡ T² + 1 (mod 2^{v+1})} (U mod 2^v is fixed up to sign by U² mod
-2^{v+1}; T² mod 2^{v+1} depends only on T mod 2^v). The conic mod ℓ ignores this for every v₂(ℓ) ≥ 2 (not only v = 2:
-the review exhibited (9 601, 56), (28 961, 24), (59 929, 24)). *Post-hoc correction (disclosed):* first a partial fix
-(v = 2 only, `scripts/z70_loose_pell_recal.py`, `pell_analysis_recal.txt`), then the full 2-adic null
-(`scripts/z70_loose_pell_recal2.py`: uniform on conic mod m × S_v; validated against the projection of the conic mod
-16ℓ for 60 random (p, ℓ) and the review's three examples — 0 mismatches) → `pell_*_recal2.jsonl.gz`,
+2^{v+1}; T² mod 2^{v+1} depends only on T mod 2^v; for v = 1 the image is the single point (0, 1) mod 2). The conic mod
+ℓ ignores this for every v₂(ℓ) ≥ 1 (the review exhibited (9 601, 56), (28 961, 24), (59 929, 24); the second review
+found that v = 1 was still uncorrected — the conic mod 2 contains the non-liftable point (1, 0); e.g. (241, 22): 2/3 →
+1/3). *Post-hoc correction (disclosed):* a partial fix (v = 2 only, `scripts/z70_loose_pell_recal.py`,
+`pell_analysis_recal.txt`, superseded), then the full 2-adic null (`scripts/z70_loose_pell_recal2.py`: uniform on
+conic mod m × S_v for all v ≥ 1; validated against the projection of the conic mod 16ℓ for 140 random (p, ℓ) with
+v ∈ {1, 2, 3}, the review's examples and (241, 22) — 0 mismatches) → `pell_*_recal2.jsonl.gz`,
 `pell_analysis_recal2.txt`:
 
 | sample | letters | D real / 2-adic null (cluster z) | decoys vs null (z) | real vs decoy, null-adjusted (z) |
 |---|---|---|---|---|
-| H_train | 14 186 | 0.2992 / 0.2985 (+0.30) | +0.70 | −0.84 |
-| H_test | 13 384 | 0.2939 / 0.2933 (+0.21) | +0.79 | −1.29 |
-| controls | 51 023 | 0.3356 / 0.3377 (−1.68) | −2.41 | +1.61 |
-By role (x, y, z): real vs null |z| ≤ 2.14 (H_test y-letters +2.14, decoys +2.45 there), real vs decoy |z| ≤ 2.01
-(H_test x-letters −2.01, not replicated on train: +1.14). By 2-adic class after recalibration all |z| ≤ 1.74 except the
-controls' odd-letter decoys (−2.38). The residual small negative drift of the controls against the null (−1.7 real,
-−2.4 decoys) is shared by real and decoy letters.
+| H_train | 14 186 | 0.2992 / 0.3001 (−0.36) | +0.01 | −0.83 |
+| H_test | 13 384 | 0.2939 / 0.2946 (−0.28) | +0.28 | −1.28 |
+| controls | 51 023 | 0.3356 / 0.3384 (−2.25) | −3.02 | +1.64 |
+By role (x, y, z): real vs null |z| ≤ 2.18 (H_test x-letters −2.18), real vs decoy |z| ≤ 1.98 (H_test x-letters −1.98,
+not replicated on train: +1.18). By 2-adic class all |z| ≤ 1.92 except the controls' odd-letter decoys (−2.38). The
+controls show a small negative drift against the null that is **shared by real and decoy letters** (−2.25 / −3.02):
+the local null is still slightly miscalibrated for that population (cause not identified — possibly global
+constraints on the reduction of the fundamental unit at odd primes); it is not witness-specific.
 **Verdict (EVIDENCE):** for residues of T, U, T + cU + s (|c| ≤ 3, |s| ≤ 2) and T ± 1, ± 2 modulo the witness letters,
 **no difference from exact decoy letters was detected**, and after the 2-adic recalibration no departure of either
 from the local null meets the signal criterion. This is non-rejection for the listed relations, not equivalence
