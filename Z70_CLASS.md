@@ -557,7 +557,8 @@ split prime (local data).** Not a HOT LEAD.
   diagnostics (ALLF, DIAG, ALLS, 2-Sylow matching; all partial) shrink it, and ALLS retains a pooled L1/L3 deficit of about
   −3 to −4 — a remaining null property or a genuine anti-coincidence (open). Descriptively, almost all
   small-prime translation overlaps are explicit ideal identities between small natural representatives (Lemmas Φ, DL′; at
-  n ≈ 4·10⁶, 216/218), and Lemma FR / Cor. FR′ explain why small classes cannot carry other coincidences; Corollary J is
+  n ≈ 4·10⁶, 216/218), and Lemma FR / Cor. FR′ show that pairs whose representatives have norm product × ℓ below dn cannot carry other
+  coincidences; Corollary J is
   the one class-level exclusion found. No operation found produces a good class without exhibiting the divisor event
   (Prop. NG, a reformulation — not a no-go theorem).
 * Item 2 (CONDITIONAL on GRH for the PARI class groups). 2- and 3-parts of h(−4p), h(−8p) and h(p) = 1 do not separate the
@@ -596,7 +597,7 @@ the overlaps at small-prime translations are almost always explicit identities a
 primitive ideals the class group adds no further relation (Lemma FR, Cor. FR′). Against a null that keeps all these
 relations no positive excess is detected (corrected runs; the first implementation of the nulls was wrong and is
 withdrawn); the negative departures left (fewer coincidences than that null) are unresolved — they shrink under more
-protective nulls but a deficit survives, so a genuine anti-coincidence is open (it would be a repulsion, not a forcing
+protective (still partial) nulls, ALLS retaining a pooled deficit, so a genuine anti-coincidence is open (it would be a repulsion, not a forcing
 mechanism). The one class-level law found is an exclusion (Corollary J). No
 forcing mechanism was established: exhibiting a good class by these operations is exhibiting a divisor M ≡ −1 (mod 4ad)
 of some N_a, the B2 event. Item 2 is null apart from a genus effect
