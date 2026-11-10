@@ -199,7 +199,10 @@ S/c³ = ∏ = μ(c)/c² for odd c and 0 for even c. ∎ (`scripts/z70_loose_i6ka
 the δ-step, a₀-independence, multiplicativity and the zero set for c ≤ 121. `scripts/z70_loose_i6sing.c` →
 `i6_singular_check.txt`: G(r + iy)/G(iy) from R(n), n ≤ 3·10⁶, at y = 10⁻³ … 3·10⁻⁵ — drifts towards the predicted
 values with the expected O(1/log(1/y)) lower-order terms, e.g. r = 1/3: −0.186, −0.163, −0.156 → −1/9; r = 1/2:
-0.035, 0.017, 0.013 → 0; r = 1/9: ≈ 0.017 → 0; illustration only.)
+0.035, 0.017, 0.013 → 0; r = 1/9: ≈ 0.017 → 0; illustration only. A three-term fit
+(A log²(1/y) + B log(1/y) + C)/y through the three y values (`scripts/z70_loose_i6fit.py` → `i6_fit.txt`) gives
+A(r)/A(0) = 0.0003 (1/2; K: 0), −0.1118 (1/3; −0.1111), −0.0005 (1/4; 0), −0.0395 (1/5; −0.0400), −0.0184 (1/7;
+−0.0204), 0.004 (1/9; 0), 0.0004 (4/9; 0); denominators 15, 25, 45 are not resolved at these y.)
 
 **Theorem LS (no small-period law for the level sum; PROVED).** There is no finite-index subgroup Γ ⊂ SL₂(ℤ),
 weight k ∈ ℝ and multiplier v : Γ → S¹ such that for every γ = (∗ ∗; c d) ∈ Γ the holomorphic cocycle
