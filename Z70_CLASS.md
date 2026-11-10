@@ -1,6 +1,6 @@
 # Z70_CLASS — the I17 residual and the class-group structure of good forms (wave z70, lane CLASS): the residual is integer divisor structure seen through a class map injective on small ideals; nothing generative; not a HOT LEAD
 
-**ES is OPEN. Nothing here proves or disproves it.** Status: final draft (all registered runs done; internal review pending). Verdict (§4): **narrowed — the I17 residual is identified as integer divisor structure (Lemmas Φ, DL′, SR, FR, Cor. J); no generative symmetry (Prop. NG); item 2 null.** Not a HOT LEAD.
+**ES is OPEN. Nothing here proves or disproves it.** Status: round 1 internal review applied in progress (§1.9, §8); the PSC/PSF calibrated conclusions of §§1.3–1.5 are withdrawn and rerun with corrected nulls. Verdict (§4): **narrowed — the I17 residual is identified as integer divisor structure (Lemmas Φ, DL′, SR, FR, Cor. J); no generative symmetry (Prop. NG); item 2 null.** Not a HOT LEAD.
 Scripts `scripts/z70_class_*`, data `data/z70/class/`. Labels: PROVED / CONDITIONAL / CERTIFIED / EVIDENCE / CONJECTURE /
 Assessment. Sources: `Z69_TWIST.md` §9 (I17 round 2: Lemmas DL, CS; residual d = 3 energy Z_Ex = +3.6 and a small d = 1
 residual on the 10⁶ window, both against nulls that do not contain DL/CS), `Z69_MINE.md` §§3, 12 (open: class-group
@@ -287,6 +287,33 @@ registered PSC/PSF runs (§1.5), the explicit decomposition, the J-check. EVIDEN
 residual remains against PSF; the d = 1 residual against PSC is carried by Lemma DL′ / Φ identities (REP-ID) and the
 OTHER share decays to 1 % at 4·10⁶. Unresolved: a negative (anti-coincidence) deviation of the data against PSF
 (pooled d = 1 L3 −5.3), attributed (Assessment) to the null. **No forcing mechanism; not a HOT LEAD.**
+
+### 1.9 Internal review round 1 — the nulls were wrong; corrected nulls (pre-registered here, before any corrected run beyond a 3-prime smoke test)
+The hostile review (§8) found two FATAL implementation errors: **PSC** imposed CS by overwriting classes along a BFS tree,
+which breaks the prime-factorisation (DL) identities of the overwritten ideals (1 468 directed DL violations in four
+replicates per prime on F1, d = 1, 2, 3) and drops CS self-loops (A = e, 2x = T_d); **PSF** skipped fibre rows without a ±1
+coefficient (e.g. n = 25169, a = 3: N_a = 5·71², relation [𝔔₅] + 2[𝔔₇₁] = 0 left unenforced; 23 violated equations). All
+PSC and PSF *calibrated* conclusions of §§1.3–1.5 are therefore **withdrawn** (their tables are kept as a record of what was
+run). Corrected nulls (`scripts/z70_class_nullfix.py`): the variables are the classes x_q of the prime ideals over all
+primes of the good norms and of the imposed fibres; every ideal class is computed multiplicatively (so every ideal
+identity — DL, DL′, REP-ID — holds in every replicate by construction); imposed relations Σ k_q x_q = T_d (one per
+imposed fibre) are solved by repeated Gauss–Jordan passes with ±1 pivots; rows left with only non-unit coefficients have
+all their variables frozen at the real classes (so they hold); free variables are swapped (genus- and size-matched, as
+before) or, above the largest good prime, uniform in their genus coset; **every imposed original equation is asserted
+in every replicate**. Mode **FIX-CS** imposes the fibres that contain a CS solution (4ad | n − 1) — this is the
+registered PSC hypothesis "DL and CS exactly"; mode **FIX-ALL** imposes every active fibre — the registered PSF
+hypothesis. Power is reported per statistic as the number of n with null variance > 0 (and the exact summed excess and
+variance are printed, replacing the rounded pooling of `z70_class_pool.py`). Smoke test (excluded from the outcome):
+n = 24001, 25169 (d = 1) and 24481 (d = 2), the review's counterexamples — all assertions pass.
+**Registered (before the runs):** R = 200; windows: d = 1 F1–F4, G1–G3 and new H1 = [3000000, 3003000), H2 = [6000000,
+6002000); d = 2 F1, F2, F3′, G1, G2 and H1 = [3000000, 3006000); d = 3 F1, F2, F3′ and H1 = [3000000, 3010000); d = 5, 7 F1, F2,
+F3′ (FIX-CS only). Statistics Mx, Ex, L1, L3 (controls C0 for d = 1, A2 for d > 1).
+* FIX-CS: outcomes K-RES / RESIDUAL exactly as in §1.2 (per window |Z| < 3; RESIDUAL = Z ≥ 3 on ≥ 2 windows of one d or
+  pooled Z ≥ 4), evaluated on all listed windows.
+* FIX-ALL: **K-FIB** = every |Z| < 3 on every window and pooled |Z| < 4 per d; **RESIDUAL-2** = Z ≥ 3 on ≥ 2 windows or
+  pooled Z ≥ 4 (positive); a pooled Z ≤ −4 is reported as **unresolved (negative)**. A window counts for a statistic
+  only if at least 10 of its n have null variance > 0 for it (else "no power" for that statistic).
+* validity: controls |Z| < 3 against both modes (they are imposed).
 
 ## 2. Item 2 — class-group structure beyond h vs U₇ witnesses (pre-registration)
 Samples (from `Z69_MINE.md` round 2, `data/z69/mine/`): H_train (438), H_test (411), CTRL (2 547 size-matched controls);
