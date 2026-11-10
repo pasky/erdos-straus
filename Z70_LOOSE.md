@@ -4,13 +4,17 @@
 EVIDENCE / CONJECTURE / Assessment. Internal review only. Scripts `scripts/z70_loose_*`, data `data/z70/loose/`.
 Status: **final draft** (all five items run; internal hostile review pending — §11).
 
-**Summary.** I6: the d = 1 and d = 3 fibres satisfy an explicit S-transformation (Theorem F, PROVED, verified to
-34 digits) whose period is a Cauchy integral of non-modular dual Lambert series (quantum-modular, not mock, relative
-to that law); the level sum G has **no** finite-index modular / mock / quantum-modular law of any weight (Theorem LS,
-PROVED, via κ(a₀/c) = μ(c)/c²·1[c odd]). I5: 7 registered + 400 grammar involutions fail on T₇₃/T₄₀₉; Lemma P5: the
-odd parity of T_p lives in the divisor words of p + 1. #10: four d-selection rules dead (best coverage 97.4 %; exact
-empty slices at six hard primes). Pell letters: no witness-specific signal (registered-null excess = a 2-adic artefact,
-explained). I9: null with disjoint controls; q-to-word construction carries no information. **No HOT LEAD; ES OPEN.**
+**Summary.** I6: the d = 1 and d = 3 fibres satisfy an explicit S-transformation (Theorem F, PROVED; checked at
+machine precision at 28 points and to 34 digits at one point — the registered multiprecision grid was not completed);
+its period is an integral transform of dual partial Lambert series that are not weight-1 modular (PROVED for d = 1),
+but mock status is **not decided**. The level sum G has leading singular coefficients κ(a₀/c) = 1[c odd]μ(c)/c²
+(Lemma K, PROVED), hence **no finite-index law whose cocycles are o(y⁻¹log²(1/y)) at rationals** (Theorem LS, PROVED) —
+in particular G is not modular and not the holomorphic part of a harmonic Maass form with cuspidal shadow
+(Cor. LS-M). I5: 7 registered maps + 400 grammar expressions fail on T₇₃/T₄₀₉; Lemma P5: the odd parity of T_p lives in
+the divisor words of p + 1. #10: four implemented d-selection rules dead (best coverage 97.4 %; NP's slice exactly
+empty at six hard primes). Pell letters: no witness-specific signal against exact decoys (the registered null was
+2-adically miscalibrated; recalibrated). I9: no detected difference; no detected q-to-word information. **No HOT LEAD;
+ES OPEN.**
 
 Notation. (★) / R(n) as in `z52bbriefs/z58_lanes.md`. Fibre form: R(n) = Σ_{d ≥ 1} r_d(4dn + 1),
 r_d(N) := #{A | N : A ≡ −1 (mod 4d)} (A = 4ad − 1, B = 4bd − 1, AB = 4dn + 1 ⟺ 4abd − a − b = n).
@@ -21,7 +25,7 @@ Type I (IDEAB R2/R4): 4abd = pe + 1, ce = a + b; K3 form p ≡ −f (mod 4ad), f
 | item | F1 odd squares | F2 C-even / R₈ | F3 composites | F4 known zeros |
 |---|---|---|---|---|
 | I6 (fibre laws, level sum) | the fibre coefficient r_d(4dm² + 1) = 0 for 4 ∣ 4d (T1); a transformation law is a statement about the whole generating function and is coefficient-blind — it cannot by itself use primality; must be checked that the law holds identically at squares (it will) | n/a (the law is per fibre; C-even = d even fibres) | same as F1 | same as F1 |
-| I5 (involution on T_p) | |T₉| = 11 odd, C₉ = ∅ ⟹ any involution family with certificate fixed points must fail at 9 (and at 105) | the swap-even sub-counts are even at primes; a map whose fixed points are C-even certificates would prove R₈-positivity — false at the 12 R₈ zeros; record which certificate type the fixed points have | 105: |T₁₀₅| = 11, C₁₀₅ = ∅ | none needed at primes (C_p ≠ ∅ at every tested prime) |
+| I5 (involution on T_p) | #T₉ = 11 odd, C₉ = ∅ ⟹ any involution family with certificate fixed points must fail at 9 (and at 105) | the swap-even sub-counts are even at primes; a map whose fixed points are C-even certificates would prove R₈-positivity — false at the 12 R₈ zeros; record which certificate type the fixed points have | 105: #T₁₀₅ = 11, C₁₀₅ = ∅ | none needed at primes (C_p ≠ ∅ at every tested prime) |
 | #10 (Type I, d-rule) | Lemma T10: Type I at n = m² needs (d/m²) = −1, impossible: every rule fails at squares, by the Jacobi step (uses non-squareness exactly there) | n/a (Type I is outside (★)); reported: rule coverage on the 12 R₈ zeros | Type I at composites not tested (rule defined via p's quadratic data) | coverage on the 14 (★)-zeros, 38 𝔊*-zeros, 231 noprime primes reported |
 | Pell letters | statistics on witnesses only; no witness at squares | n/a | n/a | H sets = hard primes |
 | I9 | in a primitive m² = X² + 840Y², every q ∣ X has (840/q) = +1 ⟹ Q = 0 (classifier silent) | Q computed on the 𝔐-members of the R₈ zeros | n/a | hard sets are the test population |
@@ -101,7 +105,20 @@ Decoy: for the same p, q′ = a prime with (p/q′) = −1, q′ ∤ X, q′ ≡
 same construction. Kill K9: Y(q) − Y(q′) not ≥ 3σ above 0 ⟹ q | X carries no word-building information beyond being
 a non-residue of its size; HOT LEAD only if Y = 1 on every hard prime and the excess is significant.
 
-## 2. I6 — the fibre laws exist (quantum-modular, PROVED + verified); the level sum has NO law (PROVED, scoped)
+### 1.6 Deviations from the registration (complete ledger; added after the internal review)
+| item | registered | done | consequence |
+|---|---|---|---|
+| I6 K6a | ≥ 5 points each for d = 1, 3, mpmath ≥ 30 digits, rel. error < 10⁻¹⁵ | 28 double-precision points (max rel. 8.9·10⁻¹⁵); one 34-digit point (d = 1); a post-review 30-digit grid (`i6_k6a_mp_d1.txt`) completed only partially within budget; d = 3 multiprecision not completed | K6a not completed as registered; the identity itself is PROVED |
+| I6 K6b | discontinuity → decide mock / not mock | the jump claim was withdrawn after review; only "S₁, S₂ ∉ M₁" (d = 1) is proved | K6b inconclusive |
+| I5 | σ1 "coset swap with unipotent correction, nearest in a fixed norm", σ3 "continuant-flip maps" | replaced (before any run) by the precise ρ_L, ρ_R, ρ_C, s∘ρ_C, s∘ρ_R∘s maps of §3 (the unipotent-orbit reading of σ1); σ3 was not implemented (the length-changing continuant identity M(a)M(1)M(b) = M(a − 1)M(b − 1) maps words with y = 1 to length-2 words, not to T_n) | the registered σ1/σ3 wording was not tested literally |
+| #10 | R-sm (least non-square non-residue d) | not run separately: the least non-residue is prime, so R-sm = NP | none |
+| #10 | GA on all primes | GA on every 30th prime (cost) | none for its verdict (coverage ≈ 0.6 %) |
+| #10 | decoy uniform in the window | candidate list capped at 4 096 (only binds for huge windows, i.e. GA's large d) | GA decoys not exactly uniform |
+| Pell | null = uniform on the conic mod ℓ | registered null run; then post-hoc 2-adic recalibration (§5) | registered-null "signal" reinterpreted; disclosed |
+| I9 | 20 controls per hard prime | rejection sampler with a 200 000-draw budget; partial strata (listed in §6) | disclosed; strata with 0 controls dropped |
+| I9 | decoy with abs(q′ − q) ≤ 0.1 q | run as registered; amended (nearest) and two-sided decoys added post hoc | both reported; diagnosis scoped |
+
+## 2. I6 — an explicit fibre law (PROVED + verified); the level sum has no finite-index law with small periods (PROVED, scoped)
 
 ### 2.1 Theorem F (S-transformation of a partial divisor Lambert series; PROVED, classical ingredients)
 Let M ≥ 1, 1 ≤ α, β ≤ M, a = α/M, b = β/M ∈ (0, 1], and assume a, b ≠ 1 (the case needed: d = 1 is
@@ -112,8 +129,9 @@ w := −1/(M²z), S₁ := L*_{a,b} + L*_{−a,−b}, S₂ := L*_{a,−b} + L*_{�
   E(z) = (i/(2πM²z))·(−γ − log(−2πiM²z) − ψ(a) − ψ(b)) + (½ − a)(½ − b)       (ψ = digamma, principal log),
   Ψ(z) = (i/(2πM²z)) ∫_{C₋} [ S₁(tw)·t/(t − 1) − S₂(tw)·t/(t + 1) ] dt,
 C₋ = a ray from 0 to ∞ passing **below** t = 1 with arg(tw) ∈ (0, π) along it. Ψ continues analytically to
-z ∈ ℂ ∖ (−∞, 0] (rotate C₋; the pole t = 1 is never crossed, the pole t = −1 is reached only as z → (−∞, 0) from
-below), and its jump across (−∞, 0) is ∓(1/(M²z))·S₂(1/(M²z)) (residue at t = −1) — a dual partial Lambert series.
+z ∈ ℂ ∖ (−∞, 0] (rotate C₋ continuously within arg t ∈ (−π, 0]: the pole t = 1 is never crossed, the pole t = −1 is
+reached only as z → (−∞, 0) from below). [Review fix: an earlier sentence asserting the jump of Ψ across (−∞, 0) was
+withdrawn — it evaluated a q-series on the real boundary, and no boundary-value prescription was given.]
 *Proof.* On z = iy: Mellin, ∫₀^∞ L(iy)y^{s−1}dy = Γ(s)(2πM²)^{−s}ζ(s, a)ζ(s, b) (Re s > 1). Shift the inverse
 Mellin integral to Re s = c′ ∈ (−1, 0): residues at s = 1 (ζ(s, a) = 1/(s − 1) − ψ(a) + O(s − 1), with
 Γ(s)X^{−s} = X⁻¹(1 − (γ + log X)(s − 1) + …), X = 2πM²y) and s = 0 (ζ(0, a) = ½ − a) give E. On the remaining line put
@@ -128,27 +146,34 @@ PV∫ = ∫_{C₋} − πi·Res_{t=1} = ∫_{C₋} − πi S₁(w), which turns 
 holomorphic on ℍ, so the identity extends from iℝ₊. L*_{u,v}(τ) is bounded as τ → 0 in sectors (its Mellin transform
 Γ(s)F(u,s)F(v,s) has no pole at s = 1 for u, v ∉ ℤ), so the integrals converge at t = 0. ∎
 *Numerical check (K6a).* `scripts/z70_loose_i6law.py` → `data/z70/loose/i6_law_check.txt`: direct L vs the law at
-7 points each for (4, 3, 3) [d = 1], (12, 11, 11) [d = 3], (4, 1, 1), (12, 7, 5), including Re z ≠ 0: max relative
-error 2.9·10⁻¹⁵, absolute ≤ 4·10⁻¹⁶ (double precision), plus one 34-digit mpmath check for d = 1
-(`scripts/z70_loose_i6mp.py` → `i6_law_mp34.txt`, z = (0.05 + 0.15i)·16/90: |L − law| = 1.8·10⁻³⁵, relative
-6.7·10⁻³⁵; the small-τ region uses the asymptotic Mellin series to 60 terms). K6a passes. A first run with a too-coarse small-τ
-series (switch at |τ| < 2·10⁻³) gave 10⁻⁸ errors for M = 12; the switch was lowered to 2·10⁻⁴ (convergence check in the
-log of this memo's commit), errors then 10⁻¹⁷.
+7 points each for (4, 3, 3) [d = 1], (12, 11, 11) [d = 3], (4, 1, 1), (12, 7, 5), including Re z ≠ 0, in **double
+precision**: max relative error **8.9·10⁻¹⁵** (review correction; the first draft misread the log as 2.9·10⁻¹⁵), max
+absolute error 3.9·10⁻¹⁶, against term sizes ≈ 10⁻²–10⁻¹ — i.e. agreement at machine precision. Plus one 34-digit
+mpmath point for d = 1 (`scripts/z70_loose_i6mp.py` → `i6_law_mp34.txt`, z = (0.05 + 0.15i)·16/90:
+|L − law| = 1.8·10⁻³⁵, relative 6.7·10⁻³⁵; small-τ region via the asymptotic Mellin series to 60 terms).
+**K6a as registered (≥ 5 points for each of d = 1, 3 in ≥ 30-digit arithmetic, relative error < 10⁻¹⁵) was NOT
+completed** (review fix): the multiprecision grid (`i6_k6a_mp_d1.txt`, `i6_k6a_mp_d3.txt`) was started after the
+review but the mpmath period quadrature is too slow at these points within the 30-min budget (see the files for
+whatever finished). Several double-precision points have relative error between 10⁻¹⁵ and 10⁻¹⁴, i.e. at the
+double-precision floor, not a failure of the identity. Status: the identity is PROVED; the registered numerical
+test is incomplete (deviation). A first run with a too-coarse small-τ series (switch at |τ| < 2·10⁻³) gave 10⁻⁸
+errors for M = 12; with the switch at 2·10⁻⁴ the errors fell to 10⁻¹⁷ at a test point.
 
-### 2.2 What the period is (K6b): not a mock period — relative to this law (PROVED in that scope)
-Ψ is an Eichler-type integral: substituting τ = tw, ∫_{C₋}S(tw)·t/(t ∓ 1)dt = ∫_0^{i∞}S(τ)·τ/(w(τ ∓ w)) dτ (path
-rotated in ℍ), i.e. the obstruction to modularity is a Cauchy integral **of the dual partial Lambert series S₁, S₂
-themselves**, and the jump of Ψ across its cut is 2πi × (S₂ at the reflected point). For a mock modular form of
-weight 1 the same jump would be (a constant times) the shadow g ∈ M₁. Here S₁, S₂ are not weight-1 modular forms
-of any level: for d = 1, c(N) := Σ_{mn=N}(−i)^{m+n} equals τ(N) for N ≡ 3 (4) and −τ(N) for N ≡ 1 (4) (all m, n odd;
+### 2.2 What the period is (K6b): an integral transform of non-modular series — mock status NOT decided (Assessment + one PROVED ingredient)
+Ψ is an integral transform, along the ray C₋, of the dual partial Lambert series S₁, S₂ themselves (substituting
+τ = tw gives a Cauchy-type kernel τ/(w(τ ∓ w)); rotating that path to iℝ₊ would cross τ = w in the S₁ term and pick up
+a residue S₁(w), so the "Eichler integral along iℝ₊" form needs that residue term — the first draft omitted it).
+For a mock modular form of weight 1 the analogous period would be an Eichler integral of a modular shadow g ∈ M₁.
+**PROVED ingredient:** S₁, S₂ are not weight-1 modular forms of any level — shown here for d = 1 only: c(N) := Σ_{mn=N}(−i)^{m+n} equals τ(N) for N ≡ 3 (4) and −τ(N) for N ≡ 1 (4) (all m, n odd;
 m + n ≡ 0 or 2 (mod 4) according as mn ≡ 3 or 1), so the coefficients of S₁ = 2 Re c are ±2τ(N) on odd N, whose
 partial sums over N ≡ 3 (4) grow like x log x, while every f ∈ M₁(Γ₁(L)) (and its restriction to a residue class)
 has Σ_{n≤x} a_f(n) = O(x) (Eisenstein part: Σ_{dm≤x} χ(m)ψ(d) with χψ odd, one character non-trivial; cusp part
-o(x)). **So relative to the natural (discrete-Fourier) transformation matrix of Theorem F the fibre is a
-vector-valued quantum-modular form of Bettin–Conrey type (period analytic on ℂ ∖ (−∞, 0]), not a mock modular
-form.** (Scope: a mock structure with respect to a *different* choice of the q-series part is not excluded by this
-argument; Assessment: unlikely — the τ(N) content is the weight-0 Eisenstein part, whose "holomorphic projection" is
-exactly this kind of quantum object.) The fibre is the odd-character weight-1 theta part (modular) plus this
+o(x)). **What is NOT proved (review fix):** that this excludes a mock completion. That would need a uniqueness
+statement identifying any shadow with the integrand of Ψ (boundary prescription, residue accounting, choice of the
+q-series part), which is not supplied; nor is a quantum-modular object (quantum set, boundary values) specified.
+*Assessment:* the structure resembles the Bettin–Conrey period function of Σ τ(n)qⁿ (an analytic period on a slit
+plane, built from the weight-0 Eisenstein content τ(N)) rather than a mock form; K6b is therefore *inconclusive as a
+theorem* and only suggestive. The fibre is the odd-character weight-1 theta part (modular) plus this
 quantum part (`METAPLECTIC_ES.md` Thm K; consistent).
 *Literature note.* The case M = 1 (Σ τ(n)qⁿ) is Bettin–Conrey, "Period functions and cotangent sums", Algebra &
 Number Theory 7 (2013) — quoted from memory, not re-checked here; Theorem F is proved above independently and does
@@ -158,9 +183,12 @@ not rely on it.
 **Lemma K (singular coefficients of G).** For coprime a₀, c ≥ 1 and w → 0 in any sector |arg w − π/2| ≤ π/2 − δ,
   G(a₀/c + w) = κ(a₀/c)·log²(1/|w|)/(−2πi w·8) + o(log²(1/|w|)/|w|),   κ(a₀/c) = 1[c odd]·μ(c)/c².
 (So G(iy) ~ log²(1/y)/(16πy).) *Proof.* Split (a, b, d) into classes mod c; on a class the phase e(a₀(4abd − a − b)/c)
-is constant, and the count of class members with 4abd − a − b ≤ x is (x/(8c³))log²x + o(x log²x) (the TWIST I6(a)
-argument per class: Σ_{a≡α, b≡β, ab≤X}(X/(c·ab) + O(1)) = X log²X/(2c³) + O(X log X), and the −a − b perturbation
-moves 4abd by at most a factor 2, handled by the same K-squeeze). Partial summation: Σ u_n e^{−ns} = s∫U(t)e^{−st}dt,
+is constant, and the count of class members with 4abd − a − b ≤ x is (x/(8c³))log²x + o(x log²x). Indeed:
+(i) #{class members: 4abd ≤ x} = Σ_{a≡α, b≡β, ab≤x/4}(x/(4c·ab) + O(1)) = x log²x/(8c³) + O(x log x);
+(ii) K-squeeze for the perturbation: the members with min(a, b, d) ≤ K number O_K(x log x) (one coordinate bounded
+leaves a two-variable divisor count), and when a, b, d > K we have a + b ≤ 2ab ≤ 4abd/(2K), so
+4abd(1 − 1/(2K)) ≤ 4abd − a − b ≤ 4abd; hence the count lies between the counts of (i) at x and at x/(1 − 1/2K),
+i.e. it is (1 + O(1/K))·x log²x/(8c³) + O_K(x log x); let K → ∞ (review fix: this step was abbreviated). Partial summation: Σ u_n e^{−ns} = s∫U(t)e^{−st}dt,
 and s∫ t log²t e^{−st}dt = (log²(1/s) + O(log 1/|s|))/s uniformly in the sector, while an o(t log²t) remainder
 contributes o(log²(1/|s|)/|s|) because |s| ≍ Re s there. Summing the classes gives the factor
 S(a₀, c)/c³ = c⁻²Σ_{α,β mod c, c | 4αβ} e(−a₀(α + β)/c) (the δ-sum is c·1[c | 4αβ]). This is independent of a₀
@@ -174,12 +202,22 @@ the δ-step, a₀-independence, multiplicativity and the zero set for c ≤ 121.
 values with the expected O(1/log(1/y)) lower-order terms, e.g. r = 1/3: −0.186, −0.163, −0.156 → −1/9; r = 1/2:
 0.035, 0.017, 0.013 → 0; r = 1/9: ≈ 0.017 → 0; illustration only.)
 
-**Theorem LS (no law for the level sum; PROVED).** There is no finite-index subgroup Γ ⊂ SL₂(ℤ), weight k ∈ ℝ and
-multiplier v : Γ → S¹ such that for every γ = (∗ ∗; c d) ∈ Γ the period h_γ(z) := G(z) − v(γ)⁻¹(cz + d)^{−k}G(γz)
-satisfies h_γ(r + iy) = o(y⁻¹log²(1/y)) (y → 0⁺) at every rational r ≠ −d/c. In particular G is not modular,
-mock modular (periods are analytic on ℝ minus a point), quantum modular in Zagier's sense (continuous periods), nor the
-holomorphic part of a harmonic Maass form, of any real weight on any finite-index subgroup; the same holds for any
-finite-dimensional vector-valued system containing G whose representation has finite image (pass to its kernel).
+**Theorem LS (no small-period law for the level sum; PROVED).** There is no finite-index subgroup Γ ⊂ SL₂(ℤ),
+weight k ∈ ℝ and multiplier v : Γ → S¹ such that for every γ = (∗ ∗; c d) ∈ Γ the holomorphic cocycle
+h_γ(z) := G(z) − v(γ)⁻¹(cz + d)^{−k}G(γz) (z ∈ ℍ) satisfies h_γ(r + iy) = o(y⁻¹log²(1/y)) (y → 0⁺) at every
+rational r ≠ −d/c. (Equivalently for a finite-dimensional vector-valued system containing G with finite-image
+representation, **provided** its cocycles satisfy the same radial bound — pass to the kernel.)
+**Corollary LS-M (PROVED modulo the standard Bruinier–Funke description of harmonic Maass forms).** G is neither a
+modular form nor the holomorphic part of a harmonic Maass form F of real weight k on a finite-index Γ with unitary
+multiplier whose shadow ξ_k F is a **cusp** form. *Proof.* If k ≥ 2 the shadow (weight 2 − k ≤ 0 cusp form) is 0 and
+G itself is modular (h_γ ≡ 0). If k < 2, F⁻(z) = c_k∫_{−z̄}^{i∞} g^c(τ)(−i(τ + z))^{−k}dτ with g a cusp form of weight
+2 − k, |g(τ)| ≤ C(Im τ)^{(k−2)/2}; on the vertical path τ = −x + it (z = x + iy) |τ + z| = t + y, so
+|F⁻(x + iy)| ≤ C∫_y^1 t^{(k−2)/2}(t + y)^{−k}dt + O(1) = O(y^{−k/2} + log(1/y) + 1) = o(y⁻¹), uniformly in x. Since F is
+modular, h_γ = −F⁻(z) + v⁻¹(cz + d)^{−k}F⁻(γz), and at z = r + iy, Im γz ≍ y, so h_γ(r + iy) = o(y⁻¹): LS applies. ∎
+*Not covered (review fix):* shadows with non-zero constant terms (Eisenstein shadows — Assessment: the extra terms are
+O(y^{−1}log(1/y)) at worst, so the corollary should extend, but this was not checked), weakly holomorphic / exponentially
+growing objects, and quantum modular forms in Zagier's sense (objects defined on rational boundary points, possibly
+with renormalised boundary values — their cocycles are not the upper-half-plane cocycles bounded here).
 *Proof.* Γ has finite index, so U^j = (1 0; j 1) ∈ Γ for some j ≥ 1 (pigeonhole on the cosets ΓUⁱ). Choose a prime ℓ ∤ j
 and an integer r ≥ 1 with jr ≡ −1 (mod ℓ²). Then U^j(r) = r/(jr + 1) is in lowest terms with ℓ² | jr + 1, so
 κ(U^j r) = 0, while κ(r) = κ(0) = 1 ≠ 0. At z = r + iy, U^j z − U^j r = iy/((jz + 1)(jr + 1)) lies in a fixed sector
@@ -199,12 +237,13 @@ at every non-squarefree or even denominator (μ(c)/c²), i.e. the arithmetic of 
   coefficient sequence of the form ζ(s, a)ζ(s, b) and is equivalent (by Mellin) to the Hurwitz functional equations — a
   Voronoi-type summation statement. It cannot distinguish 4dm² + 1 from 4dp + 1; it does not use primality anywhere.
   Lemma K's κ is likewise insensitive to n. (Assessment.)
-* **Verdict I6: narrowed / dead on the level sum.** (S1) delivered: an explicit S-transformation with boundary
-  terms E and period Ψ for the d = 1 and d = 3 fibres (PROVED, verified to 10⁻¹⁵). (S2) the period is the Cauchy
-  integral of the non-modular dual partial Lambert series: a quantum-modular, not a mock, structure relative to that
-  law. (S3) **the levels do not sum to a law** — Theorem LS rules out every finite-index (scalar or finite-image
-  vector-valued) modular / mock / quantum-modular law for G, unconditionally. What survives: laws with infinitely
-  many levels kept separate (METAPLECTIC hatch H-A, the B2 coordinate) — nothing new opened. Pointwise use of any of
+* **Verdict I6: narrowed.** (S1) delivered: an explicit S-transformation with boundary terms E and period Ψ for the
+  d = 1 and d = 3 fibres (PROVED; numerically verified — see K6a record). (S2) inconclusive as a theorem: the period is
+  an integral transform of dual partial Lambert series that are not in M₁ (PROVED for d = 1), but no shadow-uniqueness
+  argument excludes a mock completion. (S3) **the levels do not sum to a small-period law**: Theorem LS excludes every
+  finite-index law whose cocycles are o(y⁻¹log²(1/y)) at rationals, hence (Cor. LS-M) modular forms and harmonic Maass
+  forms with cuspidal shadow; other classes (Eisenstein shadows, boundary-defined quantum forms, infinite-image
+  vector-valued systems, laws with infinitely many levels — METAPLECTIC hatch H-A) are not excluded. Pointwise use of any of
   this would still need a single-coefficient statement (H-E), which these generating-function laws do not provide.
 
 ## 3. I5 — candidate involutions (precise list, committed BEFORE running them on T₇₃ / T₄₀₉)
@@ -251,7 +290,8 @@ Conversely such a prime q gives the word (1, q + 1, (p + 1)/q) when q ≡ 3 (mod
 (Checked for all 383 primes p ≡ 1 (4) < 6000: 0 violations; 54 of them, starting 73, 193, 313, 337, 409, have no
 trivial certificate.)
 **Consequence.** The odd parity that a Zagier-type argument needs is carried *entirely* by the divisor words of p + 1
-(the swap-free part T′_p is even). At every prime with (p + 1)/2 a sum of two squares (infinitely many; 73, 409, …) a
+(the swap-free part T′_p is even). At every prime p for which p + 1 has **no prime factor ≡ 3 (mod 4)** (54 of the 383
+primes p ≡ 1 (4) below 6000, e.g. 73, 409; whether there are infinitely many is not addressed here) a
 certificate-fixed involution σ cannot preserve the decomposition Triv ⊔ T′: it must pair at least one divisor word of
 p + 1 with a non-trivial word — i.e. it must be an arithmetic transport from divisors of p + 1 to the (MS)/(W)
 certificates. That is the B2 event again in parity clothing; no such transport is known.
@@ -266,10 +306,58 @@ involution, or a non-certificate fixed point) at 9 and 105. Survivor of both = H
 *Result* (`scripts/z70_loose_i5grammar.py` → `i5_grammar.txt`): 400 maps; 246 are involutions on both T₇₃ and T₄₀₉
 but have non-certificate fixed points at both; 154 are not involutions at either. **No stage-1 survivor.**
 
-**Verdict I5 (narrowed):** the seven registered natural non-affine cross-slice maps and all 400 maps of the round-2 grammar fail stage 1 on T₇₃/T₄₀₉;
+**Verdict I5 (narrowed):** the seven registered candidate maps and all 400 candidate expressions of the round-2 grammar fail stage 1 on T₇₃/T₄₀₉ (not all are distinct maps; many are not involutions);
 Lemma P5 explains why any such map must be arithmetic in p + 1. Not killed in general (a map certificate-fixed only at
 primes is not excluded), but no candidate exists. F1: T₉, T₁₀₅ have C = ∅ and odd |T| — any passing family must fail
 there; F2: no candidate survived to the C-even question.
+
+## 4. IDEAA #10 — Type I with an explicit d-selection rule: DEAD as a forcing rule (CERTIFIED failures)
+
+**Lemma S (exact slice bound; PROVED).** Fix p and d. The Type I slice {(a, b, c, e) : 4abd = pe + 1, ce = a + b} is
+non-empty iff it has a point with a ≤ b, and every such point has f := (4a²d + 1)/e ≤ p + 2 and a ≤ (p + 1)/(2d).
+*Proof.* The equations are symmetric in (a, b), so swap if needed. If a ≤ b then 4a²d ≤ 4abd = pe + 1, so
+fe = 4a²d + 1 ≤ pe + 2 and f ≤ p + 2/e ≤ p + 2. In K3 form f = 4acd − p with c ≥ 1, so 4acd = p + f ≤ 2p + 2 and
+a ≤ (p + 1)/(2cd) ≤ (p + 1)/(2d). ∎ Hence the slice at (p, d) is decided exactly by scanning a ≤ (p + 1)/(2d) and
+f ≡ −p (mod 4ad), f ≤ p + 2, f | 4a²d + 1 (`scripts/z70_loose_typeIfull.c`; fixture (1033, 132): a = 1, f = 23 ✓).
+
+**Runs.** `scripts/z70_loose_typeI.c` (A = 2000 as registered; decoy as registered; fixture found, a = 1):
+`range 5e7 2000 30 0` and `range 1e8 2000 30 5e7` → `data/z70/loose/typeI_range_*.txt` (all 719 781 primes
+p ≡ 1 (24) ≤ 10⁸; the Gaussian rule GA on every 30th prime — deviation for cost, irrelevant to its verdict); `list`
+mode on the hard lists → `typeI_list_*.txt`. (The two range files' first line prints a stale "a=0" for the fixture —
+an argument-evaluation-order bug fixed afterwards; the fixture *was* found, as the corrected list runs show.)
+
+| rule | coverage, p ≡ 1 (24) ≤ 10⁸ (A = 2000) | vs matched decoy (McNemar z) | (★)-zeros 14 | 𝔊*-zeros 38 | noprime 231 | R₈-zeros 12 |
+|---|---|---|---|---|---|---|
+| NP d = n_p (mean d 7.7, max 67) | 0.9739 | +107.9 (pooled; size-confounded, see below) | 13 | 35 | 214 | 12 |
+| Q3 least prime ≡ 3 (4) non-residue | 0.9079 | −62.9 | 12 | 34 | 186 | 12 |
+| CF first non-residue partial quotient | 0.7770 (846 undefined) | +12.6 | 6 | 22 | 165 | 9 |
+| GA Gaussian combination | 0.006 (subsample 23 993) | +0.7 | 0 | 4 | 3 | 0 |
+
+**Exact (untruncated) failures of NP (CERTIFIED by Lemma S, `typeI_np_fail_exact.txt`):** of the 20 distinct hard
+primes where NP missed with A = 2000 (21 rows; 102 001 is on two lists), a full scan finds points for 14 (with a up to
+102 291 — the truncation matters) but the
+**d = n_p slice is exactly empty** at 102 001 (d = 23; a (★)- and 𝔊*-zero), 3 361 (d = 11), 210 961 (23),
+1 063 969 (17), 27 020 569 (37), 103 819 081 (13) (all noprime primes, all ≡ 1 (24), all in 𝔐).
+
+**Two-element menu (exploratory, after the kill; `typeI_np_menu_exact.txt`, exact by Lemma S).** At each of the six
+exact NP failures the *second* prime non-residue d gives a non-empty slice (102 001: d = 29; 3 361: 13; 210 961: 29;
+1 063 969: 29; 27 020 569: 41; 103 819 081: 19). *Assessment:* for any bounded d the heuristic expected slice size
+grows like (log p)²/d, so a fixed finite menu would plausibly fail only finitely often — but it is then a finite
+union of p-independent covering families (p ≡ −f (mod 4ad), f | 4a²d + 1, a unbounded): proving it is exactly the
+B1/B2 problem; and n_p is unbounded, so "d = n_p" is not even a bounded menu. Coverage at A = 2000 is flat in p
+(0.9736 on p ≤ 5·10⁷, 0.9742 on (5·10⁷, 10⁸]) but the truncation A = 2000 confounds any trend (Lemma S allows
+a ≤ (p + 1)/2d).
+
+**Kill tests.** K10a fires for every rule (best 97.4 % < 99.9 %). K10b fires (NP fails exactly at six hard primes).
+K10c: the decoy comparison is uninformative for NP — the least non-residue has no admissible smaller decoy, so every
+decoy is larger and the +107 measures size (expected slice count ≍ log²p / d); Q3 is far *below* its decoys
+(restricting to primes ≡ 3 (4) hurts); CF's +12.6 has the same size asymmetry and is irrelevant at 78 % coverage.
+**Verdict (#10): the four implemented rules are dead as forcing rules** (K10a with the registered truncation A = 2000;
+K10b for NP also *exactly*, by Lemma S, at six hard primes; GA/Q3/CF failures on hard lists are at A = 2000 only).
+Nothing here excludes other single-d rules or bounded menus (*Assessment/heuristic*, not a theorem: fixed-d Type I
+slices are p-independent covering families over a with expected size ≍ (log p)²/d, so any such rule is a B1/B2-type
+covering statement). F1: Type I at a square needs (d/m²) = −1 (Lemma T10), impossible — every rule fails at squares
+by the Jacobi step. F4: reported in the table.
 
 ## 5. MINE open item — Pell residues modulo the letters: no witness-specific signal (EVIDENCE, non-rejection)
 
@@ -303,127 +391,89 @@ local conic; the signal criterion is not met for any witness-specific contrast. 
 relations, not equivalence (2-s.e. on the D-rate difference ≈ ±0.008 on each H half). Scope: letters ≤ 2·10⁵ only;
 gcd / ratio relations and larger shifts untested. The registered-null "signal" is a 2-adic artefact, now explained.
 
-## 4. IDEAA #10 — Type I with an explicit d-selection rule: DEAD as a forcing rule (CERTIFIED failures)
-
-**Lemma S (exact slice bound; PROVED).** Fix p and d. The Type I slice {(a, b, c, e) : 4abd = pe + 1, ce = a + b} is
-non-empty iff it has a point with a ≤ b, and every such point has f := (4a²d + 1)/e ≤ p + 2 and a ≤ (p + 1)/(2d).
-*Proof.* The equations are symmetric in (a, b), so swap if needed. If a ≤ b then 4a²d ≤ 4abd = pe + 1, so
-fe = 4a²d + 1 ≤ pe + 2 and f ≤ p + 2/e ≤ p + 2. In K3 form f = 4acd − p with c ≥ 1, so 4acd = p + f ≤ 2p + 2 and
-a ≤ (p + 1)/(2cd) ≤ (p + 1)/(2d). ∎ Hence the slice at (p, d) is decided exactly by scanning a ≤ (p + 1)/(2d) and
-f ≡ −p (mod 4ad), f ≤ p + 2, f | 4a²d + 1 (`scripts/z70_loose_typeIfull.c`; fixture (1033, 132): a = 1, f = 23 ✓).
-
-**Runs.** `scripts/z70_loose_typeI.c` (A = 2000 as registered; decoy as registered; fixture found, a = 1):
-`range 5e7 2000 30 0` and `range 1e8 2000 30 5e7` → `data/z70/loose/typeI_range_*.txt` (all 719 781 primes
-p ≡ 1 (24) ≤ 10⁸; the Gaussian rule GA on every 30th prime — deviation for cost, irrelevant to its verdict); `list`
-mode on the hard lists → `typeI_list_*.txt`. (The two range files' first line prints a stale "a=0" for the fixture —
-an argument-evaluation-order bug fixed afterwards; the fixture *was* found, as the corrected list runs show.)
-
-| rule | coverage, p ≡ 1 (24) ≤ 10⁸ (A = 2000) | vs matched decoy (McNemar z) | (★)-zeros 14 | 𝔊*-zeros 38 | noprime 231 | R₈-zeros 12 |
-|---|---|---|---|---|---|---|
-| NP d = n_p (mean d 7.7, max 67) | 0.9739 | +107.9 (pooled; size-confounded, see below) | 13 | 35 | 214 | 12 |
-| Q3 least prime ≡ 3 (4) non-residue | 0.9079 | −62.9 | 12 | 34 | 186 | 12 |
-| CF first non-residue partial quotient | 0.7770 (846 undefined) | +12.6 | 6 | 22 | 165 | 9 |
-| GA Gaussian combination | 0.006 (subsample 23 993) | +0.7 | 0 | 4 | 3 | 0 |
-
-**Exact (untruncated) failures of NP (CERTIFIED by Lemma S, `typeI_np_fail_exact.txt`):** of the 21 hard primes where
-NP missed with A = 2000, a full scan finds points for 15 (with a up to 102 291 — the truncation matters) but the
-**d = n_p slice is exactly empty** at 102 001 (d = 23; a (★)- and 𝔊*-zero), 3 361 (d = 11), 210 961 (23),
-1 063 969 (17), 27 020 569 (37), 103 819 081 (13) (all noprime primes, all ≡ 1 (24), all in 𝔐).
-
-**Two-element menu (exploratory, after the kill; `typeI_np_menu_exact.txt`, exact by Lemma S).** At each of the six
-exact NP failures the *second* prime non-residue d gives a non-empty slice (102 001: d = 29; 3 361: 13; 210 961: 29;
-1 063 969: 29; 27 020 569: 41; 103 819 081: 19). *Assessment:* for any bounded d the heuristic expected slice size
-grows like (log p)²/d, so a fixed finite menu would plausibly fail only finitely often — but it is then a finite
-union of p-independent covering families (p ≡ −f (mod 4ad), f | 4a²d + 1, a unbounded): proving it is exactly the
-B1/B2 problem; and n_p is unbounded, so "d = n_p" is not even a bounded menu. Coverage at A = 2000 is flat in p
-(0.9736 on p ≤ 5·10⁷, 0.9742 on (5·10⁷, 10⁸]) but the truncation A = 2000 confounds any trend (Lemma S allows
-a ≤ (p + 1)/2d).
-
-**Kill tests.** K10a fires for every rule (best 97.4 % < 99.9 %). K10b fires (NP fails exactly at six hard primes).
-K10c: the decoy comparison is uninformative for NP — the least non-residue has no admissible smaller decoy, so every
-decoy is larger and the +107 measures size (expected slice count ≍ log²p / d); Q3 is far *below* its decoys
-(restricting to primes ≡ 3 (4) hurts); CF's +12.6 has the same size asymmetry and is irrelevant at 78 % coverage.
-**Verdict (#10): dead as stated** (four explicit rules; fixed-d Type I slices are p-independent covering families
-over a, expected size ≍ (log p)²/d — any rule p ↦ d with d ≥ n_p ≥ 11 on 𝔐 inherits a positive failure rate). F1:
-Type I at a square needs (d/m²) = −1 (Lemma T10), impossible — every rule fails at squares by the Jacobi step. F4:
-reported in the table. The one surviving logical possibility is a rule that is *not* a single d (a growing menu of d) —
-that is the ordinary Type I union, i.e. B2.
-
-## 6. I9 — result (EVIDENCE; registered design; one deviation + one post-hoc size check, disclosed)
+## 6. I9 — result (EVIDENCE; registered design with disclosed shortfalls; post-hoc checks after review)
 Run: `uv run --with sympy python scripts/z70_loose_i9.py` (seed 7070) → `data/z70/loose/i9_run.txt`, rows
-`i9_rows.json`; post-hoc `scripts/z70_loose_i9b.py` → `i9b_twosided.txt`. Disjoint controls: 20 per hard prime,
-same class mod 840, uniform in [p/2, 2p], no hard-list member, no reuse (hard primes with no admissible control:
-5569, 9601 (𝔊*), 9601, 23041 (noprime), 1129, 2521, 3361 (U⁽⁸⁾) — dropped from Δ).
+`i9_rows.json`; post-hoc `scripts/z70_loose_i9b.py` → `i9b_twosided.txt`; review checks `scripts/z70_loose_i9c.py` →
+`i9c_review.txt`. Controls: same class mod 840, uniform in [p/2, 2p], no hard-list member, no reuse anywhere,
+**target 20 per hard prime, drawn by rejection with a 200 000-draw budget**. *Shortfall (review fix):* the target was
+not always met — control counts per stratum: (★) {1, 6, 20×7}; 𝔊* {0, 0, 13, 15, 20×16}; noprime {0, 0, 1, 1, 15,
+20×140}; U⁽⁸⁾ {0, 0, 0, 5, 6, 11, 12, 12, 16, 20, 20}; R₈ {20×4}. Strata with 0 controls (5569, 9601 (𝔊*); 9601,
+23041 (noprime); 1129, 2521, 3361 (U⁽⁸⁾)) are dropped — "none obtained within the budget" (the windows contain only a
+handful of class members), not a verified absence. Means below are on the **retained strata**, controls weighted
+equally per stratum; s.e. from the binomial model Σ c̄(1 − c̄)(1 + 1/m) (a model-based approximation; strata with one
+control get variance 0).
 
-| hard set (𝔐-members with controls) | Q hard | Q controls | Δ (stratified) ± s.e. | z | 95 % CI |
+| hard set (retained strata) | Q hard | Q controls (stratum-weighted) | Δ ± s.e. | z | 95 % CI |
 |---|---|---|---|---|---|
-| (★)-zeros (9) | 0.444 | 0.524 | −0.009 ± 0.158 | −0.06 | (−0.32, +0.30) |
-| 𝔊*-zeros (18) | 0.450 | 0.569 | −0.121 ± 0.115 | −1.05 | (−0.35, +0.10) |
-| noprime (143) | 0.559 | 0.590 | −0.022 ± 0.041 | −0.53 | (−0.101, +0.058) |
-| U⁽⁸⁾-zeros (8) | 0.636 | 0.598 | +0.157 ± 0.179 | +0.88 | (−0.19, +0.51) |
+| (★)-zeros (9) | 0.444 | 0.454 | −0.009 ± 0.158 | −0.06 | (−0.32, +0.30) |
+| 𝔊*-zeros (18) | 0.444 | 0.565 | −0.121 ± 0.115 | −1.05 | (−0.35, +0.10) |
+| noprime (143) | 0.566 | 0.588 | −0.022 ± 0.041 | −0.53 | (−0.101, +0.058) |
+| U⁽⁸⁾-zeros (8) | 0.750 | 0.593 | +0.157 ± 0.179 | +0.88 | (−0.19, +0.51) |
 | R₈-zeros (4, F2) | 0.500 | 0.637 | −0.138 ± 0.245 | −0.56 | (−0.62, +0.34) |
+(The first draft's "Q hard" column mixed in the dropped strata and pooled the controls; Δ was already stratified.)
 
-* **Registered effect bound:** on the noprime set the 95 % CI is (−0.101, +0.058): it reaches −0.101, just outside the
-  registered (−0.10, 0.10) band, so the equivalence criterion is **narrowly not met** (it is met for +0.10, not for
-  −0.10); no effect criterion (|z| ≥ 3) fires anywhere. Reading (EVIDENCE): no detected difference; an effect of
-  size ≥ 0.10 in the direction "hard primes have Q *more* often" is excluded at 95 %; a deficit of ≈ 0.10 is not.
-* **q-to-word construction (registered decoy, |q′ − q| ≤ 0.1 q):** Y(q) is tiny (≈ 0.02–0.03 on controls) and equal
-  to the decoy rate (noprime controls 889 pairs: McNemar b = 23, c = 20, z = +0.46). The 10 % window is empty for
-  most small q (772 of the noprime-control Q-primes had no decoy) — a design flaw of the registration.
-  *Deviation (disclosed):* a window-free "nearest admissible prime" decoy gave a large apparent excess on controls
-  (noprime controls: Y(q) = 0.158 vs Y(q′) = 0.094, z = +5.91). *Post-hoc size check:* that decoy is
-  biased upward in size for small q (Y falls like ≈ (log q)/q); with a **two-sided** decoy (mean of the nearest
-  admissible prime below and above q; mean log(decoy/q) ≈ −0.02) the excess disappears: noprime controls
-  1 233 pairs, Y(q) = 0.068 vs 0.061, z = +0.84; all sets |z| ≤ 1.0. So the +5.9 was a size artifact.
-* On hard primes the construction essentially never fires (noprime hard: Y(q) = 0.016 on 64 two-sided pairs).
+* **Registered effect bound:** noprime 95 % CI (−0.101, +0.058) — the equivalence criterion (−0.10, 0.10) is narrowly
+  **not met** (met on the + side only); no effect criterion (|z| ≥ 3) fires. Reading (EVIDENCE): no detected
+  difference; an excess of ≥ 0.10 of Q on hard primes is excluded at the model's 95 % level, a deficit of ≈ 0.10 is not.
+* **q-to-word construction (registered decoy, |q′ − q| ≤ 0.1 q):** Y(q) ≈ 0.02–0.03 on controls, equal to the decoy
+  rate (noprime controls 889 pairs: McNemar b = 23, c = 20, z = +0.46). The 10 % window is empty for most small q (772
+  noprime-control Q-primes had no decoy) — a design flaw of the registration, and a strong selection (small q dropped).
+  *Deviation (disclosed):* a window-free "nearest admissible prime" decoy gave an apparent excess (noprime controls
+  1 661 pairs: Y(q) = 0.158 vs 0.094, z = +5.91). *Post-hoc checks:* on the subset of 1 233 Q-primes that have an
+  admissible decoy on **both** sides, the nearest decoy gives Y(q) = 0.0681 vs 0.0673 (z = +0.09) and the two-sided
+  decoy 0.0681 vs 0.0612 (z = +0.84); the 428 excluded Q-primes (small q, no admissible prime below) have
+  Y(q) ≈ 0.16 on average. So the +5.9 is confined to small q where every decoy is larger than q — **consistent with
+  size/selection confounding** (Y falls roughly like (log q)/q); this is a diagnosis, not a proof of zero effect.
+* On hard primes the construction rarely fires (noprime hard: Y(q) = 0.016 on 64 two-sided pairs).
 
-**Verdict I9 (EVIDENCE):** with disjoint factor-two-matched controls the X-coordinate classifier shows no
-difference (|z| ≤ 1.05 everywhere); a q | X with (840/q) = −1 builds (★) words exactly as often as a size-matched
-non-residue prime not dividing X. K9 fires (no word-building information). Nothing here is a mechanism; the
-remaining untested direction is any construction using q *together with* Y (e.g. f built from q and Y) — not
-pursued.
+**Verdict I9 (EVIDENCE, non-rejection):** with disjoint, size-window controls the X-coordinate classifier shows no
+detected difference (|z| ≤ 1.05 everywhere); for this q-to-word construction and its eligible sample no excess of
+Y(q) over size-matched non-residue decoys was detected (K9 fires as registered). Not tested: constructions using q
+together with Y, and the small-q region without admissible decoys.
 
 ## 7. Falsifier table — final
 | item | F1 odd squares | F2 C-even / R₈ | F3 composites | F4 known zeros |
 |---|---|---|---|---|
-| I6 Theorem F / LS | laws are coefficient-blind (Mellin ⟺ Hurwitz functional equations); r_d(4dm² + 1) = 0 is invisible to them; LS is a no-go, needs no primality | the C-even fibres (d even) obey Theorem F too; no positivity claimed | n/a (no positivity claimed) | n/a |
-| I5 involutions | T₉, T₁₀₅ printed as controls (C = ∅, |T| odd); every candidate already fails at primes | no survivor reached the C-even question | 105 control as F1 | 73, 409 are themselves the stage-1 test (B₇₃ = ∅ in `Z69_TWIST.md` P′; 409 is a (★)-zero) |
+| I6 Theorem F / LS | Theorem F is coefficient-blind (Mellin ⟺ Hurwitz functional equations); r_d(4dm² + 1) = 0 is invisible to it; LS is a no-go, needs no primality | the C-even fibres (d even) obey Theorem F too; no positivity claimed | n/a (no positivity claimed) | n/a |
+| I5 involutions | T₉, T₁₀₅ printed as controls (C = ∅, #T odd); every candidate already fails at primes | no survivor reached the C-even question | 105 control as F1 | 73, 409 are themselves the stage-1 test (B₇₃ = ∅ in `Z69_TWIST.md` P′; 409 is a (★)-zero) |
 | #10 rules | Type I at m² impossible (Lemma T10): every rule fails at squares by the Jacobi step | all rules cover all 12 R₈ zeros except CF (9/12), GA (0/12) — irrelevant, rules dead | not tested (rules use p's quadratic data) | NP exactly fails at 102 001 ((★)- and 𝔊*-zero) and five noprime primes |
 | Pell letters | no witnesses at squares | n/a | n/a | H sets: null |
 | I9 | Q = 0 at squares (every q | X has (840/q) = +1) | 𝔐-members of R₈ zeros: Δ = −0.14 ± 0.25 | n/a | hard sets: null |
 No idea survives as a mechanism, so the four screens are compatibility records only. **Not a HOT LEAD.**
 
 ## 8. Verdicts (one line each)
-* **I6 — narrowed; the level-sum completion is dead (Theorem LS, PROVED, scoped to finite-index scalar or finite-image
-  vector-valued laws).** Fibre laws exist (Theorem F) and are quantum-modular, not mock, relative to their natural form.
-* **I5 — narrowed.** 407 explicit candidate maps fail stage 1; Lemma P5 locates the parity in the divisors of p + 1.
-* **IDEAA #10 — dead as stated** (K10a, K10b fire; CERTIFIED exact failures). Menus of d are B1/B2.
-* **Pell letters — inconclusive / non-rejection** (no witness-specific contrast; the registered-null signal is a
-  2-adic artefact, PROVED explanation).
-* **I9 — non-rejection; q-to-word construction carries no information (K9 fires).** The registered ±0.10 equivalence
-  band is met on the + side only (CI (−0.101, +0.058)).
+* **I6 — narrowed.** Fibre law: PROVED (Theorem F). Mock status of the fibres: not decided. Level sum: no finite-index
+  law with small cocycles (Theorem LS, PROVED), hence not modular / not harmonic with cuspidal shadow (Cor. LS-M);
+  Eisenstein-shadow, boundary-defined quantum and infinite-level objects are not excluded.
+* **I5 — narrowed.** 407 candidate expressions (7 registered + 400 grammar) fail stage 1; Lemma P5 locates the parity
+  in the divisor words of p + 1.
+* **IDEAA #10 — the four implemented rules are dead** (K10a, K10b fire; NP's failures CERTIFIED exact by Lemma S).
+  Other single-d rules and bounded menus are not excluded (heuristically B1/B2-type).
+* **Pell letters — non-rejection** for the listed relations against exact decoys; the registered-null excess was a
+  2-adic miscalibration (PROVED source; recalibrated null — see §5 for the final numbers).
+* **I9 — non-rejection.** No detected Q difference (equivalence band met on the + side only); no detected
+  q-to-word excess in the eligible sample (K9 fires).
 
 ## 9. Proposed FRONTIER §7 / §6 text (do not edit FRONTIER here)
-> **z70 LOOSE (Z70_LOOSE.md).** (i) *I6 closed on the level sum:* the fibre series Φ_d obey an explicit
-> S-transformation (Theorem F: Hurwitz/Mellin, boundary term E, period = Cauchy integral of the dual partial Lambert
-> series; verified to 34 digits for d = 1, double precision for d = 3) — quantum-modular (Bettin–Conrey type), not
-> mock relative to that law. The level sum G = Σ R(n)qⁿ has leading singular coefficients κ(a₀/c) = 1[c odd]μ(c)/c²
-> at rationals (Lemma K), hence **no** modular, mock, harmonic or quantum-modular law of any real weight on any
-> finite-index subgroup (Theorem LS). Any automorphic route must keep the infinitely many levels separate (hatch H-A).
-> (ii) *I5:* 407 natural cross-slice involutions of T_p fail at 73/409; the odd parity of T_p is carried by the
-> 3τ(p + 1) − 1 divisor words (Lemma P5), so a parity proof must transport divisors of p + 1 to certificates.
-> (iii) *IDEAA #10 dead:* d = n_p (and three other explicit rules) leave the Type I slice exactly empty at six hard
-> primes (Lemma S makes the slice decision exact). (iv) *Pell residues mod letters:* null against exact decoys;
-> registered-null excess explained by T ≡ 0 (4). (v) *I9:* null with disjoint factor-two controls; q | X builds words
-> no better than a size-matched non-residue.
+> **z70 LOOSE (Z70_LOOSE.md).** (i) *I6:* the fibre series Φ_d obey an explicit S-transformation (Theorem F: Mellin +
+> Hurwitz; boundary term E; period = integral transform of the dual partial Lambert series, which for d = 1 are not
+> weight-1 modular) — PROVED, numerically checked; whether a fibre admits a mock completion is not decided. The level
+> sum G = Σ R(n)qⁿ has leading singular coefficients κ(a₀/c) = 1[c odd]μ(c)/c² at rationals (Lemma K), so it satisfies
+> **no transformation law on any finite-index subgroup whose cocycles are o(y⁻¹log²(1/y)) at rationals** (Theorem LS);
+> in particular G is not modular and not the holomorphic part of a harmonic Maass form with cuspidal shadow. Automorphic
+> routes through G must use objects outside that class (e.g. infinitely many levels kept separate — hatch H-A).
+> (ii) *I5:* 407 candidate cross-slice maps fail at 73/409; the odd parity of T_p is carried by the 3τ(p + 1) − 1
+> divisor words (Lemma P5). (iii) *IDEAA #10:* four explicit d-rules fail (d = n_p leaves the Type I slice exactly
+> empty at six hard primes; Lemma S makes single-slice decisions exact). (iv) *Pell residues mod letters:* no
+> difference from exact decoys. (v) *I9:* no detected difference with disjoint controls.
 
 ## 10. Bottom line
-Five loose ends were tied off. The only genuinely new mathematics is on I6: an explicit, verified transformation law
-for each fibre and a clean theorem that the sum over levels admits no transformation law of finite level — because the
-log² singularity of G vanishes at every rational with even or non-squarefree denominator (κ = μ(c)/c²), which no
-finite-index group action can respect. This converts "levels do not sum to a law" from an assessment into a scoped
-theorem and leaves only infinite-level (H-A) constructions. The other four items are negative: no involution, no
-Type I d-rule, no Pell-letter signal, no X-coordinate signal. ES remains OPEN.
+The five loose ends were run. The new mathematics is on I6: an explicit, verified transformation law for each fibre,
+and a scoped theorem that the sum over levels admits no finite-index transformation law with small cocycles — because
+the log² singularity of G vanishes at every rational with even or non-squarefree denominator (κ = μ(c)/c²), which a
+finite-index group action cannot respect. Whether the fibres are mock, and whether non-standard automorphic objects
+could carry G, remain open. The other four items are negative within their tested scope: no involution among 407
+candidates, no working Type I d-rule among four, no Pell-letter signal, no X-coordinate signal. ES remains OPEN.
 
 ## Reproduction (all with `ulimit -v 6000000`, `timeout ≤ 1800`)
 * I9: `uv run --with sympy python scripts/z70_loose_i9.py`; `… scripts/z70_loose_i9b.py`.

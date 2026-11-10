@@ -1,0 +1,18 @@
+star14 hard: pairs=3 Y(q)=0.000 Y(two-sided decoy)=0.000 diff=+0.0000 z=+0.00 mean log(geo-mean decoy/q)=+0.004
+star14 ctl: pairs=62 Y(q)=0.048 Y(two-sided decoy)=0.073 diff=-0.0242 z=-0.65 mean log(geo-mean decoy/q)=-0.035
+gstar38 hard: pairs=6 Y(q)=0.000 Y(two-sided decoy)=0.000 diff=+0.0000 z=+0.00 mean log(geo-mean decoy/q)=-0.016
+gstar38 ctl: pairs=147 Y(q)=0.088 Y(two-sided decoy)=0.075 diff=+0.0136 z=+0.59 mean log(geo-mean decoy/q)=-0.015
+noprime231 hard: pairs=64 Y(q)=0.016 Y(two-sided decoy)=0.016 diff=+0.0000 z=+0.00 mean log(geo-mean decoy/q)=+0.003
+noprime231 ctl: pairs=1233 Y(q)=0.068 Y(two-sided decoy)=0.061 diff=+0.0069 z=+0.84 mean log(geo-mean decoy/q)=-0.022
+u8zero hard: pairs=5 Y(q)=0.200 Y(two-sided decoy)=0.000 diff=+0.2000 z=+1.00 mean log(geo-mean decoy/q)=-0.030
+u8zero ctl: pairs=50 Y(q)=0.120 Y(two-sided decoy)=0.070 diff=+0.0500 z=+0.96 mean log(geo-mean decoy/q)=-0.014
+r8zero12 hard: pairs=1 Y(q)=0.000 Y(two-sided decoy)=0.000 diff=+0.0000 z=+0.00 mean log(geo-mean decoy/q)=-0.151
+r8zero12 ctl: pairs=41 Y(q)=0.024 Y(two-sided decoy)=0.024 diff=+0.0000 z=+0.00 mean log(geo-mean decoy/q)=+0.004
+star14: strata=9 retained=9 control counts (sorted)=[1, 6, 20, 20, 20, 20, 20, 20, 20]; retained hard Q=0.444, stratum-weighted control Q=0.454, Delta=-0.0093
+gstar38: strata=20 retained=18 control counts (sorted)=[0, 0, 13, 15, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]; retained hard Q=0.444, stratum-weighted control Q=0.565, Delta=-0.1208
+noprime231: strata=145 retained=143 control counts (sorted)=[0, 0, 1, 1, 15, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]; retained hard Q=0.566, stratum-weighted control Q=0.588, Delta=-0.0216
+u8zero: strata=11 retained=8 control counts (sorted)=[0, 0, 0, 5, 6, 11, 12, 12, 16, 20, 20]; retained hard Q=0.750, stratum-weighted control Q=0.593, Delta=+0.1574
+r8zero12: strata=4 retained=4 control counts (sorted)=[20, 20, 20, 20]; retained hard Q=0.500, stratum-weighted control Q=0.637, Delta=-0.1375
+noprime controls, same subset n=1233: Y(q)=0.0681 vs nearest (amended) decoy 0.0673: diff=+0.0008 z=+0.09
+noprime controls, same subset n=1233: Y(q)=0.0681 vs two-sided decoy 0.0612: diff=+0.0069 z=+0.84
+excluded from the two-sided subset: 428 Q-primes; their Y(q) = 0.1577 (all) 
