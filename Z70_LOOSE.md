@@ -74,8 +74,7 @@ rule). Rules (fixed now): R-np d = n_p (least prime non-residue); R-q3 d = least
 R-G Gaussian: p = a₀² + b₀² (a₀ odd), first of a₀, b₀/2^{v₂(b₀)}, a₀ + b₀, |a₀ − b₀|, a₀ + 2b₀, 2a₀ + b₀ that is
 non-square with (·/p) = −1; R-CF first partial quotient a_i (i ≥ 1) of the CF of √p that is non-square with
 (a_i/p) = −1 (if any in the first period); R-sm d = least non-square d with (d/p) = −1 (= least d ∈ {n_p, ...},
-also composite d). Matched decoy for each rule: a uniformly random non-square d′ with (d′/p) = −1 and
-|d′ − d| ≤ max(2, 0.1 d) (d′ ≠ d when possible).
+also composite d). Matched decoy for each rule: a uniformly random non-square d′ with (d′/p) = −1 and |d′ − d| ≤ max(2, 0.1 d) (d′ ≠ d when possible).
 **Kill tests.** K10a: coverage < 99.9 % on primes p ≡ 1 (24) ≤ 10⁸ ⟹ not a forcing rule. K10b: any failure on the
 14 (★)-zeros / 38 𝔊*-zeros / 231 noprime primes / 12 R₈ zeros ⟹ dead. K10c (information): rule coverage not
 above the matched decoy by ≥ 3σ (McNemar) ⟹ the rule's choice of d carries no information beyond its size and
@@ -149,8 +148,7 @@ holomorphic on ℍ, so the identity extends from iℝ₊. L*_{u,v}(τ) is bounde
 7 points each for (4, 3, 3) [d = 1], (12, 11, 11) [d = 3], (4, 1, 1), (12, 7, 5), including Re z ≠ 0, in **double
 precision**: max relative error **8.9·10⁻¹⁵** (review correction; the first draft misread the log as 2.9·10⁻¹⁵), max
 absolute error 3.9·10⁻¹⁶, against term sizes ≈ 10⁻²–10⁻¹ — i.e. agreement at machine precision. Plus one 34-digit
-mpmath point for d = 1 (`scripts/z70_loose_i6mp.py` → `i6_law_mp34.txt`, z = (0.05 + 0.15i)·16/90:
-|L − law| = 1.8·10⁻³⁵, relative 6.7·10⁻³⁵; small-τ region via the asymptotic Mellin series to 60 terms).
+mpmath point for d = 1 (`scripts/z70_loose_i6mp.py` → `i6_law_mp34.txt`, z = (0.05 + 0.15i)·16/90: |L − law| = 1.8·10⁻³⁵, relative 6.7·10⁻³⁵; small-τ region via the asymptotic Mellin series to 60 terms).
 **K6a as registered (≥ 5 points for each of d = 1, 3 in ≥ 30-digit arithmetic, relative error < 10⁻¹⁵) was NOT
 completed** (review fix): the multiprecision grid (`i6_k6a_mp_d1.txt`, `i6_k6a_mp_d3.txt`) was started after the
 review but the mpmath period quadrature is too slow at these points within the 30-min budget (see the files for
@@ -211,8 +209,7 @@ representation, **provided** its cocycles satisfy the same radial bound — pass
 part of a harmonic Maass form F of real weight k on a finite-index Γ with unitary multiplier whose shadow ξ_k F is a
 **cusp** form. *Proof.* If k ≥ 2 the shadow (weight 2 − k ≤ 0 cusp form) is 0 and
 G itself is modular (h_γ ≡ 0). If k < 2, F⁻(z) = c_k∫_{−z̄}^{i∞} g^c(τ)(−i(τ + z))^{−k}dτ with g a cusp form of weight
-2 − k, |g(τ)| ≤ C(Im τ)^{(k−2)/2}; on the vertical path τ = −x + it (z = x + iy) |τ + z| = t + y, so
-|F⁻(x + iy)| ≤ C∫_y^1 t^{(k−2)/2}(t + y)^{−k}dt + O(1) = O(y^{−k/2} + log(1/y) + 1) = o(y⁻¹), uniformly in x. Since F is
+2 − k, |g(τ)| ≤ C(Im τ)^{(k−2)/2}; on the vertical path τ = −x + it (z = x + iy) |τ + z| = t + y, so |F⁻(x + iy)| ≤ C∫_y^1 t^{(k−2)/2}(t + y)^{−k}dt + O(1) = O(y^{−k/2} + log(1/y) + 1) = o(y⁻¹), uniformly in x. Since F is
 modular, h_γ = −F⁻(z) + v⁻¹(cz + d)^{−k}F⁻(γz), and at z = r + iy, Im γz ≍ y, so h_γ(r + iy) = o(y⁻¹): LS applies. ∎
 *Extension (added after the review; PROVED modulo the standard regularised description of F⁻, quoted from memory —
 Bruinier–Funke 2004 / the Bringmann–Folsom–Ono–Rolen monograph):* the same holds when the shadow g is any holomorphic
@@ -240,7 +237,7 @@ appears in Lemma K: the obstruction is exactly the **infinite** union of levels 
 at every non-squarefree or even denominator (μ(c)/c²), i.e. the arithmetic of the *three* free divisor variables.
 
 ### 2.4 Squares (F1) and verdict for I6
-* F1: r_d(4dm² + 1) = 0 (T1 at 4 | 4d) is a property of coefficients; Theorem F holds identically for every
+* F1: r_d(4dm² + 1) = 0 (T1 at 4 ∣ 4d) is a property of coefficients; Theorem F holds identically for every
   coefficient sequence of the form ζ(s, a)ζ(s, b) and is equivalent (by Mellin) to the Hurwitz functional equations — a
   Voronoi-type summation statement. It cannot distinguish 4dm² + 1 from 4dp + 1; it does not use primality anywhere.
   Lemma K's κ is likewise insensitive to n. (Assessment.)
@@ -271,8 +268,7 @@ conjugation γ ↦ L^kγL^{−k}. For each action the orbit of w inside T_n is f
 Stage-1 test: involution on T₇₃ and T₄₀₉, ≠ s, Fix ⊆ C_p at both (C_p: 4 | x, 4 | y, 4 | z, or x ≡ y ≡ 3 (4), or
 z ≡ y ≡ 3 (4)). Controls T₉, T₁₀₅ (C = ∅) printed.
 
-### 3.1 Stage-1 result (`scripts/z70_loose_i5.py` → `data/z70/loose/i5_stage1.txt`): all seven candidates DEAD
-|T₇₃| = 23 (|C₇₃| = 8), |T₄₀₉| = 39 (|C₄₀₉| = 8), |T₉| = |T₁₀₅| = 11 (C = ∅).
+### 3.1 Stage-1 result (`scripts/z70_loose_i5.py` → `data/z70/loose/i5_stage1.txt`): all seven candidates DEAD |T₇₃| = 23 (|C₇₃| = 8), |T₄₀₉| = 39 (|C₄₀₉| = 8), |T₉| = |T₁₀₅| = 11 (C = ∅).
 | candidate | involution on T₇₃, T₄₀₉ | #Fix at 73 / 409 | non-certificate fixed points (examples) | verdict |
 |---|---|---|---|---|
 | ρ_L | yes | 15 / 23 (8 in C) | (2, 2, 25), (2, 13, 3) | dead |
@@ -453,7 +449,7 @@ together with Y, and the small-q region without admissible decoys.
 | I5 involutions | T₉, T₁₀₅ printed as controls (C = ∅, #T odd); every candidate already fails at primes | no survivor reached the C-even question | 105 control as F1 | 73, 409 are themselves the stage-1 test (B₇₃ = ∅ in `Z69_TWIST.md` P′; 409 is a (★)-zero) |
 | #10 rules | Type I at m² impossible (Lemma T10): every rule fails at squares by the Jacobi step | all rules cover all 12 R₈ zeros except CF (9/12), GA (0/12) — irrelevant, rules dead | not tested (rules use p's quadratic data) | NP exactly fails at 102 001 ((★)- and 𝔊*-zero) and five noprime primes |
 | Pell letters | no witnesses at squares | n/a | n/a | H sets: null |
-| I9 | Q = 0 at squares (every q | X has (840/q) = +1) | 𝔐-members of R₈ zeros: Δ = −0.14 ± 0.25 | n/a | hard sets: null |
+| I9 | Q = 0 at squares (every q ∣ X has (840/q) = +1) | 𝔐-members of R₈ zeros: Δ = −0.14 ± 0.25 | n/a | hard sets: null |
 No idea survives as a mechanism, so the four screens are compatibility records only. **Not a HOT LEAD.**
 
 ## 8. Verdicts (one line each)
