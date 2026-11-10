@@ -329,7 +329,8 @@ J-check. EVIDENCE: the d = 1 (and n ≈ 3·10⁶ / 6·10⁶, d = 3) residual bey
 fibre relation and every ideal identity no positive excess is detected for d = 1, 2, 3; at n ≈ 4·10⁶ (d = 1) 216 of 218
 L1 overlaps are explicit ideal identities. Unresolved: negative deviations against FIX-ALL (d = 1 pooled L3 −6.2; pooled
 control C0 −6.2) — the post hoc diagnostics (ALLF, DIAG) do not distinguish a null artefact from additional arithmetic
-avoidance. Proposition NG is a reformulation: **no forcing mechanism was established** — none of the operations supplies
+avoidance (a pooled L1/L3 deficit of about −3 to −4 survives even the most protective null, ALLS). Proposition NG is a
+reformulation: **no forcing mechanism was established** — none of the operations supplies
 the divisor event. Not a HOT LEAD.
 
 ### 1.9 Internal review round 1 — the nulls were wrong; corrected nulls (pre-registered here, before any corrected run beyond a 3-prime smoke test)
@@ -577,8 +578,8 @@ loosen the tie. Fixed p: all statements are per n, none produces a solution.
 variables, fibre relations solved exactly, all ideal identities kept): residual beyond z69's DL + CS is real for d = 1
 (pooled Z_L1 +18.7) and appears for d = 3 at n ≈ 3·10⁶ and 6·10⁶; against the null keeping all relations of the fibres
 n + 4a²d no positive excess detected (d = 1, 2, 3); negative departures (fewer coincidences than the null; pooled d = 1
-control also fails) unresolved — the diagnostics do not separate a null artefact from additional arithmetic avoidance.
-PROVED: Lemma Φ
+control also fails) unresolved — post hoc diagnostics shrink them, but a pooled L1/L3 deficit of about −3 to −4 survives the
+most protective null tried (possible anti-coincidence of good classes at small-prime translations; open). PROVED: Lemma Φ
 (divisors M of N_a = n + 4a²d ↦ classes is additive on products MM′ | N_a, with φ_a(N_a) = T_d; contains DL, CS), Lemma DL′ ((4acd − 1)(4bcd − 1) = 4c²dn + 1,
 c-fibre lattice), Lemma SR (least natural norm ≤ √(d(2n + e))), Lemma FR (class relations with norm product < dn are
 rational ideal identities; primitive small ideals lie in distinct classes), Cor. J (g, g + J ∈ G₁ ⟹ 2m(g)m(g+J) ≥ n).
@@ -592,8 +593,9 @@ the overlaps at small-prime translations are almost always explicit identities a
 (norms 4acd − 1, 4bcd − 1, de) coming from the factorisations of n + 4a²d and 4c²dn + 1 (Lemmas Φ, DL′); for pairs of small
 primitive ideals the class group adds no further relation (Lemma FR, Cor. FR′). Against a null that keeps all these
 relations no positive excess is detected (corrected runs; the first implementation of the nulls was wrong and is
-withdrawn); the negative departures left (fewer coincidences than that null) are unresolved — the post hoc diagnostics do
-not separate a null artefact from additional arithmetic avoidance. The one class-level law found is an exclusion (Corollary J). No
+withdrawn); the negative departures left (fewer coincidences than that null) are unresolved — they shrink under more
+protective nulls but a deficit survives, so a genuine anti-coincidence is open (it would be a repulsion, not a forcing
+mechanism). The one class-level law found is an exclusion (Corollary J). No
 forcing mechanism was established: exhibiting a good class by these operations is exhibiting a divisor M ≡ −1 (mod 4ad)
 of some N_a, the B2 event. Item 2 is null apart from a genus effect
 of the least split prime (no within-stratum residual detected). Not a HOT LEAD. ES is OPEN.
