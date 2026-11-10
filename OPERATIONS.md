@@ -7,7 +7,7 @@ instrumental.
 * **Papers are the campaign's own artifacts** (user, 2026-11-05). `paper/*.tex` exist for continuity and rigour, not as
   primary output. Edit them as fit — fix citations, priority wording, errors, scope — without asking. They are *not*
   the goal; finding ES is. (Posting/submitting anything externally still needs the user; do not touch PR
-  plasma-ai/erdos#65.)
+  plasma-ai/erdos#65 — merged upstream 2026-11-10 20:12 UTC, per GitHub API, z71 LIT.)
 * Breadth and boldness; barriers are information about what a new idea must beat. False negatives are the costly error.
 * Organised, concise, honest reports; be blunt when nothing turned up. The user likes "tryhard" lanes alongside
   structured ones.
@@ -56,3 +56,7 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
   `data/z70/xreview/REVIEW_GEN.md` (frozen tests specified); `Z70_CLASS.md` open list (Rédei 4-rank, small-split-prime
   orbits from principal seeds, fixed-n solution-graph moves); conjecture (S); U₇ (Conjectures B, C in `Z68_U7F.md`);
   (MS⁺₁₀₅). Resume only with a genuinely new idea for forcing one tied divisor event at a fixed prime.
+* **z71 literature refresh (2026-11-10, `Z71_LIT.md`; orchestrator-reviewed, no Astra review):** arXiv math.NT
+  2026-09-28 … 11-10 screened in full; no new mechanism. New ES paper Dahan arXiv:2611.08717 (5/7 < 3/4 by the same
+  architecture as the 3/4 note; "1 − o(1)" only on a structured subset; pointwise part ends at an open hypothesis =
+  B2 with a cap). Dahan I has a v2 with shifted numbering (repo cites v1). Resume condition unchanged.

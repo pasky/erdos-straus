@@ -10,6 +10,9 @@ repository file, with a pointer. When a summary and its source disagree, the sou
 > *(z58: literature addendum in `Z58_LIT.md`, sources accessed/searched 2026-11-05; bounded searches, not a completeness
 > guarantee. It includes the priority item under "Exceptional set" in §1; the K-R-K standard-axiom CI closure is at the
 > 2026-10-30 commit.)*
+> *(z71: literature refresh `Z71_LIT.md`, accessed 2026-11-10 — every arXiv math.NT listing of 2026-09-28 … 11-10 screened by
+> title, keyword sweeps elsewhere, bounded web sweep; orchestrator-reviewed, no cross-model review. No new mechanism. New ES
+> item: Dahan, arXiv:2611.08717, under "Exceptional set" in §1.)*
 
 *Orchestration directives (papers are campaign artifacts, edit freely; wave mechanics): `OPERATIONS.md`.*
 
@@ -91,6 +94,15 @@ approximation always exists, and BM does not explain all failures of strong appr
     review outstanding: there are absolute constants c, C, X₀ > 0 such that for every real X ≥ X₀ and each integer
     4 ≤ m ≤ (log X)³, at most CmX/(log X)⁴ primes in (X, 2X] have R_II,m(p) < c(log X)³/m. This concerns the full
     strict Type II family.
+  * *(z71, `Z71_LIT.md` §2.1.)* **Dahan II**, arXiv:2611.08717v1 (2026-11-05, 109 pp., unrefereed; proofs not audited).
+    Thm 7.12 states E(N) ≪ N exp(−c′(log N)^{5/7}/(log log N)^{2/7}) — weaker than 3/4; the paper cites neither K-R-K nor
+    any 3/4 bound. Its §7 sieve (prime p × rough cofactor q ≤ exp(c√log Z), conditional CRT independence, even Bonferroni
+    majorant, Bombieri–Vinogradov) has the architecture of K-R-K and of the campaign's note with a shorter cofactor
+    range, which is where 5/7 instead of 3/4 comes from (Assessment). Its "exponent 1 − o(1)" (Cor 6.12) is for a
+    structurally defined subset E₂^small of the exceptions, not for E(N); the complementary "diffuse" component is left
+    open by the author. Its pointwise part rests on an explicitly open "Hypothesis T" (Thm 9.7(b)): some Type II e-slice
+    with prime e ≤ (log n)^A succeeds — B2 with a polylogarithmic cap (Assessment). Dahan I (arXiv:2608.24035) now has a
+    v2 (2026-11-05) with shifted theorem numbers; repository citations refer to v1 (map in `Z71_LIT.md` §2.1.4).
 * 3/4 is proved *sharp* for every CRT/coefficient-sum sieve architecture analysed (`EXCEPTIONAL_KARY3.md`, (D)24; STATUS
   "Exceptional-set exponent"); θ > 3/4 needs non-CRT input (tuple counts of growing order, residue-dense large sieves, weak
   SPW — each reduced to a precisely stated open statement).
