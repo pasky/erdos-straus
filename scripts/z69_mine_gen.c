@@ -23,7 +23,9 @@ int main(){
   for(int i=2;i<=LIM;i++) if(!s[i]){pr[npr++]=i; for(long j=(long)i*i;j<=LIM;j+=i) s[j]=1;}
   static u64 d[200000]; u64 p; int n;
   while(scanf("%llu %d",&p,&n)==2){
+    if(p<3 || p>(1ULL<<50) || n<0 || n>100000){fprintf(stderr,"input out of supported range\n"); return 6;}
     for(int i=0;i<n;i++){ u64 c; if(scanf("%llu",&c)!=1) return 1;
+      if(c<1 || c>(1ULL<<50)){fprintf(stderr,"candidate out of range\n"); return 6;}
       u64 L = 8/gcd(8,c)*c; u64 N=p+c;
       int nd=divisors(N,d,200000); if(nd<0){fprintf(stderr,"div cap\n"); return 4;}
       int okx=0, okz=0;

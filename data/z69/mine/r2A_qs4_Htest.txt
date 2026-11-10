@@ -1,0 +1,22 @@
+letters 13480: both decoys identical to the letter 7967 (0.591), one identical 1278
+file /tmp/z69mine/qs4_Htest.jsonl primes 411
+ INFORMATIVE subset (both decoys differ from the letter): primes 380, letters 4235
+  D  real 0.12009 decoy 0.12324  diff -0.00314 +- 0.00452 (2 s.e.)  z -1.39
+  R  real 0.00054 decoy 0.00056  diff -0.00001 +- 0.00003 (2 s.e.)  z -1.02
+  E  real 0.05716 decoy 0.05645  diff +0.00071 +- 0.00402 (2 s.e.)  z +0.35
+  A  real 0.00979 decoy 0.00675  diff +0.00304 +- 0.00534 (2 s.e.)  z +1.14
+ ALL letters (identical decoys contribute zero contrast):
+  D  real 0.52394 decoy 0.52451  ratio 0.999  z -0.99  (primes 411)
+  R  real 0.04591 decoy 0.04591  ratio 1.000  z +0.44  (primes 411)
+  E  real 0.23563 decoy 0.23560  ratio 1.000  z +0.06  (primes 411)
+  A  real 0.27950 decoy 0.27940  ratio 1.000  z +0.14  (primes 411)
+ strata for D (letter divides some Q_i):
+  l <= sqrt p      real 0.6554 decoy 0.6560 ratio 0.999 z -1.07 (primes 409)
+  l > sqrt p       real 0.0259 decoy 0.0252 ratio 1.030 z +0.32 (primes 401)
+  l <= 100         real 0.8168 decoy 0.8162 ratio 1.001 z +2.23 (primes 411)
+  100 < l <= 1e4   real 0.4019 decoy 0.4031 ratio 0.997 z -0.86 (primes 404)
+  l > 1e4          real 0.0171 decoy 0.0174 ratio 0.983 z -0.19 (primes 331)
+  L/sqrt p low     real 0.4371 decoy 0.4390 ratio 0.996 z -1.36 (primes 137)
+  L/sqrt p mid     real 0.5186 decoy 0.5188 ratio 1.000 z -0.37 (primes 137)
+  L/sqrt p high    real 0.6161 decoy 0.6157 ratio 1.001 z +0.49 (primes 137)
+ [descriptive, pooled over hit rows] first-hit relative position: real median 0.002 (n 6761), decoy median 0.002 (n 13532); odd-index share real 0.524 decoy 0.523

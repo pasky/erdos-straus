@@ -5,6 +5,23 @@ fn = sys.argv[1]; pmin = int(sys.argv[2]) if len(sys.argv) > 2 else 0
 KEYS = ['D', 'R', 'E', 'A']
 recs = [json.loads(l) for l in open(fn)]
 recs = [r for r in recs if r['p'] >= pmin and r['real']]
+# pairing: real[i] <-> dec[2i], dec[2i+1]; identity rates and the informative (non-identical) subset
+nid = n_both = n_one = 0
+for r in recs:
+    for i, row in enumerate(r['real']):
+        d1, d2 = r['dec'][2 * i][0], r['dec'][2 * i + 1][0]
+        nid += 1; n_both += (d1 == row[0] and d2 == row[0]); n_one += ((d1 == row[0]) != (d2 == row[0]))
+print('letters %d: both decoys identical to the letter %d (%.3f), one identical %d' % (nid, n_both, n_both / nid, n_one))
+def informative(recs):
+    out = []
+    for r in recs:
+        rr = []; dd = []
+        for i, row in enumerate(r['real']):
+            d1, d2 = r['dec'][2 * i], r['dec'][2 * i + 1]
+            if d1[0] != row[0] and d2[0] != row[0]:
+                rr.append(row); dd += [d1, d2]
+        if rr: out.append({'p': r['p'], 'sq': r['sq'], 'L': r['L'], 'real': rr, 'dec': dd})
+    return out
 def pw(recs, sel=lambda row, rec: True, key='D'):
     """prime-weighted mean real, mean decoy, cluster z of per-prime differences"""
     idx = 1 + KEYS.index(key)
@@ -20,6 +37,18 @@ def pw(recs, sel=lambda row, rec: True, key='D'):
     m = sum(d) / n; s = math.sqrt(sum((x - m) ** 2 for x in d) / (n - 1))
     return n, sum(mr) / n, sum(md) / n, m / (s / math.sqrt(n)) if s > 0 else 0
 print('file %s primes %d' % (fn, len(recs)))
+inf = informative(recs)
+print(' INFORMATIVE subset (both decoys differ from the letter): primes %d, letters %d' % (len(inf), sum(len(r['real']) for r in inf)))
+for key in KEYS:
+    n, a, b, z = pw(inf, key=key)
+    # prime-weighted difference with 2 s.e.
+    idx = 1 + KEYS.index(key); d = []
+    for rec in inf:
+        R = [row[idx] for row in rec['real']]; Dd = [row[idx] for row in rec['dec']]
+        d.append(sum(R) / len(R) - sum(Dd) / len(Dd))
+    m = sum(d) / len(d); se = math.sqrt(sum((x - m) ** 2 for x in d) / (len(d) - 1) / len(d))
+    print('  %s  real %.5f decoy %.5f  diff %+.5f +- %.5f (2 s.e.)  z %+.2f' % (key, a, b, m, 2 * se, z))
+print(' ALL letters (identical decoys contribute zero contrast):')
 for key in KEYS:
     n, a, b, z = pw(recs, key=key)
     print('  %s  real %.5f decoy %.5f  ratio %.3f  z %+.2f  (primes %d)' % (key, a, b, a / b if b else float('nan'), z, n))
@@ -39,19 +68,5 @@ for name, lo, hi in (('L/sqrt p low', 0, t1), ('L/sqrt p mid', t1, t2), ('L/sqrt
 pr = [row[5] for rec in recs for row in rec['real'] if row[1]]; pdc = [row[5] for rec in recs for row in rec['dec'] if row[1]]
 par_r = [row[6] for rec in recs for row in rec['real'] if row[1]]; par_d = [row[6] for rec in recs for row in rec['dec'] if row[1]]
 if pr and pdc:
-    print(' first-hit relative position: real median %.3f (n %d), decoy median %.3f (n %d); odd-index share real %.3f decoy %.3f' % (
+    print(' [descriptive, pooled over hit rows] first-hit relative position: real median %.3f (n %d), decoy median %.3f (n %d); odd-index share real %.3f decoy %.3f' % (
         sorted(pr)[len(pr) // 2], len(pr), sorted(pdc)[len(pdc) // 2], len(pdc), sum(par_r) / len(par_r), sum(par_d) / len(par_d)))
-# Injection power check: in a fraction phi of the primes, force ONE real letter with D = 0 to D = 1 ("one informative
-# witness letter per hard prime") and recompute the cluster z of D.
-import random
-rng = random.Random(5)
-for phi in (1.0, 0.5, 0.2):
-    inj = []
-    for rec in recs:
-        rr = [list(row) for row in rec['real']]
-        if rng.random() < phi:
-            zero = [i for i, row in enumerate(rr) if not row[1]]
-            if zero: rr[rng.choice(zero)][1] = True
-        inj.append({'real': rr, 'dec': rec['dec'], 'sq': rec['sq'], 'L': rec['L'], 'p': rec['p']})
-    n, a, b, z = pw(inj, key='D')
-    print(' injection (one letter forced to divide a Q_i in %d%% of primes): real %.4f decoy %.4f z %+.2f' % (100 * phi, a, b, z))

@@ -1,6 +1,6 @@
 # Z69_MINE — what do the hard primes' U₇ witnesses know? (data-mining lane, wave z69)
 
-**ES is OPEN. Nothing here proves or disproves it.** Status: final (verdict §7: **null (non-rejection) result; narrowed**;
+**ES is OPEN. Nothing here proves or disproves it.** Status: final + round 2 (§12; verdict §7/§12.6: **null (non-rejection) result; narrowed; no HOT LEAD**;
 not a HOT LEAD).
 
 Definitions (Z60_LOPEZ Lemma 7; Z68_U7F, Z68_U7O). For odd n: a **witness** is f ≡ 7 (mod 8) with
@@ -372,90 +372,121 @@ open / under-powered families is taken up in §12.
 
 ## 12. Round 2 — chasing the Q-set signal; witness-free generators; H z-relations (cross-model review items 1, 2, 5)
 
-**12.0 Pre-registration** (`data/z69/mine/round2_prereg.md`, committed in c7f02544b before any round-2 run): hash split
-of all 849 H primes into H_train (438, incl. 2521, 9601) and H_test (411, incl. 3361, 21841, 76441, 3613009); a disjoint
-band B = 10 000 uniformly drawn primes p ≡ 1 (8) in [5·10⁹, 5·10⁹ + 4·10⁷]; Part A (within-prime decoys), Part B
-(bounded generators), Part C ((x, z)-phantoms on H); kill tests K1–K6 and the two HOT-LEAD tiers (user criterion: some
-generator covers ≥ 99.9 % of B and all of H_test; mechanism: K1–K6). Signal criterion for Parts A/C: |z| ≥ 4 on H_train
-and same sign with |z| ≥ 3 on H_test. One deviation from the pre-registration is recorded below (the exact-size decoy of
-Part A, fixed on H_train + controls before H_test was opened).
+**12.0 Pre-registration** (`data/z69/mine/round2_prereg.md`, committed in c7f02544b before any round-2 run, unchanged
+since): hash split of all 849 H primes into H_train (438, incl. 2521, 9601) and H_test (411, incl. 3361, 21841, 76441,
+3613009); band B = 10 000 uniformly drawn primes p ≡ 1 (8) in [5·10⁹, 5·10⁹ + 4·10⁷]; Part A (within-prime decoys),
+Part B (bounded generators), Part C ((x, z)-phantoms on H); kill tests K1–K6 and two HOT-LEAD tiers (user criterion:
+some generator covers ≥ 99.9 % of B and all of H_test; mechanism: K1–K6). Signal criterion for A/C: |z| ≥ 4 on H_train
+and same sign with |z| ≥ 3 on H_test.
 
-**12.1 Part A — the Q-set / CFpA letters (item 1).** Scripts `z69_mine_qs2.py`, `z69_mine_qs2_an.py`; outputs
-`r2A_*.txt`, raw `raw_r2A_*.jsonl.gz`. For every prime, *all* witnesses (controls: 20 per prime), letters ℓ ∈ {x, y},
-ℓ ≥ 5, against the **full** CF period of √p (no truncation): D = 1[ℓ divides some Q_i], R = fraction of positions with
-ℓ | Q_i, E = 1[ℓ = some Q_i], A = 1[ℓ divides a convergent denominator of p/A, A ∈ {a, b, c, d, e, g}], first-hit
-position i₀/L and parity of i₀ (orientation). Decoys are drawn *for the same p* (same Q list), 2 per letter;
-prime-weighted means, cluster-by-prime z.
-* *Pre-registered decoy* (each odd prime factor q of ℓ replaced by a random prime in [q/1.5, 1.5q] with the same χ_p):
-  D ratio 1.013, z = +4.84 (H_train) and 1.017, z = +5.90 (H_test) — the pre-registered signal criterion is formally met.
-  It is an artefact of the decoy: the controls show the same (1.010, z = +9.92; R +13.2, A +8.0), and within letter-size
-  strata the effect disappears (H_train ℓ ≤ √p: 1.000; controls 0.996) — the per-factor windows shift decoy sizes, and D
-  falls steeply with ℓ.
-* *Exact decoy* (same 2-adic part, odd part within ±5 % with the same χ_p-signature {(χ_p(q), e)}; fixed on H_train and
-  the controls, then applied once to H_test; 35/14 197, 37/13 490, 450/84 383 letters dropped for lack of a decoy):
-  | sample | D real/decoy (z) | R (z) | E (z) | A (z) |
+**12.1 Deviations from the pre-registration (complete list).**
+| item | registered | done | consequence |
+|---|---|---|---|
+| Part A decoys | per-factor χ-matched primes in [q/1.5, 1.5q] | run as registered **and** an exact decoy (same 2-adic part, odd part within ±5 %, same χ_p-signature), designed on H_train + controls after the registered decoy showed a size drift, then applied to H_test | both reported |
+| Part A controls | all witnesses | ≤ 20 per control prime (H: all) | control precision lower than possible |
+| exact-decoy sampler | — | first version floored its window (504/523/2 306 rows outside ±5 %); rerun with exact integer bounds and uniform odd sampling (`qs4_*`); dropped letters = 600-try rejection budget exhausted (34/14 232, 47/13 527, 452/84 987) | only the corrected run is reported |
+| Part B GEN-Q | "the 10 largest Q_i" | the 10 largest *distinct* Q-values (amendment; a superset) | K4 failure carries over |
+| Part B decoy sampler | |log c′ − log c| ≤ 0.05, v₂ equal | registered run used floored bounds and `randint | 1` (window violations, e.g. 184 → 168); rerun with exact bounds (`gen2_*`) | both reported for K6 |
+| K5 statistic | share of successes with Λ-type letter | first table gave non-Λ *coverage*; both now reported | — |
+| Part C | all witnesses, ordinary + χ-matched xz | first run capped at 40 witnesses and p ≤ 2·10¹⁰ (9 H primes lost), no ordinary run; **rerun** with all witnesses, all H primes p ≥ 17 (CF/Pell families skipped above 2·10¹⁰), both variants (`ph2xz*`) | only the rerun is reported |
+| power | (not registered) | an injection check was reported and is **withdrawn** (it flipped arithmetically impossible outcomes) | no power claim |
+
+**12.2 Part A — Q-set / CFpA letters against within-prime decoys (item 1).** `z69_mine_qs2.py`, `z69_mine_qs2_an.py`;
+`r2A_qs2_*` (registered decoy), `r2A_qs4_*` (exact decoy). For every prime (H: all witnesses), letters ℓ ∈ {x, y}, ℓ ≥ 5,
+against the **full** CF period of √p: D = 1[ℓ | some Q_i], R = fraction of positions with ℓ | Q_i, E = 1[ℓ = some Q_i],
+A = 1[ℓ | a convergent denominator of p/A]; 2 decoys per letter for the *same* p (decoys never consult D/R/E/A or the
+witness set beyond the letter itself); prime-weighted means, cluster-by-prime z.
+* *Registered decoy:* the signal criterion fires for D (+4.84 / +5.90), R (+8.23 / +5.88) and A (+4.28 / +4.99) (train /
+  test), not E. The same design gives D +9.92 on the *controls*, and stratifying by letter size removes the H excess
+  (H_train ℓ ≤ √p: ratio 1.000) — while the controls show a significant *reversal* there (ℓ ≤ √p: z = −4.58). Reading:
+  the registered decoys are not size-matched (per-factor windows), and D falls steeply with ℓ; the firing is not
+  interpretable as a p-specific signal, but this design cannot isolate the cause further.
+* *Exact decoy (corrected sampler):* **59 % of the letters have both decoys identical to the letter** (8 367/14 198
+  H_train, 7 967/13 480 H_test, 50 667/84 535 controls: small odd parts have no other admissible value with the same
+  signature) and contribute no contrast; ≈ 82 % of real D-hits are of this kind. On the **informative subset** (both
+  decoys differ from the letter):
+  | sample | primes / letters | D real vs decoy (diff ± 2 s.e.) | z | R, E, A (z) |
   |---|---|---|---|---|
-  | H_train (438) | 0.5061/0.5062 (−0.26) | 1.000 (+0.46) | 1.000 (−0.19) | 0.995 (−1.66) |
-  | H_test (411) | 0.5237/0.5241 (−0.78) | 1.000 (−0.46) | 1.002 (+0.80) | 0.997 (−0.84) |
-  | controls (2 547) | 0.3268/0.3269 (−0.27) | 1.000 (+0.11) | 1.001 (+0.68) | 0.999 (−0.82) |
-  All letter-size and period-length strata are null (|z| ≤ 2.0); first-hit position (median 0.001–0.003 of the period)
-  and odd-index share (0.52–0.54) coincide for real and decoy letters. **Power:** forcing one letter per prime to divide a
-  Q_i in 20 % of the primes gives z = +7.3 (H_train), +5.8 (H_test), +18.3 (controls).
-* Reading (EVIDENCE): the round-1 QS divxy excess (normalised 1.377 ± 0.051) is fully accounted for by the χ_p-values at
-  the letter's prime factors and the letter's size: the full Q-set of √p "knows" no more about which letters are witness
-  letters. Limits: letters ≤ ~20 often have the letter itself as their only exact decoy (no information there); gcd /
-  ratio relations between Q_i and letters were not tested beyond D, R, E; the CFpA vdivz relation is covered only by
-  Part C.
+  | H_train | 419 / 4 485 | 0.1050 vs 0.1051 (−0.0001 ± 0.0028) | −0.08 | −0.89, +0.71, −0.31 |
+  | H_test | 380 / 4 235 | 0.1201 vs 0.1232 (−0.0031 ± 0.0045) | −1.39 | −1.02, +0.35, +1.14 |
+  | controls | 2 498 / 26 521 | 0.0547 vs 0.0542 (+0.0005 ± 0.0011) | +0.90 | +1.42, +0.66, −0.55 |
+  Over all letters (identical decoys included) all four statistics are null as well (|z| ≤ 1.4).
+* Reading (EVIDENCE, scoped): on the letters where the comparison is informative, the full Q-set of √p shows **no detected
+  residual** beyond the χ_p-signature and size of the letter (2-s.e. half-width ≈ 3–4 % of the D base rate on H). This is
+  a non-rejection on a self-matched design, not an equivalence result and not a decomposition of the round-1 phantom
+  estimand (normalised QS divxy 1.377 ± 0.051); small letters (most real D-hits) are untested by construction; gcd/ratio
+  relations between Q_i and letters were not tested. First-hit position (median 0.001–0.003 of the period) and
+  odd-index share (0.52–0.54) coincide for real and decoy letters (descriptive, pooled over hit rows).
 
-**12.2 Part B — pre-registered witness-free generators (items 1, 2, 5).** Engine `z69_mine_gen.c` (each candidate
-c ≥ 65 tried exactly as x, y and z; every word verified in 128-bit arithmetic; validated against brute-force word
-enumeration for all primes p ≡ 1 (8) < 1500 and c ≤ 40 in all roles: 753/753, 0 mismatches); driver
-`z69_mine_genrun.py`, table `r2B_coverage.txt`. Coverage = fraction of primes with ≥ 1 word from the generator:
+**12.3 Part B — pre-registered witness-free generators (items 1, 2, 5).** Engine `z69_mine_gen.c` (each candidate
+c ≥ 65 tried exactly in the x-, y- and z-role; every word verified in 128-bit arithmetic; validated against brute-force
+enumeration of all words for every prime p ≡ 1 (8) < 1500 and c ≤ 40: 753/753, 0 mismatches,
+`scripts/z69_mine_gencheck.py`, `r2B_engine_check.txt`; input range guarded); driver `z69_mine_genrun.py`. Coverage =
+fraction of primes with ≥ 1 word from the generator; corrected decoy sampler (`r2B_coverage.txt`):
 
-| generator (cand./prime on B) | band B (10 000) real / decoy (McNemar z) | non-Λ letters (K5) | H_train | H_test (failures) |
+| generator (cand./prime on B) | band B (10 000) real / decoy (McNemar z) | non-Λ coverage | H_train (438) | H_test (411): real / decoy (z), failures |
 |---|---|---|---|---|
-| G Gaussian (16) | 0.007 / 0.007 (+0.4) | 0.004 | 0.021 | 0.027 (400) |
-| N other norm forms (48) | 0.022 / 0.021 (+0.7) | 0.014 | 0.100 | 0.088 (375) |
-| J joint sums/differences/gcds (58) | 0.099 / 0.102 (−0.9) | 0.050 | 0.281 | 0.282 (295) |
-| Q CF positions (24) | 0.039 / 0.040 (−0.8) | 0.016 | 0.027 (decoy 0.050, −2.0) | 0.020 (decoy 0.054, −2.9) |
-| A convergents of p/A (34) | 0.626 / 0.609 (+2.9) | 0.256 | 0.237 | 0.234 (315) |
-| C class numbers (7.5) | 0.010 / 0.012 (−1.1) | 0.007 | 0.043 | 0.056 (388) |
-| ALL (173) | **0.685** / 0.668 (+3.0) | 0.313 | 0.534 | **0.518 (198)** |
+| G Gaussian (16) | 0.007 / 0.007 (−0.4) | 0.004 | 0.021 | 0.027 / 0.029 (−0.3), 400 |
+| N other norm forms (48) | 0.022 / 0.020 (+1.3) | 0.014 | 0.100 | 0.088 / 0.073 (+0.9), 375 |
+| J joint sums/differences/gcds (58) | 0.099 / 0.102 (−0.9) | 0.050 | 0.281 | 0.282 / 0.241 (+1.9), 295 |
+| Q CF positions (24) | 0.039 / 0.040 (−0.6) | 0.016 | 0.027 | 0.020 / 0.034 (−1.3), 403 |
+| A convergents of p/A (34) | 0.626 / 0.622 (+0.7) | 0.256 | 0.237 | 0.234 / 0.209 (+1.1), 315 |
+| C class numbers (7.5) | 0.010 / 0.011 (−0.2) | 0.007 | 0.043 | 0.056 / 0.027 (+2.4), 388 |
+| ALL (173) | **0.685** / 0.677 (+1.4) | 0.313 | 0.534 | **0.518** / 0.465 (+2.0), **198** |
 
-* K1/K2: no word on the 499 odd squares 9 … 999² nor on Z₇ (engine sanity: every candidate fails in every role). K3:
-  ALL covers 16 of the 38 U⁽⁸⁾-zero primes (their words are non-U⁽⁸⁾ by definition). **K4: failed by every generator**
-  (best 68.5 % of B; 198 H_test failures). K5: with Λ-type letters (dividing p + c′ or c′p + 1, c′ ≤ 64) removed, ≤ 31 %.
-* K6 (beat the size/2-adic-matched decoy, z ≥ 3 on B): ALL +3.03, driven by GEN-A (+2.92). On a fresh band sample
-  (seed 7070, 6 000 primes, `r2B_splitA_band2.txt`) this drops to +1.78/+1.79; the sub-generator of *penultimate*
-  convergent denominators k of p/A (which satisfy kp ≡ ±1 mod A, so A | kp ∓ 1 — a built-in factor in the y-role)
-  gives +2.39 at 4.3 % coverage. Not replicated at 3σ; on the H halves no generator beats its decoy (ALL −0.55/−0.08)
-  and GEN-Q is *below* its decoy (−2.0/−2.9; Q_i are products of split primes, a local effect).
-* **No HOT LEAD** in either tier.
+* **K4 fails for every generator** (best 68.5 % of B; ALL leaves 198 of the 411 H_test primes uncovered). **No HOT LEAD**
+  in either tier.
+* K1/K2: no word on the 499 odd squares 9 … 999² nor on Z₇ (engine sanity). K3: ALL covers 16 of the 38 U⁽⁸⁾-zero primes.
+  K5 (registered statistic): of the 11 456 successful (prime, candidate) pairs of ALL on B, 7 641 (66.7 %) use a Λ-type
+  letter (dividing p + c′ or c′p + 1, c′ ≤ 64); non-Λ coverage 31.3 %.
+* K6: **the registered run passed K6 for ALL** (McNemar b = 1 675, c = 1 504, +1.71 points, z = +3.03; GEN-A +2.92), but
+  its decoy sampler violated the registered window; with the corrected sampler the same band gives z = +1.36 (b = 1 565,
+  c = 1 490, +0.75 points; GEN-A +0.74). An exploratory fresh band sample (seed 7070, 6 000 primes, 143 overlapping B)
+  gave ALL +1.78 (+1.87 without the overlap), GEN-A +1.79, penultimate convergent denominators k of p/A (kp ≡ ±1 mod A)
+  +2.39 at 4.3 % coverage. Reading: a small positive real-minus-decoy difference (≈ 1 point of coverage) is compatible
+  with all runs and is not established at 3σ under a correct sampler; it is irrelevant for K4.
 
-**12.3 Part C — z-relations on H with χ-matched (x, z)-phantoms (item 2).** Mode `xzm` of `z69_mine_phantom.py`
-(p′ = p + 8j·xz, |p′ − p| ≤ p/2, canonical word, χ_{p′}(ℓ) = χ_p(ℓ) for ℓ ∈ {3, 5, 7, 11, 13} ∤ xz), ≤ 40 witnesses per
-prime, all H primes p ≥ 17 (`r2C_phxzm_*.txt`). Coverage: 2 888/7 151 (H_train) and 2 720/6 724 (H_test) witness
-records, incl. 894/1 632 and 767/1 374 with f ≥ p/16; matching is impossible for records with few admissible j (e.g. the
-small hard primes 2521, 3361 get no matched phantom). Of 34 z-relation tests, **CL vdivz** meets the signal criterion
-(+4.38 train, +4.39 test; CL eqz +3.28/+4.17). Component diagnostic (`z69_mine_cl_diag.py`, `r2C_cl_diag.txt`): the
-excess is entirely n_p and nq₇ dividing / equal to z (vdivz: n_p 420 vs 397.5 and 350 vs 336; nq₇ 142 vs 107.5 and
-119 vs 86.5; h(−4p) contributes 0–2 hits), and the phantoms' least non-residue is *smaller* than p's in 15–16 % of
-records and larger in only 7–9 %. Mechanism: "q | z" forces χ_{p′}(q) = χ_p(q) (p′ ≡ p mod z), so "n_p | z" differs
-between p and p′ only through whether some smaller ℓ (17 ≤ ℓ < q, unmatched) is a non-residue — i.e. through the
-pseudo-square profile of the hard primes, not through the witness (Assessment; the matching cannot be extended to all
-ℓ < n_p within the admissible j-range). In this design divf/divq compare different moduli (f′ = x(y + 8j) − 1 ≠ f) and
-are not interpreted (G3 divq +3.97/+3.18).
+**12.4 Part C — z-relations on H with (x, z)-phantoms (item 2).** Mode `xz` and `xzm` (χ_{p′}(ℓ) = χ_p(ℓ) for
+ℓ ∈ {3, 5, 7, 11, 13} ∤ xz) of `z69_mine_phantom.py`, all witnesses of all H primes p ≥ 17 (`r2C_ph2*`). Coverage
+(records with a phantom): xz 5 023/7 767 (train) and 4 810/7 309 (test); xzm 3 222/7 767 and 3 031/7 309 (the matching
+fails when few admissible j exist — e.g. 2521, 3361 get no matched phantom; 1 253/1 710 and 945/1 710 large-f records
+covered on train).
+* *Ordinary xz:* the signal criterion fires for six z-relations: CL vdivz +12.9/+12.2, CL eqz +10.8/+9.4, CL divz
+  +6.8/+5.3, N37 divz +8.3/+6.8, QS eqz −5.5/−5.6, QS vdivz −5.1/−5.8 (train/test).
+* *χ-matched xzm:* N37 and QS vanish (|z| ≤ 1.6); CL shrinks to vdivz +3.84/+4.46 and eqz +2.81/+4.59 (criterion no
+  longer met on train). Component diagnostic (`z69_mine_cl_diag.py`, `r2C_cl_diag.txt`): the remaining CL excess is
+  entirely n_p and nq₇ dividing / equal to z (vdivz n_p 456 vs 439 and 378 vs 362; nq₇ 144 vs 110 and 126 vs 93;
+  h(−4p) contributes ≤ 1.5 hits), and the phantoms' least non-residue is smaller than p's in 14 % of records and larger
+  in 9 %. Mechanism (correct as algebra, assessment as attribution): q | z forces p′ ≡ p (mod q), hence equal χ at q;
+  whether q is the *least* non-residue depends on the symbols at the unmatched primes 17 ≤ ℓ < q — the pseudo-square
+  profile of the hard primes. The dose-response (6 relations at +5…+13 without matching → one component family at
+  ≈ +4 with 5-prime matching) fits a local-profile explanation; it is not an independently validated causal attribution,
+  and records without a matched phantom (≈ 58 %) are not covered. In the xz designs divf/divq compare different moduli
+  (f′ ≠ f) and are not interpreted.
 
-**12.4 Kill-test summary (round 2).** K1 ✓ (0 words on odd squares), K2 ✓ (0 on Z₇), K3 16/38, **K4 ✗ for all
-generators**, K5 ≤ 31 % non-Λ coverage, K6 ✗ (not replicated). Pre-registered signal criterion fired twice (Part A
-per-factor decoy; Part C CL vdivz); both are traced to local-profile effects by controls / exact decoys / component
-analysis.
+**12.5 Kill-test summary (round 2).** K1 ✓, K2 ✓, K3 16/38, **K4 ✗ (all generators)**, K5 66.7 % of successes Λ-type,
+K6 ✓ in the registered run for ALL (+3.03) / ✗ with the corrected sampler (+1.36). Signal criterion fired in two
+experiment families: Part A (registered decoy: D, R, A) and Part C (ordinary xz: six relations; matched: CL vdivz on
+test only).
 
-**12.5 Verdict of round 2: no HOT LEAD; the only live signal is accounted for.** The Q-set excess — the one anomaly left
-by round 1 — vanishes against exact within-prime decoys (same p, same Q list, same χ-signature and size), with power to
-see one informative letter in 20 % of the hard primes. Pre-registered witness-free generators built from norm-form
-coordinates, their joint sums/gcds, CF positions, CF convergents of p/A and class numbers reach at most 68.5 % of a
-disjoint band (≈ what size-matched random candidates reach) and fail K4. The H z-relations show only the least-non-residue
-profile effect. Still not tested: gcd/ratio relations among Q_i and letters, Pell residues modulo candidate letters,
-class-group structure beyond h, generators of unbounded complexity or adaptive coefficient search. (EVIDENCE /
-Assessment; ES is OPEN.)
+**12.6 Verdict of round 2.** **No HOT LEAD**: no tested generator meets K4 (best 68.5 % on a disjoint band; 198 H_test
+failures). Exact within-prime comparisons show no detected residual in the reported Q-set / CFpA statistics on the
+informative letters, but they are heavily self-matched (59 % of letters) and establish neither equivalence nor power.
+The covered CL z-relation excess on H is concentrated in the least-non-residue components and is consistent with the
+unmatched local profile. Broader resolution is not established — still open: small letters against the Q-set, gcd/ratio
+relations, Pell residues modulo candidate letters, class-group structure beyond h, generators of unbounded complexity
+or adaptive coefficient search, and the uncovered (unmatchable) records. ES is OPEN.
+
+**Round-2 hostile review** (deep reviewer subagent on §12 as first drafted; 0 FATAL, 5 MAJOR, 5 MINOR; it verified the
+hash split, regenerated the committed analyses, re-checked every stored phantom and generator word and the engine
+enumeration (753/753 plus 4 533 further candidate-role cases)). Fixed: (1) the injection "power" check flipped
+arithmetically impossible outcomes — withdrawn; (2) the exact decoys are self-matched for 59 % of letters — identity
+rates and an informative-subset analysis added, "fully accounted for / knows no more" replaced by scoped non-rejection;
+(3) undisclosed departures from the pre-registration — complete deviation table (§12.1), Part C rerun with all
+witnesses, all H primes, ordinary and matched variants; (4) K6 goalposts — the registered run's pass for ALL (+3.03) is
+reported as such, with the corrected-sampler (+1.36) and follow-up (+1.78, 143 overlapping primes) results; (5) the
+reproduction driver covers every round-2 output; the engine validation script and the registered-run raw records are
+committed; (6) both decoy samplers now use exact integer windows and uniform odd sampling (all affected runs redone);
+(7) GEN-Q amendment stated; (8) K5 reported as the registered successful-letter share; (9) denominators, the list of
+statistics that fired, and descriptive labels corrected; the "one anomaly left" phrasing removed; (10) engine input and
+subprocess-status guards added.

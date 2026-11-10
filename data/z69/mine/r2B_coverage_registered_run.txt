@@ -1,0 +1,8 @@
+gen_band.jsonl: 10000 inputs
+   G    cand/prime   16.0  real 0.0069  decoy 0.0065  real non-Lambda 0.0043  McNemar z +0.37  failures 9931
+   N    cand/prime   47.9  real 0.0219  decoy 0.0205  real non-Lambda 0.0136  McNemar z +0.74  failures 9781
+   J    cand/prime   58.2  real 0.0994  decoy 0.1022  real non-Lambda 0.0498  McNemar z -0.88  failures 9006
+   Q    cand/prime   24.2  real 0.0387  decoy 0.0403  real non-Lambda 0.0158  McNemar z -0.77  failures 9613
+   A    cand/prime   33.8  real 0.6261  decoy 0.6091  real non-Lambda 0.2557  McNemar z +2.92  failures 3739
+   C    cand/prime    7.5  real 0.0103  decoy 0.0119  real non-Lambda 0.0065  McNemar z -1.11  failures 9897
+   ALL  cand/prime  172.6  real 0.6848  decoy 0.6677  real non-Lambda 0.3128  McNemar z +3.03  failures 3152

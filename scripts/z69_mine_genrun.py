@@ -71,7 +71,7 @@ def candidates(p):
     Qs, qs = cf(p)
     if Qs:
         L = len(Qs); pos = list(range(0, min(10, L))) + [i for i in range(L // 2 - 4, L // 2 + 3) if 0 <= i < L]
-        G['Q'] |= {Qs[i] for i in pos} | {qs[i] for i in pos} | set(sorted(set(Qs))[-10:])
+        G['Q'] |= {Qs[i] for i in pos} | {qs[i] for i in pos} | set(sorted(set(Qs))[-10:])   # amendment: 10 largest DISTINCT Q-values
     for k in ('ab', 'cd', 'eg'):
         if k in reps:
             for nm, A in zip(k, reps[k]):
@@ -92,15 +92,17 @@ def candidates(p):
     return {k: sorted(v for v in G[k] if v >= LO) for k in (GENS + (['A_a', 'A_b', 'A_c', 'A_d', 'A_e', 'A_g', 'Apen', 'Anopen'] if SPLIT_A else []))}
 
 def decoy_map(cands, rng):
+    """decoy c' = 2^k * t, t odd, uniform over odd t with |log t - log o| <= 0.05 (exact integer bounds), c' >= LO;
+    if the window holds no admissible odd t other than o, c' = c (recorded as identical)"""
     m = {}
     for c in cands:
         k = (c & -c).bit_length() - 1; o = c >> k
-        lo, hi = max(1, int(o * math.exp(-0.05))), int(o * math.exp(0.05))
-        for _ in range(50):
-            t = rng.randint(lo, max(lo, hi)) | 1
-            if lo <= t <= hi and (t << k) >= LO: break
-        else:
-            t = o
+        lo = math.ceil(o * math.exp(-0.05) - 1e-9); hi = math.floor(o * math.exp(0.05) + 1e-9)
+        while lo <= hi and (lo % 2 == 0 or (lo << k) < LO): lo += 1
+        if hi % 2 == 0: hi -= 1
+        if hi < lo: m[c] = c; continue
+        t = lo + 2 * rng.randrange((hi - lo) // 2 + 1)
+        assert t % 2 == 1 and abs(math.log(t / o)) <= 0.05 + 1e-9 and (t << k) >= LO
         m[c] = t << k
     return m
 
@@ -133,8 +135,11 @@ def main():
         eng.stdin.write('%d %d %s\n' % (p, len(lst), ' '.join(map(str, lst)))); eng.stdin.flush()
         ok = collections.defaultdict(list)
         while True:
-            line = eng.stdout.readline().split()
-            if line[0] == 'END': break
+            raw = eng.stdout.readline()
+            if not raw: raise SystemExit('engine terminated unexpectedly (exit %s)' % eng.poll())
+            line = raw.split()
+            if line[0] == 'END':
+                assert int(line[1]) == p; break
             i, role = int(line[1]), int(line[2])
             ok[lst[i]].append((role, int(line[3]), int(line[4]), int(line[5])))
         res = {}
@@ -143,12 +148,14 @@ def main():
             real = [c for c in cs if c in ok and ok[c]]
             decs = [dm[c] for c in cs if dm[c] in ok and ok[dm[c]]]
             realNL = [c for c in real if not lam(p, c)]
-            res[g] = [len(cs), int(bool(real)), int(bool(decs)), int(bool(realNL))]
+            res[g] = [len(cs), int(bool(real)), int(bool(decs)), int(bool(realNL)), len(real), len(real) - len(realNL),
+                      sum(1 for c in cs if dm[c] == c)]
         ex = None
         for c in allc:
             if c in ok and ok[c]: ex = [c] + list(ok[c][0]); break
         fo.write(json.dumps({'p': p, 'res': res, 'ex': ex}) + '\n'); fo.flush()
-    eng.stdin.close(); eng.wait()
+    eng.stdin.close()
+    if eng.wait() != 0: raise SystemExit('engine exit status %d' % eng.returncode)
 
 if __name__ == '__main__':
     main()

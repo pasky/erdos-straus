@@ -46,12 +46,15 @@ def decoy_exact(p, l, rng, tries=600):
     (multiset of (chi_p(q), exponent)); None if no match found (the letter is then dropped together with its decoys)"""
     k = (l & -l).bit_length() - 1; m = l >> k
     sig = signature(p, m)
-    lo, hi = max(1, int(m * 0.95)), int(m * 1.05) + 1
+    lo, hi = -(-m * 95 // 100), m * 105 // 100          # exact integer window ceil(0.95 m) .. floor(1.05 m)
+    lo += (lo % 2 == 0); hi -= (hi % 2 == 0)            # odd endpoints
+    if hi < lo: return None
+    nodd = (hi - lo) // 2 + 1
     for _ in range(tries):
-        t = rng.randint(lo, hi) | 1
-        if t < lo or t > hi: continue
+        t = lo + 2 * rng.randrange(nodd)                # uniform over the admissible odd integers
+        assert lo <= t <= hi and t % 2 == 1 and abs(t - m) * 100 <= 5 * m
         if signature(p, t) == sig: return t << k
-    return None
+    return None      # rejection budget exhausted (the letter itself always matches; it is NOT used as fallback)
 
 def stats(Q, L, Aden, l):
     m = (Q % l == 0)

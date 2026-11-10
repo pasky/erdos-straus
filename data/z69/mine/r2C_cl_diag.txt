@@ -1,16 +1,15 @@
-phxzm_Htrain.jsonl records 2888
-   eqz:h/4        real      1 phantom      0.5
-   eqz:np         real    182 phantom    173.0
-   eqz:nq7        real     56 phantom     41.0
-   vdivz:h/4      real      1 phantom      0.5
-   vdivz:np       real    420 phantom    397.5
-   vdivz:nq7      real    142 phantom    107.5
-    {'phantom np < real np': 0.159, 'phantom np > real np': 0.087}
-phxzm_Htest.jsonl records 2720
-   eqz:h/4        real      0 phantom      0.5
-   eqz:np         real    180 phantom    171.0
-   eqz:nq7        real     66 phantom     40.0
-   vdivz:h/4      real      0 phantom      2.0
-   vdivz:np       real    350 phantom    336.0
-   vdivz:nq7      real    119 phantom     86.5
-    {'phantom np < real np': 0.152, 'phantom np > real np': 0.074}
+ph2xzm_Htrain.jsonl records 3222
+   eqz:h/4        real      1 phantom      1.0
+   eqz:np         real    190 phantom    183.5
+   eqz:nq7        real     56 phantom     42.0
+   vdivz:h/4      real      1 phantom      1.0
+   vdivz:np       real    456 phantom    439.0
+   vdivz:nq7      real    144 phantom    110.0
+    {'phantom np < real np': 0.14, 'phantom np > real np': 0.089}
+ph2xzm_Htest.jsonl records 3031
+   eqz:np         real    193 phantom    183.0
+   eqz:nq7        real     68 phantom     41.0
+   vdivz:h/4      real      0 phantom      1.5
+   vdivz:np       real    378 phantom    362.0
+   vdivz:nq7      real    126 phantom     93.0
+    {'phantom np < real np': 0.137, 'phantom np > real np': 0.089}

@@ -45,21 +45,33 @@ python3 scripts/z69_mine_phantom_an.py $T/phm3_C.jsonl --big 1e10 > $D/phantom_m
 timeout 1750 $PY scripts/z69_mine_scan.py $T/H.wit $T/H.feat.jsonl $T/C.wit $T/C.feat.jsonl $D/shuffle_scan.txt
 # period-length / Q-set normalisation of the hard-set CF deviations (reads the committed raw records)
 timeout 1700 python3 scripts/z69_mine_cfk_period.py $D/raw_ph3_H.jsonl.gz $D/raw_ph3_C.jsonl.gz > $D/cfk_period.txt
-# ---- round 2 (pre-registration: data/z69/mine/round2_prereg.md) ----
+# ---- round 2 (pre-registration: data/z69/mine/round2_prereg.md; deviations: Z69_MINE.md §12.1) ----
 gcc -O2 -o $T/gen scripts/z69_mine_gen.c -lm
-# Part A: Q-set / CFpA letters vs within-prime decoys (qs2 = pre-registered per-factor decoys; qs3 = exact-size decoys)
-for S in H_train H_test; do
-  timeout 1750 $PY scripts/z69_mine_qs2.py $T/H.wit $D/$S.txt 0 11 $T/qs3_$S.jsonl exact
-  python3 scripts/z69_mine_qs2_an.py $T/qs3_$S.jsonl > $D/r2A_qs3_$S.txt
-done
-timeout 1750 $PY scripts/z69_mine_qs2.py $T/C.wit $D/CTRL.txt 20 12 $T/qs3_C.jsonl exact
-# Part B: generators (band B, H halves, kill-test sets)
-timeout 1750 $PY scripts/z69_mine_genrun.py band:6969:10000 $T/gen_band.jsonl
-timeout 800 $PY scripts/z69_mine_genrun.py $D/H_test.txt $T/gen_H_test.jsonl
-timeout 1750 $PY scripts/z69_mine_genrun.py band:7070:6000 $T/gen_bandA.jsonl --splitA
-python3 scripts/z69_mine_genrun_an.py $T/gen_band.jsonl $T/gen_H_test.jsonl > $D/r2B_coverage.txt
-# Part C: chi-matched (x,z)-phantoms on the H halves (witness files split from H.wit)
-timeout 1750 $PY scripts/z69_mine_phantom.py $T/H_train.wit 40 2 31 $T/phxzm_Htrain.jsonl xzm
-timeout 1750 $PY scripts/z69_mine_phantom.py $T/H_test.wit 40 2 32 $T/phxzm_Htest.jsonl xzm
-python3 scripts/z69_mine_phantom_an.py $T/phxzm_Htrain.jsonl --pmin 17 > $D/r2C_phxzm_Htrain.txt
-timeout 1700 $PY scripts/z69_mine_cl_diag.py $T/phxzm_Htrain.jsonl $T/phxzm_Htest.jsonl > $D/r2C_cl_diag.txt
+(cd $T && timeout 1500 uv run --with sympy python $OLDPWD/scripts/z69_mine_gencheck.py) > $D/r2B_engine_check.txt
+printf "105\n1465\n3865\n4545\n10305\n12145\n39361\n67425\n" > $T/z7.txt
+python3 -c "print('\n'.join(str(m*m) for m in range(3,1001,2)))" > $T/sq.txt
+python3 scripts/z69_mine_hsplit_wit.py                                  # -> $T/H_train.wit, $T/H_test.wit
+# Part A: Q-set / CFpA letters vs within-prime decoys (qs2 = pre-registered per-factor decoys; qs4 = exact decoys)
+timeout 1750 $PY scripts/z69_mine_qs2.py $T/H.wit $D/H_train.txt 0 11 $T/qs2_Htrain.jsonl
+timeout 1750 $PY scripts/z69_mine_qs2.py $T/H.wit $D/H_test.txt 0 22 $T/qs2_Htest.jsonl
+timeout 1750 $PY scripts/z69_mine_qs2.py $T/C.wit $D/CTRL.txt 20 12 $T/qs2_C.jsonl
+timeout 1750 $PY scripts/z69_mine_qs2.py $T/H.wit $D/H_train.txt 0 11 $T/qs4_Htrain.jsonl exact
+timeout 1750 $PY scripts/z69_mine_qs2.py $T/H.wit $D/H_test.txt 0 21 $T/qs4_Htest.jsonl exact
+timeout 1750 $PY scripts/z69_mine_qs2.py $T/C.wit $D/CTRL.txt 20 12 $T/qs4_C.jsonl exact
+for f in qs2_Htrain qs2_Htest qs2_C qs4_Htrain qs4_Htest qs4_C; do python3 scripts/z69_mine_qs2_an.py $T/$f.jsonl > $D/r2A_$f.txt; done
+# Part B: generators (registered run = gen_band with the original decoy sampler; corrected sampler = gen2_*)
+timeout 1750 $PY scripts/z69_mine_genrun.py band:6969:10000 $T/gen2_band.jsonl
+for S in H_train H_test; do timeout 800 $PY scripts/z69_mine_genrun.py $D/$S.txt $T/gen2_$S.jsonl; done
+timeout 300 $PY scripts/z69_mine_genrun.py $T/sq.txt $T/gen2_sq.jsonl
+timeout 300 $PY scripts/z69_mine_genrun.py $T/z7.txt $T/gen2_z7.jsonl
+timeout 300 $PY scripts/z69_mine_genrun.py data/z68/u7f/u8zero_primes_1e8.txt $T/gen2_u8.jsonl
+python3 scripts/z69_mine_genrun_an.py $T/gen2_band.jsonl $T/gen2_H_train.jsonl $T/gen2_H_test.jsonl $T/gen2_u8.jsonl $T/gen2_sq.jsonl $T/gen2_z7.jsonl > $D/r2B_coverage.txt
+timeout 1750 $PY scripts/z69_mine_genrun.py band:7070:6000 $T/gen_bandA.jsonl --splitA        # exploratory follow-up
+python3 scripts/z69_mine_genrun_an.py $T/gen_bandA.jsonl --splitA > $D/r2B_splitA_band2.txt
+# Part C: (x,z)-phantoms on the H halves, all witnesses, no upper p cutoff (CF/Pell skipped above 2e10)
+for m in xz xzm; do for S in Htrain Htest; do
+  W=$T/H_train.wit; [ $S = Htest ] && W=$T/H_test.wit
+  timeout 1750 $PY scripts/z69_mine_phantom.py $W 100000 2 $([ $S = Htrain ] && echo 31 || echo 32) $T/ph2${m}_$S.jsonl $m --maxp 1000000000000 --big 20000000000
+  python3 scripts/z69_mine_phantom_an.py $T/ph2${m}_$S.jsonl --pmin 17 --big 2e10 > $D/r2C_ph2${m}_$S.txt
+done; done
+timeout 1700 $PY scripts/z69_mine_cl_diag.py $T/ph2xzm_Htrain.jsonl $T/ph2xzm_Htest.jsonl > $D/r2C_cl_diag.txt
