@@ -193,7 +193,24 @@ at every non-squarefree or even denominator (μ(c)/c²), i.e. the arithmetic of 
   many levels kept separate (METAPLECTIC hatch H-A, the B2 coordinate) — nothing new opened. Pointwise use of any of
   this would still need a single-coefficient statement (H-E), which these generating-function laws do not provide.
 
-## 3, 5. (I5 and Pell letters: below as they come)
+## 3. I5 — candidate involutions (precise list, committed BEFORE running them on T₇₃ / T₄₀₉)
+Matrix form: w = (x, y, z) ↦ γ_w = (a n; c d) = (xy − 1  n; y  zy − 1) ∈ SL₂(ℤ); T_n ↔ {γ ∈ SL₂(ℤ): upper-right n,
+c ≥ 1, a ≡ d ≡ −1 (mod c), a, d ≥ c − 1}. s = swap (x, y, z) ↦ (z, y, x) ⟺ (a, d) ↦ (d, a). L := (1 0; 1 1). The
+three unipotent actions preserving the upper-right entry: left γ ↦ L^kγ (keeps a), right γ ↦ γL^k (keeps d),
+conjugation γ ↦ L^kγL^{−k}. For each action the orbit of w inside T_n is finite (a, d ≥ 0 bounds k).
+* **ρ_L, ρ_R, ρ_C:** order-reversal of the (finite, linearly ordered by k) orbit of w under the left / right /
+  conjugation action — involutions; fixed points = middle elements of odd orbits.
+* **σ_C := s∘ρ_C** (s maps C-orbits to C-orbits reversing the order, so s and ρ_C commute; an involution); fixed
+  points: words whose C-orbit is s-stable with s(w) = ρ_C(w).
+* **σ_LR := s∘ρ_R∘s∘ρ_L?** — not an involution in general; replaced by the commuting pair test: ρ_L∘s∘ρ_R∘s is NOT
+  used. Instead **σ_R := s∘ρ_R∘s = ρ_L** (identity check only).
+* **τ_xy (x ↔ y exchange):** (x, y, z) ↦ (y, x, (n + y)/(xy − 1)) on D_xy := {xy ≥ 2, (xy − 1) | (n + y)} — an
+  involution of D_xy, fixed points x = y. **σ2a** := τ_xy on D_xy, τ_yz = sτ_xy s on D_yz ∖ D_xy, s elsewhere;
+  **σ2b** := τ_xy on D_xy, s elsewhere. (Each must first be checked to be an involution of T_n.)
+Stage-1 test: involution on T₇₃ and T₄₀₉, ≠ s, Fix ⊆ C_p at both (C_p: 4 | x, 4 | y, 4 | z, or x ≡ y ≡ 3 (4), or
+z ≡ y ≡ 3 (4)). Controls T₉, T₁₀₅ (C = ∅) printed.
+
+## 5. (Pell letters: below)
 
 ## 4. IDEAA #10 — Type I with an explicit d-selection rule: DEAD as a forcing rule (CERTIFIED failures)
 
