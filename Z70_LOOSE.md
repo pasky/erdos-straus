@@ -177,8 +177,13 @@ and an integer r ≥ 1 with jr ≡ −1 (mod ℓ²). Then U^j(r) = r/(jr + 1) is
 κ(U^j r) = 0, while κ(r) = κ(0) = 1 ≠ 0. At z = r + iy, U^j z − U^j r = iy/((jz + 1)(jr + 1)) lies in a fixed sector
 with modulus ≍ y, so by Lemma K G(U^j z) = o(y⁻¹log²(1/y)) and |(jz + 1)^{−k}| is bounded; hence
 h_{U^j}(r + iy) = G(r + iy) + o(·) ~ κ(0)·log²(1/y)/(16πy), contradicting the hypothesis (r ≠ −1/j since r > 0). ∎
-Contrast: each fibre e(−z/4d)Φ_d(z/4d) has κ_d(a₀/c) ∝ (finite-level data) and satisfies Theorem F — the obstruction
-is exactly the **infinite** union of levels 4d. The mechanism of the proof is the vanishing of the log² singularity
+Contrast (PROVED by the same class-splitting, one log instead of two): the single fibre
+g_d(z) := Σ_{a,b ≥ 1} e((4abd − a − b)z) = e(−z/4d)Φ_d(z/4d) has leading singular coefficient (relative to
+g_d(iy) ~ log(1/y)/(8πdy)·…) κ_d(a₀/c) = c⁻¹Σ_{α mod c, 4dα ≡ 1 (c)} e(−a₀α/c) = c⁻¹e(−a₀·\overline{4d}/c) if
+gcd(c, 4d) = 1 and 0 otherwise — finite-level data (it depends on c only through gcd(c, 4d) and the class of a₀
+modulo c), consistent with Theorem F. Summing over d, the phases e(−a₀\overline{4d}/c) average over the units mod c
+(weights ≍ 1/d) into a Ramanujan-sum-type quantity, which is how μ(c)/c² — vanishing at every non-squarefree c —
+appears in Lemma K: the obstruction is exactly the **infinite** union of levels 4d. The mechanism of the proof is the vanishing of the log² singularity
 at every non-squarefree or even denominator (μ(c)/c²), i.e. the arithmetic of the *three* free divisor variables.
 
 ### 2.4 Squares (F1) and verdict for I6
@@ -316,6 +321,15 @@ an argument-evaluation-order bug fixed afterwards; the fixture *was* found, as t
 NP missed with A = 2000, a full scan finds points for 15 (with a up to 102 291 — the truncation matters) but the
 **d = n_p slice is exactly empty** at 102 001 (d = 23; a (★)- and 𝔊*-zero), 3 361 (d = 11), 210 961 (23),
 1 063 969 (17), 27 020 569 (37), 103 819 081 (13) (all noprime primes, all ≡ 1 (24), all in 𝔐).
+
+**Two-element menu (exploratory, after the kill; `typeI_np_menu_exact.txt`, exact by Lemma S).** At each of the six
+exact NP failures the *second* prime non-residue d gives a non-empty slice (102 001: d = 29; 3 361: 13; 210 961: 29;
+1 063 969: 29; 27 020 569: 41; 103 819 081: 19). *Assessment:* for any bounded d the heuristic expected slice size
+grows like (log p)²/d, so a fixed finite menu would plausibly fail only finitely often — but it is then a finite
+union of p-independent covering families (p ≡ −f (mod 4ad), f | 4a²d + 1, a unbounded): proving it is exactly the
+B1/B2 problem; and n_p is unbounded, so "d = n_p" is not even a bounded menu. Coverage at A = 2000 is flat in p
+(0.9736 on p ≤ 5·10⁷, 0.9742 on (5·10⁷, 10⁸]) but the truncation A = 2000 confounds any trend (Lemma S allows
+a ≤ (p + 1)/2d).
 
 **Kill tests.** K10a fires for every rule (best 97.4 % < 99.9 %). K10b fires (NP fails exactly at six hard primes).
 K10c: the decoy comparison is uninformative for NP — the least non-residue has no admissible smaller decoy, so every
