@@ -70,6 +70,21 @@ Q = exp(t^{1/3}).
   exp(O(t⁴)) ⇒ 3/4. So Dahan II §7 is a third,
   independent arrival at the same design; it supplies no input beyond it, and it sits below the cap of
   `EXCEPTIONAL_KARY3.md` ((D)24), as it must.
+* **Worked through (2026-11-11, orchestrator; relative to Dahan's §7 as stated, his proofs not audited).** Every use of
+  the upper bound on Q in §7 was located (grep over l. 3888–5070). All but one need only Q ≤ Z^κ with κ < 1/40:
+  Q < Z^{9/10} (CRT), Q < 12U² = 12Z^{1/5} (disjointness, Prop 7.3), qτ(q) and q² small against Z^{1/20} (lattice sums,
+  Prop 7.8), and Lemma 7.9 (M_Q ≍ log Q/log y; its proof only improves for larger Q). The one genuine use is
+  **Thm 7.10, Step 2 (l. 4844–4851)**: "we trivially bound 1_{ab+u≡0 (mod q)} by 1 and the cardinality of 𝒬 by Q",
+  giving Q·exp(−c₃t^{1/2}). Replacement: with r_b(u, a) = #{q ∈ 𝒬 : (q, 12ua) = 1, q | ab + u} and R₀ = t⁶,
+  Σ_{(u,a)} r_b E(u, a) ≤ R₀ Σ E(u, a) + (C₀/R₀) Σ r_b²/φ(12ua). The first term is ≪ t⁶ exp(−c₃t^{1/2}) by his Prop 7.7.
+  For the second, expand r_b² over pairs q, q′: the condition is u ≡ −ab (mod [q, q′]), a reduced class (an active q
+  forces (b, q) = 1), [q, q′] ≤ Q² ≤ U^{1/2}, so Σ_u 1/φ(u) ≪ t/[q, q′] (as in the proof of (latupper) in the 3/4 note),
+  Σ_a 1/φ(a) ≪ t, and Σ_{q,q′≤Q} 1/[q, q′] ≪ (log Q)³; total ≪ t⁵, uniformly in b. Hence the error is o(1) for every
+  b and every Q ≤ Z^κ. Then L ≍ H ≍ t² log Q/log t ≍ t³/log t, cost (K+1)^k = exp(O(t⁴/log t)) ≤ N^{1/2} at
+  t ≍ (log N log log N)^{1/4}, and Prop 7.5 gives **E(N) ≪ N exp(−c(log N)^{3/4}/(log log N)^{1/4})** in his set-up.
+  The (log log N)^{1/4} loss is the price of y-rough cofactors (density 1/log y); the 3/4 note avoids it with
+  unrestricted multipliers and a small-prime selector. This is the same device as Theorem (supply) of the 3/4 note
+  (multiplicity paid in mean square, Lemma wsecond), simplified because his BV saving is exp(−c√t).
 * Scope: Thm 7.12 is stated for all exceptional integers n ≤ N, like the note.
 
 **2.1.2 The "1 − o(1)" bound (§§3–6) is for a structured subset.** *Cor 6.12* ✔ (l. 3619–3686): for the *small-sheet
