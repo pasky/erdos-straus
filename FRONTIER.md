@@ -14,6 +14,8 @@ repository file, with a pointer. When a summary and its source disagree, the sou
 > title, keyword sweeps elsewhere, bounded web sweep; orchestrator-reviewed, no cross-model review. No new mechanism. New ES
 > item: Dahan, arXiv:2611.08717, under "Exceptional set" in §1.)*
 
+**z72 update (deep-agent team, internal).** `Z72_PAIR_PHASE.md` proves a sharp two-factor sufficient condition at a prime shift. At `p=1201` *no* prime shift admits support ≤2; the composite shift 39 does. With arbitrary shifts the support-≤2 Type II property holds on a relative-density-one set of primes `1 mod 4` and in an exact sieve to 500,000,000 (independently replayed to 50,000,000); **no all-prime implication**. `PHASE43_DENOMINATORS.md` gives identical phase costs and opposite fixed-denominator outcomes at two Mordell-hard primes. `EXTREMAL_ES.md` determines the closest nonexact three-term approximation for primes `1 mod 24` and shows monotone denominator-preserving repair fails at 73. `data/z72/mixproof.md` constructs progressions where a frozen class-group menu succeeds at `d=1`, and others where every word misses a nonempty `d=2` fibre. None proves ES.
+
 *Orchestration directives (papers are campaign artifacts, edit freely; wave mechanics): `OPERATIONS.md`.*
 
 **Labels** (as in `DISCOVERIES.md`). PROVED = complete proof in the repo, possibly *relative to* named published theorems;

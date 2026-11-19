@@ -7,7 +7,7 @@ from itertools import combinations
 from pathlib import Path
 from math import gcd
 
-from sympy import factorint, primerange, primitive_root
+from sympy import divisors, factorint, primerange, primitive_root
 
 
 @cache
@@ -92,6 +92,14 @@ def scan(ns, shifts, pnr=False):
 
 if __name__ == '__main__':
     group_test()
+    n = 1201
+    print('All successful shifts at', n, '(c, (minimum support, A, B)):')
+    for c in range(3, (n+4)//3+1, 4):
+        K = (n+c)//4
+        pairs = [(len(factorint(A*B)), A, B) for A in divisors(K)
+                 for B in divisors(K//A) if A<=B and gcd(A,B)==1 and (A+B)%c==0]
+        if pairs:
+            print(c, min(pairs))
     root = Path(__file__).resolve().parents[1]/'data/z58/screens'
     def load(name):
         return [int(l.split()[0]) for l in (root/name).read_text().splitlines()
