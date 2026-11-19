@@ -1,7 +1,19 @@
 # AGENTS.md — how to work in this repository
 
-**The Erdős–Straus conjecture (ES) is OPEN.** Never write or imply otherwise. Everything here has internal review only
-and is not externally refereed. Do not post, submit or open PRs externally without the user.
+**The Erdős–Straus conjecture (ES) is open as of the date in `STATUS.md`.** Proving or disproving it is the goal, so a
+proof is welcome. What is not welcome is the common failure mode in which a relaxation, a conditional result, an almost-all
+result, or a flawed argument gets summarised as "ES proved". Hence:
+* **If you believe you have a proof or disproof of ES**, or of ES for all large primes:
+  * say so plainly and label it **CLAIMED** (not PROVED);
+  * flag it to the orchestrator and the user immediately;
+  * do not bury it.
+
+  It becomes PROVED in the master files only after at least two independent hostile reviews from both labs. Formalise it
+  in Lean where feasible.
+* **Everywhere else, scope precisely:** "ES for the family F", "cap-1 relaxation", "almost all p", "conditional on H".
+
+Everything here has internal review only and is not externally refereed. Do not post, submit or open PRs externally
+without the user.
 
 ## 1. Read first, in this order
 0. If you are the orchestrator, read **`OPERATIONS.md`** first: user directives, models, quota, pause state, and the
