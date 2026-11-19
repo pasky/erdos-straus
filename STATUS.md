@@ -93,11 +93,11 @@ Each item carries a label, then a pointer. "PROVED rel. X" means proved relative
   input alone cannot force positivity.
 * **Finite procedures fail at trap points** (a method barrier).
   * Coverings, polynomial menus, and finite programs with finite-valued oracles that have a defined finite formal tree at
-    the trap: PROVED (`Z53_NONCRTLOGIC.md`). Infinitely many *prime* failures are CONDITIONAL on Schinzel H.
+    the trap: PROVED (`Z53_NONCRTLOGIC.md`). Infinitely many *prime* failures are CONDITIONAL on Schinzel H. Sterile
+    Mordell points exist for every prime r ≥ 2.84·10⁶ (`STERILE_LOWER.md`).
   * Unconditional for one formula class (z74, Opus-reviewed): fixed menus of polynomial whole-triple formulas in both Gaussian
     coordinates and any fixed number of *integral* negative-Pell witnesses miss relative density one of the primes
     ≡ 1 (M), for a computable M with 840 | M (`GAUSSIAN_PELL_MENU.md`).
-  * Sterile Mordell points exist for every prime r ≥ 2.84·10⁶ (`STERILE_LOWER.md`).
 * **Witness sizes are not polylog.** For fixed κ < 1/12, or κ < 1/6 with Gallagher or GRH, infinitely many p have no
   forest edge with larger endpoint in [4, exp((log p)^κ)]. Only {1,2} and {2,3} remain. This refutes Conjecture H₂.
   PROVED rel. the internal energy lemma; `H4_NOT_POLYLOG.md`.
