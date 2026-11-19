@@ -4,7 +4,7 @@ Run from the root: uv run --with sympy python scripts/z73_probe_forcing.py
 from math import gcd
 from pathlib import Path
 
-from sympy import divisors, factorint, isprime, primerange
+from sympy import divisors, factorint, isprime, jacobi_symbol, n_order, primerange, totient
 
 
 def verify(n, a, b, c):
@@ -18,6 +18,21 @@ def verify(n, a, b, c):
 def line(n, e):
     N = e*n+1
     return [b for b in divisors(N) if N//b % (4*e) == 4*e-1 and (1+b) % e == 0]
+
+
+def orbit(n, c):
+    k = (n+c)//4
+    if jacobi_symbol(n, c) != -1:
+        return False
+    h = int(n_order(2, c))
+    if h != totient(c)//2 or k % (1 << (h//2)):
+        return False
+    neg = [q for q in factorint(k) if jacobi_symbol(q, c) == -1]
+    assert neg
+    for q in neg:
+        j = next(j for j in range(-(h//2), h//2+1) if (q+pow(2, j, c)) % c == 0)
+        verify(n, 1 << max(j, 0), q << max(-j, 0), c)
+    return True
 
 
 def a1(n):
@@ -69,6 +84,9 @@ if __name__ == '__main__':
     for title, ns in tests.items():
         vals = [screens(n) for n in ns]
         print(title, len(ns), [sum(map(int, col)) for col in zip(*vals)], sum(map(any, vals)))
+    for c in [7, 15, 23, 39]:
+        assert any([orbit(n, c) for n in range(1, 3000, 8)])
+    assert orbit(23317201, 7) and orbit(193, 15) and not orbit(1201, 39)
     assert [p for p in primerange(1, 194) if p % 8 == 1 and not a1(p)] == [193]
     assert line(1201, 4) == [155] and line(313, 4) == []
     for s in (31, 959, 2911):
