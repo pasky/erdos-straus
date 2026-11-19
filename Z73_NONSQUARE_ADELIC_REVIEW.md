@@ -2,7 +2,7 @@
 
 **Verdict (internal): accept for NR at the distinguished prime, reject for universal NR.** I find no gap in the compressed family count or the perturbation argument. In fact this very model **violates** universal NR at a different positive infinite prime, even allowing a nonstandard witness modulus (§4). This is not a counterexample to the draft as worded. The model conclusion uses the rational row tower and the marked-section theorem as inputs; no claim about an ordinary prime or about PA.
 
-Reviewed `/tmp/z73-nonsquare-adelic-audit.md`, SHA-256 `3c0c145b99006ac1f6f71b0d47b360ade2d332d0af03f359fe0e631c2bb05c38`, against `Z66_UCOVER.md` §2.1, ET Prop. 1.9 (pp. 7–8 of `sources/elsholtz-tao-1107.1010.pdf`), and the model inputs at repo revision `e9f53e442`. No reliance on the sharper Z66 §4 sextuple counts is necessary here.
+Reviewed `LOGIC_NONSQUARE_PROFILE.md` (archived verbatim), SHA-256 `3c0c145b99006ac1f6f71b0d47b360ade2d332d0af03f359fe0e631c2bb05c38`, against `Z66_UCOVER.md` §2.1, ET Prop. 1.9 (pp. 7–8 of `sources/elsholtz-tao-1107.1010.pdf`), and the model inputs at repo revision `e9f53e442`. No reliance on the sharper Z66 §4 sextuple counts is necessary here.
 
 ## 1. PROVED: counting parameterized classes, not reduced generators
 

@@ -2,7 +2,7 @@
 
 **Verdict.** The sparse-prime upgrade works. There is a countable model of IOpen + Bézout + internal Dirichlet + **universal NR** with a positive infinite prime `P≡1 mod 840` at which ES fails. In fact each nonstandard prime has an NR witness with **standard prime** modulus. The unbounded progression axiom and NR are the sentences in `LOGIC_PID_DIRICHLET_AUDIT.md` and `Z65_LOGIC2.md` §1, respectively. This is a nonstandard Bézout domain, not an external PID, and says nothing against ES at an ordinary prime.
 
-Inputs: the ordered row tower of `Z73_PID_SQUARE.md` §1 (over `ℚ[P]`, **no square pullback**), its Dirichlet polynomial stages, `LOGIC_MARKED_SECTIONS.md`, and the compressed-modulus argument of `/tmp/z73-nonsquare-adelic-audit.md` (checked and summarized below). All choices are external; no effective enumeration test for irreducibility or modulus bound internal to the model is used.
+Inputs: the ordered row tower of `Z73_PID_SQUARE.md` §1 (over `ℚ[P]`, **no square pullback**), its Dirichlet polynomial stages, `LOGIC_MARKED_SECTIONS.md`, and the compressed-modulus argument of `LOGIC_NONSQUARE_PROFILE.md` (checked and summarized below). All choices are external; no effective enumeration test for irreducibility or modulus bound internal to the model is used.
 
 ## 1. What to schedule and what the sign count proves
 
