@@ -64,7 +64,8 @@ The `−` lines only compress; full scopes are in the cited notes and FRONTIER �
 `R` Astra.
 
 ### z68 (2026-11-09): (S) via p-adaptive words, U₇ tryhard
-`+` PROVED: the cut identity and contraction (`Z68_SIGN.md`), and a Brun bound for ¬U₇. GRH bridge: under GRH, (PC) with
+`+` PROVED: the cut identity and a partial contraction on refinements of length-three words (`Z68_SIGN.md`; it need not
+    preserve goodness). Primes failing U₇ are ≪_A N/(log N)^A (`Z68_U7O.md`). GRH bridge: under GRH, (PC) with
     log F(y) ≤ y^{1/2−ε} gives eventual ES (`Z68_PC2.md`). CONJECTURES B and C are in `Z68_U7F.md`.
 `−` Bounded-letter cascades fail (CONDITIONAL on Dickson). Two-prime covering gives no fixed-factor gain.
 `R` Astra.
@@ -133,8 +134,8 @@ The `−` lines only compress; full scopes are in the cited notes and FRONTIER �
     summary: `Z58_SUMMARY.md`.
 
 ### z57 (2026-11-05): synthesis
-`+` (MS): R(p) ≥ 1 for every prime p > 10¹⁷ in 𝔐. With the known verification below 10¹⁷, (MS) ⟹ ES (`Z57_SYNTH.md`).
-`+` Type II genus main term ≥ 10⁻¹⁰·log³p (`Z57_BFII.md` Thm G). 𝔊*-zeros are ≪ x/(log x)^A (`Z57_BFO.md`).
+`+` CONJECTURE (MS): R(p) ≥ 1 for every prime p > 10¹⁷ in 𝔐. PROVED: (MS) ⟹ ES, via Mordell and Salez (`Z57_SYNTH.md`).
+`+` Type II genus main term ≥ 10⁻¹⁰·log³p at large p ≡ 1 (4) (`Z57_BFII.md` Thm G). 𝔊*-zeros are ≪ x/(log x)^A (`Z57_BFO.md`).
 `−` No complementarity: four implications refuted (`Z57_COMPLEMENT.md`). Full summary: `Z57_SUMMARY.md`.
 
 ### z56 (2026-11-04)
@@ -144,7 +145,7 @@ The `−` lines only compress; full scopes are in the cited notes and FRONTIER �
 `−` K(4) open. Full summary: `Z56_SUMMARY.md`.
 
 ### z55 (2026-11-04)
-`+` (H⁻_𝔉) refuted, CERTIFIED (`Z55_CROSSF.md`). A positive proportion of primes have R_𝔉 ≥ 2 (`Z55_CROSSO.md`).
+`+` The (H⁻_𝔉) inequality fails at the checked zero primes (CERTIFIED); the eventual statement is open (`Z55_CROSSF.md` §4). A positive proportion of primes have R_𝔉 ≥ 2 (`Z55_CROSSO.md`).
     HC ≤ 64 below 10¹².
 `−` TD is not proved for any η > 0. Full summary: `Z55_SUMMARY.md`.
 
@@ -158,7 +159,7 @@ The `−` lines only compress; full scopes are in the cited notes and FRONTIER �
 `−` The oracle no-go (`Z53_NONCRTLOGIC.md`) and the lattice no-go (`Z53_LATTICE.md`). Full summary: `Z53_SUMMARY.md`.
 
 ### z52–z52d (2026-10-30 … 11-01): breadth-first connection generation, triage, depth lanes
-`+` `BM_LVALUE.md` Thm A (exact L-value formula; M_BM ≥ 0.1402·log²p at large p ≡ 1 (8)).
+`+` `BM_LVALUE.md` Thm A (exact L-value formula) and Cor 3.1 (M_BM ≥ 0.1402·log²p at large p ≡ 1 (8)).
 `+` Lean: ES(3·2^s + 1); 15·2^s + 1 off s ≡ 0, 240 (360).
 `+` The I3_𝒞 zeros among primes p ≡ 1 (4) up to 10⁹ are {5, 13, 17, 2521} (`Z52_BANKED.md`).
 `−` Pass 1 over 2284 items found 0 new-structural (`ES_CONNECTIONS_TODO.md`). Depth lanes narrowed (`Z52D_*.md`). The

@@ -4,11 +4,12 @@
 and is not externally refereed. Do not post, submit or open PRs externally without the user.
 
 ## 1. Read first, in this order
+0. If you are the orchestrator, read **`OPERATIONS.md`** first: user directives, models, quota, pause state, and the
+   resume condition.
 1. **`STATUS.md`**, the master summary of current results. Ten minutes.
 2. **`FRONTIER.md`**: the one-paragraph summary, then §2 (the reduction), §3 (the barrier map), §4 (the screening
    checklist) and §7 (open sub-problems). Run the §4 checklist on any idea **before** working on it.
-3. **`OPERATIONS.md`** if you are the orchestrator: user directives, models, quota, pause state, and the resume condition.
-4. The source notes cited for whatever you work on. **When a summary and its source disagree, the source wins.**
+3. The source notes cited for whatever you work on. **When a summary and its source disagree, the source wins.**
 
 ## 2. Master files and how results propagate
 There is exactly one master for each kind of information. Do not restate it elsewhere; point to it instead.
@@ -66,7 +67,7 @@ important, without this item? If not, it does not go in.
 * WAVES: at most 12 lines per entry, excluding the heading.
 * FRONTIER §6: one line per dead end.
 
-When a cap would be exceeded, compress or merge older items. Do not raise the cap.
+When a cap would be exceeded, compress or merge older items. Do not raise a cap without the user.
 
 **Labels** (as in `FRONTIER.md`): PROVED (possibly *rel.* named published theorems), CONDITIONAL (on what), CERTIFIED (an
 exact finite computation; state the engine and the independent-check coverage), EVIDENCE, CONJECTURE, Assessment. Put a
@@ -80,17 +81,22 @@ label and a file pointer on every claim, in every master file.
   If none was possible, say so in the WAVES `R` line.
 
 ## 5. Consistency duty
-When you change the label, scope or status of a result, update every master file that quotes it:
+When the label, scope or status of a result changes, every master file that quotes it must follow.
+* **Corrections and downgrades** go immediately, in the same commit as the note change, by whoever makes them (§2,
+  "Errors").
+* **Upgrades** (e.g. EVIDENCE → PROVED) go through the next wave export, after review.
+
+To find the quotes:
 ```
 git grep -n '<NOTE_NAME>' -- README.md STATUS.md WAVES.md FRONTIER.md paper/README.md OPERATIONS.md
 ```
-Do the same for refuted conjectures (grep their names). The commit that changes a note's label also changes its quotes.
+Do the same for refuted conjectures (grep their names).
 
 ## 6. Practicalities
 * Python: always `uv` (for example `uv run --offline --no-project python scripts/foo.py`). C engines live in `scripts/*.c`.
 * Resources: `timeout` ≤ 1800 s, `ulimit -v` ≤ 6000000, and at most 2 compute processes per lane. Plan memory before
   running large censuses.
-* Lean: `cd lean/ES && lake exe cache get && systemd-run --user --scope -p MemoryMax=16G timeout 1800 lake build`. Use
+* Lean: `cd lean/ES && systemd-run --user --scope -p MemoryMax=16G timeout 1800 sh -c 'lake exe cache get && lake build'`. Use
   the cgroup memory cap, not `ulimit -v`, which breaks Lean (`LEAN_Z1546.md`). Do not use `sorry` or `native_decide` in
   claimed theorems.
 * Commit each finished change with a clear message. Stage files explicitly; do not `git add -A` (the tree contains large
