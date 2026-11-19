@@ -24,7 +24,8 @@ expert-level deep reference is `FRONTIER.md`. Citations of "STATUS.md §…" wri
   * No standard conjecture is known to imply the lower tail.
   * No precedent of this shape is known for any natural problem.
 * **Campaign state.** The campaign runs in bursts, one per new frontier model. Between bursts it is idle. The last
-  burst was z72–z74 (2026-11-19), run by GPT Astra; it still owes a cross-lab (Opus) review. The spending rule is in
+  burst was z72–z74 (2026-11-19), run by GPT Astra. Its headline items passed Opus cross-review on 2026-11-19, with
+  verdict ACCEPT-WITH-FIXES and the fixes applied (`data/z74/xreview/REVIEW_*_OPUS.md`). The spending rule is in
   `OPERATIONS.md`: no more re-encodings of B2, only a *genuinely new* idea for forcing one tied divisor event at a fixed
   prime.
 
@@ -90,12 +91,13 @@ Each item carries a label, then a pointer. "PROVED rel. X" means proved relative
 * **Brauer–Manin sees exactly the squares.** On the (★) surface and on the Type II threefold, the positive-integral BM set
   is empty iff n is a square. 4545 is a non-BM positive-integral Hasse failure. PROVED; `Z58_STRUCT*.md`. So local–global
   input alone cannot force positivity.
-* **Finite procedures fail at trap points.** This covers coverings, polynomial menus, and finite programs with
-  finite-valued oracles that have a defined finite formal tree at the trap. PROVED (`Z53_NONCRTLOGIC.md`). Infinitely
-  many *prime* failures are CONDITIONAL on Schinzel H. Sterile Mordell points exist for every prime
-  r ≥ 2^{21.4375} ≈ 2.84·10⁶ (`STERILE_LOWER.md`).
-* **Formula menus** (z74, by Astra; Opus cross-review owed). Finite polynomial whole-triple menus, even with Gaussian and Pell inputs,
-  miss relative density one of the primes on some progression. PROVED, unconditional; `GAUSSIAN_PELL_MENU.md`.
+* **Finite procedures fail at trap points** (a method barrier).
+  * Coverings, polynomial menus, and finite programs with finite-valued oracles that have a defined finite formal tree at
+    the trap: PROVED (`Z53_NONCRTLOGIC.md`). Infinitely many *prime* failures are CONDITIONAL on Schinzel H.
+  * Unconditional for one formula class (z74, Opus-reviewed): fixed menus of polynomial whole-triple formulas in both Gaussian
+    coordinates and any fixed number of *integral* negative-Pell witnesses miss relative density one of the primes
+    ≡ 1 (M), for a computable M with 840 | M (`GAUSSIAN_PELL_MENU.md`).
+  * Sterile Mordell points exist for every prime r ≥ 2.84·10⁶ (`STERILE_LOWER.md`).
 * **Witness sizes are not polylog.** For fixed κ < 1/12, or κ < 1/6 with Gallagher or GRH, infinitely many p have no
   forest edge with larger endpoint in [4, exp((log p)^κ)]. Only {1,2} and {2,3} remain. This refutes Conjecture H₂.
   PROVED rel. the internal energy lemma; `H4_NOT_POLYLOG.md`.
@@ -110,17 +112,18 @@ In each model a nonstandard prime fails ES. The models are *separate* unless sta
 * **Normal open induction** (+ gcd, irreducible divisors, and all true universal ring sentences) does not prove ES on any
   class of 𝔐. IOpen does prove it on every other class mod 840. `Z64_UNPROV.md`; adding T1 and two squares, see
   `Z65_LOGIC2.md`.
-* **IOpen + Bézout** does not prove ES. `Z73_OPEN_BEZOUT.md`, `LOGIC_BEZOUT.md`. Collection is added in
-  `LOGIC_BEZOUT_NORM_COLLECTION.md`.
-* **An external PID satisfying open induction** has a failing prime in every unit-square class (`Z73_PID_SQUARE.md`). One
-  such PID satisfies Bertrand and internal Dirichlet, and has failing primes in every interval with positive start and
-  externally infinite length (intervals and Bertrand: `LOGIC_PID_INTERVAL_AUDIT.md`; with Dirichlet:
-  `LOGIC_PID_DIRICHLET_AUDIT.md`).
-* **One IOpen PID with internal Dirichlet, universal prime two-squares, universal NR and Lagrange four-squares**, failing
-  at P ≡ 1 (840). NR is a square-root divisibility certificate, not full reciprocity. `LOGIC_JOINT_NR_TS.md`,
-  `LOGIC_FOUR_SQUARES.md`. z74, by Astra: Opus cross-review owed.
-* **IOpen + Bézout + bounded common multiples + five squares.** The Pythagoras number is exactly 5, and the model is not a
-  PID. `LOGIC_FIVE_SQUARE_BCM.md`. z74, by Astra: Opus cross-review owed.
+* **IOpen + Bézout** does not prove ES. The failing prime is ≡ 1 mod every standard k. `Z73_OPEN_BEZOUT.md`,
+  `LOGIC_BEZOUT.md` (Opus-reviewed). A variant with collection is in `LOGIC_BEZOUT_NORM_COLLECTION.md` (cross-review owed).
+* **For each unit-square class r mod M** there is an external PID satisfying IOpen with an ES-failing infinite prime
+  ≡ r (M) (`Z73_PID_SQUARE.md`, Opus-reviewed). There is also a single-model strengthening, with failing primes in every
+  interval of positive start and externally infinite length, plus Bertrand and Dirichlet (`LOGIC_PID_INTERVAL_AUDIT.md`,
+  `LOGIC_PID_DIRICHLET_AUDIT.md`; cross-review owed).
+* **One external IOpen PID with internal Dirichlet, universal prime two-squares, universal NR and Lagrange**, in which a
+  nonstandard P ≡ 1 (840) fails ES. NR is a square-root divisibility certificate, not full reciprocity. Proof of record:
+  the Proof map in `LOGIC_JOINT_NR_TS.md` and `LOGIC_JOINT_PID_TREE_AUDIT.md` (Opus-reviewed). Its "ordinary prime
+  moduli" Variant is a gap, not a result.
+* **IOpen + Bézout + bounded common multiples + five squares**, built on top of the joint PID. The Pythagoras number is
+  exactly 5, and the model is not an external PID (Bézout holds). `LOGIC_FIVE_SQUARE_BCM.md` (Opus-reviewed).
 * **Not claimed:** independence from IE₁, IΔ₀, PA or ZFC; a standard counterexample; full quadratic reciprocity in any
   model.
 
