@@ -1,6 +1,35 @@
 # A five-square end extension that can be iterated for bounded common multiples
 
-**Result (internal proof).** Starting with the countable external PID prime countermodel with IOpen and four squares, there is a countable model of **IOpen + Bézout + bounded common multiples + five squares** with the same positive prime `p≡1 mod 840` and `¬ES(p)`. Five squares means every nonnegative element is a sum of five squares. The first common multiple `h` requires five squares even in the final model (§6). The PID used to execute each successor is not the discretely ordered ring in that successor. In particular no nonstandard external PID is claimed to satisfy bounded common multiples.
+```
+Result: a countable model of IOpen + Bézout + BCM + five squares in which an old nonstandard prime P≡1 (840) fails ES;
+        the Pythagoras number is exactly 5, and the model is not an external PID.
+Label: PROVED (internal), relative to the starting model D₀ named below. It also uses standard results: Shepherdson's
+       integer-part criterion, Nagata's factoriality criterion, Hilbert 90, Lang–Weil, Hensel, and EGA IV §9 spreading.
+Scope: a nonstandard countermodel for a weak theory. It has no four squares (Lagrange fails at h₁). There is no standard
+       counterexample, and no claim for IΔ₀, IE₁ or PA. ES is OPEN.
+Review: Astra side checks (LOGIC_FIVE_SQUARE_BCM_REVIEW.md, LOGIC_FIVE_SQUARE_BCM_AUDIT.md). Cross-lab (Opus):
+        data/z74/xreview/REVIEW_FIVE_SQUARE_BCM_OPUS.md, ACCEPT-WITH-FIXES; the fixes are applied here.
+Triage: HEADLINE
+STATUS delta: none from this note (the orchestrator applies it).
+```
+*(z74 Opus xreview fix: added this §0 block.)*
+
+**Starting model (z74 Opus xreview fix).** `D₀` is the joint PID of `LOGIC_JOINT_NR_TS.md`. Its proof of record is
+`LOGIC_JOINT_PID_TREE_AUDIT.md` §§1–5. It passed Opus cross-review with ACCEPT-WITH-FIXES and no mathematical gap in the
+headline (`data/z74/xreview/REVIEW_JOINT_NR_TS_OPUS.md`, commit `821335159`). Only the following properties of `D₀` are used:
+* it is countable, discretely ordered and an external PID;
+* it satisfies IOpen;
+* every nonnegative element is a sum of five squares (Lagrange gives four);
+* it has a positive nonstandard prime `P≡1 (840)` with `¬ES(P)`.
+
+Two residue facts follow from IOpen and external PID alone:
+* `D₀/ℓ=𝔽_ℓ` for standard primes ℓ, and `V₂=ℤ₂`;
+* the residue field at every nonstandard prime has characteristic 0, since `q|ℓ` is impossible.
+
+No property of the units of `D₀`, and none of its TS, NR or Dirichlet axioms, is used. `LOGIC_FOUR_SQUARE_AUDIT.md` §3
+would also serve, but it has not been cross-reviewed. Below, `p` denotes this `P`.
+
+**Result (internal proof).** Starting with the countable external PID prime countermodel with IOpen and four squares (`D₀` above), there is a countable model of **IOpen + Bézout + bounded common multiples + five squares** with the same positive prime `p≡1 mod 840` and `¬ES(p)`. Five squares means every nonnegative element is a sum of five squares. The first common multiple `h` requires five squares even in the final model (§6). The PID used to execute each successor is not the discretely ordered ring in that successor. In particular no nonstandard external PID is claimed to satisfy bounded common multiples.
 
 ## 1. The recurring input, and where five matters
 
@@ -9,6 +38,22 @@ Keep an **upper** countable external PID `T` with fraction field `F`. Initially 
 `D={t∈T: t mod H∈S}`, with `Frac(D)=F`.
 
 Assume `D` is discretely ordered, satisfies IOpen and five squares, and that **every** `a∈S` is a sum of five squares in `S`, with a **nonzero vector also at `a=0`**. Here `S` is not ordered; nonzero means nonzero over the field `k`, *not* a unit coordinate in `S`. No condition involving a sequence of composite-rank valuation completions of `D` is needed. We will verify hereditary Bézout separately.
+
+**The inductive package (z74 Opus xreview fix).** Each successor assumes the following list and re-establishes it for
+`(B,h,k',S',D')`.
+* **(P1)** `T` is a countable external PID. `F=Frac(T)`. When `n≥2`, `T` is an algebra over an ordered field of
+  characteristic 0, every residue field `T/q` has characteristic 0, and `T^×` is that constant field minus 0.
+* **(P2)** `D=T×_k S` (or `D=T` at `n=1`) is discretely ordered, with `Frac D=F`, IOpen and five squares.
+* **(P3)** Every `a∈S` is a sum of five squares in `S`, with a nonzero vector at `a=0`.
+* **(P4)** The content invariant `(*)` of §5: every nonzero fractional pair over `S` in `k` generates an `S`-ideal whose
+  generator is the image of an element of `T^×`. This is vacuous at `n=1`.
+* **(P5)** The stage invariants of §2 hold at every finite stage `A` of the upper tower:
+  * `A` and `A[i]` are Noetherian UFDs, with units `F^×` and `F(i)^×` respectively (the Gaussian invariant);
+  * old primes remain prime;
+  * `A∩O=F`, and the residue field of `rc(Frac A)` embeds compatibly into the fixed host;
+  * `A/hA` is geometrically integral over `F`.
+
+(P5) is proved in §2. (P2) and (P3) are proved in §4. (P1) for `B` is proved in §2, and (P4) for `S'` in §5.
 
 At each prime `q` of `T` use the complete DVR `V_q` of the localization, fraction field `L_q`, and residue field `k_q`. Initially use the ordinary integrality condition at all `q`. Subsequently the local condition is `V_q` except at `H`, where it is `W_H={z∈V_H: z mod H∈S}`. These conditions on `F` cut out exactly `D`. For every such local condition `W`, the equation `Q_5(u)=b`, `Q_5=Σu_i²`, has a nonzero point over `L_q`, integral in `V_q` whenever `b∈V_q`, and with all coordinates in `W` whenever `b∈W`. Moreover the required points admit generic perturbation.
 
@@ -29,11 +74,11 @@ As in the external PID tower, finite stage factorization into **permanent** prim
 
 Choose `F`-embeddings `φ_q:k'→L_q`, extending the dense embeddings of `F`, with (a) each nonzero `z∈k'` a unit at all but finitely many `q`, (b) at every five-square step the coordinate images are in `V_q` when the target image is integral, and in `W_H` at the distinguished old mark when its image is in `W_H`. At the initial step there is no `H`.
 
-Here are details of the simultaneous choice, especially for **non-finite** residue fields. For a fixed finite tower prefix and fixed finite list of nonzero regular functions/numerators/denominators in its stages, choose a dense open of the last `C_j` where all listed functions and chosen row pivots are nonzero and every step is smooth (delete quadric vertices even if a target is identically zero mod `h`). All functions on earlier stages pull back nontrivially by generic dominance. Spread the finite diagrams, charts and open out over `T[1/d]` for some nonzero `d∈T`, shrinking the base so this open has geometrically integral nonempty fibers and the tower on these charts stays smooth. For precision, all the data and finite-type spreading statements may first be made over the finitely generated subring of `F` of their coefficients, then inverted nonzero coefficients cleared in `T`; only finitely many primes of this external PID are lost. Enlarge the list to include coefficient denominators in the finite presentations. The rank-five forms on reduction are the same fixed form, with varying RHS.
+Here are details of the simultaneous choice, especially for **non-finite** residue fields. For a fixed finite tower prefix and fixed finite list of nonzero regular functions/numerators/denominators in its stages, choose a dense open of the last `C_j` where all listed functions and chosen row pivots are nonzero and every step is smooth (delete quadric vertices even if a target is identically zero mod `h`). All functions on earlier stages pull back nontrivially by generic dominance. Spread the finite diagrams, charts and open out over `T[1/d]` for some nonzero `d∈T`, shrinking the base so this open has geometrically integral nonempty fibers. Here `T` is a Noetherian Dedekind base, and EGA IV §9.7 gives constructibility of geometric integrality *(z74 Opus xreview fix: citation)* and the tower on these charts stays smooth. For precision, all the data and finite-type spreading statements may first be made over the finitely generated subring of `F` of their coefficients, then inverted nonzero coefficients cleared in `T`; only finitely many primes of this external PID are lost. Enlarge the list to include coefficient denominators in the finite presentations. The rank-five forms on reduction are the same fixed form, with varying RHS.
 
 At all large **finite** residue fields Lang–Weil gives points on the open, uniformly for the fixed degrees/number of equations (initial finite residue fields are the standard `𝔽_l`, by division). All **infinite** good residue fields admit dense rational points on the chart tower: over each such field the fixed `Q_5` has a hyperbolic plane by §1. After a fixed linear change solve a hyperbolic coordinate on the open where its partner is nonzero, giving a rational dense quadric chart for *every* target, even zero. Rows likewise have line charts and floor steps are lines. The iterated generic chart is rational; more explicitly the full reduced tower over this field is geometrically integral by the monic/row induction after spreading to keep its chosen pivot nonzero at each generic point. Thus the dense open restrictions do not discard all the rational points. This argument does not apply Lang–Weil to infinite residue fields or assume they are pseudofinite.
 
-A residual point on this open gives prefix-compatible integral lifts, generic over the countable field `F`: choose free coordinates in the residue balls transcendently, and solve smooth pivot coordinates by Hensel with the actual previously lifted values. The local balls in a complete DVR of a countable field are uncountable (binary digit sequences suffice); avoid all algebraic dependences in the free parameters. This gives injectivity by the relative dimension and integral generic charts. Equivalently lift generically in the smooth open of the last stage. Assign each `q` a finite good prefix, with prefix lengths tending to infinity off finite sets: use an enumeration of primes and the successive cofinite success sets for longer prefixes/lists, and allow empty prefix at exceptions. Always give the old special prime `H` and the initial dyadic prime empty prefix. On the tail continue each embedding stage by stage. Any nonzero row pivot in the residual stage domain is a nonzero **field** pivot in `L_q`, not necessarily a unit there. Rows need no tail integrality condition. Floors are free; quadric tails use §1, perturbing in a ball preserving the residual coordinates when imposing `W_H`. This constructs (a),(b); no arbitrary infinite avoidance is imposed over one fixed residue field.
+A residual point on this open gives prefix-compatible integral lifts, generic over the countable field `F`: choose free coordinates in the residue balls transcendently, and solve smooth pivot coordinates by Hensel with the actual previously lifted values. The local balls in a complete DVR of a countable field are uncountable (binary digit sequences suffice); avoid all algebraic dependences in the free parameters. This gives injectivity by the relative dimension and integral generic charts. Equivalently lift generically in the smooth open of the last stage. Assign each `q` a finite good prefix, with prefix lengths tending to infinity off finite sets: use an enumeration of primes and the successive cofinite success sets for longer prefixes/lists, and allow empty prefix at exceptions. Always give the old special prime `H` and the initial dyadic prime empty prefix. On the tail continue each embedding stage by stage. Any nonzero row pivot in the residual stage domain is a nonzero **field** pivot in `L_q`, not necessarily a unit there. Rows need no tail integrality condition. Floors are free; quadric tails use §1, perturbing in a ball preserving the residual coordinates when imposing `W_H`. This constructs (a),(b); no arbitrary infinite avoidance is imposed over one fixed residue field. *(z74 Opus xreview fix.)* Every `φ_q` is **injective** on all of `k'`. This includes the tail-only places: `H`, the initial 2, and the small `l` with empty prefix. At each stage the free coordinates are transcendental, so the transcendence degree is preserved, and every quadric fibre is irreducible. (a) and the PID property of `T'` in §5 use this injectivity, through finite valuations of nonzero elements.
 
 ## 4. Arithmetic ring, floors and the renewed condition
 
@@ -50,6 +95,13 @@ Form `T'=⋂_q φ_q⁻¹(V_q)⊂k'`. Write `S'=T'` at the initial successor; oth
 In the iteration `F^×` does generate the content of any finite tuple over `S'`, even at the extra place, as follows. In `T'` match its valuation minima by `c∈F^×` from `T`. For the residual pair `f,g` divided by `c`, at least one entry is a unit at `H`; their residues in `k=k_H` are in the **old residue field**, not the new `k'`. By induction maintain the auxiliary content property `(*)`: any nonzero fractional pair over `S` in `k` has its ideal generated by an element of `T^× mod H` (the image of upstairs units). Initially there is no `H`. Choose such a unit in `T^×` to correct `c` at `H` without changing any other valuation. Now the divided pair is in `S'`, is unimodular over `T'`, and its two `H`-residues generate 1 over `S`. Choose a `T'` row. Lift the desired `S`-row to `T'` (reduction surjects onto `k`), and correct the upstairs row by the syzygy `(g,−f)` times a lift of the difference parameter in `k`, so its reductions are the desired coefficients. The corrected row is in `S'`. This proves `(*)` for `S'` with upstairs `B^×`: `c` times the correcting `T`-unit lies in `F^×⊂B^×`. At the initial successor `S'=T'` and the first content scaling already proves `(*)`. Finally for a pair in `D'` divide out its `B`-gcd, scale it by an upstairs unit realizing the `S'` content of the two residual cofactors (not both zero as the cofactors are unimodular in `B`), and correct a `B` row by a lifted residual syzygy exactly as above. The scaled gcd itself belongs to `D'` since its residue is an `S'`-linear combination of the original pair's residues. This gives Bézout in `D'`; it does not give external atomicity there.
 
 **Conclusion.** Iterate over the ordinary natural numbers. Endness and discrete order persist in the countable union; old floors in compatible real closures, Bézout rows and five-square tuples persist. Every positive bound lies in some `D`, its entire initial interval remains old, and the next `h` is a common multiple of that interval. A factorization or positive ES triple at the distinguished original prime would have old coordinates by endness: positive divisors are `≤p`, and sorted ES denominators are `≤2p⁴`. The old irreducible remains ring-theoretically prime by Bézout. This proves the statement above. It does not prove a statement about standard ES.
+
+**Not an external PID (z74 Opus xreview fix).** The union is Bézout, but some of its ideals are not principal. Each standard
+prime ℓ is prime in the union, because IOpen division gives `D_∞/ℓ=𝔽_ℓ`, and distinct standard primes are nonassociate.
+A common multiple `L≠0` of `[1,b]` with `b` nonstandard is divisible by every standard prime. In an external PID, `L` would
+have infinitely many nonassociate prime factors. That is impossible, so BCM excludes external PIDs. This is the argument
+of `LOGIC_BCM_HULL_AND_ODD.md` §1. Each finite stage `D_n` with `n≥1` already fails: the chain `(h_n/2^j)` is strictly
+increasing.
 
 ## 6. Exactly five squares in this model
 

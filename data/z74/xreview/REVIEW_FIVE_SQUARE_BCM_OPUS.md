@@ -87,3 +87,34 @@ The note uses no larger computation.
 **ACCEPT-WITH-FIXES.** With fixes 1–2, the statement can enter STATUS §1E as a cross-reviewed HEADLINE item, *conditional
 on the starting four-square PID model passing its own owed review*. I found no counterexample and no essential gap. The
 four-square boundary (BCM + Lagrange) remains open, as the note says.
+
+## Addendum: fixes applied, and how the dependency was resolved (z74 Opus xreview fix)
+The author was not running, so I applied fixes 1–5 to `LOGIC_FIVE_SQUARE_BCM.md` myself. Each edit is tagged "(z74 Opus
+xreview fix)". I touched no master file.
+
+**Dependency: option (a).** The starting model `D₀` is now the joint PID of `LOGIC_JOINT_NR_TS.md`. Its proof of record is
+`LOGIC_JOINT_PID_TREE_AUDIT.md` §§1–5, which passed Opus cross-review with ACCEPT-WITH-FIXES and no gap in the headline
+(`REVIEW_JOINT_NR_TS_OPUS.md`, `821335159`; the C16 Variant gap is irrelevant here). It supplies every property in row 16:
+* countable, discretely ordered and an external PID (review C8);
+* IOpen (C8);
+* Lagrange (C13), hence five squares;
+* a nonstandard prime `P≡1 (840)` with `¬ES(P)` (C2–C4).
+
+The residue facts the construction uses follow from IOpen and external PID alone:
+* `D₀/ℓ=𝔽_ℓ`, so there is one prime per standard characteristic (C8 also states this);
+* `V₂=ℤ₂`;
+* the residue fields at nonstandard primes have characteristic 0.
+
+Nothing about the units of `D₀` is used. The `F^×` and `F(i)^×` unit and Gaussian-UFD invariants concern only the upper
+tower `B` over `F`. The TS, NR and Dirichlet axioms are not used either. So option (b) was unnecessary, and
+`LOGIC_FOUR_SQUARE_AUDIT.md` §3 stays unreviewed. The note mentions it only as an alternative.
+
+**Dependency status.** The five-square result is PROVED (internal), relative to a starting model that has itself passed one
+cross-lab review. Each of the two notes has one Opus review. The remaining owed items are the JOINT review's own fixes
+F1–F3. Those are presentation fixes, not mathematical repairs.
+
+**The other fixes.**
+* Fix 2: added a "Not an external PID" paragraph after the Conclusion.
+* Fix 3: added the inductive package (P1)–(P5) to §1, including the content invariant (*) and the Gaussian invariant.
+* Fix 4: added a §0 block.
+* Fix 5: added the EGA IV §9.7 citation, and a paragraph on the injectivity of `φ_q` at every place.
