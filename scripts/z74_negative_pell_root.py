@@ -1,7 +1,7 @@
 """Independent symbolic and finite-chart checks, not a proof of the PID construction."""
 from itertools import product
 from math import gcd
-from sympy import I, cancel, discriminant, expand, symbols
+from sympy import I, Rational, cancel, discriminant, expand, symbols
 
 
 def symbolic():
@@ -14,6 +14,14 @@ def symbolic():
     chart = {a: (C*x+D)/Y**2, b: (C-D*x)/Y**2}
     for f in (L-1, X-x, P*Y**2-1-x*x):
         assert cancel(f.subs(chart)) == 0
+    # Quadratic root chart: invert Y and replace the Pell pair by a Laurent variable.
+    Z, T = symbols('Z T', nonzero=True)
+    x0, t0 = (Z-1/Z)/2, (Z+1/Z)/(2*Y)
+    assert cancel(x0+t0*Y-Z) == cancel(t0*Y-x0-1/Z) == 0
+    assert cancel(P.subs(chart).subs(x,x0)-t0**2) == 0
+    # The chart deleted an actual point of the quadratic ring, not just of E.
+    pt = {u:1, v:I, a:0, b:Rational(1,2), T:Rational(1,2)}
+    assert all(cancel(f.subs(pt)) == 0 for f in (Y, L-1, T**2-P, X+T*Y+I))
     for j in [I, -I]:
         fibre = {a: j/t**2, b: 1/t**2, u: t-j*v}
         for f in (P, L-1, X-j, b*(u+j*v)**2-1):
