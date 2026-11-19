@@ -20,7 +20,7 @@ Review: this file (cross-lab: the author is GPT Astra, the reviewer Claude Opus)
 | A5 | Limit A∞, R=e⁻¹(ℤ): discretely ordered, integer part of RC(Frac R), Bézout, p prime, (p−1)/k ∈ R | CORRECT | Bounded elements of R are ℤ. Frac R = Frac A∞ via n·a. Floor: g−e(g)+⌊standard part⌋. Shepherdson's criterion (DOR R ⊨ IOpen ⟺ R is an integer part of the real closure of Frac R; confirmed in the standard statements). Bézout descent recomputed: e(γh)=i·e(a)+j·e(b) ∈ ℤ, e(u)/γ ∈ ℤ, and (i+δU)a+(j+δV)b=h(iu+jv+δ)=γh with e(δ)=0. The units of R are ±1. p∣xy in R ⇒ the quotient has an integral e-value |
 | A6 | ¬ES(p) for **all** positive triples | CORRECT | On W_j, the sector {x,y,z>0} is open. It is closed in {p>0} because x,y,z ≥ p/4 there (from 4/p=Σ1/x). It contains the generic point, so by transfer it contains e, where the integers give 4=Σ1/e(x) ≤ 3. No Type I/II restriction is used |
 | A7 | LOGIC_BEZOUT side remarks: the landing kernel is divisible by every integer; the 2-primary extraction t·z=p−1 fails; the union is not claimed factorial | CORRECT | e(t)=0 ⇒ 3∣t. R/2R=ℤ/2 via e |
-| A8 | "fresh-constant argument of Berarducci–Otero Lemma 2.6" | UNVERIFIED, non-decisive | The JSL 1996 PDF could not be retrieved (citeseer 404). The argument in A2 is self-contained |
+| A8 | "fresh-constant argument of Berarducci–Otero Lemma 2.6" | CORRECT-WITH-FIX (applied) | Checked against `data/z64/unprov/berarducci_otero_1996_recNOI.pdf`. BO Lemma 2.6 (attributed there to Wilkie) is the root-factorisation/Viète argument for a ℤ-ring L and a β not infinitely close to AC(L). The fresh constant π_(n+1) comes from their §4 construction. LOGIC_BEZOUT now says this precisely. The argument in A2 is self-contained |
 
 ## 2. Claim B — external PID, unit-square class (`Z73_PID_SQUARE.md`, `LOGIC_ROW_APPROXIMATION.md`)
 
@@ -81,6 +81,9 @@ non-squares finds strict Type I/II solutions at 24 of 25 controls.
    * (e) Z73_PID_SQUARE "Scope": add a pointer for "not a model of bounded induction" (LOGIC_PID_AUDIT, 2-primary
      argument).
    * (f) Verify or soften the Berarducci–Otero Lemma 2.6 attribution.
+
+**Addendum.** Note-level fixes 3 and 4(a)–(f) were applied to the four notes and tagged "(z74 Opus xreview fix)". Fixes 1–2
+(master files) are left to the orchestrator.
 
 ## 6. Verdict
 Claim A (IOpen + Bézout ⊬ ES; nonstandard prime p ≡ 1 mod every k): **CORRECT**. Claim B (for each primitive
