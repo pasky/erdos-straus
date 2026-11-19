@@ -1,5 +1,19 @@
 # A four-squares stage that cannot add an ES solution at an old target
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: the four-square edge B=A[u₁..u₄]/(Σuⱼ²−s) preserves the stage invariants and descends positive ES triples at
+        old targets; adding it for every positive infinite stage element gives universal Lag in the joint PID model
+        of LOGIC_JOINT_NR_TS.md, with ¬ES(P) retained.
+Label:  PROVED (internal; same relative inputs as LOGIC_JOINT_NR_TS.md §0)
+Scope:  one stage lemma plus its integration into the joint PID tree. No claim about IE₁, IΔ₀, PA, ZFC or ES in ℕ.
+        It does not refute Z66_IE1.md Thm K, which concerns odd-square landing of arbitrary witnesses only.
+Review: cross-model data/z74/xreview/REVIEW_JOINT_NR_TS_OPUS.md (rows C1, C2, C6, C13; ACCEPT-WITH-FIXES)
+Triage: HEADLINE (jointly with LOGIC_JOINT_NR_TS.md)
+STATUS delta: none from this note (orchestrator applies)
+```
+**Master (z74 Opus xreview fix).** This note is a summary. The master proof of the four-square stage lemma (algebra, order, descent, local lifting) is `LOGIC_LAGRANGE_PID.md`, “Four-square stage lemma”. Its integration into the joint tree (prefix transitions, all tail places including 2) is `LOGIC_JOINT_PID_TREE_AUDIT.md` §5. Where this note and those differ, they win. The joint proof of record is the Proof map in `LOGIC_JOINT_NR_TS.md` (items L1, L2, L4, L5 and A5).
+
 **Question.** The square-specialization method in `Z66_IE1.md`, Thm K, cannot produce an ES countermodel satisfying Lagrange's theorem. Does that exclude *all* such countermodels? No: it excludes the specialization of arbitrary certificates. In the joint PID construction (`LOGIC_JOINT_NR_TS.md`) one can instead preserve ES failure by descending its three positive coordinates at each stage. The following is the additional operation and its proof. No claim about the induction axioms IE₁ or IΔ₀ follows from adding Lagrange's theorem as an axiom to IOpen.
 
 Given a positive infinite element `s` of a rational stage `A` with old ordered field `F=Frac(A)`, set
