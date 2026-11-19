@@ -52,7 +52,7 @@ Do not list them in STATUS.**
 
 | triage class | goes to | condition |
 |---|---|---|
-| **HEADLINE / RECORD**: a new theorem about ES or a listed relaxation, or an improved bound | `STATUS.md` §1. **Replace** the superseded row; never add a second row for the same quantity | at least one independent hostile review (two for a claimed improvement of a published record); priority checked |
+| **HEADLINE / RECORD**: a new theorem about ES or a listed relaxation, or an improved bound | `STATUS.md` §1. **Replace** the superseded row; never add a second row for the same quantity | at least one independent hostile review, by a model from the **other lab** than the author (Astra for Claude work, Opus for Astra work); two for a claimed improvement of a published record; priority checked. Until then, mark the item "cross-review owed" |
 | **REFUTATION / correction** of anything in STATUS or FRONTIER | `STATUS.md` §4, and fix the original row **now** (§2, "Errors") | replayable certificate or written gap analysis |
 | **TARGET**: a new or changed open target | `STATUS.md` §2, kept to at most 6 items; adding one means demoting one | the statement passes the FRONTIER §4 falsifier screens |
 | **BARRIER-BROAD**: rules out a class of proofs not already excluded by FRONTIER §3/§4 | a FRONTIER §3 entry plus a §4 checklist line. STATUS changes only if §0's "where everything ends" paragraph changes | exact scope stated; reviewed |

@@ -23,7 +23,7 @@ The `−` lines only compress; full scopes are in the cited notes and FRONTIER �
 `−` Method counterexamples: a one-slot obstruction (`Z74_ONE_SLOT.md`); 214729 misses all 16 divisor shifts
     (`DIVISOR_SHIFT_CERTIFICATE.md`); 193 fails every root-eligible shift (`SIGNED_TWO_SHIFTS.md`); elementary-hull BCM.
 `→` Open: BCM + four squares; iterating the Lagrange end extension; selectors outside the menu. Index: `Z74_CHECKPOINT.md`.
-`R` Internal and side-agent audits only; no Astra cross-review.
+`R` Authored by Astra, with Astra side-agent audits. Cross-lab (Opus) review owed.
 
 ### z73 (2026-11-19): weak theories with Bézout and PIDs
 `+` PROVED countermodels: IOpen + Bézout ⊬ ES (`Z73_OPEN_BEZOUT.md`, `LOGIC_BEZOUT.md`); an external IOpen PID failing
@@ -35,7 +35,7 @@ The `−` lines only compress; full scopes are in the cited notes and FRONTIER �
     (`Z73_COMPOSITE_PHASE.md`, `Z73_PROBE_FORCING.md`).
 `−` Smith's PID alone does not give ES failure. Two four-term starts get trapped at 101641
     (`data/z72/counter_tail/ROUND3.md`).
-`R` Internal hostile checks; no Astra cross-review.
+`R` Authored by Astra, with Astra hostile checks. Cross-lab (Opus) review owed.
 
 ### z72 (2026-11-19): phase criteria at prime shifts
 `+` PROVED: a sharp two-factor criterion at a prime shift (`Z72_PAIR_PHASE.md`). With *arbitrary* shifts, support ≤ 2
@@ -44,7 +44,7 @@ The `−` lines only compress; full scopes are in the cited notes and FRONTIER �
 `+` The closest nonexact triple for p ≡ 1 (24) (`EXTREMAL_ES.md`).
 `−` At 1201 no prime shift has support ≤ 2. Monotone repair fails at 73. Frozen class-group menus miss a d = 2 fibre
     (`data/z72/mixproof.md`). `PHASE43_DENOMINATORS.md`.
-`R` Internal.
+`R` Authored by Astra. Cross-lab (Opus) review owed.
 
 ### z71 (2026-11-10): literature refresh
 `−` No new mechanism. Dahan arXiv:2611.08717 gets 5/7 by the 3/4-note architecture, and its pointwise part is B2 with a

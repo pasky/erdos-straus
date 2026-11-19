@@ -43,10 +43,11 @@ waves.** Spend remaining quota only on a *genuinely new* mechanism for forcing a
 FRONTIER §3, §6). Current cleanest targets: (MS-U₇) and (MS⁺₁₀₅) (`Z60_SUMMARY.md` §5).
 
 ## Cross-model reviews owed (Astra unavailable: quota, then expired Codex auth token, 2026-11-08)
-Owed for z72–z74 (see the pause section below). Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`,
+**Owed: an Opus review of z72–z74**, which Astra wrote (see below). Rule: the cross-review is always by the other lab
+(Astra reviews Claude work; Opus `anthropic/claude-opus-5-5:high` reviews Astra work). Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`,
 `Z64_EQUIV.md`, `Z64_SDEEP.md`, `Z64_SDEEPF.md` (reviews in `data/z6{4,5}/xreview/REVIEW_*_ASTRA.md`).
 
-## Campaign status (2026-11-10): PAUSED after z70 (user: "wrap it up")
+## Campaign status (2026-11-10): PAUSED after z70 (user: "wrap it up"); resumes per new model (see Cadence below)
 Waves z67–z70 (FRONTIER blocks z67–z70) found **no mechanism**; every lane ended at the B2 atom (one tied divisor event
 at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cross-reviewed and merged; no reviews owed.
 * Fable 5.2 (z69, informed + independent ideation): no new mechanism; the independent lane's ideas were mostly already
@@ -64,7 +65,10 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
   2026-09-28 … 11-10 screened in full; no new mechanism. New ES paper Dahan arXiv:2611.08717 (5/7 < 3/4 by the same
   architecture as the 3/4 note; "1 − o(1)" only on a structured subset; pointwise part ends at an open hypothesis =
   B2 with a cap). Dahan I has a v2 with shifted numbering (repo cites v1). Resume condition unchanged.
-* **z72–z74 (2026-11-19)** ran after the pause (phase criteria, weak-arithmetic PID and BCM models, formula-menu no-go;
-  `WAVES.md`). They had internal and side-agent audits only. **No Astra cross-review has been done; it is owed** for
-  `LOGIC_JOINT_NR_TS.md`, `LOGIC_FIVE_SQUARE_BCM.md` and `GAUSSIAN_PELL_MENU.md` , which `STATUS.md` already lists as headline
-  items marked "Astra review owed". Whether the campaign is resumed or still paused: ask the user.
+* **Cadence (user, 2026-11-19).** The campaign resumes when a new frontier model arrives: each new model gets a burst of
+  waves, and the campaign is idle in between. "Paused" means waiting for the next model. It is not a decision to stop.
+* **z72–z74 (2026-11-19)** was the GPT Astra burst: phase criteria, weak-arithmetic PID and BCM models, and the
+  formula-menu no-go (`WAVES.md`). It had only Astra-internal audits. **An Opus cross-review is owed**, at minimum for the
+  `STATUS.md` headline items: `LOGIC_JOINT_NR_TS.md` + `LOGIC_FOUR_SQUARES.md`, `LOGIC_FIVE_SQUARE_BCM.md`,
+  `GAUSSIAN_PELL_MENU.md`, and the z73 base models `Z73_OPEN_BEZOUT.md` / `Z73_PID_SQUARE.md`. Reviews go to
+  `data/z74/xreview/REVIEW_<NAME>_OPUS.md`.

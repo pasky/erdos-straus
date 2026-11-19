@@ -11,7 +11,7 @@ expert-level deep reference is `FRONTIER.md`. Citations of "STATUS.md §…" wri
 * **The Erdős–Straus conjecture (ES) is open.** Nothing here proves it, conditionally on any standard conjecture or
   otherwise. Nothing here disproves it either.
 * All proofs are reviewed internally only: hostile reviews by other model instances, usually including one cross-lab
-  (GPT "Astra") review. **Nothing is externally refereed.** No campaign theorem has been posted or submitted. The only
+  review (GPT "Astra" for Claude work, and Claude Opus for Astra work). **Nothing is externally refereed.** No campaign theorem has been posted or submitted. The only
   external contribution is an audit of other people's claimed proofs, plasma-ai/erdos#65, merged 2026-11-10.
 * **Where everything ends (Assessment; FRONTIER one-paragraph summary, §2–3).** About 280 tasks up to 2026-10-19 and about
   30 waves since, across every phase, several advisory boards and three labs' models, all reduce to one statement, called
@@ -23,10 +23,10 @@ expert-level deep reference is `FRONTIER.md`. Citations of "STATUS.md §…" wri
   * The main term M_BM(p) ≍ log²p is an unconditional theorem (§1B).
   * No standard conjecture is known to imply the lower tail.
   * No precedent of this shape is known for any natural problem.
-* **Campaign state.** The campaign was formally **paused after z70** (2026-11-10, user: "wrap it up"). z71 was a
-  literature refresh. z72–z74 ran on 2026-11-19 with internal and side-agent audits, but no Astra cross-review is
-  recorded. The resume condition (`OPERATIONS.md`) is unchanged: resume only for a *genuinely new* idea for forcing one
-  tied divisor event at a fixed prime. Re-encodings of B2 do not count.
+* **Campaign state.** The campaign runs in bursts, one per new frontier model. Between bursts it is idle. The last
+  burst was z72–z74 (2026-11-19), run by GPT Astra; it still owes a cross-lab (Opus) review. The spending rule is in
+  `OPERATIONS.md`: no more re-encodings of B2, only a *genuinely new* idea for forcing one tied divisor event at a fixed
+  prime.
 
 Notation: 𝔐 = {1, 121, 169, 289, 361, 529} mod 840 (Mordell's hard classes). R(p) = the (★)/c = 1 Type II count.
 M₀(p) ∼ (3/(2π²))log²p is its expected size. It is a finite sum with an O(log p) secondary term; the exact form is in
@@ -94,7 +94,7 @@ Each item carries a label, then a pointer. "PROVED rel. X" means proved relative
   finite-valued oracles that have a defined finite formal tree at the trap. PROVED (`Z53_NONCRTLOGIC.md`). Infinitely
   many *prime* failures are CONDITIONAL on Schinzel H. Sterile Mordell points exist for every prime
   r ≥ 2^{21.4375} ≈ 2.84·10⁶ (`STERILE_LOWER.md`).
-* **Formula menus** (z74; Astra review owed). Finite polynomial whole-triple menus, even with Gaussian and Pell inputs,
+* **Formula menus** (z74, by Astra; Opus cross-review owed). Finite polynomial whole-triple menus, even with Gaussian and Pell inputs,
   miss relative density one of the primes on some progression. PROVED, unconditional; `GAUSSIAN_PELL_MENU.md`.
 * **Witness sizes are not polylog.** For fixed κ < 1/12, or κ < 1/6 with Gallagher or GRH, infinitely many p have no
   forest edge with larger endpoint in [4, exp((log p)^κ)]. Only {1,2} and {2,3} remain. This refutes Conjecture H₂.
@@ -118,9 +118,9 @@ In each model a nonstandard prime fails ES. The models are *separate* unless sta
   `LOGIC_PID_DIRICHLET_AUDIT.md`).
 * **One IOpen PID with internal Dirichlet, universal prime two-squares, universal NR and Lagrange four-squares**, failing
   at P ≡ 1 (840). NR is a square-root divisibility certificate, not full reciprocity. `LOGIC_JOINT_NR_TS.md`,
-  `LOGIC_FOUR_SQUARES.md`. z74: internal audits only, and an Astra review is owed.
+  `LOGIC_FOUR_SQUARES.md`. z74, by Astra: Opus cross-review owed.
 * **IOpen + Bézout + bounded common multiples + five squares.** The Pythagoras number is exactly 5, and the model is not a
-  PID. `LOGIC_FIVE_SQUARE_BCM.md`. z74: internal audits only, and an Astra review is owed.
+  PID. `LOGIC_FIVE_SQUARE_BCM.md`. z74, by Astra: Opus cross-review owed.
 * **Not claimed:** independence from IE₁, IΔ₀, PA or ZFC; a standard counterexample; full quadratic reciprocity in any
   model.
 
