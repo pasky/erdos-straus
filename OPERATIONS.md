@@ -66,5 +66,5 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
   B2 with a cap). Dahan I has a v2 with shifted numbering (repo cites v1). Resume condition unchanged.
 * **z72–z74 (2026-11-19)** ran after the pause (phase criteria, weak-arithmetic PID and BCM models, formula-menu no-go;
   `WAVES.md`). They had internal and side-agent audits only. **No Astra cross-review has been done; it is owed** for
-  `LOGIC_JOINT_NR_TS.md`, `LOGIC_FIVE_SQUARE_BCM.md` and `GAUSSIAN_PELL_MENU.md` if these are to be relied on as headline
-  items. Whether the campaign is resumed or still paused: ask the user.
+  `LOGIC_JOINT_NR_TS.md`, `LOGIC_FIVE_SQUARE_BCM.md` and `GAUSSIAN_PELL_MENU.md` , which `STATUS.md` already lists as headline
+  items marked "Astra review owed". Whether the campaign is resumed or still paused: ask the user.

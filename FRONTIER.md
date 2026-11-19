@@ -2,8 +2,8 @@
 
 > **For the short current picture read `STATUS.md` first.** This file is the deep reference: the reduction, the barrier
 > map, the checklist, the records, the dead ends and the open problems. Edit it in place, under the rules in `AGENTS.md`
-> §3. Do **not** add per-wave blocks at the top; wave news goes to `WAVES.md`. The z61–z74 wave blocks are at the end of
-> §7.
+> §4. Do **not** add per-wave blocks at the top; wave news goes to `WAVES.md`. The z61–z70 and z72–z74 wave blocks are at
+> the end of §7. The literature notes for z58 and z71 are in the box below.
 
 *Audience: a strong number theorist (or a fresh AI team) who has never seen this repository and wants to start from the current
 frontier instead of rediscovering it. Task O279 (consolidation C3). No new mathematics here: every statement is a summary of a
@@ -48,7 +48,7 @@ sits (`AMPLIFY_EXCEPTION.md:7–12`, `LITERATURE_2026.md`).
 
 **Verification.** ES holds for all n ≤ 10¹⁷ (Salez); Spiridon Mihnea and Dumitru C. Bogdan (arXiv:2509.00128, 2025, unrefereed preprint) report
 10¹⁸ (`DISPROOF_AVENUES.md:63`). Internally (EVIDENCE): f_I(p) ≥ 1 and f_II(p) ≥ 1 for every prime 5 ≤ p ≤ 10⁸ (Type I and Type
-II separately); min f_II/log³p ≈ 0.012 (STATUS, phase (I)). Adversarial searches at 10¹⁸–10²⁵ (BPSW-probable primes) never
+II separately); min f_II/log³p ≈ 0.012 (STATUS_HISTORY, phase (I)). Adversarial searches at 10¹⁸–10²⁵ (BPSW-probable primes) never
 approached failure: the hardest relative to controls, p = 2054098191162848070241, still has 870 solutions on its cheapest 1024
 e-slices alone (0.26× controls); the smallest absolute count seen was 612 (`DISPROOF_AVENUES.md:246–290`, EVIDENCE).
 
@@ -108,7 +108,7 @@ approximation always exists, and BM does not explain all failures of strong appr
     open by the author. Its pointwise part rests on an explicitly open "Hypothesis T" (Thm 9.7(b)): some Type II e-slice
     with prime e ≤ (log n)^A succeeds — B2 with a polylogarithmic cap (Assessment). Dahan I (arXiv:2608.24035) now has a
     v2 (2026-11-05) with shifted theorem numbers; repository citations refer to v1 (map in `Z71_LIT.md` §2.1.4).
-* 3/4 is proved *sharp* for every CRT/coefficient-sum sieve architecture analysed (`EXCEPTIONAL_KARY3.md`, (D)24; STATUS
+* 3/4 is proved *sharp* for every CRT/coefficient-sum sieve architecture analysed (`EXCEPTIONAL_KARY3.md`, (D)24; STATUS_HISTORY
   "Exceptional-set exponent"); θ > 3/4 needs non-CRT input (tuple counts of growing order, residue-dense large sieves, weak
   SPW — each reduced to a precisely stated open statement).
 * Elsholtz–Tao's Type I sum: **Σ_{p≤N} f_I(p) ≪ N log²N unconditionally** — removing the log log N that ET list as open
@@ -1410,7 +1410,7 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
     and a non-local "prime T1" are not excluded.
 
 *Algebraic / forcing*
-* Congruence coverings, identity families, bounded search, seed-component (signed graph) line → B1; seed component sterile under H / Dickson → `POINTWISE_SIZE`, `FORMAL_CLOSURE.md`, STATUS "line 2: CLOSED".
+* Congruence coverings, identity families, bounded search, seed-component (signed graph) line → B1; seed component sterile under H / Dickson → `POINTWISE_SIZE`, `FORMAL_CLOSURE.md`, STATUS_HISTORY "line 2: CLOSED".
 * Reciprocity / Chebotarev / Rédei / higher power residues to force the class → parity only → (J)93, (J)96, (J)104.
 * Non-abelian Frobenius, quartic data → inert on finite witness sets → (J)96, `MODP_RECIPROCITY.md`.
 * Pigeonhole across shifts j or d → privacy of large primes → SS8 Lemma 2.3.
@@ -2358,7 +2358,7 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
 11. **Question R / restricted Hypothesis TG** (`QUESTION_R.md`, (J)99): self-levelled SL₂ words and the theta multiplier.
     *Why:* the exact Rickards–Stange form of T1; open in its own right.
 12. **Exceptional-set exponent θ > 3/4**: weak SPW (log(K/η) = O((log N)^{3/4})), the shift-uniform avoider count (W_𝔊),
-    TC^alt_θ, residue dispersion (RD′) (STATUS "Exceptional-set exponent"). *Why:* the sharpest averaged statement; each
+    TC^alt_θ, residue dispersion (RD′) (STATUS_HISTORY "Exceptional-set exponent"). *Why:* the sharpest averaged statement; each
     is reduced to a precise open estimate.
     *(z50 update, `BREADTH_Z45.md` §15.)* The audited whole-avoider CRT architectures are capped at their supply exponent
     (3/4 ES, 2/3 U/ES₅; I3 native classes 2/3). Two concrete proposed non-CRT statements: (i) **RLD-U / FL∞**, an upper
@@ -2779,14 +2779,14 @@ no HOT LEAD.**
 
 ## 8. Pointers into the repository
 
-* **Start:** `STATUS.md` (wave headlines, newest first; ES-not-solved banner), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
+* **Start:** `STATUS.md` (curated current results), `WAVES.md` (wave log z44+, newest first), `STATUS_HISTORY.md` (wave headlines through 2026-10-19), `DISCOVERIES.md` (ledger with labels; (J)57–(J)108
   for Waves Z–AC), `CAMPAIGN_SUMMARY.md` (human-readable overview), `PROJECT.md` (original plan).
 * **§2 lower tail:** `SINGLE_P_COUNT.md` (pair form, genus split), `BM_CORRECTED_COUNT.md` (M_BM, H⁻_BM, Linnik, numerics),
   `METAPLECTIC_ES.md` (Theorem K), `SYNTHESIS_SPARKS9.md` (level coordinates, BM layer free), `BOARD2_SLATE.md` (five-slice
   constant 45/(8π²), ABH, moving windows), `LOWER_TAIL_ASTRA.md` (forest), `LOWER_TAIL_FABLE.md` (two-target form), board
   memos `~/.pi/boards/20261018-es-lowertail/memo.md` and `…/20261018-es-routes/memo.md` (note: the lower-tail memo's
   five-slice constants are superseded by BOARD2_SLATE; R290 repair: these memos are outside the repository and may be
-  unavailable to an external reader — BOARD2_SLATE and STATUS record their outcomes).
+  unavailable to an external reader — BOARD2_SLATE and STATUS_HISTORY record their outcomes).
 * **§3 barriers:** `POINTWISE_SIZE.md` (B1), `reviews/redteam-automorphic.md` §4 and `reviews/redteam-automorphic-2.md` §2–3
   (T1–T8, B2, hatches H-A…H-G), `CONDITIONAL_ES.md` (B3, X_slice), `LONGSHOT_PIGEONHOLE.md` / `LONGSHOT_FIBRED.md` (B4),
   `PARITY_AUDIT.md` (tied modulus), `CLASS_FORCING.md`, `TWO_POWER_LADDER.md`, `SYNTHESIS_SPARKS8.md` (privacy, b = 1 line),

@@ -1,12 +1,14 @@
 # WAVES — chronological log, newest first
 
-*One entry per wave, **at most 12 lines**. Write it at wave export, following `AGENTS.md` §2. Each entry has four parts:*
+*One entry per wave, **at most 12 lines** excluding the heading. Waves before z53 are grouped. Write the entry at wave
+export, following `AGENTS.md` §2–§3. Each entry has four parts:*
 * *`+` positive results (with a label and a file);*
 * *`−` negative results, compressed to one or two lines;*
 * *`→` targets the wave opened or closed;*
 * *`R` review status.*
 
-*Only `+` items that pass the STATUS rule are copied into `STATUS.md`. Waves before z44 are in `STATUS_HISTORY.md`
+*Items that pass the STATUS gate (`AGENTS.md` §3) are promoted to `STATUS.md`: records, refutations and target changes.
+The `−` lines only compress; full scopes are in the cited notes and FRONTIER §6. Waves before z44 are in `STATUS_HISTORY.md`
 (ledger (J)1–(J)110) and in `DISCOVERIES.md`.*
 
 ### z74 (2026-11-19): ordinary-prime transfers, formula menus, weak-arithmetic models
@@ -25,8 +27,8 @@
 
 ### z73 (2026-11-19): weak theories with Bézout and PIDs
 `+` PROVED countermodels: IOpen + Bézout ⊬ ES (`Z73_OPEN_BEZOUT.md`, `LOGIC_BEZOUT.md`); an external IOpen PID failing
-    in each unit-square class (`Z73_PID_SQUARE.md`); one PID failing in every nonstandard interval, with Bertrand and
-    internal Dirichlet (`LOGIC_PID_INTERVAL_AUDIT.md`, `LOGIC_PID_DIRICHLET_AUDIT.md`). Variants with collection and two
+    in each unit-square class (`Z73_PID_SQUARE.md`); one PID failing in every interval with positive start and externally
+    infinite length, with Bertrand and internal Dirichlet (`LOGIC_PID_INTERVAL_AUDIT.md`, `LOGIC_PID_DIRICHLET_AUDIT.md`). Variants with collection and two
     squares, short intervals, and greatest prime divisors (`LOGIC_BEZOUT_NORM_COLLECTION.md`, `Z73_SHORT_INTERVAL.md`,
     `LOGIC_GREATEST_PRIME.md`).
 `+` The marked-section characterisation (`LOGIC_MARKED_SECTIONS.md`). Composite-shift forcing criteria
@@ -36,8 +38,9 @@
 `R` Internal hostile checks; no Astra cross-review.
 
 ### z72 (2026-11-19): phase criteria at prime shifts
-`+` PROVED: a sharp two-factor criterion at a prime shift (`Z72_PAIR_PHASE.md`). Support ≤ 2 Type II holds on a
-    relative-density-one set, and an exact sieve to 5·10⁸ finds no failure. There is no all-prime implication.
+`+` PROVED: a sharp two-factor criterion at a prime shift (`Z72_PAIR_PHASE.md`). With *arbitrary* shifts, support ≤ 2
+    Type II holds on a relative-density-one set of primes p ≡ 1 (4). An exact sieve to 5·10⁸ (replayed to 5·10⁷) finds
+    no failure. There is no all-prime implication.
 `+` The closest nonexact triple for p ≡ 1 (24) (`EXTREMAL_ES.md`).
 `−` At 1201 no prime shift has support ≤ 2. Monotone repair fails at 73. Frozen class-group menus miss a d = 2 fibre
     (`data/z72/mixproof.md`). `PHASE43_DENOMINATORS.md`.
@@ -49,19 +52,20 @@
 `R` Orchestrator-reviewed only.
 
 ### z70 (2026-11-10): z69 leftovers. Campaign PAUSED afterwards.
-`+` The e-ideal dictionary in the prime case. Thm LS: the level sum is not modular (`Z70_CLASS.md`).
+`+` The e-ideal dictionary in the prime case (`Z70_CLASS.md`). Thm LS: the level sum is not modular (`Z70_LOOSE.md`).
 `−` Scoped exclusions GW, AMB and REP (`Z70_LOOSE.md`, `Z70_GEN.md`).
 `→` Three frozen generative class-map tests (`data/z70/xreview/REVIEW_GEN.md`).
 `R` Astra: ACCEPT-WITH-FIXES.
 
 ### z69 (2026-11-10): hard-prime mining, nonlinear U₇ rules, Fable 5.2 ideation
-`−` Nonlinear U₇ rules fail infinitely often (CONDITIONAL on Schinzel H). Mining and ideation gave nulls; only minor lemmas.
+`−` Finite polynomial divisor rules on the specified curves fail infinitely often (CONDITIONAL on Schinzel H;
+    `Z69_NL7.md`). Mining and ideation gave nulls; only minor lemmas.
     Files: `Z69_*.md`.
 `R` Astra.
 
 ### z68 (2026-11-09): (S) via p-adaptive words, U₇ tryhard
-`+` PROVED: the cut identity and contraction, and a Brun bound for ¬U₇. GRH bridge: (PC) ⟹ ES. CONJECTURES B and C are in
-    `Z68_U7F.md`.
+`+` PROVED: the cut identity and contraction (`Z68_SIGN.md`), and a Brun bound for ¬U₇. GRH bridge: under GRH, (PC) with
+    log F(y) ≤ y^{1/2−ε} gives eventual ES (`Z68_PC2.md`). CONJECTURES B and C are in `Z68_U7F.md`.
 `−` Bounded-letter cascades fail (CONDITIONAL on Dickson). Two-prime covering gives no fixed-factor gain.
 `R` Astra.
 
@@ -71,7 +75,8 @@
 `R` Astra.
 
 ### z66 (2026-11-08): the uncovered set U, the next logical rung
-`+` PROVED: U ⊋ squares, and almost all non-square profiles lie in U (`Z66_UCOVER.md`). IOpenLin + Bézout ⊬ (MS)
+`+` PROVED: U ⊋ squares, and as ℓ grows almost all non-square one-prime slices lie in U (`Z66_UCOVER.md`). U is Haar-null
+    in the profinite unit group (z67). IOpenLin + Bézout ⊬ (MS)
     (`Z66_IE1.md`).
 `−` The arc method (odd-square landing) is dead from IOpen + Lagrange upward (bypassed in z74 by descent). No H★ engine.
 `R` Astra.
@@ -84,7 +89,7 @@
 
 ### z64 (2026-11-08): unprovability, conjecture (S), cross-field equivalents
 `+` PROVED: normal open induction does not prove ES on any class of 𝔐, while IOpen proves every other class mod 840
-    (`Z64_UNPROV.md`). (S) is proved outside 28 classes (`Z64_SDEEP.md`).
+    (`Z64_UNPROV.md`). (S) is proved for non-square n ≡ 1 (4) outside 28 of the 210 classes (`Z64_SDEEPF.md`).
 `−` Ten cross-field equivalences, none of whose tools works at a single prime (`Z64_EQUIV.md`). PA/ZFC independence is
     judged unrealistic.
 `R` Astra.
@@ -105,33 +110,36 @@
     `~/.pi/boards/20261107-es-newmech/memo.md`.
 
 ### z60 (2026-11-06): clean-statement attack, three generators
-`+` U₇ census, CERTIFIED: zeros up to 10¹⁰ are exactly Z₇ (`Z60_LOPEZ.md`).
+`+` U₇ census, CERTIFIED: the odd non-square zeros up to 10¹⁰ are exactly Z₇ (`Z60_LOPEZ.md`).
 `+` R-zeros along non-square polynomials have density 0 (`Z60_MS105.md` Thm 3).
 `+` Signed T1 (`Z60_SIGNED.md`).
 `−` RAYCLASS, DYNAMICS and TRACE are exact encodings that end at B2. **Spending rule adopted:** no more re-encoding waves
     (`OPERATIONS.md`).
 `→` Targets (MS-U₇) and (MS⁺₁₀₅). Full summary: `Z60_SUMMARY.md`.
+`R` Astra per lane; FRONTIER consistency review `data/z60/xreview/REVIEW_FRONTIER_Z60.md` (likewise for z53–z59).
 
 ### z59 (2026-11-05): survivors of z58
-`+` CERTIFIED: the (MS⁺) census to 10¹² (9 primes and 18 composites, the largest 17,401,609), and U_II zeros up to 10¹⁰ are
-    {105, 4545}.
+`+` CERTIFIED: the (MS⁺) census to 10¹² (9 primes and 18 composites, the largest 17,401,609), and the odd non-square U_II zeros up to 10¹⁰
+    are {105, 4545}.
 `+` 13 explicit Waldspurger zeros (`Z59_WALDS.md`).
 `−` Cusp/Waldspurger no-go. `Z59_MSPLUS.md` Prop 2.2 withdrawn. Full summary: `Z59_SUMMARY.md`.
 
 ### z58 (2026-11-05): sixteen lanes on (MS)
 `+` PROVED: the positive-integral BM set is empty iff n is a square, and 4545 is a non-BM Hasse failure (`Z58_STRUCT*.md`).
 `+` CERTIFIED: (★) at all primes in 𝔐 ∩ (10¹⁰, 3·10¹¹].
-`+` Kandukoori–Ramesh–Kumar have priority for the 3/4 bound (`Z58_LIT.md`).
+`+` Kandukoori–Ramesh–Kumar have a 3/4 claim in a commit dated 2026-07-30, Lean-conditional on nine analytic axioms at
+    the time. Commit-date ordering only, not verified public priority; it must be cited (`Z58_LIT.md`).
 `−` Scoped no-gos for Hecke and ternary-theta proxies, Mordell menus, function-field analogues and weak arithmetic. Full
     summary: `Z58_SUMMARY.md`.
 
 ### z57 (2026-11-05): synthesis
-`+` (MS) ⟺ R(p) ≥ 1, and (MS) ⟹ ES (`Z57_SYNTH.md`).
+`+` (MS): R(p) ≥ 1 for every prime p > 10¹⁷ in 𝔐. With the known verification below 10¹⁷, (MS) ⟹ ES (`Z57_SYNTH.md`).
 `+` Type II genus main term ≥ 10⁻¹⁰·log³p (`Z57_BFII.md` Thm G). 𝔊*-zeros are ≪ x/(log x)^A (`Z57_BFO.md`).
 `−` No complementarity: four implications refuted (`Z57_COMPLEMENT.md`). Full summary: `Z57_SUMMARY.md`.
 
 ### z56 (2026-11-04)
-`+` M_gen(p) ≥ (5/6 − o(1))·M₀ (`Z56_FAMDESIGN.md` Thm V). #{p : R(p) = 0} ≤ X·exp(−0.08√log X) (`Z56_FAMTRY.md`).
+`+` M_gen(p) ≥ (5/6 − o(1))·M₀ at large p ≡ 1 (4) (`Z56_FAMDESIGN.md` Thm V).
+`+` #{p ≤ X : R(p) = 0} ≤ X·exp(−0.08√log X) for X ≥ X₀ (`Z56_FAMTRY.md`).
 `+` Lean HC infrastructure. Drafts `paper/es-count-note` and `paper/es-hc-note`.
 `−` K(4) open. Full summary: `Z56_SUMMARY.md`.
 
@@ -141,18 +149,18 @@
 `−` TD is not proved for any η > 0. Full summary: `Z55_SUMMARY.md`.
 
 ### z54 (2026-11-03)
-`+` K(4) ⟺ P(4,15). Theorem Q: HC ≥ 7 on p = 5m² + 1 with 4 | m. HC ≤ 8 outside 𝔐.
+`+` K(4) ⟺ P(4,15). Theorem Q: HC ≥ 7 at primes p = 5m² + 1 with 4 | m. HC ≤ 8 for primes p ≡ 1 (4) outside 𝔐.
 `−` Triangle-inequality and character-side square-sieve routes give nothing. Full summary: `Z54_SUMMARY.md`.
 
 ### z53 (2026-11-01)
-`+` M_gen(p) ≫ log²p unconditionally (`Z53_GENUSLVAL.md`). R(n) ≪ n^{12/37+ε} (`Z53_SQSIEVE.md`).
+`+` M_gen(p) ≫ log²p unconditionally at large p ≡ 1 (4) (`Z53_GENUSLVAL.md`). R(n) ≪ n^{12/37+ε} (`Z53_SQSIEVE.md`).
 `+` Almost-all R(p) ≥ (1/64 − ε)log²p (`Z53_PZ.md`). ES(15·2^s + 1) CERTIFIED for s ≤ 3·10⁶.
 `−` The oracle no-go (`Z53_NONCRTLOGIC.md`) and the lattice no-go (`Z53_LATTICE.md`). Full summary: `Z53_SUMMARY.md`.
 
 ### z52–z52d (2026-10-30 … 11-01): breadth-first connection generation, triage, depth lanes
-`+` `BM_LVALUE.md` Thm A (exact L-value formula; M_BM ≥ 0.1402·log²p).
+`+` `BM_LVALUE.md` Thm A (exact L-value formula; M_BM ≥ 0.1402·log²p at large p ≡ 1 (8)).
 `+` Lean: ES(3·2^s + 1); 15·2^s + 1 off s ≡ 0, 240 (360).
-`+` The I3_𝒞 zeros up to 10⁹ are {5, 13, 17, 2521} (`Z52_BANKED.md`).
+`+` The I3_𝒞 zeros among primes p ≡ 1 (4) up to 10⁹ are {5, 13, 17, 2521} (`Z52_BANKED.md`).
 `−` Pass 1 over 2284 items found 0 new-structural (`ES_CONNECTIONS_TODO.md`). Depth lanes narrowed (`Z52D_*.md`). The
     coprime SQ statement in FRONTIER §5.5 was wrong.
 
