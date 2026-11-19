@@ -37,8 +37,9 @@ def moves(s):
 def merges(s):
     return any(a*b%(a+b)==0 for a,b in combinations(s,2))
 
-def orbit(p,depth=16,ncap=6000):
-    start=(p,)*4; current={start}; seen=set(current); even=None; cert=None
+def orbit(p,depth=16,ncap=6000,start=None):
+    if start is None: start=(p,)*4
+    current={start}; seen=set(current); even=None; cert=None
     def row(status,d): return [p,status,d,len(seen),even,cert]
     for d in range(depth+1):
         for s in sorted(current):
