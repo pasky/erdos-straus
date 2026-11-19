@@ -1,5 +1,7 @@
 # Erdős–Straus campaign: summary of the state of the art (refreshed 2026-10-10 (2) after ledger (I)1–(I)8, the automorphic/geometric attack on pointwise ES, §3.5; previous refresh 2026-10-10 to main after ledger (D)32a, (D)31 follow-up 3 [EXCEPTIONAL_MN4], (H)17 follow-up 6 [TYPEI7] and (H)34 follow-up 3 [MORDELL13E]; previous refresh 2026-10-09 (2) after ledger (D)32 and (H)34, incl. the follow-ups (D)31 [EXCEPTIONAL_MN2; follow-up 2 EXCEPTIONAL_MN3], (D)32 [EXCEPTIONAL_TYPEI_LOGLOG], (H)17 follow-ups 4-5 [TYPEI5, TYPEI6], (H)34 follow-ups [MORDELL13B, MORDELL13C, MORDELL13D, MORDELL17B, MORDELL17C] and the refutation (F)11 [MORDELL13B])
 
+> **Frozen, historical snapshot (2026-10-10).** For the current results read `STATUS.md`; the rules for where new results go are in `AGENTS.md`.
+
 This file is a human-readable overview. It adds no new mathematics and
 does not change any label. The authoritative sources are
 `DISCOVERIES.md` (the curated ledger, with status labels) and `STATUS.md`

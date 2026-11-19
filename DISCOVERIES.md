@@ -1,5 +1,7 @@
 # Campaign discoveries (first curated draft)
 
+> **Ledger frozen at (J)110 (2026-10-19).** Results since then are in `STATUS.md` (curated) and `WAVES.md` (log), per `AGENTS.md`. Do not add new (J) entries; cite the source note instead.
+
 This ledger records mathematical discoveries formulated by this campaign, rather than census tables, computational replays, or literature re-proofs. Labels are deliberately strict: **Theorem/Lemma/Proposition** means proved and reviewed; **INTERNALLY PROVED** means proved and hostile-reviewed internally, but not externally refereed; **Assessment/Heuristic** means model computation or interpretation; **CLAIMED/PROVISIONAL** and **OPEN/UNPROVED** are retained verbatim; **REFUTED/WITHDRAWN** records a superseded claim. A review path is included where the source states one. No entry is intended as a grade or priority claim.
 
 ## (A) Unconditional exceptional-set results

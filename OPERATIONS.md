@@ -3,6 +3,10 @@
 **ES is OPEN.** The goal of the campaign is a proof (or disproof) of the Erdős–Straus conjecture. Everything else is
 instrumental.
 
+**Where results go (since 2026-11-19): `AGENTS.md` §2–§4.** Each wave export writes one `WAVES.md` entry and applies
+the STATUS gate to `STATUS.md`. FRONTIER edits are made in place, with no top-of-file wave blocks. The older brief
+`z52bbriefs/z5N_summary.md` ("edit FRONTIER, mark additions (zNN)") is superseded where it conflicts with this.
+
 ## Standing user directives
 * **Papers are the campaign's own artifacts** (user, 2026-11-05). `paper/*.tex` exist for continuity and rigour, not as
   primary output. Edit them as fit — fix citations, priority wording, errors, scope — without asking. They are *not*
@@ -28,7 +32,7 @@ instrumental.
 * Mandatory falsifier table for every lane (since z58): F1 odd squares, F2 C-even / numerator-8 sub-line, F3 composites,
   F4 known zeros — data in `data/z58/screens/`.
 * Flow: lanes → internal hostile review → Astra cross-review `data/z5N/xreview/REVIEW_<LANE>.md` → lane applies fixes and
-  merges → export (summary writer → Astra FRONTIER consistency review → apply) → report.
+  merges → export (WAVES entry + gated STATUS/FRONTIER edits per `AGENTS.md` → Astra consistency review → apply) → report.
 * Resource rules: `timeout` ≤ 1800, `ulimit -v` ≤ 6000000 (Lean: 16G cgroup); ≤ 2 compute processes per lane.
 * Quota footprint (z58): 16 Opus/Fable lanes + export ≈ 11 % of the Anthropic week.
 
@@ -39,7 +43,7 @@ waves.** Spend remaining quota only on a *genuinely new* mechanism for forcing a
 FRONTIER §3, §6). Current cleanest targets: (MS-U₇) and (MS⁺₁₀₅) (`Z60_SUMMARY.md` §5).
 
 ## Cross-model reviews owed (Astra unavailable: quota, then expired Codex auth token, 2026-11-08)
-None currently owed. Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`,
+Owed for z72–z74 (see the pause section below). Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`,
 `Z64_EQUIV.md`, `Z64_SDEEP.md`, `Z64_SDEEPF.md` (reviews in `data/z6{4,5}/xreview/REVIEW_*_ASTRA.md`).
 
 ## Campaign status (2026-11-10): PAUSED after z70 (user: "wrap it up")
@@ -60,3 +64,7 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
   2026-09-28 … 11-10 screened in full; no new mechanism. New ES paper Dahan arXiv:2611.08717 (5/7 < 3/4 by the same
   architecture as the 3/4 note; "1 − o(1)" only on a structured subset; pointwise part ends at an open hypothesis =
   B2 with a cap). Dahan I has a v2 with shifted numbering (repo cites v1). Resume condition unchanged.
+* **z72–z74 (2026-11-19)** ran after the pause (phase criteria, weak-arithmetic PID and BCM models, formula-menu no-go;
+  `WAVES.md`). They had internal and side-agent audits only. **No Astra cross-review has been done; it is owed** for
+  `LOGIC_JOINT_NR_TS.md`, `LOGIC_FIVE_SQUARE_BCM.md` and `GAUSSIAN_PELL_MENU.md` if these are to be relied on as headline
+  items. Whether the campaign is resumed or still paused: ask the user.
