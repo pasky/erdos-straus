@@ -2,7 +2,7 @@
 
 Result: Independent hostile review of `notes/z75/ANALYTIC_BREAK.md` (commit c49b5f41e) and of two proposed extensions. Verdict: ACCEPT WITH MINOR FIXES. No mathematical error found.        Label: Assessment (review)
 Scope: Correctness of the note's theorem (e*(p) ≤ exp(C√(log p·log log 3p)), effective; 4e*(p)+3 ≤ √(4p/3) at p ≡ 1 (8)), and of extensions (1) all n via rad(n) and (2) Dirichlet-GRH-only polylog-free bound. Capped ES only. Nothing here concerns ES itself.
-Review: this file is the review. Reviewer: Claude Opus. This is a same-lab review (the note's author lane is Claude-family), so the cross-lab (Astra) review required by AGENTS.md §3 is **still owed**.
+Review: this file is the review. Reviewer: Claude Opus. The note's author lane is Astra/OpenAI, so this is the **cross-lab** (other-lab) hostile review that AGENTS.md §3 requires for Astra work. (Correction: an earlier draft of this file wrongly called it same-lab.)
 Triage: DATA (review record)
 STATUS delta: none from this file. See §6 for what the export should touch.
 
@@ -164,14 +164,14 @@ Minor presentation points (non-blocking):
 
 **For the orchestrator at export (not done here):**
 * **STATUS §1 "Capped relaxation" row** (lines ~72–76): replace the e*(p) refinements with the new effective subpower
-  bound and (√(4p/3)−3)/4. Add the rad(n) form if extension (1) is written into the note. Replace the GRH clause by
+  bound and (√(4p/3)−3)/4. Add the rad(n) form; extensions (1) and (2) are now written into the note (5403f0c17). This review checked the extensions as proposed; it did not re-review that commit's text. Replace the GRH clause by
   Dirichlet-GRH exp(O(√(log₂n log₃n))) (large n) and keep (16 log n+70)² as explicit.
 * **FRONTIER 1097–1098.** The almost-all count #{p : e*(p) > p^ε} ≪ (log X)^{⌈4/ε⌉} is now superseded pointwise:
   the set is finite, with an effective bound.
 * **FRONTIER 1190–1192.** This passage quotes the old effective and ineffective bounds.
 * **CAP_INTERPOLATION Thm 4.2 Remark (3)** ("Unconditionally nothing of this shape is known") **and PHASE_DIAGRAM Thm 5.1
   Remark (2)** (the exceptional-modulus obstacle) are now outdated Assessments. An erratum pointer is optional. These are
-  upgrades, not errors, so they go through the export after the **cross-lab (Astra) review**, which is still owed.
+  upgrades, not errors, so they go through the export. This file supplies the cross-lab review. A second review is needed only if the export treats the result as improving a published record (AGENTS.md §3).
 
 ## Appendix A–C: scripts (run from /tmp; replay with `uv run --offline --no-project python check.py 30000`, then check2.py)
 
