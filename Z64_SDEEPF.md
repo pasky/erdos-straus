@@ -259,7 +259,9 @@ covering as well. (ii) Why n ≡ 6 (mod 7) is delicate: it is the only non-resid
 denominator A = 7 (u = 2, 4 give n ≡ 5, 3 (mod 7); u = 1 is not allowed). For an n ≡ 1 (8) in such a class
 that is moreover a square modulo every modulus coprime to 7, a good word must have 7 | A (else
 (A/n) = (A′/n) = (n/A′) = 1), hence u ≡ −n ≡ 1 and t ≡ u^{−1} ≡ 1 (mod 7) — a sparse family (first member
-A = 63, u = 8). Whether the four classes are finitely coverable is open here. The only evidence against is the stability of
+A = 63, u = 8). Whether the four classes are finitely coverable is open here.
+> **Update (z75):** Closed in `notes/z75/CONJS_GEN.md` Thm 2 (Opus-reviewed): all four classes `265, 321, 769, 825 (mod 840)` lie in `41 mod 56` and are covered for `n ≥ 97` by the single good word `((n+15)/56, 8, 7)` (reducing the uncovered set mod 840 to the 24 odd-square classes; Remark (i)'s no-cover statement for this note's specific `8uv | period` search remains true).
+The only evidence against is the stability of
 the uncovered set under the moduli 2⁵·3³·5·7²·11·13, 2⁵·3²·5·7·11·13·17 and 2⁵·3²·5·7·11·13·19 (EVIDENCE).
 The growth of the minimal good denominator (`minA_mod840_2e7.txt`: 2058, 3311, 1119, 1871 in these four
 classes) does NOT discriminate: the covered classes 489 and 601 show the same growth (1165, 835), because

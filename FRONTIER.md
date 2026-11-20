@@ -1,8 +1,8 @@
-# FRONTIER — the Erdős–Straus problem: expert reference (base text 2026-10-19, inline (zNN) updates through z74)
+# FRONTIER — the Erdős–Straus problem: expert reference (base text 2026-10-19, inline (zNN) updates through z75)
 
 > **For the short current picture read `STATUS.md` first.** This file is the deep reference: the reduction, the barrier
 > map, the checklist, the records, the dead ends and the open problems. Edit it in place, under the rules in `AGENTS.md`
-> §4. Do **not** add per-wave blocks at the top; wave news goes to `WAVES.md`. The z61–z70 and z72–z74 wave blocks are at
+> §4. Do **not** add per-wave blocks at the top; wave news goes to `WAVES.md`. The z61–z70 and z72–z75 wave blocks are at
 > the end of §7. The literature notes for z58 and z71 are in the box below.
 
 *Audience: a strong number theorist (or a fresh AI team) who has never seen this repository and wants to start from the current
@@ -115,13 +115,14 @@ approximation always exists, and BM does not explain all failures of strong appr
   ((D)32/32a/32b, `paper/es-typei-heegner-note`; PROVED relative to Kuznetsov/Petersson, Weil, twisted Weil, Selberg 3/16,
   λ₁(SL₂(ℤ)) > 1/4; *needs expert scrutiny*).
 
-**Thin infinite families proved here** (PROVED, computer-assisted; Wave Z): ES holds for all n = 4^s + k, k ∈ {9, 57, 81,
-129, 153, 177, 201, 225, 249} ((J)62), all 4^s + 105 ((J)69; every member Mordell-hard), and — sharpest — **all 3·2^s + 1**
-((J)74, (J)75), **all 7·4^s + 9** ((J)75), **all 63·2^s + 1** ((J)80). The last three provably admit *no* finite covering by
-Elsholtz–Tao/divisor classes ((J)22 Cor 1.5, (J)68 Lemma 3.1); they are reached by windows whose exponent budget is forced by
-an algebraic factorisation (Sophie Germain, 4X⁴ + 1 = (2X² + 2X + 1)(2X² − 2X + 1)) or a moving-gap cubic class. Open:
-15·2^s + 1, 4^s + 297 (and 4^s + 33, 4^s + 273). None of this transfers to primes ((J)76: every positive-density rung of the
-menu ladder collapses to B1/B2).
+**Thin infinite families proved here** (PROVED, computer-assisted; Wave Z, completed z75): ES holds for all n = 4^s + k,
+k ∈ {9, 33, 57, 81, 105, 129, 153, 177, 201, 225, 249, 273, 297} ((J)62, (J)69; k ∈ {33, 273, 297} proved for all s ≥ 0
+in z75, Opus-reviewed `notes/z75/THIN_CYCLO.md`), and — sharpest — **all 3·2^s + 1** ((J)74, (J)75; Lean `Proth3.lean`),
+**all 15·2^s + 1** (z75, moving cyclotomic divisor, **Lean 4 verified** in `lean/ES/ES/Proth15.lean`, Opus-reviewed
+`notes/z75/CONJS_GEN.md`, `THIN_CYCLO.md`, plus corollary 15·b^s + 1 for all b ≡ 2 mod L), **all 7·4^s + 9** ((J)75),
+**all 63·2^s + 1** ((J)80). The Proth/7·4^s+9 families provably admit *no* finite covering by Elsholtz–Tao/divisor classes
+((J)22 Cor 1.5, (J)68 Lemma 3.1, `THIN_CYCLO.md` §2). None of this transfers to primes ((J)76; z75 thin-core barrier
+`notes/z75/PROOF_WILD2.md` §2).
 
 **Other numerators.** m/n for m ≥ 5 has genuine exceptions for large m (Schinzel exceptions n_m ≥ exp(m^{1/3+o(1)}),
 Pomerance–Weingartner, *Ramanujan J.* 69 (2026), art. 31, per z58 LIT); **8/n fails at n = 131 and 241** (E₈ ∩ primes < 2000 = {2, 3, 11, 17, 131, 241}; `AMPLIFY_EXCEPTION.md`
@@ -914,9 +915,13 @@ has passed all lines.
    Salez's 10¹⁷; they do not refute (MS). A zero of R₈ is a zero of one line of 8/p, not a failure of 8/p. Model
    (Assessment): ≈ 0.003 expected R₈ zeros above 10¹⁷ (crossover ≈ 10^{14.4}), so at the Salez threshold the screen reverts
    to the qualitative form above.
-   *(z58.)* **Extended R₈ zero list.** `Z58_DISPROOF.md` found two more R₈-zero primes, both ≡ 1 (mod 840) and so in
-   𝔐: **20 840 951 041** (R = 24) and **23 296 553 281** (R = 36). They are CERTIFIED by exact enumeration and re-verified
-   by the cross-review. They come from a *sampled* design search, not an interval census, so there is no completeness
+   *(z58, updated z75.)* **Extended R₈ zero list.** `Z58_DISPROOF.md` found **20 840 951 041** (R = 24) and **23 296 553 281** (R = 36).
+   *(z75, Opus-reviewed `notes/z75/DISPROOF_OBSTRUCT.md`, `DISPROOF_PUSH2.md`):* ten further certified prime zeros (three
+   independent checkers, seven in 𝔐) raise the in-𝔐 R₈ threshold floor to **1 511 088 831 001** (R = 44; also
+   1 218 367 081 201 with R = 44 and 452 438 542 081 with R = 30; all have full 8/p rescues). They come from *sampled* design
+   searches, not interval completeness. Also in z75 (two engines each): `(MS⁺₁₀₅)` certified to **10¹¹** in all classes;
+   Type A (`b = 1`) certified to **2·10¹¹** (no zero beyond 193, 2521, 66529); `U₇, U_II, N_II` certified on all odd
+   non-squares to **2·10¹⁰** (and 105-multiples to 5·10¹⁰), with no new zeros.
    claim above 1.1·10¹⁰. The original twelve-zero screen is `data/z58/screens/r8_zeros_1e10.txt`; the two new zeros
    are in `Z58_DISPROOF.md` §4 and its archived runs `data/z58/disproof/runA/` (files D1b, D1c, D2), independently
    verified in `data/z58/xreview/REVIEW_DISPROOF.md`.
@@ -1150,10 +1155,11 @@ no single-prime lower-tail mechanism is known.
   * For X ≍ U⁴, at most O_ε(U^{η+ε}) integers in any window of U consecutive integers have N₂(n, U) > U^{1−η}.
   * #{p ≤ X : N₂(p, U_p) > U_p^{1−η}} ≪ X^{(3+η)/4+ε}, with U_p = ⌊p^{1/4}⌋.
   * So R2's conclusion holds on average with no TD-type input. Averaged TD itself is not addressed.
-* *(z56, `Z56_FAMTRY.md` Thm A; PROVED rel. Bombieri–Vinogradov and Montgomery's large sieve; cross-model reviewed
-  CORRECT.)* #{p ≤ X : R(p) = 0} ≤ X·exp(−0.08√log X) for X ≥ X₀ (ineffective), with the same bound in every interval of
-  length X. The argument never uses primality: it bounds the odd n ≤ X avoiding the hit classes at every prime modulus
-  ℓ ≤ √X, a set containing all odd squares, so it cannot go below √X. Novelty unverified. Average statement (B6).
+* *(z56, improved z75.)* **Shift-uniform 2/3 lower tail on both C-parities of (★) and on U₇** (`notes/z75/ANALYTIC_PUSH2.md`,
+  PROVED rel. Bombieri–Vinogradov, Brun–Titchmarsh, Mertens; Opus-reviewed): in every interval (M, M+H], all but
+  O(H exp(−c(log H)^{2/3})) primes have ≥ δ(log H)^{2/3} ordered witnesses on R_odd and R₈ separately (and for U₇ outside
+  U⁽⁸⁾ targets; unspecified c, ineffective onset; supersedes `Z56_FAMTRY.md` Thm A's exponent 1/2 for R(p) = 0 and
+  `Z68_U7O.md` Thm A for U₇; average statement, B6). All-integer form holds with (log H)^{2/3}/(log log H)^{1/3}.
 * *(z57, `Z57_BFO.md` Thm W; PROVED; cross-model reviewed CORRECT.)* #{p ≤ x prime, p ≡ 1 (4) : R_𝔊*(p) = 0}
   ≪_A x/(log x)^A for every A, for the Theorem V family 𝔊*; details and scope in §7 item 3. Average statement (B6).
 
@@ -1185,19 +1191,20 @@ no single-prime lower-tail mechanism is known.
 * The BM layer is pointwise free: for odd n, some t ≡ 0 (4), t ≤ 4ℓ(n), has M_t^lev(n) > 0 iff n is not a square ((J)103).
   *(z52.)* So is the genus layer: every non-square n ≡ 1 (4) has a level t = 4r at which no odd real character mod t
   obstructs (GT1, PROVED rel. Dirichlet; Linnik-size t; `Z52_BANKED.md` §1(b)). Only the class of the divisor remains.
-* **Self-generated mute set** ((J)64, `CAP_POINTWISE.md`): for a prime window q = 4x − n with q ≡ 4 − n (8) and (q/n) = −1,
-  reciprocity forces −1 ∈ ⟨primes of x⟩ mod q, giving 4/n = 1/x + 1/y + 1/z with z of square denominator and exponent cap
-  e < q. Hence e*(n) ≪ rad(n)^5 for every odd n > 1 (PROVED, effective) and e*(n) ≤ (16 log n + 70)² for odd non-squares
-  (CONDITIONAL on GRH). Improved: e*(n) ≪_ε n₀^{1/4+ε} for n ≡ 1 (8) (rel. Pollack, ineffective), e*(p) ≤ (p − 5)/8 for primes
-  p ≡ 1 (8) (effective) ((J)66). ES is cap 0; cap 0 at a window is exactly the B2 event. The first genuinely pointwise
-  positive mechanism of the campaign — for a relaxation.
+* **Self-generated mute set / pointwise cap e*(n)** (`CAP_POINTWISE.md`, `CAP_DOWN.md`; **record improved z75**, Opus-reviewed
+  `notes/z75/ANALYTIC_BREAK.md`): for every integer n > 1, R = rad(n), **e*(n) ≤ exp(C√(log R · log log(3R)))** unconditionally
+  with an effective absolute C (PROVED rel. Gallagher, Linnik, Minkowski II; supersedes effective rad(n)^5, (p−5)/8 and
+  ineffective n₀^{1/4+ε}), via planted carriers, disjoint-alphabet Gallagher and quotient-index correction; also explicit
+  **4e*(p) + 3 ≤ √(4p/3)** at p ≡ 1 (8) (Gauss reduction/genus theory), and **Dirichlet GRH alone** suffices for
+  exp(O(√(log₂R · log₃R))) asymptotically (superseding Dedekind GRH in `CAP_INTERPOLATION.md` Thm 4.2(b)). ES ⟺ e* = 0;
+  cap 0 at a window remains the B2 event.
 * Provable T1-bearing cousins: ES^{(S)} (|S| ≥ 4, unconditional), ES^□ (elementary), V_φ (GRH; unconditional with a
   power-saving exceptional set), ES_(k) for every k and every n ≥ 2 ((J)108 Cor 2.5; the even-k construction itself works at odd non-squares and
   extends by scaling), M^□ for all M ≡ 0 (4) ((J)41) — see B-fin for why they don't
   transfer.
-* Thin families: all 3·2^s + 1, 7·4^s + 9, 63·2^s + 1, 4^s + 105, 4^s + k (nine k) (PROVED, computer-assisted; §1). The
-  II-ad u ≡ 3 (8) branch of 15·2^s + 1 is sterile for every root degree ((J)102). *(z53, `Z53_THIN15.md`, cross-model reviewed.)* ES(15·2^s + 1)
-  is CERTIFIED for every s ≤ 3·10⁶ (before: s ≤ 52 in the open class 60 | s); the class 60 | s stays open for all larger s.
+* Thin families: all 3·2^s + 1, **15·2^s + 1** (Lean 4 verified for all s ≥ 0 in z75, `lean/ES/ES/Proth15.lean`; plus
+  corollary 15·b^s + 1 for b ≡ 2 mod L), 7·4^s + 9, 63·2^s + 1, 4^s + 105, and **4^s + k for k ∈ {9, 33, 57, 81, 129, 153,
+  177, 201, 225, 249, 273, 297}** (PROVED, computer-assisted; §1, z75 `notes/z75/CONJS_GEN.md`, `THIN_CYCLO.md`, Opus-reviewed).
 * Function fields: one mute place makes the ES variant over F_q[T] a theorem at every P, unconditionally and effectively
   (Bilharz/Weil; (J)30) — even where ES_q itself has no finite covering. ES over F_q[T] is a theorem in several
   small-characteristic cases ((J)4).
@@ -1598,13 +1605,27 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
     (`PELL_RATIONAL_MENU_AUDIT.md`).
 
   Not excluded: remainders (`PELL_REMAINDER_SELECTOR.md`), divisor choice and growing menus.
-* (z73–z74) Logic constructions that cannot be pushed further as-is → iterating the unmodified four-square Lagrange end
-  extension. The successor is never an external PID. It adds one common multiple of all old positive elements, so every
-  old cutoff gets BCM and no new cutoff does, and it fails "odd quotient" at h+1 (`LOGIC_LAGRANGE_END_TEST.md` §4,
-  `LOGIC_BCM_HULL_AND_ODD.md`). Elementary hulls cannot add BCM at old cutoffs. An ordered end extension with division
-  cannot repair a missing Bézout identity for an old coprime pair, and the displayed Puiseux successor has no discretely
-  ordered normal overring (`LOGIC_COLLECTION.md` §§1, 4). independent signed Pell⁻/TS edges leave P the
-  only infinite prime element (`LOGIC_SIGNED_PELL_FIBER.md` §4). All Opus-reviewed, `data/z74/xreview/`.
+* (z73–z74, updated z75) Logic constructions and boundaries → iterating an *unmodified* Noetherian four-square Lagrange end
+  extension fails because Lagrange forces the dyadic kernel J = ⋂ 2ⁿD to be idempotent (`J² = J`), so U⁻¹D cannot be
+  Noetherian once BCM adds a common multiple (`notes/z75/BCM4_QR.md` §1; bypassed in `notes/z75/BCM4_PUSH2.md` via twisted
+  dyadic-axis end extensions). On the TS circle `x²+y² = s`, the explicit nonconstant unramified 2-torsion Brauer class
+  `(s, x)` blocks the constant-lifting hypothesis of the QR extension lemma (`BCM4_PUSH2.md` §5). Parameter-free
+  Pell-window induction W₂ fails in the z74 PID, 5-square BCM and collection models (`IE1_ES.md`), and a full-QR PID with
+  L(D) still fails least search for v² ≡ ct (mod P) (`IE1_PUSH2.md`). Earlier z73–z74 notes (hulls, Puiseux, signed Pell⁻
+  fibres) in `LOGIC_BCM_HULL_AND_ODD.md`, `LOGIC_COLLECTION.md`, `LOGIC_SIGNED_PELL_FIBER.md`.
+* (z75) Scoped proof-paradigm barriers (`notes/z75/PROOF_WILD.md`, `PROOF_WILD2.md`) → single-pivot continuant folds form
+  only a matching on length-3 words (rational overlaps still fail at 2521); signed divisor-cycle forcing fails at every
+  r ≤ 2p for 193, 2521, 3361, 5569, 9601; signed two-endpoint switches from t+1 | p−1 miss 1,269,241; power-sparse
+  core catalogues (e.g. a^m ± b^m, α ≤ 2/3) yield growing-core (S) certificates on relative density 0 of primes even with
+  arbitrary multipliers and polynomial borrowing; flat Stepanov character-jet masks on XY = 1 require exact linear degree
+  D_m = ((p−1)/2)(2⌈m/2⌉ − 1).
+* (z75) Three frozen generative class-map tests (`data/z70/xreview/REVIEW_GEN.md`) → closed non-universal (`notes/z75/CONJS_GEN.md`
+  §2; mixed's 208 vs 152.75 fresh-window excess is explained by Prop 3's explicit c = 1 form certificate |β| = α − 1, α ≡ −1 mod 4d).
+* (z75) Open-surface bounded-exponent descent and fixed-c Type II fibres (`notes/z75/DISPROOF_OBSTRUCT.md`, `DISPROOF_PUSH2.md`,
+  Opus-reviewed) → on S_n°, X_n°, U_n°, a single moving-denominator patch defeats all Br(V)[m] and all finite geometric
+  covers of exponent dividing m for every fixed m (bounded-exponent open descent never obstructs 4545, 8/131, 8/241 or the
+  R₈ zeros), whereas 2-power-conductor characters at one prime detect exact integral points; fixed-c Type II fibres Y_{p,c}
+  have a sharp strip cutoff M(j) giving infinitely many non-BM sterile fibres at c ≈ p^{2/3} (not a Type II zero).
 
 ## 7. Open sub-problems that are well-posed and plausibly tractable
 
@@ -2348,31 +2369,14 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    * Open: growing level families (B2), p-dependent class-group data, repeated large factors.
 7. **General-m Stickelberger identity** (`TWO_POWER_LADDER.md`; proved for m = 3, 4 only). *Why:* would close the
    higher-reciprocity route at every layer, or reveal an exceptional m.
-8. **Thin families still open:** 15·2^s + 1 (u ≡ 7 (8) valuation branch — reduces to a 2-adic approximation problem — and
-   menus II-ac, I-ac, II-cd; two-base boundary at X = 2^t3^{t′}), 4^s + 297 (not attempted), 4^s + 33, 4^s + 273 ((J)102; routes
-   board's champion lane). *Why:* concrete, finite-looking, and the only setting where forced-budget identities have beaten
-   every ET covering.
-   *(z52d, `Z52D_THINFAMILY.md`, cross-model reviewed.)* A certificate that is C-finite in 2-power roots is a root family
-   (PROVED), so recurrence fitting adds no new menu (other bases not covered); BM on minimal certificates found no low-order
-   recurrence (EVIDENCE only). For 15·2^s + 1 at μ = 0, moving-gap root families with irreducible smallest coordinate lie
-   in menus A (⊇ II-ad), A′ (⊇ I-ac) or C; C is empty (PROVED); the u ≡ 3 (8) branch of A is empty (PROVED); A and A′ with
-   integer u are certified empty for v₂(c) ≤ 3000 (beyond: Ridout-finite per p ≥ 5, ineffective; p = 3 open). Open:
-   reducible-x families (II-ac/II-cd), the ranges beyond the certified bounds, non-2-power exponential certificates.
-   Formalised: ES(3·2^s + 1) for all s in Lean (`lean/ES/ES/Proth3.lean`, standard axioms; z52d Z1894).
-   *(z53, `Z53_THIN15.md`, cross-model reviewed; narrowed.)*
-   * ES(15·2^s + 1) is CERTIFIED for s ≤ 3·10⁶.
-   * Menu II-cd (B′): in B′'s odd-power shape, each fixed odd prime exponent p gives four Thue equations, each with at
-     most one positive solution (Bennett); SG shape is separately excluded.
-   * Menu II-ac (B): B's odd-integer-u branch is Ridout-finite for each fixed odd prime exponent p, including 3,
-     ineffectively and non-uniformly in p; general rational-u finiteness is not proved. B is certified empty for integer
-     u with E ≤ 3000, dyadic u with ip ≤ 72, integer w, and dyadic SG w with 4i−2 ≤ 90.
-   * Sign lemma (PROVED): no rule polynomial in 2^{s/2} reaches μ = 0.
-   * ET/divisor-class coverings alone fail: residue 0 survives. A general finite congruence covering must include a rule
-     valid on all sufficiently large multiples of a modulus; such coverings are not excluded.
-   * Polynomial dependence on multiplicatively independent extra exponential bases collapses to the 2-power variable,
-     giving a μ = 0 root family only on a residue-0 progression.
-   * Open: Laurent/rational dependence, binomial menus beyond certified ranges and non-binomial patterns including
-     D = 3 II-d and D = 6.
+8. **CLOSED (z75) — Thin families `15·2^s + 1`, `4^s + 297`, `4^s + 33`, `4^s + 273`:** ALL FOUR are now PROVED for every
+   integer s ≥ 0 (Opus-reviewed `notes/z75/CONJS_GEN.md`, `THIN_CYCLO.md`). `15·2^s + 1` is resolved on the missing 60 | s
+   classes by an elementary 10-line moving cyclotomic divisor (`A = x² − x + 1 ≡ −1 mod 14`, `x = 2^r`, stripping 3- and
+   optionally 5-powers from s) and **formalised in Lean 4** (`lean/ES/ES/Proth15.lean`, `ESProth15.proth15`, standard axioms,
+   no `sorry`/`native_decide`, Opus-compiled); the same proof gives a base-extension corollary for all `15·b^s + 1` with
+   `b ≡ 2 mod L`. `4^s + {33, 273, 297}` are proved by finite replayable all-exponent certificates (periods 720,720 / 55,440 /
+   5,040; `scripts/z75_thin_verify.py`). Earlier z52d/z53 narrowings (`Z52D_THINFAMILY.md`, `Z53_THIN15.md`) are retained
+   only as historical context for fixed-root-degree menus.
 9. **Uniform multiplicity on the r-generic line** (`SIBLING.md` Conj 4.2; EVIDENCE: r ≤ 61 through depth 4, r = 19 through 6,
    r = 17 through 7) and **r = 17**. Level-1 survival of a non-residue cell is CERTIFIED only for r < 2·10⁴ (and fails for
    r ≤ 13). *Why:* Conj 4.2 on 17 ≤ r < 2^{21.44}, plus level-1 survival where not yet certified, would give sterile r-generic
@@ -2800,6 +2804,12 @@ no HOT LEAD.**
 **Post-z73 result (internal proof; not externally refereed; Opus cross-review ACCEPT-WITH-FIXES, `data/z74/xreview/REVIEW_JOINT_NR_TS_OPUS.md`; its ordinary-prime NR Variant is an unassembled conditional sketch, `REVIEW_NRMODELS_OPUS.md`).** `LOGIC_JOINT_NR_TS.md` and `LOGIC_FOUR_SQUARES.md` give **one** open-induction external PID in which internal Dirichlet, universal prime two-squares, universal NR (a square-root divisibility certificate, not full quadratic reciprocity), and Lagrange's four-squares theorem all hold, but a nonstandard prime `P≡1 mod 840` fails ES. The ES argument now uses positive reciprocal **descent**, not specialization of all witnesses at an odd square; hence the previous arc obstruction does not apply. Independent checks: `LOGIC_JOINT_PID_TREE_AUDIT.md`, `LOGIC_CIRCLE_AUDIT.md`, `LOGIC_LAGRANGE_PID.md`. `LOGIC_PRESCRIBED_FIELD_AT_P.md` prescribes the residue field **at this P**; this is not a claim about all internal prime pairs. As built, the joint model fails QR_std(3) at P (`LOGIC_PID_TAG_AUDIT.md`). `LOGIC_QR_AT_P.md` gives two square classes with every rational a square. The two modifications are alternatives (`REVIEW_PIDEXT_OPUS.md`). A distinct non-Bézout construction gives IOpen + Lag + Pell⁺ for every positive non-square (`LOGIC_POSITIVE_PELL_AUDIT.md`). Another adds Pell⁻ and two squares at every positive irreducible ≡ 1 (4) (`LOGIC_NEGATIVE_PELL_TS_TEST.md`). Do not combine either with the PID. In the PID itself, `P` can be given a least negative-Pell solution with both coordinates infinite (`LOGIC_NEGATIVE_PELL_ROOT_AUDIT.md`, `LOGIC_PELL_UNIT_GROUP.md`; Opus-reviewed, `REVIEW_PELLMODELS_OPUS.md`). For standard primes `SIGNED_TWO_SHIFTS.md` gives an unconditional failure of both denominator tests for every root-eligible shift at 193, an exact least-shift-11 criterion in the `1 mod 840` class, and replayable finite checks. ES for the standard integers and its status in PA or ZFC are unchanged.
 
 **z74 checkpoint** (Opus cross-reviews of the z74 notes, ACCEPT or ACCEPT-WITH-FIXES: `data/z74/xreview/REVIEW_*_OPUS.md`)**:** `Z74_CHECKPOINT.md` distinguishes positive ordinary-prime transfers, exact failures of proposed denominator searches, and weak-arithmetic results. In particular, even a fixed finite list of polynomial triples allowed both Gaussian coordinates and an arbitrary fixed number of integral negative-Pell witnesses misses relative density one of the primes on a suitable fixed progression (`GAUSSIAN_PELL_MENU.md`). This is an obstruction to those formulas, not to ES. For Pell data alone (one rational or any fixed number of integral witnesses, coefficients in ℚ(P)), **every** prime of a computable unit-square class inside 1 mod 840 misses (`PELL_ES_MENU_NOGO.md`, `PELL_ES_MULTI_MENU.md`). For fixed rational-function menus with one integral witness, relative-density-one prime misses are only CONDITIONAL on Hooley's Conjecture 1 (`PELL_RATIONAL_MENU_AUDIT.md`). For a fixed number of integral witnesses, misses at prime powers `p^{2a+1}` are unconditional, for `p ≡ 1 mod M` and `a` sufficiently large depending on `p` (`PELL_RAMIFIED_MENU_AUDIT.md`). One variable-modulus remainder already escapes: normalized Pell coordinates hit every residue mod `n^k` (`PELL_REMAINDER_SELECTOR.md`); divisor selection is also outside these hypotheses (Opus-reviewed, `REVIEW_PELLNOGO_OPUS.md`; shift/transfer notes `REVIEW_SHIFTS_OPUS.md`; end extensions `REVIEW_ENDEXT_OPUS.md`).
+
+**z75 update (6-lane GPT-6.2 Astra burst orchestrated by Claude Fable; Opus cross-reviews ACCEPT or ACCEPT-WITH-FIXES for Lanes 1, 2, 4, 5, 6, fixes applied; ES in ℕ remains open).**
+* **Logic (`notes/z75/BCM4_QR.md`, `BCM4_PUSH2.md`, `IE1_ES.md`, `IE1_PUSH2.md`):** PROVED `IOpen + Bézout + BCM + Lagrange (four squares) ⊬ ES` at a nonstandard prime `P ≡ 1 (840)` using twisted dyadic-axis end extensions (`x_j = c_j x_{j+1}²`, non-Noetherian upper Bézout ring with value group `ℤ[1/2]`, respecting the proved dyadic-kernel idempotence obstruction `J² = J`). Separately, PROVED one countable external IOpen PID satisfying `internal Dirichlet + Lagrange + full internal prime quadratic reciprocity (both supplements, both odd primes universally quantified) + L(D)` with `¬ES(P)`, via a global Brauer 2-torsion residue identity on `𝔸¹` and `Q₄ = s ≃ SL₂` (the circle class `(s,x)` obstructs adding universal TS directly to the constant-lifting lemma). PROVED unary polynomial-divisibility minimization `L(D)` holds in every external IOpen PID, whereas parameter-free Pell-window induction `W₂` fails in the z74 PID, 5-square BCM and collection models; a separate rank-one normal `IOpen + Lag` model repairs full variable-radicand supplied-unit Pell windows with negative Pell at `P` and `¬ES(P)`. Full QR + `L(D)` still fails least search for `v² ≡ ct (mod P)`. `IE₁`, `IE₁⁻`, `IΔ₀` remain open.
+* **Thin families, Conjecture (S) and class maps (`notes/z75/CONJS_GEN.md`, `THIN_CYCLO.md`, `lean/ES/ES/Proth15.lean`):** PROVED `ES(15·2^s + 1)` for all `s ≥ 0` via a 10-line moving cyclotomic divisor (`u = 14`, `A = x² − x + 1`), **Lean 4 verified** (`ESProth15.proth15`, standard axioms, Opus-compiled), with base-extension corollary `15·b^s + 1` (`b ≡ 2 mod L`). PROVED `ES(4^s + k)` for all `s ≥ 0` and `k ∈ {33, 273, 297}` via finite replayable certificates. PROVED `(S)` outside the exact 24 odd-square classes mod 840 (`((n+15)/56, 8, 7)`). Closed all three frozen `REVIEW_GEN.md` generative class-map tests as non-universal (mixed's 208 vs 152.75 fresh-window excess explained by Prop 3's `c = 1` form certificate `|β| = α − 1, α ≡ −1 mod 4d`).
+* **Analytic records (`notes/z75/ANALYTIC_BREAK.md`, `ANALYTIC_PUSH2.md`):** PROVED unconditional effective `e*(n) ≤ exp(C√(log R · log log(3R)))` (`R = rad(n)`), explicit `4e*(p)+3 ≤ √(4p/3)` at `p ≡ 1 (8)`, and Dirichlet-GRH-only `exp(O(√(log₂R · log₃R)))`. PROVED shift-uniform `O(H exp(−c(log H)^{2/3}))` lower tail on both C-parities of `(★)` separately (`≥ δ(log H)^{2/3}` witnesses) and on `U₇`.
+* **Obstructions, barriers and censuses (`notes/z75/DISPROOF_OBSTRUCT.md`, `DISPROOF_PUSH2.md`, `PROOF_WILD.md`, `PROOF_WILD2.md`):** PROVED exact `Pic, Br, π₁^{geom}` and the bounded-vs-unbounded exponent dichotomy on `S°, X°, U°`, plus sharp strip cutoffs giving infinitely many non-BM sterile Type II fibres `Y_{p,c}` at `c ≈ p^{2/3}`. CERTIFIED 10 new `R₈`-zero primes raising the in-𝔐 floor to `1,511,088,831,001` (`R = 44`), full Type I+II ES counts (`750, 736, 1030`) on three `R₈` zeros, `(MS⁺₁₀₅)` to `10¹¹` (two engines), Type A to `2·10¹¹` (two engines), and `U₇/U_II/N_II` to `2·10¹⁰` (`105 | n` to `5·10¹⁰`). Scoped proof-paradigm barriers (unreviewed by Opus): single-pivot fold matching, thin-core `a^m ± b^m` density-0 theorem, Stepanov flat-mask exact linear degree cost.
 
 ## 8. Pointers into the repository
 

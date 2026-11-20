@@ -43,11 +43,7 @@ waves.** Spend remaining quota only on a *genuinely new* mechanism for forcing a
 FRONTIER §3, §6). Current cleanest targets: (MS-U₇) and (MS⁺₁₀₅) (`Z60_SUMMARY.md` §5).
 
 ## Cross-model reviews
-**None owed.** Every assigned Opus review of z72–z74 (Astra) is done (2026-11-19/20; 12 reviews in `data/z74/xreview/REVIEW_*_OPUS.md`;
-each reviewed note ACCEPT or ACCEPT-WITH-FIXES, fixes applied, no WRONG claim; Astra's side audits were read as inputs,
-not certified separately). Brief for this kind of review: `../z52bbriefs/xreview_z74_opus.md`. Rule: the cross-review is always by the other lab
-(Astra reviews Claude work; Opus `anthropic/claude-opus-5-5:high` reviews Astra work). Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`,
-`Z64_EQUIV.md`, `Z64_SDEEP.md`, `Z64_SDEEPF.md` (reviews in `data/z6{4,5}/xreview/REVIEW_*_ASTRA.md`).
+**None owed for promoted items.** Every assigned Opus review of z72–z74 (Astra) is done (2026-11-19/20; 12 reviews in `data/z74/xreview/REVIEW_*_OPUS.md`), and every z75 headline/record lane (Lanes 1, 2, 4, 5, 6) passed independent Claude Opus cross-review (ACCEPT or ACCEPT-WITH-FIXES, fixes applied, Lean independently compiled; reviews in `notes/z75/*REVIEW*`, `data/z75/ie1/`, `data/z75/obstruct/review.md`, `data/z75/push2/review.md`, `data/z75/REVIEW_ANALYTIC*_OPUS.md`, `data/z75/thin_cyclo/REVIEW_OPUS.md`). Lane 3 (`PROOF_WILD*`, scoped barriers only) was self-checked with replay scripts. Rule: the cross-review is always by the other lab (Astra reviews Claude work; Opus `anthropic/claude-opus-5-5:high` reviews Astra work). Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`, `Z64_EQUIV.md`, `Z64_SDEEP.md`, `Z64_SDEEPF.md` (reviews in `data/z6{4,5}/xreview/REVIEW_*_ASTRA.md`).
 
 ## Campaign status (2026-11-10): PAUSED after z70 (user: "wrap it up"); resumes per new model (see Cadence below)
 Waves z67–z70 (FRONTIER blocks z67–z70) found **no mechanism**; every lane ended at the B2 atom (one tied divisor event
@@ -59,10 +55,10 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
   `agent-wait-any` may return a stale `waiting_user` right after a send — sleep ~30 s and re-check; Anthropic ToS
   classifier ("reverse engineering / duplicating model outputs") falsely blocked a Fable 5.2 lane twice while it read
   many AI-written memos — a plain "please continue" cleared it.
-* **Open, concrete, cheap (if resuming):** the three generative-class-map candidates in
-  `data/z70/xreview/REVIEW_GEN.md` (frozen tests specified); `Z70_CLASS.md` open list (Rédei 4-rank, small-split-prime
-  orbits from principal seeds, fixed-n solution-graph moves); conjecture (S); U₇ (Conjectures B, C in `Z68_U7F.md`);
-  (MS⁺₁₀₅). Resume only with a genuinely new idea for forcing one tied divisor event at a fixed prime.
+* **Open, concrete, cheap (if resuming):** `Z70_CLASS.md` open list (Rédei 4-rank, small-split-prime
+  orbits from principal seeds, fixed-n solution-graph moves); conjecture (S) (now reduced to the 24 square classes mod 840);
+  U₇ (Conjectures B, C in `Z68_U7F.md`); (MS⁺₁₀₅) (certified to 10¹¹); full prime QR + universal TS; `IE₁`/`IΔ₀`;
+  `θ > 3/4` on `E(N)`. (The three `REVIEW_GEN.md` tests, BCM+4-squares, and `15·2^s+1`/`4^s+{33,273,297}` closed in z75.)
 * **z71 literature refresh (2026-11-10, `Z71_LIT.md`; orchestrator-reviewed, no Astra review):** arXiv math.NT
   2026-09-28 … 11-10 screened in full; no new mechanism. New ES paper Dahan arXiv:2611.08717 (5/7 < 3/4 by the same
   architecture as the 3/4 note; "1 − o(1)" only on a structured subset; pointwise part ends at an open hypothesis =
@@ -73,3 +69,11 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
   formula-menu no-go (`WAVES.md`). Its notes then had Opus cross-reviews. Four side agents covered the headline items and eight more lanes covered the
   rest. Every verdict was ACCEPT or ACCEPT-WITH-FIXES. The reviewers applied the note-level fixes,
   since the author was not running, and tagged each edit "(z74 Opus xreview fix)".
+* **z75 (2026-11-20, GPT-6.2 Astra `deep` 6-lane burst orchestrated by Claude Fable `best`)** delivered major Opus-reviewed
+  results across all three pillars (`WAVES.md`): `IOpen + Bézout + BCM + Lagrange ⊬ ES` (`BCM4_PUSH2.md`), full internal
+  prime QR + Dirichlet + Lag + `L(D)` PID (`BCM4_QR.md`, `BCM4_PUSH2.md`), `L(D)` and variable-radicand Pell-window repair
+  (`IE1_ES.md`, `IE1_PUSH2.md`), Lean-verified `ES(15·2^s+1)` + `4^s+{33,273,297}` + sharp 24-class `(S)` + closed the 3
+  frozen `REVIEW_GEN` tests (`CONJS_GEN.md`, `THIN_CYCLO.md`), effective subexponential `e*(n)` + 2/3 `(★)/U₇` lower tails
+  (`ANALYTIC_BREAK.md`, `ANALYTIC_PUSH2.md`), open-surface Brauer exponent dichotomy + cubic sterile fibres + trillion-scale
+  `R₈` (`1,511,088,831,001`) and extended censuses (`DISPROOF_OBSTRUCT.md`, `DISPROOF_PUSH2.md`), plus scoped proof barriers
+  (`PROOF_WILD*.md`). Remaining open fronts: ES, `IE₁`/`IΔ₀`, QR + universal TS, `θ > 3/4` on `E(N)`, `e*(n)` below `L_R[1/2]`.
