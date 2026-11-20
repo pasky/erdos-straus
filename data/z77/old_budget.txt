@@ -1,0 +1,30 @@
+558 177505 ppm 497526 0.02948 0.30551 0.00129 ok
+last failing cell None max ppm 497526
+level 1 29475.226 ppm
+P3 305507.389 ppm
+P5 103412.807 ppm
+P7 51988.556 ppm
+P9 4674.471 ppm
+P11 676.847 ppm
+P13 62.012 ppm
+P15 16.041 ppm
+P17 0.965 ppm
+P19 0.292 ppm
+P21 0.022 ppm
+P23 0.006 ppm
+P25 0.001 ppm
+P27 0.0 ppm
+P29 0.0 ppm
+P31 0.0 ppm
+P33 0.0 ppm
+P35 0.0 ppm
+P37 0.0 ppm
+P39 0.0 ppm
+P41 0.0 ppm
+P43 0.0 ppm
+P45 0.0 ppm
+Q3 1290.615 ppm
+Q5 0.104 ppm
+tails 420.048 ppm
+prime,P,Q,cells (max multiplicity) [179519, 664, 1952, 923]
+prime,P,Q,cells (max union fraction) [177839, 533, 1620, 925]
