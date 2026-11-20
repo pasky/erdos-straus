@@ -1,9 +1,10 @@
 ## §0
 Result: ES holds on four further full Mersenne-multiplier families (m=7,8,9,10); infinitely many different multipliers have a good-word core, and infinitely many cubic families in 1 mod 840 have good words and a square-unit limit. Label: PROVED (§1 elementary, noncovering rel. EXPONENT_COVERING Thm 1.4; §2 also quadratic reciprocity; §3 computer-assisted rel. Mordell, DEDEKIND_ES Thm 4.5/Cor 1.2, THIN_CYCLO §1 and z77 §2; §4 rel. Dirichlet, positive certificates checked in standalone Python after PARI discovery; §5 elementary sign/congruence tests rel. Z64_SDEEPF Thm 2.1).
+Round 2 result: good-word cores and density-one good words for every 2≤m≤100 and a new infinite family outside the doubling hypothesis (including h=2^{12t+6}+13); lower bound for shifted-word plus square-avoiding congruence certificates on s=B·2^v. Label: PROVED (§6 computer-assisted rel. Dirichlet/Mertens in progressions and CONJS_GEN Thm 2, §7 elementary plus same density input, §8 elementary; PNT only for rate).
 Scope: Round 2 §6 gives good-word progressions and density-one good words for every 2≤m≤100; full families only where explicitly listed; m need not be prime. No general ES or all-exponent theorem for infinitely many m. See §1 for quantifiers.
-Review: cross-model (Claude Opus, `data/z78/xreview/REVIEW_PROTH_ALLM_OPUS.md`; proofs accepted and fixes applied, independent per-rule replay).
+Review: cross-model (Round 1 Claude Opus, `data/z78/xreview/REVIEW_PROTH_ALLM_OPUS.md`; fixes applied). Round 2 review pending.
 Triage: HEADLINE
-STATUS delta: §1C Proth: extend through m=10 (add 7,8,9,10) to the all-exponent multipliers (computer-assisted, not Lean); for infinitely many m at offset +1 there is a good-word progression of exponents with square-unit closure, not an all-exponent result.
+STATUS delta: §1C Proth: extend through m=10 (add 7,8,9,10) to the all-exponent multipliers (computer-assisted, not Lean); good-word core progressions with square-unit closure and density-one exponents for each 2≤m≤100, also for infinitely many m (e.g. §7). No stronger all-s claim.
 
 ### 1. A programmable ladder of binomial ratios
 
