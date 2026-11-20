@@ -1,10 +1,10 @@
 ## §0
 
-Result: For bounded positive integers `P,L,K`, only finitely many `m≥1` admit a menu of at most `K` rational-function ES triples in `T=2^(Lj)` covering the whole eventual core `s=PLj` of `n=(4^m−1)2^s+1`, even with arbitrary pointwise selection.  
-Label: PROVED (rel. Siegel's integral-points theorem, the Mordell–Schinzel primitive-square obstruction via ET's quotation in `EXPONENT_COVERING.md` Theorem 1.2 (not accessed directly), and the finite van der Waerden theorem for menus).  
-Scope: Rigidity of the denominator formulas, not nonexistence of ES solutions at any integer. No bound on the degrees, heights or coefficient denominators of the input triples is assumed.  
-Review: cross-model (Claude Opus, `data/z78/xreview/REVIEW_PROTH_ALLM_OPUS.md`; F10 incorporated).  
-Triage: BARRIER-SCOPED.  
+Result: For bounded positive integers `P,L,K`, only finitely many `m≥1` admit a menu of at most `K` rational-function ES triples in `T=2^(Lj)` covering the whole eventual core `s=PLj` of `n=(4^m−1)2^s+1`, even with arbitrary pointwise selection.
+Label: PROVED (rel. Siegel's integral-points theorem, the Mordell–Schinzel primitive-square obstruction via ET's quotation in `EXPONENT_COVERING.md` Theorem 1.2 (not accessed directly), and the finite van der Waerden theorem for menus).
+Scope: Rigidity of the denominator formulas, not nonexistence of ES solutions at any integer. No bound on the degrees, heights or coefficient denominators of the input triples is assumed.
+Review: cross-model (Claude Opus, `data/z78/xreview/REVIEW_PROTH_ALLM_OPUS.md`; F10 incorporated).
+Triage: BARRIER-SCOPED.
 STATUS delta: none.
 
 # Rigidity of polynomial ES certificates on a bounded-period Proth core
