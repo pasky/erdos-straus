@@ -1,0 +1,27 @@
+r = 29: non-residues [2, 3, 8, 10, 11, 12, 14, 15, 17, 18, 19, 21, 26, 27]; level-1 boxes [12, 14, 17, 18, 19, 21, 26, 27]
+  cell C_2:
+    d2: new 3, alive 0.89655172, max 3, hist {3: 1}
+    d3: new 18, alive 0.87514863, max 2, hist {1: 10, 2: 4}
+  cell C_3:
+    d2: new 5, alive 0.82758621, max 5, hist {5: 1}
+    d3: new 22, alive 0.80142687, max 4, hist {1: 8, 2: 5, 4: 1}
+  cell C_8:
+    d2: new 3, alive 0.89655172, max 3, hist {3: 1}
+    d3: new 23, alive 0.86920333, max 3, hist {1: 11, 2: 3, 3: 2}
+  cell C_10:
+    d2: new 5, alive 0.82758621, max 5, hist {5: 1}
+    d3: new 22, alive 0.80142687, max 4, hist {1: 8, 2: 5, 4: 1}
+  cell C_11:
+    d2: new 3, alive 0.89655172, max 3, hist {3: 1}
+    d3: new 23, alive 0.86920333, max 3, hist {1: 11, 2: 3, 3: 2}
+  cell C_12: covered at level 1
+  cell C_14: covered at level 1
+  cell C_15:
+    d2: new 3, alive 0.89655172, max 3, hist {3: 1}
+    d3: new 18, alive 0.87514863, max 2, hist {1: 10, 2: 4}
+  cell C_17: covered at level 1
+  cell C_18: covered at level 1
+  cell C_19: covered at level 1
+  cell C_21: covered at level 1
+  cell C_26: covered at level 1
+  cell C_27: covered at level 1
