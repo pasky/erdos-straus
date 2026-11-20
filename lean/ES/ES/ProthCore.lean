@@ -8,7 +8,8 @@ import ES.Basic
 For example `proth_four_pow_core` applies at every `h = 4^i+1`, `i ≥ 1`.
 The construction works by divisibility of successive odd binomials, without
 factoring any polynomials. It does not give ES at all exponents for those
-multipliers and does not formalize the noncovering conclusion.
+multipliers in general and does not formalize the noncovering conclusion.
+Separately, `proth63` checks the all-exponent result for the first multiplier.
 -/
 
 namespace ESProthCore
@@ -323,4 +324,176 @@ theorem proth_four_pow_core {i : ℕ} (hi : 1 ≤ i) :
 #print axioms telescoping_neg_one
 #print axioms telescoping_four_pow
 
+/-! ### All exponents for the first multiplier (h=5, k=63)
+
+This additional theorem is `EXP_OPEN.md` §§2–3. The moving cubic on `24 ∣ s`
+is separate from the abstract progression theorem. The 18 fixed signatures
+are from `data/z19/cert63_et.json`; both the polynomial triples and coverage
+are checked by the kernel.
+-/
+
+private abbrev modulus63 : ℕ := 19032425900237469720
+
+private structure Row63 where
+  m : ℕ
+  r : ℕ
+  dvd : m ∣ modulus63
+  cert : ∀ k : ℕ, 0 < m * k + r → ESProp (m * k + r)
+
+private def menu63 : List Row63 := [
+  ⟨5, 0, by decide, fun k hk => by
+    have : 0 < k := by omega
+    refine ⟨2 * k, 4 * k, 20 * k,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨15, 7, by decide, fun k _ => by
+    refine ⟨2 + 4 * k, 28 + 60 * k, 28 + 116 * k + 120 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨15, 13, by decide, fun k _ => by
+    refine ⟨4 + 4 * k, 52 + 60 * k, 26 + 56 * k + 30 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨119, 57, by decide, fun k _ => by
+    refine ⟨15 + 30 * k, 1710 + 3570 * k, 342 + 1398 * k + 1428 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨39, 34, by decide, fun k _ => by
+    refine ⟨10 + 10 * k, 340 + 390 * k, 68 + 146 * k + 78 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨19, 18, by decide, fun k _ => by
+    refine ⟨5 + 5 * k, 90 + 95 * k, 90 + 185 * k + 95 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨584, 545, by decide, fun k _ => by
+    refine ⟨1113980 + 2387246 * k + 1278960 * k ^ 2, 146 + 146 * k, 2044 + 4234 * k + 2190 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨11, 0, by decide, fun k hk => by
+    have : 0 < k := by omega
+    refine ⟨3 * k, 34 * k, 1122 * k,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨11, 8, by decide, fun k _ => by
+    refine ⟨3 + 3 * k, 24 + 33 * k, 8 + 19 * k + 11 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨11, 7, by decide, fun k _ => by
+    refine ⟨2 + 3 * k, 21 + 33 * k, 42 + 129 * k + 99 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨29, 0, by decide, fun k hk => by
+    have : 0 < k := by omega
+    refine ⟨8 * k, 78 * k, 9048 * k,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨87, 43, by decide, fun k _ => by
+    refine ⟨11 + 22 * k, 946 + 1914 * k, 946 + 3806 * k + 3828 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨127, 0, by decide, fun k hk => by
+    have : 0 < k := by omega
+    refine ⟨32 * k, 4065 * k, 16520160 * k,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨127, 126, by decide, fun k _ => by
+    refine ⟨32 + 32 * k, 4032 + 4064 * k, 4032 + 8096 * k + 4064 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨344, 321, by decide, fun k _ => by
+    refine ⟨386484 + 828266 * k + 443760 * k ^ 2, 86 + 86 * k, 1204 + 2494 * k + 1290 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨1016, 1001, by decide, fun k _ => by
+    refine ⟨254 + 254 * k, 17017 + 34289 * k + 17272 * k ^ 2, 4322318 + 8709406 * k + 4387088 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨5620, 5109, by decide, fun k _ => by
+    refine ⟨71781450 + 157920595 * k + 86857100 * k ^ 2, 1405 + 1405 * k, 14050 + 29505 * k + 15455 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩,
+  ⟨51944, 22553, by decide, fun k _ => by
+    refine ⟨890121804 + 6134789834 * k + 14093757744 * k ^ 2 + 10792716544 * k ^ 3, 5676 + 12986 * k, 848562 + 3893951 * k + 4467184 * k ^ 2,
+      by positivity, by positivity, by positivity, ?_⟩
+    ring⟩]
+
+private abbrev n63 (s : ℕ) := 63 * 2 ^ s + 1
+
+private def hit63 (s : ℕ) : Bool := menu63.any fun row => n63 s % row.m == row.r
+
+private theorem transport63 {s e : ℕ} (he : hit63 e = true)
+    (hc : n63 s ≡ n63 e [MOD modulus63]) : ESProp (n63 s) := by
+  obtain ⟨row, _, hr⟩ := List.any_eq_true.mp he
+  have hr' : n63 s % row.m = row.r := Eq.trans (hc.of_dvd row.dvd) (beq_iff_eq.mp hr)
+  have eq := Nat.div_add_mod (n63 s) row.m
+  rw [hr'] at eq
+  have hp : 0 < row.m * (n63 s / row.m) + row.r := by rw [eq]; positivity
+  simpa only [eq] using row.cert _ hp
+
+private theorem scaled_period {x a m : ℕ} (hx : x * a ≡ x [MOD m]) (q : ℕ) :
+    x * a ^ q ≡ x [MOD m] := by
+  induction q with
+  | zero => simp [Nat.ModEq]
+  | succ q ih => rw [pow_succ, ← mul_assoc]; exact (ih.mul_right a).trans hx
+
+set_option exponentiation.threshold 4096 in
+private theorem periodic63 (s : ℕ) : n63 (s + 3) ≡ n63 (s % 2520 + 3) [MOD modulus63] := by
+  let q := s / 2520
+  let r := s % 2520
+  have e : s + 3 = 3 + 2520 * q + r := by dsimp [q, r]; omega
+  have hx := scaled_period (by decide : 2 ^ 3 * 2 ^ 2520 ≡ 2 ^ 3 [MOD modulus63]) q
+  apply Nat.ModEq.add_right; apply Nat.ModEq.mul_left
+  rw [e, pow_add, pow_add, pow_mul]
+  change _ ≡ 2 ^ (r + 3) [MOD modulus63]; rw [add_comm r, pow_add]; exact hx.mul_right _
+
+-- Split the 2520 checks into small blocks so kernel reduction stays shallow.
+set_option exponentiation.threshold 4096 in
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 4000000 in
+private theorem covered63 : ∀ a : Fin 42, ∀ b : Fin 60,
+    let e := 60 * a.val + b.val + 3
+    24 ∣ e ∨ hit63 e = true := by decide
+
+private theorem cubic63 (k : ℕ) : ESProp (63 * (340 * k + 256) ^ 3 + 1) := by
+  let n := 63 * (340 * k + 256) ^ 3 + 1
+  let b := 3109291 + 12387831 * k + 16451580 * k ^ 2 + 7282800 * k ^ 3
+  let c := 16 + 21 * k
+  refine ⟨5 * b * 17, 5 * c * 17 * n, b * c * 17 * n, by dsimp [b]; positivity,
+    by dsimp [c,n]; positivity, by dsimp [b,c,n]; positivity, ?_⟩
+  dsimp [b, c, n]; ring
+
+private theorem core63 {s : ℕ} (hs : 0 < s) (hd : 24 ∣ s) : ESProp (n63 s) := by
+  obtain ⟨q, hq⟩ := hd
+  obtain ⟨j, rfl⟩ := Nat.exists_eq_succ_of_ne_zero (by omega : q ≠ 0)
+  have eq : 256 ^ (j + 1) % 340 = 256 := by
+    have := scaled_period (by decide : 256 * 256 ≡ 256 [MOD 340]) j
+    simpa [pow_succ', Nat.ModEq] using this
+  let y := 256 ^ (j + 1)
+  have ey : 340 * (y / 340) + 256 = y := by dsimp [y]; omega
+  have en : n63 s = 63 * y ^ 3 + 1 := by
+    dsimp [n63, y]; rw [hq, show 24 * (j + 1) = 8 * (j + 1) * 3 by ring, pow_mul, pow_mul]
+    norm_num
+  rw [en, ← ey]; exact cubic63 _
+
+/-- The first multiplier in the four-power core family is also closed on
+*all* exponents, by the independent cubic and the 18 fixed classes. -/
+theorem proth63 (s : ℕ) : ESProp (63 * 2 ^ s + 1) := by
+  rcases Nat.lt_or_ge s 3 with h | h
+  · interval_cases s
+    · exact ⟨32, 64, 64, by decide, by decide, by decide, by decide⟩
+    all_goals exact transport63 (s := _) (e := _) (by decide) (Nat.ModEq.refl _)
+  · let d := s - 3
+    have eq : s = d + 3 := by dsimp [d]; omega
+    rw [eq]
+    let r := d % 2520
+    have hr : r < 2520 := Nat.mod_lt _ (by decide)
+    obtain hc | hc := covered63 ⟨r / 60, by omega⟩ ⟨r % 60, Nat.mod_lt _ (by decide)⟩
+    · apply core63 (by omega); change 24 ∣ 60 * (r / 60) + r % 60 + 3 at hc
+      dsimp [r] at hc; omega
+    · change hit63 (60 * (r / 60) + r % 60 + 3) = true at hc
+      rw [Nat.div_add_mod] at hc
+      exact transport63 hc (periodic63 d)
+
+#print axioms proth63
 end ESProthCore

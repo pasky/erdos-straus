@@ -1,4 +1,4 @@
-Running as unit: run-p2624590-i11010583.scope; invocation ID: e408dd297fb34d1094d1c7348bd81b0b
+Running as unit: run-p2648048-i11034041.scope; invocation ID: f07e5e5fcc394b6fab00f677e2ceef76
 Current branch: HEAD
 Using cache from origin: (some leanprover-community/mathlib4)
 No files to download
@@ -21,13 +21,14 @@ info: ES/Axioms.lean:17:0: 'ES.ES_of_primes_one_mod_four' depends on axioms: [pr
 info: ES/Axioms.lean:18:0: 'ES.ES_of_cform_primes' depends on axioms: [propext, Classical.choice, Quot.sound]
 ℹ [8928/8932] Replayed ES.Proth15
 info: ES/Proth15.lean:635:0: 'ESProth15.proth15' depends on axioms: [propext, Classical.choice, Quot.sound]
-ℹ [8929/8932] Built ES.ProthCore (3.0s)
-info: ES/ProthCore.lean:319:0: 'ESProthCore.proth_four_pow_core' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ES/ProthCore.lean:320:0: 'ESProthCore.core_four_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ES/ProthCore.lean:321:0: 'ESProthCore.core_of_doubling' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ES/ProthCore.lean:322:0: 'ESProthCore.es_of_word' depends on axioms: [propext, Quot.sound]
-info: ES/ProthCore.lean:323:0: 'ESProthCore.telescoping_neg_one' depends on axioms: [propext, Classical.choice, Quot.sound]
-info: ES/ProthCore.lean:324:0: 'ESProthCore.telescoping_four_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8929/8932] Built ES.ProthCore (6.4s)
+info: ES/ProthCore.lean:320:0: 'ESProthCore.proth_four_pow_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:321:0: 'ESProthCore.core_four_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:322:0: 'ESProthCore.core_of_doubling' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:323:0: 'ESProthCore.es_of_word' depends on axioms: [propext, Quot.sound]
+info: ES/ProthCore.lean:324:0: 'ESProthCore.telescoping_neg_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:325:0: 'ESProthCore.telescoping_four_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:498:0: 'ESProthCore.proth63' depends on axioms: [propext, Classical.choice, Quot.sound]
 ℹ [8930/8932] Replayed ES.AxiomsHC
 info: ES/AxiomsHC.lean:4:0: 'ESHC.ES_of_slot' depends on axioms: [propext, Classical.choice, Quot.sound]
 info: ES/AxiomsHC.lean:5:0: 'ESHC.core8' depends on axioms: [propext, Classical.choice, Quot.sound]
