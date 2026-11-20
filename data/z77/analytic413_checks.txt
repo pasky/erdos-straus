@@ -1,0 +1,17 @@
+prefactor P^1: first=7955/24966, second=4727/15282, global=7955/24966
+  alpha,beta,gamma 7955/24966 4528/12483 7955/24966 H margin 3551/24966 d 734/4161 last 7955/24966
+  alpha,beta,gamma 7955/24966 7955/24966 4528/12483 H margin 3427/12483 d 367/8322 last 37167617/127800954
+  alpha,beta,gamma 17011/49932 17011/49932 7955/24966 H margin 5753/24966 d 1835/16644 last 18366361/63900477
+prefactor P^1/2: first=9373/30321, second=4727/15282, global=4727/15282
+  alpha,beta,gamma 4727/15282 2914/7641 4727/15282 H margin 712/7641 d 367/1698 last 48305845/156457116
+  alpha,beta,gamma 4727/15282 4727/15282 2914/7641 H margin 1813/7641 d 367/5094 last 4727/15282
+  alpha,beta,gamma 10555/30564 10555/30564 4727/15282 H margin 6151/30564 d 367/2547 last 87853235/312914232
+prefactor P^0: first=1418/5355, second=4727/15282, global=4727/15282
+  alpha,beta,gamma 4727/15282 2914/7641 4727/15282 H margin 2525/15282 d 367/2547 last 10277152/39114279
+  alpha,beta,gamma 4727/15282 4727/15282 2914/7641 H margin 1813/7641 d 367/5094 last 4727/15282
+  alpha,beta,gamma 10555/30564 10555/30564 4727/15282 H margin 1813/7641 d 367/3396 last 40327999/156457116
+theta 3/10 rho 1/10 allowed corr exponent 1/10 excess vs sqrt 1/20
+theta 4/13 rho 1/13 allowed corr exponent 2/13 excess vs sqrt 0
+theta 7955/24966 rho 367/8322 allowed corr exponent 5753/24966 excess vs sqrt -3551/49932
+CRT coefficient and exceptional-mode checks passed
+nonunit endpoint-pair local factors checked
