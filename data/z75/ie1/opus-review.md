@@ -1,0 +1,10 @@
+# Cross-model mathematical review — z75 lane 2
+
+Reviewer: `anthropic/claude-opus-5-5`, fresh `functions.review` of commit `40f30accb` against its parent. Scope: all three theorems of `notes/z75/IE1_ES.md`. Below is an abridged record; quotation marks indicate direct quotations. Internal, not external refereeing.
+
+**Verdict:** “accept with minor fixes. I found no mathematical error in Theorems 1, 2 or 3.” The reviewer also said “They still need the cross-lab review”; this particular review was Opus of Astra's work, hence is cross-model/cross-lab. The orchestrator may commission another before export; no claim of priority or external verification.
+
+* T1: checked the resultant/finite divisor argument, fixed-modulus root tree, CRT and standard vs infinite periods, and the odd-cofactor counterexample in the collection chain. Requested explicit handling of finite point exceptions in the `J+1` bound. **Fix:** split the cells at all exceptional points before counting forbidden progressions.
+* P2: checked successor multiplication, constant quadratic base change of the PID and norm stages, and end-extension preservation. **Fix:** explicitly say these models fail parameter-free IE₁ and name the PID, not M3.
+* T3: “the residue Laurent test forces every `c_qH^q` to be bounded; the opposite block then gives `N(c_q)∈ℚ^×`, so `c_q` is a unit and `|c_q|H^q` is bounded away from zero; the unit invariant then puts `[H]` in V, a contradiction.” Checked exponent-zero descent for the other quadratic fields, preservation of P, L2 and L3, non-injective integral marks, standard-adjusted Pell window and the filtered-minimum argument. Requested finite-type approximation for normality after divisible-torus edges. **Fix:** give the directed finite-type normal subsystem argument at every edge. Clarified that u is minimized, d is a standard nonsquare.
+* Other editorial requests: scope the first header line to a nonstandard P; disambiguate Smith and the axiom for J; mark the IΔ₀/BCM consequence of Parikh as context. Applied. Master-file triage remains with the conductor, per lane rules.
