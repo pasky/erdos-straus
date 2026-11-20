@@ -1,0 +1,7 @@
+Explicit bound, least window and exact rational: inputs, max (cap,q,p): 4485 (16, 67, 198529)
+Reduced nonprincipal forms up to sign b: even a, odd a: 246 473
+Radical/radical scaling: integral, positive-cap reconstructions: 111 87
+Planted least non-residue 1 mod 4: windows with (q/p)=+1,-1: 107 122
+Composite dead (p,s,m,K,factor(K)): (8761, 17, 51, 2203, {2203: 1})
+Index correction: {'checked': 920, 'proper': 25, 'proper_drop': 24}
+Proper-subgroup example (drop,p,q,s,S,j,a,new cap,one-prime cap): (126, 160649, 523, 37, (3, 11), 9, (2, 3), 4, 130)

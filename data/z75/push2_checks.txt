@@ -1,0 +1,5 @@
+v2(x),v2(y),classes,words: 1 2 406 1624
+v2(x),v2(y),classes,words: 0 3 408 1632
+v2(x),v2(y),classes,words: 2 2 195 780
+v2(x),v2(y),classes,words: 3 5 10 40
+exact lower-tail majorant: Z=0..100, even d=0..40; passed
