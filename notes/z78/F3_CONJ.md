@@ -1,8 +1,8 @@
-Result: Every covering tuple in either orientation has deg g'<N and a monic determinant W of degree ≤1 (A) or ≤2 (B), forcing v=r−1 or r−2 in A and |v−r|≤1 in B. Label: PROVED (rel. Mason–Stothers; FF_THIRDS_CORNER L1.1, L1.2, L3.1, C3.2, P2.1; FUNCTIONFIELD_ES3 L1.1, L2.1, L2.2; FF_ODD_ABSENCE C1.7)
-Scope: Case B families at the two specified points for F₃[T], A=T², minimum level N≥4; no all-level conclusion about sterility, finite covering, or integer ES.
+Result: Both x*_1 and x*_2 are uncovered over F₃[T] for A=T²: Conjecture 0.2 holds and there is no finite linear covering of ES₃(T²,·). Label: CLAIMED pending hostile review (rel. §§1–4, §6, and the sources below)
+Scope: Only the monic linear families of FUNCTIONFIELD_ES2 §0, for q=3 and A=T². This is not a result for A=T, a decision on polynomial solutions for individual irreducibles, or a statement about integer ES.
 Review: cross-model (Anthropic Claude Opus, `data/z78/xreview/REVIEW_F3_CONJ_OPUS.md`; D1–D9 applied)
-Triage: TARGET
-STATUS delta: in the existing §2 function-field target, replace “CONJECTURE 0.2 over F₃[T]” by “Conj. 0.2 over F₃[T] (open): every covering tuple has deg g′<N and a monic T-unit determinant W of degree ≤1 (A) / ≤2 (B); none through level 38 (CERTIFIED rel. §§2–3; z78 F3_CONJ §§2–4).”
+Triage: HEADLINE (new §6 cross-review owed)
+STATUS delta: pending hostile review, update the function-field row: “For q=3, A=T², both specified slice points are uncovered: no finite linear covering (F3_CONJ §6). This does not cover A=T.” Remove Conjecture 0.2 from the §2 target.
 
 ## 1. Two-sided reconstruction (PROVED relative to the indicated tuple lemmas)
 
@@ -83,6 +83,28 @@ Together with §3 this gives **r−Q−1≤v≤r+2P−1**, i.e. the §0 ranges. 
 **PROVED (rel. §§1–3).** At any N≥4 it suffices to take n=2N−3 or 2N−2, choose either orientation, degrees d,r satisfying 0≤r≤d≤n+Q−K, d+r+P≥K, d−r≡n mod 2 and v≡n mod 2 in [max(N−d,r−Q−1),r+2P−1]. Take monic T-unit W of degree r−v+2P−1, H with lc q and degree n−d+Q−K. List the monic T-unit divisors X of T^(b+1)W−qH of degree r. This is a nonzero polynomial: on an actual tuple it equals pXS≠0; discard an identically zero index. Calculate B=(T^K H−pX)/q, requiring an integral monic T-unit of degree n−d. Divide T^n by B to obtain quotient M and V=−remainder. Require m=M/X integral monic, V monic of degree v and g=(X+B)/(TV) a monic T-unit; test MB=T^n+V and E=Tgm w₁−1≡−u mod T^K with all T-unit conditions. Exactly the surviving tuples cover, by FUNCTIONFIELD_ES3 Lemmas 1.1 and 2.1 (minimum level K−1); exact tuples and same-side families are excluded by the earlier notes. The W enumeration may generate false indices until these last tests. In particular the two orientations have not been identified by a symmetry (swapping inverts the target unit, which is not again 1+c′T); the two c, by contrast, are equivalent by §4.
 
 **Assessment (next step).** Fix the few W and use the sharp *second* logarithmic derivative. If A=rad-active denominator R₃(G), then A·G′/G=T^(n−1) times a polynomial of degree ≤1+P−w≤2. Classify this small numerator together with MW=T^δ SJ+κq, rather than assuming that a single congruence at the prime u vanishes. No proof of empty residual tests at all N, no decision on nonemptiness of O(3,T²), and no implication for integer ES.
+
+## 6. A third elimination closes both orientations (CLAIMED, Round 2 checkpoint)
+
+Assume a covering tuple with N≥4. By the proved sign symmetry (§4) it suffices to take c=1, so **all** of p,q,u,m,H,W are monic with u=1+T. Retain the notation of §3: b=n−K, δ=N−b∈{3,4}, P=deg p, Q=deg q, κ=(q−p)/T, j=deg J, w=deg W. We use the four exact identities
+
+    MW=T^δ SJ+κq,      MH=qT^b+J,       pXS=T^(b+1)W−qH,       T^δ SH−W=ug.
+
+**Key identity (pure algebra).** Substitute J=MH−qT^b in pMW and then use pXS and M=mX. Since δ+b=N,
+
+    pMW + T^δ q m H² = κu + T^N (T m H W − uS).                    (6.1)
+
+**Degree test.** The second term on the left has degree δ+Q+z+2h=N+b+3Q−d−r ≤ N−δ+3Q+P−1 < N, using d+r+P≥K, Q=1−P and δ≥3. Its degree is at least δ>1. Also d≤b+Q and w≤1+P by §3, so deg(pMW)=P+d+w≤b+2+P. If this too is <N, the left side must equal κu: by monicity there is no cancellation of leading terms (1+1=2≠0), and degree ≥δ contradicts deg(κu)=1. Thus equality is required in b+2+P≤N: P=1, δ=3, d=b=N−3, w=2. This kills all of A, both orientations when δ=4, and all but the extreme coefficient of B when δ=3. Since Q=0 and d=b, H=1. The left side of (6.1) now has degree exactly N and is monic; hence
+
+    T mW−uS=1.                                                       (6.2)
+
+**Endpoint.** Here p=u, q=1, κ=−1, b=d, M=T^d+J. By pXS=T^(d+1)W−1 and (6.2) we have X(TmW−1)=T^(d+1)W−1, so X=TWJ+1. Substituting this and uS=TmW−1 into MW=T³SJ−1 gives
+
+    mW [ T (T³−uW) J − u ] = T³ J + u.                              (6.3)
+
+Let D=T³−uW. It is nonzero since W(0)≠0. If deg D≥1, as J≠0 the bracket has degree 1+deg D+j>1. The degree of the left side is then z+2+1+deg D+j>3+j, the right degree. If D is constant, T=−1 gives D=−1, whence uW=T³+1=u³ and W=u². But the companion product pgJ=T^bW−κH now gives ugJ=T^dW+1, impossible modulo u when u|W. This also follows from MW=T³SJ−1 and ug=T³S−W. No endpoint survives. ∎
+
+**Scope of conclusion.** For minimum levels N≤3 we use the prior exhaustive exclusions and small-parameter analysis in FF_THIRDS_CORNER §2. All families of a given tuple have cylinders contained in its minimum-level cylinder. Same-side families cannot cover either x*_c by FUNCTIONFIELD_ES2 §0.2. Thus the two points are in O(3,T²); by FUNCTIONFIELD_ES2 §0.1 a finite linear cover is impossible. §§4–5 are historical finite certificates and reconstruction tests; the all-level conclusion uses neither the large search nor its extrapolation. No claim here concerns all numerators over F₃ or integer ES.
 
 ## Sources
 
