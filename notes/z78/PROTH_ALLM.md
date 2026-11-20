@@ -98,3 +98,19 @@ Proof. Choose the largest s=B2^v≤m, so s>m/2. For every odd q≤R its order or
 **Why not a stronger rigidity statement?** For every 3∤B there are infinitely many m (m≡2 mod 3) where two fixed mod-7 triples cover the whole sparse family, independently of m. See `PROTH_RIGIDITY.md` §§5–6 for the formulas and the precise profinite *tail*, not full closure. The zero exponent limit is absent there; the corollary instead uses the many m having k≡0 mod every bounded odd modulus.
 
 **Assessment (unresolved).** No odd h≥3 failing the core criterion is known here, and we have not proved it for all h. No all-exponent extension beyond m=10 follows. Next test the 3-power tower h=3^j: the three 9|h single-use contributions c=B_m, Φ₂(2), Φ₆(2) all have the same image g in the unit-ratio quotient. Doubling gives −1=g^{ord_h(2)/2} there; proving g⁶=1 for j≥2 would suffice on this tower, without a full unit-group generation theorem. The census is motivation only.
+
+### 9. Round 3: which sign mechanism actually applies?
+
+**CERTIFIED classification**, not a classification of all possible proofs. `data/z78/proth/mechanisms.tsv` gives one line for every m=2..131 with h, ord_h(2), whether −1 occurs, the first applicable hand mechanism, and (a,b) in §7 when applicable. The script `scripts/z78_proth_mechanisms.py` enumerates the exact doubling orbit and every divisor a≥4 of h+1. Treat §1 as I and §7 with a proper divisor as II, testing I first. The five exhaustive groups are:
+
+|first applicable|count|m (for II: m:a)|
+|---|---:|---|
+|I|45|3, 6, 7, 9, 10, 13, 15, 19, 21, 22, 27, 30, 31, 33, 34, 42, 49, 51, 54, 55, 57, 61, 63, 66, 69, 70, 73, 75, 79, 82, 85, 87, 90, 91, 93, 97, 99, 103, 105, 106, 114, 115, 121, 126, 129|
+|II|5|18:6, 25:5, 39:6, 102:6, 123:6|
+|§6, 3∤h|36|4, 12, 16, 24, 28, 36, 37, 40, 43, 45, 46, 48, 52, 58, 60, 64, 67, 72, 76, 78, 81, 84, 88, 94, 96, 100, 108, 109, 111, 112, 117, 118, 120, 124, 127, 130|
+|§6, 3∥h|29|2, 8, 11, 17, 20, 26, 29, 35, 38, 44, 47, 53, 56, 62, 65, 71, 74, 80, 83, 89, 92, 98, 101, 107, 110, 116, 119, 125, 128|
+|§6, 9∣h|15|5, 14, 23, 32, 41, 50, 59, 68, 77, 86, 95, 104, 113, 122, 131|
+
+In the last line the entries are precisely m=(9t+1)/2, t=1,3,…,29. The §6 rows do not mean that hand proof is impossible: when H itself is prime and 3∤h, the Jacobi value (3/H)=−1 in the cyclic unit group gives −1∈⟨3⟩, and 3 is a reusable ratio. For example h=7,H=127. Having even doubling order does *not* imply mechanism I: ord_{15}(2)=4 but the unique involution of ⟨2⟩ there is 4, not −1. Likewise with 3∤h, ord_{35}(2)=12 but 7|h excludes −1. In general §§1/7 both assume 3∤h; the coset of B_1 need not collapse if 3|h.
+
+**CONJECTURE (all-m core, still open).** For every odd h≥3, the finite set of §4 meets the target −1/c for some dyadically admissible c|k. By §4 this is necessary and sufficient for the specified stripped unit-source core construction. Every h≤261 passes. The stronger sufficient test for the *density-one* version is the unit-ratio membership in §6 with c|k, c≡1 mod 16 and at most the indicated exceptional slots (use the mod-7 fallback when reserving 3). A finite menu combining I and II alone cannot exhaust h: e.g. for every h=2^q−1 with odd q≥3, h is 3-free and ord_h(2)=q odd, and every divisor of h+1 is a power of 2, so II would imply I. This is a failure of these two sign identities, not of the §4 criterion.
