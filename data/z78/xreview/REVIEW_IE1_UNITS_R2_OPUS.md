@@ -166,3 +166,70 @@ I tried to falsify every new claim and found no counterexample, no circular step
 
 **Bottom line:** after F1–F6, §§5–10 can be exported. Theorem C and the §9 model go in as a RECORD extension of the PW row. Theorem D and §9's nonisogeny are BARRIER-BROAD, with the FRONTIER screen "positive-rank standard elliptic curves need primitive points at polynomially spaced heights" plus the §6 unit-height screen. Everything is PROVED relative to the cited inputs, and IE₁⁻ vs ES stays open.
 </code-review>
+<code-review reviewer="anthropic/claude-opus-5-5" mode="smart" since="3b6d0819b">
+A separate reviewer subagent was asked to review the changes in `git log 3b6d0819b..`. Its request and review follow.
+
+Request: review changes since 3b6d0819b carefully (both form and substance) - analyze, critique, debate and challenge
+
+Additionally (this augments, and must not weaken or replace, the baseline review above): Round 2 fixes verification for notes/z78/IE1_UNITS.md after prior Opus ACCEPT WITH MINOR FIXES. Check F1–F6 and minor edits at 8cbc9da07 (especially PW positive standard unit/order cases and archimedean basis; no new model claims). Concise final export verdict. No file changes.
+
+Commit log:
+commit 8cbc9da078fa0027b499ce9a368726606864367e
+Author: Petr Baudis <pasky@ucw.cz>
+Date:   Fri Nov 20 21:19:30 2026 +0100
+
+    z78 R2: archive hostile Opus review; clarify PW and exact induction/export scopes
+
+ data/z78/xreview/REVIEW_IE1_UNITS_R2_OPUS.md | 168 +++++++++++++++++++++++++++
+ notes/z78/IE1_UNITS.md                       |  42 ++++---
+ 2 files changed, 192 insertions(+), 18 deletions(-)
+
+Review:
+**Verdict: EXPORT — ACCEPT.** All six required fixes (F1–F6) and all of the earlier review's minor points are correctly applied at 8cbc9da07. The commit adds no new model claims and does not widen any scope. It changes only the note and archives the earlier review, and no master files are touched (correct for a lane commit). I made no file changes.
+
+**F1 — PW in the §5 and §9 models (substance).** I checked this against `IE1_PUSH2.md` §1, including its step 4. It is correct.
+- **Infinite `d`:** with `b≥1`, `e≥√d` is infinite. Because the size group lies in `ℚ·[P]`, the standard powers of `e` are cofinal. The first power `≥2n` is `<2en`, and `e<2a`, which gives the `(2a+1)(n+1)` window.
+- **Standard nonsquare `d`:**
+  - §6's realization explicitly covers nonmaximal orders through identity marks, so `ℤ[√d]` and its square-factor suborders get the full profile `H(U)=Δ`.
+  - A positive unit with large real embedding has `u,v>0`.
+  - Its size class equals that of `n`, so the ratio is standard and standard powers of the least unit `ε₀` bracket `2n`.
+  - Bounded elements of `R` are `ℤ`, so `ε₀` has abscissa no larger than any supplied unit's, which covers supplied units with infinite `a`.
+- **Square `d`:** the factor argument applies.
+- **Transfer:** the note proves the single first-order PW sentence in the ordinary-cut pair and transfers that sentence, not the external packing lemma. This is the right way round.
+
+**F2.** `k_j*=Frac(D_{j−1})*·S_j*` at completed layers `j≤n−1`, with "S_j-unit at that layer". This is consistent with the notation in the §3 inductive package.
+
+**F3.**
+- The `C_k` display is correct.
+- The witness bound follows from the bound on the sum.
+- Base and successor work for `n≥1`, since `kn≥n+1`, and a zero sum is impossible.
+- The sum factor for `t^i·e` is `k+i`, which lies in `[k,2k−1]`.
+- `N(e)=1` for odd `k`.
+- The Fourier formula for the power-basis coefficients is correct.
+- The real-place profile `a`, with `−a/(k−1)` elsewhere, has weighted sum zero.
+- The wording now correctly says "multiplies by a factor at most `2k−1`".
+
+**F4.** The label now lists all the requested inputs.
+
+**F5.**
+- §§5–6 and §9 are now RECORD, merged into the existing PW row rather than added as a new row.
+- §8 is METHOD-CX and §10 is BARRIER-SCOPED.
+- The two FRONTIER §4 screens (unit heights and elliptic heights) are proposed.
+- "Each misses a parameter-free elliptic window" is accurate: the third model misses `Ell_E`, the fourth misses `Ell_E'`.
+
+**F6.** The new Result sentence describes three separations, each by a model that fails IE₁⁻. It is consistent with the Scope line's four models. The new title fits the note.
+
+**Minor edits.**
+- `E₄` is renamed to `Ell_E` everywhere.
+- `H₀>D₁` is dropped. It was not needed: the `G=0` case only needs `H'>1`.
+- `|c_y|≤√(1+|A|+|B|)·H²` is correct, since `c_y²≤(1+|A|+|B|)H⁴`.
+- §10 now reads `I=2I=3I`, which is enough for both conditions, and its scope is narrowed to common-multiple-axis constructions with such a conductor.
+- The Assessment adds a fair priority caveat (Otero, Smith, Boughattas, D'Aquino).
+
+**Optional nits (none blocks export):**
+1. §5 now uses `t²` for the odd square without defining it, while `t` also means the radical in §§4 and 6 and a free variable in §8. "P↦t², t odd" would settle it.
+2. "Seed" means the ordinary-cut pair before transfer in §6, but the torus algebra before floors and spheres in §9. The phrase "in the §9 seed" is therefore slightly ambiguous.
+3. The Assessment sentence "an infinity valuation … rules out such a map for the successful extensions here" really follows from `¬ES(P)`, which the infinity valuation proves. As worded it reads like a separate claim; rephrasing would help.
+
+Still open and unchanged: standard ES and IE₁⁻ vs ES.
+</code-review>
