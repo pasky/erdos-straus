@@ -1,0 +1,2 @@
+25606400401 prime 4 unordered 15 first [(1, 22, 290981823)]
+25606400401 prime 8 unordered 0 first []

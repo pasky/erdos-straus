@@ -1,0 +1,17 @@
+14 prior R zeros checked [409, 577, 5569, 9601, 23929, 83449, 102001, 329617, 712321, 1134241, 1724209, 1726201, 5212561, 8813281]
+4545 unordered integral (e,a,b,d) tested 24579 hit 0
+full 8/n zero 131
+full 8/n zero 241
+repair denominator q; m=lcm(1,...,128) 4545 4 383
+repair denominator q; m=lcm(1,...,128) 131 8 263
+repair denominator q; m=lcm(1,...,128) 241 8 263
+repair denominator q; m=lcm(1,...,128) 179530327201 8 263
+repair denominator q; m=lcm(1,...,128) 452438542081 8 359
+full 8/p Type II rescue (a,b,c,d) 25277866681 (1, 1613480852, 3, 2)
+full 8/p Type II rescue (a,b,c,d) 25606400401 (7, 152722070, 3, 3)
+full 8/p Type II rescue (a,b,c,d) 27112836481 (1, 1141593115, 4, 3)
+full 8/p Type II rescue (a,b,c,d) 28154878561 (1, 1185468571, 4, 3)
+full 8/p Type II rescue (a,b,c,d) 37165786681 (13, 179112225, 2, 2)
+full 8/p Type II rescue (a,b,c,d) 39919266721 (1, 384033452, 19, 13)
+full 8/p Type II rescue (a,b,c,d) 179530327201 (3, 681329515, 2, 11)
+full 8/p Type II rescue (a,b,c,d) 452438542081 (1, 56708918081, 46, 1)
