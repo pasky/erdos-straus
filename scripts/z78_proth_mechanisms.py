@@ -17,6 +17,6 @@ def classify(m):
 if __name__=='__main__':
     rows=[classify(m) for m in range(2,132)];dest=Path('data/z78/proth/mechanisms.tsv')
     with dest.open('w') as f:
-        w=csv.writer(f,delimiter='\t',lineterminator='\n');w.writerow(('m','h','ord_h(2)','minus_in_orbit','first_applicable','a','b'));w.writerows(rows)
+        w=csv.writer(f,delimiter='\t',lineterminator='\n');w.writerow(('m','h','ord_h(2)','minus_in_orbit','first_applicable','a','b'));w.writerows([('-' if v is None else v) for v in r] for r in rows)
     for K in ('I','II','primary','primary-3','primary-9'):
         rr=[r for r in rows if r[4]==K];print(K,len(rr),', '.join(str(r[0])+(f':{r[5]}' if K=='II' else '') for r in rr))
