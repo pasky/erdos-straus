@@ -1,6 +1,6 @@
 Result: Nothing in Masullo's announced GRH manuscript transfers to the B2 lower tail or to any STATUS §2 target. Conditional on its claimed GRH for all Hecke L-functions, the campaign's Dirichlet-, Dedekind- and Kummer-GRH-conditional results would become conditional on the manuscript instead. The only inputs that strictly need Hecke rather than Dirichlet GRH are class-group characters of order ≥ 3, Kummer/ring-class Chebotarev and Bach-type class-group generation. They do not enter the direct (★) expansion (Lemma 2), and where they are used the termwise GRH estimates stop at the square-root barrier (Lemmas 3–4).   Label: Assessment (with four PROVED elementary/standard lemmas; every inferred consequence CONDITIONAL on GRH for Hecke L-functions, claimed in Masullo 2026, unrefereed)
 Scope: Transfer question only, graded from the source (`/tmp/masullo/full.txt`, PDF sha256 e039d3f6…bf5; PDF page = printed page). No assessment of the manuscript's correctness. **GRH is not proved**: the manuscript is an unrefereed announcement. ES in ℕ is open. No CLAIMED-CONDITIONAL ES theorem results.
-Review: none (authoritative grading pass by Claude; supersedes the verdicts of `notes/z78/MASULLO_GRH_SKIM.md`, which stays as a page map with an erratum)
+Review: cross-model hostile review (GPT-6.2 Astra via the review tool, on the first draft; all concrete findings applied). This is the authoritative grading pass by Claude. It supersedes the verdicts of `notes/z78/MASULLO_GRH_SKIM.md`, which stays as a page map with an erratum.
 Triage: NULL (plus one BARRIER-SCOPED dead-end line, §5)
 STATUS delta: none
 
@@ -240,7 +240,7 @@ p mod ℓ ∈ T_ℓ := {−r mod ℓ : r | (ℓ+1)/4}.
 
 For m | ℓ − 1, the Frobenius class of ℓ in L_m = ℚ(ζ_m, p^{1/m}) determines p mod ℓ at best up to (𝔽_ℓ^×)^m, via
 the m-th power residue symbol (p/𝔩)_m ≡ p^{(ℓ−1)/m} mod 𝔩. This element of 𝔽_ℓ does not depend on the choice of 𝔩.
-Since −1 ∈ T_ℓ, the set T_ℓ is a union of such cosets only if (ℓ−1)/m ≤ |T_ℓ| ≤ τ((ℓ+1)/4). (CERTIFIED by brute force:
+Since −1 ∈ T_ℓ, the set T_ℓ is a union of such cosets only if (ℓ−1)/m ≤ |T_ℓ| ≤ τ((ℓ+1)/4). (CERTIFIED by brute force, `scripts/z78_masullo_kummer_stab.py 200000`:
 for every prime ℓ ≡ 3 (4), 7 ≤ ℓ ≤ 2·10⁵, the multiplicative stabiliser of T_ℓ is trivial, so m = ℓ − 1 is forced
 there. No general proof was attempted.)
 
