@@ -1,0 +1,4 @@
+r 569 nonsq 284 L1 42 P3marg 308 P3data 291 Q3marg 748 Q3data 705 (smalle 389 smallf 295 large 21) P5marg 1300 P5data 1200
+P5small r 569 j0:all1026/alive830/pershift1448 j1:all1070/alive872/pershift1578 j2:all1138/alive926/pershift1666 j3:all1178/alive958/pershift1734 j4:all1218/alive988/pershift1792
+alive_after_depth3_numer_over_2r^3 156345724 ppm 424345.121
+ROW 569 42 308 748 1300
