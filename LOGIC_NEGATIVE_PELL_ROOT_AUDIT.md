@@ -1,5 +1,17 @@
 # Audit: negative Pell at the ES-failing prime in the joint PID
 
+```
+Result: model M3: replace the root of the joint PID tree by the row E=ℚ[u,v,a,b]/(Da+Cb−1). The result is one external PID
+        with IOpen, internal Dirichlet, TS, NR, Lagrange and ¬ES(P), and X²−PY²=−1 has a positive primitive solution at P.
+Label: PROVED (internal), relative to LOGIC_JOINT_PID_TREE_AUDIT.md (Opus-reviewed) and LOGIC_SPLIT_SQUARE_TEST.md.
+Scope: negative Pell only at the single distinguished prime P. This is not a universal Pell scheme, and it is separate from
+       M1/M2 (LOGIC_POSITIVE_PELL_AUDIT.md, LOGIC_NEGATIVE_PELL_TS_TEST.md). No standard counterexample. ES is OPEN.
+Review: cross-lab (Opus) data/z74/xreview/REVIEW_PELLMODELS_OPUS.md, ACCEPT-WITH-FIXES; the fixes are applied here.
+Triage: HEADLINE (a strengthening of the STATUS §E joint-PID item, together with LOGIC_PELL_UNIT_GROUP.md)
+STATUS delta: optional half-line on the joint-PID bullet, proposed in the review, §5 item 3.
+```
+*(z74 Opus xreview fix: added this §0 block.)*
+
 **Verdict: accept at the distinguished prime, not as a universal Pell axiom.** Relative to the existing tower and square-class obstruction (`LOGIC_JOINT_PID_TREE_AUDIT.md`, `LOGIC_SPLIT_SQUARE_TEST.md`), the change of root below gives one countable external PID satisfying IOpen, internal unbounded Dirichlet, universal TS, NR and Lagrange, with `P≡1 mod 840` a positive infinite prime, `¬ES(P)`, and a positive primitive solution of `X²−PY²=−1`. No Pell step is needed on any subsequent edge. There is no inference about ordinary counterexamples. Here are the checks specific to the replacement.
 
 ### 1. Factorial row, order, signs (PROVED)
@@ -47,3 +59,5 @@ Even the optional residue-field prescription of `LOGIC_PRESCRIBED_FIELD_AT_P.md`
 **Falsifiers.** F1: at an ordinary square `P=m²>1`, `(mY−X)(mY+X)=1` precludes a positive integral Pell witness. The proof never requires one there. F2: no numerator-8 theorem. F3: primality here is in the nonstandard PID, not a specialization theorem at composite inputs. F4: no change to any ordinary exceptional-set count.
 
 **CERTIFIED finite regression, not proof of the tower:** `(ulimit -v 800000; timeout 60 env UV_OFFLINE=1 uv run --no-sync python scripts/z74_negative_pell_root.py)`.
+
+*(z74 Opus xreview fix.)* That script's `centers()` tests only whether `±s⁻¹` is a sum of two squares mod `n`. This is vacuous for the tested `n`, and it is not the inverse-square-root recipe of §4. The recipe is checked by hand in the Opus review. Independent replay: `scripts/z74_xrev_pellmodels_checks.py`.
