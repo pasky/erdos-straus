@@ -1,0 +1,3 @@
+P stats {'hits': 13, 'first gap hyp': 11, 'Z-bound hyp': 1, 'third gap hyp': 3, 'COMBINED hyp (third+Zbound)': 1, 'ALL hyps incl first gap': 1}
+combined e/bound (0.00013782623592232453, (31, 2, 1, 6, 49, 152, 201, 1, 1))
+combined e/sqrt(U) (0.03225806451612903, (31, 2, 1, 6, 49, 152, 201, 1, 1))
