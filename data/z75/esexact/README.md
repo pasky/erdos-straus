@@ -6,8 +6,9 @@ One full enumeration per input, with every output triple independently checked a
 |---:|---:|---:|---:|---:|---:|
 | 25277866681 | 531 | 219 | 750 | 115.85 | 22604 |
 | 25606400401 | 527 | 209 | 736 | 100.56 | 22640 |
+| 179530327201 | 790 | 240 | 1030 | 642.50 | 26116 |
 
-The minimum among these two inputs is **736** at `25606400401 = 160020²+1`; no claim here about other inputs.
+The minimum among these three inputs is **736** at `25606400401 = 160020²+1`; no claim here about other inputs.
 
 The header is `p E F unordered_I unordered_II`, subsequent lines `type a b c d`. These are the normalized positive Elsholtz–Tao coordinates, with `a <= b`. Type I denominators are `(pabd, acd, bcd)`; Type II `(abd, pacd, pbcd)`. The verifier recovers the unordered triples, checks divisibilities and the ES identity in arbitrary precision, and rejects duplicates. The independent calibration computes the sets of triples by enumerating the smallest denominator and factoring the remaining two-term equation. **All 77** primes tested agree (every prime ≡ 1 mod 4 up to 900, plus 10009, 65537, 1000033); the large calibration primes use very small E,F to exercise the residual branch. This is a finite count, not a statement about typical primes or about ES in general.
 
@@ -21,7 +22,9 @@ timeout 60 g++ -std=c++17 -O3 -Wall -Wextra scripts/z75_esexact.cpp -lgmpxx -lgm
 for p in 25277866681 25606400401; do
   timeout 1750 "$exe" "$p" 600000 8000000 emit > "$base/replay.txt" && cmp "$base/replay.txt" "$base/$p.txt" || exit 1
 done
-timeout 120 uv run --offline --no-project python scripts/z75_esexact_verify.py "$base/25277866681.txt" "$base/25606400401.txt"
+p=179530327201
+timeout 1750 "$exe" "$p" 2000000 45000000 emit > "$base/replay.txt" && cmp "$base/replay.txt" "$base/$p.txt" || exit 1
+timeout 120 uv run --offline --no-project python scripts/z75_esexact_verify.py "$base/25277866681.txt" "$base/25606400401.txt" "$base/179530327201.txt"
 timeout 500 uv run --offline --no-project python scripts/z75_esexact_verify.py calibrate "$exe"
 ```
 
