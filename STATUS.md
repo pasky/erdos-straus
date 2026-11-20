@@ -88,11 +88,11 @@ Each item carries a label, then a pointer. "PROVED rel. X" means proved relative
   families: `15·b^s+1` (`b ≡ 2 mod L`), fixed-base-2 `c_J·2^s+d_J` (`PROOF_S_WILD.md` §3), and `(4^m−1)2^s+1` (`1 ≤ m ≤ 6`).
 
 ### D. Structure and obstruction theorems (what a proof has to beat)
-* **Brauer–Manin and bounded-exponent étale-BM blindness.** On (★) and Type II models, positive-integral BM sees only squares
-  (`Z58_STRUCT*.md`, 4545 non-BM; sterile fibres Y_{p,c} down to `c = ⌊√n⌋`, `DISPROOF_DEEP.md`). On opens S_n°, X_n°, U_n°
-  (kernel s ≠ 1 for k = 4, s ∉ {1, 2} for k = 8), for every fixed `(m, M)` a `q^{mM}` moving-denominator repair defeats
-  all `Br(W)[M]` upstairs on a rational twist of every finite ℚ-group torsor of geometric monodromy exponent dividing `m`
-  (jump `mM | E` sharp; full `Br` upstairs detects existence; PROVED, z75–z77 Opus-reviewed, `notes/z77/DISPROOF_KUMMER.md`).
+* **Brauer–Manin and open-surface exponent dichotomy.** On (★) and Type II models, positive-integral BM is empty iff n is
+  a square (`Z58_STRUCT*.md`, 4545 non-BM; sterile fibres Y_{p,c} down to `c = ⌊√n⌋`, `DISPROOF_DEEP.md`). On coordinate
+  opens S_n°, X_n°, U_n° (kernel s ≠ 1 for k = 4, s ∉ {1, 2} for k = 8), fixed-exponent Brauer and étale-Brauer tests on
+  outer-integral positive adeles fail to obstruct (`DISPROOF_OBSTRUCT.md`, `DISPROOF_KUMMER.md`, FRONTIER §3), whereas
+  unbounded 2-power-conductor characters at one prime detect existence (`DISPROOF_OBSTRUCT.md`, `DISPROOF_DEEP.md` §3).
 * **Finite procedures fail at trap points** (method barrier). This covers coverings, polynomial menus, and finite oracle
   programs with a finite formal tree at the trap: PROVED (`Z53_NONCRTLOGIC.md`); prime failures CONDITIONAL on Schinzel H.
   Unconditional (z74, Opus-reviewed) for polynomial whole-triple menus in Gaussian + any fixed number of *integral*
@@ -122,7 +122,7 @@ Every item has had one cross-lab review: z64–z65 Claude work by Astra, and z73
 * **IOpen + Bézout + BCM + Lagrange (four squares) + full internal prime QR ⊬ ES (z76, Opus-reviewed):** countable model
   via modified twisted dyadic-axis end extensions with P ≡ 1 (840) failing ES (`notes/z76/QR_TS_BCM.md`, strengthening
   `BCM4_PUSH2.md` and `LOGIC_FIVE_SQUARE_BCM.md`; not an external PID; the unchanged z76 successor fails TS and `L(Div)`,
-  and can also sit over a nonstandard true-arithmetic cut `C ⊊ D ⊊ R`, `notes/z77/IE1_NONPID.md`).
+  `notes/z77/IE1_NONPID.md` §§2, 5).
 * **Variable-radicand Pell-window induction (z75–z76, Opus-reviewed):** parameter-free W₂ fails in the z74 PID, 5-square BCM
   and collection models (`IE1_ES.md`), but a separate rank-one normal `IOpen + Lag` model has ¬ES(P), negative Pell at P,
   full variable-radicand supplied-unit Pell windows and filtered least Pell-coordinate search with polynomial congruences at
@@ -155,10 +155,10 @@ Ranked by the campaign (Assessment). Definitions are in the cited files.
    small-split-prime orbits, solution-graph moves).
 4. **Logic:** IE₁, IE₁⁻, IΔ₀ and IΔ₀ + exp remain open (no nonstandard external IOpen PID satisfies IE₁, and if ES holds
    in ℕ any IE₁⁻ ES countermodel is non-PID with a nonstandard PA cut and J ≠ 0, `IE1_BREAK.md` §4; simultaneous Pell
-   windows require `H(A*) = Γ⁰[G]`, `IE1_NONPID.md` §4); universal TS in some BCM+Lag+QR ES-countermodel (unchanged z76
-   successor fails TS, `IE1_NONPID.md` §5); arithmetic Bézout+IW₂.
-5. **Coverings and function fields:** the r = 17 Mordell point (sterile threshold now **7,219**; level-1 survival proved
-   for all primes r ≥ 17); CONJECTURE 0.2 over F₃[T].
+   windows over an integrally closed proper end extension of a PA cut require `H(A*) = Γ⁰[G]`, `IE1_NONPID.md` §4);
+   universal TS in some BCM+Lag+QR ES-countermodel (unchanged z76 successor fails TS, `IE1_NONPID.md` §5); Bézout+IW₂.
+5. **Coverings and function fields:** the r = 17 Mordell point (sterile threshold now **7,219**; level-1 survival CERTIFIED
+   through 181,391 and proved above by z76); CONJECTURE 0.2 over F₃[T].
 6. **Analytic sub-problems:** FRONTIER §7 (e.g. θ > 3/4 on E(N), cancellation on the height-dependent modular hyperbola,
    pushing e*(n) below L_R[1/2]).
 

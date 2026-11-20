@@ -875,10 +875,13 @@ the z58/z59 blocks: theorems about specified classes, none a necessity theorem f
 
 * **Bounded-exponent étale-Brauer blindness on open ES varieties (z77, BARRIER-BROAD; PROVED rel. absolute purity, local/global reciprocity, Chebotarev; Opus-reviewed `notes/z77/DISPROOF_KUMMER.md`).**
   * *Statement.* On `V ∈ {S_n°, X_n°, U_n°}` (`k = 4, 8`; squarefree kernel `s ≠ 1` for `k = 4`, `s ∉ {1, 2}` for `k = 8`),
-    for every fixed `m, M ≥ 2` there is a `q^{mM}` moving-denominator repair lifting to a rational twist `W` of the level-`m`
-    coordinate Kummer cover (and of every finite ℚ-group torsor of geometric monodromy exponent dividing `m`) orthogonal to
-    **all of `Br(W)[M]` upstairs** (even including transcendental non-pullback Fermat-surface classes like `(x, y)`). Valuation
-    jump `E` passes iff `mM | E` (sharp). Full unbounded `Br` upstairs detects existence (`DISPROOF_DEEP.md` §3).
+    for outer-integral positive adeles `D` (integral on the original equation at every finite place, in the open everywhere,
+    units almost everywhere) and every fixed `m, M ≥ 2`, a `q^{mM}` moving-denominator repair lifts to *some* rational twist
+    `W` of the level-`m` coordinate cover — and of every finite ℚ-group torsor of geometric monodromy exponent dividing `m` —
+    orthogonal to **all of `Br(W)[M]` upstairs** (including genuinely non-pullback transcendental classes such as `(x, y)`
+    when `m` and `M` are both even). For the specified one-coordinate valuation jump `E` on the simultaneous coordinate cover
+    and its indicated `X, U` images, passing is equivalent to `mM | E` (sharp). Full unbounded `Br` upstairs detects existence
+    (`DISPROOF_DEEP.md` §3).
   * *Rules out:* any fixed-`(m, M)` bounded-exponent Brauer or étale-Brauer obstruction on `S_n°, X_n°, U_n°` as an
     explanation of `4545`, `8/131`, `8/241`, or odd non-square `R₈` zeros.
   * *Does NOT rule out:* unbounded-exponent classes (tautological existence) or obstructions on other deleted divisors.
@@ -1093,11 +1096,13 @@ has passed all lines.
 18. **Logic / `IE₁` countermodels cannot be nonstandard external PIDs (z76–z77, `IE1_BREAK.md` §4, `IE1_NONPID.md` §4).** Any
     nonstandard model of `IE₁` (and, assuming ES in ℕ, any `IE₁⁻` ES countermodel) must have a nonstandard PA cut, hence
     nonzero dyadic kernel `J = ⋂ 2^n R` (with `J² = J` under Lagrange), excluding nonstandard external `IOpen` PIDs and
-    rank-one orders; simultaneous Pell windows above a PA cut further require the full multiquadratic augmentation hyperplane
-    `H(A*) = Γ⁰[G]`, ruling out any realization inside an upper algebra of finite rational unit rank modulo `Ē*`.
+    rank-one orders; in any integrally closed signed `IOpen` proper end extension of a PA cut, simultaneous Pell windows for
+    independent cut squareclasses are equivalent to `H(A*) = Γ⁰[G]` (`IE₁⁻` forces this for standard-prime systems, ruling
+    out realizations inside upper algebras of finite rational unit rank modulo `Ē*`).
 19. **No fixed-`(m, M)` open-surface étale-Brauer obstruction (z77, `DISPROOF_KUMMER.md`).** On `S_n°, X_n°, U_n°`
-    (`s ≠ 1` / `s ∉ {1, 2}`), a `q^{mM}` repair defeats `Br(W)[M]` upstairs on a rational twist of every finite ℚ-group torsor
-    of geometric monodromy exponent dividing `m` (jump `mM | E` sharp).
+    (`s ≠ 1` / `s ∉ {1, 2}`, outer-integral positive adeles), a `q^{mM}` repair lifts to some twist of every finite ℚ-group
+    torsor of geometric monodromy exponent dividing `m` orthogonal to `Br(W)[M]` (`mM | E` sharp for the specified repair on
+    the simultaneous coordinate cover).
 
 **Profile that passes all the screens** (Assessment, distilled from the above and both boards; not a theorem): a single-integer
 statement at fixed p; uses the quadratic character of p (vanishes at squares); 4-specific or with an explicit threshold;
@@ -1231,9 +1236,11 @@ no single-prime lower-tail mechanism is known.
   power-saving exceptional set), ES_(k) for every k and every n ≥ 2 ((J)108 Cor 2.5; the even-k construction itself works at odd non-squares and
   extends by scaling), M^□ for all M ≡ 0 (4) ((J)41) — see B-fin for why they don't
   transfer.
-* Thin families: all 3·2^s + 1, **15·2^s + 1** (Lean 4 verified for all s ≥ 0 in z75, `lean/ES/ES/Proth15.lean`; plus
-  corollary 15·b^s + 1 for b ≡ 2 mod L), 7·4^s + 9, 63·2^s + 1, 4^s + 105, and **4^s + k for k ∈ {9, 33, 57, 81, 129, 153,
-  177, 201, 225, 249, 273, 297}** (PROVED, computer-assisted; §1, z75 `notes/z75/CONJS_GEN.md`, `THIN_CYCLO.md`, Opus-reviewed).
+* Thin families: all **`(4^m − 1)·2^s + 1` for `1 ≤ m ≤ 6`** (`3, 15, 63, 255, 1023, 4095`; `3` and `15` Lean 4 verified,
+  `Proth3.lean` & `Proth15.lean`; `255, 1023, 4095` computer-assisted via moving cyclotomic products in z77, Opus-reviewed
+  `notes/z77/PROOF_S_WILD.md`), `7·4^s + 9`, `4^s + k` for `k ∈ {9, 33, 57, 81, 105, 129, 153, 177, 201, 225, 249, 273, 297}`
+  (z75 `THIN_CYCLO.md`, computer-assisted), plus infinitely many non-ET-coverable `15·b^s + 1` (`b ≡ 2 mod L`) and
+  fixed-base-2 `c_J·2^s + d_J` (`PROOF_S_WILD.md` §3).
 * Function fields: one mute place makes the ES variant over F_q[T] a theorem at every P, unconditionally and effectively
   (Bilharz/Weil; (J)30) — even where ES_q itself has no finite covering. ES over F_q[T] is a theorem in several
   small-characteristic cases ((J)4).
@@ -1246,9 +1253,10 @@ no single-prime lower-tail mechanism is known.
 **5.3 Obstruction-side theorems** (useful because they bound what coverings can do).
 * Sterile Mordell points exist on the r-generic line for every prime **r ≥ 7 219** (z77, Opus-reviewed `notes/z77/R17_F3.md`,
   393× total drop from `STERILE_LOWER.md`'s 2^{21.44} ≈ 2.84·10⁶ via z76 box-centre compression + z77 exact level-1 union,
-  per-prime cube sieve, pooled `4τ` bound and cofactor Coppersmith determinants; computer-assisted rel. SE/ZL/z76 inputs):
-  no finite ET covering handles all primes with least QNR r. Exact level-1 union certifies survival for **every prime r ≥ 17**
-  (`r ≤ 13` covered at level 1); all-depth sterility at `r = 17` remains open.
+  per-prime cube sieve, pooled `4τ` bound and cofactor Coppersmith determinants; computer-assisted rel. SE/ZL/z76 inputs;
+  Opus replayed the new tables, not inherited SE/ZL high rows): no finite ET covering handles all primes with least QNR r.
+  Exact level-1 union is CERTIFIED for `17 ≤ r ≤ 181 391` and combined with z76's all-depth tail yields level-1 survival
+  for **every prime r ≥ 17** (`r ≤ 13` covered at level 1); all-depth sterility at `r = 17` remains open.
 * Function fields: ES_q(T^k) has no finite linear covering for q = 3^r, r ≥ 2; ES_q(T) none for q = 3^r, r ≥ 2, via a Weil-
   reciprocity root-product law ((J)51, (J)56, (J)67; ET-type coverings included by (J)73). Only q = 3 (CONJECTURE 0.2) is open.
 * W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4}) for infinitely many Mordell-hard primes (`POINTWISE_OMEGA13.md`; rel. Gallagher,
@@ -1657,8 +1665,8 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * (z75–z76) Fixed-`c` Type II fibres `Y_{n,c}` (`DISPROOF_PUSH2.md`, `DISPROOF_DEEP.md` §§1–2, Opus-reviewed) → non-BM sterile at `c ≈ p^{2/3}` (`M(j)`), at all even `c ≥ 2` for `n = c² + 1` (Vieta descent), at some `c ≍ n^{1/3+ε}` for every large odd nonsquare, and at prescribed `⌊(log n)^A⌋` (`A > 3`) for density-1 primes (none implies a Type II zero).
 * (z76) `alpo.ge/remark.pdf` transfer limits (`ALPO_TRANSFER.md`, Opus-reviewed) → path-quadric norm sharp at `t = 1` (odd `k ≥ 3`), `tr(A^{2j}) = 2N₂`, missing-frequency Gram lemma, and stable-range (`rank L_i ≥ s_i + 3`) common-square transport renders T1-respecting positive representation determinants sterile on `n ≡ 1 (8M)` (signed/coupled theta towers not closed).
 * (z76) Unmodified z75 twisted BCM successor fails prime QR at 3 or 5 (`QR_TS_BCM.md` §5; repaired in §4).
-* (z77) Two-prime square-sieve Cauchy model below 4/13 & short-witness primorial sharpness (`notes/z77/ANALYTIC_413.md`, Opus-reviewed) → uniform `W^{1/2}` kernel majorant caps at `4/13` (`n^{1/20}` deficit at `3/10`); on a primorial fibre in every long interval, even all short noncoprime endpoint pairs leave `O((log H)^{2/3}/(log log H)^{1/3})` short witnesses at z75 all-integer height (does not rule out loss-free zero bounds).
-* (z77) Unchanged z76 BCM successor fails TS and `L(Div)`; ordinary-only rotations fail at a forced nonstandard circle class (`notes/z77/IE1_NONPID.md` §§2, 5, Opus-reviewed); polynomial-input fixed-`c` sterile fibres have density 0 (`KUMMER_FIBRES.md`).
+* (z77) Two-prime square-sieve Cauchy model below 4/13 & short-witness primorial sharpness (`notes/z77/ANALYTIC_413.md`, Opus-reviewed) → hypothetical termwise `W^{1/2}` kernel majorant caps at `4/13` (Assessment: `n^{1/20}` deficit at `θ = 3/10`, not a general signed-mean barrier); on a primorial fibre in every long interval, even all short noncoprime endpoint pairs leave `O((log H)^{2/3}/(log log H)^{1/3})` short witnesses at z75 all-integer height (does not rule out loss-free zero bounds).
+* (z77) Unchanged z76 BCM successor fails TS and `L(Div)`; ordinary-only rotations fail at a forced nonstandard circle class (`notes/z77/IE1_NONPID.md` §§2, 5, Opus-reviewed); polynomial-input fixed-`c` **non-BM** sterile fibres have density 0 (`KUMMER_FIBRES.md`).
 
 ## 7. Open sub-problems that are well-posed and plausibly tractable
 
@@ -2413,9 +2421,10 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    5,040; `scripts/z75_thin_verify.py`). Earlier z52d/z53 narrowings (`Z52D_THINFAMILY.md`, `Z53_THIN15.md`) are retained
    only as historical context for fixed-root-degree menus.
 9. **Uniform multiplicity on the r-generic line** (`SIBLING.md` Conj 4.2; EVIDENCE: r ≤ 61 through depth 4, r = 19 through 6,
-   r = 17 through 7) and **r = 17**. **Level-1 survival gap CLOSED (z77, `notes/z77/R17_F3.md`):** exact level-1 union
-   certifies a surviving nonsquare cell at **every prime r ≥ 17** (fails for r ≤ 13), and full all-depth sterility holds
-   for every prime **r ≥ 7 219**. *Why:* Conj 4.2 on **17 ≤ r < 7 219** alone (393× smaller than 2^{21.44}, no level-1 proviso
+   r = 17 through 7) and **r = 17**. **Level-1 survival gap CLOSED (z77, `notes/z77/R17_F3.md`):** exact level-1 union is
+   CERTIFIED for `17 ≤ r ≤ 181 391` and combined with z76's tail gives a surviving nonsquare cell at **every prime r ≥ 17**
+   (fails for r ≤ 13), while full all-depth sterility holds for every prime **r ≥ 7 219** (sufficient threshold, not a proof
+   of Conj 4.2 above 7 219). *Why:* Conj 4.2 on **17 ≤ r < 7 219** alone (393× smaller than 2^{21.44}, no level-1 proviso
    left) would give sterile r-generic points for every prime r ≥ 17 — a sharp threshold ((J)77).
 10. **F₃[T], CONJECTURE 0.2** (the thirds corner x*_c is uncovered). *Why:* the last open case of function-field sterility;
     a percolation/König question ((J)71, (J)72, (J)77). *(z77, `notes/z77/F3_TARGET.md`, Opus-reviewed: for every N ≥ 4, both
@@ -2858,9 +2867,9 @@ no HOT LEAD.**
 * **Fibres, covers and records (`notes/z76/DISPROOF_DEEP.md`, `DISPROOF_COMP.md`):** PROVED Vieta parameter descent gives non-BM sterile fixed-`c` Type II fibres `Y_{n,c}` at every even `c ≥ 2` with `n = c² + 1` (and for each fixed positive odd `r`, all but `O_r(log 2X)` even `c ≤ X` with `gcd(c, r) = 1` at `n = c² + r`), plus some `c ≍ n^{1/3+ε}` for every large odd nonsquare and prescribed `c(n) = ⌊(log n)^A⌋` (`A > 3`) for density-1 primes. PROVED unrestricted BM upstairs on square Kummer covers inherits downstairs coordinate reconstruction. CERTIFIED new in-𝔐 `R₈` prime floor **`1,590,284,203,561`** (`R = 52`, full `8/p` passes, 4 checkers incl. cross-lab); EVIDENCE from exact `p mod 1,058,400` controls shows a cheap-witness square-shift deficit (`367/699` vs `128/699` panel counts; medians `32` vs `51`; CRT model-expected hit counts `0.615` vs `2.018`, not zero probabilities).
 
 **z77 update (5-lane GPT-6.2 Astra burst orchestrated by Claude Fable; all 5 lanes Opus cross-reviewed ACCEPT or ACCEPT-WITH-FIXES, fixes applied; ES in ℕ remains open).**
-* **Coverings & thin families (`notes/z77/R17_F3.md`, `F3_TARGET.md`, `PROOF_S_WILD.md`):** PROVED sterile Mordell points on the `r`-generic line exist for every prime **`r ≥ 7,219`** (393× total drop from `2.84·10⁶`; all 15,202 newly covered primes replayed byte-for-byte by Opus) and CERTIFIED exact level-1 nonsquare survival for **every prime `r ≥ 17`**, closing the level-1 survival gap completely. PROVED `ES((4^m−1)2^s + 1)` for `m = 4, 5, 6` (`k = 255, 1023, 4095`, all `s ≥ 0`) via moving cyclotomic products, and for **infinitely many fixed-base-2 pairs `c_J·2^s + d_J`** with distinct odd `c_J` and no finite ET/divisor cover; also PROVED shift-uniform `O(H exp(−c√(log H log log H)))` lower tail for `ω(f) ≤ 2` U₇ witnesses (sketch-level review) and checked 7,771 hard primes for Conj. B/C (no new exceptions). For `𝔽₃[T]` Conj. 0.2, PROVED orientation-A search cases require `deg M ≥ ⌈(N+1)/2⌉` for all `N ≥ 4`.
-* **Broad barrier & fibres (`notes/z77/DISPROOF_KUMMER.md`, `KUMMER_FIBRES.md`):** PROVED **BARRIER-BROAD** (§3): on `S_n°, X_n°, U_n°` (`s ≠ 1` for `k = 4`, `s ∉ {1,2}` for `k = 8`), for every fixed `(m, M)` a `q^{mM}` repair defeats all `Br(W)[M]` upstairs (including transcendental classes `(x,y)`) on a rational twist of every finite ℚ-group torsor of geometric monodromy exponent dividing `m`, with exact sharpness `mM | E`. PROVED bounded-`c` polynomial sterile fibres have density 0; CERTIFIED all 23,325,118 square-offset primes `p = m² + c` (`m ≤ 10⁸`, `c ∈ {1,4,16,36,64,100}`, above the z76 floor) have `R₈, R, A` witnesses and all 1,881,841 forced-composite entries have `R, U₇` witnesses.
-* **Logic & analytic barriers (`notes/z77/IE1_NONPID.md`, `ANALYTIC_413.md`):** PROVED `C ⊊ D ⊊ R` BCM+Lag+QR ES countermodel over a nonstandard true-arithmetic PA cut `C⁺ ≡ ℕ` with global cut-coefficient linear minimization, exact multiquadratic unit-height criterion `H(A*) = Γ⁰[G]` for simultaneous Pell windows above a PA cut (ruling out finite-unit-rank realizations of `IE₁⁻`), and proved the unchanged z76 BCM successor fails TS and `L(Div)` and ordinary-only rotations cannot repair a forced circle class. PROVED primorial-fibre sharpness forcing the `(log log H)^{1/3}` loss for many short witnesses at z75 all-integer height even with all noncoprime endpoint pairs, and diagnosed the `n^{1/20}` signed-mean deficit below `4/13` in the two-prime square sieve.
+* **Coverings & thin families (`notes/z77/R17_F3.md`, `F3_TARGET.md`, `PROOF_S_WILD.md`):** PROVED sterile Mordell points on the `r`-generic line exist for every prime **`r ≥ 7,219`** (393× total drop from `2.84·10⁶`, rel. SE/ZL/z76 inputs; Opus replayed the new tables across all 15,202 primes, not inherited SE/ZL high rows), and CERTIFIED exact level-1 nonsquare survival for `17 ≤ r ≤ 181,391` (with z76's tail closing the level-1 survival gap for all primes `r ≥ 17`). PROVED `ES((4^m−1)2^s + 1)` for `m = 4, 5, 6` (`k = 255, 1023, 4095`, all `s ≥ 0`) via moving cyclotomic products, and for **infinitely many fixed-base-2 pairs `c_J·2^s + d_J`** with distinct odd `c_J` and no finite ET/divisor cover; also PROVED shift-uniform `O(H exp(−c√(log H log log H)))` lower tail for **primes** with `ω(f) ≤ 2` U₇ witnesses (sketch-level review) and checked 7,771 hard primes for Conj. B/C (no new exceptions). For `𝔽₃[T]` Conj. 0.2, PROVED orientation-A search cases require `deg M ≥ ⌈(N+1)/2⌉` for all `N ≥ 4`.
+* **Broad barrier & fibres (`notes/z77/DISPROOF_KUMMER.md`, `KUMMER_FIBRES.md`):** PROVED **BARRIER-BROAD** (§3): on `S_n°, X_n°, U_n°` (`s ≠ 1` for `k = 4`, `s ∉ {1,2}` for `k = 8`, outer-integral positive adeles), for every fixed `(m, M)` a `q^{mM}` repair lifts to some rational twist of every finite ℚ-group torsor of geometric monodromy exponent dividing `m` orthogonal to `Br(W)[M]` (including `(x,y)` when `m, M` are both even); `mM | E` is sharp for the specified one-coordinate repair on the simultaneous coordinate cover. PROVED bounded-`c` polynomial **non-BM** sterile fibres have density 0; CERTIFIED all 23,325,118 square-offset primes `p = m² + c` (`m ≤ 10⁸`, `c ∈ {1,4,16,36,64,100}`, above the z76 floor) have `R₈, R, A` witnesses and all 1,881,841 forced-composite entries have `R, U₇` witnesses.
+* **Logic & analytic barriers (`notes/z77/IE1_NONPID.md`, `ANALYTIC_413.md`):** PROVED `C ⊊ D ⊊ R` BCM+Lag+QR ES countermodel over a nonstandard true-arithmetic cut `C⁺ ≡ ℕ` with global cut-coefficient linear minimization (`D` has TS and `L(Div)`; `R` fails both and lacks Pell windows). Separately, PROVED for any integrally closed signed `IOpen` proper end extension of a PA cut that simultaneous Pell windows for independent cut squareclasses are equivalent to `H(A*) = Γ⁰[G]` (`IE₁⁻` forces this for standard-prime systems, ruling out finite-unit-rank upper realizations), and proved ordinary-only rotations fail at a forced nonstandard circle class (`IE1_NONPID.md` §5). PROVED primorial-fibre sharpness forcing the `(log log H)^{1/3}` loss for many short witnesses at z75 all-integer height even with all noncoprime endpoint pairs, and gave an Assessment of a `n^{1/20}` deficit at `θ = 3/10` for the hypothetical termwise `W^{1/2}` kernel majorant in one two-prime square-sieve Cauchy model.
 
 ## 8. Pointers into the repository
 
