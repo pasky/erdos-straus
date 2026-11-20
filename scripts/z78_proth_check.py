@@ -78,6 +78,18 @@ def groups():
             assert math.gcd(int(i),h)==1 and e>=0;A=A*pow(B(int(i))*pow(3,-1,M),e,M)%M
         a=row['terminal'];assert (A*(B(a)*pow(3,-1,M) if a is not None else 1)+1)%M==0
         assert row['unit_j']==[i for i in range(h) if math.gcd(i,h)==1]
+    for row in json.loads((R/'exact-core.json').read_text()):
+        h=row['h'];Q=2**h-1;k=2*Q+1
+        if h==1:assert all(c%16!=13 for c in (1,3));continue
+        c=row['c'];T=row['T0'];assert c>0 and k%c==0 and c%16==(14*Q-1)%16 and len(T)==len(set(T));A=c
+        for d in T:
+            assert d in divs(h)
+            for b in divs(d):A=A*pow(1+(1<<b),mob(d//b),Q)%Q
+        for i,e in row['ratios'].items():
+            a=int(i);g=math.gcd(a,h);assert 0<=a<h and e>=0;A=A*pow((1+(1<<a))*pow(1+(1<<g),-1,Q),e,Q)%Q
+        assert A==Q-1
+        for j in row['unit_j']:assert pow(2,j*pow(j,-1,h),Q)==2
+        assert len(set(row['unit_j']))==sum(math.gcd(i,h)==1 for i in range(h))
     print('group positive product certificates verified (no discrete logs)')
 if __name__=='__main__':
     for a in sys.argv[1:]:
