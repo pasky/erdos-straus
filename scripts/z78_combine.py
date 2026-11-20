@@ -4,6 +4,10 @@ from z76_lift import ceildiv
 base=Path('data/z78')
 p5={r:s for p in (base/'p5').glob('*.txt') for r,*s in rows(p)}
 
+p3={r:(l,d,g,c) for p in (base/'p3').glob('*.txt') for r,l,d,g,c in rows(p)}
+q3={r:s for p in (base/'q3').glob('*.txt') for r,*s in rows(p)}
+qc=[v for p in (base/'qcap.txt',base/'qcap_ext.txt') if p.exists() for v in rows(p)]
+
 def shiftcap(r,k,sums):
     # r^( (k-1)/2 ) * 2^j small shifts. Both orientations remain inside the same
     # inverse-stable survivor set mod r. Use a complete-block count + remainder.
@@ -20,7 +24,14 @@ def zbudget(r):
             # A missing low table row may charge all surviving classes at that depth.
             try:ct=bound(T,n)
             except AssertionError:ct=n if T is Q else r**((k+1)//2)
-            if T is P and k==3:ct=min(ct,shiftcap(r,k,S[r]))
+            if T is P and k==3:
+                ct=min(ct,shiftcap(r,k,S[r]))
+                if r in p3:
+                    assert p3[r][0]==L[r][-1]
+                    ct=min(ct,p3[r][-1])
+            if T is Q and k==3 and r in q3:
+                t=next(t for a,b,*t in qc if a<=r<=b);s=q3[r]
+                ct=min(ct,min(s[i]+2*s[3+j]+t[3*i+j] for i in range(3) for j in range(3)))
             if T is P and k==5 and r in p5:ct=min(ct,shiftcap(r,k,p5[r]))
             ls.append(F(ct,r**((k+1)//2 if T is P else k)))
     tail=F(364,1000*isqrt(r))+F(3,100000)
@@ -30,7 +41,8 @@ def zbudget(r):
 if __name__=='__main__':
     import sys
     primes=[r for r in L if r<7219]
-    if '--partial' not in sys.argv:assert set(p5)==set(primes)
+    if '--partial' not in sys.argv:
+        assert set(p5)==set(p3)==set(primes) and set(q3)=={r for r in primes if r<=5520}
     fail=[];stats=[]
     for r in primes:
         part=zbudget(r);v=sum(part)
