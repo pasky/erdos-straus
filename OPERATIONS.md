@@ -43,9 +43,9 @@ waves.** Spend remaining quota only on a *genuinely new* mechanism for forcing a
 FRONTIER §3, §6). Current cleanest targets: (MS-U₇) and (MS⁺₁₀₅) (`Z60_SUMMARY.md` §5).
 
 ## Cross-model reviews
-**None owed.** All of z72–z74 (Astra) has been Opus-reviewed (2026-11-19/20; 12 reviews in `data/z74/xreview/REVIEW_*_OPUS.md`;
-every note ACCEPT or ACCEPT-WITH-FIXES, fixes applied, no WRONG claim). Brief for this kind of review:
-`z52bbriefs/xreview_z74_opus.md`. Rule: the cross-review is always by the other lab
+**None owed.** Every assigned Opus review of z72–z74 (Astra) is done (2026-11-19/20; 12 reviews in `data/z74/xreview/REVIEW_*_OPUS.md`;
+each reviewed note ACCEPT or ACCEPT-WITH-FIXES, fixes applied, no WRONG claim; Astra's side audits were read as inputs,
+not certified separately). Brief for this kind of review: `../z52bbriefs/xreview_z74_opus.md`. Rule: the cross-review is always by the other lab
 (Astra reviews Claude work; Opus `anthropic/claude-opus-5-5:high` reviews Astra work). Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`,
 `Z64_EQUIV.md`, `Z64_SDEEP.md`, `Z64_SDEEPF.md` (reviews in `data/z6{4,5}/xreview/REVIEW_*_ASTRA.md`).
 
@@ -70,6 +70,6 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
 * **Cadence (user, 2026-11-19).** The campaign resumes when a new frontier model arrives: each new model gets a burst of
   waves, and the campaign is idle in between. "Paused" means waiting for the next model. It is not a decision to stop.
 * **z72–z74 (2026-11-19)** was the GPT Astra burst: phase criteria, weak-arithmetic PID and BCM models, and the
-  formula-menu no-go (`WAVES.md`). Every note then passed an Opus cross-review. Four side agents covered the headline items and eight more covered
-  the rest, about 80 notes in total. All were ACCEPT or ACCEPT-WITH-FIXES. The reviewers applied the note-level fixes,
+  formula-menu no-go (`WAVES.md`). Its notes then had Opus cross-reviews. Four side agents covered the headline items and eight more lanes covered the
+  rest. Every verdict was ACCEPT or ACCEPT-WITH-FIXES. The reviewers applied the note-level fixes,
   since the author was not running, and tagged each edit "(z74 Opus xreview fix)".

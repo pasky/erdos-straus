@@ -16,28 +16,28 @@ The `−` lines only compress; full scopes are in the cited notes and FRONTIER �
     which a nonstandard P ≡ 1 (840) fails ES. It uses positive reciprocal descent, which bypasses the z66 arc obstruction
     (`LOGIC_JOINT_NR_TS.md`). Built on it: IOpen + Bézout + BCM + five squares ⊬ ES (`LOGIC_FIVE_SQUARE_BCM.md`).
 `+` PROVED, in separate non-Bézout models: IOpen + Lag + Pell⁺ ⊬ ES, still with Pell⁻ and TS at irreducibles ≡ 1 (4) added
-    (`LOGIC_POSITIVE_PELL_AUDIT.md`, `LOGIC_NEGATIVE_PELL_TS_TEST.md`). One Lagrange end extension adds common multiples.
-`+` PROVED, unconditional: polynomial whole-triple menus in Gaussian and *integral* Pell data miss density one of a
-    progression; with Pell data alone they miss a whole progression (`GAUSSIAN_PELL_MENU.md`, `PELL_ES_MENU_NOGO.md`).
+    (`LOGIC_POSITIVE_PELL_AUDIT.md`, `LOGIC_NEGATIVE_PELL_TS_TEST.md`). One Lagrange end extension: BCM at every old cutoff.
+`+` PROVED, unconditional: fixed polynomial whole-triple menus in Gaussian + *integral* Pell data miss density one of the
+    primes on a progression (`GAUSSIAN_PELL_MENU.md`); with Pell data alone, every prime of a class (`PELL_ES_MENU_NOGO.md`).
 `−` Method counterexamples (`Z74_CHECKPOINT.md`): one-slot repair; 214729 misses both slots at all 16 divisor shifts
     (infinitely many under Dickson); 193 fails both windows at every root-eligible shift; hull BCM; Pell remainders escape.
 `→` Open: BCM + four squares, iterating the Lagrange extension, the joint non-PID NR Variant (conditional, assembly owed).
-`R` Authored by Astra. Opus cross-review of every z74 note, in 8 lanes: ACCEPT or ACCEPT-WITH-FIXES, fixes applied, no
-    WRONG claim (`data/z74/xreview/REVIEW_*_OPUS.md`).
+`R` Authored by Astra. Assigned Opus cross-reviews all done: ACCEPT or ACCEPT-WITH-FIXES, fixes applied, no WRONG claim
+    (`data/z74/xreview/REVIEW_*_OPUS.md`). Astra's own side audits served as review inputs, not as reviewed results.
 
 ### z73 (2026-11-19): weak theories with Bézout and PIDs
 `+` PROVED countermodels:
     * IOpen + Bézout ⊬ ES (`Z73_OPEN_BEZOUT.md`, `LOGIC_BEZOUT.md`).
     * Per unit-square class, an external IOpen PID with a failing prime (`Z73_PID_SQUARE.md`).
-    * One PID failing in every class and every interval (a, a+b), a ≥ 1, b infinite, with Bertrand and internal Dirichlet
-      (`LOGIC_PID_INTERVAL_AUDIT.md`, `LOGIC_PID_DIRICHLET_AUDIT.md`).
+    * One PID failing, for each standard unit-square class, in every interval (a, a+b), a ≥ 1, b infinite, with Bertrand
+      and internal Dirichlet (`LOGIC_PID_INTERVAL_AUDIT.md`, `LOGIC_PID_DIRICHLET_AUDIT.md`).
     * In landing (non-PID) Bézout models: collection with PD and TS (`LOGIC_BEZOUT_NORM_COLLECTION.md`), short intervals
       and greatest prime divisors (`Z73_SHORT_INTERVAL.md`, `LOGIC_GREATEST_PRIME.md`).
 `+` Row descent: IOpen + Bézout + Dirichlet has the same prime-tail dichotomy as IOpen (`Z73_ES_ROW_DESCENT.md`). Also the
     marked-section characterisation and composite-shift forcing criteria.
-`−` Smith's PID alone does not give ES failure. Four-term starts get trapped at 101641 (`data/z72/counter_tail/ROUND3.md`).
-`R` Authored by Astra. Opus cross-review of every z73 note: ACCEPT-WITH-FIXES, fixes applied (`REVIEW_Z73BASE_OPUS.md`,
-    `REVIEW_PIDEXT_OPUS.md`, `REVIEW_COLLECT_OPUS.md`, `REVIEW_Z72PHASE_OPUS.md`).
+`−` Smith's PID alone does not give ES failure. Two four-term starts get trapped at 101641; a third reaches a solution (`data/z72/counter_tail/ROUND3.md`).
+`R` Authored by Astra. Opus cross-reviews ACCEPT or ACCEPT-WITH-FIXES, fixes applied (`data/z74/xreview/`: Z73BASE,
+    PIDEXT, COLLECT, NRMODELS, Z72PHASE).
 
 ### z72 (2026-11-19): phase criteria at prime shifts
 `+` PROVED: a sharp two-factor criterion at a prime shift (`Z72_PAIR_PHASE.md`). With shifts not restricted to primes,

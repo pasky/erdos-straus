@@ -113,13 +113,13 @@ Every item has had one cross-lab review: the z64–z65 Claude work by Astra, and
   class of 𝔐. IOpen does prove it on every other class mod 840. `Z64_UNPROV.md`; adding T1 and two squares, see
   `Z65_LOGIC2.md`.
 * **IOpen + Bézout** does not prove ES. The failing prime is ≡ 1 mod every standard k. `Z73_OPEN_BEZOUT.md`,
-  `LOGIC_BEZOUT.md`. One such model adds full collection, prime divisors and prime two-squares, with failing primes 1 + h²
-  (`LOGIC_BEZOUT_NORM_COLLECTION.md`). On each class, IOpen + Bézout + Dirichlet proves the prime tail iff IOpen does
-  (`Z73_ES_ROW_DESCENT.md`).
+  `LOGIC_BEZOUT.md`. One such model adds full collection, prime divisors and prime two-squares, with cofinal failing primes
+  1 + h² (`LOGIC_BEZOUT_NORM_COLLECTION.md`). For each primitive class, IOpen + Bézout + internal Dirichlet proves ES at
+  all primes of the class above some numeral iff IOpen does (`Z73_ES_ROW_DESCENT.md`).
 * **For each unit-square class r mod M** there is an external PID satisfying IOpen with an ES-failing infinite prime
-  ≡ r (M) (`Z73_PID_SQUARE.md`, Opus-reviewed). A single such PID has failing primes in every class and in every
-  interval (a, a+b) with a ≥ 1 and b infinite, and satisfies Bertrand and internal Dirichlet; NR fails at those primes
-  (`LOGIC_PID_INTERVAL_AUDIT.md`, `LOGIC_PID_DIRICHLET_AUDIT.md`).
+  ≡ r (M) (`Z73_PID_SQUARE.md`, Opus-reviewed). A single such PID has, for each standard unit-square class, failing
+  primes in every interval (a, a+b) with a ≥ 1 and b infinite, and satisfies Bertrand and internal Dirichlet. NR fails
+  at the square-marked primes (`LOGIC_PID_INTERVAL_AUDIT.md`, `LOGIC_PID_DIRICHLET_AUDIT.md`).
 * **One external IOpen PID with internal Dirichlet, universal prime two-squares, universal NR and Lagrange**, in which a
   nonstandard P ≡ 1 (840) fails ES. NR is a square-root divisibility certificate, not full reciprocity. Proof of record:
   the Proof map in `LOGIC_JOINT_NR_TS.md` and `LOGIC_JOINT_PID_TREE_AUDIT.md` (Opus-reviewed). Its non-PID "ordinary
