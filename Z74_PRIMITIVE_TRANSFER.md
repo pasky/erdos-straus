@@ -1,5 +1,14 @@
 # Primitive pairs in one-slot ES transfers
 
+```
+Result: exact primitive-pair criterion and sharp ceiling p≤Q(Q+r)/(4r)+1 for lower one-slot transfers; infinite Dirichlet families in both directions inside 1 mod 840 with unbounded j, p/Q and k; exact upper-direction test.
+Label: PROVED (criteria, ceilings, families via Dirichlet) | CERTIFIED (examples, (Q,p)=(18,23) minimum j=2)
+Scope: one-slot transfers only; the target progressions are ET congruence classes (ET Prop. 1.9), not new coverage. ES is OPEN.
+Review: cross-model, data/z74/xreview/REVIEW_SHIFTS_OPUS.md (ACCEPT-WITH-FIXES; no gap) (z74 Opus xreview fix)
+Triage: METHOD-CX
+STATUS delta: none
+```
+
 **PROVED.** Write `p>Q` for an odd prime, `p∤k`, and keep two slots after scaling a donor for `4/Q` by `k`. There are infinite ordinary-prime transfers in **both** directions, even inside `1 mod 840`. The lower direction does not force `j=1`, nor an absolute bound on `j` or `p/Q`. None of the infinite target progressions below is new coverage beyond Elsholtz–Tao (ET).
 
 ## Lower direction: a sharp ceiling and an exact fixed-Q maximum
