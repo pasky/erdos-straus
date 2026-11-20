@@ -9,12 +9,13 @@ for a in [1,F(1,2),0]:
     m=a+(1+a)*k
     t1=2*m/(1-l+6*m); t2=(1+l+k)/(4+2*l+3*k); t=max(t1,t2)
     print(f'prefactor P^{a}: first={t1}, second={t2}, global={t}')
-    for x,b,g in [(t,1-2*t,t),(t,t,1-2*t),((1-t)/2,(1-t)/2,t)]:
+    for alpha,b,g in [(t,1-2*t,t),(t,t,1-2*t),((1-t)/2,(1-t)/2,t)]:
+        assert alpha+b+g==1 and b>=alpha>=t and g>=t
         r=b-t; j=2*(a*r+g-t); d=1+2*r+j-b-2*g
         last=a*r+((1+l)*g+k*d)/2
         assert r>=0 and j>=0 and 2*r+j<g and 2*r+g>=b and 3*g-1<l*g
         assert d>0 and b-2*r<=t and b-g<=t and last<=t
-        print('  x,b,g',x,b,g,'H margin',g-2*r-j,'d',d,'last',last)
+        print('  alpha,beta,gamma',alpha,b,g,'H margin',g-2*r-j,'d',d,'last',last)
 for t in [F(3,10), F(4,13), F(7955,24966)]:
     r=1-3*t; print('theta',t,'rho',r,'allowed corr exponent',t-2*r,'excess vs sqrt',t/2-(t-2*r))
     assert t/2-(t-2*r)==2-F(13,2)*t
