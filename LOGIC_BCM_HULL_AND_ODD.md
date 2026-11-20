@@ -1,5 +1,18 @@
 # Why an elementary hull cannot supply a missing bounded common multiple
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: (a) for D≺D* and I initial in D*, I⊨G(b) iff D⊨G(b) at old b, so elementary hulls cannot add bounded common
+        multiples at old bad cutoffs (in an IOpen external PID exactly the standard cutoffs are good); (b) the
+        unmodified Lagrange successor fails "−1 is a sum of two squares mod d" at d=h+1; (c) adding the quotient-
+        selection task dZ=1+X²+Y² repairs every odd modulus at the first, PID-based successor.
+Label:  PROVED (internal) for (a)–(c); the S-interface (i)+(ii) for iteration is a sufficient CONDITIONAL test only
+Scope:  one successor; no iterated Lag + BCM ES countermodel; no claim about ES in ℕ or PA/ZFC.
+Review: cross-model data/z74/xreview/REVIEW_ENDEXT_OPUS.md (rows BHO1–BHO7; ACCEPT-WITH-FIXES, fixes applied)
+Triage: BARRIER-SCOPED ((a), (b)); (c) supporting lemma
+STATUS delta: none
+```
+
 **Verdict (proved).** Compactness supplies a multiple of all *named* old elements. It does not supply a multiple of an entire internally bounded interval that lacked one in the base. In fact no initial subring of any elementary extension containing that base can repair the latter failure. Separately, the floor/four-square successor of `LOGIC_LAG_END_MULTIPLE.md` **fails the odd-quotient condition**, at the explicit odd modulus `h+1`. This is not an unavoidable feature of a successor: a new quotient-selection step repairs *every* odd modulus at the first, PID-based successor. Iteration from an arbitrary resulting non-PID is not proved.
 
 ### The bounded-formula obstruction
@@ -22,7 +35,7 @@ Let `O(d)` mean `−1` is a sum of two squares in `D/dD`, `d>0` odd. In IOpen th
 A[X,Y,Z]/(dZ−1−X²−Y²).
 ```
 
-These conditions recognize every new positive odd d in the final pullback, since the marks extend and do not change; no definable test inside the ring is required. Use `Y` larger than the old real closed field, then `X` larger than its real closure with Y. In `Frac(A)[Y,X]` substitute `Z=(1+X²+Y²)/d`. The monic-in-X normal form is `g(Y,Z)+X h(Y,Z)`; surviving highest X-degrees are respectively even and odd, proving injectivity and showing that the elements independent of X are exactly `A[Y]`. Thus bounded stage elements remain exactly F, and the two largest-scale steps add no ordered residues. These checks do not use d prime or factor d. Polynomial and monic presentations suffice; no finite-stage UFD hypothesis is needed here.
+These conditions recognize every new positive odd d in the final pullback, since the marks extend and do not change; no definable test inside the ring is required. (z74 Opus xreview fix: unlike `LOGIC_LAG_END_MULTIPLE.md`, where the tower is built before the marks, this task list depends on the marks. That is harmless: marks are fixed on each finite stage before its tasks are scheduled, and later stages never change them. Recall also that `d∉ 2R′` iff `e₂(d)∈ℤ₂^×`, because `R′/2R′=R₀/2R₀=𝔽₂`.) Use `Y` larger than the old real closed field, then `X` larger than its real closure with Y. In `Frac(A)[Y,X]` substitute `Z=(1+X²+Y²)/d`. The monic-in-X normal form is `g(Y,Z)+X h(Y,Z)`; surviving highest X-degrees are respectively even and odd, proving injectivity and showing that the elements independent of X are exactly `A[Y]`. Thus bounded stage elements remain exactly F, and the two largest-scale steps add no ordered residues. These checks do not use d prime or factor d. Polynomial and monic presentations suffice; no finite-stage UFD hypothesis is needed here.
 
 At *each* odd PID prime q choose one integral norm `−1` pair in its completed DVR. To see it exists, use old Lag at q to obtain a nonzero four-square zero mod q. In the residue field view it as `N(z)+N(w)=0` in the quadratic étale Gaussian algebra. If `−1` is already square we are done; otherwise this algebra is a field, both z,w are nonzero, and `N(z/w)=−1`. A unit coordinate gives a Hensel lift since 2 is invertible. Use this pair for X,Y and set `Z=0`, even when `e_q(d)=0`. At the 2-mark take `X=Y=0, Z=1/e₂(d)`, integral because d is a unit there. All coordinates are therefore integral at all marks. This operation cannot have the preceding auxiliary `h=−1` specialization when it services `h+1`; that is exactly the defect it repairs. Old positive odd moduli already satisfy O by the same local argument modulo their finitely many prime powers and CRT. With dovetailing, the original floors, Lag, common h, endness, and old ES failure persist, and the modified successor satisfies O at **all** its odd moduli.
 
