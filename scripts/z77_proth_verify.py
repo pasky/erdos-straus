@@ -3,6 +3,15 @@ from pathlib import Path
 from collections import Counter
 from math import gcd,lcm
 import json
+from functools import cache
+from z77_review_small_s import es
+
+@cache
+def explicit(n):
+    x,y,z=es(n)
+    assert min(x,y,z)>0 and 4*x*y*z==n*(x*y+y*z+z*x)
+    return True
+
 root=Path('data/z77/proth')
 
 def ds(n):return [i for i in range(1,n+1) if n%i==0]
@@ -41,12 +50,13 @@ def verify(k,H0,H,h,p):
             oddQ=lcm(oddQ,mod//(mod&-mod));assert (k*pow(2,s,mod)*(pow(2,P,mod)-1))%mod==0
             n=(k*pow(2,s,mod)+1)%mod
             if R=='M':assert n not in squares
-            if R=='D':assert n==0 and 2<=mod<10**17
+            if R=='D':assert n==0 and 2<=mod<20000 and explicit(mod)
             if R=='W':
                 A,u=z;t,rem=divmod(A+1,u);v,r=divmod(n+u,A)
-                assert rem==r==0 and min(t,u)>=2 and (k*(1<<32)+1+u)>=2*A and ((1+t)*t*u*v)%8==0
+                assert rem==r==0 and min(t,u)>=2 and (k*(1<<32)+1+u)>=2*A
+                assert n%8==1 and ((n+t)*t*u*v)%8==0 and any(val%4==0 for val in [t,u,v,A,t*v-1])
             if R=='II':
-                f,a,b=z;assert min(f,a,b)>0 and (f+1)%(4*a*b)==(b*n+a)%f==0
+                f,a,b=z;assert min(f,a,b)>0 and (f+1)%(4*a*b)==(b*n+a)%f==0 and k*(1<<32)+1>a*f
             if R=='K':
                 f,K0,a,b=z;K,r=divmod(n+f,4);assert r==0 and K%K0==0 and f%4==3
                 def D(args):
@@ -54,7 +64,7 @@ def verify(k,H0,H,h,p):
                 assert (D(a)+D(b))%f==0
             if k==255:assert mod&-mod<=128
         cover[j::P]=b'\1'*(H//P)
-    assert all(cover) and k*(1<<31)+1<10**17
+    assert all(cover) and all(explicit(k*2**s+1) for s in range(32))
     print('k',k,'period',H,'rows',dict(kinds),'core checks',len(seen),'coverage',sum(cover))
     if k==255:print('odd lcm of fixed row moduli',oddQ)
 

@@ -20,7 +20,8 @@ def es(n):
             if g<=den and (g+den)%num==0:
                 y=(g+den)//num;z=(den*den//g+den)//num
                 assert 4*x*y*z==n*(x*y+y*z+z*x);return x,y,z
-for k in (255,1023,4095):
-    for s in range(32):
-        n=k*2**s+1;assert es(n),(k,s)
-    print(k,'s<32 explicit ES ok')
+if __name__=='__main__':
+    for k in (255,1023,4095):
+        for s in range(32):
+            n=k*2**s+1;assert es(n),(k,s)
+        print(k,'s<32 explicit ES ok')
