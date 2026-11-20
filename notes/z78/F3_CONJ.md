@@ -1,4 +1,4 @@
-Result: The whole high-deg g' branch is impossible in either orientation, and in the low branch deg rad(uMV)≥N+1. Label: PROVED (rel. Mason–Stothers and the tuple lemmas in §1)
+Result: Every covering tuple in either orientation has deg g'<N and a monic determinant W of degree ≤1 (A) or ≤2 (B), forcing v=r−1 or r−2 in A and |v−r|≤1 in B. Label: PROVED (rel. Mason–Stothers and the tuple lemmas in §1)
 Scope: Case B families at the two specified points for F₃[T], A=T², minimum level N≥4; no all-level conclusion about sterility, finite covering, or integer ES.
 Review: none
 Triage: DATA
@@ -51,3 +51,23 @@ For the first, subtract the two expressions after multiplying by M and use MH−
 In particular **N−d≤v≤r−1 (A), N−d≤v≤r+1 (B)**. Also rad(uMV)≥K as above, not merely a bound on its total degree. This bound does not use a probabilistic model. The last product gives an alternative exact enumeration: for fixed H,W, each X divides T^(b+1)W−qH, after which §1 recovers everything. This is not the old forced-E_M lottery: the small degree of W is a consequence of two independent congruences modulo M. In fact MW=T^δ SJ+κq and MH=qT^b+J give T^δ SH−W=pqg after multiplication by M. Eliminating M from the same pair gives the companion product **pgJ=T^b W−κH**.
 
 **Upper search exponent 2/5 (PROVED; algorithmic, not the engine used in the census).** At a fixed degree pattern use the cheapest of four indices: (i) V, factoring T^n+V for M and X; (ii) J, factoring qT^b+J for M and pT^b+J for V, then pMX=T^K J−qV; (iii) H and the shorter of m,X as in §1; (iv) H,W as just proved. Both polynomials in route (ii) are nonzero by the identities MH and VS. Deterministic Berlekamp factorisation over the fixed base field costs poly(N); a degree-O(N) polynomial has 3^o(N) divisors uniformly (split at prime degree (log₃ N)/2: O(√N) low primes with ≤O(N) choices each, and O(N/log N) high prime factors with multiplicity). Each factor list produces only subexponential overhead, including choosing X|M. From h≤N−d, w≤r−v+1 and j≤d+r−N, the four base-3 exponents are at most v, d+r−N, N−r (using z=d−r), N−d+r−v+1. If their minimum is e, adding the second and fourth gives 2e≤2r−v+1; using v≥e and r≤N−e gives 5e≤2N+1. Thus complete search costs 3^(2N/5+o(N)). No decay of the number of hits follows from this running-time bound.
+
+### A second contact of order n forces W to have bounded degree (PROVED)
+
+Write A₀=qB−pX, a T-unit of degree L+Q. Completing the square in characteristic 3 gives
+
+    m A₀² + uV = T^n D,        D=m T^(2K−n) H²−u.
+
+Indeed A₀²=(qB+pX)²−4pqBX, with 4=1 and pq=u. D(0)=−1. Apply the same logarithmic-derivative test, now to G=m A₀²/(uV), which agrees with −1 to order n. If G were a cube, every prime of V outside u(q+p) would occur in V with multiplicity divisible by 3: such a prime misses m and also A₀, since A₀≡−(q+p)X mod V and gcd(X,V)=1. Thus all active primes of the *first* ratio F would lie on u(q+p)M, of degree at most d+2 < K, contradicting §2. Hence G′≠0, and
+
+    n ≤ deg R₃(G) ≤ z+L+Q+1+v = n−r+Q+1+v.
+
+Together with §3 this gives **r−Q−1≤v≤r+2P−1**, i.e. the §0 ranges. Since lc S=lc p and lc J=lc p, W is monic. In A, w=r−v−1∈{0,1}; in B, w=r−v+1∈{0,1,2}. Since W(0)≠0, the search needs just 3 possible polynomials in A or 9 in B, independent of N! Furthermore w≡d+1 mod 2 by the tuple parity law. This sharpens the running-time proof too: the H,W route has exponent h+O(1)≤N−d+O(1), and the J route j≤2d−N. Their minimum is ≤N/3+O(1); hence **3^(N/3+o(N))** complete search with factoring. No claim is made that every W on these lists occurs.
+
+## 4. Census and an infinite near-miss family
+
+**PROVED (direct substitution).** The repeated B-oriented near-miss at c=1, N=0 mod 3 is not random. For every odd k≥5 set n=3k, N=(3k+3)/2, m=T+1, X=(T^k+1)/(T+1), B=T^(2k)−T^k−1, V=T^k−1. Here M=T^k+1, MB=T^n+V and (1+T)X+B=T^(2k), divisible by T^K. But B+1=T^k V, so (X+B) mod TV equals X−1, of degree k−1. Moreover (T+1)(X−1)≡1−T mod V and gcd(T+1,V)=1; thus gcd(TV,X+B)=T(T−1) up to a unit, even if 3|k. In particular these candidates pass the low and high coefficient tests and fail exactly the condition defining g. This is not a family covering x*_1.
+
+**Census protocol (EVIDENCE).** Data under `data/z78/` and sources `scripts/z78_f3{,_hybrid}.c`. Build with gcc -O3. Two disjoint bit planes represent ±1 coefficients. `f3_1.txt`, `f3_2.txt` run levels 4..28; `f3_high_{1,2}.txt` continue 29..31. Both n, c and orientations are separate rows. `Mpool` counts *distinct* monic T-units in the allowed d range prior to imposing z parity. `trials` counts the actual H/short-factor trials, then `unitX`, `intB`, `split`, `monicV` count successive tests. `case1/2[vbound]` applies the older upper bound on v from §1 and parity v≡z≡n (FF_ODD_ABSENCE Corollary 1.7); `integralG` is the survivor count after TV | X+B. Extremal gcd and remainder degrees refer to the last divisibility; a witness is m/X/B in ascending ternary coefficients, sentinels −1/99 mean no trial reached this stage. On paths that reach it, no nonintegral g has been rounded to a polynomial.
+
+**Hybrid lift (PROVED, algorithm).** For fixed H with degree h and fixed j, all possible J are exactly J=−(qT^b mod H)+HD with deg J=j and lc J=lc p. Enumerate the affine class (one trial at most if j<h); then M=(qT^b+J)/H. For z>0, §3 gives deg(qV)≤r+P<d+P so X is the quotient of T^K J by pM. For z=0 simply X=M. Test every reconstructed tuple directly. The hybrid uses this lift or the first algorithm depending on which has fewer indexing digits. It records the stronger §3 window on v: the near-miss counts in the two programs therefore need not agree. `case2` is identically empty in the hybrid by §2. `split` here counts monic integral sides before checking whether MB−T^n has the required degree. No factorisation library or probabilistic subroutine is used. The census checks necessary conditions for exact points, not a sampling of residue classes.
