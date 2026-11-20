@@ -1,0 +1,9 @@
+cap arithmetic: #exact rational checks 2546 packet inside S 1669 proper H 308 actual overflow 2453 odd planted valuation 2432
+classical branch on panel [(17401609, {47: 1, 370247: 1}), (4545, {3: 2, 5: 1, 101: 1}), (131, {131: 1})]
+coherent patch: verified positive signed pair average on 128 rows; 42 shared prime tables
+patch exponent excess at worst vertex: 29/100 1/20
+patch exponent excess at worst vertex: 3/10 0
+patch exponent excess at worst vertex: 4/13 -1/26
+patch exponent excess at worst vertex: 7955/24966 -1163/12483
+planting multiplicity 1 optimal b^2 4 squared leading constant in u-units 4
+planting multiplicity 2 optimal b^2 2 squared leading constant in u-units 8
