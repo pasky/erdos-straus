@@ -1,0 +1,5 @@
+mu 0 vertex 46/145 53/145 46/145 slacks 2/145 9/290 2/145 0 1/348 sextic exponent -34/145
+mu 0 vertex 46/145 46/145 53/145 slacks 43/580 9/290 9/145 33/290 373/3480 sextic exponent -6/5
+mu 0 vertex 53/145 46/145 46/145 slacks 17/116 39/580 39/290 123/580 751/3480 sextic exponent -223/145
+mu 1/3 vertex 1/3 1/3 1/3 slacks 1/12 0 0 1/14 7/72 sextic exponent -4/3
+46/145 improves R3 by 18/124265
