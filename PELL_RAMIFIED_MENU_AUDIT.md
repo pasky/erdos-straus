@@ -1,5 +1,16 @@
 # A fixed finite menu fails at ordinary odd prime powers, for every choice of its Pell witnesses
 
+(§0 block: z74 Opus xreview fix)
+```
+Result: every fixed finite menu of rational ES formulas in r integral negative-Pell witnesses fails at n=p^(2a+1)
+        for every prime p≡1 mod M (menu-dependent, 4|M) and all a≥a₀(p); infinitely many such p have ES true at n.
+Label: PROVED (unconditional; Dirichlet for the last clause).
+Scope: ordinary prime POWERS, not primes; fixed number of integral witnesses; not a statement about ES.
+Review: cross-model (Claude Opus), data/z74/xreview/REVIEW_PELLNOGO_OPUS.md — ACCEPT-WITH-FIXES (§0 only).
+Triage: BARRIER-SCOPED
+STATUS delta: none
+```
+
 **Audit: PROVED.** Fix `r<∞` and a finite menu of triples of rational functions over `ℚ` in `n` and `r` integral solutions `x_i²−n y_i²=−1`. Success means *some* ordered tuple of signed witnesses makes a defined triple a positive integral ES solution. There is a menu-dependent integer `M` divisible by 4 such that for **each** prime `p≥5` with `p≡1 mod M`, all sufficiently large `a` give failure at `n=p^(2a+1)`. The cutoff may depend on `p`. All those `n` admit negative Pell witnesses. An infinite subprogression of primes can additionally be chosen with ES already true at `p`, hence at every such `n`. The conclusion is over ordinary integers, not a theorem of noncoverage at ordinary **prime inputs**. No bound for regulators at varying prime discriminants is assumed.
 
 **1. Exact order in the suborder.** Work in `ℤ[√p]`, not the possibly larger ring of integers. It has a unit `η=x₀+y₀√p>1` generating its positive-real units. Indeed these units are discrete in `ℝ_{>0}` (on a bounded interval away from 0 both embeddings are bounded, hence so are the two integral coordinates); the positive Pell theorem gives nontrivial ones. Norm `−1` is attained for a prime `p≡1 mod 4`: in the least positive norm-one solution `A²−pB²=1`, `A` cannot be even since `A±1` would be coprime odd factors, each a square or `p` times a square, one `3 mod 4`. Otherwise the coprime consecutive `(A±1)/2` have product `p(B/2)²`; putting the square on the larger side gives a smaller nontrivial positive Pell solution, so putting it on the smaller side gives negative Pell. Therefore the generator `η` has norm `−1` and `x₀,y₀>0`. All signed units are `±η^j`, `j∈ℤ`.

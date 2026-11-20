@@ -1,5 +1,17 @@
 # Ordinary primes: finite polynomial menus fed arbitrary negative-Pell witnesses
 
+(§0 block: z74 Opus xreview fix)
+```
+Result: independent proof that a finite polynomial menu over ℚ[P,X,Y] fed arbitrary integral Pell solutions has
+        O(√B) hit integers ≤B in 1 mod M; an engineered nonidentity prime hit p=142211032321 ≡ 1 mod 840.
+Label: PROVED (rel. Siegel's integral-point theorem, ineffective; or the thin-set count of §2). §4 CERTIFIED (exact,
+       trial-division primality; independently recomputed).
+Scope: polynomial finite menus; not a statement about ES; rational functions and auxiliary search not covered.
+Review: cross-model (Claude Opus), data/z74/xreview/REVIEW_PELLNOGO_OPUS.md — ACCEPT-WITH-FIXES (§0, citation precision).
+Triage: BARRIER-SCOPED
+STATUS delta: none
+```
+
 **PROVED (unconditional no-go, not failure of ES).** Fix finitely many triples `G=(G₁,G₂,G₃)` in `ℚ[P,X,Y]`. Fix any `M` divisible by 840 and a common coefficient denominator. Call an integer `p>1` a hit if for *some* integer pair `x²+1=p y²` and *some* menu entry the three values are positive integers with reciprocal sum `4/p`. Among `p≤B`, `p≡1 mod M`, there are `O_menu(√B)` hit **integers** by the curve argument below (not an effective Siegel bound). In particular a relative natural density one of the primes in that fixed progression defeats the whole menu, even with unrestricted choice of the Pell solution. Nothing limits `x,y` in the statement. Primality is only needed for the final density interpretation.
 
 ## 1. Identities: no hits in the progression
@@ -14,7 +26,7 @@ Now `S∩F=ℚ[P]` by monic normal form. Moreover reducing by `X²=P Y²−1` in
 
 If `H≠0`, its zero locus on the integral affine surface S has dimension at most one. A vertical component contributes at most one rational P-value, however many Pell pairs it contains. Reduce, normalize horizontal curves, omit finitely many singular/intersection points and take smooth projective models with the nonconstant map `P:C→ℙ¹`. A ℚ-irreducible curve that is not geometrically irreducible has no smooth rational points: geometric components are conjugate and a rational point must be on all of them. No geometric-integrality assumption on **the whole zero locus** is needed.
 
-Every remaining cover has degree `d≥2`. Degree one would identify `ℚ(C)` with `ℚ(P)`, giving rational functions `X(P),Y(P)` with `X²+1=P Y²`. Specialize at a negative rational value avoiding their finitely many poles: the left side is positive and the right side nonpositive. This also rules out a rational point at infinity of the generic *projective* conic (there it would force P square). Thus the projected rational points are in a thin set of `ℚ` in the usual type-I/type-II sense. Merely saying “density zero among integers” is **not** enough for density relative to primes. The classical quantitative Hilbert irreducibility estimate for integer parameters in a fixed thin subset of the affine line (`O(√B log B)`, Serre, *Lectures on the Mordell–Weil Theorem*, chapter on the large sieve and Hilbert irreducibility) suffices. It counts distinct P-values, not solutions in a box involving X or Y.
+Every remaining cover has degree `d≥2`. Degree one would identify `ℚ(C)` with `ℚ(P)`, giving rational functions `X(P),Y(P)` with `X²+1=P Y²`. Specialize at a negative rational value avoiding their finitely many poles: the left side is positive and the right side nonpositive. This also rules out a rational point at infinity of the generic *projective* conic (there it would force P square). Thus the projected rational points are in a thin set of `ℚ` in the usual type-I/type-II sense. Merely saying “density zero among integers” is **not** enough for density relative to primes. The classical quantitative Hilbert irreducibility estimate for integer parameters in a fixed thin subset of the affine line (`O(√B log B)`, Serre, *Lectures on the Mordell–Weil Theorem*, chapter on the large sieve and Hilbert irreducibility) suffices. (z74 Opus xreview fix, precise references: Serre, *Lectures on the Mordell–Weil Theorem*, Vieweg 1989, §13 Thm 1 gives `B^{1/2}(log B)^γ`, `γ<1`, and §9.7 gives `O(B^{1/2})` via Siegel — section numbers as cited in Paredes–Sasyk, arXiv:2202.10420v2, pp. 1–3. Paredes–Sasyk Thm 1.1 itself gives an **effective** `O(√B)` for each irreducible `G(T,Z)`, as used in `PELL_ES_MENU_NOGO.md`; the "not an effective Siegel bound" caveat in the headline refers only to the §3 route.) It counts distinct P-values, not solutions in a box involving X or Y.
 
 ## 3. Independent count: Siegel once, then elementary estimates
 
