@@ -20,7 +20,7 @@ int main(int argc,char**argv){assert(argc==4);int L=atoi(argv[1]),H=atoi(argv[2]
  for(int k=0;k<w;k++){U e=e0+4*k;while(j<=J && (E<<j)<=e){printf(" %lu",sum);j++;}
  U h=x[k],G=g[k],c=cp[k];if(h<=e/G){G*=h;h=1;}
  // Number of remaining prime factors including multiplicity at most t.
- U m=1;for(U u=h;u>1;u/=Y+1){ // one factor even if u<Y+1? use thresholds below instead
+ U m=1;for(U u=h;u>1;u/=Y+1){ // floor(log_(Y+1)(h)) bounds rough prime multiplicity
  if(u<Y+1)break;m*=3;}
  U add=c*m*(G<=e/G?1:2);assert(UINT64_MAX-sum>=add);sum+=add;
  }}while(j++<=J)printf(" %lu",sum);puts("");fflush(stdout);

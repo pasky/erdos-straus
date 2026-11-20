@@ -7,7 +7,6 @@ Never enumerate r^3 cells. */
 #include <stdint.h>
 #include <stdlib.h>
 #include <assert.h>
-#include <math.h>
 typedef uint64_t U;
 #define W 262144
 #define Y 44000000

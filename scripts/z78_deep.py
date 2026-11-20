@@ -27,16 +27,16 @@ def budget2(r):
             T=(N//E+1)//2; per=2*ceildiv(T,W//r)
             best=max(best,lower-F(s+c,W),lower*(1-F(min(per,r),r))-F(s,W))
         return max(F(0),best)
-    lv-=parts[1];lv-=parts[2]
+    lv-=parts[1]  # still a union of full depth-2 cylinders; do NOT subtract Q3 here
     if r in small:
         a,b,c,d=small[r];assert parts[0]==F(a,r**3) and parts[1]==F(b,r**3)
         parts[2]=F(c,r**3);parts[3]=F(d,r**3);lv=F(r-1,2*r)-sum(parts[:4])
     else:
-        lv=F(r-1,2*r)-sum(parts[:3]);old=parts[3];ss=p5[r]
+        old=parts[3];ss=p5[r]
         if r in five:
             ss=five[r];old=min(old,F(shiftcap(r,5,ss),r**3))
         x=step(3,lv,old,5,[(r*r<<j,s,r**3) for j,s in enumerate(ss)]) if lv>=0 else lv-old
-        parts[3]=lv-x;lv=x
+        parts[3]=lv-x;lv=x-parts[2]  # charge Q3 only after the P5 parent step
     # For a failed prime we may clip the survival lower bound to zero, but must
     # never count that as success. Later Q terms are subtracted in one charge.
     ps=F(0)
