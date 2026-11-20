@@ -12,6 +12,7 @@ seen=set();late=[]
 for row in Path('data/z76/disproof/composite.txt').read_text().splitlines():
     m,n,R,G=map(int,row.split()); assert m in expected and m not in seen; seen.add(m)
     assert n==m*m+1 and n%840 in (1,121) and gcd(n,105)==1 and n%(13*17*29)==0
+    assert R and G, ('unresolved row',n)
     for f in [R,G]:
         u=(-n)%f; v=(n+u)//f; t=(f+1)//u
         assert min(t,u,v)>0 and t*u*v-u-v==n
