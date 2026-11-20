@@ -15,12 +15,19 @@ def cat(p):return [v for f in p.glob('*.txt') for v in rows(f)]
 scale={v[0]:(v[2],coef(v)) for v in rows(R/'scale.txt')}
 layers={n.bit_length()-1:(c,v) for n,c,*v in cat(Z/'layer')+cat(R/'layer')};Q=dict(cat(R/'q'))
 ss7={r:v for r,*v in cat(R/'p7')};s7base={r:v for r,*v in cat(Z/'p7')}
-spbig={(r,k):v for r,k,*v in cat(R/'p9')}
+spbig={}
+for r,k,*v in cat(R/'p9'):
+    old=spbig.setdefault((r,k),[])
+    for i,x in enumerate(v):
+        if i<len(old):old[i]=min(old[i],x)
+        else:old.append(x)
 @lru_cache(None)
 def sh(n,j):return packed(n,j)
 small={r:(a//r**2,b//r,c,d) for r,a,b,c,d in [list(map(int,s.split())) for s in (Z/'exact/union.tsv').read_text().splitlines()[1:]]}
 local={(r,k):(j,v) for r,k,j,*v in cat(R/'local')}
 ex7={r:c for r,E,d,h,c in cat(R/'exact7')};qLocal=dict(cat(R/'qLocal'))
+if (R/'qSpecial/bound.txt').exists():
+    for r,z in rows(R/'qSpecial/bound.txt'):qLocal[r]=min(qLocal.get(r,z),z)
 cf7={r:(E,c) for r,E,T,c,dep,raw in cat(R/'cfrows')}
 if (Z/'r2exact'/'rows.tsv').exists():
     for l in (Z/'r2exact'/'rows.tsv').read_text().splitlines():
