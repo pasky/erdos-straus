@@ -1,0 +1,2 @@
+Q distinct d-kernels 0
+stats {}

@@ -1,0 +1,15 @@
+L 1 (p,q) (1, 5) hits [] secs 0.0
+L 1 (p,q) (5, 1) hits [] secs 0.0
+L 2 (p,q) (1, 5) hits [] secs 0.0
+L 2 (p,q) (5, 1) hits [] secs 0.0
+L 3 (p,q) (1, 5) hits [] secs 0.0
+L 3 (p,q) (5, 1) hits [] secs 0.0
+L 4 (p,q) (1, 5) hits [] secs 0.0
+L 4 (p,q) (5, 1) hits [] secs 0.0
+L 5 (p,q) (1, 5) hits [] secs 0.1
+L 5 (p,q) (5, 1) hits [] secs 0.1
+L 6 (p,q) (1, 5) hits [] secs 0.5
+L 6 (p,q) (5, 1) hits [] secs 1.0
+L 7 (p,q) (1, 5) hits [] secs 10.9
+L 7 (p,q) (5, 1) hits [] secs 21.3
+{}

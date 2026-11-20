@@ -1,0 +1,2 @@
+P distinct de-kernels 0 max multiplicity 0
+stats {'P jobs': 842, 'P hits L=2': 0, 'P hits L=3': 0, 'P hits L=5': 0, 'P hits L=6': 0}

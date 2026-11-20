@@ -1,0 +1,6 @@
+n=3 c=1 N=3 z=1 a1=0 b1=2 dep=2 depE=2 m=21 w=1 C=211 g=1 V=11
+n=3 c=1 N=3 z=1 a1=2 b1=0 dep=2 depE=2 m=11 w=221 C=1 g=1 V=21
+n=3 c=2 N=3 z=1 a1=0 b1=2 dep=2 depE=2 m=11 w=1 C=221 g=1 V=21
+n=3 c=2 N=3 z=1 a1=2 b1=0 dep=2 depE=2 m=21 w=211 C=1 g=1 V=11
+n=5 c=1 N=4 z=1 a1=3 b1=1 dep=3 depE=3 m=21 w=1021 C=21 g=11 V=11
+n=5 c=2 N=4 z=1 a1=3 b1=1 dep=3 depE=3 m=11 w=2011 C=11 g=21 V=21

@@ -1,0 +1,9 @@
+13 single-line inverse witness Q 2 9 1 2
+two-prime witness 12650497 12670944 residues mod 11,169: 2 2
+depth-11 Lane2 output end 17 11 1 5 Ha 4258519 1 4258519 65661461 0
+depth-11 Lane2 output end 17 11 1 5 Hd 4258519 1 4258519 65661461 0
+depth-11 Lane2 output end 17 11 1 5 J 4258519 1 4258519 1064630 0
+depth-11 Lane2 output end 17 11 5 1 Ha 4258519 1 4258519 65661461 0
+depth-11 Lane2 output end 17 11 5 1 Hd 4258519 1 4258519 65661461 0
+depth-11 Lane2 output end 17 11 5 1 J 4258519 1 4258519 1064630 0
+counts {'P Z bound': 21, 'P combined gap': 0, 'P first gap': 1699, 'P point5 deep checks': 0, 'P positive controls': 100101, 'P rows': 6258, 'P third gap': 0, 'Q actual five r=13': 1, 'Q non-integral Z': 2184, 'Q positive controls': 2206, 'Q rows': 142}
