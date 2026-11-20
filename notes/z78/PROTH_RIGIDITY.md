@@ -1,6 +1,4 @@
-# Rigidity of polynomial ES certificates on a bounded-period Proth core
-
-## 0. Result and scope
+## §0
 
 Result: For bounded positive integers `P,L,K`, only finitely many `m≥1` admit a menu of at most `K` rational-function ES triples in `T=2^(Lj)` covering the whole eventual core `s=PLj` of `n=(4^m−1)2^s+1`, even with arbitrary pointwise selection.  
 Label: PROVED (rel. Siegel's integral-points theorem, the Mordell–Schinzel primitive-square obstruction quoted in `EXPONENT_COVERING.md` Theorem 1.2, and the finite van der Waerden theorem for menus).  
@@ -8,6 +6,8 @@ Scope: Rigidity of the denominator formulas, not nonexistence of ES solutions at
 Review: none.  
 Triage: BARRIER-SCOPED.  
 STATUS delta: none.
+
+# Rigidity of polynomial ES certificates on a bounded-period Proth core
 
 ## 1. A finite set of normalized shapes
 
