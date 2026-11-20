@@ -1,6 +1,6 @@
 Result: Both x*_1 and x*_2 are uncovered over F₃[T] for A=T²: Conjecture 0.2 holds and there is no finite linear covering of ES₃(T²,·). Label: PROVED (rel. §§1–3, the sign-symmetry lemma of §4, §6, and the cited tuple, parity, minimum-level and Case A reductions)
 Scope: All linear families (Case A and Case B) in the model of FUNCTIONFIELD_ES2 §0, for q=3 and A=T². This is not a result for A=T, a decision on polynomial solutions for individual irreducibles, or a statement about integer ES.
-Review: cross-model on §§1–5 (Anthropic Claude Opus, `data/z78/xreview/REVIEW_F3_CONJ_OPUS.md`; D1–D9 applied); fresh Opus hostile review of §§6–7 and their dependencies (`data/z78/xreview/REVIEW_F3_CONJ_R2_OPUS.md`, no mathematical defect; repairs applied). Internal cross-lab review, not external peer review.
+Review: cross-model on §§1–5 (Anthropic Claude Opus, `data/z78/xreview/REVIEW_F3_CONJ_OPUS.md`; D1–D9 applied); fresh Opus hostile review of §§6–7 and their dependencies (`data/z78/xreview/REVIEW_F3_CONJ_R2_OPUS.md`, no mathematical defect; repairs applied). Lean kernel check of the §6 large-level elimination (§8); internal cross-lab review, not external peer review.
 Triage: HEADLINE
 STATUS delta: retain the existing q=3^r, r≥2, A=T result and replace the q=3 open-target text with “F₃[T], A=T²: x*_1,x*_2 ∈ O(3,T²); no finite linear covering (PROVED rel. the tuple and parity reductions; `notes/z78/F3_CONJ.md` §6; cross-review `data/z78/xreview/REVIEW_F3_CONJ_R2_OPUS.md`).” Remove Conjecture 0.2 from the §2 target. Not a result for A=T, individual irreducibles, or integer ES.
 
@@ -133,6 +133,17 @@ Indeed differentiating G+1=T^n D/(uV) gives L₀=(uV/A₀)[nD+TD′−TD(uV)′/
 **Measure (Assessment).** The fixed-height obstruction does not bound the number of tuples covering *some* slice point: u varies with the cylinder; its depth-K truncation may have degree K−1, and the exact alternatives need not be excluded. One cannot insert the affine-point count zero into a union bound over the whole slice, assert positive uncovered measure, or invoke Baire to exclude a cover by clopens. No such estimate is needed for nonemptiness, since §6 gives two explicit points.
 
 **Priority check (Assessment; bounded, not a priority claim).** The repo's `Z58_LIT.md` §Q1 and `LITERATURE_2026_UPDATE.md` found no matching function-field ES paper. A fresh Crossref bibliographic query “Erdős Straus conjecture finite fields unit fractions polynomial rings linear covering” (15 returns, `data/z78/f3_priority_crossref.json`) gave no match to this pointwise statement. The related paper *On covering systems of polynomial rings over finite fields*, DOI 10.1090/proc/16864, concerns covering systems, not the specified ES-family validity conditions. This check does not exclude differently indexed prior work. Orchestrator export: update live open-target quotes (STATUS §2; FRONTIER passages at lines 1261,1336,2429 of the pre-wave version); preserve historical WAVES entries.
+
+## 8. Lean check (PROVED relative to the listed hypotheses)
+
+`lean/ES/ES/F3Endpoint.lean` (imported by `lean/ES/ES.lean`) checks the large-level, c=1 elimination in §6, **not** the full derivation of Conjecture 0.2. `ES.F3Endpoint.key_identity` proves (6.1) over any commutative ring. `ES.F3Endpoint.no_covering_endpoint` proves `False` over `Polynomial (ZMod 3)` without assuming (6.2), (6.3), or the extreme degree pattern. It forces that pattern by comparing degrees and reading the degree-N coefficient, derives (6.3), and closes both cases, including evaluation at −1 in the constant case.
+
+Hypothesis map: `orient`, `hM` and the monicity of p,q,m,M,H are from §1 at c=1. `hshort` is §1's d+r+P≥N+1; `hd` and `hH` are d≤b+Q and deg H+d=b+Q from §1 with the §3 notation b=n−K. `hN,hδ` are §3's level arithmetic. `hMW,hMH,hXS,hcomp` are §3's exact identities (the companion has factor **p**, which equals u only in B). `hJ,mW,_hW0,hw` are §3's nonvanishing of J and the monic T-unit determinant of degree ≤1+P. In fact the formal closing argument does not need `_hW0`: evaluation at −1 rules out Δ=0 as well as identifying the constant. The normal form, both differential estimates, sign symmetry, small levels, same-side families and compactness remain paper proofs.
+
+The prescribed 16G cgroup build (`lake exe cache get && lake build`) succeeded. `#print axioms` reports:
+
+    ES.F3Endpoint.key_identity          [propext, Quot.sound]
+    ES.F3Endpoint.no_covering_endpoint  [propext, Classical.choice, Quot.sound]
 
 ## Sources
 
