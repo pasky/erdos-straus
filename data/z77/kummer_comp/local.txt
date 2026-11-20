@@ -1,0 +1,8 @@
+# offset design shots blocked E_hits root_multiplicity_at_u_eq_offset
+0 uniform-units 623 0 2.890786 0
+1 shift 623 526 0.823646 0
+4 shift 623 397 3.084258 0
+16 shift 623 407 2.360622 0
+36 shift 623 472 1.484092 0
+64 shift 623 369 3.444857 0
+100 shift 623 381 3.353716 0
