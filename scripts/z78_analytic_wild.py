@@ -47,7 +47,8 @@ def packet(n, R, q, K, E, S):
             left //= v; w += 1
         assert w<=j+max(a) and (w==0 or y%v==0)
     assert left == 1
-    return (g==V, j>1, root>1, any(E[v]%2 for v in S))
+    return (g==V, j>1, root>1, any(E[v]%2 for v in S), any(E[v]>=2 for v in S),
+            any(E[v]>=3 and E[v]%2 for v in S))
 
 
 zeros = [5569,9601,83449,102001,712321,1724209,1726201,5212561,8813281]
@@ -70,8 +71,10 @@ for n in panel + small:
                 counts[packet(n,R,q,K,E,S)] += 1; tests+=1
     assert tests
 print('cap arithmetic: #exact rational checks',sum(counts.values()), 'packet inside S',sum(v for k,v in counts.items() if k[0]), 'proper H',sum(v for k,v in counts.items() if k[1]), 'actual overflow',sum(v for k,v in counts.items() if k[2]), 'odd planted valuation',sum(v for k,v in counts.items() if k[3]))
+print('packets with planted valuation >=2:',sum(v for k,v in counts.items() if k[4]),
+      'odd >=3:',sum(v for k,v in counts.items() if k[5]))
 print('classical branch on panel',no)
-assert all(any(k[i] for k in counts) for i in range(4))
+assert all(any(k[i] for k in counts) for i in range(6))
 
 # Signed patch in physical coordinates: exact test with box cutoff 1 <= (4Ck-n)/V <= 4.
 # Compare one centered pair against the primitive-frequency projector by local DFT inversion.
