@@ -1,8 +1,8 @@
 ## §0
 
-Result: For bounded positive integers `P,L,K`, only finitely many `m≥1` admit a menu of at most `K` rational-function ES triples in `T=2^(Lj)` covering the whole eventual core `s=PLj` of `n=(4^m−1)2^s+1`, even with arbitrary pointwise selection; on sparse progressions, the zero-exponent square-unit obstruction does not transfer by a fixed shift.
-Label: PROVED (rel. Siegel's integral-points theorem, the Mordell–Schinzel primitive-square obstruction via ET's quotation in `EXPONENT_COVERING.md` Theorem 1.2 (not accessed directly), and the finite van der Waerden theorem for menus).
-Scope: Rigidity of the denominator formulas, not nonexistence of ES solutions at any integer. The sparse discussion is a profinite limit calculation and a criterion for finite ET/divisor covers, not a determination of such a cover or a bounded-menu rigidity theorem. No bound on the degrees, heights or coefficient denominators of the input triples is assumed.
+Result: For bounded positive integers `P,L,K`, only finitely many `m≥1` admit a menu of at most `K` rational-function ES triples in `T=2^(Lj)` covering the whole eventual core `s=PLj` of `n=(4^m−1)2^s+1`, even with arbitrary pointwise selection; the analogous sparse claim is false, since two fixed polynomial triples cover `s=B·2^v` for infinitely many `m` whenever `3∤B`.
+Label: PROVED (rel. Siegel's integral-points theorem, the Mordell–Schinzel primitive-square obstruction via ET's quotation in `EXPONENT_COVERING.md` Theorem 1.2 (not accessed directly), the finite van der Waerden theorem for menus, and Lean-verified `Proth15.lean` classes `cls_7_3`/`cls_7_5`).
+Scope: Rigidity of the denominator formulas, not nonexistence of ES solutions at any integer. The sparse counterexample refutes the strongest “only finitely many `m`” menu analogue for `3∤B`; the case `3|B` is not settled here. The profinite discussion is not a determination of ET/divisor coverability. No bound on the degrees, heights or coefficient denominators of the input triples is assumed.
 Review: cross-model (Claude Opus, `data/z78/xreview/REVIEW_PROTH_ALLM_OPUS.md`; F10 incorporated).
 Triage: BARRIER-SCOPED.
 STATUS delta: none.
@@ -83,4 +83,17 @@ For `k=4^q−1`, the familiar unit-square point of the full exponent family occu
 
 **Exact finite-cover test (PROVED, rel. `EXPONENT_COVERING.md` Theorem 1.4).** For odd `k` and fixed `B,a`, set `Λ_{k;B,a}={k·2^μ+1:μ∈E_{B,a}}`, with the 2-component interpreted as `1`. A finite eventual covering of `k·2^(B·2^v+a)+1` by ET and divisor classes exists iff `Λ_{k;B,a}` avoids the sterile set `S′` of that theorem. In particular, `Λ_{k;B,a}∩Sq^×≠∅` is a sufficient obstruction to such a covering. The criterion is exact but does not decide the intersection for general `k,B,a`; no computation or ES conclusion is claimed here.
 
-The sparse sequence has eventually periodic residues modulo every fixed integer (the odd part is controlled by powers of `2` modulo the finite exponent order, while the 2-primary part stabilizes). That fact alone supplies no uniform interpolation block in the original index `j`, nor any bound on the size of a rational-function menu. Extending Theorem 3 to sparse progressions, or constructing uniform positive ES certificates there, remains open.
+The sparse sequence has eventually periodic residues modulo every fixed integer (the odd part is controlled by powers of `2` modulo the finite exponent order, while the 2-primary part stabilizes). That fact alone supplies no uniform interpolation block in the original index `j`, nor any bound on the size of a rational-function menu. Extending Theorem 3 to sparse progressions remains open in general.
+
+## 6. Sparse rigidity fails: two fixed polynomial triples
+
+**Proposition 6.1 (PROVED; refutation of the strongest sparse analogue).** Fix any positive `B` with `3∤B`. For every `m≡2 (mod 3)` and every `v≥1`, let `k=4^m−1` and `n=k·2^(B·2^v)+1`. Then `n` is covered by the following menu of two fixed polynomial ES triples (independent of `B,m,v`):
+
+- on `n≡3 (mod 7)`: `((2n+1)/7, 2n, 2n(2n+1)/7)`;
+- on `n≡5 (mod 7)`: `((2n+4)/7, 2n, n(n+2)/7)`.
+
+The coordinates are positive integers on their respective classes, and the ES identity holds identically on each class. Consequently, for every `3∤B`, infinitely many `m` admit a menu of size `2` covering the entire sparse progression `s=B·2^v` (indeed the same menu works for all such `m`). Thus the “only finitely many `m`” conclusion of Theorem 3 is false if its full eventual core is replaced by this sparse progression.
+
+**Proof.** Since `m≡2 (mod 3)`, `4^m≡4^2≡2 (mod 7)`, so `k≡1 (mod 7)`. Since `3∤B`, `s=B2^v` is congruent to `1` or `2` modulo `3`; hence `2^s≡2` or `4 (mod 7)` and `n≡3` or `5 (mod 7)`. For `n=7r+3`, the first displayed triple is precisely `(1+2r, 6+14r, 6+26r+28r²)`, the Lean-verified `ESProth15.cls_7_3`; for `n=7r+5`, the second is `(2+2r,10+14r,5+12r+7r²)`, `ESProth15.cls_7_5`. This proves the claim. Also, either residue is a quadratic nonresidue modulo 7, so these values are outside the odd-square classes mod 840; `CONJS_GEN.md` Theorem 2 independently supplies a good word there. ∎
+
+For `3|B`, this particular modulus cannot work: `s≡0 (mod 3)`, and for `m≡0,1,2 (mod 3)` respectively, `n≡1,4,2 (mod 7)`, all quadratic residues. No alternate odd modulus giving a fixed ES menu for every such `B` is established here. This limitation does not affect the counterexample to the proposed blanket sparse rigidity statement, already given by `B=1`.
