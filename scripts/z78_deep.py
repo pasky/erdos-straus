@@ -9,6 +9,12 @@ small={r:(a,b,c,d) for r,a,b,c,d in [list(map(int,l.split())) for l in (base/'ex
 qcnt=lambda pfx:{r:n for p in (base/'qscan').glob(pfx+'*.txt') for r,n in rows(p)}
 qsleft,qshit=qcnt('left'),qcnt('scan')
 qrows={r:n for p in (base/'qrows').glob('*.txt') for r,n in rows(p)}
+p7={r:v for p in (base/'p7').glob('*.txt') for r,*v in rows(p)}
+five={r:v for p in (base/'p5fine').glob('*.txt') for r,*v in rows(p)}
+local={}
+for path in (base/'local').glob('*.txt'):
+    for line in path.read_text().splitlines():
+        rr,kk,cc,*arr=line.split();local[int(rr),int(kk)]=[(1<<(int(cc)+i),*map(int,x.split(':'))) for i,x in enumerate(arr)]
 def budget2(r):
     parts=zbudget(r)
     if r in qrows:parts[2]=min(parts[2],F(qrows[r]+q3[r][0]+2*q3[r][3],r**3))
@@ -26,7 +32,10 @@ def budget2(r):
         a,b,c,d=small[r];assert parts[0]==F(a,r**3) and parts[1]==F(b,r**3)
         parts[2]=F(c,r**3);parts[3]=F(d,r**3);lv=F(r-1,2*r)-sum(parts[:4])
     else:
-        lv=F(r-1,2*r)-sum(parts[:3]);x=step(3,lv,parts[3],5,[(r*r<<j,s,r**3) for j,s in enumerate(p5[r])]) if lv>=0 else lv-parts[3]
+        lv=F(r-1,2*r)-sum(parts[:3]);old=parts[3];ss=p5[r]
+        if r in five:
+            ss=five[r];old=min(old,F(shiftcap(r,5,ss),r**3))
+        x=step(3,lv,old,5,[(r*r<<j,s,r**3) for j,s in enumerate(ss)]) if lv>=0 else lv-old
         parts[3]=lv-x;lv=x
     # For a failed prime we may clip the survival lower bound to zero, but must
     # never count that as success. Later Q terms are subtracted in one charge.
@@ -40,6 +49,9 @@ def budget2(r):
         splits=[]
         if b in layers:
             cut,v=layers[b];splits=[(1<<(cut+i),packed(1<<b,cut+i),c) for i,c in enumerate(v)]
+        splits+=local.get((r,k),[])
+        if k==7 and r in p7:
+            splits=[(E,min(s,p7[r][E.bit_length()-1]) if E.bit_length()-1<len(p7[r]) else s,c) for E,s,c in splits]
         x=step(D,lv,old,k,splits);ps+=lv-x;lv=x
     parts[4]=ps
     return parts
