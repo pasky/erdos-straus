@@ -1,40 +1,37 @@
-Result: Exact sparse L1+P3+Q3+P5 unions and finite branch histograms were enumerated or replayed for small r. Label: CERTIFIED (exact finite enumeration; tree histograms replayed from stored exact box lists)
+Result: Exact sparse L1+P3+Q3+P5 unions through r=101 and finite branch histograms through depth 3 for r=29,…,101 (plus existing r=17 depth 8). Label: CERTIFIED (exact enumeration; tree histograms replayed from stored exact box lists)
 Scope: Finite r-adic boxes on the r-generic Mordell line only; no claim of r=17 sterility or ES.
 Review: none
 Triage: DATA
 STATUS delta: none
 
-# z78 Lane 2 — sparse exact unions and branch histograms
+# z78 Lane 2 — exact sparse unions and branch histograms
 
-## Exact union format and results
+## Sparse union format and results
 
-`data/z78/exact/union.tsv` uses the agreed header `r l1 p3 q3 p5`. Each entry is the number of distinct **nonsquare residue classes modulo r³ newly covered** by that ordered family, after removing all classes covered by earlier columns. Boxes are lifted to common depth 3 before membership and deduplication. `L1` is the union of P₁ and Q₁ boxes (mod r); `P3` is the P family at exponent 3 (mod r²); `Q3` is Q at exponent 3 (mod r³); `P5` is P at exponent 5 (mod r³). Counts therefore are marginal union increments at a shared denominator, not multiplicity sums or raw box counts.
+`data/z78/exact/union.tsv` keeps the requested header `r l1 p3 q3 p5`. Each entry is the marginal number of distinct nonsquare residue cylinders newly covered by that ordered family; rows are normalized to depth 3 only at output. The full exact table covers every prime r ≤ 101 (24 rows); family residue sets are stored alongside it.
 
-| r | L1 | P3 | Q3 | P5 | nonsquare classes mod r³ |
-|---:|---:|---:|---:|---:|---:|
-| 5 | 50 | 0 | 0 | 0 | 50 |
-| 7 | 147 | 0 | 0 | 0 | 147 |
-| 11 | 605 | 0 | 0 | 0 | 605 |
-| 13 | 1014 | 0 | 0 | 0 | 1014 |
-| 17 | 1734 | 136 | 16 | 30 | 2312 |
-| 19 | 1805 | 456 | 54 | 32 | 3249 |
-| 23 | 4761 | 368 | 12 | 62 | 5829 |
+The union implementation is sparse-native-depth: it stores box sets modulo r, r² and r³, tests a deeper box against only its possible ancestors, and never constructs the `r³` nonsquare universe or lifts boxes to depth 3 during intersection. A surviving native-depth box contributes `r^(3-depth)` only in the final output scaling. `L1` is P₁∪Q₁ (mod r), `P3` is P at exponent 3 (mod r²), `Q3` is Q at exponent 3 (mod r³), and `P5` is P at exponent 5 (mod r³). These are exact marginal counts, not multiplicity sums.
 
-For r = 5, 7, 11, 13, the L1 union covers every nonsquare class at depth 3. For r = 17, it covers six of eight nonresidue cells at level 1, leaving 578 depth-3 classes; P3/Q3/P5 add 182 distinct classes, leaving 396. The L1 level-1 counts agree with the stored z77 census (`data/z77/level1.txt`). No all-depth or sterility conclusion follows.
+The four primes r = 5, 7, 11, 13 have complete level-1 coverage of the nonsquare classes. At r = 17, the L1 union covers 6/8 nonresidue classes, while P3/Q3/P5 add 182 depth-3 cells beyond L1 (396 of 2312 nonsquare depth-3 cells remain after these four families). The L1 counts agree with `data/z77/level1.txt`.
 
-`scripts/z78_exact_union.py` calls the exact generalized enumerator in `scripts/z17_renum.c` through the tiny wrapper `scripts/z78_exact_enum.c`, sequentially for one prime/family at a time. It writes each deduplicated residue set (`r*_p1.txt`, etc.) and the union table. The P/Q enumerator checks its defining identities and unit filters; the union arithmetic itself uses integer residues and explicit lifting. All seven table rows were generated under the requested virtual-memory cap and timeout.
+### P5 enumerator and work bounds
+
+`P5` uses `scripts/z78_exact_et.cpp`, an exact C++ implementation of the four-regime ET cover (e, ad, ac, cd), with GNU coreutils `factor` batched once per regime. For N=r⁵ it chooses Xcd ≥ N^0.3 and the least Xo satisfying Xo⁴Xcd ≥ N²; completeness follows from the standard ET inequality e²(ad)(ac)(cd)=(acde)²≤N² for a≤b. Every recovered tuple is checked in the original equation and the unit filters; the factored integer products are checked against the input rows. Output is the deduplicated pair of P box centres modulo r³.
+
+The old full a,d scan for P5 would use about (π²/12)r⁵ iterations. The four-regime work through r=101 is about 2.50 million factor keys total; the largest row (r=101) has 373,691 keys. The ET set exactly reproduces the previous exhaustive P5 residue sets at r=17, 19, and 23. Counts above are exact enumerations, not upper-bound substitutions.
 
 ## Branch histograms
 
-The finite trees are saved in `data/z78/exact/rtree17_d8.txt`, `rtree19_d6.txt`, and `rtree23_d6.txt`, copied from the existing exact tree outputs `data/z17/rtree*_d*.txt`; the shallow multi-prime census is `landscape_d4.txt` (source `data/z17/landscape_d4.txt`). These are finite-data replays, not newly extended searches.
+`data/z78/exact/rtree17_d8.txt`, `rtree19_d6.txt`, `rtree23_d6.txt`, and `landscape_d4.txt` preserve the existing stored trees/census from `data/z17/`. New exact L1/P3/Q3/P5/U branch histograms through depth 3 for primes r=29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101 are in `rtree{r}_d3.txt`. Their P5 data uses the ET engine; Q₃/U₃ were exhaustively enumerated. Histograms count new boxes by alive parent, per nonresidue cell; the files include the exact integer counts and per-cell histograms (alive fractions are display decimals only).
 
-For the key r = 17, in C₅ (and its inverse C₇) the exact new-box counts at depths 2–8 are `4, 23, 34, 83, 100, 272, 326`; the corresponding maximum numbers of new boxes in any alive parent are `4, 4, 2, 2, 2, 1, 1`. At depths 7 and 8 every new box has a distinct alive parent. Stored r = 19 data reaches depth 6 and r = 23 reaches depth 6: maxima in the surviving sample cells are respectively `7,5,1,1,1` (depths 2–6) and `8,5,3,2,1`. See the data files for per-cell histograms and exact alive fractions. These are observations at finite depth, not uniform bounds.
+Across these new trees, the largest d2 parent multiplicity ranges from 3 (r=41) to 14 (r=47); the largest d3 multiplicity ranges from 2 to 4 (at r=29, 37, 61). This is finite-depth evidence only, not a uniform bound. The r=17 C₅/C₇ tree to depth 8 remains the stored exact tree: new-box counts at depths 2–8 are `4,23,34,83,100,272,326` and maximum parent multiplicities are `4,4,2,2,2,1,1`.
 
 ## Replay
 
 ```sh
 ulimit -v 2000000
-timeout 1800 uv run --offline --no-project python -B scripts/z78_exact_union.py 5 7 11 13 17 19 23
+timeout 1800 uv run --offline --no-project python -B scripts/z78_exact_union.py 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101
+timeout 1800 uv run --offline --no-project python -B scripts/z78_exact_tree.py 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101
 ```
 
-The script runs the C enumerator sequentially, with one enumeration process at a time. `union.tsv` is overwritten with exactly the primes passed on the command line. Tree histograms came from the stored z17 outputs noted above; they can be compared byte-for-byte with those source files.
+Both scripts run families sequentially; the factor child is also sequential and no separate factor workers are used. Remove local `data/z78/exact/enum.bin` and `et.bin` after replay. No result here proves sterility or any infinite case.

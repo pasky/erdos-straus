@@ -1,0 +1,50 @@
+r = 59: non-residues [2, 6, 8, 10, 11, 13, 14, 18, 23, 24, 30, 31, 32, 33, 34, 37, 38, 39, 40, 42, 43, 44, 47, 50, 52, 54, 55, 56, 58]; level-1 boxes [2, 8, 14, 18, 23, 30, 31, 37, 38, 39, 40, 42, 44, 47, 52, 54, 55, 56, 58]
+  cell C_2: covered at level 1
+  cell C_6:
+    d2: new 4, alive 0.93220339, max 4, hist {4: 1}
+    d3: new 19, alive 0.92674519, max 2, hist {1: 11, 2: 4}
+  cell C_8: covered at level 1
+  cell C_10:
+    d2: new 4, alive 0.93220339, max 4, hist {4: 1}
+    d3: new 19, alive 0.92674519, max 2, hist {1: 11, 2: 4}
+  cell C_11:
+    d2: new 4, alive 0.93220339, max 4, hist {4: 1}
+    d3: new 28, alive 0.92415972, max 2, hist {1: 20, 2: 4}
+  cell C_13:
+    d2: new 8, alive 0.86440678, max 8, hist {8: 1}
+    d3: new 15, alive 0.86009767, max 2, hist {1: 13, 2: 1}
+  cell C_14: covered at level 1
+  cell C_18: covered at level 1
+  cell C_23: covered at level 1
+  cell C_24:
+    d2: new 8, alive 0.86440678, max 8, hist {8: 1}
+    d3: new 17, alive 0.85952313, max 2, hist {1: 15, 2: 1}
+  cell C_30: covered at level 1
+  cell C_31: covered at level 1
+  cell C_32:
+    d2: new 8, alive 0.86440678, max 8, hist {8: 1}
+    d3: new 17, alive 0.85952313, max 2, hist {1: 15, 2: 1}
+  cell C_33:
+    d2: new 5, alive 0.91525424, max 5, hist {5: 1}
+    d3: new 20, alive 0.90950876, max 3, hist {1: 13, 2: 2, 3: 1}
+  cell C_34:
+    d2: new 5, alive 0.91525424, max 5, hist {5: 1}
+    d3: new 20, alive 0.90950876, max 3, hist {1: 13, 2: 2, 3: 1}
+  cell C_37: covered at level 1
+  cell C_38: covered at level 1
+  cell C_39: covered at level 1
+  cell C_40: covered at level 1
+  cell C_42: covered at level 1
+  cell C_43:
+    d2: new 4, alive 0.93220339, max 4, hist {4: 1}
+    d3: new 28, alive 0.92415972, max 2, hist {1: 20, 2: 4}
+  cell C_44: covered at level 1
+  cell C_47: covered at level 1
+  cell C_50:
+    d2: new 8, alive 0.86440678, max 8, hist {8: 1}
+    d3: new 15, alive 0.86009767, max 2, hist {1: 13, 2: 1}
+  cell C_52: covered at level 1
+  cell C_54: covered at level 1
+  cell C_55: covered at level 1
+  cell C_56: covered at level 1
+  cell C_58: covered at level 1
