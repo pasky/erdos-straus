@@ -1,0 +1,9 @@
+# Independent proof review: ANALYTIC_34
+
+Review tool: `functions.review`, mode `smart`; wrapper identified `anthropic/claude-opus-5-5`. Range: da7b8a9ff..870f8ab25 (pre-revision proof). Internal cross-model review, not external refereeing.
+
+**Verdict (quoted):** “the mathematics holds. I re-derived every step and found no gap. But the note mislabels which results its main exponent depends on, and that has to be fixed before export.”
+
+**Checks (summary of review).** The reviewer re-derived the square-sieve reduction including f=0, the uniform period second moment at degenerate frequencies, the ℓ=0 contribution, and the partial-summation variation. In the shift inequality the support fits inside 2W+O(1); a leftover period costs ≤Q²≪WQ, and the off-diagonal correlations are genuinely unweighted. The differenced phase is ℓhn/(4x(x+hQ)); the reviewer checked σ=3, the relative derivative errors, Y≥1 and both low-Y ranges. The minimum shift margin is positive for both pairs. The reviewer obtained the tabulated vertex fractions and B-transform independently, replayed the script, and checked both optimization criteria on TY hull vertices from −39 through 39. No saving at the fourth-root block and no contradiction with the scope of Z53 Proposition B2 were found.
+
+**Disposition.** As requested, §0 leads with 8/25 relative to classical inputs and distinguishes 7955/24966 relative to TY, including the Bourgain/Huxley/Sargos inputs (no open conjecture). The direct-pair control receives the same literature qualification. Export pointers remain suggestions only. The post-review revision also adds the method attribution and title, shortens the assessment, clarifies the second-moment deduction, and explicitly checks β−2ρ≤θ for the direct control in the script. No proof modification or exponent change was required. The reviewer made no external priority claim.
