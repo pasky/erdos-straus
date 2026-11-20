@@ -1,0 +1,13 @@
+after periodic shift: (Fraction(1, 2), Fraction(1, 2)) theta 8/25 0.32
+  alpha=8/25 beta=9/25 gamma=8/25 shift margin=4/25 D=4/25 F=8/25
+  alpha=8/25 beta=8/25 gamma=9/25 shift margin=7/25 D=1/25 F=7/25
+  alpha=17/50 beta=17/50 gamma=8/25 shift margin=6/25 D=1/10 F=57/200
+after periodic shift: (Fraction(1418, 5119), Fraction(2917, 5119)) theta 7955/24966 0.31863334134422816
+  alpha=7955/24966 beta=4528/12483 gamma=7955/24966 shift margin=3551/24966 D=734/4161 F=7955/24966
+  alpha=7955/24966 beta=7955/24966 gamma=4528/12483 shift margin=3427/12483 D=367/8322 F=37167617/127800954
+  alpha=17011/49932 beta=17011/49932 gamma=7955/24966 shift margin=5753/24966 D=1835/16644 F=18366361/63900477
+direct off-line pair: (Fraction(18, 199), Fraction(593, 796)) theta 1346/4169 0.3228591988486448
+  alpha=1346/4169 beta=1477/4169 gamma=1346/4169 term=1346/4169
+  alpha=1346/4169 beta=1346/4169 gamma=1477/4169 term=972773/3318524
+  alpha=2823/8338 beta=2823/8338 gamma=1346/4169 term=987969/3318524
+TY convex hull: adjacent-vertex tests passed
