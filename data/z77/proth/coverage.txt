@@ -1,0 +1,4 @@
+k 255 period 5040 rows {'M': 8, 'D': 5, 'II': 6, 'W': 24, 'X': 1} core checks 6 coverage 5040
+odd lcm of fixed row moduli 61500575996988381601913565
+k 1023 period 55440 rows {'M': 11, 'D': 2, 'II': 9, 'W': 16, 'X': 3, 'K': 12} core checks 6 coverage 55440
+k 4095 period 720720 rows {'D': 34, 'W': 69, 'II': 46, 'X': 3, 'K': 112} core checks 10 coverage 720720
