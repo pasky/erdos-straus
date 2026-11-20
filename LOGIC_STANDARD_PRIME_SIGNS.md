@@ -1,5 +1,19 @@
 # Simultaneous standard-prime signs at an ES counterexample
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: a countable model of IOpen + Bézout + internal Dirichlet + universal NR (standard prime witnesses) with ¬ES(P),
+        P≡1 (840), in which every sign word for nonassociate positive nonstandard primes occurs at infinitely many
+        standard q≡3 (4); QR_std (Z65_LOGIC2.md §1) fails.
+Label:  PROVED (internal; rel. ET Prop 1.6/1.9, Lang–Weil, the Z73 row tower; ¬ES via LOGIC_MARKED_SECTIONS.md or,
+        independently, L2 descent)
+Scope:  Bézout, NOT an external PID; standardness of witnesses and the sign statement are external. No claim about
+        ES in ℕ (OPEN), IE₁, IΔ₀, PA or ZFC.
+Review: cross-model data/z74/xreview/REVIEW_NRMODELS_OPUS.md (Opus: ACCEPT)
+Triage: BARRIER-BROAD (strengthens LOGIC_UNIVERSAL_NR_AUDIT.md)
+STATUS delta: see REVIEW_NRMODELS_OPUS.md §6 (one added line under the joint-PID item)
+```
+
 **Result (internal proof audit).** There is a countable discretely ordered Bézout domain `R` satisfying open induction and internal Dirichlet, with a positive infinite prime `P ≡ 1 mod 840` failing ES, with the following external property:
 
 > For every finite tuple of pairwise nonassociate positive nonstandard primes `s₁,…,sₖ` of `R`, and every word `ε∈{±1}ᵏ`, infinitely many **ordinary** primes `q ≡ 3 mod 4` have `(sᵢ mod q | q) = εᵢ` simultaneously. The symbol is the ordinary Legendre symbol in `R/qR = 𝔽_q`.
@@ -70,7 +84,7 @@ Set `R={g∈A : v_r(φ_r(g))≥0 for every r}`, abbreviating the valuations to `
 * For `a,b∈R` nonzero write `(a,b)A=hA` and `a=hu,b=hv`. There are `U,V∈A` with `Uu+Vv=1`; at almost every place all four terms `U,V,u,v` are integral, so `min(v_r(u),v_r(v))=0` there. Take `γ∈ℚ^×` with exactly these residual minima as valuations. Then `d=γh` lies in `R`, divides both in `R`, and `a/d,b/d` are locally primitive everywhere. Their `A`-row solving the unit identity is integral almost everywhere. Where it is not, integral solutions exist locally by primitivity; adjust by the direction `(b/d,−a/d)` times a single rational parameter, approximating the finitely many local corrections and integral elsewhere. This gives a unit row over `R`, so `(a,b)R=dR`. A zero input is immediate.
 * Each positive nonstandard prime of `R` has valuation **zero everywhere**: `R/rR=𝔽_r` by reduction (division by `r` changes no other integrality condition), and a nonstandard irreducible cannot be a multiple of the nonunit `r`. It is a prime element by Bézout, and divides no nonzero standard integer by discreteness. Hence localization at the standard integers keeps its ideal proper and prime: it is an irreducible of `A`. Conversely an `A`-prime with zero valuations everywhere is prime in `R`, since a quotient by it in `A` preserves integrality. In particular `P` is prime. For two such `R`-primes with `s₂=k s₁`, `k∈ℚ^×`, every `v_r(k)=0`, so `k=±1`, and positivity forces equality. This is why the enumeration over *nonassociate* `A`-primes covers all required tuples of `R`-primes without guessing which elements will be normalized. Signs of arbitrary rational associates are correlated by `(k|q)`; they are not independent slots. Constants of `A` are not irreducibles, and constants in `R` are precisely `ℤ`.
 * For internal Dirichlet inputs with `m>0` and `(a,m)R=R`, their common stage has coprime inputs (a common prime factor would persist). At every place one of `a,m` is a unit, by the global identity. Thus the scheduled positive prime `Q=a+mY>H` in `A` has unit valuations everywhere, and is prime in `R` with `Y∈R`. The divisibility in the progression is in `R`.
-* For ES, a hypothetical positive triple at `P` occurs on a finite stage with the cleared identity. The embeddings give feasible local points, integral on this stage almost everywhere and with the three values integral everywhere. Each `π_r` is transcendental, so the exact-zero hypothesis (E) of `LOGIC_MARKED_SECTIONS.md` holds. Its section with `P↦T` yields a positive polynomial triple integral on an ordinary progression containing `π` (positivity uses connectedness of the real `P>0` tower, not approximation of arbitrary inequalities). Its class is then polynomially solvable, contrary to `π∈U` by the profile criterion. This proves **nonstandard** `¬ES(P)`.
+* For ES, a hypothetical positive triple at `P` occurs on a finite stage with the cleared identity. The embeddings give feasible local points, integral on this stage almost everywhere and with the three values integral everywhere. Each `π_r` is transcendental, so the exact-zero hypothesis (E) of `LOGIC_MARKED_SECTIONS.md` holds. Its section with `P↦T` yields a positive polynomial triple integral on an ordinary progression containing `π` (positivity uses connectedness of the real `P>0` tower, not approximation of arbitrary inequalities). Its class is then polynomially solvable, contrary to `π∈U` by the profile criterion. This proves **nonstandard** `¬ES(P)`. *(z74 Opus xreview fix: equally, the descent lemma L2 of `LOGIC_JOINT_NR_TS.md` puts the triple in `ℚ[P]` directly, since every stage is a line, row or Dirichlet edge; the section lemma is then not needed.)*
 
 ## 4. NR and the boundaries
 

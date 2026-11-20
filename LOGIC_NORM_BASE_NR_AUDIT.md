@@ -1,5 +1,16 @@
 # Put the distinguished prime on a norm plane
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: the LOGIC_UNIVERSAL_NR_AUDIT.md model rebuilt over ℚ[X,Y], P=X²+Y² with X,Y∈R: IOpen + Bézout + internal
+        Dirichlet + universal NR (standard prime moduli) + TS at P + ¬ES(P); universal TS FAILS in it (at Q=1+4Z).
+Label:  PROVED (internal; rel. LOGIC_UNIVERSAL_NR_AUDIT.md, ET Prop 1.9; own descent to ℚ[P], no section lemma)
+Scope:  Bézout, NOT an external PID; TS only at P. No claim about ES in ℕ (OPEN), IE₁, IΔ₀, PA or ZFC.
+Review: cross-model data/z74/xreview/REVIEW_NRMODELS_OPUS.md (Opus: ACCEPT)
+Triage: METHOD-CX (this construction cannot give universal TS)
+STATUS delta: none
+```
+
 **Verdict.** In the model of `LOGIC_UNIVERSAL_NR_AUDIT.md` one can additionally arrange `TS(P)` at the same ES counterexample: take **`P=X²+Y²` with `X,Y∈R`**. Universal NR (with standard prime witnesses), internal Dirichlet and Bézout all survive. In fact the model below **fails** universal TS, not just our method of verifying it. No marked-section theorem for a fibration by norm conics is assumed.
 
 ## Base and finite fields
