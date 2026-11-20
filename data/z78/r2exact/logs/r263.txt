@@ -1,0 +1,4 @@
+r 263 nonsq 131 L1 47 P3marg 316 P3data 382 Q3marg 442 Q3data 1307 (smalle 742 smallf 532 large 33) P5marg 656 P5data 781
+P5small r 263 j0:all821/alive488/pershift1118 j1:all845/alive504/pershift1156 j2:all869/alive524/pershift1190 j3:all903/alive546/pershift1260 j4:all945/alive574/pershift1326
+alive_after_depth3_numer_over_2r^3 11451980 ppm 314762.756
+ROW 263 47 316 442 656
