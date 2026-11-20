@@ -1,0 +1,11 @@
+X n=4545 k=4 searched through H=10 min=10
+X n=4549 k=4 searched through H=2 min=2
+U n=131 k=8 searched through H=786 min=786
+U n=241 k=8 searched through H=1928 min=1928
+U n=137 k=8 searched through H=548 min=548
+S n=131 k=8 searched through H=4 min=4
+S n=241 k=8 searched through H=8 min=8
+S n=137 k=8 searched through H=4 min=4
+A 193 count 0
+A 2521 count 0
+A 66529 count 0
