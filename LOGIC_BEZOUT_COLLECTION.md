@@ -1,5 +1,12 @@
 # Full collection over open induction with Bézout
 
+Result: every countable discretely ordered Bézout domain satisfying IOpen has a proper countable end extension of the same kind; hence full collection is ∀Δ₀-conservative over IOpen + Bézout, and IOpen + Bézout + Coll has a model with an infinite prime p ≡ 1 modulo every standard k and ¬ES(p).   Label: PROVED (internal; rel. Shepherdson's criterion, standard commutative algebra, and the reviewed base model `LOGIC_BEZOUT.md`)
+Scope: one-sided nonprovability for a weak theory; Coll is bounding, not coded choice; the ES model is not a model of IΔ₀ (the base model's failure of 2-primary extraction, `LOGIC_BEZOUT.md`, is a Δ₀ statement and persists in end extensions) nor of IE₁ (Enayat–Łełyk–Visser Thm B.2: IE₁ + Coll ⊢ PA, verified); nothing about ℕ, PA or ZFC.
+Review: cross-lab (Opus) `data/z74/xreview/REVIEW_COLLECT_OPUS.md` (C9–C12, CORRECT).
+Triage: HEADLINE (variant of the STATUS §1E IOpen + Bézout row)
+STATUS delta: see `data/z74/xreview/REVIEW_COLLECT_OPUS.md` §7 (replace “cross-review owed” in the §1E IOpen + Bézout row).
+*(§0 block: z74 Opus xreview fix)*
+
 **End-extension theorem.** Every countable discretely ordered Bézout domain whose nonnegative cone satisfies open induction has a proper countable ordered extension of the same kind, end-extending its nonnegative cone. Consequently adjoining full first-order collection to `IOpen + Bézout` is conservative for universal closures of bounded formulas in the arithmetic language.
 
 **ES application.** There is a model of `IOpen + Bézout + Coll` with an infinite prime `p ≡ 1` modulo every positive standard numeral and with no positive solution of `4xyz=p(xy+yz+zx)`. In particular the theory does not prove ES for all primes beyond any standard cutoff, even restricted to `1 mod 840`. This neither decides standard ES nor gives a result for PA, IE₁ or IΔ₀. The end-extension proof and the audit of the initial ES model are separate below. Neither uses a norm-adjunction step or any unproved assertion about primes in ℕ.
