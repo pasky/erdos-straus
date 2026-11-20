@@ -5,6 +5,7 @@ from z78_proth_primary import dlogmaker,F,pa,root
 import json,sys
 
 def solve(j):
+    if j<3:raise ValueError('this lifting generator requires j>=3; smaller layers already have direct certificates')
     d=3**(j-1); h=3*d; M=2**d-1; B=lambda a:1+pow(2,a,M);X=lambda a:B(a)**3*pow(B(3*a),-1,M)%M
     o=2*(d//3);rr=[(2**i)%d for i in range(o)];assert len(set(rr))==o and X(1)==3
     G=[X(a)*pow(3,-1,M)%M for a in rr[1:]];f=F(M);ex=lcm(*(p**(e-1)*(p-1) for p,e in f));Z=ex
