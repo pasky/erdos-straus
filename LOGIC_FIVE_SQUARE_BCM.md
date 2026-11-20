@@ -27,7 +27,8 @@ Two residue facts follow from IOpen and external PID alone:
 * the residue field at every nonstandard prime has characteristic 0, since `q|ℓ` is impossible.
 
 No property of the units of `D₀`, and none of its TS, NR or Dirichlet axioms, is used. `LOGIC_FOUR_SQUARE_AUDIT.md` §3
-would also serve, but it has not been cross-reviewed. Below, `p` denotes this `P`.
+would also serve. It has since been cross-reviewed: ACCEPT-WITH-FIXES, `data/z74/xreview/REVIEW_ENDEXT_OPUS.md` rows
+FSA7–FSA11 (z74 Opus xreview fix). Below, `p` denotes this `P`.
 
 **Result (internal proof).** Starting with the countable external PID prime countermodel with IOpen and four squares (`D₀` above), there is a countable model of **IOpen + Bézout + bounded common multiples + five squares** with the same positive prime `p≡1 mod 840` and `¬ES(p)`. Five squares means every nonnegative element is a sum of five squares. The first common multiple `h` requires five squares even in the final model (§6). The PID used to execute each successor is not the discretely ordered ring in that successor. In particular no nonstandard external PID is claimed to satisfy bounded common multiples.
 

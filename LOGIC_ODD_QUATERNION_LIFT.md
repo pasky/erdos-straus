@@ -1,5 +1,17 @@
 # Odd completion: a determinant lifting lemma and its limit
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: in the odd inverse limit of a countable Bezout domain with −1 a sum of two squares at every odd level, unit
+        norms lift (so units are four squares, everything five); Pic(R_m)[2]=0 on a cofinal chain gives four
+        squares for all; ℚ₂(T) shows "−1 is four squares" alone does not.
+Label:  PROVED (internal); the Pic condition is a stated hypothesis
+Scope:  superseded by LOGIC_ODD_COMPLETION_AUDIT.md (same results, sharper (L) condition, semilocal pair lift).
+Review: cross-model data/z74/xreview/REVIEW_ENDEXT_OPUS.md (rows OQL1–4; ACCEPT-WITH-FIXES, format only)
+Triage: NULL (superseded)
+STATUS delta: none
+```
+
 Let `D` be a countable Bézout **domain**, call a modulus odd if `(2,m)=1`, and assume `−1` is a sum of two squares in each `R_m=D/mD` for odd nonzero `m`. Ignore unit moduli. In `H_R=(−1,−1)_R` reduced norm is `Q₄=Σx_i²`. If `a²+b²=−1` in `R`, send `i` to `I=[[0,−1],[1,0]]`, `j` to `J=[[a,b],[b,−a]]`. Then `I²=J²=−1`, `IJ=−JI`. Since 2 is invertible, the commuting and anticommuting subspaces for `I` are complementary free planes; the first has basis `1,I`, and right multiplication by the unit `J` identifies it with the second. This is an algebra isomorphism to `M₂(R)`, identifying norm with determinant. The choices need not be compatible.
 
 **PROVED: arbitrary unit-norm solutions lift.** For any `m|M` as above, any `s∈R_M^×` and any `w∈H_{R_m}` with norm `s mod m`, there is a lift of norm `s` modulo `M`. Indeed `SL₂(D)→SL₂(R_m)` is onto. For the first row lift `a,b` to `D`, write `(a,b)=g(a',b')` with `(a',b')` unimodular; `(g,m)=1`. A determinant-one coordinate change sends the lifted row to `(g,0)`; replace this by `(g,m)`, now unimodular, and undo the change. A zero lifted row would have required the trivial modulus. Complete the new row to determinant 1 over `D`. Modulo `m` its second row and the desired one differ by a multiple of the first, as seen in the basis of that invertible matrix. Lift and apply the row correction. To lift `w`, use one splitting at **`M`** and its reduction, remove `diag(s,1)` from the target matrix, lift the resulting determinant-one matrix, then restore `diag(s,1)`. Countability permits a cofinal chain of moduli by taking products, so in the odd inverse limit every unit, in particular `−1`, has four-square norm. The argument does not assume elementary generation of `SL₂`.

@@ -1,6 +1,20 @@
 # One Lagrange end extension with a common multiple of the entire old cone
 
-**PROVED (one step).** Let `R₀` be a countable discretely ordered external PID with `IOpen + Lag` on its nonnegative cone (`Lag`: each nonnegative element is a sum of four squares). There is a countable discretely ordered domain `R′` whose cone properly end-extends the old cone and satisfies `IOpen + Lag`. There is one positive `h>R₀` such that `h/t∈R′` for **every** nonzero `t∈R₀`. Every old prime element stays prime, and ES failure at an old positive prime persists. In particular one may use the countable PID of `LOGIC_FOUR_SQUARE_AUDIT.md` §3. No external PID or Bézout hypothesis on the *output* is needed or established; indeed it cannot be an external PID. This is not global BCM.
+**§0 (z74 Opus xreview fix).**
+```
+Result: every countable discretely ordered external PID with IOpen + Lag has a countable proper end extension R′ with
+        IOpen + Lag, one h with h/t∈R′ for all nonzero old t, old primes still prime and old ES failure kept.
+Label:  PROVED (internal; rel. Shepherdson's criterion, Hensel)
+Scope:  ONE successor. R′ is not an external PID; Bezout, BCM at new cutoffs and iteration are not claimed (see
+        LOGIC_LAGRANGE_END_TEST.md §4, LOGIC_BCM_HULL_AND_ODD.md). Starting models: the joint PID of
+        LOGIC_JOINT_NR_TS.md or LOGIC_FOUR_SQUARE_AUDIT.md §3. No claim about ES in ℕ or PA/ZFC.
+Review: cross-model data/z74/xreview/REVIEW_ENDEXT_OPUS.md (rows LEM1–LEM11; ACCEPT-WITH-FIXES, format only)
+Triage: supporting lemma of the HEADLINE LOGIC_FIVE_SQUARE_BCM.md (no separate row); master proof of the one-step
+        successor (LOGIC_LAGRANGE_END_TEST.md §§1–3 is a duplicate proof)
+STATUS delta: none (STATUS §2.4 "iterating the Lagrange end extension" open is accurate)
+```
+
+**PROVED (one step).** Let `R₀` be a countable discretely ordered external PID with `IOpen + Lag` on its nonnegative cone (`Lag`: each nonnegative element is a sum of four squares). There is a countable discretely ordered domain `R′` whose cone properly end-extends the old cone and satisfies `IOpen + Lag`. There is one positive `h>R₀` such that `h/t∈R′` for **every** nonzero `t∈R₀`. Every old prime element stays prime, and ES failure at an old positive prime persists. In particular one may use the countable PID of `LOGIC_FOUR_SQUARE_AUDIT.md` §3, or the joint PID of `LOGIC_JOINT_NR_TS.md` (both cross-reviewed; z74 Opus xreview fix). No external PID or Bézout hypothesis on the *output* is needed or established; indeed it cannot be an external PID. This is not global BCM.
 
 ### Local targets, including singular specializations
 

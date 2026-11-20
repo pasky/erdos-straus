@@ -1,5 +1,19 @@
 # Odd congruence landing: what actually lifts?
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: for a countable Bezout domain D with −1 a sum of two squares in every R_m=D/mD, (2,m)=1, the odd inverse limit
+        S has every unit a sum of four squares and every element a sum of five; four squares for all of S follow
+        under (L) (e.g. Pic(R_m)[2]=0, or D an EDR), and a coherent norm −1 pair follows under semilocality.
+Label:  PROVED (internal) for §1; PROVED assuming (L) for §2; PROVED assuming cofinal semilocality for §3
+Scope:  algebra of the odd part of the interface in LOGIC_LAGRANGE_END_TEST.md §4 only; does not derive (L) or
+        semilocality from Bezout + IOpen, and gives no second end extension.
+Review: cross-model data/z74/xreview/REVIEW_ENDEXT_OPUS.md (rows OCA1–OCA7; ACCEPT-WITH-FIXES, fixes applied)
+Triage: BARRIER-SCOPED / supporting lemma (no separate row)
+STATUS delta: none
+```
+**Hypotheses, stated explicitly (z74 Opus xreview fix).** `D` is any countable Bézout **domain**. In the application it is discretely ordered with IOpen, but §§1–3 use neither. A modulus `m` is *odd* if `(2,m)=D`, so that 2 is invertible in `R_m`. Unit moduli are discarded. This note supersedes `LOGIC_ODD_QUATERNION_LIFT.md`.
+
 **Verdict.** Let `D` be the countable discretely ordered Bézout domain in the question, `R_m=D/mD` for positive odd `m`, and `S=lim R_m`. Assume `−1` is a sum of two squares in **each** `R_m`. From these hypotheses I get every **unit** of S as a sum of four squares and **every element** as a sum of five. A cofinal local Picard condition gives a primitive hyperbolic plane for four squares; a cofinal semilocal condition gives the exact coherent pair for `−1`. I do **not** derive either additional condition merely from Bézout + IOpen, or exhibit a counterexample to four squares under the stated hypotheses. This concerns only the odd part of `LOGIC_LAGRANGE_END_TEST.md` §4.
 
 ### 1. Unconditional unit lifting and an additive consequence (PROVED)
