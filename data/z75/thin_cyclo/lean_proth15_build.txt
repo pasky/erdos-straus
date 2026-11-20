@@ -1,0 +1,11 @@
+lean/ES/ES/Proth15.lean SHA256: d27cd1c94ad1b4a6acb8cd601f35df598ac60b7fdf3283f82dc8e8a340a78da0
+Toolchain: leanprover/lean4:v4.34.1 (see lean/ES/lean-toolchain; dependencies pinned in lake-manifest.json)
+
+Command (elan bin on PATH; no ulimit):
+cd lean/ES && systemd-run --user --scope -p MemoryMax=16G timeout 1800 sh -c 'lake exe cache get && lake build'
+
+Exit status: 0. Final build output excerpt:
+ℹ [8929/8931] Built ES.Proth15 (10s)
+info: ES/Proth15.lean:635:0: 'ESProth15.proth15' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8930/8931] Built ES (2.9s)
+Build completed successfully (8931 jobs).

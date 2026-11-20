@@ -1,0 +1,3 @@
+297 5040 classes covered; {'M': 5, 'D': 7, 'A': 9, 'K': 3} small/divisor triples 39
+33 720720 classes covered; {'M': 5, 'D': 8, 'A': 9, 'gap': 4, 'K': 217, 'II': 10} small/divisor triples 36
+273 55440 classes covered; {'M': 3, 'D': 7, 'A': 25, 'gap': 2, 'K': 26} small/divisor triples 36
