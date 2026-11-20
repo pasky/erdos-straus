@@ -5,6 +5,8 @@ Review: cross-model (Opus, `data/z78/xreview/REVIEW_WILD_ES_OPUS.md`; first revi
 Triage: HEADLINE (§1 density increment; core theorem also obtained independently by z78 Lane 4); BARRIER-SCOPED (§§2–3); METHOD-CX (§4, sharper adversarial family)
 STATUS delta: merge in one §1C row with Lane 4's broader core criterion (joint core credit, density refinement here): infinitely many distinct Mersenne multipliers at fixed base 2 and offset 1 have (S)/ES for density-one exponents, including entire non-finitely-ET-coverable progressions s∈L(h)ℕ, when −1∈H in §1 (in particular under our stated doubling hypothesis); **not** density under every criterion of Lane 4, and **not** full Proth families.
 
+Round 2 checkpoint: §6 defines the full seven-search height; §1–5 above/below retain their round-1 scopes. Review pending for round 2.
+
 # The −1 generator on the square limit
 
 Conventions: (S) asks for an interior word n=tuv−u−v (t,u,v≥2) with Jacobi symbol (tu−1 / n)=−1 for nonsquare n≡1 mod 4. Here “good word” means this negative-sign condition. W-numbers refer to the mission menu, not consecutive sections. Assessment of triage: W3 was not selected, since signed fixed-level theta minorants already have strong square restrictions (FRONTIER §4.1) and no specific new nonvanishing input was available.
@@ -149,3 +151,21 @@ The minimum is attained with `a=1, d=(f+1)/4`; thus these are genuine successes 
 Try **uniformity across tame covers at a puncture**: at 8/131 (or 8/241) and a fixed bound on geometric monodromy order (restrict to orders prime to 5), can one pinned-u adele pass the twisted Br[2] test for every t-cover in that bound with good tame reduction at 5? The product domination in §3.1 explains why this direction matters: geometrically every connected finite étale cover of H×H is dominated by a product of Galois covers, and pinning u neutralizes that factor. For arbitrary arithmetic torsors one must still descend the product domination, normalize twists compatibly, and control the t-covers at **one** adele. Do not exchange “each cover has a passing adele” with this uniformity, much less with unbounded Kummer descent. The Legendre case in §2.2 succeeds by explicit control of a uniformizer and of every boundary residue. General covers need comparison for bad twists and nonrational, possibly higher-genus components, not just equality of unit squareclasses. This is falsifiable, not B2, and not an implication from geometric π₁ alone.
 
 **Internal hostile checks (Assessment).** In A, product divisibility does not use coprimality, and 16|x (not 4|s) is needed in the density argument. In B an arbitrary extra unit can acquire valuation −1 even when all original units change by high powers; B0 prevents extending the field test to zero ratios. In C we had to exclude constant W projections and include the sign pattern; arbitrary maps to degenerate subsum lines are not classified by permutations. In D lower-bound-only theorems are insufficient; coprimality of the terminal prime with the full cell support and the exceptional-character sign were checked separately. External priority unverified for the new statements; no improvement of a published exponent claimed.
+
+## 6. Round 2: a full-equation search height
+
+**Definition / lemma E (PROVED rel. Elsholtz–Tao, arXiv:1107.1010, §2 and Prop. 1.9).** At an odd prime p, represent each positive solution in ET parameters `ce=a+b`, with `4abd=pe+1` (I) or `4abd=p+e` (II). Both orders of a,b are allowed. These two types exhaust prime-input solutions: not all three denominators can be multiples of p since then their scaled reciprocals sum to 4, nor can all be units mod p. In each row below the height m is the search's actual (not necessarily primitive) period; the bound m≤T means to try all factorizations of m and their indicated divisor/root tests, with no bound on the omitted coordinate. Define H_ES(p) as the minimum among all rows and all solutions, including both orientations, or ∞ if none. This is not the least shift e or the least d.
+
+|row|m|condition on p / auxiliary data|
+|---|---|---|
+|I1|4ad|p≡−f mod m, f divides 4a²d+1|
+|I2|4acf|p≡−f mod 4ac, ap≡−c mod f|
+|I3|4cdf|p≡−f mod 4cd, p²≡−4c²d mod f|
+|I4|4ab|pe≡−1 mod m, e divides a+b|
+|II1|4ab|p≡−e mod m, e divides a+b|
+|II2|f=4acd−1|p≡−4a²d mod f|
+|II3|4ade|p≡−4a²d−e mod m|
+
+Use reduced classes only; in I2,I3 require respectively (4ac,f)=(4cd,f)=1, in II3 (4ad,e)=1. At p>m these coprimalities follow for solutions: I has p=4acd−f, II has p=4ade c−4a²d−e. Every search hit reconstructs positive parameters: in I1 set c=(p+f)/(4ad); in I2 or I3 recover the missing factor of (p+f)/4. In all three rows e=(4a²d+1)/f, b=(pe+1)/(4ad)=ce−a. I4,II1 give c=(a+b)/e and d directly; II2 gives e=(p+4a²d)/f and b=ce−a=(p+e)/(4ad); II3 gives c=(p+4a²d+e)/(4ade) and the same b. All achieve actual unit fractions (respective denominators I: acd,bcd,pabd; II: abd,pacd,pbcd). The equations alone suffice for this construction; primitive parametrization is not required to eliminate candidates. The height is the minimum period in this specified universal menu, **not** a lower bound on every conceivable search algorithm.
+
+**Screen (Assessment).** Each split residue class in the table avoids every unit square mod its period by ET's square-class obstruction (see `EXPONENT_COVERING.md` Thm 1.2); no argument for ES of squares. For I3 split the square-root condition into reduced classes before applying this fact. The odd-prime sign on d (T10 of `Z69_TWIST.md`) is not sufficient by itself to exclude the actual I classes. II2 contains both C-parities and all c,d. F2/F3/F4: this is an avoidance argument at *selected primes*, with an explicit successful endpoint to be supplied, not an assertion of positivity on all inputs or any one line. Ordinary Type I/II forms at composite n do not exhaust ES there. The construction need not produce a zero.
