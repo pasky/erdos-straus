@@ -1,9 +1,9 @@
 ## §0
-Result: A nested-binomial construction gives a good word on a whole core progression for each of infinitely many Mersenne multipliers with fixed offset +1. Label: PROVED (elementary; good-word terminology rel. Z64_SDEEPF Thm 2.1)
-Scope: Not an all-exponent theorem. The period depends on m; no general ES claim. See §1 for quantifiers.
+Result: ES holds on three further full Mersenne-multiplier families (m=7,8,10); infinitely many different multipliers have a good-word core, and infinitely many cubic families in 1 mod 840 have good words and a square-unit limit. Label: PROVED (computer-assisted for full families, rel. Mordell and the z77 positive rules; §§1–2 hand proofs)
+Scope: Full families only where explicitly listed; m need not be prime. No general ES or all-exponent theorem for infinitely many m. See §1 for quantifiers.
 Review: none (cross-review owed)
-Triage: HEADLINE (restricted-exponent result only)
-STATUS delta: proposed addition within the §1C Proth row, not a change to the list of all-exponent multipliers: good words on a square-unit core progression for infinitely many m at fixed offset +1.
+Triage: HEADLINE
+STATUS delta: §1C Proth: add m=7,8,10 to the all-exponent multipliers (computer-assisted, not Lean); for infinitely many m at offset +1, only density-one exponents including a square-unit core (Lane 6 independently).
 
 ### 1. A programmable ladder of binomial ratios
 
@@ -26,3 +26,11 @@ Use the ladder for this list, once for each unit j, with final degree E_j. Let L
 **Theorem 2 (PROVED rel. quadratic reciprocity and the square-unit obstruction).** Let h=7^i with i≥1, H=2^h−1, m=(h+1)/2, k=4^m−1. There is an explicit nonempty progression of positive y for which every n=ky³+1 lies in the single hard class 1 mod 840, has an interior good word, and gives ES. For each such k these n have order of growth Θ_k(N^{1/3}) up to N and admit no finite ET/fixed-divisor cover, even eventually. The progression can be taken as y≡0 mod 1680 and y≡z mod H, with z ANY root of z²−z+2=0 mod H.
 
 Proof. For p|H the order of 2 mod p is a nontrivial power of 7, so p≡1 mod 7, p∤1680, and (−7/p)=(p/7)=1. The two distinct roots lift at all powers of p, and CRT gives z. Let u=2H, A=y²−y+1. Then A|y³+1, A≡−1 mod H and A≡1 mod 16. The same congruences as in §1 give the good word and direct triple. The counting assertion follows by monotonicity on an arithmetic progression. For unit-square closure use the profinite y with p-component z (any integral lift of the selected residue) at p|H and zero at every other prime. Mod p|H we have k≡1 and 1+z³≡(z−1)²≠0 (z=1 would imply 2=0). Thus n is a square unit in Z_p by Hensel; elsewhere n=1. This y respects the progression; arbitrarily large representatives match it at any finite modulus by CRT. The square-unit criterion applies. No prime-value assertion. ∎
+
+### 3. New full families (computer-assisted)
+
+**Theorem 3 (PROVED rel. Mordell and the positive rules of z77 §2).** ES holds for all s≥0 for m=7,8,10. The independently checked periods are 55440,12252240,55440 respectively. No primality assumption; no finite ET/divisor cover by Cor. 1.5. `data/z78/proth/period-{m}-{period}.json` gives every rule; `scripts/z78_proth_check.py` uses no discovery routines. For s≥64 this checks M/D/W/II/K exactly as in `notes/z77/PROOF_S_WILD.md` §2 (including the actual modulus when dividing by a fixed factor), tests the word's explicit five-slice conditions, checks a triple at each D divisor, and marks every residue. X supplies a degree e and actual (c,T) for EVERY unit j mod h: for 4e|s strip all primes of h from s/e, and use the same proof as §1. The checker verifies residues by the multiplicative Möbius formula for Φ_{2d}. All 1,920 triples for m=1..30 and s=0..63 are checked by direct integer multiplication. These finite tests alone would not justify any all-s assertion.
+
+A useful additional D rule in every m is s≡1 mod (2m+1). Indeed 2^{2m+1}−1 divides n there since 2k+1=2^{2m+1}−1. In particular the exact square at s=2m+2 is not a unit-square obstruction: any prime divisor of its root supplies a divisor class if its ES triple is known. In m=8 the 131071 row closed all four residual classes.
+
+Replay: `ulimit -v 1500000; timeout 120 uv run --offline --no-project python -B scripts/z78_proth_check.py small groups period-7-55440.json period-8-12252240.json period-10-55440.json`. Search uses `--with cypari2` for discrete logarithms and divisor lists; neither enters the checker. No Lean claim. The scoped complementary rigidity result for bounded menus of rational-in-root-exponential formulas is in `PROTH_RIGIDITY.md`; it does NOT obstruct unbounded-degree extraction or prove any ES failure.
