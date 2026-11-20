@@ -1,8 +1,8 @@
 ## §0
 
-Result: For bounded positive integers `P,L,K`, only finitely many `m≥1` admit a menu of at most `K` rational-function ES triples in `T=2^(Lj)` covering the whole eventual core `s=PLj` of `n=(4^m−1)2^s+1`, even with arbitrary pointwise selection.
+Result: For bounded positive integers `P,L,K`, only finitely many `m≥1` admit a menu of at most `K` rational-function ES triples in `T=2^(Lj)` covering the whole eventual core `s=PLj` of `n=(4^m−1)2^s+1`, even with arbitrary pointwise selection; on sparse progressions, the zero-exponent square-unit obstruction does not transfer by a fixed shift.
 Label: PROVED (rel. Siegel's integral-points theorem, the Mordell–Schinzel primitive-square obstruction via ET's quotation in `EXPONENT_COVERING.md` Theorem 1.2 (not accessed directly), and the finite van der Waerden theorem for menus).
-Scope: Rigidity of the denominator formulas, not nonexistence of ES solutions at any integer. No bound on the degrees, heights or coefficient denominators of the input triples is assumed.
+Scope: Rigidity of the denominator formulas, not nonexistence of ES solutions at any integer. The sparse discussion is a profinite limit calculation and a criterion for finite ET/divisor covers, not a determination of such a cover or a bounded-menu rigidity theorem. No bound on the degrees, heights or coefficient denominators of the input triples is assumed.
 Review: cross-model (Claude Opus, `data/z78/xreview/REVIEW_PROTH_ALLM_OPUS.md`; F10 incorporated).
 Triage: BARRIER-SCOPED.
 STATUS delta: none.
@@ -66,3 +66,21 @@ In particular, a bounded number of rational formulas on a bounded-root-exponent 
 **Proof.** Fix `m` and such a triple `A_i(J,T)`. Any nonzero polynomial `S(J,T)=Σ q_k(J)T^k` is eventually nonzero on the samples: its highest nonzero `T`-term dominates there, since every power of `j` is beaten by `2^(Lj)`. Hence the cleared ES equation, true at infinitely many samples, holds in `Q[J,T]`. The same dominance test shows the leading `T` coefficient of each `A_i` is positive at every sufficiently large real `J`, since the sample values are positive infinitely often. Fix such a `J`: all three specialized polynomials in `T` are eventually positive, so the rightmost-root argument of Proposition 1 shows they are positive on `[0,∞)`. Their constant terms `r_i(J)=A_i(J,0)` are thus eventually positive polynomials of `J` with `Σ 1/r_i(J)=4`. Let `J→∞`. Each nonconstant polynomial has reciprocal tending to zero, so the constant reciprocals alone sum to `4`. The sum over the nonconstant reciprocals would then be zero already at each finite sufficiently large `J`, impossible unless that set is empty. Thus the three `r_i` are fixed positive constants. As `J` ranges over all sufficiently large real numbers, the normalized triples lie in the finite variety of §1 for these constants (the degree bound follows from the same positivity at `T→+∞`). Consequently every coefficient polynomial in `J` takes finitely many values there and is constant. Discard the menu members that work only finitely often and apply Theorem 3. ∎
 
 This last argument requires *polynomial* dependence in the two variables; it makes no assertion for arbitrary quotients in `Q(J,T)`.
+
+## 5. Sparse exponent limits and the missing square-unit obstruction
+
+The interpolation step in Theorem 3 uses a monochromatic block of `B+1` consecutive indices `j`, so it does not apply to `j=B·2^v`. The sparse set has a different, explicit profinite limit-set description; importantly, a fixed shift does **not** recover exponent zero.
+
+**Proposition 5.1 (PROVED, exponent closure).** Fix `B≥1` and an integer shift `a`, and let `E_{B,a}` be the closure of `{B·2^v+a : v≥1}` in `Ẑ`. Then
+
+`E_{B,a} = {μ∈Ẑ : μ_2=a, (μ_ℓ)_{ℓ odd}=(a+B·2^ω)_{ℓ odd} for some ω∈Ẑ}`,
+
+where `2^ω` denotes the compatible family of odd-adic unit powers obtained by continuous extension of `v↦2^v`. In particular, every `μ∈E_{B,a}` has `μ_2=a`; and `0∉E_{B,a}` for every fixed `a` and `B≥1`.
+
+**Proof.** In `Z_2`, `2^v→0`, so the 2-component is `a`. For any sequence `v_i→∞` with a profinite limit `ω∈Ẑ`, the odd-adic components `2^{v_i}` converge compatibly to `2^ω`; conversely every `ω∈Ẑ` is the limit of a sequence of positive integers `v_i→∞`. This proves the displayed image description, retaining the coupling of the odd-adic components through the *same* `ω`. If `0∈E_{B,a}`, its 2-component forces `a=0`. But for any odd prime `ℓ∤B`, the ℓ-component is `B·2^ω`, a unit multiple of `B` in `Z_ℓ`, hence nonzero, contradiction. ∎
+
+For `k=4^q−1`, the familiar unit-square point of the full exponent family occurs at exponent `0`, but Proposition 5.1 shows that no fixed shift of `B·2^v` has that point in its limit set. Thus the square-unit argument at exponent zero does not prove a finite-cover obstruction for these sparse progressions. Conversely, this does **not** prove finite coverability: a different point of `E_{B,a}` could map under `μ↦k·2^μ+1` into `Sq^×`, or the limit set could meet the sterile set through nonsquare points.
+
+**Exact finite-cover test (PROVED, rel. `EXPONENT_COVERING.md` Theorem 1.4).** For odd `k` and fixed `B,a`, set `Λ_{k;B,a}={k·2^μ+1:μ∈E_{B,a}}`, with the 2-component interpreted as `1`. A finite eventual covering of `k·2^(B·2^v+a)+1` by ET and divisor classes exists iff `Λ_{k;B,a}` avoids the sterile set `S′` of that theorem. In particular, `Λ_{k;B,a}∩Sq^×≠∅` is a sufficient obstruction to such a covering. The criterion is exact but does not decide the intersection for general `k,B,a`; no computation or ES conclusion is claimed here.
+
+The sparse sequence has eventually periodic residues modulo every fixed integer (the odd part is controlled by powers of `2` modulo the finite exponent order, while the 2-primary part stabilizes). That fact alone supplies no uniform interpolation block in the original index `j`, nor any bound on the size of a rational-function menu. Extending Theorem 3 to sparse progressions, or constructing uniform positive ES certificates there, remains open.
