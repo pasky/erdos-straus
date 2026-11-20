@@ -1,6 +1,6 @@
 # The closest nonexact ES triple need not admit a monotone repair
 
-Result: for n ≡ 1 (mod 24) with no prime factor 3 (mod 4), the closest nonexact three-term approximation of 4/n is unique and explicit (the strict-greedy triple). A monotone repair must be a single move through X or Y. At n=73 both gates are closed, and the min-max error of any repair path is 4591× the optimum.   Label: PROVED (§1–§2); CERTIFIED (§3, exact rational enumeration)
+Result: for n ≡ 1 (mod 24) with no prime factor 3 (mod 4), the closest nonexact three-term approximation of 4/n is unique and explicit (the strict-greedy triple). A monotone repair must be a single move through X or Y. At n=73 both gates are closed, and the min-max error of any repair path is about 4591× the optimum (exactly 148665133/32382).   Label: PROVED (§1–§2); CERTIFIED (§3, exact rational enumeration)
 Scope: only the extremal nonexact seed and moves that keep a denominator. Nothing about solvability of ES, and no universal climb bound.
 Review: cross-lab (Opus) `data/z74/xreview/REVIEW_Z72PHASE_OPUS.md` (P8–P11 CORRECT)
 Triage: METHOD-CX

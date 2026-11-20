@@ -25,7 +25,7 @@ for N in the 103 norms with N % 8 == 7:
 
 More generally this gives an **exact eventual membership test** for any fixed split-word menu at `d=2`: in the same free region, a signed `(N,r)` is good iff `N≡7 mod 8` and some `a|(N+1)/8` has `4a≡±r mod N`. Necessity is the ideal identity just proved; conversely `r²≡−2p` gives `N|p+8a²`, and `A=N, c=(N+1)/(8a)` recovers the solution (either sign since the good set is inverse-closed). Thus freezing the prime-power residues fixes **membership itself**, not just genus, for every sufficiently large input in the cell.
 
-*(z74 Opus xreview: an explicit prime of the cell is `p=527397324177878694549601`. There the menu is unchanged, no word passes the membership test, and the triple `(2b, 8p, 8bp)` below was verified; see `scripts/z74_xrev_z72phase_checks.py mix`.)* Yet `A=31, a=1, c=4, e=(p+8)/31, b=(p+e)/8` is good at every such `p` (`e≡−p mod 8`, `4e=1+b`). The obstruction precedes ranking. It uses the even factor of the natural `de` norm; transferring this exclusion to `d=1` would be wrong.
+*(z74 Opus xreview fix: an explicit prime of the cell is `p=527397324177878694549601`. There the menu is unchanged, no word passes the membership test, and the triple `(2b, 8p, 8bp)` below was verified. The prime is proved by Pocklington; see `scripts/z74_xrev_z72phase_checks.py mix`.)* Yet `A=31, a=1, c=4, e=(p+8)/31, b=(p+e)/8` is good at every such `p` (`e≡−p mod 8`, `4e=1+b`). The obstruction precedes ranking. It uses the even factor of the natural `de` norm; transferring this exclusion to `d=1` would be wrong.
 
 | Falsifier | Scope |
 |---|---|

@@ -7,7 +7,7 @@ Triage: DATA
 STATUS delta: none
 *(§0 block: z74 Opus xreview fix)*
 
-> **Erratum (z74 Opus xreview fix):** a uniform cap of 123 on the first support-≤2 shift fails already at small primes. At p=66529 the first shift is 323. Within this very family (p ≡ 1 mod 840, (p+1)/2 prime) it is 1551 at p=370228321. The maximum below 5·10⁸ is 2695, at p=44407609 (`scripts/z74_xrev_z72phase_bypsieve.py`, `data/z74/xreview/z72phase_bypsieve.log`). The 10¹⁸ run therefore shows no tail growth beyond what small primes show. Its content is the certified target/control contrast and the blocking lemma, not a new refutation.
+> **Erratum (z74 Opus xreview fix):** a uniform cap of 123 on the first support-≤2 shift fails already at small primes. At p=66529 the first shift is 323. Among primes with p ≡ 1 mod 840 and (p+1)/2 prime it is 1551, at p=370228321. That is the 840-level family; the target progression p ≡ 1 mod L, with its Q_t conditions, has no primes below 5·10⁸. The maximum below 5·10⁸ is 2695, at p=44407609 (`scripts/z74_xrev_z72phase_bypsieve.py`, `data/z74/xreview/z72phase_bypsieve.log`). These small-prime maxima exceed the cohort maximum of 127, and no growth trend is inferred either way. The content of this file is the certified target/control contrast and the blocking lemma, not a new refutation of a uniform cap.
 
 **CERTIFIED (finite).** Every target and control has an actual z72 Type II witness. The latest target first succeeds at 127, compared to 31 in its size/840 control cohort and 87 in its size/full-progression control cohort. This refutes a **uniform cap of 123** on the first such shift, not the unrestricted small-support conjecture, much less ES. No extension of contiguous verification.
 
