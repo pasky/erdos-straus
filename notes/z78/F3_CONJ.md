@@ -26,4 +26,24 @@ by the R3 identity (FF_THIRDS_CORNER Lemma 1.1), since K≤s−1. H≠0 by the e
 
 If j>0, put f=T^n+V. Then TU f′−jT f=T^n(nU−jT), whose last linear factor is nonzero (U(0)≠0, j≠0 in F₃). As T∤f, deg gcd(f,f′)≤1. But M|f and MX=A³ with X|M mean every prime dividing M occurs at least twice in M. Hence M has degree at most 2: there is at most one repeated prime of f, linear and of multiplicity exactly 2 (multiplicity ≥3 contributes at least 2 to the gcd). If i>0 and 3∤n, then V=D³ and f is squarefree (f′=nT^(n−1)), so MX has multiplicities at most 2 and hence M is supported on U alone with d≤1. Neither d≤2 alternative fits §1 for N≥5 (d+r+deg p≥K, r≤d); at N=4 the only marginal alternative would be B with d=2, excluded by d≤n−K≤1. In A even d=2 is too small at N=4.
 
-Finally if i>0 and 3|n, V=D³ divides T^n+MX, whose derivative iU^(i−1)A³ is prime to V. Thus V=1. The parity law z≡v≡s mod 2 (FF_ODD_ABSENCE Cor. 1.7) forces n even. But U|M|T^n+1 contradicts (−c)^n+1=2. This proves non-inseparability without descending to a nonexistent smaller covering tuple. ∎
+Finally if i>0 and 3|n, V=D³ divides T^n+MX, whose derivative iU^(i−1)A³ is prime to V. Thus V=1. The parity law z≡v≡s mod 2 (FF_ODD_ABSENCE Cor. 1.7) forces n even. But U|M|T^n+1 contradicts (−c)^n+1=2. This proves separability without descending to a nonexistent smaller covering tuple. ∎
+
+## 3. Elimination of the two large powers (PROVED)
+
+Write b=n−K and δ=N−b∈{3,4} (these symbols are local to this section), P=deg p, Q=deg q, κ=(q−p)/T∈{c,−c}. Define two nonzero polynomials
+
+    T^K J = pMX+qV,                 T^N S = pMg+κ.
+
+The first is integral and nonzero by §1; the second is the original short-side covering congruence, using uMg≡c for B. Nonvanishing of the second was checked in §1. We have j=deg J=d+r+P−K and deg S=b+P−v (by y=L−1−v). Direct substitution and X+B=TgV give
+
+    MH=qT^b+J,                     VS=pT^b+J.
+
+Hence modulo M, J≡−qT^b and T^N S≡κ; define W=(T^δ SJ+κq)/M, an integral nonzero T-unit (the numerator has constant κ). Multiplication by V and use of the preceding identities give
+
+    VW=T^δ HJ−κpX,                 pXS=T^(b+1)W−qH.
+
+For the first, subtract the two expressions after multiplying by M and use MH−VS=κT^(b+1), T^K J=pMX+qV. For the second eliminate qVW between q(VW) and (T^K J−pMX)W: (T^K W−qT^δ H)J=pX(MW−κq)=pXT^δ SJ. Cancel T^δ J. Since δ>deg q, the first defining expression for W has degree δ+deg S+j−d, i.e.
+
+    deg W = r−v+2P−1 ≥ 0.
+
+In particular **N−d≤v≤r−1 (A), N−d≤v≤r+1 (B)**. Also rad(uMV)≥K as above, not merely a bound on its total degree. This bound does not use a probabilistic model. The last product gives an alternative exact enumeration: for fixed H,W, each X divides T^(b+1)W−qH, after which §1 recovers everything. This is not the old forced-E_M lottery: the small degree of W is a consequence of two independent congruences modulo M.
