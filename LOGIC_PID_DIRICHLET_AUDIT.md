@@ -1,5 +1,18 @@
 # Internal Dirichlet in the square-profile PID countermodel
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: the single PID of LOGIC_PID_INTERVAL_AUDIT.md can also satisfy the internal sentence
+        ∀a,m,H (m>0 ∧ gcd(a,m)=1 → ∃Q>H (Prime(Q) ∧ m | Q−a)); NR (Z65_LOGIC2.md §1) fails at every square-marked P,
+        so IOpen + external PID + internal Dirichlet ⊬ NR.
+Label:  PROVED (internal; rel. Z73_PID_SQUARE.md §§1–4 and Gauss's lemma)
+Scope:  no size bound on Q; the Dirichlet primes need not fail ES; nonstandard model only; no claim about IE₁, IΔ₀,
+        PA or ZFC (ES is open).
+Review: cross-lab (Opus) data/z74/xreview/REVIEW_PIDEXT_OPUS.md (rows D1–D4: CORRECT)
+Triage: HEADLINE (with LOGIC_PID_INTERVAL_AUDIT.md; the NR failure is BARRIER-SCOPED context for LOGIC_JOINT_NR_TS.md)
+STATUS delta: see LOGIC_PID_INTERVAL_AUDIT.md §0 (one combined STATUS row)
+```
+
 **Verdict.** The same external PID model of IOpen as in the interval construction can be built to satisfy the single internal sentence `∀a,m,H (m>0 ∧ gcd(a,m)=1 → ∃Q>H (Prime(Q) ∧ m | Q−a))`. Here `gcd=1` can be expressed by a Bézout identity. No size bound on Q in terms of the inputs is asserted. The additional primes need not fail ES. The earlier square-marked ES failures in every interval of externally infinite length persist.
 
 **Stages.** For every triple from a finite rational stage A with m>0 and a,m relatively prime in the UFD A, schedule a fresh polynomial variable Y above the entire current ordered fraction field, in particular above `(H−a)/m` and `(2−a)/m`. The element Q=a+mY is primitive linear over A, hence prime in A[Y] by Gauss's lemma and factoriality. If a=0 then m is an A-unit and this is just an associate of Y. All future stages preserve old prime elements and nonunits (`Z73_PID_SQUARE.md` §1). This is an ordinary polynomial stage, not an extra non-square cover or deletion of `Q=0` from the stage variety. Choose Y itself as a basis coordinate. Keep three disjoint types of basis coordinates: square marks, Dirichlet variables, and unmarked coordinates. The expressions for a,m in the basis are rational functions only of earlier variables. Schedule externally over A before specifying R; the final R-inputs are thereby covered.

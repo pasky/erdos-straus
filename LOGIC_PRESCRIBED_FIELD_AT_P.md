@@ -1,5 +1,20 @@
 # Prescribing the field at the ES-failing prime
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: in the joint external PID (IOpen + internal Dirichlet + TS + NR + Lag, ¬ES(P) at P=X²+Y²≡1 (840)) one can
+        prescribe R/PR ≅ k for any countable char-0 field k of infinite transcendence degree with √−1 ∈ k; e.g. a
+        countable elementary subfield of a pseudofinite ultraproduct, giving two square classes with all rationals square.
+Label:  PROVED (internal; rel. the joint PID, whose proof of record is the Proof map in LOGIC_JOINT_NR_TS.md, plus
+        Chebotarev, Łoś and downward Löwenheim–Skolem)
+Scope:  the residue field at this one P only, not reciprocity for all internal prime pairs. It is an ALTERNATIVE to
+        LOGIC_QR_AT_P.md, not combinable with it for pseudofinite k. Field prescription alone is Macintyre–Marker (D).
+        No claim about IE₁, IΔ₀, PA or ZFC (ES is open).
+Review: cross-lab (Opus) data/z74/xreview/REVIEW_PIDEXT_OPUS.md (rows P1–P5: CORRECT)
+Triage: HEADLINE (minor variant; FRONTIER post-z73 paragraph)
+STATUS delta: optional clause on the joint-PID row (REVIEW_PIDEXT_OPUS.md §6 M2)
+```
+
 **Result.** Let `k` be any countable characteristic-zero field of infinite transcendence degree containing a square root of `−1`. In the joint external PID model of IOpen + Dirichlet + TS + NR + Lagrange, one can retain the square-unit marked ES-failing prime `P=X²+Y²≡1 mod 840` and prescribe `R/PR ≅ k` **as a field**, not just up to elementary equivalence. This replaces, rather than supplements, the parity-valuation invariant of `LOGIC_QR_AT_P.md`. In particular the arbitrary-field statement cannot promise a nonsquare for algebraically closed `k`.
 
 **Invariant and scheduling.** Embed `κ=Frac(A/PA)` in `k` at each finite node of the rational tower, extending the embedding of its parent. Initially this is `ℚ(i)(X)`; choose `X` transcendental and choose the image of `Y/X`. The existing stages in `LOGIC_JOINT_NR_TS.md` and `LOGIC_FOUR_SQUARES.md` have purely transcendental residue fraction-field extensions at `P`. Rows have a surviving pivot, cones have their `D≠0` chart even at `s̄=0`, and ordinary polynomial stages are free. A circle never targets a rational associate of the already Gaussian-split `P`; in the generic residue field it has chart `uw=s̄≠0`. Four squares has chart `uw=s̄−zt` even if `s̄=0`. Extend each embedding by choosing fresh algebraically independent elements of `k`. No step needs `k` to contain the *ordered* fraction field. Each node has finite transcendence degree, and different branches need not choose elements of `k` independent of one another.

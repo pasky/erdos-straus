@@ -1,5 +1,18 @@
 # Audit: a greatest prime divisor in the joint ES countermodel
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: the integer-landing norm-split model of LOGIC_NORM_SPLIT.md can be built to satisfy IOpen, Bézout, TS,
+        Bertrand and “every n≥2 has a greatest prime divisor”, with cofinal primes 1+Z² at which ES fails.
+Label:  PROVED (internal; rel. LOGIC_NORM_SPLIT.md, LOGIC_BEZOUT.md, Nagata's criterion, Shepherdson's criterion)
+Scope:  a landing Bézout model, NOT a PID and not externally factorial (landing-zero elements are divisible by every
+        standard k); distinct from the PID models. Prime(x) means irreducible, which equals prime in a Bézout domain.
+        No collection, atomicity, IE₁, IΔ₀, PA or ZFC claim (ES is open).
+Review: cross-lab (Opus) data/z74/xreview/REVIEW_PIDEXT_OPUS.md (rows G1–G6: CORRECT)
+Triage: HEADLINE (minor variant of the STATUS §1E IOpen + Bézout row; a WAVES mention suffices)
+STATUS delta: none
+```
+
 **Result.** The model construction of `LOGIC_NORM_SPLIT.md` can simultaneously satisfy IOpen, Bézout, TS, Bertrand and
 
 `∀n≥2 ∃p≤n [Prime(p) ∧ p|n ∧ ∀l≤n ((Prime(l) ∧ l|n) → l≤p)]`.
