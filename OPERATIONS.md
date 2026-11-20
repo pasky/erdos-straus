@@ -43,7 +43,7 @@ waves.** Spend remaining quota only on a *genuinely new* mechanism for forcing a
 FRONTIER §3, §6). Current cleanest targets: (MS-U₇) and (MS⁺₁₀₅) (`Z60_SUMMARY.md` §5).
 
 ## Cross-model reviews
-**None owed for promoted items.** Every assigned Opus review of z72–z74 (Astra) is done (2026-11-19/20; 12 reviews in `data/z74/xreview/REVIEW_*_OPUS.md`), and every z75 headline/record lane (Lanes 1, 2, 4, 5, 6) passed independent Claude Opus cross-review (ACCEPT or ACCEPT-WITH-FIXES, fixes applied, Lean independently compiled; reviews in `notes/z75/*REVIEW*`, `data/z75/ie1/`, `data/z75/obstruct/review.md`, `data/z75/push2/review.md`, `data/z75/REVIEW_ANALYTIC*_OPUS.md`, `data/z75/thin_cyclo/REVIEW_OPUS.md`). Lane 3 (`PROOF_WILD*`, scoped barriers only) was self-checked with replay scripts. Rule: the cross-review is always by the other lab (Astra reviews Claude work; Opus `anthropic/claude-opus-5-5:high` reviews Astra work). Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`, `Z64_EQUIV.md`, `Z64_SDEEP.md`, `Z64_SDEEPF.md` (reviews in `data/z6{4,5}/xreview/REVIEW_*_ASTRA.md`).
+**None owed for promoted items.** Every assigned Opus review of z72–z74 (Astra) is done (2026-11-19/20; 12 reviews in `data/z74/xreview/REVIEW_*_OPUS.md`), every z75 headline/record lane (Lanes 1, 2, 4 excl. §6 full ES counts, 5, 6) passed independent Claude Opus cross-review, and **all 6 z76 lanes** passed independent Claude Opus cross-review (ACCEPT or ACCEPT-WITH-FIXES, all fixes applied; `data/z76/`, `notes/z76/PROOF_LIFT_REVIEW.md`). Rule: the cross-review is always by the other lab (Astra reviews Claude work; Opus `anthropic/claude-opus-5-5:high` reviews Astra work). Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`, `Z64_EQUIV.md`, `Z64_SDEEP.md`, `Z64_SDEEPF.md` (reviews in `data/z6{4,5}/xreview/REVIEW_*_ASTRA.md`).
 
 ## Campaign status (2026-11-10): PAUSED after z70 (user: "wrap it up"); resumes per new model (see Cadence below)
 Waves z67–z70 (FRONTIER blocks z67–z70) found **no mechanism**; every lane ended at the B2 atom (one tied divisor event
@@ -56,9 +56,9 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
   classifier ("reverse engineering / duplicating model outputs") falsely blocked a Fable 5.2 lane twice while it read
   many AI-written memos — a plain "please continue" cleared it.
 * **Open, concrete, cheap (if resuming):** `Z70_CLASS.md` open list (Rédei 4-rank, small-split-prime
-  orbits from principal seeds, fixed-n solution-graph moves); conjecture (S) (now reduced to the 24 square classes mod 840);
-  U₇ (Conjectures B, C in `Z68_U7F.md`); (MS⁺₁₀₅) (certified to 10¹¹); full prime QR + universal TS; `IE₁`/`IΔ₀`;
-  `θ > 3/4` on `E(N)`. (The three `REVIEW_GEN.md` tests, BCM+4-squares, and `15·2^s+1`/`4^s+{33,273,297}` closed in z75.)
+  orbits from principal seeds, fixed-n solution-graph moves); conjecture (S) (reduced to the 24 square classes mod 840);
+  U₇ (Conjectures B, C in `Z68_U7F.md`); (MS⁺₁₀₅) (certified to 10¹¹); `IE₁`/`IE₁⁻`/`IΔ₀` (proved non-PID if ES holds in ℕ);
+  universal TS inside BCM+Lag+QR; `r = 17` Mordell point (sterile threshold now 177,505); `𝔽₃[T]` Conj. 0.2; `θ > 3/4` on `E(N)`.
 * **z71 literature refresh (2026-11-10, `Z71_LIT.md`; orchestrator-reviewed, no Astra review):** arXiv math.NT
   2026-09-28 … 11-10 screened in full; no new mechanism. New ES paper Dahan arXiv:2611.08717 (5/7 < 3/4 by the same
   architecture as the 3/4 note; "1 − o(1)" only on a structured subset; pointwise part ends at an open hypothesis =
@@ -77,4 +77,6 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
   subexponential `e*(n)` + 2/3 `(★)/U₇` prime lower tails (`ANALYTIC_BREAK.md`, `ANALYTIC_PUSH2.md`), open-surface Brauer
   exponent dichotomy + cubic sterile fibres + trillion-scale `R₈` (`1,511,088,831,001`) and extended censuses
   (`DISPROOF_OBSTRUCT.md`, `DISPROOF_PUSH2.md`; §6 full ES counts unreviewed by Opus), plus scoped proof barriers
-  (`PROOF_WILD*.md`). Remaining open fronts: ES, `IE₁`/`IΔ₀`, QR + universal TS, `θ > 3/4` on `E(N)`, `e*(n)` below `L_R[1/2]`.
+  (`PROOF_WILD*.md`).
+* **z76 (2026-11-20, GPT-6.2 Astra `deep` 6-lane burst orchestrated by Claude Fable `best`, all 6 lanes Opus cross-reviewed):**
+  unified `IOpen + external PID + Dirichlet + Lag + full prime QR + universal TS + L(D) ⊬ ES` AND `IOpen + Bézout + BCM + Lag + full prime QR ⊬ ES` (`QR_TS_BCM.md`); proved external-PID barrier for `IE₁`/`IE₁⁻` + unique-`P` least-QNR QR PID + filtered Pell minima + twisted Pell PID (`IE1_BREAK.md`); new pointwise upper bound `R(n) ≪_ε n^{8/25+ε}` / `n^{7955/24966+ε}` (`ANALYTIC_34.md`); 16× sterile Mordell threshold drop to `r ≥ 177,505` + dense `x²+Dy²` core escape (`PROOF_LIFT.md`); Dirichlet-GRH `M_gen ∼ M₀` + `(PC)` `c_η√y` bridge + `alpo.ge/remark.pdf` transfer barriers (`ALPO_TRANSFER.md`); Vieta sterile fibres at `c = ⌊√n⌋` + sub-`n^{2/3}` counting + square-cover BM + new `R₈` floor `1,590,284,203,561` (`DISPROOF_DEEP.md`, `DISPROOF_COMP.md`).
