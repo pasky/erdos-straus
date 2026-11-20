@@ -46,6 +46,10 @@ def check(j):
     total+=Fraction(16,100*isqrt(r))+Fraction(1,25000)
     return total,parts
 
+# The tail allowance needs r>=4096 (j>=384). Sweeps for octaves 17..20
+# are archived here; only cells 558..685 are claimed. For exploration below
+# octave 17 regenerate the corresponding l1_J.txt with the §6 sweep command.
+# From j=686 on the earlier theorem applies without this combiner.
 assert 384<=args.j0<=args.j1<=685
 worst=Fraction(); fails=[]
 for j in range(args.j0,args.j1+1):

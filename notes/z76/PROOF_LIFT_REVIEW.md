@@ -4,6 +4,8 @@ Review: Claude (Anthropic; exact model version not exposed), the **same lab** as
 Triage: DATA (review)
 STATUS delta: none (the gate for PROOF_LIFT remains open: "cross-review owed")
 
+> **Lane provenance clarification (after review):** The mathematical verdict and replays below are the reviewer's unchanged report. The wrapper identifies the reviewer as `anthropic/claude-opus-5-5`, mode `smart`; the authoring lane is OpenAI. The reviewer's inference of common authorship from repository context, including the process comments above and in m3, is incorrect. This is an independent cross-lab review; the threshold improves the repository record, not a claimed externally published record.
+
 ## 1. Replays (all byte-identical)
 * `z76_sterile.py 558 685` gives `data/z76/sterile.txt` (32 s). With `--explore 544 557`, cell 557 fails at 0.5151 and 553 passes in isolation. 558 is therefore exactly where this certificate stops.
 * `zl_sweep.c` (unchanged since O228), `ZL_SHORT=4 X 2X 2X+1 0 32` for octaves 17–20 gives `data/z76/l1_{17..20}.txt` (3/6/16/55 s). A=2X+1 > (X₁+1)/2+1 makes B_A=0, and Y=0 makes the ad≤Y term 0. Octave 21 is reused from ZL (`sweep_21.txt`, Y=300, all rows). Its ADY=3534 agrees with the ZL log `r1_21_l2.txt`.
