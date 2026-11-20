@@ -1,6 +1,6 @@
 # Collection without bounded induction: countermodels for the actual ES sentence
 
-Result: three separate weak-theory countermodels — IOpen + full collection ⊬ ES on each unit-square class (§1); an external-UFD normal-OI model with bounded divisor principles (§2); Bézout + IOpenLin + √2-floors ⊬ ES (§3) — and a proof that one-place curve towers / normal trdeg-1 fraction fields cannot carry IOpen (§4).   Label: PROVED (internal; rel. U64 Thm A/A′, L65 Thm T Lemmas 3.2–3.4 (μ-a.s.), Shepherdson's criterion, Glivická–Glivický Thm 3)
+Result: three separate weak-theory countermodels — IOpen + full collection ⊬ ES on each unit-square class (§1); an external-UFD normal-OI model with bounded divisor principles (§2); Bézout + IOpenLin + √2-floors ⊬ ES (§3) — and a proof that one-place curve towers cannot carry IOpen and that no nonstandard *normal* discretely ordered ring satisfying IOpen has a fraction field of transcendence degree 1 (§4; non-normal examples such as Shepherdson's are not excluded).   Label: PROVED (internal; rel. U64 Thm A/A′, L65 Thm T Lemmas 3.2–3.4 (μ-a.s.), Shepherdson's criterion, Glivická–Glivický Thm 3)
 Scope: nonstandard countermodels for weak theories only; the §§1–3 models are different and their axiom lists must not be combined; §4 is a no-go for a construction class, not for IOpen + Bézout; nothing about ℕ, IE₁, IΔ₀, PA or ZFC.
 Review: cross-lab (Opus) `data/z74/xreview/REVIEW_COLLECT_OPUS.md` (C1–C8, CORRECT).
 Triage: BARRIER-SCOPED (§§1, 4 method limits) + RECORD-adjacent §1E variants (no separate STATUS row)

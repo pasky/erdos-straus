@@ -23,7 +23,7 @@ Verdict: **ACCEPT-WITH-FIXES** overall (fixes applied to the notes, tagged "(z74
 | `LOGIC_BEZOUT_NORM_COLLECTION.md` | end extension for IOpen + Bézout + PD + TS with a new prime 1+h², ¬ES; ω₁-iteration gives one model of those + Coll with cofinal failures | ACCEPT-WITH-FIXES (§0; scope) |
 | `LOGIC_MARKED_SECTIONS.md` | marked polynomial sections under (E); counterexample for arbitrary marks; profile criterion; PID-realizability ⟺ parsimonious transcendental profile in U | ACCEPT-WITH-FIXES (§0; sufficiency half of the PID equivalence is a sketch) |
 | `Z73_ES_ROW_DESCENT.md` | positive reciprocal descent through polynomial/row stages; exact ES profile criterion; every unit profile realizable with Bézout + internal Dirichlet ⇒ Z65 Thm D holds for IOpen + Bézout + Dir | ACCEPT-WITH-FIXES (§0; dichotomy stated as a theorem with its reliance) |
-| `Z73_ADELIC_ROW_AUDIT.md` | ring maps φ_q vs non-existent adelic field embedding; stage invariants; Bézout/Dirichlet descent at marks with infinite H-valuation | ACCEPT-WITH-FIXES (§0; input dependence flagged) |
+| `Z73_ADELIC_ROW_AUDIT.md` | ring maps φ_q vs non-existent adelic field embedding; stage invariants; Bézout/Dirichlet descent at marks where H=P−1 has positive valuation at infinitely many places | ACCEPT-WITH-FIXES (§0; input dependence flagged) |
 
 ## 2. Per-claim table (notes with substance)
 
@@ -72,18 +72,20 @@ LBNC = LOGIC_BEZOUT_NORM_COLLECTION, LMS = LOGIC_MARKED_SECTIONS, RD = Z73_ES_RO
   No CERTIFIED label in the lane rests on a computation; these are consistency checks.
 
 ## 4. Citations checked
-* Enayat–Łełyk–Visser, arXiv:2508.14758, **Theorem B.2: IE₁ + Coll ⊢ PA** (verified in the arXiv HTML). So none of the
-  Coll models can satisfy IE₁; indeed LBC's model fails IΔ₀ outright, since the base model's 2-primary extraction failure
-  (`LOGIC_BEZOUT.md`) is Δ₀ and survives end extension. The notes claim neither; scope now says so.
+* Enayat–Łełyk–Visser, arXiv:2508.14758, **Theorem B.2: IE₁ + Coll ⊢ PA** (verified in the arXiv HTML). So a Coll model satisfies
+  IE₁ only if it satisfies PA. LBC's ES model fails IΔ₀ (hence IE₁): IΔ₀ maximizes a 2-primary divisor of X with odd
+  cofactor (`Z66_IE1.md`), while the base model's old X=p−1 has no such split (`LOGIC_BEZOUT.md`), a Δ₀ failure that
+  survives end extension. LC §1's model fails IE₁ because Bézout fails and cannot be repaired by end extension (C3). For
+  LBNC neither IΔ₀ nor IE₁ is decided here. The notes claim none of these; scope now says so.
 * Shepherdson's criterion, Berarducci–Otero: as in `REVIEW_Z73BASE_OPUS.md`. Glivická–Glivický Thm 3 (IOpenLin ⟺
   integer part of the fraction field), used in LC §3–4, was verified in `Z66_IE1.md` §1; pointer added.
 * ET Prop 1.9 (family classes) at l. 371 of the ET audit text: matches RD §2 and LMS.
 * The ω₁-like ⇒ full collection argument is classical (not claimed as new); the end-extension theorem with Bézout and
-  the trdeg-1 obstruction for normal models received only a cursory priority search (none found); no priority is claimed.
+  the trdeg-1 obstruction for normal ordered rings received only a cursory priority search (none found); no priority is claimed.
 
 ## 5. Labels, scope, quantifiers
-* Separate models are kept separate: LC §§1–3 explicitly; LNS (no Coll) vs LBNC (Coll + PD + TS, jointly in one model,
-  but **not** "every nonstandard prime fails ES" and no E(−1) claimed there); RD §3 (Bézout + Dir, not PID) vs LMS/PID.
+* Separate models are kept separate: LC §§1–3 explicitly; LNS (Coll not asserted) vs LBNC (Coll + PD + TS, jointly in one
+  model, hence also E(−1) by Bézout + TS, but **not** "every nonstandard prime fails ES"); RD §3 (Bézout + Dir, not PID) vs LMS/PID.
 * External vs internal: LNS "every nonstandard prime fails ES" and "a failing prime in every interval at infinite scales"
   are external descriptions; the internal sentences claimed (∀H∃Z…, Bertrand) are correctly identified. PID = external.
 * No overclaim about ES, ℕ, PA or ZFC found. All notes lacked the AGENTS.md §0 block (added).
@@ -100,20 +102,22 @@ LBNC = LOGIC_BEZOUT_NORM_COLLECTION, LMS = LOGIC_MARKED_SECTIONS, RD = Z73_ES_RO
    need for it (applied).
 
 ## 7. Master-file corrections recommended (orchestrator)
+Quotations are word-exact after whitespace normalization (line breaks below are this file's).
 * **STATUS.md l. 113–114.** Current: "`LOGIC_BEZOUT.md` (Opus-reviewed). A variant with collection is in
   `LOGIC_BEZOUT_NORM_COLLECTION.md` (cross-review owed)." Replace by: "`LOGIC_BEZOUT.md` (Opus-reviewed). One model adds
   full first-order collection, prime divisors and prime two-squares, with ES-failing primes 1+h² above every element
   (`LOGIC_BEZOUT_NORM_COLLECTION.md`; without collection every nonstandard prime fails, `LOGIC_NORM_SPLIT.md`;
   Opus-reviewed)."
-* **STATUS.md §1E, first bullet (l. 110–112)**, append: "The class-by-class dichotomy is unchanged by adding Bézout and
-  internal Dirichlet (`Z73_ES_ROW_DESCENT.md` §3, Opus-reviewed)." (HEADLINE-gate: one cross-lab review, this file.)
+* **STATUS.md §1E, IOpen + Bézout bullet**, append: "For each primitive class, IOpen + Bézout + internal Dirichlet proves
+  ES on the primes of the class above some numeral iff IOpen does (Z65 Thm D; `Z73_ES_ROW_DESCENT.md` §3,
+  Opus-reviewed)." (HEADLINE-gate: one cross-lab review, this file; the bullet stays within 6 lines.)
 * **FRONTIER.md l. 2774**, current: "`LOGIC_MARKED_SECTIONS.md` characterizes ES via polynomial identities for the
   specified admissible profiles; the integrality assumptions there cannot be dropped. The marked specialization preserves
   Type I/II through integral quotients and Bézout identities, not just congruences. Separate models add full first-order
   collection, prime divisors and two-square representations (`LOGIC_BEZOUT_NORM_COLLECTION.md`)". Replace by: "In
   polynomial/row towers over ℚ[P] positive ES triples descend to ℚ[P], so ES(P) holds iff the unit profile of P lies in an
-  ET Prop 1.9 family class; every unit profile is realizable with Bézout and internal Dirichlet, so Z65 Thm D holds for
-  IOpen + Bézout + Dirichlet (`Z73_ES_ROW_DESCENT.md`; the marked-section route of `LOGIC_MARKED_SECTIONS.md` needs the
+  ET Prop 1.9 family class; every unit profile is realizable with Bézout and internal Dirichlet, so Z65 Thm D's prime-tail
+  dichotomy is the same for IOpen and IOpen + Bézout + Dirichlet (`Z73_ES_ROW_DESCENT.md`; the marked-section route of `LOGIC_MARKED_SECTIONS.md` needs the
   exact-zero condition (E), which cannot be dropped). One separate model has IOpen + Bézout + PD + TS + full collection
   with cofinal ES-failing primes 1+h² (`LOGIC_BEZOUT_NORM_COLLECTION.md`)". Also in its heading: "Opus cross-review of the
   IOpen + Bézout, per-class PID, collection and row-descent results … `REVIEW_Z73BASE_OPUS.md`, `REVIEW_COLLECT_OPUS.md`".
@@ -121,10 +125,17 @@ LBNC = LOGIC_BEZOUT_NORM_COLLECTION, LMS = LOGIC_MARKED_SECTIONS, RD = Z73_ES_RO
   cross-reviewed." Replace by: "Collection, norm-split, marked-section and row-descent notes: ACCEPT-WITH-FIXES
   (`data/z74/xreview/REVIEW_COLLECT_OPUS.md`). The interval and Dirichlet strengthenings are not cross-reviewed."
 * Optional FRONTIER §6 one-liner (METHOD-CX, merge with the z58 logic line): "End extensions cannot add Bézout witnesses,
-  and Puiseux end extensions destroy normality; one-place curve towers and normal trdeg-1 fraction fields cannot carry
-  IOpen (`LOGIC_COLLECTION.md` §§1, 4)."
+  and Puiseux end extensions destroy normality; one-place curve towers, and normal discretely ordered rings with trdeg-1 fraction
+  field, cannot carry IOpen (`LOGIC_COLLECTION.md` §§1, 4)."
 
-## 8. Verdict
+## 8. Self-review addendum
+A deep self-review of this report and the §0 edits (before merge) caught wording problems, all fixed: the LBNC §0 sentence
+now has `0<d≤a`; the adelic §0 states the uncovered/nonsquare hypotheses for ¬ES and NR and that the excluded embedding is
+one *sending P to π*; RD §0 names (*) and the prime-tail cutoff and no longer says every realizing model is non-PID; the
+IE₁ remark (§4) is narrowed to what each model actually fails; NSC's repair needs a smooth old stage; LC §4 is about
+normal *rings*.
+
+## 9. Verdict
 All twenty-eight claims are CORRECT or CORRECT-WITH-FIX (two labelling/scope fixes, C17 and C24); none is a GAP or WRONG.
 With the fixes applied, `LOGIC_BEZOUT_COLLECTION.md`, `LOGIC_BEZOUT_NORM_COLLECTION.md`, `LOGIC_NORM_SPLIT.md` and
 `Z73_ES_ROW_DESCENT.md` §3 meet the STATUS gate's single cross-lab review for weak-theory §1E items (no published record

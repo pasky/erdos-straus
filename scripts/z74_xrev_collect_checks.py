@@ -126,7 +126,7 @@ for num in range(-2000, 2001):
 check('one rational tau makes (u+3tau, v-2tau) integral', found is not None and 2*found[1] + 3*found[2] == 1)
 
 # ---------------------------------------------------------------- ES bound used for end-extension persistence
-# sorted x<=y<=z with 4/n = 1/x+1/y+1/z  =>  x<=3n/4, y<=2nx, z<=nxy  (checked on all solutions, n<=60)
+# sorted x<=y<=z with 4/n = 1/x+1/y+1/z  =>  x<=3n/4, y<=2nx, z<=nxy  (checked on all solutions, n<=40)
 viol = 0
 # (y is enumerated far beyond the claimed bound, so the y-bound is tested, not assumed)
 for n in range(2, 41):

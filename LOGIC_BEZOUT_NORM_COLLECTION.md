@@ -1,7 +1,7 @@
 # Full collection, prime divisors, two squares and cofinal near-square ES failures
 
-Result: every countable model of IOpen + Bézout + PD + TS has a proper countable end extension of the same kind containing h above the old ring with 1+h² prime and ¬ES(1+h²); an ω₁-chain gives one model of IOpen + Bézout + PD + TS + full collection with ∀a ∃h>a [Prime(1+h²) ∧ ¬ES(1+h²) ∧ ∀d≤a d|h].   Label: PROVED (internal; rel. Shepherdson's criterion, standard commutative algebra and semialgebraic geometry over real closed fields)
-Scope: one model, all listed axioms jointly; it is **not** claimed that every nonstandard prime fails ES here (that is `LOGIC_NORM_SPLIT.md`, a different model without collection), nor E(−1), IΔ₀ or IE₁ (by Enayat–Łełyk–Visser Thm B.2, IE₁ + Coll ⊢ PA); nothing about ℕ, PA or ZFC.
+Result: every countable model of IOpen + Bézout + PD + TS has a proper countable end extension of the same kind containing h above the old ring with 1+h² prime and ¬ES(1+h²); an ω₁-chain gives one model of IOpen + Bézout + PD + TS + full collection with ∀a≥0 ∃h>a [Prime(1+h²) ∧ ¬ES(1+h²) ∧ ∀d (0<d≤a → d|h)].   Label: PROVED (internal; rel. Shepherdson's criterion, standard commutative algebra and semialgebraic geometry over real closed fields)
+Scope: one model, all listed axioms jointly (E(−1) also holds, as a consequence of Bézout + TS by the argument of `LOGIC_NORM_SPLIT.md` §3); it is **not** claimed that every nonstandard prime fails ES here (that is proved for the different model of `LOGIC_NORM_SPLIT.md`, for which collection is not asserted), nor IΔ₀ or IE₁ (a model of IE₁ + Coll would be a model of PA, Enayat–Łełyk–Visser Thm B.2); nothing about ℕ, PA or ZFC.
 Review: cross-lab (Opus) `data/z74/xreview/REVIEW_COLLECT_OPUS.md` (C19–C21, CORRECT).
 Triage: HEADLINE (variant of the STATUS §1E IOpen + Bézout row)
 STATUS delta: see `data/z74/xreview/REVIEW_COLLECT_OPUS.md` §7.

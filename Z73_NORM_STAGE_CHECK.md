@@ -1,6 +1,6 @@
 # Independent check: the equal-scale norm-factor stage
 
-Result: the norm stage B=A[X,Y,q/(X²+Y²)] has bounded elements exactly ℚ under a fresh-residue/slow-scale order; B need not be smooth (explicit singular point); a second row FU+XWV=1 restores global smoothness.   Label: PROVED (stage calculations)
+Result: the norm stage B=A[X,Y,q/(X²+Y²)] has bounded elements exactly ℚ under a fresh-residue/slow-scale order; B need not be smooth (explicit singular point); when the old stage A is smooth, a second row FU+XWV=1 restores global smoothness.   Label: PROVED (stage calculations)
 Scope: a stage lemma, not a joint-model theorem; residue transcendence over ℚ alone is shown insufficient.
 Review: cross-lab (Opus) `data/z74/xreview/REVIEW_COLLECT_OPUS.md` (C18, CORRECT; singular point rechecked by computer).
 Triage: METHOD-CX / DATA
