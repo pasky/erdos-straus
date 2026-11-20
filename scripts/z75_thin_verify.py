@@ -18,21 +18,19 @@ def check(k):
         elif kind=='D':
             q,=args;assert q in triples and nr(q)==0
         elif kind=='A':
-            A,u=args;t,r=divmod(A+1,u);assert r==0 and min(t,u)>=2 and 4**32+k>=2*A
+            A,u=args;assert A>0 and u>=2 and k%4==1;t,r=divmod(A+1,u);assert r==0 and min(t,u)>=2 and 4**32+k>=2*A
             n=nr(8*A);v,r=divmod(n+u,A);assert r==0 and (n+t)*t*u*v%8==0
-        elif kind=='UV':
-            u,v=args;n=nr(8*u*v);t,r=divmod(n+u+v,u*v);assert r==0 and min(u,v)>=2 and 4**32+k>=2*u*v and (n+t)*t*u*v%8==0
         elif kind=='II':
             f,a,b=args;assert f>1 and min(a,b)>0 and (f+1)%(4*a*b)==0 and (b*nr(f)+a)%f==0
         elif kind=='K':
-            f,K0,*ds=args;assert f%4==3 and K0>0 and len(ds)==2
+            f,K0,*ds=args;assert f>0 and f%4==3 and K0>0 and len(ds)==2
             M=4*K0*(f if any(t[2] for t in ds) else 1);n=nr(M);K,r=divmod(n+f,4);assert r==0 and K%K0==0
             rr=0
             for y,i,h in ds:
                 assert y>0 and K0%y==0 and i in (0,1) and h in (0,1); rr+=y*nr(f)**i*(K//K0)**h
             assert rr%f==0
         elif kind=='gap':
-            f,d,ds=args;assert len(ds)==2 and f%4==3;g=k+f;m=(g&-g).bit_length()-1;b=g>>m
+            f,d,ds=args;assert len(ds)==2 and f>0 and f%4==3;g=k+f;m=(g&-g).bit_length()-1;b=g>>m
             assert m>=2 and 2*s>=m and (2*P)%d==0
             if d==4:
                 assert (2*s-m)%4==2;a=math.isqrt(math.isqrt(b));assert a**4==b

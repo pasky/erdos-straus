@@ -1,7 +1,7 @@
 ## §0
-Result: ES holds for every 4^s+k with k=33,273,297 and s≥0, and for 15b^s+1 for every s≥0 for infinitely many even bases b whose exponential sequences admit no finite ET/divisor covering. Label: PROVED (computer-assisted for the offsets, relative to Mordell's prime reduction and the five-slice word identity)
+Result: ES holds for every 4^s+k with k=33,273,297 and s≥0. Label: PROVED (computer-assisted for the offsets, relative to Mordell's prime reduction and the five-slice word identity)
 Scope: Four explicit exponential families including the Lean-checked b=2 family of CONJS_GEN; no general ES or prime-distribution result. Only b=2 is formalised.
-Review: cross-review owed
+Review: cross-model (Opus, `data/z75/thin_cyclo/REVIEW_OPUS.md`; ACCEPT-WITH-FIXES, applied)
 Triage: HEADLINE
 STATUS delta: replace residual/open exponential families in §1C by ES for all s for 15·2^s+1 (Lean) and for 4^s+k, k=33,273,297 (finite certificates).
 
@@ -29,15 +29,15 @@ Start with Mordell's six possible hard prime residues M={1,121,169,289,361,529} 
 
 **Example (297, the whole last step).** Fixed divisors and words leave precisely 843,3003,3363 mod 5040. In the first and last use f=5183, 26334|K, (D,E)=(7,342n); in the middle use f=539, 43425|K, (D,E)=(1,8685n). All other classes are handled without these windows. Thus variable-degree extraction was *not needed* for 297. For 33 the selected gap factors have degrees 7 and 21; for 273 one row uses the Sophie Germain split with f=51, k+f=324=4·3⁴. The fixed-period search made progress by allowing the factor n itself into the divisor pair and choosing complementary subproducts of K; a single good divisor in one congruence class is not necessary. A successful menu is not claimed minimal or uniquely necessary.
 
-**Reproduction.** `ulimit -v 6000000; timeout 60 uv run --offline --no-project python scripts/z75_thin_verify.py`. No unproved computational hypotheses. The discovery programs (`z75_thin_cyclo`, `z75_thin_smooth`, `z75_thin_ii`, `z75_thin_product`, `z75_thin_pack`) do not enter the proof. See `coverage.txt`. Literature/prior campaign scope: `EXP_105.md`, `EXP_OPEN.md`, `EXP_NEAR_SQUARE.md`; proposal supersedes their **open** cases, not their scoped sterility lemmas. No external priority claim.
+**Reproduction.** `ulimit -v 6000000; timeout 60 uv run --offline --no-project python scripts/z75_thin_verify.py`. No unproved computational hypotheses. The discovery programs (`z75_thin_cyclo`, `z75_thin_smooth`, `z75_thin_ii`, `z75_thin_product`, `z75_thin_pack`) do not enter the proof. See `coverage.txt`. The packer's intermediate inputs are committed beside the certificates; a clean checkout can regenerate all three with `timeout 120 uv run --offline --no-project --with cypari2 python scripts/z75_thin_pack.py`. One of the two 273 gap rows has d=1: it merely selects 1 and n and is not a nontrivial cyclotomic split. Literature/prior campaign scope: `EXP_105.md`, `EXP_OPEN.md`, `EXP_NEAR_SQUARE.md`; proposal supersedes their **open** cases, not their scoped sterility lemmas. No external priority claim.
 
-### 2. Infinitely many bases past the square obstruction
+### 2. Corollary: infinitely many bases past the square obstruction
 
 Let L=lcm(16,7,11,17,19,31,39,61,99,164,248,2992). **For every positive b≡2 mod L and every s≥0, ES(15b^s+1) holds.** No finite collection of ET congruence classes of the seven classical types and fixed prime divisor classes covers all sufficiently large exponents for any such base. In particular this is not just restricting the already proved sequence to a subsequence of exponents: b can have odd prime factors (e.g. 2+L has an odd factor).
 
 *Proof.* For s mod 360 outside {0,240}, the constructive rows in `lean/ES/ES/Proth15.lean` (`s_cls_0` through `_12`) use only the congruence of n=15·2^s+1 modulo a divisor of L, and positive integer solutions for the whole indicated residue class or for a divisor. Therefore the same row remains valid with base b. For s=1,2,3 one can instead scale the smaller solutions for 31,61,11 respectively, since all divide L and n has the same residue there. At s=0 use ES(16). For the remaining s>0, 60|s. In `CONJS_GEN.md` Thm 1 replace x=2^r by x=b^r; b is even and b≡2 mod 7, and that proof uses only 16|x, x≡4 mod 7, and n+14=15(x^{3h}+1) with h odd. These remain true. This argument transfers fixed-output congruences, *not* an arbitrary ES witness for 15·2^s+1.
 
-For the barrier, take any finite menu, let M be a common multiple of its moduli and tested primes, and choose arbitrarily large s divisible by every unit order of b at the prime powers in M coprime to b. At prime powers whose prime divides b we have n≡1 for large s, including at 2. At the other prime powers n≡16. Therefore n is a square unit modulo M (CRT) and is divisible by none of the tested primes. Each ET class is sterile on square units (`EXPONENT_COVERING.md` Thm 1.4, classical square obstruction). This is not a claim that general ES fails at squares. ∎
+For the barrier, take any finite menu, let M be a common multiple of its moduli and tested primes, and choose arbitrarily large s divisible by every unit order of b at the prime powers in M coprime to b. At prime powers whose prime divides b we have n≡1 for large s, including at 2. At the other prime powers n≡16. Therefore n is a square unit modulo M (CRT) and is divisible by none of the tested primes. Each ET class is sterile on square units (`EXPONENT_COVERING.md` Thm 1.2, square-unit part, citing Mordell/Schinzel via ET). This is not a claim that general ES fails at squares. ∎
 
 ### 3. Screens and formal status
 
