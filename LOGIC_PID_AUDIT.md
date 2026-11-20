@@ -1,5 +1,16 @@
 # Independent checks on the adelic PID / odd-square construction
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: audit of Z73_PID_SQUARE.md §§1–4 (adelic ring, PID descent, marked odd-square specialization); no failed
+        implication found; R is not a model of IΔ₀ (its 2-primary elements are the standard powers of 2).
+Label:  Assessment (audit), with PROVED side remarks (not IΔ₀; divisor-bounded schemes)
+Scope:  the per-class PID only (∀ class ∃ model); not the integer-landing model; no claim about IE₁, IΔ₀, PA or ZFC.
+Review: cross-lab (Opus) data/z74/xreview/REVIEW_PIDEXT_OPUS.md (rows A1–A5: CORRECT); see also REVIEW_Z73BASE_OPUS.md
+Triage: NULL (supporting audit of an existing STATUS row)
+STATUS delta: none
+```
+
 **Verdict.** I find no failed implication in the candidate `Z73_PID_SQUARE.md` (parent proof, §§1–4), interpreted with finite-place approximation for **marked** regular functions. It gives, for any fixed primitive unit-square residue class, an external PID model of IOpen with an infinite prime P of that class and ¬ES(P). These checks are separate from the integer-landing, two-squares and Bertrand model. In particular, the statement is not that ES fails at an ordinary prime or in a model of PA.
 
 ### Ring and adeles

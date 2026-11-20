@@ -1,5 +1,18 @@
 # Audit comment: prescribe the field at the distinguished prime
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: audit of the field-prescription step of LOGIC_PRESCRIBED_FIELD_AT_P.md: no obstruction found. It gives a second
+        route to the pseudofinite k (Chebotarev + Vaughan's ES-exception bound), and shows the pseudofinite k admits no
+        ℤ-valuation, so it cannot be combined with LOGIC_QR_AT_P.md.
+Label:  Assessment (audit), with PROVED side remarks (internal)
+Scope:  the residue field at the one distinguished P of the joint PID; no reciprocity for arbitrary internal pairs, no
+        IE₁ model, no claim about PA or ZFC (ES is open).
+Review: cross-lab (Opus) data/z74/xreview/REVIEW_PIDEXT_OPUS.md (rows C1–C4: CORRECT)
+Triage: NULL (supporting audit)
+STATUS delta: none
+```
+
 **Accept, as a replacement for the flag, not in addition to it.** Relative to the joint PID tree and its stage lemmas, I find no countability, Gaussian, order, or local-lifting obstruction to specifying `R/PR ≅ k` for any countable field `k` of characteristic zero and infinite transcendence degree containing `i`. Not every such `k` has a quadratic nonresidue (take `k` algebraically closed). The pseudofinite choice below does. Here are the checks on the new step, rather than a second construction of the full model.
 
 * **Induction data.** At a node retain a field embedding `κ=Frac(A/PA)→k` extending the parent's; at the root `κ=ℚ(i)(X)` with `Y/X` a square root of `−1`. Schedule a fixed enumeration of the whole of `k` independently on every path; admission is by the **current** image. Ordinary edges mod `P` induce rational extensions of `κ`: a row has a surviving pivot (need not be the ordinary-prime chart pivot); a progression/floor adds a free coordinate; NR has the chart `D≠0` even if its target vanishes. For TS use `UV=s̄` over `κ`: `s̄≠0` since a target associated to `P` is already Gaussian-split and cannot be an inert-circle task. Four squares give `UV+WT=s̄`, rational on `U≠0` even when `s̄=0`. These are **function-field** assertions, not claims about all affine points. Each finite node has finite transcendence degree, so any required finite number of independent new parameters can be chosen in `k`; incompatible siblings need not share their new choices. In the transcendental prescription step choose the residue of the new free variable to map to the requested element itself.

@@ -1,5 +1,18 @@
 # Two squareclasses modulo the ES-failing prime
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: in the joint external PID (LOGIC_JOINT_NR_TS.md, LOGIC_FOUR_SQUARES.md) one can have
+        (R/PR)^×/(R/PR)^×2 ≅ ℤ/2, with every nonzero rational a square and X−1 a nonsquare mod P; so QR_std holds at P.
+Label:  PROVED (internal; rel. the joint PID, proof of record the Proof map in LOGIC_JOINT_NR_TS.md)
+Scope:  reciprocity against standard primes at the one prime P, not for all internal primes. An ALTERNATIVE to
+        LOGIC_PRESCRIBED_FIELD_AT_P.md: the pseudofinite k there carries no ℤ-valuation
+        (LOGIC_RESIDUE_PRESCRIPTION_COMMENT.md, “Separation”). No claim about IE₁, IΔ₀, PA or ZFC (ES is open).
+Review: cross-lab (Opus) data/z74/xreview/REVIEW_PIDEXT_OPUS.md (rows Q1–Q4: CORRECT)
+Triage: HEADLINE (minor variant; FRONTIER post-z73 paragraph)
+STATUS delta: optional clause on the joint-PID row (REVIEW_PIDEXT_OPUS.md §6 M2)
+```
+
 **Result.** In the joint PID construction with full TS, NR, internal Dirichlet and four squares (`LOGIC_JOINT_NR_TS.md`, `LOGIC_FOUR_SQUARES.md`), one can have `(R/PR)× / (R/PR)×² ≅ ℤ/2`, with every nonzero rational constant square and `X−1` nonsquare. Here `P=X²+Y²` is the same ES-failing prime and is a square unit at every ordinary place. This gives both directions of quadratic reciprocity **at `P` against every standard odd prime**, not reciprocity against every internal prime.
 
 **Valuation invariant.** At a node with algebra `A`, maintain a discrete valuation `v` on `κ=Frac(A/PA)` with uniformizer `π=X−1`, trivial on `ℚ`, residue characteristic zero. Initially `κ=ℚ(i)(X)` since `Y/X` squares to `−1`; use order of vanishing at `X=1`. Every *previous* type of step extends `κ` purely transcendently: polynomial and Dirichlet steps are lines; a coprime row has a surviving pivot; a cone `DH=V²+s` has the `D≠0` chart even when `P|s`. A TS circle is never taken on a rational associate of `P`, since `P` already splits over the Gaussian constants. At any other target its generic reduction over `κ` is `uw=s̄≠0` since `i∈κ`. The four-square fiber similarly has chart `uw=s̄−zt`, rational even at `s̄=0`. In each case take a Gauss extension on the free parameters of that chart. The valuation is on the **residue field at `P`**, not an adelic valuation or an ordering.
