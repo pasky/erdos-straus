@@ -1,5 +1,18 @@
 # Ordinary places and the TS tasks for the circle tower
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: at the ordinary places (π_q≡1 mod q) the invariants "A/(P−1) geometrically integral; each element integral a.e.;
+        each element nonzero mod P−1 a unit a.e." persist through rows, Dirichlet steps and every eligible inert circle,
+        with exact integral lifts (2-adic target 1 mod 4); classification of R-irreducibles; split-prime TS normalization.
+Label:  PROVED (internal; under the stated all-place hypotheses; rel. LOGIC_CIRCLE_AUDIT.md, Hilbert 90, Hensel)
+Scope:  the ordinary-place half only; the sparse sign/survival half is LOGIC_ADAPTIVE_SPARSE_NR.md; their assembly into a
+        joint model is owed. No claim about ES in ℕ (OPEN), IE₁, IΔ₀, PA or ZFC.
+Review: cross-model data/z74/xreview/REVIEW_NRMODELS_OPUS.md (Opus: ACCEPT)
+Triage: BARRIER-SCOPED (component of a CONDITIONAL construction)
+STATUS delta: none
+```
+
 **Verdict.** The ordinary-place induction works, with no rationality assertion about the iterated norm fibers. It works for *each* later eligible circle, not just for the norm plane at initialization. There are two qualifications: at 2 a unit norm target must be 1 mod 4, not merely odd; and field embeddings use **one** transcendental circle parameter, not two independent coordinates. The split TS case also works, but needs all-place unit values and restricted integrality including the sparse places. This note does not establish the separate sign/survival law on the sparse places.
 
 Write `H=P−1`, let O be the infinite set of ordinary primes, and keep the old maps fixed when extending a stage. Assume `π_q≡1 mod q` for q in O. Use local embeddings of the old fraction field or, where only ring maps are needed, embeddings of the old image field. For the requested field embeddings at initialization, the fixed `π_q` must be transcendental over ℚ. The induction invariant on a stage A is:

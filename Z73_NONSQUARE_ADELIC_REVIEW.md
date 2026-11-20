@@ -1,5 +1,16 @@
 # Hostile check: one-prime thickening and the adelic Bézout model
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: audit of LOGIC_NONSQUARE_PROFILE.md: the compressed count and perturbation are correct; NR holds at P; and
+        universal NR FAILS in that model at Q=1+8ℓ(P−1), even with nonstandard witnesses (§4).
+Label:  PROVED (internal; §4 rel. LOGIC_MARKED_SECTIONS.md for the witness-tuple section); §5 CERTIFIED (finite regression)
+Scope:  one specific Bézout model; no claim about other constructions, ordinary primes, ES in ℕ (OPEN) or PA.
+Review: cross-model data/z74/xreview/REVIEW_NRMODELS_OPUS.md (Opus: ACCEPT-WITH-FIXES)
+Triage: METHOD-CX (a certificate at the ES input does not give universal NR)
+STATUS delta: none
+```
+
 **Verdict (internal): accept for NR at the distinguished prime, reject for universal NR.** I find no gap in the compressed family count or the perturbation argument. In fact this very model **violates** universal NR at a different positive infinite prime, even allowing a nonstandard witness modulus (§4). This is not a counterexample to the draft as worded. The model conclusion uses the rational row tower and the marked-section theorem as inputs; no claim about an ordinary prime or about PA.
 
 Reviewed `LOGIC_NONSQUARE_PROFILE.md` (archived verbatim), SHA-256 `3c0c145b99006ac1f6f71b0d47b360ade2d332d0af03f359fe0e631c2bb05c38`, against `Z66_UCOVER.md` §2.1, ET Prop. 1.9 (pp. 7–8 of `sources/elsholtz-tao-1107.1010.pdf`), and the model inputs at repo revision `e9f53e442`. No reliance on the sharper Z66 §4 sextuple counts is necessary here.
@@ -52,7 +63,7 @@ For the infinite product, finite cylinder laws eventually agree. `U` is closed (
 
 **Counterexample to a global reading in this very ring.** Put `B=8ℓ`, `Q=1+B(P−1)`. This is a prime element of `ℚ[P]` (nonconstant linear), hence a permanent prime of `A`. It is `1 mod q` at *every* prime: at `q≠ℓ` use the imposed profile, and at `ℓ` use `ℓ|B`. It is `1 mod 8` in `R`. Therefore it has valuation zero everywhere, stays prime in `R`, is positive infinite, and `Q(π_q)` is a square unit at every place (Hensel for odd `q`, the `1 mod 8` criterion at 2). This alone rules out standard witness moduli (use a prime `s≡3 mod 4` dividing one), but does **not** by itself rule out a nonstandard one. Here is the latter step:
 
-1. Suppose there are `d=4k+3>0`, `x²+Q=dy`, `ud+vQ=1` in `R`. Include **all** `d,k,x,y,u,v` at one finite stage. By the same (E) section argument as for ES, get rational polynomials in `T` satisfying these identities with `P=T` and all witness values integral at the marks. On the real stage over `P>1`, `x²+Q>0`; hence `d` never vanishes. This locus is semialgebraically connected by the line/row induction (remove codimension ≥2 then lift to a real line bundle, as in `Z73_PID_SQUARE.md` §3). The sign is positive at the ordered point and so on the section for `T>1`.
+1. Suppose there are `d=4k+3>0`, `x²+Q=dy`, `ud+vQ=1` in `R`. Include **all** `d,k,x,y,u,v` at one finite stage. *(z74 Opus xreview fix: this step genuinely needs the marked-section lemma `LOGIC_MARKED_SECTIONS.md`, which is not cross-reviewed; the descent lemma used for ES does not apply, because NR witnesses need not descend — compare the `DH=V²+s` stages of `LOGIC_ES_RIGIDITY_NR.md`.)* By the same (E) section argument as for ES, get rational polynomials in `T` satisfying these identities with `P=T` and all witness values integral at the marks. On the real stage over `P>1`, `x²+Q>0`; hence `d` never vanishes. This locus is semialgebraically connected by the line/row induction (remove codimension ≥2 then lift to a real line bundle, as in `Z73_PID_SQUARE.md` §3). The sign is positive at the ordered point and so on the section for `T>1`.
 2. Take a common coefficient denominator `D` of the witness polynomials. At any ordinary integer `n≡π mod D` all their values are integers, since evaluation differences are integral at primes of `D` and the coefficients are integral elsewhere. For each prime power in `BD` choose a residue of a local square root of `1+B(π_q−1)` modulo that power. CRT gives arbitrarily large integers `t` with `t²≡1+B(π−1) mod BD`. Thus `n=1+(t²−1)/B` is an integer `>1` with `n≡π mod D` and `Q(n)=t²` **exactly**. This uses marked-section integrality, not parsimony, nor a simultaneous primality conjecture.
 3. Specialization at `n` produces ordinary integers with `d>0`, `d≡3 mod 4`, `d|x²+t²` and `(d,t)=1`. A prime `s≡3 mod 4` dividing `d` then has `(x/t)²≡−1 mod s`, impossible. Thus `¬NR(Q)` even for unrestricted ring witnesses.
 

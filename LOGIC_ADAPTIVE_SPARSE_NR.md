@@ -1,5 +1,27 @@
 # Adaptive norm tower: what the sparse-prime randomness proves
 
+**§0 (z74 Opus xreview fix).**
+```
+Result: sparse-prime laws and fixed-node kernels for an adaptive circle (TS) tower: positive survival in U, sparse
+        integrality a.e. and infinitely many honest negative signs for every fixed node and element (§§1–3); split-case
+        TS normalization (§4). Intended use: a non-PID model with universal NR (standard moduli) + universal TS + ¬ES(P).
+Label:  §§1–4 PROVED (internal; rel. Lang–Weil, Borel–Cantelli, ET Prop 1.9); the joint model is CONDITIONAL
+        (assembly with the ordinary-place half LOGIC_CIRCLE_ORDINARY_AUDIT.md owed; no gap found in the interfaces)
+Scope:  no joint-model theorem is claimed here. No claim about ES in ℕ (OPEN), IE₁, IΔ₀, PA or ZFC.
+Review: cross-model data/z74/xreview/REVIEW_NRMODELS_OPUS.md (Opus: ACCEPT as scoped; row AS6)
+Triage: BARRIER-SCOPED (component); the assembly is a candidate FRONTIER §7 open sub-problem
+STATUS delta: see REVIEW_NRMODELS_OPUS.md §6 (Variant wording)
+```
+
+**Interface check (z74 Opus xreview fix).** The ordinary-place half is supplied by `LOGIC_CIRCLE_ORDINARY_AUDIT.md`. The Opus review checked these interfaces and found no obstruction:
+* the two halves act on disjoint sets of places; every non-sparse prime is a deep release with `π_l≡1 mod l`, transcendental a.s.;
+* the sparse kernels read no ordinary data, and path decisions read only old values, which are already fixed;
+* all-place integrality almost everywhere = sparse Borel–Cantelli (§3) + ordinary invariant (2);
+* Dirichlet outputs are units at both kinds of place;
+* ¬ES(P) follows by the descent lemma L2 of `LOGIC_JOINT_NR_TS.md` (circle gr-domain, base `ℚ[X,Y]→ℚ[P]`) and ET Prop. 1.9.
+
+No note writes out the assembly. Until one does and is reviewed, the joint model is not a result.
+
 **Verdict (scope).** The adaptive sparse argument works for universal NR, conditional on constructing the other local evaluations compatibly, preserving the rational-stage invariants and ensuring restricted adelic integrality. It does **not** require a Chebotarev distribution for the primes in the sparse sequence. It does require defining prefix-consistent, prime-local kernels *before reading the acceptance decisions*. An inadmissible hypothetical branch may fail to admit even a field point at a place; the repair is a cemetery symbol, not a fictitious field embedding. There is also an arithmetic descent needed to skip Gaussian-split TS tasks. Here are the details. This is not an unconditional joint-model theorem about the ordinary-prime anchor construction.
 
 ### 1. Choose the prime laws without the tower
