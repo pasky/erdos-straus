@@ -1,5 +1,17 @@
 # The fundamental Pell unit at the ES-failing prime
 
+```
+Result: in model M3, R[√P]ˣ={±z^j : j∈ℤ standard}, z=X+√P·Y. The positive negative-Pell solutions at P are exactly z^(odd>0),
+        so (X,Y) is coordinatewise least, and both of its coordinates are infinite.
+Label: PROVED (internal), relative to LOGIC_NEGATIVE_PELL_ROOT_AUDIT.md and LOGIC_JOINT_PID_TREE_AUDIT.md.
+Scope: units over the single prime P of M3. No universal Pell or least-solution principle, and no cofinal Pell growth;
+       separate from M1/M2. No standard counterexample. ES is OPEN.
+Review: cross-lab (Opus) data/z74/xreview/REVIEW_PELLMODELS_OPUS.md, ACCEPT (only this block added).
+Triage: HEADLINE (with LOGIC_NEGATIVE_PELL_ROOT_AUDIT.md; strengthens the STATUS §E joint-PID item)
+STATUS delta: optional half-line on the joint-PID bullet, proposed in the review, §5 item 3.
+```
+*(z74 Opus xreview fix: added this §0 block.)*
+
 **PROVED in the model of `LOGIC_NEGATIVE_PELL_ROOT_AUDIT.md`, relative to its joint tower lemmas.** In the ordered quadratic field extension take `t=+√P`, and put `z=X+tY`. Then
 
 ```

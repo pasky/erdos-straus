@@ -1,10 +1,22 @@
 # Square-unit marks and the residue field for the negative-Pell row
 
+```
+Result: in model M3 (the joint PID with the negative-Pell row as root), the marks, the field prescription at P and ES failure
+        all survive; no solution of x²+1=Py² has a nonzero bounded y.
+Label: PROVED (internal), relative to LOGIC_JOINT_PID_TREE_AUDIT.md and LOGIC_PRESCRIBED_FIELD_AT_P.md.
+Scope: one nonstandard prime P in M3. This is not a universal Pell⁻ axiom. It largely duplicates
+       LOGIC_NEGATIVE_PELL_ROOT_AUDIT.md, and the last claim is also a corollary of LOGIC_PELL_UNIT_GROUP.md. ES is OPEN.
+Review: cross-lab (Opus) data/z74/xreview/REVIEW_PELLMODELS_OPUS.md, ACCEPT-WITH-FIXES; the fixes are applied here.
+Triage: DATA (a supporting audit; proof of record for M3 is LOGIC_NEGATIVE_PELL_ROOT_AUDIT.md + LOGIC_PELL_UNIT_GROUP.md)
+STATUS delta: none
+```
+*(z74 Opus xreview fix: added this §0 block.)*
+
 **Verdict (proved relative to the existing joint tower).** The new base supports the same parsimonious finite-tree marks, joint PID axioms (`IOpen`, internal Dirichlet, TS, NR, Lagrange), and exact field prescription at the ES-failing prime. In the resulting ring the negative-Pell equation at that prime has a positive solution but **no solution with any nonzero standard integer second coordinate**. This is stronger than merely exhibiting a large power of a unit at `1+Z²`. It concerns one nonstandard prime, not a universal negative-Pell axiom.
 
 Put `S=2uv, D=u²−v², Y=u²+v²`, and `E=ℚ[u,v,a,b]/(Sa+Db−1)`. Set `P=a²+b², X=Da−Sb`. Then `X+i=(a+ib)(u+iv)²`, so `PY²=X²+1`. On `Y≠0` the inverse is `a=(S+DX)/Y², b=(D−SX)/Y²`. In particular `Frac E=ℚ(u,v,X)`.
 
-**Ordinary places and tree prefixes.** For an empty-prefix place take `u,v,a` in small integral cylinders about `1,0,0`, successively transcendental over previous choices, and solve `b=(1−Sa)/D`. The pivot D and Y are units and b is close to 1. Require `P≡1 mod q` at odd q and `P≡1 mod 8` at 2; this ensures local unit squarehood and the required components of `1 mod 840` at `2,3,5,7`. Exclude the latter primes from the large-prime regime. These are embeddings of the root **field**, not evaluation at the rational center.
+**Ordinary places and tree prefixes.** For an empty-prefix place take `u,v,a` in small integral cylinders about `1,0,0`, successively transcendental over previous choices, and solve `b=(1−Sa)/D`. The pivot D and Y are units and b is close to 1. Require `P≡1 mod q` at odd q and `P≡1 mod 8` at 2; this ensures local unit squarehood and the required components of `1 mod 840` at `2,3,5,7`. Exclude the latter primes from the large-prime regime. *(z74 Opus xreview fix: "empty-prefix places" must be the **finitely many** places of prefix depth 0. Imposing `P≡1 mod q` at infinitely many `q` would break parsimony for `P−1`, which the PID needs; cf. `LOGIC_NEGATIVE_PELL_ROOT_AUDIT.md` §4. At all other places use the square-cover sampling below.)* These are embeddings of the root **field**, not evaluation at the rational center.
 
 For a large odd q use the square cover `w²=P`, **not** a square specialization of all later witnesses. On `Y≠0` write `t=wY−X`; then `wY+X=t⁻¹`, `X=(t⁻¹−t)/2`, `w=(t+t⁻¹)/(2Y)`. The cover chart `Yw≠0` is exactly an open in affine `(u,v,t)` given by `Yt(t²+1)≠0`. It is geometrically integral and dominates the original root. Over `𝔽_q` it has `q³+O(q²)` points: omit the zeros of these fixed polynomials from `q³`. Each root image has at most two preimages. Sampling uniformly on the chart and forgetting w therefore gives mass `O(q⁻³)` per root atom, the correct bound for the dimension **three**. One can lift a selected chart point by choosing `u,v,t` algebraically independent in their cylinders and using the displayed formulas. This gives an embedding after restriction, with all four base coordinates integral and `P` exactly a unit square locally. The local roots w are not global stage elements.
 
