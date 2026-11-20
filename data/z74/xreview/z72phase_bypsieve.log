@@ -1,0 +1,4 @@
+tables ready in 8.0s; 13176808 primes p=1 mod 4 in [1,500000000]
+by-p replay [1,500000000]: 13176808 primes p=1 mod 4, all have a support<=2 Type II certificate; latest first shift 2695 at p=44407609; shifts used <=11: 13095669; time 23s
+first prime with first shift > 123: (66529, 323); latest first shift on p=1 mod 840 with (p+1)/2 prime: 1551 at p=370228321
+engine: /tmp/z72_support_xrev 500000000 -> misses 0 / 13176808, N=500000000
