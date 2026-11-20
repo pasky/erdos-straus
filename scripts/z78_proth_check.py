@@ -55,7 +55,7 @@ def check(f):
             if T=='M':assert n not in S
             elif T=='D':assert M>=2 and n==0 and direct(M)
             elif T=='II':
-                f0,a,b=z;assert min(z)>0 and (f0+1)%(4*a*b)==0 and (n*b+a)%f0==0
+                f0,a,b=z;assert min(z)>0 and (f0+1)%(4*a*b)==0 and (n*b+a)%f0==0 and k*2**64+1>a*f0
             elif T=='W':
                 A,u=z;t,R1=divmod(A+1,u);v,R2=divmod(n+u,A)
                 assert min(t,u)>=2 and R1==R2==0 and k*2**64+1+u>=2*A and (n+t)*t*u*v%8==0 and any(q%4==0 for q in (u,t,v,A,t*v-1))
@@ -88,8 +88,7 @@ def groups():
         for i,e in row['ratios'].items():
             a=int(i);g=math.gcd(a,h);assert 0<=a<h and e>=0;A=A*pow((1+(1<<a))*pow(1+(1<<g),-1,Q),e,Q)%Q
         assert A==Q-1
-        for j in row['unit_j']:assert pow(2,j*pow(j,-1,h),Q)==2
-        assert len(set(row['unit_j']))==sum(math.gcd(i,h)==1 for i in range(h))
+        assert row['unit_j']==[i for i in range(1,h) if math.gcd(i,h)==1]
     print('group positive product certificates verified (no discrete logs)')
 if __name__=='__main__':
     for a in sys.argv[1:]:
