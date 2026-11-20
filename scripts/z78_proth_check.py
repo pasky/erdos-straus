@@ -94,6 +94,15 @@ if __name__=='__main__':
     for a in sys.argv[1:]:
         if a=='small':small()
         elif a=='groups':groups()
+        elif a=='shift':
+            S=json.loads((R/'shift.json').read_text());tot=0
+            for ms,rows in S.items():
+                k=4**int(ms)-1
+                for a,b,c,P,j,v in rows:
+                    u=k*2**a-1;assert 3<=a<=9 and 0<=b<=a and c>0 and not k%c and v==k*2**(a-b)//c and v>=2
+                    assert 0<j<P and pow(2,P,u)==1 and (c*2**b*(1+pow(2,(j-a)%P,u))+1)%u==0
+                    tot+=1
+            print('shifted positive rows',tot)
         elif a=='census':
             C=json.loads((R/'census.json').read_text());assert [b['m'] for b in C]==list(range(1,31))
             for b in C:
