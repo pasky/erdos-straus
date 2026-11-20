@@ -2,3 +2,7 @@ vertex 7/22 4/11 7/22 r,j,d 1/22 1/11 2/11 terms 9/44 5/22 2/11 9/44 goal 5/22 q
 vertex 7/22 7/22 4/11 r,j,d 0 1/11 1/22 terms 2/11 5/44 3/11 9/44 goal 3/11 quartic exp -15/22
 vertex 15/44 15/44 7/22 r,j,d 1/44 1/22 5/44 terms 2/11 1/8 1/4 17/88 goal 3/11 quartic exp -21/44
 at binding vertex h*sqrt(NY) <= W/H iff 7*(1-3t)<=t; old minus new: 62/137313
+fourth moment 20/63 23/63 20/63 terms 13/63 2/9 4/21 13/63 goal 2/9 quartic 0
+fourth moment 20/63 20/63 23/63 terms 7/36 41/252 5/21 13/63 goal 17/63 quartic -2/3
+fourth moment 43/126 43/126 20/63 terms 95/504 41/252 37/168 7/36 goal 17/63 quartic -19/42
+old minus fourth-moment exponent: 205/174762
