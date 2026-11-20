@@ -28,6 +28,8 @@ If j>0, put f=T^n+V. Then TU f′−jT f=T^n(nU−jT), whose last linear factor 
 
 Finally if i>0 and 3|n, V=D³ divides T^n+MX, whose derivative iU^(i−1)A³ is prime to V. Thus V=1. The parity law z≡v≡s mod 2 (FF_ODD_ABSENCE Cor. 1.7) forces n even. But U|M|T^n+1 contradicts (−c)^n+1=2. This proves separability without descending to a nonexistent smaller covering tuple. ∎
 
+**Active-prime sharpening (PROVED).** Let R₃(F) be the product of monic primes whose signed multiplicity in F is nonzero mod 3. The nonzero differential coefficient F′/F has only simple finite poles, all on R₃(F), and tends to zero at infinity. Thus the numerator over R₃(F) is nonzero of degree at most deg R₃(F)−1. It is divisible by T^(K−1) because F≡−1 mod T^K. Hence **deg R₃(F)≥K**. In particular neither MX nor V can be a cube: otherwise deg R₃(F)≤1+v or ≤1+d respectively, both <K. This excludes the Frobenius branch of the original ABC equation too, including when 3|n. If 3 divides deg(pMX)−deg(qV), the logarithmic derivative is O(T⁻²) at infinity, raising K to K+1.
+
 ## 3. Elimination of the two large powers (PROVED)
 
 Write b=n−K and δ=N−b∈{3,4} (these symbols are local to this section), P=deg p, Q=deg q, κ=(q−p)/T∈{c,−c}. Define two nonzero polynomials
