@@ -1,0 +1,7 @@
+integer cross multiplications 102 max s 43740
+four residue witnesses verified <=100000
+W1 {False: [690, 10, Fraction(27, 2)], True: [110, 110, Fraction(78, 1)]} {'no-rep': 45, 'no-anchor': 2}
+W2 {False: [714, 2, Fraction(3, 2)], True: [86, 86, Fraction(239, 4)]} {'no-rep': 53, 'no-anchor': 1}
+F2 {False: [94, 0, Fraction(0, 1)], True: [2, 2, Fraction(1, 1)]} {'no-rep': 2}
+F3 {False: [1136, 9, Fraction(41, 3)]} {'no-anchor': 26, 'no-rep': 228}
+F4 {False: [774, 28, Fraction(28, 1)], True: [2, 2, Fraction(1, 1)]} {'no-anchor': 11, 'no-rep': 62}
