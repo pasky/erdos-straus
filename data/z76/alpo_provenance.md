@@ -1,0 +1,3 @@
+Source: https://alpo.ge/remark.pdf (unrefereed announcement; no Lean archive or proof claim verified). Examined the locally supplied PDF/text on 2026-11-20; original download time not independently verified. SHA-256 for the supplied PDF: `3fc97784b71ddd44ff8aa0a177e99622a1c61b13cfa843a0989ee4a7a0cfeb8d`; for `/tmp/alpo_remark.txt`: `d2eb05ec0b7f23da032fe62bfbc9460fbef552db1d551cd4d9ab11ac5ec7d268`.
+
+Exact finite output: `alpo_screens.txt`. Engine at commit `8cb2fddfa`, `scripts/z76_alpo_transfer.py`. Replay from repo root: `(ulimit -v 1000000; timeout 60 uv run --offline --no-project python -B scripts/z76_alpo_transfer.py) | diff - data/z76/alpo_screens.txt`. Review replay matched byte for byte. No randomness.
