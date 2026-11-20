@@ -22,3 +22,22 @@ Indeed M(paS+qH)=(UJ−qv)S+q(qB+J)=USJ+DqB. For vY, use vS=pB+J and U H=pa+qb. 
     pMY + U q m H² = DuB + UB (m H Y/B −u S) = DuB + U(mHY−uBS).
 
 Proof: pMY=pU S(MH−qB)+DuB; substitute M=m a and paS=Y−qH. In P divide by B: **pMZ + r q m H² = D u + U(m H Z−uS)**. In Q: **pMY + F q m H² = D u e + F(m H Y−ueS)**. In particular reducing the Q equation mod F only recovers pMY≡Due. The clearing factor e cannot be replaced by an r-power. All the identities are equalities over ℤ; none uses abc.
+
+## 2. Two positive P gaps force a fourth-root shift (PROVED)
+
+Here x=5, (p,q)=(1,5) or (5,1), r=17 (also any prime r≥17 distinct from 5; the covering interpretation requires the given nonsquare cell). U=r^L, B=U/r. Set A=ma² and C=6. The bounds below apply for U≥10⁶, amply below the start of the unexplored depth range at 17. We retain deliberately loose constants. The primary inequalities are
+
+    mab≤2N,     H≤2CB/M,     A≥(2/5)U/p,     M≥4Cq,
+    e≤2p(2C+|D|)a,       e≤4C² N/A+D².                              (2.1)
+
+Indeed e≤2b and M≥4 give b≤N/(M−2)≤2N/M. With k=1+a/b≤2 we have e=Nk/(Mc−k), and Mc≥(U−|D|)/p by S≥1. Hence qe/U ≤ 2uU/[r(U−|D|−2p)]<3/5. Since J≥1, pA≥(2/5)U and M²=mA≥(8/5)U/p, giving the first line. Next eZ=rHJ−Dpa, Z≥1, so e≤p(2C+|D|)a+(2Cq/M)e. Finally e divides D²+rmH² by reduction of (pa+qb)²=(UH)² modulo e, where b≡−a and mab≡N: multiply by rm and cancel the r-unit. More explicitly mU²H²≡mD²a²≡−ND² mod e after multiplying the first equality by b/a≡−1 (equivalently ma²≡−N mod e); cancel N since gcd(e,r)=1. This is M17D Remark 2.4 with our signs. Its positive cofactor gives the last bound.
+
+**Third gap.** The integer I=mHZ−uS is positive by (6.1)'s P port: pMZ+rq mH²>Du for r≥17. Set C₁=p²(2C+|D|), C₂=4q C²/r, C₃=2uC+|D|u. Using eZ≤p(2C+|D|)a+(2Cq/M)e as just proved yields
+
+    1 ≤ I ≤ C₁ A/(Ue) + C₂ U/A + C₃/U.                               (2.2)
+
+Thus either A≤4 C₂ U or e≤2 C₁ A/U. In the former case (2.1) gives e≤2p(2C+|D|)√(C₂ U) since m≥4. In the latter, if e≥2D² then e≤8C² N/A and hence e²≤16 C₁ C² N/U. Otherwise e<32. In particular, uniformly in depth for 17,
+
+    e ≤ 1100 √U  = 1100 (17N)^(1/4).                                   (2.3)
+
+The same constant works for every r≥17 (use p≤5,q≤5,C₂≤720/17). This is an unconditional exclusion of *large* shifts, not of all small shifts. The residual bands (2.1)–(2.2) are stronger than the fourth-root summary. There is no degree rule bounding positive integer Z by a numeral independent of U: eZ≤p(2C+|D|)a+(2Cq/M)e gives an upper bound involving a/e, not an absolute ceiling. Unlike F₃[T], positivity yields a carry I≥1, not a monic top coefficient. In particular, (2.2) permits A on the scale U and e on the scale a. It does not compel the single FF endpoint.
