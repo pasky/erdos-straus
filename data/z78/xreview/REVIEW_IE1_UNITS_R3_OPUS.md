@@ -164,3 +164,70 @@ Review:
 
 Standard ES and IE₁⁻ vs ES remain open.
 </code-review>
+<code-review reviewer="anthropic/claude-opus-5-5" mode="smart" since="0ac0f546b">
+A separate reviewer subagent was asked to review the changes in `git log 0ac0f546b..`. Its request and review follow.
+
+Request: review changes since 0ac0f546b carefully (both form and substance) - analyze, critique, debate and challenge
+
+Additionally (this augments, and must not weaken or replace, the baseline review above): Round 3 final fixes verification at 2419bec2f. Verify changes since previous Opus pass (ACCEPT WITH FIXES), especially §15 √2 failure via units over a single geometrically integral boundary, parameter-free non-forcing scope, §§13–14 density vs existence, status gate. Check no overclaim or new unresolved gap. No file edits; concise final export verdict.
+
+Commit log:
+commit 2419bec2fc40452d8923e85f3dd0e2593e335d20
+Author: Petr Baudis <pasky@ucw.cz>
+Date:   Fri Nov 20 22:12:07 2026 +0100
+
+    z78 R3: archive Opus review, prove single-boundary unit failure and delimit no-lock criterion
+
+ data/z78/xreview/REVIEW_IE1_UNITS_R3_OPUS.md | 166 +++++++++++++++++++++++++++
+ notes/z78/IE1_UNITS.md                       |  34 +++---
+ 2 files changed, 184 insertions(+), 16 deletions(-)
+
+Review:
+**Export verdict: ACCEPT.** Nothing blocks export. All fixes from the R3 Opus report are applied correctly, and I found no overclaim and no new unresolved gap. Two editorial nits and one export-time check are listed at the end. I made no edits.
+
+I compared the diff `0ac0f546b..2419bec2f` (`notes/z78/IE1_UNITS.md`, plus the archived `REVIEW_IE1_UNITS_R3_OPUS.md`) against every fix the R3 report asked for.
+
+**§15: the √2 window fails (new PROVED paragraph). The argument holds.**
+- **Units are constant.** After adjoining √2 to the constants, take a unit u on U. Its divisor must be some multiple mZ of the one boundary. This needs Z to stay irreducible over K(√2), which is exactly what geometric integrality of Z gives. Then u or u⁻¹ has no pole on the normal projective X_K, so it is a constant.
+- **Descent through the tower.**
+  - Units of R⊗F[U] lie in K^× ∩ (R⊗F[U]) = R^×, using the tensor basis that contains 1.
+  - Units of the P-line are constants.
+  - Floors and spheres follow §13. The boundary quadric of a sphere has rank 4, so it is geometrically integral.
+  - So any norm-one pair lies in D′∩F = D, and the window has a hole at P.
+- **The hypothesis is sharp.** The conic x²−2y²=z² has boundary x²=2y², a prime divisor over F that splits over F(√2). The geometric-integrality hypothesis excludes exactly this case, which is the one that would bring units back.
+- **Small gap.** The paragraph does not say that the √2 window's base and step still hold in the §15 model. A failed window only shows ¬IE₁⁻ if they do. This comes from §13/§6 ("base and step hold even upstairs"), but the paragraph should cite it. This is a one-phrase fix.
+- **Propagation.** The √2 failure is correctly carried into the §0 Result line and the STATUS delta ("fails IE₁⁻ (√2)").
+
+**§15 hypothesis and wording fixes.** Both are applied: "Z with a smooth rc(F)-point" and "finite product piece".
+
+**Parameter-free scope of the non-forcing Consequence. Correct.** The barrier is now restricted to data and landing point defined over ℚ. Data over F is explicitly treated as having old parameters.
+- Data over ℚ keeps every hypothesis over F: smoothness, geometric integrality, and a real smooth point (by Tarski transfer).
+- The landing coordinates lie in ℚ∩D = ℤ.
+- The implication form is pinned to "all new heights including P". Since n ∈ D can miss the window (e.g. by Siegel inside PA), this is the only honest form, and the note uses it.
+- The scope of the BARRIER-BROAD triage now matches: height-only windows on fixed pointed single-boundary varieties.
+- Opus's optional corollary (both elliptic windows filled, √2 window failing) is not claimed, which is right because it was never checked.
+
+**§§13–14: density versus existence. Correct, and more careful than the reviewer.**
+- The note says that no lock in the cone above R characterizes **density throughout that cone**, not the existence of some good continuation of R.
+- The R3 report's own per-cone claim, "R has an IE₁⁻ continuation iff no continuation of R is locked", is false in the ⇒ direction. A different branch can be locked while a good branch exists. The note rightly did not adopt it.
+- The reformulation caveat is stated: a singleton IE₁⁻ countermodel is a chain-closed, lock-free class, because equality arrows supply its counter-steps.
+- §14 is downgraded to Assessment/screen, and "no new STATUS target" is consistent throughout §0.
+- The types criterion now uses non-isolation wording. "Consistent" implicitly means consistent with the chosen completion. That is acceptable, though "consistent with it" would be clearer.
+- §13: the non-sequitur is deleted, the dangling "proposal" reference is replaced, and the caveat about weak-arrow repairs over D is added. The B/I realization of the single-landing interface of `LOGIC_LAGRANGE_END_TEST.md` §4 is routed to FRONTIER rather than appended to the old note, as it should be.
+
+**§§11–12 form fixes.** Both priority disclaimers ("standard fair-chain…") are added, "the proposed lemma" and "R2 constructed…" are removed, and the "one constructed base" scope is explicit.
+
+**§0 and the status gate.**
+- The Label line now lists the internal dependencies: the z76 §3 PID, `LOGIC_LAGRANGE_END_TEST` §§1–3, `LOGIC_BEZOUT_COLLECTION` §§1,4, and Henkin–Orey.
+- The STATUS delta now appends to a row that actually exists (STATUS l.126–129, the normal `IOpen + Lag` Pell-window row). The clause carries "no Bézout/QR/BCM; fails IE₁⁻".
+- Per AGENTS §2, the commit touches no master file.
+- The Review line cites the archived report.
+- The Roadmap is retitled "toward a possible…" and remains an Assessment, with no claim of independence.
+
+**Remaining items (all minor):**
+1. **6-line cap at export.** The delta adds two clauses to what appears to be the same STATUS row: the R2 "PW row" merge and the R3 "IOpen + Lag relaxation row" append. That row is already 4 lines, so the orchestrator must compress it to stay within 6 lines. The R3 clause is also borderline under the STATUS test, since Opus judged no reader would be misled without it. Dropping it to FRONTIER only is acceptable.
+2. **§15 √2 paragraph.** Add "(base/step as in §13)". "All the height witnesses above do not change…" should read "None of the height witnesses changes…".
+3. **Pending z78 export.** No z78 entries are in STATUS, WAVES or FRONTIER yet. The R1–R3 export, including the FRONTIER §3/§4/§6 lines, is still owed in one commit, followed by the usual cross-model consistency check of the changed FRONTIER passages.
+
+Standard ES and IE₁⁻ versus ES remain open, and nothing in this round implies otherwise.
+</code-review>
