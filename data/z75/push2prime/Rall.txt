@@ -1,0 +1,1 @@
+# k=1 first=10000000009 last=99999999985 step=24 primes=457865804 late=509 hard=0 miss=0

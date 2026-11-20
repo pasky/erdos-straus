@@ -1,0 +1,1 @@
+R n=1mod24 input 10000000001 100000000000 early_limit 8191 MR_inputs 451549 late_primes 142320 max_late_f 1699999 at 57415765801 unknown 0

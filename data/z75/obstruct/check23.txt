@@ -1,0 +1,2 @@
+452438542081 prime 4 unordered 15 first [(3, 78284, 481621)]
+452438542081 prime 8 unordered 0 first []

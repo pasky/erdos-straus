@@ -1,0 +1,2 @@
+179530327201 prime 4 unordered 12 first [(21, 3678674, 581)]
+179530327201 prime 8 unordered 0 first []

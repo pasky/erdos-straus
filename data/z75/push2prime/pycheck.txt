@@ -1,0 +1,4 @@
+1218367081201 prime 4 unordered 22 first [(5, 12306738194, 5)]
+1218367081201 prime 8 unordered 0 first []
+1511088831001 prime 4 unordered 22 first [(5, 1354, 55800917)]
+1511088831001 prime 8 unordered 0 first []

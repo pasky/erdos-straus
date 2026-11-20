@@ -1,0 +1,9 @@
+R D=2431 [10000000001,1000000000000] nonM.n=43632838 late=5 max_late_d=234571 n=590795153377 r=58643 unk=0 M.n=2908771 late=27 max_late_d=621455 n=654171498409 r=66 unk=0
+R D=46189 [10000000001,1000000000000] nonM.n=2296465 late=0 max_late_d=0 n=0 r=0 unk=0 M.n=153094 late=5 max_late_d=268795 n=59974615129 r=451 unk=0
+R D=1062347 [10000000001,1000000000000] nonM.n=99847 late=0 max_late_d=0 n=0 r=0 unk=0 M.n=6656 late=1 max_late_d=123371 n=996382687729 r=23 unk=0
+R D=30808063 [10000000001,1000000000000] nonM.n=3442 late=0 max_late_d=0 n=0 r=0 unk=0 M.n=229 late=0 max_late_d=0 n=0 r=0 unk=0
+R D=955049953 [10000000001,1000000000000] nonM.n=111 late=0 max_late_d=0 n=0 r=0 unk=0 M.n=7 late=0 max_late_d=0 n=0 r=0 unk=0
+7 D=105 [10000000001,50000000000] nonM.n=190475601 late=49003 max_late_d=45430823 n=43749882435 r=114 unk=0 M.n=0 late=0 max_late_d=0 n=0 r=0 unk=0
+7 D=1155 [10000000001,50000000000] nonM.n=17315964 late=8278 max_late_d=28435247 n=23961434805 r=9478416 unk=0 M.n=0 late=0 max_late_d=0 n=0 r=0 unk=0
+7 D=15015 [10000000001,50000000000] nonM.n=1331998 late=929 max_late_d=5852159 n=10093998915 r=975360 unk=0 M.n=0 late=0 max_late_d=0 n=0 r=0 unk=0
+7 D=4545 [10000000001,50000000000] nonM.n=4400399 late=367 max_late_d=2222279 n=22433906385 r=120 unk=0 M.n=0 late=0 max_late_d=0 n=0 r=0 unk=0

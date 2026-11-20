@@ -1,0 +1,16 @@
+qmin 4545 4 [(2, 11), (4, 11), (6, 11), (12, 11), (60, 23), (120, 23), (720, 23), (5040, 23), (40320, 23), (3628800, 23), (20922789888000, 47)]
+cap 4545 4 32 first factorial with no q 11
+cap 4545 4 128 first factorial with no q 53
+qmin 131 8 [(2, 7), (4, 7), (6, 151), (12, 151), (60, 167), (120, 167), (720, 167), (5040, 167), (40320, 167), (3628800, 167), (20922789888000, 167)]
+cap 131 8 32 first factorial with no q 3
+cap 131 8 128 first factorial with no q 3
+qmin 241 8 [(2, 7), (4, 7), (6, 23), (12, 23), (60, 23), (120, 23), (720, 23), (5040, 23), (40320, 23), (3628800, 23), (20922789888000, 167)]
+cap 241 8 32 first factorial with no q 11
+cap 241 8 128 first factorial with no q 11
+qmin 13 4 [(2, 11), (4, 11), (6, 11), (12, 11), (60, 47), (120, 47), (720, 47), (5040, 47), (40320, 47), (3628800, 47), (20922789888000, 47)]
+cap 13 4 32 first factorial with no q 5
+cap 13 4 128 first factorial with no q 41
+qmin 137 8 [(2, 31), (4, 31), (6, 47), (12, 47), (60, 47), (120, 47), (720, 47), (5040, 47), (40320, 47), (3628800, 47), (20922789888000, 47)]
+cap 137 8 32 first factorial with no q 3
+cap 137 8 128 first factorial with no q 23
+fixed-fibre cutoff attained and next 3 rows empty j=16..64
