@@ -1,0 +1,69 @@
+Running as unit: run-p2663230-i11049223.scope; invocation ID: f5cac5933434456796c12ded0b331206
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+No files to download
+Already decompressed 8908 file(s)
+✔ [8924/8932] Built ES.Basic (4.0s)
+ℹ [8925/8932] Built ES.Axioms (3.0s)
+info: ES/Axioms.lean:4:0: 'ES.ESProp_iff_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:5:0: 'ES.cofactor_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:6:0: 'ES.cform_ES' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:7:0: 'ES.cform_ES_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:8:0: 'ES.cform_C_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:9:0: 'ES.jacobi_C_of_dvd_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:10:0: 'ES.jacobi_n_of_cform' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:11:0: 'ES.no_cform_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:12:0: 'ES.no_shifted_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:13:0: 'ES.jacobi_a_of_cform' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:14:0: 'ES.cform_iff_shifted' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:15:0: 'ES.no_typeII_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:16:0: 'ES.no_typeI_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:17:0: 'ES.ES_of_primes_one_mod_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:18:0: 'ES.ES_of_cform_primes' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8926/8932] Built ES.Proth3 (5.7s)
+✔ [8927/8932] Built ES.HC (6.4s)
+ℹ [8928/8932] Built ES.ProthCore (8.2s)
+info: ES/ProthCore.lean:320:0: 'ESProthCore.proth_four_pow_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:321:0: 'ESProthCore.core_four_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:322:0: 'ESProthCore.core_of_doubling' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:323:0: 'ESProthCore.es_of_word' depends on axioms: [propext, Quot.sound]
+info: ES/ProthCore.lean:324:0: 'ESProthCore.telescoping_neg_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:325:0: 'ESProthCore.telescoping_four_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:498:0: 'ESProthCore.proth63' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8929/8932] Built ES.AxiomsHC (2.8s)
+info: ES/AxiomsHC.lean:4:0: 'ESHC.ES_of_slot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:5:0: 'ESHC.core8' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:6:0: 'ESHC.slot_iff_coord' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:7:0: 'ESHC.ES_of_coord' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:8:0: 'ESHC.ES_of_isCoord' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:9:0: 'ESHC.ES_of_HCle' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:10:0: 'ESHC.ES5_iff_HC_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:11:0: 'ESHC.coordU_iff' depends on axioms: [propext, Quot.sound]
+info: ES/AxiomsHC.lean:12:0: 'ESHC.coordT_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:13:0: 'ESHC.isCoord_iff_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:14:0: 'ESHC.ES_of_lineU' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:15:0: 'ESHC.ES_of_lineT' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:16:0: 'ESHC.dvd_mod_four_of_S' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:17:0: 'ESHC.exists_dvd_three_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:18:0: 'ESHC.S_sq_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:19:0: 'ESHC.HC_gt_four_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:20:0: 'ESHC.HC_gt_two' depends on axioms: [propext, Quot.sound]
+info: ES/AxiomsHC.lean:21:0: 'ESHC.HC_gt_three' depends on axioms: [propext, Quot.sound]
+info: ES/AxiomsHC.lean:22:0: 'ESHC.theoremQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:23:0: 'ESHC.theoremQ_no_line4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:24:0: 'ESHC.prop31a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:25:0: 'ESHC.prop31b_mod3_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:26:0: 'ESHC.prop31b_mod7_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:27:0: 'ESHC.prop31b_mod7_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:28:0: 'ESHC.prop31b_mod5_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:29:0: 'ESHC.prop31b_mod5_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:30:0: 'ESHC.prop31b_mod7_6' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:31:0: 'ESHC.HC_le_eight_of_nonresidue' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:32:0: 'ESHC.cls840' does not depend on any axioms
+info: ES/AxiomsHC.lean:33:0: 'ESHC.prop31c' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:34:0: 'ESHC.prop31c_classes' does not depend on any axioms
+ℹ [8930/8932] Built ES.Proth15 (11s)
+info: ES/Proth15.lean:635:0: 'ESProth15.proth15' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8931/8932] Built ES (2.8s)
+Build completed successfully (8932 jobs).
+EXIT: 0

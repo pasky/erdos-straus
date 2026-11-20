@@ -1,0 +1,36 @@
+direct triples: 30*64
+group positive product certificates verified (no discrete logs)
+m 1 period 55440 miss 6 {'M': 11, 'D': 4, 'II': 9, 'W': 10}
+m 2 period 55440 miss 6 {'M': 8, 'D': 9, 'W': 24, 'II': 7}
+m 3 period 55440 miss 5 {'M': 9, 'D': 9, 'W': 20, 'II': 10}
+m 4 period 55440 miss 2 {'M': 8, 'D': 8, 'W': 29, 'II': 13}
+m 5 period 55440 miss 15 {'M': 11, 'D': 2, 'II': 9, 'W': 16}
+m 6 period 55440 miss 16 {'D': 18, 'W': 67, 'II': 34}
+m 7 period 55440 miss 4 {'M': 11, 'D': 4, 'II': 7, 'W': 13}
+m 8 period 55440 miss 34 {'M': 8, 'D': 11, 'W': 39, 'II': 19}
+m 9 period 55440 miss 30 {'M': 9, 'D': 6, 'W': 24, 'II': 6}
+m 10 period 55440 miss 4 {'M': 8, 'D': 10, 'W': 29, 'II': 10}
+m 11 period 55440 miss 32 {'M': 11, 'D': 3, 'II': 10, 'W': 15}
+m 12 period 55440 miss 17 {'D': 21, 'W': 41, 'II': 22}
+m 13 period 55440 miss 11 {'M': 11, 'D': 6, 'W': 17, 'II': 4}
+m 14 period 55440 miss 24 {'M': 8, 'D': 10, 'W': 28, 'II': 10}
+m 15 period 55440 miss 12 {'M': 9, 'D': 4, 'W': 27, 'II': 24}
+m 16 period 55440 miss 3 {'M': 8, 'D': 7, 'W': 24, 'II': 9}
+m 17 period 55440 miss 6 {'M': 11, 'D': 5, 'II': 8, 'W': 10}
+m 18 period 55440 miss 25 {'D': 14, 'W': 59, 'II': 39}
+m 19 period 55440 miss 5 {'M': 11, 'D': 3, 'W': 13, 'II': 9}
+m 20 period 55440 miss 28 {'M': 8, 'D': 9, 'W': 48, 'II': 14}
+m 21 period 55440 miss 17 {'M': 9, 'D': 5, 'II': 14, 'W': 25}
+m 22 period 55440 miss 6 {'M': 8, 'D': 8, 'W': 18, 'II': 9}
+m 23 period 55440 miss 11 {'M': 11, 'D': 2, 'W': 22, 'II': 6}
+m 24 period 55440 miss 13 {'D': 17, 'W': 45, 'II': 12}
+m 25 period 55440 miss 37 {'M': 11, 'D': 2, 'II': 10, 'W': 19}
+m 26 period 55440 miss 6 {'M': 8, 'D': 10, 'W': 42, 'II': 21}
+m 27 period 55440 miss 2 {'M': 9, 'D': 6, 'II': 7, 'W': 19}
+m 28 period 55440 miss 3 {'M': 8, 'D': 9, 'W': 21, 'II': 12}
+m 29 period 55440 miss 22 {'M': 11, 'D': 5, 'W': 19, 'II': 4}
+m 30 period 55440 miss 48 {'D': 22, 'W': 92, 'II': 66}
+m 7 period 55440 miss 0 {'M': 11, 'D': 4, 'II': 7, 'W': 13, 'X': 1, 'K': 1}
+m 8 period 12252240 miss 0 {'M': 8, 'D': 15, 'W': 39, 'II': 19, 'X': 1, 'K': 86}
+m 9 period 411863760 miss 0 {'M': 9, 'D': 8, 'W': 24, 'II': 7, 'X': 1, 'K': 95}
+m 10 period 55440 miss 0 {'M': 8, 'D': 10, 'W': 29, 'II': 10, 'X': 1, 'K': 3}
