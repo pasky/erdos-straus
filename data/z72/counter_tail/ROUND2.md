@@ -1,5 +1,12 @@
 # A structural shift-15 test and a closed four-unit orbit
 
+Result: an exact criterion for shift 15 at p ≡ 1 (16) (and the ⟨2⟩-index-2 mechanism). The pair-move orbit of (p,p,p,p) at p=14281 is closed (92 vertices) with no mergeable pair, although 4/14281 has a triple.   Label: PROVED (shift-15 criterion); CERTIFIED (c15 sample, closed orbit, census to 20000)
+Scope: rules out universal merge-reachability from the four-equal start; nothing about other starts or ES.
+Review: cross-lab (Opus) `data/z74/xreview/REVIEW_Z72PHASE_OPUS.md` (P16–P18 CORRECT; own generator and BFS)
+Triage: METHOD-CX
+STATUS delta: none
+*(§0 block: z74 Opus xreview fix)*
+
 **PROVED — exact shift-15 obstruction.** Suppose `p≡1 mod 16` and `gcd(p,15)=1`. Put `K=(p+15)/4=4Q`, `H=<2>={1,2,4,8}` in `(Z/15)*`. The following are equivalent:
 
 * a coprime `AB|K` with `15|A+B` exists, without a support cap;
