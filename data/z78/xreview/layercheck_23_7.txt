@@ -1,0 +1,18 @@
+N 3404825447 bits 32
+j 0 small_oriented 0 large_oriented >=464
+j 1 small_oriented 244 large_oriented >=464
+j 2 small_oriented 244 large_oriented >=464
+j 3 small_oriented 250 large_oriented >=464
+j 4 small_oriented 296 large_oriented >=464
+j 5 small_oriented 306 large_oriented >=464
+j 6 small_oriented 320 large_oriented >=464
+j 7 small_oriented 362 large_oriented 464
+j 8 small_oriented 448 large_oriented 378
+j 9 small_oriented 492 large_oriented 334
+j 10 small_oriented 552 large_oriented 274
+j 11 small_oriented 582 large_oriented 244
+j 12 small_oriented 606 large_oriented 220
+j 13 small_oriented 622 large_oriented 204
+j 14 small_oriented 652 large_oriented 174
+j 15 small_oriented 682 large_oriented 144
+j 16 small_oriented 700 large_oriented 126
