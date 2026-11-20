@@ -1,8 +1,8 @@
 Result: Every covering tuple in either orientation has deg g'<N and a monic determinant W of degree ≤1 (A) or ≤2 (B), forcing v=r−1 or r−2 in A and |v−r|≤1 in B. Label: PROVED (rel. Mason–Stothers and the tuple lemmas in §1)
 Scope: Case B families at the two specified points for F₃[T], A=T², minimum level N≥4; no all-level conclusion about sterility, finite covering, or integer ES.
 Review: none
-Triage: DATA
-STATUS delta: none
+Triage: TARGET
+STATUS delta: in the existing §2 function-field target, replace “CONJECTURE 0.2 over F₃[T]” by “Conj. 0.2 over F₃[T]: only low-deg g', with a monic T-unit determinant of degree ≤1 (A) or ≤2 (B), remains (z78, F3_CONJ §3).”
 
 ## 1. Two-sided reconstruction (PROVED relative to the indicated tuple lemmas)
 
@@ -62,7 +62,7 @@ Indeed A₀²=(qB+pX)²−4pqBX, with 4=1 and pq=u. D(0)=−1. Apply the same lo
 
     n ≤ deg R₃(G) ≤ z+L+Q+1+v = n−r+Q+1+v.
 
-Together with §3 this gives **r−Q−1≤v≤r+2P−1**, i.e. the §0 ranges. Since lc S=lc p and lc J=lc p, W is monic. In A, w=r−v−1∈{0,1}; in B, w=r−v+1∈{0,1,2}. Since W(0)≠0, the search needs just 3 possible polynomials in A or 9 in B, independent of N! Furthermore w≡d+1 mod 2 by the tuple parity law. This sharpens the running-time proof too: the H,W route has exponent h+O(1)≤N−d+O(1), and the J route j≤2d−N. Their minimum is ≤N/3+O(1); hence **3^(N/3+o(N))** complete search with factoring. No claim is made that every W on these lists occurs.
+Together with §3 this gives **r−Q−1≤v≤r+2P−1**, i.e. the §0 ranges. Since lc S=lc p and lc J=lc p, W is monic. In A, w=r−v−1∈{0,1}; in B, w=r−v+1∈{0,1,2}. Since W(0)≠0, the search needs just 3 possible polynomials in A or 9 in B, independent of N! Furthermore w≡d+1 mod 2 by the tuple parity law. This sharpens the running-time proof too: the H,W route has exponent h+O(1)≤N−d+O(1), and the J route j≤2d−N. Their minimum is ≤N/3+O(1); hence **3^(N/3+o(N))** complete search with factoring. No claim is made that every W on these lists occurs. Quantitatively, 0≤deg(m A₀ uV)−deg R₃(G)≤1+P−w. Thus repeated factors and common support in this product together cost at most two degrees (including inactive primes); this is an additional restriction, not an assertion of squarefreeness.
 
 ## 4. Census and an infinite near-miss family
 
@@ -71,3 +71,9 @@ Together with §3 this gives **r−Q−1≤v≤r+2P−1**, i.e. the §0 ranges. 
 **Census protocol (EVIDENCE).** Data under `data/z78/` and sources `scripts/z78_f3{,_hybrid}.c`. Build with gcc -O3. Two disjoint bit planes represent ±1 coefficients. `f3_1.txt`, `f3_2.txt` run levels 4..28; `f3_high_{1,2}.txt` continue 29..31. Both n, c and orientations are separate rows. `Mpool` counts *distinct* monic T-units in the allowed d range prior to imposing z parity. `trials` counts the actual H/short-factor trials, then `unitX`, `intB`, `split`, `monicV` count successive tests. `case1/2[vbound]` applies the older upper bound on v from §1 and parity v≡z≡n (FF_ODD_ABSENCE Corollary 1.7); `integralG` is the survivor count after TV | X+B. Extremal gcd and remainder degrees refer to the last divisibility; a witness is m/X/B in ascending ternary coefficients, sentinels −1/99 mean no trial reached this stage. On paths that reach it, no nonintegral g has been rounded to a polynomial.
 
 **Hybrid lift (PROVED, algorithm).** For fixed H with degree h and fixed j, all possible J are exactly J=−(qT^b mod H)+HD with deg J=j and lc J=lc p. Enumerate the affine class (one trial at most if j<h); then M=(qT^b+J)/H. For z>0, §3 gives deg(qV)≤r+P<d+P so X is the quotient of T^K J by pM. For z=0 simply X=M. Test every reconstructed tuple directly. The hybrid uses this lift or the first algorithm depending on which has fewer indexing digits. It records the stronger §3 window on v: the near-miss counts in the two programs therefore need not agree. `case2` is identically empty in the hybrid by §2. `split` here counts monic integral sides before checking whether MB−T^n has the required degree. No factorisation library or probabilistic subroutine is used. The census checks necessary conditions for exact points, not a sampling of residue classes.
+
+## 5. Exact residual test and scope
+
+**PROVED (rel. §§1–3).** At any N≥4 it suffices to take n=2N−3 or 2N−2, choose either orientation, degrees d,r satisfying 0≤r≤d≤n+Q−K, d+r+P≥K, d−r≡n mod 2 and v≡n mod 2 in [max(N−d,r−Q−1),r+2P−1]. Take monic T-unit W of degree r−v+2P−1, H with lc q and degree n−d+Q−K. List the monic T-unit divisors X of T^(b+1)W−qH of degree r. This is a nonzero polynomial: on an actual tuple it equals pXS≠0; discard an identically zero index. Calculate B=(T^K H−pX)/q, requiring an integral monic T-unit of degree n−d. Divide T^n by B to obtain quotient M and V=−remainder. Require m=M/X integral monic, V monic of degree v and g=(X+B)/(TV) a monic T-unit; test MB=T^n+V and E=Tgm w₁−1≡−u mod T^K with all T-unit conditions. Exactly the surviving tuples cover, by FUNCTIONFIELD_ES3 Lemmas 1.1 and 2.1 (minimum level K−1); exact tuples and same-side families are excluded by the earlier notes. The W enumeration may generate false indices until these last tests. In particular the two orientations have not been identified by a symmetry (swapping inverts the target unit, which is not again 1+c′T).
+
+**Assessment (next step).** Fix the few W and use the sharp *second* logarithmic derivative. If A=rad-active denominator R₃(G), then A·G′/G=T^(n−1) times a polynomial of degree ≤1+P−w≤2. Classify this small numerator together with MW=T^δ SJ+κq, rather than assuming that a single congruence at the prime u vanishes. No proof of empty residual tests at all N, no decision on nonemptiness of O(3,T²), and no implication for integer ES.
