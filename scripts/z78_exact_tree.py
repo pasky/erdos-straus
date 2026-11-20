@@ -32,9 +32,10 @@ def is_nonsquare(x: int, r: int) -> bool:
 
 def make_tree(r: int) -> str:
     boxes = defaultdict(set)
-    boxes[1] = family(r, "P", 1) | family(r, "Q", 1) | family(r, "U", 1)
+    # M17B Lemma 1.1: every U-box is contained in a P-box, so P/Q gives the same union.
+    boxes[1] = family(r, "P", 1) | family(r, "Q", 1)
     boxes[2] = family(r, "P", 3)
-    boxes[3] = family(r, "P", 5) | family(r, "Q", 3) | family(r, "U", 3)
+    boxes[3] = family(r, "P", 5) | family(r, "Q", 3)
     nonres = [v for v in range(1, r) if is_nonsquare(v, r)]
     out = [f"r = {r}: non-residues {nonres}; level-1 boxes {sorted(boxes[1])}"]
     for v in nonres:

@@ -1,0 +1,115 @@
+r = 109: non-residues [2, 6, 8, 10, 11, 13, 14, 17, 18, 19, 23, 24, 30, 32, 33, 37, 39, 40, 41, 42, 44, 47, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 62, 65, 67, 68, 69, 70, 72, 76, 77, 79, 85, 86, 90, 91, 92, 95, 96, 98, 99, 101, 103, 107]; level-1 boxes [17, 18, 33, 44, 51, 53, 54, 57, 62, 67, 68, 70, 72, 76, 77, 86, 90, 95, 96, 98, 99, 101, 103, 107]
+  cell C_2:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 15, alive 0.98956317, max 2, hist {1: 13, 2: 1}
+  cell C_6:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 17, alive 0.98939483, max 2, hist {1: 13, 2: 2}
+  cell C_8:
+    d2: new 2, alive 0.98165138, max 2, hist {2: 1}
+    d3: new 21, alive 0.97988385, max 2, hist {1: 19, 2: 1}
+  cell C_10:
+    d2: new 5, alive 0.95412844, max 5, hist {5: 1}
+    d3: new 15, alive 0.95286592, max 1, hist {1: 15}
+  cell C_11:
+    d2: new 5, alive 0.95412844, max 5, hist {5: 1}
+    d3: new 15, alive 0.95286592, max 1, hist {1: 15}
+  cell C_13:
+    d2: new 5, alive 0.95412844, max 5, hist {5: 1}
+    d3: new 10, alive 0.95328676, max 2, hist {1: 8, 2: 1}
+  cell C_14:
+    d2: new 4, alive 0.96330275, max 4, hist {4: 1}
+    d3: new 14, alive 0.96212440, max 2, hist {1: 12, 2: 1}
+  cell C_17: covered at level 1
+  cell C_18: covered at level 1
+  cell C_19:
+    d2: new 3, alive 0.97247706, max 3, hist {3: 1}
+    d3: new 19, alive 0.97087787, max 3, hist {1: 12, 2: 2, 3: 1}
+  cell C_23:
+    d2: new 3, alive 0.97247706, max 3, hist {3: 1}
+    d3: new 19, alive 0.97087787, max 3, hist {1: 12, 2: 2, 3: 1}
+  cell C_24:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 13, alive 0.98973150, max 1, hist {1: 13}
+  cell C_30:
+    d2: new 2, alive 0.98165138, max 2, hist {2: 1}
+    d3: new 17, alive 0.98022052, max 2, hist {1: 15, 2: 1}
+  cell C_32:
+    d2: new 2, alive 0.98165138, max 2, hist {2: 1}
+    d3: new 20, alive 0.97996802, max 2, hist {1: 18, 2: 1}
+  cell C_33: covered at level 1
+  cell C_37:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 15, alive 0.98956317, max 1, hist {1: 15}
+  cell C_39:
+    d2: new 4, alive 0.96330275, max 4, hist {4: 1}
+    d3: new 14, alive 0.96212440, max 2, hist {1: 12, 2: 1}
+  cell C_40:
+    d2: new 2, alive 0.98165138, max 2, hist {2: 1}
+    d3: new 17, alive 0.98022052, max 2, hist {1: 15, 2: 1}
+  cell C_41:
+    d2: new 2, alive 0.98165138, max 2, hist {2: 1}
+    d3: new 21, alive 0.97988385, max 2, hist {1: 19, 2: 1}
+  cell C_42:
+    d2: new 5, alive 0.95412844, max 5, hist {5: 1}
+    d3: new 10, alive 0.95328676, max 2, hist {1: 8, 2: 1}
+  cell C_44: covered at level 1
+  cell C_47:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 13, alive 0.98973150, max 1, hist {1: 13}
+  cell C_50:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 13, alive 0.98973150, max 1, hist {1: 13}
+  cell C_51: covered at level 1
+  cell C_52:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 17, alive 0.98939483, max 2, hist {1: 15, 2: 1}
+  cell C_53: covered at level 1
+  cell C_54: covered at level 1
+  cell C_55:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 15, alive 0.98956317, max 2, hist {1: 13, 2: 1}
+  cell C_56:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 15, alive 0.98956317, max 1, hist {1: 15}
+  cell C_57: covered at level 1
+  cell C_58:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 13, alive 0.98973150, max 1, hist {1: 13}
+  cell C_59:
+    d2: new 2, alive 0.98165138, max 2, hist {2: 1}
+    d3: new 18, alive 0.98013635, max 1, hist {1: 18}
+  cell C_62: covered at level 1
+  cell C_65:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 17, alive 0.98939483, max 2, hist {1: 15, 2: 1}
+  cell C_67: covered at level 1
+  cell C_68: covered at level 1
+  cell C_69:
+    d2: new 2, alive 0.98165138, max 2, hist {2: 1}
+    d3: new 19, alive 0.98005218, max 2, hist {1: 17, 2: 1}
+  cell C_70: covered at level 1
+  cell C_72: covered at level 1
+  cell C_76: covered at level 1
+  cell C_77: covered at level 1
+  cell C_79:
+    d2: new 2, alive 0.98165138, max 2, hist {2: 1}
+    d3: new 19, alive 0.98005218, max 2, hist {1: 17, 2: 1}
+  cell C_85:
+    d2: new 2, alive 0.98165138, max 2, hist {2: 1}
+    d3: new 18, alive 0.98013635, max 1, hist {1: 18}
+  cell C_86: covered at level 1
+  cell C_90: covered at level 1
+  cell C_91:
+    d2: new 1, alive 0.99082569, max 1, hist {1: 1}
+    d3: new 17, alive 0.98939483, max 2, hist {1: 13, 2: 2}
+  cell C_92:
+    d2: new 2, alive 0.98165138, max 2, hist {2: 1}
+    d3: new 20, alive 0.97996802, max 2, hist {1: 18, 2: 1}
+  cell C_95: covered at level 1
+  cell C_96: covered at level 1
+  cell C_98: covered at level 1
+  cell C_99: covered at level 1
+  cell C_101: covered at level 1
+  cell C_103: covered at level 1
+  cell C_107: covered at level 1
