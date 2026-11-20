@@ -192,3 +192,150 @@ Because the HEADLINE retires a STATUS target and leans on four earlier waves, I 
 
 Nothing here bears on ES in ℕ.
 </code-review>
+<code-review reviewer="anthropic/claude-opus-5-5" mode="smart" since="b40458745855c19f35d865af56908f7616a85d38">
+A separate reviewer subagent was asked to review the changes in `git log b40458745855c19f35d865af56908f7616a85d38..`. Its request and review follow.
+
+Request: review changes since b40458745855c19f35d865af56908f7616a85d38 carefully (both form and substance) - analyze, critique, debate and challenge
+
+Additionally (this augments, and must not weaken or replace, the baseline review above): Independent cross-lab Opus second hostile pass on final bb6f8e72a, especially rewritten §3a and the invariant package of notes/z78/IE1_UNITS.md. First full review ACCEPT WITH FIXES archived data/z78/xreview/REVIEW_IE1_UNITS_OPUS.md; verify all fixes M1–M3, m1–m8, n1 and look for remaining substantive gaps in axioms/¬ES(P)/scope. Check whether Att induction and the proxy finite support tree really close. No file edits. Concise explicit export verdict and any necessary corrections.
+
+Commit log:
+commit bb6f8e72aaa04b54e71ed3b624347d0f11681535
+Author: Petr Baudis <pasky@ucw.cz>
+Date:   Fri Nov 20 20:24:53 2026 +0100
+
+    z78: record hostile Opus review and specify recursive attainable control spaces
+
+ data/z78/xreview/REVIEW_IE1_UNITS_OPUS.md | 194 ++++++++++++++++++++++++++++++
+ notes/z78/IE1_UNITS.md                    |  47 ++++++--
+ 2 files changed, 228 insertions(+), 13 deletions(-)
+
+commit cd960485a69f7db363fbd3fe842184bd47f22eae
+Author: Petr Baudis <pasky@ucw.cz>
+Date:   Fri Nov 20 19:56:38 2026 +0100
+
+    z78: normalize split primes recursively and close the arithmetic TS successor
+
+ notes/z78/IE1_UNITS.md | 24 +++++++++++++++++++-----
+ 1 file changed, 19 insertions(+), 5 deletions(-)
+
+commit d804db79765c5f63cd0c1a1bc03ffa882d4c9410
+Author: Petr Baudis <pasky@ucw.cz>
+Date:   Fri Nov 20 19:54:32 2026 +0100
+
+    z78: prescribe finite rotation functionals through recursively serviced proxy circles
+
+ notes/z78/IE1_UNITS.md | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+commit 4b210bf6f80ad5cb4e0825014bfdfa7af1741574
+Author: Petr Baudis <pasky@ucw.cz>
+Date:   Fri Nov 20 19:51:19 2026 +0100
+
+    z78: cubic induction barrier beyond full multiquadratic height surjectivity
+
+ notes/z78/IE1_UNITS.md | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+commit 161b10d9b05be159528d46b19efb1bb5a0c10f78
+Author: Petr Baudis <pasky@ucw.cz>
+Date:   Fri Nov 20 19:48:25 2026 +0100
+
+    z78: bound residual squareclass kernel by cyclotomic and single-radical ranks
+
+ notes/z78/IE1_UNITS.md | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit e4f140aa794b605f9d67ef4f71dbb962cae2cf80
+Author: Petr Baudis <pasky@ucw.cz>
+Date:   Fri Nov 20 19:43:34 2026 +0100
+
+    z78: identify the two-component restriction and first-axis circle controls
+
+ notes/z78/IE1_UNITS.md | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+Review:
+# Second hostile pass: `notes/z78/IE1_UNITS.md` at bb6f8e72a
+
+**Reviewer:** Claude (Anthropic, Opus family). I edited no files.
+
+**Scope:** I read the full diff b4045874..bb6f8e72a, which is six commits touching one note plus the archived first review. I re-derived the rewritten §3a and the invariant package. I checked the rest of §§1–4 only for consistency with the first review.
+
+## Verdict
+
+**EXPORT: ACCEPT.** All the first-review fixes are in place (M3 sound, m7 only partly, which is acceptable).
+- I found no remaining substantive gap in the axioms, in ¬ES(P), or in the scope.
+- Both the Att induction and the proxy finite-support tree close.
+- The six corrections below are minor wording clarifications. They can be applied at export and do not block it.
+
+## Fix verification
+
+| Fix | Status |
+|---|---|
+| **M1** | Done. Theorem A is displayed, and there is a four-item package and an edge table. The table includes the two new edge types: proxy line+circle, and the twist with both protected lists. |
+| **M2** | Done. Clause 2 is now stated in extended form for every finite list in `k_n*/2`. `Att_n` is defined recursively with no reference to torus points. The constant-list lemma is a separate statement. |
+| **M3** | Done and correct. The even-valuation argument for integral rotations holds at split places (`v(v₁)=v(v₂)`) and at inert places. The note rightly excludes 2, where Gaussian ramification gives `δ(i)=N(1+i)=2`, an odd valuation. At 2, restricting to boundaries {1, 5} is a valid sub-choice. |
+| **m1** | Done: the dependency list is complete. |
+| **m2** | Done: now "proxy pivot, end of §1". |
+| **m3** | Done: `b₀`, `ζ`; 𝔐 defined; `F_prev` removed. `B` survives only in §4, which is separate. |
+| **m4** | Done: `χ_q(−1)=0` stated, with unserviced proxies sent to the normalized-associate queue. |
+| **m5** | Done: "a model with all these properties in which IE₁⁻ fails"; external invariants flagged as such. |
+| **m6** | Done: triage scoped to ∛2 unit descent; a FRONTIER screen is proposed. |
+| **m7** | Partly. The note is still not split, but the Theorem A/B headings separate the two results. Acceptable. |
+| **m8** | Done: the STATUS delta carries non-PID, ¬L(Div), z77 §5, the target-4 TS clause, and "necessary, not sufficient". |
+| **n1** | Done. |
+
+## Does the Att induction close? Yes.
+
+**Indexing.**
+- In successor n, the proxies renew clauses 1–2 for `S_n` using only clauses 1–2 for `S_{n−1}`, at H.
+- General circles in successor n also use only `S_{n−1}`.
+- `k_{n−1}` is fixed once successor n−1 completes, and so are its completion's residue field and the marks. So the H-images of everything built later land in frozen data. Nothing circular.
+
+**What a general circle can reach.**
+- The only lever is the residual point at the new axis w, because constant parameters `a∈F` are units at every newly born punctured prime.
+- Its marks are free at the top discrete places, and equal ζ·T_H at H.
+- So the set of reachable vectors is exactly `A_top(a)+Att_{n−1}(sp_Hφ_H a) = Att_n(a)`.
+- The constant-list lemma gives ψ(a) ∈ Att_n(a) for every finitely supported birth-prime functional ψ. Pick, at each layer, the primes of ψ born at that layer.
+- Squareclass linearity holds because the value group ℤ[1/2] is 2-divisible, so square-normalized specialization is a homomorphism on squareclasses.
+- The basis computation goes through:
+  - primes born higher have S-unit residuals down to the dyadic place;
+  - primes born lower are value-0 scalars until birth;
+  - monomials equal a square times a scalar.
+- Sign drops out because `(−1, N v)=0`.
+
+**Clause 2 realizability.** For r∈U take δ(T) a nonsquare unit; this works at both split and inert r. Take squares on supp f \ U. Elsewhere the bits vanish automatically. At H, lift T_H by completeness and Hensel. The torus-square perturbation leaves δ unchanged mod squares.
+
+**Clause 1 renewal.**
+- Odd top places: the unit norm is surjective.
+- Dyadic: u ≡ 1 (4) is a sum of two squares in ℤ₂.
+- H: old clause 1 applies.
+
+## Does the proxy finite-support tree close? Yes.
+
+- A `b₀=1` proxy has all its prescriptions fixed by its scheduled data (the list, U, T_H). None depend on a defect, so only finitely many explicit places are needed and H is online.
+- Defect-dependent choices occur only at general circles. Those use the two-option prefixes of z76, so branching stays finite.
+- At infinite residue fields there are two classes and −1 is a quotient of norms. So the norms are everything, and the fibration-density argument stands.
+- Dovetailing covers every list, since each list appears at a finite stage. The proxies' own new elements are covered too.
+- Each clause-2 instance is created once, and its marks are then frozen.
+
+## ¬ES(P) and scope
+
+- Sorted bounds keep every entry in the bottom.
+- `u=r+Pv` leaves `R/P` and `χ_P` unchanged.
+- `P≡1 (840)` lies in 𝔐.
+- I re-checked §4: C₃'s step coordinates, the `[3n,5n]` sum, the odd-k norm `(−1)^{k+1}=1`, and the descent `D∩F₀=C`. All correct.
+- The scope wording is right: Theorem A is a countable non-PID Bézout union failing L(Div); Theorem B is a separate model with no Bézout, TS or QR claim; nothing is said about standard ES or about IE₁⁻ vs ES.
+
+## Corrections (minor, apply at export)
+
+1. **Constant-list lemma and §3.** State explicitly that `k_n* = F*·S_n*`. This follows recursively from finite support: clear the r-orders with old primes and the H-value with an old monomial, then recurse. So every punctured prime has a positive field associate with an S_n-unit residual, and the parity basis uses that associate (it need not be arithmetic). As written, §3's "arithmetic generators" and §3b's "When normalization exists…" read as if normalization might fail.
+2. **§3a lead sentence.** Change `k`, `S` to `k_n`, `S_n`. Also say that the "top discrete marks" of `k_n` are the places of primes born in successor n−1, with 2 only at n=1; for n>1 the dyadic place is reached through the recursion.
+3. **Package item 4 or the table.** Add one line: clauses 1–2 are statements about the final `k_n`, taken instance by instance. Each instance is created by one scheduled proxy and kept by frozen marks. Other edges only enlarge `k_n`.
+4. **Theorem A.** Change "exactly two nonzero classes" to "exactly two nonzero squareclasses".
+5. **Package item 2.** Change "old rational prime" to "old real-side prime", to avoid the number-theory reading.
+6. **Proxy line and V.** Say once that `w(hV)>0`, so `q` reduces to `b`. This is implicit now.
+
+None of these changes a result or a label. The note can be exported as Theorem A at HEADLINE (PROVED rel. §0) and Theorem B at BARRIER-BROAD (scoped). In the WAVES R line, list the cross-model reviews (Opus ACCEPT WITH FIXES, then this follow-up ACCEPT).
+</code-review>
