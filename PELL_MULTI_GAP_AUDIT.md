@@ -1,5 +1,16 @@
 # Audit: compressing several integral negative-Pell inputs
 
+(§0 block: z74 Opus xreview fix)
+```
+Result: bounded outputs of fixed polynomial (or rational, avoiding 0/0) formulas on r integral negative-Pell witnesses
+        equal those of a finite menu on the fundamental witness, with NO new coefficient denominators.
+Label: PROVED. Finite cancellation tests CERTIFIED (exact integer arithmetic; independently recomputed).
+Scope: compression only; for rational menus the small-fundamental-unit regime remains open (as the note states).
+Review: cross-model (Claude Opus), data/z74/xreview/REVIEW_PELLNOGO_OPUS.md — ACCEPT-WITH-FIXES (§0 only).
+Triage: BARRIER-SCOPED
+STATUS delta: none
+```
+
 **PROVED.** Fix `r`, a finite menu, and an output height exponent `h`. At an ordinary nonsquare prime `p`, every tuple of integral outputs `|m_i|≤p^h` obtained from polynomial formulas on `r` integral negative-Pell witnesses is obtained from a finite menu of polynomials on **one** witness, the fundamental one. The new polynomial coefficients need **no additional common denominator**. The same compression works for fixed rational functions, with **rational**, not necessarily regular, output formulas whose denominators are nonzero at the hit. No upper bound on an input witness. The exponent bound and finite menu below depend on the original formulas and h, not on p. This is a value-at-hits result, not a symbolic identity on the product of conics. Rational outputs of bounded multiplicative height work as well, using `bA−aB` for `m=a/b` with `max(|a|,|b|)≤p^h`.
 
 **Height and group.** Use units of the order `ℤ[√p]`, not half-integral units of the maximal order. If there is a norm `−1` witness, the least unit `ε>1` in the positive real embedding has norm `−1`. Indeed positive units are discrete on compact subintervals of `(0,∞)` by recovering the two integer coefficients from `w` and `±1/w`; division by powers of the least one generates all of them. Thus `ε=x₀+t y₀>√p`, `t=√p`, and each witness unit is `δ_i ε^{n_i}`, with `δ_i=±1`, `n_i` odd, possibly negative. For ES, the output bound is automatic: sorted `a≤b≤c` give `a≤3p/4`, `b≤2pa/(4a−p)`, `c=pab/(4ab−p(a+b))≤pab`. In particular `c≤p⁵`. Nothing here bounds the heights of numerators and denominators of an input rational function *evaluated* at the witnesses.

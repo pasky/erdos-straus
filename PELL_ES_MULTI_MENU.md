@@ -1,5 +1,17 @@
 # An arbitrary finite tuple of integral negative-Pell witnesses compresses to one
 
+(§0 block: z74 Opus xreview fix)
+```
+Result: any fixed number of INTEGRAL negative-Pell witnesses compresses to the fundamental one (bounded-value gap
+        lemma), so polynomial menus over ℚ(P) in them inherit both conclusions of PELL_ES_MENU_NOGO.md.
+Label: PROVED (rel. PELL_ES_MENU_NOGO.md and its cited theorems). Unconditional.
+Scope: integral witnesses only (independent rational witnesses are NOT covered, example in §Boundary); fixed finite
+       menu and arity; not a statement about ES.
+Review: cross-model (Claude Opus), data/z74/xreview/REVIEW_PELLNOGO_OPUS.md — ACCEPT-WITH-FIXES (§0 only).
+Triage: BARRIER-BROAD
+STATUS delta: none (see PELL_ES_MENU_NOGO.md).
+```
+
 **Theorem (ordinary primes, unconditional).** Fix any finite menu of triples of polynomials in `x₁,y₁,…,xᵣ,yᵣ` over `ℚ(P)` (so the arity may vary over the menu). At an ordinary prime p, a selector may use **any integral tuple** with `xⱼ²−pyⱼ²=−1`, including arbitrary signs, repetitions and unbounded powers. There is a computable primitive unit-square progression inside `1 mod 840` on which **no prime** yields a positive integral ES triple by these rules. On a computable progression `1 mod M`, `840|M`, at most `O_menu(√B)` primes up to B succeed. The progressions need not be the same. These are no-go results for the rules, not for ES or negative Pell.
 
 **Reduction to one generator.** At a prime admitting an integral witness put `s=√p`. Use the units of **the order `ℤ[s]`**, not necessarily those of the maximal order. The positive units form a cyclic group: in any fixed interval `[1,B]` the conjugate of a unit has magnitude ≤1, so its two integer coefficients are bounded. Since a negative-norm solution exists, changing sign and inverting if needed gives a unit >1; the least such unit ε generates by division by its powers. Its norm must be −1. Write `ε=x₀+s y₀`; its conjugate is `−ε⁻¹`, so both integer coordinates are positive and `ε>√p`. Every input unit has the form `δⱼ ε^{nⱼ}`, `δⱼ=±1`, `nⱼ` an **odd, possibly negative** integer. Absorb the δ's by a finite choice of simultaneous sign changes of each coordinate pair.

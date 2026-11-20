@@ -1,5 +1,19 @@
 # Fixed polynomial ES menus on the negative-Pell surface
 
+(§0 block: z74 Opus xreview fix)
+```
+Result: a fixed finite menu of polynomial ES triples over ℚ[P] (or ℚ(P)) in ONE rational negative-Pell point (x,y)
+        succeeds at only O_menu(√B) primes p≤B, p≡1 mod M (M=lcm(840, denominators)); moreover every prime of a
+        computable unit-square class inside 1 mod M misses the whole menu.
+Label: PROVED (rel. Paredes–Sasyk arXiv:2202.10420 Thm 1.1; Hilbert irreducibility; Chebotarev; Dirichlet/PNT).
+       Unconditional; no Schinzel H.
+Scope: a no-go for whole-triple polynomial output formulas on Pell data, NOT a statement about ES (open). Not covered:
+       rational functions of x,y, divisor selection, remainders, growing menus, unbounded search.
+Review: cross-model (Claude Opus), data/z74/xreview/REVIEW_PELLNOGO_OPUS.md — ACCEPT-WITH-FIXES (§0/label only).
+Triage: BARRIER-BROAD
+STATUS delta: none required (optional merge into the "Finite procedures fail at trap points" bullet; see review §6).
+```
+
 **PROVED (ordinary integers).** For a finite menu of triples in `ℚ[P,x,y]`, put `M=lcm(840, all coefficient denominators)`. Among primes `p≤B`, `p≡1 mod M`, only `O_menu(√B)` admit **any rational** pair `x²−py²=−1` for which some menu entry is a positive integral ES triple. In particular the relative density of failures on this explicit progression is one. There is no height restriction or uniform selector assumption. More strongly, one can compute a (generally thinner) primitive **unit-square progression**, inside `1 mod M`, on which **every prime** misses the whole menu. Both conclusions still hold for coefficients in `ℚ(P)` rather than `ℚ[P]` with the modulus adjustment below. These are failures of the menu, not of ES; ordinary primes `1 mod 4` have integral negative-Pell witnesses.
 
 ### Global identities: no specialization loophole

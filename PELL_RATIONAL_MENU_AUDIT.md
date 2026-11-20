@@ -1,5 +1,20 @@
 # Ordinary primes: what fixed rational formulas on the negative Pell witness can cover
 
+(§0 block: z74 Opus xreview fix)
+```
+Result: for fixed finite menus of RATIONAL ES formulas in one integral negative-Pell witness at primes:
+        (i) every t-dependent slot forces t≤p^B at success; fiber-constant branches fail at large p≡1 mod M;
+        (ii) branches confined to a proper curve, or with monomial resultant, cost O(√X) primes; low height t≪p^B,
+        B<3/2, costs o(X/log X); (iii) in general, misses of relative density one in 1 mod M ONLY under Hooley.
+Label: (i)–(ii) PROVED (rel. Siegel). (iii) CONDITIONAL on Hooley's Conjecture 1 (C. Hooley, J. reine angew. Math. 353
+       (1984) 98–131), in the form S(x,α)≪x^(1/2)log²x (Diao arXiv:2408.03774 (1.7)) at α=2B−1/2>1/2. The general
+       rational-function result at primes is NOT unconditional. (z74 Opus xreview fix)
+Scope: one integral witness, fixed finite menu; not a statement about ES.
+Review: cross-model (Claude Opus), data/z74/xreview/REVIEW_PELLNOGO_OPUS.md — ACCEPT-WITH-FIXES (label split made explicit).
+Triage: BARRIER-SCOPED
+STATUS delta: none (if ever quoted: "CONDITIONAL on Hooley's Conjecture 1").
+```
+
 A menu here is a **fixed finite list of triples of rational functions** on `S: x²−P y²=−1` over `ℚ`. Success means that at an ordinary prime `p` there exists an integral Pell witness, and all three formulas on a branch are defined and give a positive integral ES triple. The witness may be chosen *after* seeing `p`. No extra unrestricted gcd, floor, factorization or variable-index Pell operation is a rational function. Statements below about counting successes do not count ordinary ES solutions outside the menu.
 
 **1. Polynomial witness bound (unconditional).** Put `s=√P`, `t=x+sy`; then `x=(t−t⁻¹)/2`, `y=(t+t⁻¹)/(2s)`. The involution sends `(s,t)↦(−s,−1/t)`. In particular a branch slot independent of `t` belongs to `ℚ(P)`. Take positive `x,y` so `t>1` (for other sign conventions allow the four sign-changed formulas and use `|x|+√p|y|`). For each fixed `t`-dependent slot there is an effectively obtainable constant `B` such that at every successful witness, `t≤p^B` for all sufficiently large `p`.
@@ -8,7 +23,7 @@ Indeed write the slot `A(s,t)/D(s,t)` with integer polynomial coefficients. A no
 
 For a triple of fiber constants, infinitely many successes force each rational function `f(P)` to be polynomial: divide into a rational polynomial (bounded coefficient denominator) plus a proper rational remainder tending to zero. Integer values at unbounded integers force the remainder to vanish. The cleared ES identity must also hold identically. These branches are **not** sparse over all primes; e.g. ordinary solvable congruences occur. Rather, for a finite menu choose a common `M` divisible by 840 and all coefficient denominators of the surviving polynomial triples. No such triple succeeds at any sufficiently large prime `p≡1 mod M`: integrality at one such `p` implies integrality throughout `1 mod M`; eventual positivity and the primitive square-class obstruction in `LOGIC_SPLIT_SQUARE_TEST.md` give the contradiction. Eventual positivity here follows either from infinitely many positive successes or from the positive sector of the identity being clopen on `P>0`.
 
-**2. What can be counted without Hooley?** For a nonconstant branch the successful positive Pell witness `t²=(2x²+1)+2xy√p` satisfies `1<t²≤p^(2B)`. In Diao, [arXiv:2408.03774v2](https://arxiv.org/abs/2408.03774), §1.2 eqs. (1.6)–(1.7), `S(X,α)` counts *positive norm-one solutions*, not only fundamental units, up to `d^(1/2+α)` over nonsquare `2≤d≤X`. Hence (1.7) for a sufficiently large fixed `α` gives `O_B(√X log² X)` successful primes from these branches, in particular on `1 mod M`. It is conjectural for general `B`. An `o(X)` exceptional bound over all discriminants alone would not imply `o(X/log X)` over primes.
+**2. What can be counted without Hooley?** For a nonconstant branch the successful positive Pell witness `t²=(2x²+1)+2xy√p` satisfies `1<t²≤p^(2B)`. In Diao, [arXiv:2408.03774v2](https://arxiv.org/abs/2408.03774), §1.2 eqs. (1.6)–(1.7), `S(X,α)` counts *positive norm-one solutions*, not only fundamental units, up to `d^(1/2+α)` over nonsquare `2≤d≤X`. Hence (1.7) for a sufficiently large fixed `α` gives `O_B(√X log² X)` successful primes from these branches, in particular on `1 mod M`. It is conjectural for general `B`. (z74 Opus xreview fix, explicit conditional statement and source check.) In Diao's notation `S(x,α)=#{η_d: 2≤d≤x, ε_d≤η_d≤d^(1/2+α)}`; (1.6) is Hooley's *theorem* only for `0<α≤1/2`, which is useless here because `t²>p`; (1.7) for `α>1/2` is a consequence of **Hooley's Conjecture 1** (C. Hooley, *On the Pellian equation and the class number of indefinite binary quadratic forms*, J. reine angew. Math. 353 (1984) 98–131). Hence: **CONDITIONAL on Hooley's Conjecture 1 at `α=2B−1/2`**, every fixed finite rational menu on one integral witness has `O(√X log²X)` successful primes `≤X` from its `t`-dependent branches; with §1 for the fiber-constant branches it misses relative density one of the primes `≡1 mod M`. This general statement must not be quoted as unconditional. An `o(X)` exceptional bound over all discriminants alone would not imply `o(X/log X)` over primes.
 
 A sharper elementary low-height range uses norm **minus one directly**. For `X/2<p≤X`, suppose `t≤C p^B` with fixed `B≥1/2`. Then `y≪X^(B−1/2)=:O(Y)` and `x≤√X y`. For fixed `y` we need `x²≡−1 mod y²`, with at most `2^ω(y)` roots by prime powers/CRT (no roots at `4|y²`). Thus the number of pairs, ignoring primality, is
 

@@ -1,5 +1,17 @@
 # A uniform coefficient-height barrier for integral Pell inputs
 
+(§0 block: z74 Opus xreview fix)
+```
+Result: at fixed arity r and degree D, menus with coefficients a/M₀, |a|≤H, succeed at ≪ H^(3S)√B(log 2H)^6
+        primes in (B/2,B], p≡1 mod 840·M₀·2^(D+1); the least successful height is ≥p^(1/(6S))/(log p)^c on density one.
+Label: PROVED (rel. Paredes–Sasyk arXiv:2202.10420 Thm 1.1 with its height dependence; PNT in progressions).
+Scope: coefficient height at fixed degree/arity, integral witnesses; no all-miss progression for growing H; not a
+       lower bound on algorithmic complexity; not a statement about ES.
+Review: cross-model (Claude Opus), data/z74/xreview/REVIEW_PELLNOGO_OPUS.md — ACCEPT-WITH-FIXES (§0 only).
+Triage: BARRIER-SCOPED
+STATUS delta: none
+```
+
 **PROVED.** Fix `r,D≥0, M₀≥1`. Put `S=binom(1+2r+D,D)`, `J=M₀·2^(D+1)`, `M=840J`. Use all triples of total-degree ≤D polynomials in `P,x₁,y₁,…,xᵣ,yᵣ`, with coefficients `a/M₀`, `a∈ℤ`, `|a|≤H`. Let `E(B,H)` count primes `B/2<p≤B`, `p≡1 mod M`, for which at least one such triple, with **any** integral negative-Pell witnesses at p, yields three positive integral ES denominators. Then for `B≥2, H≥1`,
 
 ```

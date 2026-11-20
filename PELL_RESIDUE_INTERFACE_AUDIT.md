@@ -1,6 +1,18 @@
 # Exact residue decoding from negative-Pell powers
 
-**PROVED (conditional only on the given integral witness).** Let `n≥5` be odd and `ε=x+y√n`, `x,y>0`, `x²−ny²=−1`. For every `k≥1`, `F(a)=U_{1+4a}`, where `ε^s=X_s+Y_s√n` and `U_s=Y_s/y`, permutes the classes mod `n^k`. No fundamentality or coprimality of y to n is needed. The precise slope statement is `(F(a)−F(b))/(a−b) ∈ 4+nℤ_(q)` for every `q|n`, `a≠b`; it is a localized congruence, not a claim of integer divisibility by `a−b`.
+(§0 block: z74 Opus xreview fix)
+```
+Result: U_(1+4a) is an n-adic isometry permuting residues mod n^k (slope ∈4+nℤ_(q)); two remainders decode U_s mod N
+        from coordinates without dividing by y; coordinates reduced mod a fixed N cannot decode uniformly.
+Label: PROVED (hypothesis: an integral negative-Pell witness at n exists). Replay CERTIFIED
+       (scripts/pell_residue_interface_audit.py; independently recomputed). (z74 Opus xreview fix: label wording)
+Scope: as PELL_REMAINDER_SELECTOR.md (same permutation theorem, different proof); no ES-forcing rule; not about ES.
+Review: cross-model (Claude Opus), data/z74/xreview/REVIEW_PELLNOGO_OPUS.md — ACCEPT-WITH-FIXES (§0, label wording).
+Triage: METHOD-CX
+STATUS delta: none
+```
+
+**PROVED (hypothesis: an integral negative-Pell witness at n is given; this is a hypothesis, not a CONDITIONAL label — z74 Opus xreview fix).** The same permutation is proved by digit lifting in `PELL_REMAINDER_SELECTOR.md`. Let `n≥5` be odd and `ε=x+y√n`, `x,y>0`, `x²−ny²=−1`. For every `k≥1`, `F(a)=U_{1+4a}`, where `ε^s=X_s+Y_s√n` and `U_s=Y_s/y`, permutes the classes mod `n^k`. No fundamentality or coprimality of y to n is needed. The precise slope statement is `(F(a)−F(b))/(a−b) ∈ 4+nℤ_(q)` for every `q|n`, `a≠b`; it is a localized congruence, not a claim of integer divisibility by `a−b`.
 
 **Proof.** All powers, including negative ones, have integral coordinates (`ε⁻¹=−x+y√n`). In fact `U₀=0,U₁=1,U_{s+2}=2xU_{s+1}+U_s` in both directions, by the characteristic polynomial of ε. For `q^e||n`, `x²≡−1 mod q^e`, so x is a unit and `q≡1 mod 4`, in particular `q≥5`. For `s>0`, binomial expansion gives
 
