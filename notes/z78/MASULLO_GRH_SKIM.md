@@ -4,6 +4,13 @@ Review: none
 Triage: NULL
 STATUS delta: none
 
+> **Erratum (z78, `notes/z78/MASULLO_GRH_TRANSFER.md` §1.4, authoritative grading):**
+> * **(E1)** The claim that the announcement "does not provide usable explicit error terms of the kind needed for effective GRH consequences" (§2) is a category error. GRH is a zero-location hypothesis, and from it the standard explicit-constant consequences follow (Lagarias–Odlyzko, Bach, Bach–Sorenson). The narrower remarks, that no Siegel-zero exclusion is stated "as a separate theorem" and that no *new* constants are given, are accurate.
+> * **(E2)** By Brauer induction, Hecke GRH implies Dedekind GRH for every number field. It also puts all zeros *and poles* of every Artin L-function in the critical strip on Re s = ½, so GRH-effective Chebotarev holds in every Galois field. The "not a theorem for arbitrary Artin L-functions" remark holds only for Artin holomorphy.
+> * **(E3)** Chapters 13–14 (pp. 522, 528, 532–533) still describe Thm 13.3.1.2 as "Trace Formula combined with the Positivity Criterion (Theorem ??)". That stratum is stale: it is the a = 0 variant that the letter says cannot be proved. The live proof (Thm 12.5.1.1, §1.4.6) uses no positivity.
+> * **Verdict change:** the "orbital Schauder bases … LONGSHOT" row is NOT APPLICABLE, because the geometric side is Weil's verbatim.
+> * The overall null stands.
+
 # z78 — Masullo GRH announcement: transfer skim
 
 ## 1. Source, bibliographic facts, and status
