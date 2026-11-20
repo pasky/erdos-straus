@@ -4,7 +4,7 @@ set -euo pipefail
 ulimit -v 6000000
 D=data/z75/obstruct
 mkdir -p "$D"
-trap 'rm -f "$D/ap.replay.bin" "$D/pan.replay.bin"' EXIT
+trap 'rm -f "$D/ap.replay.bin" "$D/pan.replay.bin" "$D/z58.replay.bin"' EXIT
 gcc -Wall -O3 scripts/z75_obstruct.c -lm -o "$D/ap.replay.bin"
 gcc -O3 scripts/z75_obstruct_panels.c -o "$D/pan.replay.bin"
 ap(){ timeout 1800 "$D/ap.replay.bin" "$@"; }
@@ -22,6 +22,8 @@ for pair in 'train:check1' 'adapt120:check120' 'high:checkhigh' 'record23:check2
     log=${pair%:*}; ref=${pair#*:}
     py scripts/z75_obstruct_check.py $(awk '$1=="EX"&&$3==0 {print $2}' "$D/$log.txt") | cmp - "$D/$ref.txt"
 done
+gcc -O3 scripts/z58_disproof_eng.c -lm -o "$D/z58.replay.bin"
+awk '$3==4&&$2=="prime" {print $1}' "$D"/check{120,high,23}.txt | EXACT=1 timeout 1800 "$D/z58.replay.bin" list | cmp - "$D/thirdcheck.txt"
 timeout 1800 "$D/pan.replay.bin" | cmp - "$D/panels.txt"
 py scripts/z75_obstruct_verify_panels.py | cmp - "$D/panelcheck.txt"
 py scripts/z75_obstruct_controls.py | cmp - "$D/controls.txt"
