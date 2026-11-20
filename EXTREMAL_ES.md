@@ -1,5 +1,12 @@
 # The closest nonexact ES triple need not admit a monotone repair
 
+Result: for n ≡ 1 (mod 24) with no prime factor 3 (mod 4), the closest nonexact three-term approximation of 4/n is unique and explicit (the strict-greedy triple). A monotone repair must be a single move through X or Y. At n=73 both gates are closed, and the min-max error of any repair path is about 4591× the optimum (exactly 148665133/32382).   Label: PROVED (§1–§2); CERTIFIED (§3, exact rational enumeration)
+Scope: only the extremal nonexact seed and moves that keep a denominator. Nothing about solvability of ES, and no universal climb bound.
+Review: cross-lab (Opus) `data/z74/xreview/REVIEW_Z72PHASE_OPUS.md` (P8–P11 CORRECT)
+Triage: METHOD-CX
+STATUS delta: none
+*(§0 block: z74 Opus xreview fix)*
+
 **PROVED:** For every prime `n ≡ 1 (mod 24)`, the unique closest *nonexact* three-unit-fraction approximation to `4/n` (absolute error, repetitions allowed, up to permutation) is explicit. In particular its error is strictly smaller than that of every other nonexact triple, from either side. Only two denominator fibres can possibly repair it; both can fail. **CERTIFIED:** the first trap for this rule is `n = 73`, where the least possible peak error on a path to any solution is about 4591 times the starting error. ES remains open.
 
 Fix `n ≥ 2`. Write a sorted triple as `u = (x,y,z)`, and put
@@ -16,7 +23,7 @@ Set
 
     X = (n+3)/4,  B₀ = nX,  Y = (B₀+2)/3,  T = B₀Y,  Z = (T+1)/2.
 
-Here `X ≡ 1 (mod 6)`, `B₀ ≡ 1 (mod 6)`, and `Y,T` are odd. The remainders after `1/X` and `1/X+1/Y` are `3/B₀` and `2/T`, respectively. Hence `(X,Y,Z)` is an underapproximation with error `e₀ = 1/(TZ)`. **Theorem:** every other nonexact sorted triple has strictly greater error.
+Here `X ≡ 1 (mod 6)`, `B₀ ≡ 1 (mod 6)`, and `Y,T` are odd. The remainders after `1/X` and `1/X+1/Y` are `3/B₀` and `2/T`, respectively. Hence `(X,Y,Z)` is an underapproximation with error `e₀ = 1/(TZ)`. *(z74 Opus xreview fix: `X=⌊n/4⌋+1`, `Y=⌊B₀/3⌋+1`, `Z=⌊T/2⌋+1`, so `(X,Y,Z)` is exactly the strict-greedy (Fibonacci–Sylvester) 3-term underapproximation. The theorem says that here greedy is optimal from both sides. Related literature on best Egyptian underapproximations: V. Kovač, J. Number Theory (2025), and Kovač–Tang, arXiv:2607.28387, on eventually greedy best underapproximations of every rational. Neither appears to contain this explicit two-sided 3-term statement, but no full search was done, so no priority is claimed.)* **Theorem:** every other nonexact sorted triple has strictly greater error.
 
 *Proof.* Suppose `E(x,y,z) ≤ e₀`. Since `T > n⁴/48`, we have `e₀ < 2/T² < 1/(3n⁴)` for `n ≥ 25`. If `x ≤ n/4` then `1/x−4/n ≥ 1/(nx)` (odd `n`), which is too large. Also `3/x ≥ 4/n−e₀ > 3/n`, so `x<n`. Put `A=4x−n`, `B=nx`, `s=Ay−B`, `t=By`. As `A/B ≥ 1/n² > 3e₀`, we get `2/y ≥ A/B−e₀ > (2/3)A/B`, hence `y ≤ 3B/A`, `t ≤ 3n⁴`. If `s<0` the error exceeds `1/t > e₀`; `s=0` is excluded by the two-term hypothesis. Thus `1 ≤ s ≤ 2B`, and the last target is `s/t`.
 

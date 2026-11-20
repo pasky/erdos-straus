@@ -1,6 +1,13 @@
 # An uncertified failure need not give an ES triple by complementation
 
-**PROVED (local obstruction).** Fixing the denominator `x=(n+c)/4` matters. Even when `c` is the *first* prime `3 mod 4` with `(n/c)=-1`, failure of the Type II test with no odd-character phase certificate need not leave **any** two positive denominators completing `4/n`. Two primes `n ≡ 1 mod 840` give opposite answers at `c=43` with the **same entire list of phase costs**. This tests the proposed complementary-divisor rescue of `Z71_LIT.md` §2.1.3, not just the already-refuted converse to the phase lemma.
+Result: two Mordell-hard primes with the same phase costs at c=43 (the first nonresidue shift) give opposite answers to “does some triple contain x=(n+43)/4”; complementation of divisors cannot rescue a miss.   Label: CERTIFIED (paired example, exact); PROVED (direct factor test, complementation lemma, positive-row identity)
+Scope: refutes the complementary-divisor rescue of `Z71_LIT.md` §2.1.3 at a fixed denominator. It is not an ES counterexample: the negative row has a triple at c=47.
+Review: cross-lab (Opus) `data/z74/xreview/REVIEW_Z72PHASE_OPUS.md` (P7 CORRECT)
+Triage: METHOD-CX
+STATUS delta: none
+*(§0 block: z74 Opus xreview fix)*
+
+**CERTIFIED (local obstruction; was labelled PROVED, an existential statement witnessed by a certified pair, z74 Opus xreview fix).** Fixing the denominator `x=(n+c)/4` matters. Even when `c` is the *first* prime `3 mod 4` with `(n/c)=-1`, failure of the Type II test with no odd-character phase certificate need not leave **any** two positive denominators completing `4/n`. Two primes `n ≡ 1 mod 840` give opposite answers at `c=43` with the **same entire list of phase costs**. This tests the proposed complementary-divisor rescue of `Z71_LIT.md` §2.1.3, not just the already-refuted converse to the phase lemma.
 
 **PROVED (direct test).** Write `H=nx`. Completing `1/x` requires `c/H=1/y+1/z`, hence
 

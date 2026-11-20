@@ -1,5 +1,14 @@
 # z72: first small-support shifts beyond 10^18
 
+Result: on a prescribed cohort of Mordell-hard primes above 10¹⁸, shifts 3, 7, 11 are blocked, and the first support-≤2 shift is delayed relative to matched controls (max 127 against 31 and 87).   Label: PROVED (local blocking lemma); CERTIFIED (cohort computation, GNU factor + independent audit)
+Scope: a cohort comparison (DATA). It does not refute the unrestricted small-support conjecture, and it does not extend contiguous verification. The “cap 123” refutation is **not new**: see the erratum.
+Review: cross-lab (Opus) `data/z74/xreview/REVIEW_Z72PHASE_OPUS.md` (P14 CORRECT, P15 overstated)
+Triage: DATA
+STATUS delta: none
+*(§0 block: z74 Opus xreview fix)*
+
+> **Erratum (z74 Opus xreview fix):** a uniform cap of 123 on the first support-≤2 shift fails already at small primes. At p=66529 the first shift is 323. Among primes with p ≡ 1 mod 840 and (p+1)/2 prime it is 1551, at p=370228321. That is the 840-level family; the target progression p ≡ 1 mod L, with its Q_t conditions, has no primes below 5·10⁸. The maximum below 5·10⁸ is 2695, at p=44407609 (`scripts/z74_xrev_z72phase_bypsieve.py`, `data/z74/xreview/z72phase_bypsieve.log`). These small-prime maxima exceed the cohort maximum of 127, and no growth trend is inferred either way. The content of this file is the certified target/control contrast and the blocking lemma, not a new refutation of a uniform cap.
+
 **CERTIFIED (finite).** Every target and control has an actual z72 Type II witness. The latest target first succeeds at 127, compared to 31 in its size/840 control cohort and 87 in its size/full-progression control cohort. This refutes a **uniform cap of 123** on the first such shift, not the unrestricted small-support conjecture, much less ES. No extension of contiguous verification.
 
 **Construction.** Set `L=4 lcm(1,…,25)=107084577600`. Take successive `p=1+Lk` above the indicated base with both `p` and `h=(p+1)/2` prime. Thus `p≡1 mod 840` is Mordell-hard and `h≡1 mod 4` has no 3 mod 4 prime factors. Pilot starts at `10^18`, cluster at `2·10^18`. After the pilot failed to enrich the median or the extreme, the cluster added three exact primality conditions: `Q_t=1+Lk/(4t)` prime for `t=1,2,3`. There is no infinitude assumption: computations find individual primes, all below `2^64` (deterministic SymPy `isprime` range).

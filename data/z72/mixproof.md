@@ -1,5 +1,12 @@
 # Candidate 1: what a mixed word actually forces
 
+Result: on an infinite progression of Mordell-hard primes, every frozen d=2 candidate-1 menu word misses although the good set is nonempty. At d=1, every word of a fixed menu can be forced good on suitable subprogressions.   Label: PROVED (rel. `Z70_CLASS.md` Lemma SR and Cor. FR′, Dirichlet); CERTIFIED (finite integer certificate, numerical examples)
+Scope: fixed prescribed progressions only. No forcing at an arbitrary prime, no statement about a union over d, and no ES conclusion.
+Review: cross-lab (Opus) `data/z74/xreview/REVIEW_Z72PHASE_OPUS.md` (P12–P13 CORRECT; SR and FR′ re-derived)
+Triage: METHOD-CX
+STATUS delta: none
+*(§0 block: z74 Opus xreview fix)*
+
 **PROVED (with finite integer certificate below).** On an infinite progression of Mordell-hard primes, at `d=2` **all** the candidate-1 words miss although the good set is nonempty. At `d=1` the opposite phenomenon is also possible: one can force *every* word of a fixed menu good simultaneously by further congruences. Neither gives forcing at an arbitrary input prime, nor rules out a union over `d`. No density or class-group estimates used.
 
 Fix `p ≡ 1 mod 8`, prime. A word ideal has norm `N=∏q^|k|`, root `r² ≡ −dp mod N`; reversing the sign of a letter conjugates its local root (lift to `q²` for exponent 2). Distinct prime powers combine by CRT, giving the form `[N,2r,(r²+dp)/N]`. For `d=1,2` there are two genera (fundamental discriminant with two prime discriminants); among unramified split primes `(q/p)=(p/q)=(−d/q)`. Take the first three odd split primes of each sign, support ≤3, exponents `±1,±2`, negative total character. These are exactly the review's target-genus words for these `d` (`Z70_GEN.md`, GW). Good means the class of `[A,4ad,de]` for positive `4abd=p+e, ce=a+b, A=4acd−1`; these equations give denominators `abd, acdp, bcdp` for `4/p`.
@@ -18,7 +25,7 @@ for N in the 103 norms with N % 8 == 7:
 
 More generally this gives an **exact eventual membership test** for any fixed split-word menu at `d=2`: in the same free region, a signed `(N,r)` is good iff `N≡7 mod 8` and some `a|(N+1)/8` has `4a≡±r mod N`. Necessity is the ideal identity just proved; conversely `r²≡−2p` gives `N|p+8a²`, and `A=N, c=(N+1)/(8a)` recovers the solution (either sign since the good set is inverse-closed). Thus freezing the prime-power residues fixes **membership itself**, not just genus, for every sufficiently large input in the cell.
 
-Yet `A=31, a=1, c=4, e=(p+8)/31, b=(p+e)/8` is good at every such `p` (`e≡−p mod 8`, `4e=1+b`). The obstruction precedes ranking. It uses the even factor of the natural `de` norm; transferring this exclusion to `d=1` would be wrong.
+*(z74 Opus xreview fix: an explicit prime of the cell is `p=527397324177878694549601`. There the menu is unchanged, no word passes the membership test, and the triple `(2b, 8p, 8bp)` below was verified. The prime is proved by Pocklington; see `scripts/z74_xrev_z72phase_checks.py mix`.)* Yet `A=31, a=1, c=4, e=(p+8)/31, b=(p+e)/8` is good at every such `p` (`e≡−p mod 8`, `4e=1+b`). The obstruction precedes ranking. It uses the even factor of the natural `de` norm; transferring this exclusion to `d=1` would be wrong.
 
 | Falsifier | Scope |
 |---|---|

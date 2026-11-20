@@ -1,5 +1,12 @@
 # Steering note: coupled shifts, support, and the 1201 family
 
+Result: on the quadratic family p=(5s²−1)/4, s ≡ 15 (16), a sharp classification of support ≤ 2 on the A=1, E=4 line (support 3 always suffices). There are three forced nonresidues, none of which need occur in any support-2 AB (4319). A ⟨2⟩-orbit lemma repairs every family prime with 7 | s at shift 7.   Label: PROVED (§1–§5 lemmas); CERTIFIED (193, table, 2911/4319 exhaustive checks)
+Scope: fixed lines and the quadratic family only. No pointwise two-support theorem, no frequency statement, nothing about ES.
+Review: cross-lab (Opus) `data/z74/xreview/REVIEW_Z72PHASE_OPUS.md` (P21–P24 CORRECT)
+Triage: METHOD-CX
+STATUS delta: none
+*(§0 block: z74 Opus xreview fix)*
+
 **ES and the pointwise two-support assertion remain open.** Write `E=(A+B)/c` and `p+c=4ABD`. Support means `ω(AB)`, not `ω(c)`. No local condition below assumes that `c` is prime. We study `p≡1 (8)`; `5 (8)` is handled by Z72. The most specific positive result is the sharp support theorem in §3. It is a theorem on a quadratic subfamily, not an assertion about the frequency of primes on it.
 
 ## 1. No complementary character dichotomy on p+1 and 4p+1

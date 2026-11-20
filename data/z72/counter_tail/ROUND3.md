@@ -1,6 +1,13 @@
 # Two distinct traps and a three-component shift obstruction
 
-**CERTIFIED (first simultaneous trap in the six Mordell classes).** On every such prime define `O=(p,p,p,p)` and `T=(p,b,pb,pb)`, `b=(p+2)/3`; `1/b+2/(pb)=3/p` independent of any ES solution. At the prime **101641** (`p≡1 mod 840`, `h=50821` prime) these seeds are in *disjoint* closed components without a mergeable pair. Hence no congruence invariant can prove that these two seeds cannot simultaneously fail at a nonsquare. This does not quantify over all imaginable seeds.
+Result: at 101641 the seeds O=(p,p,p,p) and T=(p,b,pb,pb) lie in disjoint closed pair-move components with no merge, while a nested seed reaches a triple. At c=715, p=3117161329, no ES triple contains K=(p+715)/4.   Label: CERTIFIED (closures, paths, first in the six Mordell classes); PROVED (universal-seed moves, block-seed classification, fixed-K obstruction)
+Scope: only the seed family named. “First” means within the Mordell-class primes. Nothing about ES.
+Review: cross-lab (Opus) `data/z74/xreview/REVIEW_Z72PHASE_OPUS.md` (P17–P19 CORRECT)
+Triage: METHOD-CX
+STATUS delta: none
+*(§0 block: z74 Opus xreview fix)*
+
+**CERTIFIED (first simultaneous trap in the six Mordell classes).** On every such prime define `O=(p,p,p,p)` and `T=(p,b,pb,pb)`, `b=(p+2)/3`; `1/b+2/(pb)=3/p` independent of any ES solution. At the prime **101641** (`p≡1 mod 840`, `h=50821` prime) these seeds are in *disjoint* closed components without a mergeable pair. Hence no congruence invariant can prove that these two seeds cannot simultaneously fail at a nonsquare. *(z74 Opus xreview fix, clearer: no argument of any kind can show that one of O, T always reaches a merge at a nonsquare.)* This does not quantify over all imaginable seeds.
 
 | seed | vertices | nonloop edges | nonempty BFS layers | first even |
 |---|---:|---:|---|---:|
