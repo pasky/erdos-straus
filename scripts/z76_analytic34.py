@@ -1,4 +1,4 @@
-"""Exact vertex checks for the near-cube estimates in ANALYTIC_34.md."""
+"""Exact vertex checks for the dyadic block estimates in ANALYTIC_34.md."""
 from fractions import Fraction as F
 
 half = F(1, 2)
@@ -53,7 +53,7 @@ print('direct off-line pair:', pair, 'theta', t, float(t))
 for a, b, g in vertices(t):
     r = b-t
     v = (3+2*k-2*l)*r+k*a+l*g
-    assert 2*r < g and 2*g < 1 and 3*r <= t and v <= t
+    assert 2*r < g and 2*g < 1 and 3*r <= t and v <= t and b-2*r <= t
     print(f'  alpha={a} beta={b} gamma={g} term={v}')
 
 # Linear fractional objectives with positive denominator have half-plane
