@@ -1,0 +1,5 @@
+residue 1 pairs 113 mean hits square / control 0.614555 1.917271
+residue 176401 pairs 236 mean hits square / control 0.614555 2.064097
+residue 529201 pairs 107 mean hits square / control 0.614555 1.917271
+residue 705601 pairs 243 mean hits square / control 0.614555 2.064097
+weighted means 0.614555 2.017886

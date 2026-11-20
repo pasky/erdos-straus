@@ -1,0 +1,5 @@
+p 1590284203561 prime (trial division to 1261064 ) mod840 361
+k 4 U 630532 unordered 26 ordered 52 first [(15, 26984, 982239), (24, 834911, 19841), (24, 1904735, 8697)]
+k 8 U 445853 unordered 0 ordered 0 first []
+k 4 direct-C check u>= 20000 6 vs sieve 6
+k 8 direct-C check u>= 20000 0 vs sieve 0

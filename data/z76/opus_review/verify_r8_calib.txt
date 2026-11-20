@@ -1,0 +1,10 @@
+p 1485418095001 prime (trial division to 1218777 ) mod840 1
+k 4 U 609388 unordered 42 ordered 84 first [(1, 62, 5989589093), (1, 39742, 9344133), (1, 74753062, 4968)]
+k 8 U 430902 unordered 18 ordered 36 first [(1, 74753062, 2484), (1, 47916712742, 4), (8, 927, 25037387)]
+k 4 direct-C check u>= 100000 0 vs sieve 0
+k 8 direct-C check u>= 100000 0 vs sieve 0
+p 1511088831001 prime (trial division to 1229263 ) mod840 1
+k 4 U 614632 unordered 22 ordered 44 first [(5, 1354, 55800917), (5, 25655594, 2945), (9, 12086, 3473001)]
+k 8 U 434610 unordered 0 ordered 0 first []
+k 4 direct-C check u>= 100000 1 vs sieve 1
+k 8 direct-C check u>= 100000 0 vs sieve 0
