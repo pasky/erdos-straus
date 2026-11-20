@@ -919,12 +919,11 @@ has passed all lines.
    *(z75, Opus-reviewed `notes/z75/DISPROOF_OBSTRUCT.md`, `DISPROOF_PUSH2.md`):* ten further certified prime zeros (three
    independent checkers, seven in 𝔐) raise the in-𝔐 R₈ threshold floor to **1 511 088 831 001** (R = 44; also
    1 218 367 081 201 with R = 44 and 452 438 542 081 with R = 30; all have full 8/p rescues). They come from *sampled* design
-   searches, not interval completeness. Also in z75 (two engines each): `(MS⁺₁₀₅)` certified to **10¹¹** in all classes;
-   Type A (`b = 1`) certified to **2·10¹¹** (no zero beyond 193, 2521, 66529); `U₇, U_II, N_II` certified on all odd
-   non-squares to **2·10¹⁰** (and 105-multiples to 5·10¹⁰), with no new zeros.
-   claim above 1.1·10¹⁰. The original twelve-zero screen is `data/z58/screens/r8_zeros_1e10.txt`; the two new zeros
-   are in `Z58_DISPROOF.md` §4 and its archived runs `data/z58/disproof/runA/` (files D1b, D1c, D2), independently
-   verified in `data/z58/xreview/REVIEW_DISPROOF.md`.
+   searches, not interval completeness above 1.1·10¹⁰. Also in z75 (two engines on each added range): `(MS⁺₁₀₅)` certified
+   to **10¹¹** in all classes; Type A (`b = 1`) certified to **2·10¹¹** (no zero beyond 193, 2521, 66529); `U₇, U_II, N_II`
+   certified on all odd non-squares to **2·10¹⁰** (and 105-multiples to 5·10¹⁰), with no new zeros. The original twelve-zero
+   screen is `data/z58/screens/r8_zeros_1e10.txt`; the z58 zeros are in `Z58_DISPROOF.md` §4 and `data/z58/disproof/runA/`
+   (files D1b, D1c, D2), independently verified in `data/z58/xreview/REVIEW_DISPROOF.md`.
    Distinguish two numerator-8 objects (`Z58_WILDCARD.md` Lemma 4.1, `Z58_STRUCT2.md`):
    * the c = 1 line R₈, which has the zeros above;
    * the full numerator-8 Type II family N^{(8)} (the d-even half of N_II). It has 22 odd prime zeros ≤ 10⁹ (last
@@ -932,10 +931,10 @@ has passed all lines.
      10⁹.
 
    So an argument that also proves C-even positivity over a range containing a certified R₈ zero is refuted: it must
-   distinguish that sub-line, or use a threshold excluding those zeros. The new zeros require P₈ ≥ 23 296 553 281 for a
-   claim over p > P₈ in 𝔐; they do not refute eventual C-even positivity or an argument starting at 10¹⁷. For full
-   numerator-8 Type II, the prime census requires P₈ ≥ 35 569 for p > P₈, but does not prove positivity beyond that
-   cutoff.
+   distinguish that sub-line, or use a threshold excluding those zeros. The certified zeros now require P₈ ≥ 1 511 088 831 001
+   (z75; previously 23 296 553 281 in z58) for a claim over p > P₈ in 𝔐; they do not refute eventual C-even positivity or an
+   argument starting at 10¹⁷. For full numerator-8 Type II, the prime census requires P₈ ≥ 35 569 for p > P₈, but does not
+   prove positivity beyond that cutoff.
    *(z59.)* Line-level numerator-8 data (CERTIFIED): the U_II-line at numerator 8, U_II⁽⁸⁾ = (c = 1) ∪ (a = 1) of 8/n, has 819 odd
    non-square zeros ≤ 10⁸, 61 of them prime (last 3 869 153), the last composite 93 398 595 (`Z59_CONV2.md` §0). The
    leading local mean of R₈ has the same odd local factors as R and exactly half the coefficient (`Z59_MSPLUS.md` Remark
@@ -944,7 +943,7 @@ has passed all lines.
    witnesses are absent at 186 (last 9 965 881), C-odd at 118 (last 9 744 001) and prime-d witnesses at 136 (last
    9 831 889); including the nine R-zeros: 195, 127, 145 (`Z59_MSPF.md` §4). So for a statement over p > P in 𝔐 this
    census requires P ≥ 9 744 001 (C-odd), P ≥ 9 831 889 (prime d), and P ≥ 9 965 881 for C-even (strengthened above to
-   P₈ ≥ 23 296 553 281). None of these data refutes eventual positivity.
+   P₈ ≥ 1 511 088 831 001 in z75). None of these data refutes eventual positivity.
    *(z60.)* U⁽⁸⁾ ⊂ U₇ (`Z60_LOPEZ.md` Lemma 7(iv)): at f ≡ 7 (8) an argument for U₇ must use the targets r | f + 1 with
    v₂((f + 1)/8) < v₂(r) < 3, else it proves U⁽⁸⁾ (547 non-square zeros n ≡ 1 (4) ≤ 10⁸) — this binds the full CONJECTURE U₇ at its in-domain U⁽⁸⁾
    failures; the finite screen alone imposes no such requirement on (MS-U₇), which starts above 10¹⁷. For the López union at
@@ -1195,9 +1194,9 @@ no single-prime lower-tail mechanism is known.
   `notes/z75/ANALYTIC_BREAK.md`): for every integer n > 1, R = rad(n), **e*(n) ≤ exp(C√(log R · log log(3R)))** unconditionally
   with an effective absolute C (PROVED rel. Gallagher, Linnik, Minkowski II; supersedes effective rad(n)^5, (p−5)/8 and
   ineffective n₀^{1/4+ε}), via planted carriers, disjoint-alphabet Gallagher and quotient-index correction; also explicit
-  **4e*(p) + 3 ≤ √(4p/3)** at p ≡ 1 (8) (Gauss reduction/genus theory), and **Dirichlet GRH alone** suffices for
+  **4e*(p) + 3 ≤ √(4p/3)** at p ≡ 1 (8) (Gauss reduction/genus theory), and **CONDITIONAL on Dirichlet GRH alone**:
   exp(O(√(log₂R · log₃R))) asymptotically (superseding Dedekind GRH in `CAP_INTERPOLATION.md` Thm 4.2(b)). ES ⟺ e* = 0;
-  cap 0 at a window remains the B2 event.
+  at a fixed window, the δ_p = 0 branch of cap 0 is the B2 event (`CAP_DOWN.md`).
 * Provable T1-bearing cousins: ES^{(S)} (|S| ≥ 4, unconditional), ES^□ (elementary), V_φ (GRH; unconditional with a
   power-saving exceptional set), ES_(k) for every k and every n ≥ 2 ((J)108 Cor 2.5; the even-k construction itself works at odd non-squares and
   extends by scaling), M^□ for all M ≡ 0 (4) ((J)41) — see B-fin for why they don't
@@ -1616,16 +1615,17 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * (z75) Scoped proof-paradigm barriers (`notes/z75/PROOF_WILD.md`, `PROOF_WILD2.md`) → single-pivot continuant folds form
   only a matching on length-3 words (rational overlaps still fail at 2521); signed divisor-cycle forcing fails at every
   r ≤ 2p for 193, 2521, 3361, 5569, 9601; signed two-endpoint switches from t+1 | p−1 miss 1,269,241; power-sparse
-  core catalogues (e.g. a^m ± b^m, α ≤ 2/3) yield growing-core (S) certificates on relative density 0 of primes even with
-  arbitrary multipliers and polynomial borrowing; flat Stepanov character-jet masks on XY = 1 require exact linear degree
-  D_m = ((p−1)/2)(2⌈m/2⌉ − 1).
+  core catalogues (e.g. a^m ± b^m with a > b ≥ 1, m ≥ 3; α ≤ 2/3) yield growing-core (S) certificates on relative density 0
+  of primes even with arbitrary multipliers and polynomial borrowing; flat Stepanov character-jet masks on XY = 1 for
+  1 ≤ m < p require exact linear degree D_m = ((p−1)/2)(2⌈m/2⌉ − 1).
 * (z75) Three frozen generative class-map tests (`data/z70/xreview/REVIEW_GEN.md`) → closed non-universal (`notes/z75/CONJS_GEN.md`
   §2; mixed's 208 vs 152.75 fresh-window excess is explained by Prop 3's explicit c = 1 form certificate |β| = α − 1, α ≡ −1 mod 4d).
 * (z75) Open-surface bounded-exponent descent and fixed-c Type II fibres (`notes/z75/DISPROOF_OBSTRUCT.md`, `DISPROOF_PUSH2.md`,
-  Opus-reviewed) → on S_n°, X_n°, U_n°, a single moving-denominator patch defeats all Br(V)[m] and all finite geometric
-  covers of exponent dividing m for every fixed m (bounded-exponent open descent never obstructs 4545, 8/131, 8/241 or the
-  R₈ zeros), whereas 2-power-conductor characters at one prime detect exact integral points; fixed-c Type II fibres Y_{p,c}
-  have a sharp strip cutoff M(j) giving infinitely many non-BM sterile fibres at c ≈ p^{2/3} (not a Type II zero).
+  Opus-reviewed) → on S_n°, X_n°, U_n° for squarefree kernel s ≠ 1 (k = 4) or s ∉ {1, 2} (k = 8), an m-dependent
+  moving-denominator patch defeats all Br(V)[m] and all finite geometric covers of exponent dividing m for every fixed m
+  (bounded-exponent open descent never obstructs 4545, 8/131, 8/241 or the R₈ zeros), whereas unbounded 2-power-conductor
+  characters at one prime detect existence of a positive integral point; fixed-c Type II fibres Y_{p,c} have a sharp strip
+  cutoff M(j) giving infinitely many non-BM sterile fibres at c ≈ p^{2/3} (not a Type II zero).
 
 ## 7. Open sub-problems that are well-posed and plausibly tractable
 
@@ -2632,7 +2632,8 @@ cross-review, fixes applied, not re-reviewed; internal, unrefereed).**
   parity laws tested and dead by pre-registered kills. SDEEPF (rediscovering DEDEKIND_ES Thm 4.5 in a compact form:
   (A/n) = −1 ⟺ 8 | (n+t)(n+u+v)): explicit words prove (S) for n ≡ 5 (8), n ≡ 2 (3), n ≡ 3 (9); a Mordell-type
   covering proves (S) for all non-square n ≡ 1 (4) outside 28 classes mod 840 (the 24 classes containing odd squares,
-  which no finite covering can remove, plus four with n ≡ 6 (7)); exceptional set ≪_B x(log x)^{−B} (given a standard
+  which no finite covering can remove, plus four with n ≡ 6 (7) — *(z75, `notes/z75/CONJS_GEN.md` Thm 2, Opus-reviewed:
+  the last four classes are now closed by `((n+15)/56, 8, 7)`, leaving exactly the 24 odd-square classes)*); exceptional set ≪_B x(log x)^{−B} (given a standard
   sieve bound; source and conditions checked in the Astra retro review). (S) remains the cleanest open target: sign-only, no known exception.
 * **Equivalent statements in other fields (`Z64_EQUIV.md`; Astra retro review ACCEPT-WITH-FIXES, fixes applied).** Ten proved equivalences across fields (numerical
   semigroups, stacky curves, Riemann surfaces/orbifold automorphisms, singularities, pretzel links/Seifert manifolds, lens
@@ -2793,9 +2794,10 @@ no HOT LEAD.**
   alone (principal / ambiguous / genus classes, small split primes) that outputs a good class of G_d(p) at every prime.
   PROVED scoped exclusions: GW (seeds in the kernel of the genus character χ_p are blind at every n — the T1 wall in
   class-group form), AMB (ambiguous seeds), REP (the representation fibre a_c); PROVED constraints (not exclusions): ORD,
-  WORD. EVIDENCE: tested seed families hit G only at the rate fixed by their minimal norms. OPEN (cross-review, with frozen
-  tests specified in `data/z70/xreview/REVIEW_GEN.md`): mixed non-residue words with root-sensitive selection; halving with an
-  odd-part anchor; representation-neighbour seeds a = a_c ± 1, q | p + 4a², (q/p) = −1.
+  WORD. EVIDENCE: tested seed families hit G only at the rate fixed by their minimal norms. *(z75, `notes/z75/CONJS_GEN.md`
+  §2, Opus-reviewed: all three frozen `data/z70/xreview/REVIEW_GEN.md` candidates — mixed non-residue words, odd-part anchor
+  halving, and representation-neighbour seeds — were executed and closed as non-universal; mixed's 208 vs 152.75 fresh-window
+  excess is explained by Prop 3's explicit c = 1 form certificate `|β| = α − 1, α ≡ −1 mod 4d`.)*
 
 **z72 update (Astra deep-agent team, internal; Opus cross-review ACCEPT-WITH-FIXES, `data/z74/xreview/REVIEW_Z72PHASE_OPUS.md`).** `Z72_PAIR_PHASE.md` proves a sharp two-factor sufficient condition at a prime shift. At `p=1201` *no* prime shift admits support ≤2; the composite shift 39 does. With shifts not restricted to primes the support-≤2 Type II property holds on a relative-density-one set of primes `1 mod 4` (elementary: shifts 3 and 2r+1) and in an exact sieve to 500,000,000 (two independent engines, the second `scripts/z74_xrev_z72phase_bypsieve.py`); **no all-prime implication**. `PHASE43_DENOMINATORS.md` gives identical phase costs and opposite fixed-denominator outcomes at two Mordell-hard primes. `EXTREMAL_ES.md` determines the closest nonexact three-term approximation for primes `1 mod 24` and shows monotone denominator-preserving repair fails at 73. `data/z72/mixproof.md` constructs progressions where a frozen class-group menu succeeds at `d=1`, and others where every word misses a nonempty `d=2` fibre. None proves ES.
 
@@ -2805,11 +2807,11 @@ no HOT LEAD.**
 
 **z74 checkpoint** (Opus cross-reviews of the z74 notes, ACCEPT or ACCEPT-WITH-FIXES: `data/z74/xreview/REVIEW_*_OPUS.md`)**:** `Z74_CHECKPOINT.md` distinguishes positive ordinary-prime transfers, exact failures of proposed denominator searches, and weak-arithmetic results. In particular, even a fixed finite list of polynomial triples allowed both Gaussian coordinates and an arbitrary fixed number of integral negative-Pell witnesses misses relative density one of the primes on a suitable fixed progression (`GAUSSIAN_PELL_MENU.md`). This is an obstruction to those formulas, not to ES. For Pell data alone (one rational or any fixed number of integral witnesses, coefficients in ℚ(P)), **every** prime of a computable unit-square class inside 1 mod 840 misses (`PELL_ES_MENU_NOGO.md`, `PELL_ES_MULTI_MENU.md`). For fixed rational-function menus with one integral witness, relative-density-one prime misses are only CONDITIONAL on Hooley's Conjecture 1 (`PELL_RATIONAL_MENU_AUDIT.md`). For a fixed number of integral witnesses, misses at prime powers `p^{2a+1}` are unconditional, for `p ≡ 1 mod M` and `a` sufficiently large depending on `p` (`PELL_RAMIFIED_MENU_AUDIT.md`). One variable-modulus remainder already escapes: normalized Pell coordinates hit every residue mod `n^k` (`PELL_REMAINDER_SELECTOR.md`); divisor selection is also outside these hypotheses (Opus-reviewed, `REVIEW_PELLNOGO_OPUS.md`; shift/transfer notes `REVIEW_SHIFTS_OPUS.md`; end extensions `REVIEW_ENDEXT_OPUS.md`).
 
-**z75 update (6-lane GPT-6.2 Astra burst orchestrated by Claude Fable; Opus cross-reviews ACCEPT or ACCEPT-WITH-FIXES for Lanes 1, 2, 4, 5, 6, fixes applied; ES in ℕ remains open).**
-* **Logic (`notes/z75/BCM4_QR.md`, `BCM4_PUSH2.md`, `IE1_ES.md`, `IE1_PUSH2.md`):** PROVED `IOpen + Bézout + BCM + Lagrange (four squares) ⊬ ES` at a nonstandard prime `P ≡ 1 (840)` using twisted dyadic-axis end extensions (`x_j = c_j x_{j+1}²`, non-Noetherian upper Bézout ring with value group `ℤ[1/2]`, respecting the proved dyadic-kernel idempotence obstruction `J² = J`). Separately, PROVED one countable external IOpen PID satisfying `internal Dirichlet + Lagrange + full internal prime quadratic reciprocity (both supplements, both odd primes universally quantified) + L(D)` with `¬ES(P)`, via a global Brauer 2-torsion residue identity on `𝔸¹` and `Q₄ = s ≃ SL₂` (the circle class `(s,x)` obstructs adding universal TS directly to the constant-lifting lemma). PROVED unary polynomial-divisibility minimization `L(D)` holds in every external IOpen PID, whereas parameter-free Pell-window induction `W₂` fails in the z74 PID, 5-square BCM and collection models; a separate rank-one normal `IOpen + Lag` model repairs full variable-radicand supplied-unit Pell windows with negative Pell at `P` and `¬ES(P)`. Full QR + `L(D)` still fails least search for `v² ≡ ct (mod P)`. `IE₁`, `IE₁⁻`, `IΔ₀` remain open.
-* **Thin families, Conjecture (S) and class maps (`notes/z75/CONJS_GEN.md`, `THIN_CYCLO.md`, `lean/ES/ES/Proth15.lean`):** PROVED `ES(15·2^s + 1)` for all `s ≥ 0` via a 10-line moving cyclotomic divisor (`u = 14`, `A = x² − x + 1`), **Lean 4 verified** (`ESProth15.proth15`, standard axioms, Opus-compiled), with base-extension corollary `15·b^s + 1` (`b ≡ 2 mod L`). PROVED `ES(4^s + k)` for all `s ≥ 0` and `k ∈ {33, 273, 297}` via finite replayable certificates. PROVED `(S)` outside the exact 24 odd-square classes mod 840 (`((n+15)/56, 8, 7)`). Closed all three frozen `REVIEW_GEN.md` generative class-map tests as non-universal (mixed's 208 vs 152.75 fresh-window excess explained by Prop 3's `c = 1` form certificate `|β| = α − 1, α ≡ −1 mod 4d`).
-* **Analytic records (`notes/z75/ANALYTIC_BREAK.md`, `ANALYTIC_PUSH2.md`):** PROVED unconditional effective `e*(n) ≤ exp(C√(log R · log log(3R)))` (`R = rad(n)`), explicit `4e*(p)+3 ≤ √(4p/3)` at `p ≡ 1 (8)`, and Dirichlet-GRH-only `exp(O(√(log₂R · log₃R)))`. PROVED shift-uniform `O(H exp(−c(log H)^{2/3}))` lower tail on both C-parities of `(★)` separately (`≥ δ(log H)^{2/3}` witnesses) and on `U₇`.
-* **Obstructions, barriers and censuses (`notes/z75/DISPROOF_OBSTRUCT.md`, `DISPROOF_PUSH2.md`, `PROOF_WILD.md`, `PROOF_WILD2.md`):** PROVED exact `Pic, Br, π₁^{geom}` and the bounded-vs-unbounded exponent dichotomy on `S°, X°, U°`, plus sharp strip cutoffs giving infinitely many non-BM sterile Type II fibres `Y_{p,c}` at `c ≈ p^{2/3}`. CERTIFIED 10 new `R₈`-zero primes raising the in-𝔐 floor to `1,511,088,831,001` (`R = 44`), full Type I+II ES counts (`750, 736, 1030`) on three `R₈` zeros, `(MS⁺₁₀₅)` to `10¹¹` (two engines), Type A to `2·10¹¹` (two engines), and `U₇/U_II/N_II` to `2·10¹⁰` (`105 | n` to `5·10¹⁰`). Scoped proof-paradigm barriers (unreviewed by Opus): single-pivot fold matching, thin-core `a^m ± b^m` density-0 theorem, Stepanov flat-mask exact linear degree cost.
+**z75 update (6-lane GPT-6.2 Astra burst orchestrated by Claude Fable; Opus cross-reviews ACCEPT or ACCEPT-WITH-FIXES for Lanes 1, 2, 4 (excl. §6 full ES counts), 5, 6, fixes applied; ES in ℕ remains open).**
+* **Logic (`notes/z75/BCM4_QR.md`, `BCM4_PUSH2.md`, `IE1_ES.md`, `IE1_PUSH2.md`):** PROVED `IOpen + Bézout + BCM + Lagrange (four squares) ⊬ ES` at a nonstandard prime `P ≡ 1 (840)` using twisted dyadic-axis end extensions (`x_j = c_j x_{j+1}²`, non-Noetherian upper Bézout ring with value group `ℤ[1/2]`, respecting the proved dyadic-kernel idempotence obstruction `J² = J`). Separately, PROVED one countable external IOpen PID satisfying `internal Dirichlet + Lagrange + full internal prime quadratic reciprocity (both supplements, both odd primes universally quantified) + L(D)` with `¬ES(P)`, via a global Brauer 2-torsion residue identity on `𝔸¹` and `Q₄ = s` (`≃ SL₂` over the algebraic closure; the circle class `(s,x)` obstructs adding universal TS directly to the constant-lifting lemma). PROVED unary polynomial-divisibility minimization `L(D)` holds in every external IOpen PID, whereas parameter-free Pell-window induction `W₂` fails in the z74 PID, 5-square BCM and collection models; a separate rank-one normal `IOpen + Lag` model repairs full variable-radicand supplied-unit Pell windows with negative Pell at `P` and `¬ES(P)`. A separate modified full-QR + `Lag` + `L(D)` PID (without internal Dirichlet asserted) fails least search for `v² ≡ ct (mod P)`. `IE₁`, `IE₁⁻`, `IΔ₀` remain open.
+* **Thin families, Conjecture (S) and class maps (`notes/z75/CONJS_GEN.md`, `THIN_CYCLO.md`, `lean/ES/ES/Proth15.lean`):** PROVED `ES(15·2^s + 1)` for all `s ≥ 0` via a 10-line moving cyclotomic divisor (`u = 14`, `A = x² − x + 1`), **Lean 4 verified** (`ESProth15.proth15`, standard axioms, Opus-compiled), with base-extension corollary `15·b^s + 1` (`b ≡ 2 mod L`). PROVED `ES(4^s + k)` for all `s ≥ 0` and `k ∈ {33, 273, 297}` via finite replayable certificates (not Lean). PROVED `(S)` outside the exact 24 odd-square classes mod 840 (`((n+15)/56, 8, 7)`). Closed all three frozen `REVIEW_GEN.md` generative class-map tests as non-universal.
+* **Analytic records (`notes/z75/ANALYTIC_BREAK.md`, `ANALYTIC_PUSH2.md`):** PROVED unconditional effective `e*(n) ≤ exp(C√(log R · log log(3R)))` (`R = rad(n)`), explicit `4e*(p)+3 ≤ √(4p/3)` at `p ≡ 1 (8)`, and CONDITIONAL on Dirichlet GRH alone `exp(O(√(log₂R · log₃R)))`. PROVED shift-uniform `O(H exp(−c(log H)^{2/3}))` prime lower tail on both C-parities of `(★)` separately (`≥ δ(log H)^{2/3}` witnesses) and on `U₇` (all-integer form loses `(log log H)^{1/3}`).
+* **Obstructions, barriers and censuses (`notes/z75/DISPROOF_OBSTRUCT.md`, `DISPROOF_PUSH2.md`, `PROOF_WILD.md`, `PROOF_WILD2.md`):** PROVED exact `Pic, Br, π₁^{geom}` and the bounded-vs-unbounded exponent dichotomy on `S°, X°, U°` (squarefree kernel `s ≠ 1` for `k = 4`, `s ∉ {1, 2}` for `k = 8`), plus sharp strip cutoffs giving infinitely many non-BM sterile Type II fibres `Y_{p,c}` at `c ≈ p^{2/3}`. CERTIFIED 10 new `R₈`-zero primes raising the in-𝔐 floor to `1,511,088,831,001` (`R = 44`), `(MS⁺₁₀₅)` to `10¹¹` (two engines on `(10¹⁰, 10¹¹]`), Type A to `2·10¹¹` (two engines on `(10¹¹, 2·10¹¹]`), and `U₇/U_II/N_II` to `2·10¹⁰` (`105 | n` to `5·10¹⁰`). Separately (not part of the Opus review; single exhaustive engine at record scale, completeness calibrated on 77 smaller primes): unordered full Type I+II ES counts `750, 736, 1030` on three `R₈` zeros (`DISPROOF_OBSTRUCT.md` §6). Scoped proof-paradigm barriers (unreviewed by Opus): single-pivot fold matching, thin-core `a^m ± b^m` (`m ≥ 3`) density-0 theorem, Stepanov flat-mask exact linear degree cost (`1 ≤ m < p`).
 
 ## 8. Pointers into the repository
 

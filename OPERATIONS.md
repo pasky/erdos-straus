@@ -72,8 +72,9 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
 * **z75 (2026-11-20, GPT-6.2 Astra `deep` 6-lane burst orchestrated by Claude Fable `best`)** delivered major Opus-reviewed
   results across all three pillars (`WAVES.md`): `IOpen + Bézout + BCM + Lagrange ⊬ ES` (`BCM4_PUSH2.md`), full internal
   prime QR + Dirichlet + Lag + `L(D)` PID (`BCM4_QR.md`, `BCM4_PUSH2.md`), `L(D)` and variable-radicand Pell-window repair
-  (`IE1_ES.md`, `IE1_PUSH2.md`), Lean-verified `ES(15·2^s+1)` + `4^s+{33,273,297}` + sharp 24-class `(S)` + closed the 3
-  frozen `REVIEW_GEN` tests (`CONJS_GEN.md`, `THIN_CYCLO.md`), effective subexponential `e*(n)` + 2/3 `(★)/U₇` lower tails
-  (`ANALYTIC_BREAK.md`, `ANALYTIC_PUSH2.md`), open-surface Brauer exponent dichotomy + cubic sterile fibres + trillion-scale
-  `R₈` (`1,511,088,831,001`) and extended censuses (`DISPROOF_OBSTRUCT.md`, `DISPROOF_PUSH2.md`), plus scoped proof barriers
+  (`IE1_ES.md`, `IE1_PUSH2.md`), Lean-verified `ES(15·2^s+1)` plus finite certificates (not Lean) for `4^s+{33,273,297}`,
+  sharp 24-class `(S)` and closure of the 3 frozen `REVIEW_GEN` tests (`CONJS_GEN.md`, `THIN_CYCLO.md`), effective
+  subexponential `e*(n)` + 2/3 `(★)/U₇` prime lower tails (`ANALYTIC_BREAK.md`, `ANALYTIC_PUSH2.md`), open-surface Brauer
+  exponent dichotomy + cubic sterile fibres + trillion-scale `R₈` (`1,511,088,831,001`) and extended censuses
+  (`DISPROOF_OBSTRUCT.md`, `DISPROOF_PUSH2.md`; §6 full ES counts unreviewed by Opus), plus scoped proof barriers
   (`PROOF_WILD*.md`). Remaining open fronts: ES, `IE₁`/`IΔ₀`, QR + universal TS, `θ > 3/4` on `E(N)`, `e*(n)` below `L_R[1/2]`.
