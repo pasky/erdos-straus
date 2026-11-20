@@ -1,0 +1,16 @@
+N=9 s=17 c=1 orient=A monicV=0 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=0 cand=97686 genuine=0
+N=9 s=17 c=1 orient=B monicV=1 vb1=1 vb2=0 ig1=0 ig2=0 near=1 hits=0 deepNonLop=0 cand=97686 genuine=0
+N=9 s=17 c=2 orient=A monicV=0 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=8 cand=4343382 genuine=0
+N=9 s=17 c=2 orient=B monicV=1 vb1=1 vb2=0 ig1=0 ig2=0 near=1 hits=0 deepNonLop=0 cand=4343382 genuine=0
+N=9 s=18 c=1 orient=A monicV=0 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=0 cand=93312 genuine=0
+N=9 s=18 c=1 orient=B monicV=1 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=0 cand=93312 genuine=0
+N=9 s=18 c=2 orient=A monicV=0 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=1 cand=12847896 genuine=0
+N=9 s=18 c=2 orient=B monicV=2 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=0 cand=12847896 genuine=0
+N=10 s=19 c=1 orient=A monicV=0 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=0 cand=336798 genuine=0
+N=10 s=19 c=1 orient=B monicV=0 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=0 cand=336798 genuine=0
+N=10 s=19 c=2 orient=A monicV=0 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=4 cand=38600550 genuine=0
+N=10 s=19 c=2 orient=B monicV=0 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=0 cand=38600550 genuine=0
+N=10 s=20 c=1 orient=A monicV=1 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=0 cand=358668 genuine=0
+N=10 s=20 c=1 orient=B monicV=4 vb1=1 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=0 cand=358668 genuine=0
+N=10 s=20 c=2 orient=A monicV=0 vb1=0 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=34 cand=115132428 genuine=0
+N=10 s=20 c=2 orient=B monicV=4 vb1=1 vb2=0 ig1=0 ig2=0 near=0 hits=0 deepNonLop=0 cand=115132428 genuine=0
