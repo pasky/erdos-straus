@@ -107,19 +107,23 @@ Each item carries a label, then a pointer. "PROVED rel. X" means proved relative
 
 ### E. Logic: weak arithmetic does not prove ES (PROVED, internal; nonstandard countermodels)
 In each model a nonstandard prime fails ES. The models are *separate* unless stated, so do not combine their axiom lists.
+Every item has had one cross-lab review: the z64–z65 Claude work by Astra, and the z73–z74 Astra work by Opus
+(`data/z74/xreview/`).
 * **Normal open induction** (+ gcd, irreducible divisors, and all true universal ring sentences) does not prove ES on any
   class of 𝔐. IOpen does prove it on every other class mod 840. `Z64_UNPROV.md`; adding T1 and two squares, see
   `Z65_LOGIC2.md`.
 * **IOpen + Bézout** does not prove ES. The failing prime is ≡ 1 mod every standard k. `Z73_OPEN_BEZOUT.md`,
-  `LOGIC_BEZOUT.md` (Opus-reviewed). A variant with collection is in `LOGIC_BEZOUT_NORM_COLLECTION.md` (cross-review owed).
+  `LOGIC_BEZOUT.md`. One such model adds full collection, prime divisors and prime two-squares, with failing primes 1 + h²
+  (`LOGIC_BEZOUT_NORM_COLLECTION.md`). On each class, IOpen + Bézout + Dirichlet proves the prime tail iff IOpen does
+  (`Z73_ES_ROW_DESCENT.md`).
 * **For each unit-square class r mod M** there is an external PID satisfying IOpen with an ES-failing infinite prime
-  ≡ r (M) (`Z73_PID_SQUARE.md`, Opus-reviewed). There is also a single-model strengthening, with failing primes in every
-  interval of positive start and externally infinite length, plus Bertrand and Dirichlet (`LOGIC_PID_INTERVAL_AUDIT.md`,
-  `LOGIC_PID_DIRICHLET_AUDIT.md`; cross-review owed).
+  ≡ r (M) (`Z73_PID_SQUARE.md`, Opus-reviewed). A single such PID has failing primes in every class and in every
+  interval (a, a+b) with a ≥ 1 and b infinite, and satisfies Bertrand and internal Dirichlet; NR fails at those primes
+  (`LOGIC_PID_INTERVAL_AUDIT.md`, `LOGIC_PID_DIRICHLET_AUDIT.md`).
 * **One external IOpen PID with internal Dirichlet, universal prime two-squares, universal NR and Lagrange**, in which a
   nonstandard P ≡ 1 (840) fails ES. NR is a square-root divisibility certificate, not full reciprocity. Proof of record:
-  the Proof map in `LOGIC_JOINT_NR_TS.md` and `LOGIC_JOINT_PID_TREE_AUDIT.md` (Opus-reviewed). Its "ordinary prime
-  moduli" Variant is a gap, not a result.
+  the Proof map in `LOGIC_JOINT_NR_TS.md` and `LOGIC_JOINT_PID_TREE_AUDIT.md` (Opus-reviewed). Its non-PID "ordinary
+  prime moduli" Variant is CONDITIONAL (assembly owed). As built, QR_std(3) fails at P (`LOGIC_PID_TAG_AUDIT.md`).
 * **IOpen + Bézout + bounded common multiples + five squares**, built on top of the joint PID. The Pythagoras number is
   exactly 5, and the model is not an external PID (Bézout holds). `LOGIC_FIVE_SQUARE_BCM.md` (Opus-reviewed).
 * **Not claimed:** independence from IE₁, IΔ₀, PA or ZFC; a standard counterexample; full quadratic reciprocity in any

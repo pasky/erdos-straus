@@ -42,10 +42,10 @@ waves.** Spend remaining quota only on a *genuinely new* mechanism for forcing a
 (something not reducible to counting / equidistribution / local-global / modular-proxy arguments already scoped in
 FRONTIER §3, §6). Current cleanest targets: (MS-U₇) and (MS⁺₁₀₅) (`Z60_SUMMARY.md` §5).
 
-## Cross-model reviews owed (Astra unavailable: quota, then expired Codex auth token, 2026-11-08)
-**z72–z74 (Astra) headline items: Opus-reviewed on 2026-11-19**, ACCEPT-WITH-FIXES with the fixes applied
-(`data/z74/xreview/REVIEW_*_OPUS.md`). Still not cross-reviewed, but not needed by any STATUS headline: the interval,
-Dirichlet and collection strengthenings of z73, the z72 items, and the remaining z74 notes. Rule: the cross-review is always by the other lab
+## Cross-model reviews
+**None owed.** All of z72–z74 (Astra) has been Opus-reviewed (2026-11-19/20; 12 reviews in `data/z74/xreview/REVIEW_*_OPUS.md`;
+every note ACCEPT or ACCEPT-WITH-FIXES, fixes applied, no WRONG claim). Brief for this kind of review:
+`z52bbriefs/xreview_z74_opus.md`. Rule: the cross-review is always by the other lab
 (Astra reviews Claude work; Opus `anthropic/claude-opus-5-5:high` reviews Astra work). Done (Astra retro review, fixes applied): `Z64_UNPROV.md`, `Z65_LOGIC2.md`, `Z65_LIFT.md`,
 `Z64_EQUIV.md`, `Z64_SDEEP.md`, `Z64_SDEEPF.md` (reviews in `data/z6{4,5}/xreview/REVIEW_*_ASTRA.md`).
 
@@ -70,7 +70,6 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
 * **Cadence (user, 2026-11-19).** The campaign resumes when a new frontier model arrives: each new model gets a burst of
   waves, and the campaign is idle in between. "Paused" means waiting for the next model. It is not a decision to stop.
 * **z72–z74 (2026-11-19)** was the GPT Astra burst: phase criteria, weak-arithmetic PID and BCM models, and the
-  formula-menu no-go (`WAVES.md`). Its STATUS headline items then passed Opus cross-review (four side agents, 2026-11-19):
-  `LOGIC_JOINT_NR_TS.md` + `LOGIC_FOUR_SQUARES.md`, `LOGIC_FIVE_SQUARE_BCM.md`, `GAUSSIAN_PELL_MENU.md`, and
-  `Z73_OPEN_BEZOUT.md` / `Z73_PID_SQUARE.md`. All were ACCEPT-WITH-FIXES. The reviewers applied the note-level fixes,
+  formula-menu no-go (`WAVES.md`). Every note then passed an Opus cross-review. Four side agents covered the headline items and eight more covered
+  the rest, about 80 notes in total. All were ACCEPT or ACCEPT-WITH-FIXES. The reviewers applied the note-level fixes,
   since the author was not running, and tagged each edit "(z74 Opus xreview fix)".

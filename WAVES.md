@@ -12,41 +12,41 @@ The `−` lines only compress; full scopes are in the cited notes and FRONTIER �
 (ledger (J)1–(J)110) and in `DISCOVERIES.md`.*
 
 ### z74 (2026-11-19): ordinary-prime transfers, formula menus, weak-arithmetic models
-`+` PROVED: one IOpen external PID with internal Dirichlet, universal prime two-squares, universal NR and Lagrange in which
-    a nonstandard P ≡ 1 (840) fails ES. It uses positive reciprocal descent, which bypasses the z66 arc obstruction.
-    Files: `LOGIC_JOINT_NR_TS.md`, `LOGIC_FOUR_SQUARES.md`.
-`+` PROVED: IOpen + Bézout + BCM + five squares ⊬ ES (`LOGIC_FIVE_SQUARE_BCM.md`, with its review and audit). Separate
-    models for Pell⁺ and Pell⁻ are in `LOGIC_POSITIVE_PELL_AUDIT.md` and `LOGIC_NEGATIVE_PELL_TS_TEST.md`.
-`+` PROVED, unconditional: finite polynomial whole-triple menus, even with Gaussian and Pell data, miss relative density one
-    of the primes on some progression (`GAUSSIAN_PELL_MENU.md`).
-`+` A positive transfer at 9565921 (`SIGNED_ROOT_TRANSFER.md`).
-`−` Method counterexamples: a one-slot obstruction (`Z74_ONE_SLOT.md`); 214729 misses all 16 divisor shifts
-    (`DIVISOR_SHIFT_CERTIFICATE.md`); 193 fails every root-eligible shift (`SIGNED_TWO_SHIFTS.md`); elementary-hull BCM.
-`→` Open: BCM + four squares; iterating the Lagrange end extension; selectors outside the menu. Index: `Z74_CHECKPOINT.md`.
-`R` Authored by Astra. Opus cross-review: joint PID, five-square BCM and the formula menu are all ACCEPT-WITH-FIXES, fixes
-    applied (`data/z74/xreview/`). The joint note's ordinary-prime NR Variant is a GAP. Other z74 items are not cross-reviewed.
+`+` PROVED: one external IOpen PID with internal Dirichlet, universal prime two-squares, universal NR and Lagrange, in
+    which a nonstandard P ≡ 1 (840) fails ES. It uses positive reciprocal descent, which bypasses the z66 arc obstruction
+    (`LOGIC_JOINT_NR_TS.md`). Built on it: IOpen + Bézout + BCM + five squares ⊬ ES (`LOGIC_FIVE_SQUARE_BCM.md`).
+`+` PROVED, in separate non-Bézout models: IOpen + Lag + Pell⁺ ⊬ ES, still with Pell⁻ and TS at irreducibles ≡ 1 (4) added
+    (`LOGIC_POSITIVE_PELL_AUDIT.md`, `LOGIC_NEGATIVE_PELL_TS_TEST.md`). One Lagrange end extension adds common multiples.
+`+` PROVED, unconditional: polynomial whole-triple menus in Gaussian and *integral* Pell data miss density one of a
+    progression; with Pell data alone they miss a whole progression (`GAUSSIAN_PELL_MENU.md`, `PELL_ES_MENU_NOGO.md`).
+`−` Method counterexamples (`Z74_CHECKPOINT.md`): one-slot repair; 214729 misses both slots at all 16 divisor shifts
+    (infinitely many under Dickson); 193 fails both windows at every root-eligible shift; hull BCM; Pell remainders escape.
+`→` Open: BCM + four squares, iterating the Lagrange extension, the joint non-PID NR Variant (conditional, assembly owed).
+`R` Authored by Astra. Opus cross-review of every z74 note, in 8 lanes: ACCEPT or ACCEPT-WITH-FIXES, fixes applied, no
+    WRONG claim (`data/z74/xreview/REVIEW_*_OPUS.md`).
 
 ### z73 (2026-11-19): weak theories with Bézout and PIDs
-`+` PROVED countermodels: IOpen + Bézout ⊬ ES (`Z73_OPEN_BEZOUT.md`, `LOGIC_BEZOUT.md`); an external IOpen PID failing
-    in each unit-square class (`Z73_PID_SQUARE.md`); one PID failing in every interval with positive start and externally
-    infinite length, with Bertrand and internal Dirichlet (`LOGIC_PID_INTERVAL_AUDIT.md`, `LOGIC_PID_DIRICHLET_AUDIT.md`). Variants with collection and two
-    squares, short intervals, and greatest prime divisors (`LOGIC_BEZOUT_NORM_COLLECTION.md`, `Z73_SHORT_INTERVAL.md`,
-    `LOGIC_GREATEST_PRIME.md`).
-`+` The marked-section characterisation (`LOGIC_MARKED_SECTIONS.md`). Composite-shift forcing criteria
-    (`Z73_COMPOSITE_PHASE.md`, `Z73_PROBE_FORCING.md`).
-`−` Smith's PID alone does not give ES failure. Two four-term starts get trapped at 101641
-    (`data/z72/counter_tail/ROUND3.md`).
-`R` Authored by Astra. Opus cross-review of the IOpen + Bézout model and the per-class PID: ACCEPT-WITH-FIXES, fixes applied
-    (`data/z74/xreview/REVIEW_Z73BASE_OPUS.md`). The interval, Dirichlet and collection strengthenings are not cross-reviewed.
+`+` PROVED countermodels:
+    * IOpen + Bézout ⊬ ES (`Z73_OPEN_BEZOUT.md`, `LOGIC_BEZOUT.md`).
+    * Per unit-square class, an external IOpen PID with a failing prime (`Z73_PID_SQUARE.md`).
+    * One PID failing in every class and every interval (a, a+b), a ≥ 1, b infinite, with Bertrand and internal Dirichlet
+      (`LOGIC_PID_INTERVAL_AUDIT.md`, `LOGIC_PID_DIRICHLET_AUDIT.md`).
+    * In landing (non-PID) Bézout models: collection with PD and TS (`LOGIC_BEZOUT_NORM_COLLECTION.md`), short intervals
+      and greatest prime divisors (`Z73_SHORT_INTERVAL.md`, `LOGIC_GREATEST_PRIME.md`).
+`+` Row descent: IOpen + Bézout + Dirichlet has the same prime-tail dichotomy as IOpen (`Z73_ES_ROW_DESCENT.md`). Also the
+    marked-section characterisation and composite-shift forcing criteria.
+`−` Smith's PID alone does not give ES failure. Four-term starts get trapped at 101641 (`data/z72/counter_tail/ROUND3.md`).
+`R` Authored by Astra. Opus cross-review of every z73 note: ACCEPT-WITH-FIXES, fixes applied (`REVIEW_Z73BASE_OPUS.md`,
+    `REVIEW_PIDEXT_OPUS.md`, `REVIEW_COLLECT_OPUS.md`, `REVIEW_Z72PHASE_OPUS.md`).
 
 ### z72 (2026-11-19): phase criteria at prime shifts
-`+` PROVED: a sharp two-factor criterion at a prime shift (`Z72_PAIR_PHASE.md`). With *arbitrary* shifts, support ≤ 2
-    Type II holds on a relative-density-one set of primes p ≡ 1 (4). An exact sieve to 5·10⁸ (replayed to 5·10⁷) finds
-    no failure. There is no all-prime implication.
+`+` PROVED: a sharp two-factor criterion at a prime shift (`Z72_PAIR_PHASE.md`). With shifts not restricted to primes,
+    support ≤ 2 Type II holds on a relative-density-one set of primes p ≡ 1 (4) (elementary). An exact sieve to 5·10⁸
+    finds no failure (two independent engines). There is no all-prime implication.
 `+` The closest nonexact triple for p ≡ 1 (24) (`EXTREMAL_ES.md`).
 `−` At 1201 no prime shift has support ≤ 2. Monotone repair fails at 73. Frozen class-group menus miss a d = 2 fibre
-    (`data/z72/mixproof.md`). `PHASE43_DENOMINATORS.md`.
-`R` Authored by Astra. Not cross-reviewed (no STATUS headline).
+    (`data/z72/mixproof.md`). Equal phase costs give opposite fixed-x outcomes at c = 43 (`PHASE43_DENOMINATORS.md`).
+`R` Authored by Astra. Opus cross-review: ACCEPT-WITH-FIXES, fixes applied (`data/z74/xreview/REVIEW_Z72PHASE_OPUS.md`).
 
 ### z71 (2026-11-10): literature refresh
 `−` No new mechanism. Dahan arXiv:2611.08717 gets 5/7 by the 3/4-note architecture, and its pointwise part is B2 with a
