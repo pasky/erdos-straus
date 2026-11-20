@@ -116,8 +116,9 @@ Every item has had one cross-lab review: z64–z65 Claude work by Astra, and z73
   class of 𝔐; IOpen proves it on every other class mod 840 (`Z64_UNPROV.md`; + T1 and two squares: `Z65_LOGIC2.md`).
 * **IOpen + Bézout** does not prove ES (`Z73_OPEN_BEZOUT.md`, `LOGIC_BEZOUT.md`); a separate model adds full collection,
   PD and TS (`LOGIC_BEZOUT_NORM_COLLECTION.md`). Prime-tail dichotomy with Dirichlet: `Z73_ES_ROW_DESCENT.md`.
-* **External IOpen PIDs (all satisfy unary L(D), `notes/z75/IE1_ES.md`; none satisfies IE₁, `notes/z76/IE1_BREAK.md` §4):**
-  * Interval PIDs: per unit-square class, failing primes in every infinite interval with Bertrand + Dirichlet (`Z73_PID_SQUARE.md`).
+* **External IOpen PIDs (all satisfy unary L(D), `notes/z75/IE1_ES.md`; no nonstandard one satisfies IE₁, `IE1_BREAK.md`):**
+  * Interval PIDs: per unit-square class, failing primes in every infinite interval with Bertrand + Dirichlet
+    (`Z73_PID_SQUARE.md`, `LOGIC_PID_INTERVAL_AUDIT.md`, `LOGIC_PID_DIRICHLET_AUDIT.md`).
   * **Unified QR + TS + Lag + Dirichlet + L(D) PID (z76, Opus-reviewed):** one external IOpen PID with internal Dirichlet,
     Lagrange, L(D), **full internal prime QR** (both supplements, two nonzero squareclasses at every odd prime) and
     **universal TS** fails ES at P ≡ 1 (840) (`notes/z76/QR_TS_BCM.md`, strengthening `BCM4_QR.md` & `LOGIC_JOINT_NR_TS.md`).
@@ -129,8 +130,8 @@ Every item has had one cross-lab review: z64–z65 Claude work by Astra, and z73
   and collection models (`IE1_ES.md`), but a separate rank-one normal `IOpen + Lag` model has ¬ES(P), negative Pell at P,
   full variable-radicand supplied-unit Pell windows and filtered least Pell-coordinate search with polynomial congruences at
   arbitrary fixed moduli (`notes/z75/IE1_PUSH2.md`, `notes/z76/IE1_BREAK.md`; not PID/Bézout/IE₁).
-* **Not claimed / broad PID barrier:** independence from IE₁, IE₁⁻, IΔ₀, PA or ZFC; a standard counterexample; BCM in a PID.
-  No nonstandard external IOpen PID satisfies IE₁, and any external PID with IE₁⁻ + ¬ES(P) implies ES false in ℕ (`IE1_BREAK.md` §4).
+* **Not claimed:** independence from IE₁, IE₁⁻, IΔ₀, PA or ZFC; a standard counterexample; BCM in a PID (see FRONTIER §3
+  for the nonstandard external-PID barrier on IE₁ and IE₁⁻ ES countermodels).
 
 ### F. Certified computations (exact, finite; engines and ranges are in the cited files)
 * (★) holds at all 355,096,166 primes in 𝔐 ∩ (10¹⁰, 3·10¹¹] (`Z58_SUMMARY.md` §3).
@@ -155,8 +156,9 @@ Ranked by the campaign (Assessment). Definitions are in the cited files.
    non-square n ≡ 1 (4) outside the exact **24 odd-square classes mod 840** (`notes/z75/CONJS_GEN.md` Thm 2, Opus-reviewed).
 3. **Structure / U₇ / class groups:** Conjectures B and C in `Z68_U7F.md`; `Z70_CLASS.md` open list (Rédei 4-rank,
    small-split-prime orbits, solution-graph moves).
-4. **Logic:** IE₁, IE₁⁻, IΔ₀ and IΔ₀ + exp remain open (by `IE1_BREAK.md` §4, any IE₁⁻ countermodel assuming ES in ℕ must
-   be non-PID with a nonstandard PA cut and J ≠ 0); also universal TS inside the BCM+Lag+QR model and arithmetic Bézout+IW₂.
+4. **Logic:** IE₁, IE₁⁻, IΔ₀ and IΔ₀ + exp remain open (by `IE1_BREAK.md` §4, no nonstandard external IOpen PID satisfies
+   IE₁, and if ES holds in ℕ any IE₁⁻ ES countermodel must be non-PID with a nonstandard PA cut and J ≠ 0); also universal
+   TS inside the BCM+Lag+QR model and arithmetic Bézout+IW₂.
 5. **Coverings and function fields:** the r = 17 Mordell point (sterile threshold now 177,505); CONJECTURE 0.2 over F₃[T].
 6. **Analytic sub-problems:** FRONTIER §7 (e.g. θ > 3/4 on E(N), cancellation on the height-dependent modular hyperbola,
    pushing e*(n) below L_R[1/2]).

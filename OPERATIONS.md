@@ -57,7 +57,8 @@ at a fixed prime), at a scoped no-go, or at a bounded null. All lanes Astra-cros
   many AI-written memos — a plain "please continue" cleared it.
 * **Open, concrete, cheap (if resuming):** `Z70_CLASS.md` open list (Rédei 4-rank, small-split-prime
   orbits from principal seeds, fixed-n solution-graph moves); conjecture (S) (reduced to the 24 square classes mod 840);
-  U₇ (Conjectures B, C in `Z68_U7F.md`); (MS⁺₁₀₅) (certified to 10¹¹); `IE₁`/`IE₁⁻`/`IΔ₀` (proved non-PID if ES holds in ℕ);
+  U₇ (Conjectures B, C in `Z68_U7F.md`); (MS⁺₁₀₅) (certified to 10¹¹); `IE₁`/`IE₁⁻`/`IΔ₀` (no nonstandard external PID
+  satisfies `IE₁`, and if ES holds in ℕ no nonstandard external PID is an `IE₁⁻` ES countermodel);
   universal TS inside BCM+Lag+QR; `r = 17` Mordell point (sterile threshold now 177,505); `𝔽₃[T]` Conj. 0.2; `θ > 3/4` on `E(N)`.
 * **z71 literature refresh (2026-11-10, `Z71_LIT.md`; orchestrator-reviewed, no Astra review):** arXiv math.NT
   2026-09-28 … 11-10 screened in full; no new mechanism. New ES paper Dahan arXiv:2611.08717 (5/7 < 3/4 by the same
