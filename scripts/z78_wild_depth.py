@@ -11,6 +11,7 @@ from cypari2 import Pari
 P = Pari()
 CAP = 10**7
 rows = []
+summary = []
 for B in (43, 83, 157, 313, 631, 1259):
     primes = [i for i in range(2, B+1) if all(i%j for j in range(2,isqrt(i)+1))]
     M = 4*prod(primes)
@@ -45,11 +46,16 @@ for B in (43, 83, 157, 313, 631, 1259):
     best = min(4*a*j-1 for a in range(1,(f+1)//4+1)
                for j in range(1,(f+1)//(4*a)+1) if (p+a)%(4*a*j-1)==0)
     assert best == f
-    print(B,len(str(p)),min(e[3] for e in block),median(e[3] for e in block),
-          f,tt,round(median(ratios),4),round(max(ratios),4),sum(x>1 for x in ratios),flush=True)
+    line = ' '.join(map(str,(B,len(str(p)),min(e[3] for e in block),median(e[3] for e in block),
+          f,tt,round(median(ratios),4),round(max(ratios),4),sum(x>1 for x in ratios))))
+    summary.append(line)
+    print(line,flush=True)
 text='B,t,p,f,a,d\n'+''.join(','.join(map(str,e))+'\n' for e in rows)
 path=Path('data/z78/wild_depth.csv')
+summary_path = path.with_name('wild_depth_summary.txt')
+summary_text = '\n'.join(summary)+'\n'
 if '--write' in sys.argv:
     path.write_text(text)
+    summary_path.write_text(summary_text)
 else:
-    assert path.read_text()==text
+    assert path.read_text()==text and summary_path.read_text()==summary_text
