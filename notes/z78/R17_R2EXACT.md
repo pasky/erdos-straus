@@ -50,3 +50,36 @@ This writes `centres.L1.tsv`, `centres.P3.tsv`, `centres.Q3.tsv`, and `centres.P
 At r=211, all four sparse marginal lists were compared element-for-element with the independently stored exact-family outputs `data/z78/exact/r211_{p1,q1,p3,q3,p5}.txt`, after independently applying the nonsquare and earlier-parent exclusions. All four sets were identical: cardinalities L1/P3/Q3/P5 = 37/158/422/512. These agree with `data/z78/exact/union.tsv` after converting its common-depth-three normalization back to native moduli. The reviewer engine `scripts/z78_xr_exact.c` was also run at r=211 and returned the same four counts (37/158/422/512). The census outputs at r=223, 229 and 907, 911, 919, 929 are included as requested; no independent stored full-set oracle exists there. The exact row at 929 agrees with the existing separate level ledger for L1 and P3, while Q3/P5 are direct exact counts rather than prior bounds.
 
 The finite enumeration certifies only these exact row values and lists. A nonzero residual at depth 3 makes no claim about all-depth survival.
+
+## Independent native-list cross-check at 223 and 929
+
+All four primary marginal lists were compared cell-for-cell at r=223 and r=929 against separate enumerations; machine result is `data/z78/r2exact/validation.tsv`.
+
+* **L1 and P3:** `scripts/z78_r2exact_cf.c` is the segmented-shift P3 engine (`scripts/z78_p3_exact.c`) instrumented to emit its native sets. It uses the shift-factorization / complementary large-shift parameterization, not the pointwise reviewer engine's e split. Its P1+Q1 level-1 union and P3 cells agree exactly with the primary lists at both primes.
+* **Q3:** `scripts/z78_r2exact_qalt.c` reruns exact Q3 with a genuinely different complementary partition: small `e < r²`, small `f < 3r²` subject to `e ≥ r²`, then the both-large divisor region. The primary split is `e < 2r²`, `f < 2r²` subject to `e ≥ 2r²`. It emits all four lists; its Q3 marginal list agrees cell-for-cell at both primes. It uses sparse native-modulus sets throughout. This is a changed-cut exact census, not a distinct divisor identity.
+* **P5:** the R1 four-regime `scripts/z78_exact_et.cpp` was attempted at r=223, but aborts before output with `cd factor input exceeds uint64`; it cannot certify these sample rows as written. Instead `scripts/z78_r2exact_p5small.c` exactly factors/enumerates all shifts `e < E=16r²` for `N=r⁵`, and `scripts/z78_r2exact_p5cf.c` uses the convergent/continued-fraction enumeration for the complementary `e ≥ E` region. Their raw oriented centre union, after nonsquare and L1/P3/Q3 parent exclusions, matches the primary P5 marginal list element-for-element at both primes. Raw independent lists and each component's plain-text output are retained as `independent{223,929}.P5raw.tsv`, `independent{223,929}.p5small.txt`, and `independent{223,929}.p5cf.txt`.
+
+The independent list provenance is preserved in `independent{223,929}.cf.tsv` (L1/P3) and `independent{223,929}.qalt.Q3.tsv` (Q3), alongside the primary `sample{223,929}.{L1,P3,Q3,P5}.tsv`. Counts agree as follows:
+
+| r | L1 | P3 | Q3 | P5 |
+|---:|---:|---:|---:|---:|
+| 223 | 39 | 218 | 422 | 580 |
+| 929 | 48 | 458 | 888 | 1570 |
+
+Replay the independent generators from the repository root (each run sequential, with the same 2,000,000-KiB cap and ≤1,800-second timeout):
+
+```sh
+gcc -O3 scripts/z78_r2exact_cf.c -o /tmp/r2cf
+timeout 1800 bash -c 'ulimit -v 2000000; /tmp/r2cf 223 223 > data/z78/r2exact/independent223.cf.tsv'
+timeout 1800 bash -c 'ulimit -v 2000000; /tmp/r2cf 929 929 > data/z78/r2exact/independent929.cf.tsv'
+gcc -O3 scripts/z78_r2exact_qalt.c -o /tmp/qalt
+timeout 1800 bash -c 'ulimit -v 2000000; /tmp/qalt 223 --dump-prefix data/z78/r2exact/independent223.qalt'
+timeout 1800 bash -c 'ulimit -v 2000000; /tmp/qalt 929 --dump-prefix data/z78/r2exact/independent929.qalt'
+gcc -O3 scripts/z78_r2exact_p5small.c -o /tmp/p5small
+gcc -O3 scripts/z78_r2exact_p5cf.c -o /tmp/p5cf
+# For each r, E=16*r*r, N=r^5, T=(floor(N/E)+1)//2.
+timeout 1800 bash -c 'ulimit -v 2000000; /tmp/p5small 929 13808656 > data/z78/r2exact/independent929.p5small.txt'
+timeout 1800 bash -c 'ulimit -v 2000000; /tmp/p5cf 929 5 13808656 1 25055159 > data/z78/r2exact/independent929.p5cf.txt'
+```
+
+(The same P5 commands use E=795664 and T=346549 for r=223.) `uv run --offline --no-project python -B scripts/z78_r2exact_validate.py` replays the eight cell-set comparisons and rewrites `validation.tsv`; it fails on any list mismatch. The report records exact set equality, not just matching cardinalities.
