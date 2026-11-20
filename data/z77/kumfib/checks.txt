@@ -1,0 +1,24 @@
+independent exact no-hit seeds (K=4,8): 1,289,4545,752257
+positive cubic/quartic/quintic control 3 22 10649 6 148 3
+positive cubic/quartic/quintic control 4 2 17 1 5 1
+positive cubic/quartic/quintic control 5 2 33 3 3 1
+t=0..64: all probe hits independently substituted using full input and successive Pell multiplication
+moving controls: actual imprimitive witnesses t=1..200, primorial congruences H=7,11,23,47
+exp ordinary K 4 decided 198 of 199 max first d 3407
+exp ordinary K 8 decided 192 of 199 max first d 9463
+exp locked B 16 t bits 36 first (d,a) K4,K8 through 150000 [(191, 8), (191, 8)]
+exp locked B 64 t bits 147 first (d,a) K4,K8 through 150000 [(227, 3), (7919, 165)]
+exp locked B 128 t bits 277 first (d,a) K4,K8 through 150000 [(8111, 338), (8111, 338)]
+exp locked B 256 t bits 506 first (d,a) K4,K8 through 150000 [(20543, 24), (20543, 24)]
+pell ordinary K 4 decided 197 of 199 max first d 7019
+pell ordinary K 8 decided 180 of 199 max first d 9479
+pell locked B 16 t bits 36 first (d,a) K4,K8 through 150000 [(1747, 1), (5039, 9)]
+pell locked B 64 t bits 147 first (d,a) K4,K8 through 150000 [(2879, 24), (2879, 24)]
+pell locked B 128 t bits 277 first (d,a) K4,K8 through 150000 [(4367, 42), (4367, 42)]
+pell locked B 256 t bits 506 first (d,a) K4,K8 through 150000 [(3671, 306), None]
+moving ordinary K 4 decided 198 of 199 max first d 6031
+moving ordinary K 8 decided 192 of 199 max first d 9263
+moving locked B 16 t bits 36 first (d,a) K4,K8 through 150000 [(1867, 1), (4663, 53)]
+moving locked B 64 t bits 147 first (d,a) K4,K8 through 150000 [(179, 45), (983, 123)]
+moving locked B 128 t bits 277 first (d,a) K4,K8 through 150000 [(7559, 945), (7559, 945)]
+moving locked B 256 t bits 506 first (d,a) K4,K8 through 150000 [(23879, 597), (23879, 597)]
