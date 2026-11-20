@@ -1,9 +1,9 @@
 ## §0
-Result: ES holds on three further full Mersenne-multiplier families (m=7,8,10); infinitely many different multipliers have a good-word core, and infinitely many cubic families in 1 mod 840 have good words and a square-unit limit. Label: PROVED (computer-assisted for full families, rel. Mordell and the z77 positive rules; §§1–2 hand proofs)
+Result: ES holds on four further full Mersenne-multiplier families (m=7,8,9,10); infinitely many different multipliers have a good-word core, and infinitely many cubic families in 1 mod 840 have good words and a square-unit limit. Label: PROVED (computer-assisted for full families, rel. Mordell and the z77 positive rules; §§1–2 hand proofs)
 Scope: Full families only where explicitly listed; m need not be prime. No general ES or all-exponent theorem for infinitely many m. See §1 for quantifiers.
 Review: none (cross-review owed)
 Triage: HEADLINE
-STATUS delta: §1C Proth: add m=7,8,10 to the all-exponent multipliers (computer-assisted, not Lean); for infinitely many m at offset +1, only density-one exponents including a square-unit core (Lane 6 independently).
+STATUS delta: §1C Proth: extend through m=10 (add 7,8,9,10) to the all-exponent multipliers (computer-assisted, not Lean); for infinitely many m at offset +1, only density-one exponents including a square-unit core (Lane 6 independently).
 
 ### 1. A programmable ladder of binomial ratios
 
@@ -29,11 +29,11 @@ Proof. For p|H the order of 2 mod p is a nontrivial power of 7, so p≡1 mod 7, 
 
 ### 3. New full families (computer-assisted)
 
-**Theorem 3 (PROVED rel. Mordell and the positive rules of z77 §2).** ES holds for all s≥0 for m=7,8,10. The independently checked periods are 55440,12252240,55440 respectively. No primality assumption; no finite ET/divisor cover by Cor. 1.5. `data/z78/proth/period-{m}-{period}.json` gives every rule; `scripts/z78_proth_check.py` uses no discovery routines. For s≥64 this checks M/D/W/II/K exactly as in `notes/z77/PROOF_S_WILD.md` §2 (including the actual modulus when dividing by a fixed factor), tests the word's explicit five-slice conditions, checks a triple at each D divisor, and marks every residue. X supplies a degree e and actual (c,T) for EVERY unit j mod h: for 4e|s strip all primes of h from s/e, and use the same proof as §1. The checker verifies residues by the multiplicative Möbius formula for Φ_{2d}. All 1,920 triples for m=1..30 and s=0..63 are checked by direct integer multiplication. These finite tests alone would not justify any all-s assertion.
+**Theorem 3 (PROVED rel. Mordell and the positive rules of z77 §2).** ES holds for all s≥0 for m=7,8,9,10. The independently checked periods are 55440,12252240,411863760,55440 respectively. No primality assumption; no finite ET/divisor cover by Cor. 1.5. `data/z78/proth/period-{m}-{period}.json` gives every rule; `scripts/z78_proth_check.py` uses no discovery routines. For s≥64 this checks M/D/W/II/K exactly as in `notes/z77/PROOF_S_WILD.md` §2 (including the actual modulus when dividing by a fixed factor), tests the word's explicit five-slice conditions, checks a triple at each D divisor, and marks every residue. X supplies a degree e and actual (c,T) for EVERY unit j mod h: for 4e|s strip all primes of h from s/e, and use the same proof as §1. The checker verifies residues by the multiplicative Möbius formula for Φ_{2d}. All 1,920 triples for m=1..30 and s=0..63 are checked by direct integer multiplication. These finite tests alone would not justify any all-s assertion.
 
 A useful additional D rule in every m is s≡1 mod (2m+1). Indeed 2^{2m+1}−1 divides n there since 2k+1=2^{2m+1}−1. In particular the exact square at s=2m+2 is not a unit-square obstruction: any prime divisor of its root supplies a divisor class if its ES triple is known. In m=8 the 131071 row closed all four residual classes.
 
-Replay: `ulimit -v 1500000; timeout 120 uv run --offline --no-project python -B scripts/z78_proth_check.py small groups period-7-55440.json period-8-12252240.json period-10-55440.json`. Search uses `--with cypari2` for discrete logarithms and divisor lists; neither enters the checker. No Lean claim. The scoped complementary rigidity result for bounded menus of rational-in-root-exponential formulas is in `PROTH_RIGIDITY.md`; it does NOT obstruct unbounded-degree extraction or prove any ES failure.
+Replay: `ulimit -v 1500000; timeout 120 uv run --offline --no-project python -B scripts/z78_proth_check.py small groups census period-7-55440.json period-8-12252240.json period-9-411863760.json period-10-55440.json`. Search uses `--with cypari2` for discrete logarithms and divisor lists; neither enters the checker. No Lean claim. The scoped complementary rigidity result for bounded menus of rational-in-root-exponential formulas is in `PROTH_RIGIDITY.md`; it does NOT obstruct unbounded-degree extraction or prove any ES failure.
 
 ### 4. Exact computable core criterion, no hypothesis on the doubling orbit
 

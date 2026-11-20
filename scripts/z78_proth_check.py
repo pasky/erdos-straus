@@ -31,7 +31,7 @@ def divs(n):return [i for i in range(1,n+1) if n%i==0]
 def mob(n):return 1 if n==1 else -sum(mob(i) for i in divs(n)[:-1])
 
 def check(f):
-    data=json.loads(f.read_text());m=data['m'];H=data['period'];k=4**m-1;cover=bytearray(H);cnt=Counter();S={a*a%840 for a in range(1,840) if math.gcd(a,840)==1}
+    data=json.loads(f.read_text()) if isinstance(f,Path) else f;m=data['m'];H=data['period'];k=4**m-1;cover=bytearray(H);cnt=Counter();S={a*a%840 for a in range(1,840) if math.gcd(a,840)==1}
     for P,j,T,*z in data['rows']:
         assert 0<=j<P and H%P==0;cnt[T]+=1;s=j+(max(0,64-j)+P-1)//P*P
         if T=='X':
@@ -65,7 +65,7 @@ def check(f):
                     d,i,b=term;assert d>0 and K0%d==0 and i in (0,1) and b in (0,1);return d*n**i*((n+f0)//(4*K0))**b
                 assert (term(D)+term(E))%f0==0
         cover[j::P]=b'\1'*(H//P)
-    assert [i for i,b in enumerate(cover) if not b]==data['left'];print('m',m,'period',H,'miss',cover.count(0),dict(cnt))
+    left=data['left'];assert left==sorted(set(left)) and len(left)==cover.count(0) and all(not cover[j] for j in left);print('m',m,'period',H,'miss',len(left),dict(cnt))
 
 def groups():
     for row in json.loads((R/'groups.json').read_text()):
@@ -95,4 +95,14 @@ if __name__=='__main__':
     for a in sys.argv[1:]:
         if a=='small':small()
         elif a=='groups':groups()
+        elif a=='census':
+            C=json.loads((R/'census.json').read_text());assert [b['m'] for b in C]==list(range(1,31))
+            for b in C:
+                check(b);h=2*b['m']-1;Q=2**h-1;k=2*Q+1
+                for js,(c,T) in b['witnesses'].items():
+                    assert len(T)==len(set(T)) and c>0 and k%c==0 and c%16==(14*Q-1)%16;A=c
+                    for d in T:
+                        assert d>0 and b['mask_degree']%d==0
+                        for i in divs(d):A=A*pow(1+pow(2,int(js)*i,Q),mob(d//i),Q)%Q
+                    assert (1+A)%Q==0
         else:check(R/a)
