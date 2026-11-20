@@ -59,7 +59,7 @@ Proof. All B_a are units by odd order. In the quotient by R they depend only on 
 
 **Assessment / next step.** Seek *higher-degree* shifted rows on the explicit sparse obstruction s=B·2^v of Proposition 5. A useful test is whether finitely many shifts a for one growing family of h can cover every v, with a proved group-membership certificate at each residue. The degree-one search above cannot by itself solve the zero-core problem. Internal priority: the z77 family list ends at m=6; the earlier z75/z77 transfers change base or offset. No external priority claim.
 
-### 6. Round 2: a density-one criterion and every multiplier through m=100
+### 6. Round 2: a density-one criterion and every multiplier through m=131
 
 **Theorem 7 (PROVED, computer-assisted for all 2≤m≤131, rel. Mertens/Dirichlet in fixed progressions and z75 CONJS_GEN Thm 2, itself rel. computer-assisted Z64_SDEEPF Thm 3.6).** Each such m has a positive period of good words as in §1 with square-unit closure (include the menu's odd unit orders in the exponent) AND a set of good-word exponents of relative density one on every fixed exponent progression. This does not assert ES at *all* s for any new m. Unlike §4, this census uses only unit-index ratios, c∈{1,2^m+1} and at most the two single-use indices 1 and 3.
 
@@ -96,3 +96,5 @@ since t,u≥2. The right-hand side in the first equality is a positive multiple 
 Proof. Choose the largest s=B2^v≤m, so s>m/2. For every odd q≤R its order ord_q(2)≤R divides m (omit q=1); hence k≡0 mod q. At every power of 2 at most R, n≡1 as s≥log₂ R. Thus n≡1 modulo every menu modulus, excluding (ii); this congruence works at every s≥log₂ R, not specifically sparse s. All (iii) fail by Theorem 9 on this initial segment. The only sparsity input is a term in (m/2,m]. Only (i) remains. Use log lcm(1,…,R)=ψ(R) for the asymptotic. ∎
 
 **Why not a stronger rigidity statement?** For every 3∤B there are infinitely many m (m≡2 mod 3) where two fixed mod-7 triples cover the whole sparse family, independently of m. See `PROTH_RIGIDITY.md` §§5–6 for the formulas and the precise profinite *tail*, not full closure. The zero exponent limit is absent there; the corollary instead uses the many m having k≡0 mod every bounded odd modulus.
+
+**Assessment (unresolved).** No odd h≥3 failing the core criterion is known here, and we have not proved it for all h. No all-exponent extension beyond m=10 follows. Next test the 3-power tower h=3^j: the three 9|h single-use contributions c=B_m, Φ₂(2), Φ₆(2) all have the same image g in the unit-ratio quotient. Doubling gives −1=g^{ord_h(2)/2} there; proving g⁶=1 for j≥2 would suffice on this tower, without a full unit-group generation theorem. The census is motivation only.
