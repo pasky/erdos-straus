@@ -4,7 +4,7 @@ from fractions import Fraction as Fr
 from math import gcd
 from collections import Counter
 import argparse, gzip
-st=Counter()
+st=Counter({'P third gap':0, 'P combined gap':0, 'P point5 deep checks':0})
 
 def check(kind,r,U,a,b,c,d,p,q):
     assert a<=b and (a+b)%c==0
@@ -44,7 +44,7 @@ def check(kind,r,U,a,b,c,d,p,q):
             assert (e<=2*D*D or e*e<=4*p*p*(2*C+abs(D))**2*C2*U or e*e<=16*C1*C*C*B)
             st['P combined gap']+=1
     if u==5 and r>=17 and U>=10**6:
-        assert e*e<=1100**2*U;st['P point5 deep checks']+=1
+        assert e*e<=466**2*U;st['P point5 deep checks']+=1
     return True
 
 def testrow(kind,r,U,a,b,c,d):
@@ -67,7 +67,7 @@ def small(r):
                 for d in range(1,(n+1)//(2*a)+2):
                     m=4*d
                     lo=1 if kind=='P' else n//(m*a)+1
-                    hi=(2*n+2)//(m*a) if kind=='Q' else (2*n+2)//(m*a)
+                    hi=(2*n+2)//(m*a)
                     for c in range(lo,hi+1):
                         den=m*a*c-(1 if kind=='P' else n);num=(n*c+a if kind=='P' else n*a+c)
                         if den<=0 or num%den:continue
@@ -91,5 +91,5 @@ if __name__=='__main__':
         for pn in (1,5):
             for mode in ('Ha','Hd','J'):
                 row=(lane/f'data/z78/point/11_{pn}_{mode}.txt').read_text().split()
-                assert row[:6]==['end','17','11',str(pn),str(6-pn),mode] and row[-1]=='0'; print('depth-11 Lane2 output',*row)
+                assert row[:6]==['end','17','11',str(pn),str(6-pn),mode] and list(map(int,row[6:]))==[4258519,1,4258519,1064630 if mode=='J' else 65661461,0]; print('depth-11 Lane2 output',*row)
     print('counts',dict(sorted(st.items())))
