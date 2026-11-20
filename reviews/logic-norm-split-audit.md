@@ -1,5 +1,12 @@
 # Independent adversarial check: the norm stage
 
+Result: audit of the norm stage of `LOGIC_NORM_SPLIT.md`; no fatal error found.   Label: Assessment (audit)
+Scope: the absolute countable construction over ℚ only; does not assert collection or merge axiom lists.
+Review: cross-lab (Opus) `data/z74/xreview/REVIEW_COLLECT_OPUS.md` (its six points agree with the independent re-derivation).
+Triage: NULL (audit)
+STATUS delta: none
+*(§0 block: z74 Opus xreview fix)*
+
 Reviewed `LOGIC_NORM_SPLIT.md` at logic-lift commit `88bc21143`. This is a check of **its absolute, countable** construction over ℚ, not an additional assertion of collection for that model. Verdict: no fatal error found. The following are the points where weakening the hypotheses or swapping the order of steps would break the proof.
 
 1. **Gaussian alternative.** For A factorial over both ℚ and ℚ(i) in the sense of the note, and s prime in A, the ring (A/s)[i] injects in its generic quadratic algebra (free rank two). In the split case the two evaluation kernels at the two generic roots of −1 are distinct minimal primes: their intersection is zero and they become the two factors upon localization. Thus A[i]/s is reduced, and unique factorization gives exactly two conjugate irreducible factors with exponent one. Units in A[i] are constant: the norm of a unit is a unit of A, hence constant, and its real and imaginary coordinates must be bounded. For e(s)=1 the scalar ambiguity disappears on dividing one factor by its nonzero Gaussian rational evaluation. This gives coordinates landing at 1 and 0, not just an identity over Frac(A).

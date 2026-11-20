@@ -1,5 +1,12 @@
 # The row tower at a mark divisible by infinitely many primes
 
+Result: for a transcendental unit profile with π_q≡1 (q) almost everywhere, the polynomial/row/Dirichlet tower admits compatible local field embeddings (but no embedding of F into 𝔸_f) whose integral pullback R satisfies IOpen, Bézout and internal Dirichlet, with P prime and NR witnesses at P; R is not an external PID.   Label: PROVED (model half, internal; rel. Shepherdson's criterion, ET Prop 1.9) — CONDITIONAL on the existence of the input profile (from `LOGIC_NONSQUARE_PROFILE.md`, not reviewed here); `Z73_ES_ROW_DESCENT.md` §3 removes the need for that input.
+Scope: audit of `LOGIC_NONSQUARE_PROFILE.md` §§3–4; the stress test is a finite illustration, not a proof; NR only at this P; nothing about ℕ, PA or ZFC.
+Review: cross-lab (Opus) `data/z74/xreview/REVIEW_COLLECT_OPUS.md` (C28, CORRECT; stress test rerun and independently recomputed).
+Triage: BARRIER-SCOPED (no adelic field embedding) / DATA
+STATUS delta: none
+*(§0 block: z74 Opus xreview fix)*
+
 **Verdict on §§3–4 of `LOGIC_NONSQUARE_PROFILE.md`.** The field cannot embed in the finite adeles with the specified image of `P`. It does not have to. The embeddings into the *individual* local fields, with their joint restriction to the stage algebra taking finite-adele values, suffice. The Bézout, Dirichlet and marked-section arguments survive this distinction. Below is a construction extending the evaluations one stage at a time, without changing earlier local choices. It also identifies exactly which field elements have finite-adele values in this construction.
 
 **Input, not proved here:** a unit profile π in the uncovered set of ET Prop. 1.9, each π_q transcendental over ℚ, with π_q≡1 mod q almost everywhere. For the advertised congruence and NR conclusion also assume π≡1 mod 840 and π_l nonsquare mod one standard prime l≡3 mod 4. This audits the model half; it is not an independent verification of the counting or mass estimate producing π.

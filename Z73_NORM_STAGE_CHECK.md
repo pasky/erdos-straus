@@ -1,5 +1,12 @@
 # Independent check: the equal-scale norm-factor stage
 
+Result: the norm stage B=A[X,Y,q/(X²+Y²)] has bounded elements exactly ℚ under a fresh-residue/slow-scale order; B need not be smooth (explicit singular point); a second row FU+XWV=1 restores global smoothness.   Label: PROVED (stage calculations)
+Scope: a stage lemma, not a joint-model theorem; residue transcendence over ℚ alone is shown insufficient.
+Review: cross-lab (Opus) `data/z74/xreview/REVIEW_COLLECT_OPUS.md` (C18, CORRECT; singular point rechecked by computer).
+Triage: METHOD-CX / DATA
+STATUS delta: none
+*(§0 block: z74 Opus xreview fix)*
+
 **PROVED (boundedness).** Let `A` be the ordered stage domain, `K=Frac(A)`, with bounded elements of `A` exactly ℚ. Write `F=X²+Y²` and take a nonunit prime `q` in `A`. In the stated UFD setting `FW−q` is primitive linear in `W` over `A[X,Y]`, hence `B=A[X,Y,W]/(FW−q)=A[X,Y,q/F]` inside `K(X,Y)`.
 
 First, `B ∩ ℚ(X,Y) = ℚ[X,Y]`. Write an element of the intersection with **one common denominator** `P/F^k`, where
