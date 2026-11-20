@@ -1,0 +1,1 @@
+mode Q M 16 L0bits 100.0 boxes 2601 terms 8659 max-exponent 0.7500 decreasing True G 9.018771e-06

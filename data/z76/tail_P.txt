@@ -1,0 +1,1 @@
+mode P M 32 L0bits 800.0 boxes 4913 terms 12973 max-exponent 0.4797 decreasing True G 1.361842e-02
