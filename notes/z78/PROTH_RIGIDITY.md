@@ -2,8 +2,8 @@
 
 ## 0. Result and scope
 
-Result: After normalizing the target to `1+U^P`, positive polynomial ES triples integral on a fixed geometric progression before normalization have only finitely many possible shapes.  
-Label: PROVED (algebraic rigidity; arithmetic application below uses named theorems).  
+Result: For bounded positive integers `P,L`, only finitely many `m≥1` admit a single rational-function ES triple in `T=2^(Lj)` on the whole eventual core `s=PLj` of `n=(4^m−1)2^s+1`.  
+Label: PROVED (relative to Siegel's integral-points theorem and the Mordell–Schinzel primitive-square obstruction quoted in `EXPONENT_COVERING.md`, Theorem 1.2).  
 Scope: Rigidity of the denominator formulas, not nonexistence of ES solutions at any integer. No bound on the degrees, heights or coefficient denominators of the input triples is assumed.  
 Review: none.  
 Triage: BARRIER-SCOPED.  
@@ -32,3 +32,19 @@ Fix one possible ordered tuple `r_i`. In the complex coefficient space of polyno
 This affine algebraic set is bounded. Otherwise choose a sequence with some coefficients unbounded, with the largest coefficient modulus tending to infinity. For nonzero coefficients `c_ik` of degree `k≥1`, take `ρ=min |c_ik|^(−1/k)` for each tuple. Then `ρ→0`; after substitution `U=ρV`, every nonconstant coefficient has modulus at most one, and at least one has modulus exactly one. Pass to a subsequence with a common such index and with all rescaled coefficients convergent. The limiting polynomials `G_i` still have `G_i(0)=r_i`; at least one is nonconstant. The target has become `1`, so `Σ 1/G_i=4` identically. At infinity the nonconstant reciprocals vanish and the remaining constants contribute a proper subsum of `Σ 1/r_i=4`, impossible by positivity of the `r_i`. No positivity of the *complex* coefficients was used.
 
 A bounded complex affine algebraic set is finite: by the constructible image theorem each coordinate projection is constructible in the affine line, hence either finite or cofinite, and a bounded projection cannot be cofinite. Take the product of the finite projections. The normalized `F_i` satisfy the displayed equations with one of finitely many allowed constant tuples; the proposition follows. ∎
+
+## 2. The moving coefficient `a_m=4^m−1`
+
+**Theorem 2 (bounded-period core).** Fix `P,L≥1`. For only finitely many `m≥1` are there `X_i ∈ Q(T)` such that for every sufficiently large integer `j` the three `X_i(2^(Lj))` are positive integers solving ES for `N_j=1+(4^m−1)2^(PLj)`. The same holds with `P,L` chosen separately for each `m` from bounded ranges. There is no restriction on how the triple or its threshold depends on `m`.
+
+**Proof.** Apply Proposition 1 with `b=2^L`, `a=a_m`. Separate its finitely many normalized shapes into two cases.
+
+1. **A degree outside `P Z`.** Fix a shape with a nonzero coefficient `c` at such a degree `k` and, if it occurs at all, a realizing index `m₀`. For every `m` realizing it, both `ca_m^(k/P)` and `ca_(m₀)^(k/P)` are nonzero rationals. Thus `(a_m/a_(m₀))^(k/P)` is rational. Taking prime valuations shows `a_m/a_(m₀)` is a rational `d`-th power, `d=P/gcd(P,k)>1`. For a prime `p|d`, write `a_(m₀)=D v₀^p` with `D` positive and `p`-th-power-free. Then `a_m=D v^p` for a positive **integer** `v`: each valuation of `a_m` is nonnegative and congruent to the corresponding valuation of `D∈Z` modulo `p`.
+
+   For fixed `D,p` there are only finitely many such `m`. For odd `p`, the integral points `(v,2^m)` lie on `Y²=D X^p+1`, a hyperelliptic curve of genus `(p−1)/2≥1` (squarefree right side). For `p=2`, split `m=2h+r`, `r=0,1`; the integral points `(2^h,Dv)` lie on `Y²=D(4^r X^4−1)`, a squarefree quartic of genus one. Siegel's integral-points theorem applies to each of these fixed curves; the indicated points distinguish the indices in each case. This proves finiteness, not a computed cutoff.
+
+2. **Only degrees in `P Z`.** Each original `X_i` lies in `Q[T^P]=Q[N]`, where `N=1+a_m T^P`. Write it as `H_i(N)` and take an integer `M≥2` clearing all coefficient denominators of the three `H_i`. Write `M=2^e M'` with `M'` odd. For arbitrarily large `j` (multiples of the order of `2` modulo `M'` if `M'>1`), `N_j≡4^m (mod M')` and `N_j≡1 (mod 2^e)`. The single class `R (mod M)` specified by these congruences is a unit square: use the roots `2^m` and `1` on the respective factors. Integrality at **one** sampled `N_j` in `R` implies integrality of `H_i(n)` for **every** integer `n` in `R`, by reduction of `M H_i(n)` modulo `M`. Positivity for all sufficiently large `n` follows from eventual positivity along the samples; the ES identity is a polynomial identity in `n` since substitution `n=1+a_m T^P` is injective. This would solve the primitive square class `R` by polynomials. It contradicts the Mordell–Schinzel obstruction as stated in the proof of [`EXPONENT_COVERING.md`, Theorem 1.2](../../EXPONENT_COVERING.md#1-setup-and-the-compactness-criterion), specifically its assertion for **all** polynomial-solvable classes at a profinite **unit** square, not just the seven ET classes. Thus this case occurs for no `m`.
+
+The finite union over shapes, and then over any bounded choices of `P,L`, is still finite. ∎
+
+**Reading the quantifiers.** On a bounded-period partition of the exponents it suffices that the branch through `s=0` modulo that period uses the indicated formula on its entire eventual progression. For instance, a formula rational in `2^(s/d)` with bounded positive integral `d` on `s≡0 (mod H)` with bounded `H` restricts to the theorem with `P=d`, `L=H` by taking `s=dHj`. Rational dependence on `2^m` or on `m` in the coefficients causes no problem: fix `m` first. The other branches need not be polynomial or even specified. The theorem does **not** exclude unbounded core periods, unbounded root exponents, different choices from a menu made at individual exponents with no bounded-period zero branch, or searches for divisors at each input. It supplies neither a counterexample to ES nor an all-`s` construction.
