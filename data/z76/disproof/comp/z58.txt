@@ -1,0 +1,3 @@
+# z58eng list K=16 EXACT=1 J0=0
+# p S_K S_Ke dmin zR z8 zodd zH3 R R8 RG
+1590284203561 18 0 6271 0 1 0 0 52 0 50

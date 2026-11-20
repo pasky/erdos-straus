@@ -1,0 +1,9 @@
+r 1 even c<= 1000 with points: 0 []
+r 3 even c<= 1000 with points: 4 [2, 6, 34, 198]
+r 5 even c<= 1000 with points: 0 []
+r 9 even c<= 1000 with points: 0 []
+r 13 even c<= 1000 with points: 4 [2, 10, 58, 338]
+r 17 even c<= 1000 with points: 0 []
+r 21 even c<= 1000 with points: 0 []
+0.28user 0.04system 0:00.32elapsed 101%CPU (0avgtext+0avgdata 34620maxresident)k
+0inputs+0outputs (0major+11641minor)pagefaults 0swaps

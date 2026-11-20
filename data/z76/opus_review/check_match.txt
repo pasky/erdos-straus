@@ -1,0 +1,1 @@
+{'checked_cells': 879, 'dropped_verified': 61} anchors fully re-derived 820

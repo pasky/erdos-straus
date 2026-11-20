@@ -1,0 +1,4 @@
+MISS 1218367081201
+# k=8 first=1218000000361 last=1218999999361 step=840 length=1190476 late_integers=24 hard_primes=2 miss=1
+MISS 1511088831001
+# k=8 first=1511000000161 last=1511999999161 step=840 length=1190476 late_integers=39 hard_primes=2 miss=1

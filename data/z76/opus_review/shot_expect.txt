@@ -1,0 +1,3 @@
+expected #shot hits f<=1000: square model 0.824  unit-uniform 2.891
+sq mean hits 0.670 zero-hit 367 of 699
+sq_ctl mean hits 2.030 zero-hit 128 of 699

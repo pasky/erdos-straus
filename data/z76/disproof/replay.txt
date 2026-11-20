@@ -1,0 +1,8 @@
+In file included from scripts/z76_disproof_match.cpp:5:
+scripts/z75_push2_prime_panels.cpp: In function 'int z75_panel_unused_main(int, char**)':
+scripts/z75_push2_prime_panels.cpp:51:1: warning: control reaches end of non-void function [-Wreturn-type]
+   51 | }
+      | ^
+# N=1 meanS=18.000 zeros R=0 R8=1 Rodd=0 H3=0 full=1
+Replayed.
+total wall seconds: 477.72

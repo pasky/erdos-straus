@@ -1,0 +1,18 @@
+M 1058400 dropped {'pair': 21, 'quartet': 883}
+arm rows max_abs_distance max_ppm f>1000:R,A,U7,S,R8 maxfR8
+sm+ 1165 0 0.0 43 38 8 0 249 2432751
+sm- 1165 8333841600 999.966 40 37 17 0 245 253439
+rough+ 1165 184161600 91.135 42 32 6 0 205 965119
+rough- 1165 28576800 11.532 15 15 4 1 186 166319
+sq 699 0 0.0 35 13 14 2 367 6739359
+sq_ctl 699 6747300000 924.451 18 19 6 0 128 105599
+discordant 10/01 sm+ rough+ 214 170
+discordant 10/01 sm- rough- 212 153
+discordant 10/01 sm+ sm- 194 190
+discordant 10/01 rough+ rough- 171 152
+discordant 10/01 sq sq_ctl 299 60
+square diagnostic all sq / ctl 367 128 discordant 299 60
+square diagnostic u!=1 sq / ctl 367 164 discordant 281 78
+square diagnostic compatible sq / ctl 367 522 discordant 79 234
+hard unique, max f R A U7 S 7723 560775 73871 162335 4746
+R8-MISS 1590284203561 mod840 361 p-1 [2, 2, 2, 3, 3, 5, 13, 211, 1033, 1559] 12p+1 [7, 13, 209707807063] full8 2 101507502355 3 1
