@@ -1,0 +1,12 @@
+subsample exact ordered R8 per arm: n sum min median <=20
+sm+ 48 2278 24 48.0 0
+sm- 48 2308 18 50.0 1
+rough+ 48 2420 28 48.0 0
+rough- 48 2620 28 50.0 0
+sq 48 1672 14 32.0 1
+sq_ctl 48 2560 26 51.0 0
+sm+ rough+ R8 less/equal/greater 25 2 21
+sm- rough- R8 less/equal/greater 30 2 16
+sm+ sm- R8 less/equal/greater 22 1 25
+rough+ rough- R8 less/equal/greater 23 3 22
+sq sq_ctl R8 less/equal/greater 40 2 6
