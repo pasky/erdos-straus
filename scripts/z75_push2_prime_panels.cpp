@@ -8,9 +8,17 @@
 #include <string>
 #include <vector>
 #include <cstdio>
-#define main round1_panel_main
-#include "z75_obstruct_panels.c"
-#undef main
+#include <cassert>
+#include <cinttypes>
+#include <cstdlib>
+using U=uint64_t;
+/* Modular test as in z75_obstruct_panels.c; first 12 prime bases suffice for
+   all unsigned 64-bit inputs. All shifts in these panels are < 2^47. */
+static const U q[]={2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61};
+static U powm(U a,U e,U m){U r=1;while(e){if(e&1)r=(__uint128_t)a*r%m;a=(__uint128_t)a*a%m;e>>=1;}return r;}
+static bool prime(U n){if(n<2)return false;for(int j=0;j<12;j++)if(n%q[j]==0)return n==q[j];
+ U d=n-1;int s=0;while(!(d&1)){d/=2;s++;}for(int j=0;j<12;j++){
+ U x=powm(q[j],d,n);if(x==1||x==n-1)continue;int i=1;for(;i<s;i++){x=(__uint128_t)x*x%n;if(x==n-1)break;}if(i==s)return false;}return true;}
 const U LO=1000000000000ULL,HI=9000000000000ULL;
 static std::vector<U> pos,neg;
 static std::set<U> used;
