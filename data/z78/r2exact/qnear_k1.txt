@@ -1,0 +1,2 @@
+MAX k=1 orientation=a valuation=0 (no Q datum even mod 17)
+MAX k=1 orientation=b valuation=0 (no Q datum even mod 17)
