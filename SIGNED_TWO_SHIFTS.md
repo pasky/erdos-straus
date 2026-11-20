@@ -1,6 +1,15 @@
 # Can either of two denominators use the same signed shift?
 
-**Answer.** For primes `p≡1 (24)`, not always: at 193 no prime shift of the required sign works in either denominator, in any slot. No composite shift works there either **if a root is required**; several work if only a Jacobi sign is required. **193 is not one of Mordell's six residues** `{1,121,169,289,361,529} mod 840`. Within `1 mod 840` we give an exact factorization obstruction at the least eligible shift 11, a density-one positive result for the least eligible prime, and a conditional obstruction to trying any fixed number of successive eligible shifts. None settles the individual-prime, unrestricted-shift problem on that class.
+```
+Result: at 193 no root-eligible shift works in either window (p+d)/4, p(pd+1)/4; exact signed classification at shift 11 on 1 mod 840; density one at the least eligible prime; under Dickson any fixed number of successive eligible shifts can all fail.
+Label: CERTIFIED (193; 10^7 survey) | PROVED (11-classification, J-repair, density one) | CONDITIONAL on Dickson (k-shift obstruction)
+Scope: two specified denominator windows; no pointwise or exceptional-set theorem; method counterexamples only. ES is OPEN.
+Review: cross-model, data/z74/xreview/REVIEW_SHIFTS_OPUS.md (ACCEPT-WITH-FIXES; no gap) (z74 Opus xreview fix)
+Triage: METHOD-CX
+STATUS delta: none
+```
+
+**Answer.** For primes `p≡1 (24)`, not always: at 193 no prime shift of the required sign works in either denominator, in any slot (z74 Opus xreview fix: i.e. as either of the two window denominators `(p+d)/4`, `p(pd+1)/4`, in any position of the triple; the *literal* slot `p(d+1)/4` does hit at the root-eligible prime 103, see below). No composite shift works there either **if a root is required**; several work if only a Jacobi sign is required. **193 is not one of Mordell's six residues** `{1,121,169,289,361,529} mod 840`. Within `1 mod 840` we give an exact factorization obstruction at the least eligible shift 11, a density-one positive result for the least eligible prime, and a conditional obstruction to trying any fixed number of successive eligible shifts. None settles the individual-prime, unrestricted-shift problem on that class.
 
 ## The test and its finite boundaries (PROVED)
 

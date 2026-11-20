@@ -1,5 +1,14 @@
 # Two replacements from Q: an attained minimum and a failed successor
 
+```
+Result: at p=9565921 one factorisation x=323·617 gives both a 4/Q donor and a 4/p target sharing 12x, although both windows miss at 11 and 23; at p=6206649121 all windows miss at 11, 23, 47 and the donor fails at its least slot.
+Label: CERTIFIED (both primes) | PROVED (root lemma, forced consequences of the two misses, two obstructions) | CONDITIONAL on Dickson (prime family keeping the misses)
+Scope: a specified two-replacement transfer rule at root-eligible shifts; method counterexamples, not ES counterexamples. ES is OPEN.
+Review: cross-model, data/z74/xreview/REVIEW_SHIFTS_OPUS.md (ACCEPT-WITH-FIXES; no gap) (z74 Opus xreview fix)
+Triage: BARRIER-SCOPED
+STATUS delta: none
+```
+
 **CERTIFIED minimum at `p=9565921`, `Q=(p+11)/12=797161`.** Keep `12x`, replace the other two scaled donor slots (the convention of `SHARED_SCALED_SLOT.md`, commit `b638f1884`). The least possible shared donor value is **`x=199291`**, not merely the least in a search. Every positive donor slot exceeds `Q/4`; here the lower endpoint `⌊Q/4⌋+1` works:
 
 ```

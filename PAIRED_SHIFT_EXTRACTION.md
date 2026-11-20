@@ -1,5 +1,14 @@
 # What can be extracted after a double miss at 11?
 
+```
+Result: no shift supported on the four linear forms p+11, 11p+1, p+121, 11p+121 (even with determinant primes) rescues 2521 or 12601; a neighbour identity rescues an unbounded Dirichlet family whose Q has no small prime; a Pell-orbit Type I subfamily.
+Label: PROVED (gcds, identities, Dirichlet family, Pell orbit for integers) | CERTIFIED (2521, 12601, 9676801, 20210401) | CONDITIONAL on Dickson (double-miss version)
+Scope: specific extraction rules after a double miss at 11; ET congruences, no pointwise rescue. ES is OPEN.
+Review: cross-model, data/z74/xreview/REVIEW_SHIFTS_OPUS.md (ACCEPT-WITH-FIXES; no gap) (z74 Opus xreview fix)
+Triage: METHOD-CX
+STATUS delta: none
+```
+
 **Verdict.** Not a divisor supported on the four proposed linear forms, even if arbitrary powers and products are allowed as the next shift. There are genuine rescues by the distinguished prime of `Q`, but no forcing by that prime alone. Below are a growing-prime family and a separate nonlinear identity; neither proves a pointwise rescue.
 
 ### The gcds and a finite falsifier (PROVED / CERTIFIED)

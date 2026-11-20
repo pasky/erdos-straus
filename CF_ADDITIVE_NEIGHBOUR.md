@@ -1,5 +1,14 @@
 # Adjacent complete denominators: an additive escape, not a factor transfer
 
+```
+Result: the additive neighbour A=Q_i±1 of a CF complete denominator gives an exact Type II test and an unconditional forced integer family (prime seed 154853161), whereas prime factors of CF denominators are all residues and cannot be the support of any p-free denominator.
+Label: PROVED (test, family for integers, factor-sign obstruction, size audit) | CERTIFIED (20161, 154853161)
+Scope: CF-selected denominators only; no pointwise claim; the character input is repo-known (CT, A2, Z52D Prop. 2.4). ES is OPEN.
+Review: cross-model, data/z74/xreview/REVIEW_SHIFTS_OPUS.md (ACCEPT-WITH-FIXES; no gap) (z74 Opus xreview fix)
+Triage: BARRIER-SCOPED
+STATUS delta: none
+```
+
 **Positive rule (proved).** Take an ordinary continued-fraction row of `√p`, with `r=Q_{i−1}, q=Q_i, P=P_i`, so `p=P²+rq`. For `h=±1` put `A=q+h>0`, `f=4A−1`. The **exact** test for this A with `D=E=1` is
 
 ```

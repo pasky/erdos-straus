@@ -1,5 +1,14 @@
 # Moving the factor from a failed shift 11
 
+```
+Result: after a direct miss at 11 (p=12fh−11), retaining f in a normalised Type II K is impossible at every shift when 4f≥33h+11; the shift 12h+11 has a proved sufficient condition; exact Type II/Type I classification at 23.
+Label: PROVED (obstructions, sufficient condition, 23-classification) | CERTIFIED (examples; 10^7 bounded replay, DATA)
+Scope: normalised Type II factor-retention rules after a failure at 11; not a universal repair and not about ES at any prime. ES is OPEN.
+Review: cross-model, data/z74/xreview/REVIEW_SHIFTS_OPUS.md (ACCEPT-WITH-FIXES; no gap) (z74 Opus xreview fix)
+Triage: BARRIER-SCOPED
+STATUS delta: none
+```
+
 **Result.** Keeping `AB=f` never works. Even keeping `f | K=ABD` is impossible if `4f≥33h+11`. Moving instead to `K=3h(f+1)` gives a **proved sufficient condition** at the variable shift `12h+11`, including a root for composite shifts. It is not a universal repair. At `h=1` there is an exact obstruction at the successor shift 23.
 
 Assume throughout that `p≡1 mod 840` is prime and the direct slot fails at eligible 11. By `SIGNED_TWO_SHIFTS.md`, `p=12fh−11`, `f` prime of class `p=2 or 6 mod 11`, and all prime factors of `h` are `1 mod 11`. Thus `f≥13` (Q is odd), `gcd(f,h)=1`. The sign really is forced: `(f/p)=(−11/f)=(f/11)=−1` by reciprocity. This alone does not put `f` in any denominator.

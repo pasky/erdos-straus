@@ -1,5 +1,14 @@
 # What can be kept when transferring a positive triple from Q to p?
 
+```
+Result: one-slot gate (p must divide the replaced slot) and polynomial no-go; exact two-replacement test; at k=12,d=11, Q≡3 (4) the least donor transfers iff x has a nonresidue prime mod 23; full donor/target intersections at five primes.
+Label: PROVED (gate, no-go, tied test) | CERTIFIED (intersection table)
+Scope: transfers of a scaled 4/Q donor to 4/p keeping one or two slots; no claim about ES. ES is OPEN.
+Review: cross-model, data/z74/xreview/REVIEW_SHIFTS_OPUS.md (ACCEPT-WITH-FIXES; no gap) (z74 Opus xreview fix)
+Triage: BARRIER-SCOPED
+STATUS delta: none
+```
+
 **One replacement (PROVED).** Let `p` be an odd prime, `k,Q≥1`, `p∤kQ`, and `d=kQ−p>0`. Scale a donor ES triple for `Q` by `k`, keeping two entries. Replacing `ku` must give the unique value
 
 `1/v=1/(ku)+4d/(pkQ)`, so `v=kp rQ/h`, where `h=pt+4dr`, `t=Q/g`, `r=u/g`, `g=gcd(Q,u)`.

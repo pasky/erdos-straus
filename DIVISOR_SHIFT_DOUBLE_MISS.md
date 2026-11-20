@@ -1,5 +1,14 @@
 # Simultaneous direct and dual failure for every divisor shift
 
+```
+Result: for every T with 210|T, infinitely many primes p=4Tq+1 (q prime) have every divisor shift c=4D−1, D|(p−1)/4, missing both the direct slot (p+c)/4 and the Type I slot p(cp+1)/4.
+Label: CONDITIONAL on Dickson's conjecture for linear forms
+Scope: the divisor-shift search rule, inside 1 mod 840; not a claim that ES fails anywhere. ES is OPEN.
+Review: cross-model, data/z74/xreview/REVIEW_SHIFTS_OPUS.md (ACCEPT-WITH-FIXES; no gap) (z74 Opus xreview fix)
+Triage: BARRIER-SCOPED
+STATUS delta: none
+```
+
 **Theorem (conditional only on Dickson's conjecture for linear forms).** Fix any positive multiple T of 210. There are infinitely many primes q with `p=4Tq+1` prime such that, for **every** `D|(p−1)/4`, neither `K=(p+c)/4` nor `pN`, `N=(cp+1)/4`, occurs in a positive ES triple at p, where `c=4D−1`. The direct assertion allows unrestricted remaining denominators, not just multiples of p. No eligibility assumption on c is made.
 
 **Window criterion.** Removing `1/K` gives `c/H` with `H=pK`; removing `1/(pN)` gives `c/H` with `H=N`. A two-term completion yields `(cy−H)(cz−H)=H²`, both factors positive. For the first factor u, `u/H≡−1 mod c`; it is a signed product of the primes of H with exponents of absolute value ≤ their multiplicities in H. Here `(c,H)=1`: `c<p` and `(4,c)=1`. Thus it suffices to exclude −1 from these signed products. When H is displayed as a product of blocks, distribute each prime's signed exponent over its occurrences in the blocks; this works **without any coprimality between blocks**.

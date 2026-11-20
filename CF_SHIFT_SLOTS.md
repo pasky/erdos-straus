@@ -1,5 +1,14 @@
 # Principal continued-fraction shifts tested as actual denominators
 
+```
+Result: the CF-shift menu first misses at p=176401=420²+1 (79th prime 1 mod 840), even expanded; for period one the dual at 3 always fails and the direct works iff (m/2)²+1 has a prime 5 mod 12; exact full-split test for c=4Q_i−1.
+Label: CERTIFIED (176401; the 78 smaller hits) | PROVED (period-one criterion, support obstruction, full-split test) | CONDITIONAL on Schinzel H (infinitely many period-one misses)
+Scope: the specified CF menu only; 176401 satisfies ES. ES is OPEN.
+Review: cross-model, data/z74/xreview/REVIEW_SHIFTS_OPUS.md (ACCEPT-WITH-FIXES; no gap) (z74 Opus xreview fix)
+Triage: METHOD-CX
+STATUS delta: none
+```
+
 **CERTIFIED least miss:** `p=176401=420²+1`, the 79th prime `1 mod 840`. Use the initial state and one complete period of `√p` as in `Z52D_PELLCYCLE.md` (S expansion only). For each complete denominator `Q` take the largest odd part of each positive `Q,Q−1,Q+1,4Q−1`; retain `c≡3 mod 4` prime to `p`, necessary for the two slots to be integral. **No sign, root, or prime-shift filter.** Here the only periodic state is `(P,Q,a)=(420,1,840)`, and the menu is `{3}`. Even expanding the rule to use `aQ` and `a` in place of `Q` gives only `{3,419,839,1679,3359}` and all five miss. The smaller 78 primes each have a certified hit on the narrower menu. This is not a forest test: that earlier experiment asked whether a *component meeting a root* contained a bichromatic edge, not whether a specified ES denominator completed.
 
 **Exact test.** At `s=K=(p+c)/4` the residual is `c/H` with `H=pK`, and at `s=pN`, `N=(pc+1)/4`, it is `c/H` with `H=N`. In either case `gcd(c,H)=1`; a hit is equivalent to `t|H²`, `t≤H`, `t≡−H mod c`, since `(cy−H)(cz−H)=H²`. Replay checks `4syz=p(sy+sz+yz)` for each returned hit. This tests unrestricted direct completion, not just Type II. At the first miss `K=44101` prime, `N=13·10177`, all factors `1 mod 3` including `p`.
