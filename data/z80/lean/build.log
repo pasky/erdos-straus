@@ -1,0 +1,133 @@
+Scope command line contains environment variable, which is not expanded by default for now, but will be expanded by default in the future. Use --expand-environment=yes/no to explicitly control it as needed.
+Running as unit: run-p280467-i12859628.scope; invocation ID: 1805567d6589433180ff55558103cda6
+info: mathlib: cloning https://github.com/leanprover-community/mathlib4
+info: mathlib: checking out revision 'd13f23b723b8a846827a245b89c10fc7d3f11612'
+info: plausible: cloning https://github.com/leanprover-community/plausible
+info: plausible: checking out revision '118aa17ee84656b8bd727fef7c458ee8c833385c'
+info: LeanSearchClient: cloning https://github.com/leanprover-community/LeanSearchClient
+info: LeanSearchClient: checking out revision 'ddf04cf3949fa556442341e87d47f9f6e6074707'
+info: importGraph: cloning https://github.com/leanprover-community/import-graph
+info: importGraph: checking out revision 'e928b72544873815af278d38681b31c0293588e3'
+info: proofwidgets: cloning https://github.com/leanprover-community/ProofWidgets4
+info: proofwidgets: checking out revision '106ff4fafc74ef4ac99d81dbf3ab399118f497a5'
+info: aesop: cloning https://github.com/leanprover-community/aesop
+info: aesop: checking out revision '355695d523e41d0554926416cba2a2b3544fbbc9'
+info: Qq: cloning https://github.com/leanprover-community/quote4
+info: Qq: checking out revision '6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259'
+info: batteries: cloning https://github.com/leanprover-community/batteries
+info: batteries: checking out revision 'f2effa3d803fda822b1f97b806c47cf2adfbcbc2'
+info: Cli: cloning https://github.com/leanprover/lean4-cli
+info: Cli: checking out revision 'e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204'
+✔ [1/5] Built Cache.Cli (193ms)
+✔ [2/5] Built Cache.Lean (265ms)
+✔ [6/42] Built Cache.Env (277ms)
+✔ [7/42] Built Cache.Cli:c.o (242ms)
+✔ [8/42] Built Cache.Lean:c.o (228ms)
+✔ [9/42] Built Cache.Env:c.o (129ms)
+✔ [10/42] Built Cache.Infra (254ms)
+✔ [11/42] Built Batteries.Tactic.OpenPrivate (566ms)
+✔ [12/42] Built Cache.Infra:c.o (128ms)
+✔ [13/42] Built Batteries.Tactic.OpenPrivate:c.o (713ms)
+✔ [14/42] Built Cache.IO (963ms)
+✔ [15/42] Built Cache.Hashing (549ms)
+✔ [16/42] Built Cache.IO:c.o (893ms)
+✔ [17/42] Built Cache.Hashing:c.o (363ms)
+✔ [18/42] Built Cache.Requests (1.3s)
+✔ [19/42] Built Cache.Marker (393ms)
+✔ [20/42] Built Cache.Marker:c.o (82ms)
+✔ [21/42] Built Cache.Upload.Dest (428ms)
+✔ [22/42] Built Cache.Query (516ms)
+✔ [23/42] Built Cache.Upload.Dest:c.o (98ms)
+✔ [24/42] Built Cache.Query:c.o (254ms)
+✔ [25/42] Built Cache.Upload.Curl (451ms)
+✔ [26/42] Built Cache.Upload.Rclone (464ms)
+✔ [27/42] Built Cache.Warning (479ms)
+✔ [28/42] Built Cache.Upload.Curl:c.o (159ms)
+✔ [29/42] Built Cache.Upload.Rclone:c.o (105ms)
+✔ [30/42] Built Cache.Warning:c.o (163ms)
+✔ [31/42] Built Cache.Requests:c.o (1.6s)
+✔ [32/42] Built Cache.Upload.Azure (437ms)
+✔ [33/42] Built Cache.Upload.S3 (537ms)
+✔ [34/42] Built Cache.Upload.Azure:c.o (96ms)
+✔ [35/42] Built Cache.Upload.S3:c.o (210ms)
+✔ [36/42] Built Cache.Upload.Defs (384ms)
+✔ [37/42] Built Cache.Upload.Defs:c.o (83ms)
+✔ [38/42] Built Cache.Upload (341ms)
+✔ [39/42] Built Cache.Upload:c.o (81ms)
+✔ [40/42] Built Cache.Main (673ms)
+✔ [41/42] Built Cache.Main:c.o (523ms)
+✔ [42/42] Built cache:exe (1.1s)
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Decompressing 8907 already-cached file(s) (1 already decompressed)
+No files to download
+Decompressed 8907 already-cached file(s)
+Completed successfully in 13309 ms!
+ℹ [8924/8934] Built ES.F3Endpoint (3.4s)
+info: ES/F3Endpoint.lean:150:0: 'ES.F3Endpoint.no_covering_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/F3Endpoint.lean:151:0: 'ES.F3Endpoint.key_identity' depends on axioms: [propext, Quot.sound]
+✔ [8925/8934] Built ES.Basic (4.8s)
+ℹ [8926/8934] Built ES.Axioms (4.2s)
+info: ES/Axioms.lean:4:0: 'ES.ESProp_iff_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:5:0: 'ES.cofactor_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:6:0: 'ES.cform_ES' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:7:0: 'ES.cform_ES_rat' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:8:0: 'ES.cform_C_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:9:0: 'ES.jacobi_C_of_dvd_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:10:0: 'ES.jacobi_n_of_cform' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:11:0: 'ES.no_cform_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:12:0: 'ES.no_shifted_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:13:0: 'ES.jacobi_a_of_cform' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:14:0: 'ES.cform_iff_shifted' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:15:0: 'ES.no_typeII_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:16:0: 'ES.no_typeI_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:17:0: 'ES.ES_of_primes_one_mod_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/Axioms.lean:18:0: 'ES.ES_of_cform_primes' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8927/8934] Built ES.Proth3 (6.2s)
+✔ [8928/8934] Built ES.HC (7.4s)
+ℹ [8929/8934] Built ES.ProthCore (8.3s)
+info: ES/ProthCore.lean:320:0: 'ESProthCore.proth_four_pow_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:321:0: 'ESProthCore.core_four_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:322:0: 'ESProthCore.core_of_doubling' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:323:0: 'ESProthCore.es_of_word' depends on axioms: [propext, Quot.sound]
+info: ES/ProthCore.lean:324:0: 'ESProthCore.telescoping_neg_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:325:0: 'ESProthCore.telescoping_four_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/ProthCore.lean:498:0: 'ESProthCore.proth63' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8930/8934] Built ES.AxiomsHC (3.4s)
+info: ES/AxiomsHC.lean:4:0: 'ESHC.ES_of_slot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:5:0: 'ESHC.core8' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:6:0: 'ESHC.slot_iff_coord' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:7:0: 'ESHC.ES_of_coord' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:8:0: 'ESHC.ES_of_isCoord' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:9:0: 'ESHC.ES_of_HCle' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:10:0: 'ESHC.ES5_iff_HC_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:11:0: 'ESHC.coordU_iff' depends on axioms: [propext, Quot.sound]
+info: ES/AxiomsHC.lean:12:0: 'ESHC.coordT_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:13:0: 'ESHC.isCoord_iff_fires' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:14:0: 'ESHC.ES_of_lineU' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:15:0: 'ESHC.ES_of_lineT' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:16:0: 'ESHC.dvd_mod_four_of_S' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:17:0: 'ESHC.exists_dvd_three_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:18:0: 'ESHC.S_sq_add_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:19:0: 'ESHC.HC_gt_four_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:20:0: 'ESHC.HC_gt_two' depends on axioms: [propext, Quot.sound]
+info: ES/AxiomsHC.lean:21:0: 'ESHC.HC_gt_three' depends on axioms: [propext, Quot.sound]
+info: ES/AxiomsHC.lean:22:0: 'ESHC.theoremQ' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:23:0: 'ESHC.theoremQ_no_line4' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:24:0: 'ESHC.prop31a' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:25:0: 'ESHC.prop31b_mod3_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:26:0: 'ESHC.prop31b_mod7_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:27:0: 'ESHC.prop31b_mod7_5' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:28:0: 'ESHC.prop31b_mod5_3' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:29:0: 'ESHC.prop31b_mod5_2' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:30:0: 'ESHC.prop31b_mod7_6' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:31:0: 'ESHC.HC_le_eight_of_nonresidue' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:32:0: 'ESHC.cls840' does not depend on any axioms
+info: ES/AxiomsHC.lean:33:0: 'ESHC.prop31c' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ES/AxiomsHC.lean:34:0: 'ESHC.prop31c_classes' does not depend on any axioms
+ℹ [8931/8934] Built ES.ProthQuadratic (3.7s)
+info: ES/ProthQuadratic.lean:52:0: 'ESProthQuadratic.quadratic_transfer' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [8932/8934] Built ES.Proth15 (11s)
+info: ES/Proth15.lean:635:0: 'ESProth15.proth15' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [8933/8934] Built ES (2.5s)
+Build completed successfully (8934 jobs).
