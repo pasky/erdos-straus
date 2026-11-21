@@ -23,7 +23,7 @@ def verify(kappa, lam):
                 f=y+2*x+u-g  # second B-process phase size
                 s=2*(x+p-g)
                 assert f+2*s<0 # second-order remainder in the SECOND critical value
-                # J=1+B sigma, V=B/Y, population E V. If J>E V use trivial bound.
+                # J~1+B sigma, population E*B/Y; J/A_0 is retained even when >1.
                 terms={'shift diagonal':-v,'B tails':i-v-f/2,
                        'bin diagonal':i-v-(y+e)/2,
                        'bin correction':i-v+(f+s-y-e)/2,
