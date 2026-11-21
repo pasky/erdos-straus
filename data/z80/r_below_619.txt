@@ -27,6 +27,11 @@ independent divisor replay of word and chart counts at 43 sample primes
 chart partition prime dyad 10000 20000 covered 10496 total 16410 fraction 0.6396
 chart partition prime dyad 50000 100000 covered 61692 total 94336 fraction 0.654
 chart partition prime dyad 250000 500000 covered 355324 total 533516 fraction 0.666
+disjoint CRT Fourier l1/sqrt(m0) 0.60769 D 673
 toy signed disjoint kernel 2 -3 D 673 |K|/sqrt(W) 0.47882 |K|/(W/P^2) 0.0684
+disjoint CRT Fourier l1/sqrt(m0) 0.56919 D 509
 toy signed disjoint kernel 3 2 D 509 |K|/sqrt(W) 0.09336 |K|/(W/P^2) 0.01334
+disjoint CRT Fourier l1/sqrt(m0) 1.12479 D 961
 toy signed disjoint kernel 4 -1 D 961 |K|/sqrt(W) 0.77701 |K|/(W/P^2) 0.111
+binding energy / primal diagonal P= 5 sample size 12 min mean max 0.93749 0.99806 1.07774
+binding energy / primal diagonal P= 7 sample size 16 min mean max 0.95391 0.99425 1.02329

@@ -1,6 +1,6 @@
 """Small pointwise controls and exact arithmetic for R_BELOW_619.md (stdlib)."""
 from fractions import Fraction as F
-from math import gcd, lcm, isqrt, pi
+from math import gcd, lcm, isqrt, pi, exp as real_exp
 from cmath import exp
 
 
@@ -155,6 +155,12 @@ def disjoint_packet():
                 summands=[pow(((4*c*k-n)**2-4*k)%p,(p-1)//2,p) for k in range(p)]
                 tab.append(sum((t if t!=p-1 else -1)*psi[v*k%p] for k,t in enumerate(summands))/p**.5)
             tables.append(tab)
+        l1=1.
+        for p,tab in zip(primes,tables):
+            coeff=[sum(tab[t]*exp(-2j*pi*(b*t%p)/p) for t in range(p))/p for b in range(p)]
+            assert abs(sum(abs(x)**2 for x in coeff)-sum(abs(x)**2 for x in tab)/p)<1.e-11
+            l1*=sum(map(abs,coeff))
+        print('disjoint CRT Fourier l1/sqrt(m0)',round(l1/m0**.5,5),'D',D)
         periodic=[tables[0][x%7]*tables[1][x%11]*tables[2][x%13]*tables[3][x%17] for x in range(m0)]
         z=0j
         for x in range(W+1,2*W):
@@ -162,6 +168,34 @@ def disjoint_packet():
             weight=(4*(x-W)*(2*W-x)/W**2)**6
             z+=weight*periodic[x%m0]*exp(2j*pi*(phase/den))
         print('toy signed disjoint kernel',hi,hj,'D',D,'|K|/sqrt(W)',round(abs(z)/W**.5,5),'|K|/(W/P^2)',round(abs(z)/(W/P**2),5))
+
+
+def binding_energy():
+    # Direct enlarged energy with a fixed C-infinity bump on [W,2W]. No
+    # approximation by stationary phase, and no detector trace remaining.
+    for P in (5,7):
+        W=P**6; H=P**2
+        weight=[]
+        for x in range(W+1,2*W):
+            y=(2*x-3*W)/W
+            weight.append(real_exp(-y*y/(1-y*y)))
+        diag=sum(b*b for b in weight); ratios=[]
+        for Q in range(P**2,2*P**2+1,P):
+            for ell in (1,P-1):
+                C=P**19*ell
+                E=0.
+                for r in range(Q):
+                    seq=[]
+                    for a in range(r,len(weight),Q):
+                        den=(W+1+a)*Q
+                        seq.append(weight[a]*exp(2j*pi*((-C)%den)/den))
+                    rolling=0j
+                    for t in range(len(seq)+H-1):
+                        if t<len(seq): rolling+=seq[t]
+                        if t>=H: rolling-=seq[t-H]
+                        E+=abs(rolling)**2
+                ratios.append(E/(H*diag))
+        print('binding energy / primal diagonal P=',P,'sample size',len(ratios),'min mean max',*(round(t,5) for t in (min(ratios),sum(ratios)/len(ratios),max(ratios))))
 
 
 def central_triangle():
@@ -231,4 +265,4 @@ def exponents():
 
 if __name__=='__main__':
     print('# ulimit -v 6000000; timeout 180 uv run --offline --no-project python -B scripts/z80_r_below_619.py')
-    exponents(); selberg(); partial_pin(); small_words(); controls(); plancherel(); traces(); central_triangle(); disjoint_packet()
+    exponents(); selberg(); partial_pin(); small_words(); controls(); plancherel(); traces(); central_triangle(); disjoint_packet(); binding_energy()
