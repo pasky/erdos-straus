@@ -15,7 +15,7 @@ def parity():
         for h in range(1,6):
             q=2**(h+3); a=2**h
             assert {(-a-b+4*j*a*b)%q for b in range(1,q,2)}==set(range(1,q,2))
-    print('pair parity classes checked (including fixed valuation 2^1,...,2^5)')
+    print('pair parity classes checked: 1<=a<80, 1<=b<=80, 1<=d<=10, fixed 2-adic valuations 1 through 5')
     for p,a,b,d,oo in ((6955940568721,4,59,7368581111,42),(1590284203561,15,26984,982239,52)):
         assert 4*a*b*d-a-b==p and d%2==1
         print('Lane 7 panel: odd witness',p,(a,b,d),'inherited ordered totals odd/even',oo,0)
@@ -61,8 +61,7 @@ def inverse_pool():
 
 
 def multiplier():
-    from math import isqrt
-    hits=[0,0]; swaps=set()
+    hits=[0,0]
     for p in (1009,1223,2003):
         for a in range(1,10,2):
             for k in range(1,10,2):
@@ -79,7 +78,7 @@ def multiplier():
                             if j: assert 4*a*b*c*d==a+b+p*c and f*(4*a*c*d-1)==4*a*(c*p+a)
                             else: assert 4*a*b*c*d==c+p*(a+b)
     assert min(hits)>0
-    print('multiplier injection identities tested on small hits (I,II)',hits)
+    print('multiplier parameter identities tested on small hits (I,II)',hits)
 
 if __name__=='__main__':
     print('# ulimit -v 6000000; timeout 180 uv run --offline --no-project python -B scripts/z80_r2_central.py')
