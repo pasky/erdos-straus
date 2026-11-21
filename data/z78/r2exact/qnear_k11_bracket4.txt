@@ -1,0 +1,2 @@
+NO_HIT k=11 orientation=a j>=4; maximum valuation <=3
+NO_HIT k=11 orientation=b j>=4; maximum valuation <=3

@@ -1,4 +1,4 @@
-Result: Exact sparse native-modulus L1/P3/Q3/P5 marginal centre lists and census for all primes 211<r<919 plus r=929. Label: CERTIFIED (exact integer enumeration; independent cell-by-cell replay against the stored exact-family sets at r=211)
+Result: Exact sparse native-modulus L1/P3/Q3/P5 census for every prime 211<r<919 plus r=929, independently cell-validated at 223 and 929; exact Q-nearest maxima through k=9 and a rigorous k=11 bracket. Label: CERTIFIED (exact integer enumeration; scopes and cross-checks below)
 Scope: The r-generic line, depth-three boxes only; counts are native-modulus marginal centres, with each deeper family excluding all preceding families. This is not an ES or sterility claim.
 Review: none (parent hostile review pending)
 Triage: DATA
@@ -83,3 +83,19 @@ timeout 1800 bash -c 'ulimit -v 2000000; /tmp/p5cf 929 5 13808656 1 25055159 > d
 ```
 
 (The same P5 commands use E=795664 and T=346549 for r=223.) `uv run --offline --no-project python -B scripts/z78_r2exact_validate.py` replays the eight cell-set comparisons and rewrites `validation.tsv`; it fails on any list mismatch. The report records exact set equality, not just matching cardinalities.
+
+## Q-nearest data for point 5
+
+`data/z78/r2exact/qnear_results.tsv` records the maximum of `v₁₇(4a²d+5)` over all Q-data of level `k` with `a≤b` (orientation `a`), and separately `v₁₇(4b²d+5)` (orientation `b`). Both orientations are evaluated over the same exact Q tuples. For k=1,3,5,7,9 the maxima are exact: `(0,0), (2,1), (2,2), (2,2), (2,2)`. For k=11 the completed search found no tuple at either orientation with valuation ≥4, so the rigorous upper bound is 3; actual verified tuples attain valuation 1 in each orientation, giving brackets `[1,3]`. The two k=11 tuples and both exact valuations are in `qnear_k11_witnesses.tsv`; both have `e=3`.
+
+Algorithm: for each level `F=17^k`, descend `j` and set `U=17^j`, while leaving the Q equation modulus equal to F. For orientation a solve `4a²d ≡ -5 (mod U)`; for orientation b use `4a²d ≡ -1/5 (mod U)`, equivalent to `4b²d ≡ -5 (mod U)` because every Q datum has `4abd ≡ 1 (mod U)`. Put `H=floor(sqrt((F+1)/2))`. Enumerate every `a≤H` and every positive d lift of its unique residue modulo U up to `ad≤(F+1)/2`; then enumerate every `d≤H`, both Hensel roots for a modulo U, and all positive a lifts above H up to the same product bound. This partitions all admissible pairs. For each pair, the reviewed M17D reconstruction tests the two possible divisor keys `f | (4a²d+1)`, `f ≡ -F (mod 4ad)`, verifies the full exact Q equation, `a≤b`, integrality and `17∤e`; duplicates are removed. Thus a first hit at j after no hits at larger j certifies the exact maximum. At k=11 the search was complete only through j=4 because j=3 is too costly; the recorded upper bound 3 is from the exhaustive j≥4 search, not a heuristic extrapolation. The separate witnesses prove the lower bound.
+
+The exact tuple valuations use Boost `cpp_int`, avoiding overflow in `4b²d+5` (some b values exceed 64 bits). Build and replay one level at a time, with the same resource limits:
+
+```sh
+g++ -O3 scripts/z78_r2exact_qnear.c -o /tmp/qnear
+timeout 1800 bash -c 'ulimit -v 2000000; /tmp/qnear 9 > data/z78/r2exact/qnear_k9.txt'
+timeout 1800 bash -c 'ulimit -v 2000000; /tmp/qnear 11 4 > data/z78/r2exact/qnear_k11_bracket4.txt'
+```
+
+For a complete exact k=11 maximum, continue the same descending search from j=3 for both orientations in separately checkpointed chunks; this was intentionally not started because the j=4 work alone took 26m47s. No ES or all-depth sterility conclusion follows.
