@@ -61,6 +61,28 @@ def selberg():
     print('finite Selberg example',G,'conditional product',mass)
 
 
+def partial_pin():
+    # Compare the partial-k reversal and full-cylinder mass by exact finite Haar.
+    # Here f=3*5 samples its mixed gcd from two different earlier periods.
+    atoms=[(3,1),(5,3),(15,13),(4,1),(7,6)]
+    period=lcm(*(l for l,r in atoms)); units=[n for n in range(period) if gcd(n,period)==1]
+    from itertools import permutations
+    seen=set()
+    for a,b,j in permutations(atoms,3):
+        q,r=j; u=lcm(a[0],b[0]); h=gcd(q,u)
+        for k in range(1,h+1):
+            if h%k: continue
+            good=lambda n:n%a[0]==a[1] and n%b[0]==b[1]
+            pins=[n for n in units if good(n)]
+            partial=[n for n in units if n%k==r%k]
+            forward=F(len(pins),len(units))*int(bool(pins) and pins[0]%k==r%k)
+            reverse=F(len(partial),len(units))*F(sum(map(good,partial)),len(partial))
+            assert forward==reverse
+            if h not in (gcd(q,a[0]),gcd(q,b[0])): seen.add((q,h,k))
+    assert (15,15,3) in seen
+    print('partial vs full pins verified; mixed cases',sorted(seen))
+
+
 def plancherel():
     def e(z):return exp(2j*pi*z)
     for Q,H,W,C in ((9,4,24,6773),(15,9,80,118867),(6,2,13,3881)):
@@ -87,10 +109,13 @@ def exponents():
     assert 3*F(12,4)*F(1,2)**2/2==F(9,8)
     assert 2*F(6,7)/4*F(1,2)**3/6==F(1,112)
     assert (F(3,7)*F(-7,6)+F(1,2))==0
-    for v in (2,4,6): assert F(25,26*v)**3/F(25,52*v)**3==8
+    for v in (2,4,6):
+        assert F(25,26*v)**3/F(25,52*v)**3==8
+        assert 3*F(12,4)*F(1,v)**2/2==F(9,2*v**2)
+        assert 2*F(6,7)/4*F(1,v)**3/6==F(1,14*v**3)
     print('exact arithmetic: absolute lift deficit 1/19, level-one constants 9/8, 1/112; no new exponent pair used')
 
 
 if __name__=='__main__':
     print('# ulimit -v 6000000; timeout 180 uv run --offline --no-project python -B scripts/z80_r_below_619.py')
-    exponents(); selberg(); small_words(); controls(); plancherel()
+    exponents(); selberg(); partial_pin(); small_words(); controls(); plancherel()

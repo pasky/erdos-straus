@@ -1,6 +1,7 @@
 # ulimit -v 6000000; timeout 180 uv run --offline --no-project python -B scripts/z80_r_below_619.py
 exact arithmetic: absolute lift deficit 1/19, level-one constants 9/8, 1/112; no new exponent pair used
 finite Selberg example 120/197 conditional product 14445/38809
+partial vs full pins verified; mixed cases [(15, 15, 1), (15, 15, 3), (15, 15, 5), (15, 15, 15)]
 M 1 max (n,R) 45359 337 largest observed R/(1+n^.5/M^(7/6)) 4.31344 at 23
 M 4 max (n,R) 45044 60 largest observed R/(1+n^.5/M^(7/6)) 2.87859 at 314
 M 8 max (n,R) 40753 32 largest observed R/(1+n^.5/M^(7/6)) 3.11739 at 314
