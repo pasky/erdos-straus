@@ -1,0 +1,6 @@
+F 1 0 1 1 P/disc -3 -31 sign counts -/0/+ 2024 121 1985
+F 1 0 -3 7 P/disc 9 -1215 sign counts -/0/+ 1926 289 1915
+F 2 3 -5 11 P/disc 39 -18971 sign counts -/0/+ 1896 150 2084
+F 1 1 0 0 P/disc 1 0 sign counts -/0/+ 1919 239 1972
+F 1 3 3 1 P/disc 0 0 sign counts -/0/+ 2154 96 1880
+prime terminal criterion [11,6000): 725 54
