@@ -1,0 +1,4 @@
+nonzero-only across panel []
+ordinary unweighted unordered supports at 24: [(('HJ3bad', 'un', 'N'), 24), (('HJ3good', 'un', 'N'), 24), (('HJ3all', 'un', 'N'), 24), (('HJ3diff', 'un', 'N'), 24), (('HJ5bad', 'un', 'N'), 24), (('HJ5good', 'un', 'N'), 24), (('HJ5all', 'un', 'N'), 24), (('HJ5diff', 'un', 'N'), 24), (('R', 'un', 'N'), 24), (('Rodd', 'un', 'N'), 23), (('R8', 'un', 'N'), 21), (('U7', 'un', 'N'), 24), (('I', 'un', 'N'), 24), (('II', 'un', 'N'), 24), (('ES', 'un', 'N'), 24), (('I-II', 'un', 'N'), 24)]
+augmented rank 2 11 of 11 independent rows [2521, 3361, 4201, 5881, 7561, 9241, 12601, 13441, 14281, 15121, 21001]
+augmented rank 3 11 of 11 independent rows [2521, 3361, 4201, 5881, 7561, 9241, 12601, 13441, 14281, 15121, 20161]
