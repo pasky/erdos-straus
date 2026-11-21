@@ -1,0 +1,19 @@
+  q=7 power=1 local_index=2 unit_only=2
+  q=73 power=1 local_index=1 unit_only=1
+h=9 blocks=2 local_product=2 index=6
+  q=7 power=1 local_index=2 unit_only=2
+  q=73 power=1 local_index=1 unit_only=1
+h=27 blocks=3 local_product=2 index=6
+h=35 blocks=4 local_product=1 index=1
+h=77 blocks=4 local_product=1 index=1
+  q=7 power=2 local_index=2 unit_only=2
+h=105 blocks=10 local_product=2 index=2
+h=115 blocks=6 local_product=1 index=1
+h=119 blocks=6 local_product=1 index=1
+h=127 blocks=1 local_product=1 index=1
+h=133 blocks=3 local_product=1 index=1
+h=143 blocks=6 local_product=1 index=1
+  q=7 power=1 local_index=2 unit_only=2
+h=165 blocks=10 local_product=2 index=2
+  q=7 power=1 local_index=2 unit_only=2
+h=255 blocks=11 local_product=2 index=2

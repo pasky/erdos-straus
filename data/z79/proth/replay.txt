@@ -1,0 +1,4 @@
+m 11 period 3825360 miss 0 {'M': 11, 'D': 4, 'II': 10, 'W': 15, 'X': 1, 'K': 41}
+m 12 period 55440 miss 0 {'D': 21, 'W': 41, 'II': 22, 'X': 1, 'K': 3}
+direct triples: 30*64
+cubic sign sanity: every odd multiple of 3 below 1000
