@@ -1,0 +1,4 @@
+layerwise sign formula checked through h=2187
+level-5 X-ratio anchor: 729 verified
+8 independent odd-order prime towers: lift hypotheses checked
+transfer intersection: all row/small powers, 28 exact misses and CRT compatibility checked
