@@ -1,0 +1,3 @@
+outer areas, intersection, middle half: 1/6800 1/24336 977/25248600 1/34632
+coverage 238447111/317627388 central increment 113285/158813694 previous 1591/2120
+CRT tests small d, pair even, pair odd 58036 578 458

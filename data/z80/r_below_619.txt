@@ -1,0 +1,38 @@
+# ulimit -v 6000000; timeout 180 uv run --offline --no-project python -B scripts/z80_r_below_619.py
+reciprocal discrepancy pair 1/6 2/3 power 4/13 cutoff power at large B 1/13
+reciprocal discrepancy pair 13/84 55/84 power 55/181 cutoff power at large B 16/181
+exact arithmetic: absolute lift deficit 1/19, level-one constants 9/8, 1/112
+finite Selberg example 120/197 conditional product 14445/38809
+exact identity on toy CRT fibre (not a row estimate); mixed cases [(15, 15, 1), (15, 15, 3), (15, 15, 5), (15, 15, 15)]
+M 1 max (n,R) 45359 337 largest observed R/(1+n^.5/M^(7/6)) 4.31344 at 23
+M 4 max (n,R) 45044 60 largest observed R/(1+n^.5/M^(7/6)) 2.87859 at 314
+M 8 max (n,R) 40753 32 largest observed R/(1+n^.5/M^(7/6)) 3.11739 at 314
+M 37 max (n,R) 49277 14 largest observed R/(1+n^.5/M^(7/6)) 4.03 at 4427
+M 193 max (n,R) 11573 6 largest observed R/(1+n^.5/M^(7/6)) 4.87065 at 11573
+M 1000 max (n,R) 11993 4 largest observed R/(1+n^.5/M^(7/6)) 3.86611 at 11993
+zero controls M= 4 odd squares 39
+zero controls M= 8  2
+zero controls M= 4  15
+zero controls M= 4  8
+U7 misses (105, 1465, 3865, 4545, 10305, 12145, 39361, 67425)
+Plancherel Q,H,W 9 4 24 energy 8.153099 absolute residual 1.07e-14
+Plancherel Q,H,W 15 9 80 energy 27.288906 absolute residual 4.26e-14
+Plancherel Q,H,W 6 2 13 energy 4.942312 absolute residual 2.66e-15
+trace normalization checked at p= 7 sample max mixed error/sqrt(p) 2.98293
+trace normalization checked at p= 11 sample max mixed error/sqrt(p) 2.59108
+trace normalization checked at p= 17 sample max mixed error/sqrt(p) 3.12742
+trace normalization checked at p= 23 sample max mixed error/sqrt(p) 2.48768
+trace normalization checked at p= 31 sample max mixed error/sqrt(p) 3.02095
+independent divisor replay of word and chart counts at 43 sample primes
+chart partition prime dyad 10000 20000 covered 10496 total 16410 fraction 0.6396
+chart partition prime dyad 50000 100000 covered 61692 total 94336 fraction 0.654
+chart partition prime dyad 250000 500000 covered 355324 total 533516 fraction 0.666
+disjoint CRT Fourier l1/sqrt(m0) 0.60769 D 673
+toy signed disjoint kernel 2 -3 D 673 |K|/sqrt(W) 0.47882 |K|/(W/P^2) 0.0684
+disjoint CRT Fourier l1/sqrt(m0) 0.56919 D 509
+toy signed disjoint kernel 3 2 D 509 |K|/sqrt(W) 0.09336 |K|/(W/P^2) 0.01334
+disjoint CRT Fourier l1/sqrt(m0) 1.12479 D 961
+toy signed disjoint kernel 4 -1 D 961 |K|/sqrt(W) 0.77701 |K|/(W/P^2) 0.111
+binding energy / primal diagonal P= 5 sample size 12 min mean max 0.93749 0.99806 1.07774
+binding energy / primal diagonal P= 7 sample size 16 min mean max 0.95391 0.99425 1.02329
+archived BM window (rounded reals) size 12314 below 3/4 1759 median 1.04128
