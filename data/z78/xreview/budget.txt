@@ -1,0 +1,8 @@
+own-ledger 911 total_ppm 505653 parts_ppm 104282 391 15723 53785 316187 3125 12164 margin_ppm -6201.795110453672
+own-ledger 919 total_ppm 473410 parts_ppm 83787 268 15610 54829 303764 2991 12164 margin_ppm 26046.755924823396
+own-ledger 929 total_ppm 498628 parts_ppm 51669 531 15489 56553 359154 3072 12164 margin_ppm 834.0360174203253
+own-ledger failures (211<r<7219): 108 largest 911
+own-ledger tightest prime >911: 929 margin_ppm 834.0360174203253
+exact-depth3-ledger 911 total_ppm 436149 parts_ppm 104282 391 2 2 316187 3125 12164 pass margin_ppm 63302.40542094707
+exact-depth3-ledger 919 total_ppm 402975 parts_ppm 83787 268 2 2 303764 2991 12164 pass margin_ppm 96481.14385600836
+exact-depth3-ledger 929 total_ppm 426590 parts_ppm 51669 531 2 2 359154 3072 12164 pass margin_ppm 72872.19381752878

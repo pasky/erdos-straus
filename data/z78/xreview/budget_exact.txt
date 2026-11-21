@@ -1,0 +1,17 @@
+exact-depth3-ledger 223 total_ppm 3489108 parts_ppm 174888 4384 39 53 3227341 56376 26030 FAIL margin_ppm -2991349.900190876
+exact-depth3-ledger 257 total_ppm 3176214 parts_ppm 124514 2756 28 36 2983917 42185 22780 FAIL margin_ppm -2678159.4842385445
+exact-depth3-ledger 307 total_ppm 2386161 parts_ppm 114007 2186 18 24 2219862 28625 21442 FAIL margin_ppm -1887789.4277401972
+exact-depth3-ledger 401 total_ppm 1857154 parts_ppm 94764 1058 9 13 1727115 15969 18230 FAIL margin_ppm -1358400.5488362939
+exact-depth3-ledger 503 total_ppm 1037619 parts_ppm 133201 2198 6 10 874621 11010 16576 FAIL margin_ppm -538612.3676048698
+exact-depth3-ledger 547 total_ppm 776401 parts_ppm 82267 896 6 8 668985 8385 15857 FAIL margin_ppm -277314.7794343344
+exact-depth3-ledger 601 total_ppm 764158 parts_ppm 39934 770 4 7 700973 7277 15197 FAIL margin_ppm -264989.4453665756
+exact-depth3-ledger 653 total_ppm 843804 parts_ppm 104135 559 3 4 717728 6787 14590 FAIL margin_ppm -344569.19096047146
+exact-depth3-ledger 701 total_ppm 669988 parts_ppm 85593 709 3 4 564125 5526 14030 FAIL margin_ppm -170700.33338760023
+exact-depth3-ledger 757 total_ppm 497576 parts_ppm 84545 531 3 3 394113 4872 13512 pass margin_ppm 1764.3894894795642
+exact-depth3-ledger 811 total_ppm 451704 parts_ppm 67818 499 2 3 366338 4016 13030 pass margin_ppm 47679.55519300518
+exact-depth3-ledger 853 total_ppm 467093 parts_ppm 63306 498 2 3 387354 3351 12582 pass margin_ppm 32320.90660140867
+exact-depth3-ledger 887 total_ppm 451099 parts_ppm 86810 694 2 4 347687 3322 12582 pass margin_ppm 48338.105411386976
+exact-depth3-ledger 907 total_ppm 415595 parts_ppm 78281 370 2 2 321585 3195 12164 pass margin_ppm 83853.74227514582
+exact-depth3-ledger 911 total_ppm 436149 parts_ppm 104282 391 2 2 316187 3125 12164 pass margin_ppm 63302.40542094707
+exact-depth3-ledger 919 total_ppm 402975 parts_ppm 83787 268 2 2 303764 2991 12164 pass margin_ppm 96481.14385600836
+exact-depth3-ledger 929 total_ppm 426590 parts_ppm 51669 531 2 2 359154 3072 12164 pass margin_ppm 72872.19381752878

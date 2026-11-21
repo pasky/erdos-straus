@@ -1,0 +1,4 @@
+p7 r=503 e in [1,4194304): tested 1046492  sum_exact 2571  sum_bound 105933447 violations 0  max_exact 675
+25.33s
+p7 r=599 e in [1,2097152): tested 523413  sum_exact 2755  sum_bound 68252031 violations 0  max_exact 405
+15.35s

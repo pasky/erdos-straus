@@ -1,0 +1,10 @@
+p5 r=929 e in [1,863041): tested 215528  sum_exact 1122  sum_bound 6690159 violations 0  p5fine_sum 2263859 p5fine_violations 0  max_exact 122
+1.65s
+q3e r=929 e in [1,863041): tested 215528  sum_exact 616  sum_bound 5923764 violations 0  max_exact 64
+1.59s
+q3f r=929 e in [1,863041): tested 215528  sum_exact 421  sum_bound 1384045 violations 0  max_exact 45
+41.32s
+p5 r=919 e in [1,844561): tested 210911  sum_exact 1435  sum_bound 6509856 violations 0  p5fine_sum 2213244 p5fine_violations 0  max_exact 405
+1.50s
+p5 r=911 e in [1,829921): tested 207253  sum_exact 1539  sum_bound 6383568 violations 0  p5fine_sum 2174492 p5fine_violations 0  max_exact 405
+1.91s
