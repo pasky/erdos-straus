@@ -1,0 +1,15 @@
+record 9 max g 127
+L 24 max g 31
+R8 26 max g 27
+L40e18 16 max g 19
+L40e24 16 max g 11
+L40e30 16 max g 19
+L40e36 16 max g 11
+R8 controls outside the six 840-classes: 11
+R8 distinct 26 of 26
+L40e18 selection ok first 1004471113927881601
+L40e24 selection ok first 1000000031340119058849601
+L40e30 selection ok first 1000000000000032581839417128001
+L40e36 selection ok first 1000000000000000000061012427786511201
+L rows match panel prime entries True
+rows 123 bad 0
