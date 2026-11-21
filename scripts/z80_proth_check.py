@@ -3,7 +3,13 @@ import json
 from pathlib import Path
 from math import gcd,lcm,isqrt
 from functools import cache
-from z78_proth_check import small,direct,mob,divs
+from z78_proth_check import small,direct
+@cache
+def divs(n):
+    low=[i for i in range(1,isqrt(n)+1) if n%i==0]
+    return low+[n//i for i in reversed(low) if i*i<n]
+@cache
+def mob(n):return 1 if n==1 else -sum(mob(i) for i in divs(n)[:-1])
 root=Path('data/z80/proth')
 def load(name):return json.loads((root/name).read_text())
 S={a*a%840 for a in range(840) if gcd(a,840)==1}
@@ -137,4 +143,4 @@ def transfer():
     for n in (105,1465,3865,4545,10305,12145,39361,67425,131,241,409,193,2521,66529):triple(n,*direct(n))
 if __name__=='__main__':
     small();layers();tower();primary();transfer();residual()
-    for m in range(13,22):check(m)
+    for m in range(13,31):check(m)
