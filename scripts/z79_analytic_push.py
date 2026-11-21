@@ -25,9 +25,8 @@ def lp():
 def has_word(n, M):
     # Enumerate a<=b using a^2 M <= n+2a at d>=1.
     for a in range(1,(1+isqrt(1+M*n))//M+1):
-        # b=(n+a)/(Mad-1); when d ranges too far, use the divisors instead.
+        # Partition (Mad-1)b=n+a into d<=b and b<d; loop on the smaller variable.
         s=n+a
-        # Instead enumerate smaller of d and b, so this is efficient even for a=1.
         d=1
         while (M*a*d-1)*max(d,a)<=s:
             if M*a*d>1 and s%(M*a*d-1)==0:
@@ -50,6 +49,7 @@ def has_u7(n):
 
 
 if __name__=='__main__':
+    print('# ulimit -v 6000000; timeout 180 uv run --offline --no-project python scripts/z79_analytic_push.py')
     lp()
     zeros=(409,577,5569,9601,23929,83449,102001,329617,712321,1134241,1724209,1726201,5212561,8813281)
     for group, inputs, m in [('F1',tuple(i*i for i in range(3,80,2)),4),

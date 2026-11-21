@@ -1,3 +1,4 @@
+# ulimit -v 6000000; timeout 180 uv run --offline --no-project python scripts/z79_analytic_push.py
 mu 0 a,b,g 13/41 15/41 13/41 slacks 0 1/41 1/82 5/164
 mu 0 a,b,g 13/41 13/41 15/41 slacks 4/41 2/41 5/82 5/164
 mu 0 a,b,g 15/41 13/41 13/41 slacks 8/41 4/41 11/82 11/164
