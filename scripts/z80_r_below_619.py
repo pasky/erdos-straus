@@ -247,6 +247,8 @@ def exponents():
         if u==F(142,465): assert ep==density<cube
         if u==F(213,607): assert ep==approx and ep>density
     assert (3*h+j)/2-t==F(1,19)
+    # A separate test: sqrt cancellation for one residue train, theta-vertex.
+    assert 4*r-t/2==r and 4*(1-3*F(8,25))-F(8,25)/2==0
     t=F(8,25); assert (1+7*(1-3*t)-4*t)==0
     assert 3*F(12,4)*F(1,2)**2/2==F(9,8)
     assert 2*F(6,7)/4*F(1,2)**3/6==F(1,112)
