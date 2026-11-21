@@ -1,0 +1,50 @@
+== local
+r=83 K=9 E=536870912 T=174101680 live_t=147 all_t=266 orient_digit_mismatch=0 mode=cf
+r=79 K=9 E=536870912 T=111620497 live_t=111 all_t=249 orient_digit_mismatch=0 mode=cf
+r=73 K=9 E=536870912 T=54828438 live_t=170 all_t=281 orient_digit_mismatch=0 mode=cf
+r=71 K=9 E=536870912 T=42699744 live_t=98 all_t=239 orient_digit_mismatch=0 mode=cf
+r=67 K=9 E=536870912 T=25338060 live_t=90 all_t=187 orient_digit_mismatch=0 mode=cf
+r=61 K=9 E=536870912 T=10891022 live_t=64 all_t=176 orient_digit_mismatch=0 mode=cf
+r=59 K=9 E=536870912 T=8068044 live_t=93 all_t=255 orient_digit_mismatch=0 mode=cf
+13 covered; two-prime II3 control; z78 exact parent counts 17..53; all old passes and new terminal run retained
+data/z80/crush2/local.txt: OK
+data/z80/crush2/p11.txt: OK
+data/z80/crush2/p15.txt: OK
+data/z80/crush2/p16.txt: OK
+data/z80/crush2/qwalk.txt: OK
+data/z80/crush2/shift33.txt: OK
+data/z80/crush2/shift35.txt: OK
+172.69 s
+rc=0
+== qwalk
+data/z80/crush2/local.txt: OK
+data/z80/crush2/p11.txt: OK
+data/z80/crush2/p15.txt: OK
+data/z80/crush2/p16.txt: OK
+data/z80/crush2/qwalk.txt: OK
+data/z80/crush2/shift33.txt: OK
+data/z80/crush2/shift35.txt: OK
+17.57 s
+rc=0
+== p15
+four-index cutoffs and grouped-window constants verified 15
+data/z80/crush2/local.txt: OK
+data/z80/crush2/p11.txt: OK
+data/z80/crush2/p15.txt: OK
+data/z80/crush2/p16.txt: OK
+data/z80/crush2/qwalk.txt: OK
+data/z80/crush2/shift33.txt: OK
+data/z80/crush2/shift35.txt: OK
+629.37 s
+rc=0
+== p16
+four-index cutoffs and grouped-window constants verified 16
+data/z80/crush2/local.txt: OK
+data/z80/crush2/p11.txt: OK
+data/z80/crush2/p15.txt: OK
+data/z80/crush2/p16.txt: OK
+data/z80/crush2/qwalk.txt: OK
+data/z80/crush2/shift33.txt: OK
+data/z80/crush2/shift35.txt: OK
+2434.68 s
+rc=0

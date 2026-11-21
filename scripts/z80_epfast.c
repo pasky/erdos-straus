@@ -19,4 +19,8 @@ static void hdgroup(U Y){mpz_t sq,top,bot,z;mpz_inits(sq,top,bot,z,NULL);
  if(d<5){zset(z,N+emax);mpz_mul_ui(z,z,5);mpz_fdiv_q_ui(z,z,d);}else{Z x=N+emax;zset(z,5*(x/d)+5*(x%d)/d);}mpz_sub(bot,sq,z);Z low=0;if(mpz_sgn(bot)>0){mpz_sqrt(bot,bot);low=zget(bot);}assert(up<V&&low<=up);
  for(int k=0;k<2;k++){Z left=k?V+low:V-up,right=k?V+up:V-low;for(Z a=(left+2*p-1)/(2*p);a<=right/(2*p);a++){if(!a||a>V/(p+q)||(V-p*a)%q)continue;test(a,(V-p*a)/q,d);}}}}
  for(U v=1;v<=Y;v++){Z h=1+p*B/(12*sqr(v));if(h<=v)scanv(v,(U)h);}mpz_clears(sq,top,bot,z,NULL);}
-int main(int argc,char**argv){assert(argc==5);int L=atoi(argv[1]);p=atoi(argv[2]);q=6-p;C=atoll(argv[4]);assert((p==1||p==5)&&L>=12&&L<=16&&C<=4000000000ULL&&C>0);W=1;for(int i=0;i<L;i++)W*=17;B=W/17;N=W*B;emax=466*(sr(W-1)+1);if(!strcmp(argv[3],"J"))jrange(C);else{assert(!strcmp(argv[3],"Hd"));hdgroup(C);}printf("end %d %lu %lu %s %lu %lu %lu %lu\n",L,p,q,argv[3],C,keys,vis,hits);}
+int main(int argc,char**argv){assert(argc==5);int L=atoi(argv[1]);p=atoi(argv[2]);q=6-p;C=atoll(argv[4]);assert((p==1||p==5)&&L>=12&&L<=16&&C<=4000000000ULL&&C>0);W=1;for(int i=0;i<L;i++)W*=17;B=W/17;N=W*B;emax=466*(sr(W-1)+1);
+#ifdef Z80_CONTROL
+ assert(p==5); if(C==1){W=24;B=3;N=72;emax=4;}else{W=6;B=1;N=6;emax=2;}
+#endif
+ if(!strcmp(argv[3],"J"))jrange(C);else{assert(!strcmp(argv[3],"Hd"));hdgroup(C);}printf("end %d %lu %lu %s %lu %lu %lu %lu\n",L,p,q,argv[3],C,keys,vis,hits);}

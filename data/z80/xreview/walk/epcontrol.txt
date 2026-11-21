@@ -1,0 +1,4 @@
+L 2 cumulative checks 948 {'J': 237, 'Hd': 711}
+L 3 cumulative checks 1136 {'J': 284, 'Hd': 852}
+L 4 cumulative checks 1157 {'J': 284, 'Hd': 873}
+positive containment checks 1157 {'J': 284, 'Hd': 873}

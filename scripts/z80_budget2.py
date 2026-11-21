@@ -1,7 +1,6 @@
-"""Unsaturated global and conditional ledgers. xreview extra P9 rows are now replayed."""
-from contextlib import redirect_stdout
-from io import StringIO
-with redirect_stdout(StringIO()):from z80_xr_extend import *
+"""Unsaturated global and conditional ledgers, extending the author-owned Round 1 tables."""
+from z80_crush import *
+def readrows(p):return [list(map(int,l.split())) for l in p.read_text().splitlines()]
 from z80_mid import band
 from math import ceil
 from z79_r2budget import short as prev
@@ -19,6 +18,13 @@ def seed(r,k,j,c):
     v[j]=min(v[j],c)
 for r,k,*v in readrows(Path('data/z80/crush2/shift33.txt'))+readrows(Path('data/z80/crush2/shift35.txt')):
     for j,c in enumerate(v):seed(r,k,j,c)
+for r,k,j,*v in readrows(Path('data/z80/crush2/prefix9.txt')):
+    assert len(v)==j+1
+    for i,c in enumerate(v):seed(r,k,i,c)
+for r,c in readrows(Path('data/z80/crush2/cf9.txt')):
+    j,cs=fine[r,9];assert j<=29
+    while j+len(cs)<=29:cs.append(r**5)
+    cs[29-j]=min(cs[29-j],c)
 from collections import defaultdict
 chunks=defaultdict(list)
 for r,j,off,size,c in readrows(Path('data/z80/crush2/p11.txt')):chunks[r,j].append((off,size,c))
@@ -28,6 +34,7 @@ for (r,j),vs in chunks.items():
     assert pos==2**(j-2);seed(r,11,j,cnt)
 prev.cache_clear();old.sh=mid
 
+row=lru_cache(None)(row)
 def analyze(r):
     x,_,_,q,pt,qt=row(r); P=[]
     for k in range(7,2001,2):
@@ -72,8 +79,10 @@ def choose(r,total,prefix):
             if best is None or key>best:best=key
     return best
 if __name__=='__main__':
+ assert not cells(13) and row(13)[0]==0 and analyze(13)[4]<0
  for r in sorted(r for r in small if 17<=r<=83):
     x,total,big,who,m,P,Q0,pt,qt=analyze(r);init=row(r)[0]
+    assert (m>0)==(r in (73,83))
     if r==17: # whole first-digit pair, measured through depth eight; for the second digit route use only the exact depth-three prefix
         later=total-sum(z for z,n in P if n.startswith('PQ'));c,j,b=choose(r,total-F(2,r)+init,init);prefix8=x-(total-later);better=F(17,2)*(prefix8-later);c,j,b=max((c,j,b),(better,-1,-5))
     else:c,j,b=choose(r,total,init)

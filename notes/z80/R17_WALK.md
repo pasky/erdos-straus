@@ -1,8 +1,8 @@
-Result: At r=17 the rational endpoints 5 and 1/5 avoid P through depth 16 and Q through odd level 39.            Label: CERTIFIED (four-index P and bounded-denominator rational-walk Q engines; checks below)
+Result: Every prime r≥83 and r=73 has positive sterile measure; at r=17 both endpoints avoid P through depth 16 and Q through odd level 39.            Label: PROVED (measure, rel. SE §3.1, z78/z79 and BBR); CERTIFIED (endpoints, four-index P and rational-walk Q engines, independently checked below)
 Scope: Finite endpoint record and an effective all-level restriction on d for Q, not all-depth sterility. The positive-measure threshold is now 83, with 73 also cleared (PROVED relative to the z78/z79 integer ledger, BBR and SE §3.1). ES in ℕ is open; sterility is a barrier to finite linear coverings.
-Review: none (Round 2 cross-review owed)
+Review: cross-model (`data/z80/xreview/REVIEW_R17_WALK_OPUS.md`, all stages replayed, decisive P₁₁ windows independently counted, independent Q search and separate P search with different cutoffs)
 Triage: RECORD
-STATUS delta: Replace the sufficient threshold 89 by 83 plus the isolated pass at 73; replace endpoint depth 14 by 16 (Q alone through 39); retain the all-depth caveat.
+STATUS delta: Every prime r≥83, and r=73, has positive sterile measure; 79 and the primes 17..71 remain open. At 17 the two points survive through depth 16 (Q alone through 39), not every depth. Retain the inherited libm qualification for r≥919 only.
 
 ## An effective rational descent outside the integral sector
 
@@ -14,7 +14,7 @@ There is no assumption on V mod 5. Put X=√p a and Y=√q b. A root reflection 
 
 After i successive reductions the individual denominators divide 5^ceil(i/2) and their product divides 5^i: the successive *new* coordinate denominators divide 5,5,25,25,… in the worse orientation, and the other coordinate is one step older. If the walk stops by step m, the minimal-pair proof of z79 continues to hold over positive rationals: h≥(V/2−√5)ab at the stopped pair. Its product ab≥5^(−m). Hence 2d≤5^m+6 (also immediate if V/2≤√5).
 
-Otherwise there are at least m+1 successive strict reductions. Write x₀,x₁,… for the alternating weighted coordinates, with x₀ the initial larger coordinate and x₂ its reflection. For i=1,…,m, xᵢ>(S/2)xᵢ₊₁. Now x₁≤√5 a≤3(F+1)/(2d), and xₘ₊₁≥5^(−ceil(m/2)). Consequently for d≥2,
+Otherwise there are at least m+1 successive strict reductions. Write x₀,x₁,… for the alternating weighted coordinates, with x₀ the initial larger coordinate and x₂ its reflection. For i=1,…,m, xᵢ>(S/2)xᵢ₊₁. Now x₁ is the smaller initial weighted coordinate, so x₁≤√5 a≤3(F+1)/(2d), and xₘ₊₁≥5^(−ceil(m/2)). Consequently for d≥2,
 
     (4d−6)^(2m) · 4d² ≤ 9(F+1)² · 20^m · 5^(2ceil(m/2)).
 
@@ -41,7 +41,7 @@ Thus any d violating both bounds is excluded, **at every depth**. Taking m of or
 
 ## Local ledger and remaining deficits
 
-**CERTIFIED (relative to inherited global envelopes and depth tables; `scripts/z80_budget2.py`).** The table tests every live cylinder modulo r or r², computing its exact depth-three complement. The cylinder and its inverse have the same charge; subtract at most the whole later unconditional budget *once per pair*, not once per member. No proportional discount for sparse divisors. For 17 use the exact two-cell tree through depth 8 when better. We also replay the reviewer's P₉ improvements at 59..83. All displayed margins are signed floors in ppm before truncation to zero. The global margin takes the better of the monotone live ledger and the unconditional union budget. The dominant family is the largest single uncapped-by-live budget entry, rounded up; it need not fit into the remaining live mass. The local column is the best **signed lower bound from this test**, not the true best cylinder. All fail, so all trivial nonnegative bounds tie at zero. `data/z80/crush2/local.txt` retains exact fractions for the signed global and conditional margins and the depth-14 comparison.
+**CERTIFIED (relative to inherited global envelopes and depth tables; `scripts/z80_budget2.py`).** The table tests every live cylinder modulo r or r², computing its exact depth-three complement. The cylinder and its inverse have the same charge; subtract at most the whole later unconditional budget *once per pair*, not once per member. No proportional discount for sparse divisors. For 17 use the exact two-cell tree through depth 8 when better. The author-owned P₉ prefix and complementary CF rows at 59..83 (`prefix9.txt`, `cf9.txt`) are computed by `z80_pshift.c` and `z78_r2cf.c`, the latter independently matched by `z80_xr_cf.c`. All displayed margins are signed floors in ppm before truncation to zero. The global margin takes the better of the monotone live ledger and the unconditional union budget. The dominant family is the largest single uncapped-by-live budget entry, rounded up; it need not fit into the remaining live mass. The local column is the best **signed lower bound from this test**, not the true best cylinder. All fail, so all trivial nonnegative bounds tie at zero. `data/z80/crush2/local.txt` retains exact fractions for the signed global and conditional margins and the depth-14 comparison.
 
 |r|global ppm|dominant (ppm)|best cell|conditional ppm|
 |--:|--:|:--|--:|--:|
@@ -64,5 +64,7 @@ Thus any d violating both bounds is excluded, **at every depth**. Taking m of or
 |83|19111|P13 (71190)|2 mod 83|-8771390|
 
 **Assessment (depth-14 cell).** At 5 mod 17¹⁴ the whole cell is live through depth 14. A strict tail cost below 1 in cell units, i.e. below 1/168377826559400929 in ambient measure, suffices for some survivor. Charging half the unrestricted inverse-stable tail per cell costs 7,977,074,896,357,901 cell units rounded up before the trivial cap at 1. The inverse cell has identical costs. Positive measure would not identify which point survives. Next threshold target: at 79 P₁₃ consumes 67,671 ppm and the unsaturated deficit is 25,127 ppm.
+
+**CERTIFIED (review §3.5, ablation).** Both new passes require the P₉ rows, the complete 2³² P₁₁ prefix, and the middle-shift band. At 73 the K=15 shift33 row is also needed. Removing all shift33 rows at 83 still gives 17 ppm; shift35 is not load-bearing. The gain is principally the deeper cut before paying the large-shift envelope. `p11.txt` columns are r, log₂ cutoff, zero-based shift offset, window width, short-shift charge. Opus replayed every inherited shift row but did not rewrite those engines. Its independent endpoint implementation used alternative partitions and 1,157 positive containment checks; the production engines now also have compile-time, synthetic positive tests for all four search modes and both Hd branches (not positive hits at level 15 or 16). The corrected ledger asserts both pass signs and independently rejects 13. The reviewer disclosed two temporary three-process overlaps in its own runs; no resource-compliance claim is made for those intervals.
 
 **Replay.** `bash scripts/z80_crush_replay.sh all` from root; Round 2 alone `bash scripts/z80_round2_replay.sh`. Each computation is separately time- and memory-capped; the full source replay takes several such chunks. The regression includes the independent single-13 coverage and two-prime II3 falsifiers.

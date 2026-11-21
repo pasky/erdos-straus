@@ -19,6 +19,7 @@ for r,c in readrows('cf.txt'):
 qsh={r:e+2*f for r,e,f in readrows('qs.txt')}
 for r,k,E,T,w,s,v,c in readrows('qboth.txt'):
  assert k==5 and E==T==rootup(r**k,3)**2;qLocal[r]=min(qLocal.get(r,r**5),c+qsh[r])
-for r in sorted(r for r in small if 17<=r<=283):
- x,p,t,q,pt,qt=row(r);margin=x-sum(p)-q-pt-qt
- print(r,*(ppm(z) for z in [p[0],p[1],sum(p[2:]),q,pt,qt]),margin*1000000//1,flush=True)
+if __name__=='__main__':
+ for r in sorted(r for r in small if 17<=r<=283):
+    x,p,t,q,pt,qt=row(r);margin=x-sum(p)-q-pt-qt
+    print(r,*(ppm(z) for z in [p[0],p[1],sum(p[2:]),q,pt,qt]),margin*1000000//1,flush=True)

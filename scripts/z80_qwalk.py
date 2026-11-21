@@ -7,6 +7,7 @@ def dcut(F,m):
     # No stopping by m moves implies the next m adjacent ratios exceed S/2.
     def excluded(d):
         return (2*d>5**m+6 and (4*d-6)**(2*m)*4*d*d>9*(F+1)**2*20**m*5**(2*((m+1)//2)))
+    # Even if the upper sentinel is not excluded, ad<=(F+1)/2 is stricter.
     l,u=1,F+100
     while u-l>1:
         d=(u+l)//2
