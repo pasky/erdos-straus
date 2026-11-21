@@ -1,0 +1,17 @@
+# ulimit -v 6000000; timeout 180 uv run --offline --no-project python -B scripts/z80_r_below_619.py
+exact arithmetic: absolute lift deficit 1/19, level-one constants 9/8, 1/112; no new exponent pair used
+finite Selberg example 120/197 conditional product 14445/38809
+M 1 max (n,R) 45359 337 largest observed R/(1+n^.5/M^(7/6)) 4.31344 at 23
+M 4 max (n,R) 45044 60 largest observed R/(1+n^.5/M^(7/6)) 2.87859 at 314
+M 8 max (n,R) 40753 32 largest observed R/(1+n^.5/M^(7/6)) 3.11739 at 314
+M 37 max (n,R) 49277 14 largest observed R/(1+n^.5/M^(7/6)) 4.03 at 4427
+M 193 max (n,R) 11573 6 largest observed R/(1+n^.5/M^(7/6)) 4.87065 at 11573
+M 1000 max (n,R) 11993 4 largest observed R/(1+n^.5/M^(7/6)) 3.86611 at 11993
+zero controls M= 4 odd squares 39
+zero controls M= 8  2
+zero controls M= 4  15
+zero controls M= 4  8
+U7 misses (105, 1465, 3865, 4545, 10305, 12145, 39361, 67425)
+Plancherel Q,H,W 9 4 24 energy 8.153099 absolute residual 1.07e-14
+Plancherel Q,H,W 15 9 80 energy 27.288906 absolute residual 4.26e-14
+Plancherel Q,H,W 6 2 13 energy 4.942312 absolute residual 2.66e-15

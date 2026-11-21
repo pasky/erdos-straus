@@ -1,0 +1,109 @@
+## §0
+
+Result: Almost all primes have $R(p)\ge(9/(8\pi^2)-\epsilon)\log^2 p$ and $f_{II}(p)\ge(1/(112\zeta(3))-\epsilon)\log^3p$ at the previous exceptional rates, and the pointwise upper bound gains a large-numerator term but does not break $6/19$ at fixed numerator. Label: PROVED (rel. the z79 Haar second moments, elementary upper sieve and Mertens for the lower bounds; Dirichlet approximation and divisor bounds for the numerator gain).
+Scope: Ordered positive words $Mabd-a-b=n$; prime lower bounds concern almost all primes only. No improvement to the fixed-4 record, fourth-root $N_2$, full-count normal-order asymptotic, or ES. ES in ℕ is open.
+Review: none (cross-review owed).
+Triage: RECORD (almost-all coefficients and large-$M$ upper bound); BARRIER-SCOPED (absolute stationary lifts).
+STATUS delta: In §1A replace $9/(32\pi^2),1/(896\zeta(3))$ by $9/(8\pi^2),1/(112\zeta(3))$ for the same $O_\epsilon(\pi(X)/\log^s X)$ exceptions, $s=2,3$ respectively. The input-prime step needs an upper sieve, not beyond-BV equidistribution. In the §1B uniform minimum also allow $n^{1/2}M^{-7/6}$. Leave the fixed-4 exponent unchanged. External priority unverified.
+
+### 1. What is signed in the $6/19$ problem?
+
+**PROVED (relative to `notes/z79/ANALYTIC_PUSH.md` §7, Poisson and smooth one-dimensional stationary phase).** There is no Kloosterman sheaf *in* (11) of that note. The trace was removed by a periodic shift and Cauchy before the positive enlargement to all conductors. To test a signed Poisson in the long radical variable, put $C=(n/M)|\ell|,\ J=C/W^2,\ T=WJ/Q$ as in (10). Write $b(v)$ for its smooth critical amplitude (conductor and frequency parameters suppressed). Up to conjugation, the positive difference $a$ in the off-diagonal contributes exactly the following to the main expression of (10):
+
+$$ {W\over J}\sum_{|m|<H}(1-|m|/H)\int_{\mathbb R} b((t+aQ)/J)\overline{b(t/J)}\,e\big(f_a(t)-mt\big)\,dt,\qquad
+ f_a(t)={2\sqrt C\over Q}(\sqrt{t+aQ}-\sqrt t). \tag{1}$$
+
+The sum on the residue $c$ has reconstructed the full lattice $j$; substitute $t=j-u$ and apply Poisson to its translate. The multiplier is the exact Fourier coefficient of the Fejér probability, not a derivative estimate on a sharp cutoff. Outside the positive support define the integrand to be zero. The opposite difference gives the conjugate. Here and below $e(v)=\exp(2\pi i v)$.
+
+**Explicit coherent stationary-lift example (PROVED; lower bound on an absolute majorant only).** Take $a\asymp A=cHJ/W$, with fixed sufficiently small $c>0$, $H\to\infty$, $HQ/W=o(1)$, $A\to\infty$. Choose a fixed smooth primal bump equal to one on a positive interval about the point $x/W=1$, supported inside $(1/2,2)$, and a strip bump of positive integral. Take $|\ell|$ a small fixed positive fraction of $L$, in a whole interval of such fractions. By the z78 §7 amplitude formula and continuity of the Fourier transform at zero, $|b(v)|\gg1$ on a fixed interval about $v=1$ (equivalently the stationary point $v^{-1/2}$ is on the plateau), with all scaled derivatives bounded. The same choice works for a compact range of $Q/N$ in $[1,4]$. Conjugation of the critical amplitude does not affect this assertion. On the rescaled band $t=Jy$, exactly
+
+$$ f_a(Jy)=aW\, {2\over\sqrt{y+aQ/J}+\sqrt y} . $$
+
+The scaled function after $aW$ tends with all fixed derivatives to $y^{-1/2}$, since $aQ/J=O(cHQ/W)=o(1)$. Its second derivative is positive and bounded away from zero on fixed positive compact sets. There are $\gg aW/J$ **negative** integers $m$ in the derivative image of an interior plateau subinterval, all $|m|<H/2$: that image has length $\asymp aW/J\asymp cH$. For each such integer there is a unique nondegenerate stationary point on the band; there the amplitude has modulus bounded below. Smooth stationary phase (Hörmander I, Thm 7.7.5, the compact family used in z79 §2) gives integral modulus $\gg J/\sqrt{aW}$, with error $O(J(aW)^{-3/2})$. Thus, even **after** signed summation on the full $j$ lattice and exact Fejér integration, taking absolute values of its individual stationary integrals in (1) costs at least
+
+$$ \gg {W\over J}\sum_{a\asymp A}\sqrt{aW}\asymp H^{3/2}\sqrt J. \tag{2} $$
+
+At the z79 fixed-$M$ test vertex $W\asymp n^t$, $r=1-3t$, $H=n^{2r+o(1)}$, $Q=n^{2r+o(1)}$, $|\ell|=n^{r+o(1)}$, the absolute cost relative to the needed $O(W n^\epsilon)$ has exponent $(1+7r-4t)/2$. At $t=6/19$ this is $1/19$; the cost comparison needs $t\ge8/25$ there as a function of $t$ in this neighborhood. For example $n=4P^{19}$, $W=P^6$, $Q\asymp P^2$, $H=P^2$, $|\ell|\asymp c'P$ realize these coherent lifts at an integer sequence (one may use dyadic integer $P$); none requires $n$ to have a word on the test block. This is not an extremal lower bound for the signed energy or an exclusion of signed two-dimensional large sieves. The earlier $K\le N$ diagonal floor is a different cost. Applying Deligne to a complete local trace before the enlargement cannot be justified as a bound on the real integrals (1). Conversely, `notes/z78/ANALYTIC_WILD.md` §6 shows why completing the arithmetic kernels before enlargement and taking all absolute lift sizes is not enough either.
+
+### 2. A separate large-numerator gain without exponential sums
+
+**PROVED (relative to the divisor bound and Dirichlet's pigeonhole approximation).** For every $n\ge2,M\ge1$, let $D=n/M^2$. In addition to (12) of z79 one has
+
+$$ R_M(n)\ll_\epsilon n^\epsilon(1+D^{1/2}M^{-1/6}). \tag{3} $$
+
+This improves $D^{1/3}$ for $M>n^{1/3}$, and gives $O_\epsilon(n^\epsilon)$ throughout $M\ge n^{3/7}$. It is not an improvement for $M=1,4$, in particular not on the fourth-root balanced block of $N_2$.
+
+Use a nonempty dyadic block $a\asymp U\le V\asymp b,\ d\asymp W$, with actual $a\le b$ by symmetry; write $B=V/M$, $K=UW$. By z78 §13 and z79 §8, $KB\asymp D$ and the block costs $\ll n^\epsilon\min(U,W,1+B)$ (with the usual change of the arbitrary $\epsilon$ for log factors). Hence we need only treat $M>D$, $D\gg1$, $U,W,B\gg t_0=\max(1,D^{1/2}M^{-1/6})$; fixed-large constants in these cuts are harmless. Put $n=MN+n_0$ with $0\le n_0<M$, $a+b=Mv-n_0$ so $v\asymp B$. The exact integer equation is
+
+$$ N+v=ad(Mv-n_0-a). $$
+
+Take a positive integer $S\asymp\sqrt{MK/(KU+B)}$, using the integer part with a lower cutoff of one. This scale is bounded below by a fixed positive constant since $U\ll D$ and $B\ll D$ here. There are $1\le q\le S$ and $g\in\mathbb Z$ with $|qn_0/M-g|\le1/S$ by pigeonholing multiples mod 1. Throughout the entire block,
+
+$$ \big|ad(qv-g)-qN/M\big|\ll K/S+S(KU+B)/M\ll \sqrt{K(KU+B)/M}. $$
+
+The left-hand integer product before subtraction is positive ($v-n_0/M=(a+b)/M\gg1$) and polynomially bounded in $n$ ($M\le n+2$ on a solution, or just use $M\ll n$ from z78 §13). Each such integer has $O_\epsilon(n^\epsilon)$ ordered factorizations, each determining $a,d,v$ and then $b$. Finally $K\ll D/t_0$, $U\ll D/t_0^2$, so the displayed width is $\ll D^{3/2}/(\sqrt M\,t_0^2)+\sqrt{D/M}\ll t_0$. This proves (3), including $D\ll1$ via the earlier fibre bound. The new ingredient is rational approximation to the **fixed fractional digit** $n_0/M$ across a whole block, not treating $n/M$ as an integer or restricting a detector to unit moduli.
+
+### 3. A level-one *upper transfer* for nonnegative statistics
+
+**PROVED (relative to Mertens, elementary CRT and PNT).** Write $L=\log X$. Let $F(n)\ge0$ on all integers in $(X,2X]$, given as a finite real linear combination $\sum_i c_i 1_{n=r_i\ (l_i)}$ of **reduced** classes, including modulus 1. Write $\langle F\rangle_* =\sum_i c_i/\varphi(l_i)$ (Haar on units at the common period). Suppose, for *fixed* $\delta>0,b\ge0$,
+
+$$ l_i\le X,\quad \sum |c_i|\le X^{1-\delta},\qquad \sum |c_i|/\varphi(l_i)\le L^b. \tag{4} $$
+
+For every fixed $A>0$, uniformly for these statistics as $X\to\infty$,
+
+$$ {1\over\pi(2X)-\pi(X)}\sum_{X<p\le2X}F(p)\ll_{\delta,b,A}\langle F\rangle_*+L^{-A}, \tag{5} $$
+
+when $\langle F\rangle_*\ge0$ (as in our applications where $F$ is a square everywhere). This is **not** equidistribution of primes in arbitrary progressions to level one. There is no asymptotic in (5); a common majorant for the primes is summed against the *unexpanded nonnegative statistic* before evaluation, and (4) is needed. In particular bounding the signed coefficients one at a time by Brun–Titchmarsh would lose the centering.
+
+*Small-prime weight.* Take $z=L^C$ with $C$ a sufficiently large fixed constant specified by the errors below. On primes up to $z$ use inclusion-exclusion truncated at an even integer $k\asymp\log L$, the sum $S(n)=\sum_{e\mid n,\ e\mid\prod_{p\le z}p,\ \omega(e)\le k}\mu(e)$. It is nonnegative on integers (alternating binomial sum) and one at primes above $z$. There are $X^{o(1)}$ terms, since $e\le z^k$. On a reduced class $r\bmod l$, small primes of $l$ cannot divide $n$; the remaining small-prime expected multiplier under uniform integers in the class is
+
+$$ S_l=\prod_{p\le z,\ p\nmid l}(1-1/p)+O_B(L^{-B}) $$
+
+for each fixed $B$ (here $B$ is an accuracy parameter). Indeed the adjacent Bonferroni error is at most $(\sum_{p\le z}1/p)^{k+1}/(k+1)!$, with $\sum_{p\le z}1/p=O_C(\log\log L+1)$. This is simultaneous for every $l\le X$.
+
+*Remaining weight.* Put $T=X^{\delta/8}$ (reduce $\delta$ to at most $1/2$ if necessary), $\mathcal D=\{d\le T:\mu^2(d)=1,\ p\mid d\Rightarrow p>z\}$. On this set there are real $\lambda_d$, $\lambda_1=1$, $|\lambda_d|\le1$, such that
+
+$$ G=\sum_{d,e\in\mathcal D}{\lambda_d\lambda_e\over[d,e]}=1/\sum_{h\in\mathcal D}1/\varphi(h)\ll_\delta {\log z\over L}. $$
+
+For completeness use $(d,e)=\sum_{h\mid d,e}\varphi(h)$ to diagonalize the quadratic form as $\sum_h\varphi(h)y_h^2$, $y_h=\sum_{d:\,h|d}\lambda_d/d$. Inversion gives $\lambda_1=\sum\mu(h)y_h$. The minimizer has $y_h=G\mu(h)/\varphi(h)$. Inverting yields $|\lambda_d|=G(d/\varphi(d))\sum_{k\le T/d,\,(k,d)=1,\,k\in\mathcal D}1/\varphi(k)\le1$: the factor $d/\varphi(d)$ restores all divisor choices from $d$, their products with $k$ lying in $\mathcal D$. For the denominator lower bound take the Euler product on $z<p\le T^{c_0}$ weighted by $1/\varphi(h)$; by Mertens it has mass $\asymp\log T/\log z$. In its normalized law the expected $\log h=\sum(\log p)/p\le2c_0\log T$ for large $T$, so with $c_0=1/8$ at least half the mass has $h\le T$. Use $G(n)=(\sum_{d\mid n,d\in\mathcal D}\lambda_d)^2$ as the large-prime weight. Its mean $G_l$ on a uniform-integer reduced class mod $l$ differs from $G$ by $O(L^4/z)$: deletion affects only pairs with a prime $p>z$ dividing both $l$ and $[d,e]$. Writing $d=j d',e=j e'$ with $j=(d,e)$ gives $1/[d,e]=1/(j d'e')$. The absolute sum over those triples with $p|jd'e'$ is $O(L^3/p)$ by the harmonic sum, even dropping coprimality. Sum over the $O(L)$ primes of $l$. This comparison of means uses signed (optimal) weights but bounds the deletion error absolutely.
+
+*Interval and normalization.* The nonnegative product $S(n)G(n)$ is 1 on primes of the interval. In an individual reduced class its interval sum is $X S_l G_l/l+O(T^2 X^{o(1)})$ by expansion and one $O(1)$ rounding error per term. The small/large prime sets are disjoint, so their local averages multiply even after excluding primes of $l$. Put $P_z=\prod_{p\le z}(1-1/p)$. Since $\prod_{p|l,\ p>z}(1-1/p)=1+O(L/z)$, the main term divided by $X$ equals
+
+$$ {P_zG\over\varphi(l)}+O\big(L^{-A-b-3}/\varphi(l)\big),\qquad P_zG\ll_\delta L^{-1}, $$
+
+on taking $C>A+b+10$ and then $B>A+b+10$. The common factor is essential because $F$ is signed *after* expansion. Multiply by $c_i$, sum, and use (4) for both error terms. Dividing by the dyadic prime count $\asymp X/L$ proves (5). In particular no claim of an asymptotic at an exceptional character modulus, and no well-factorability/CRT compatibility of the class assignments across different cells is needed. The slack $\delta$ must be fixed first.
+
+### 4. Recovering three quarters of the quadratic main coefficient
+
+**PROVED (relative to §3 and the Haar row theorems in `notes/z79/LOWER_TAIL.md`, §§2, 4.4–5, 11).** For each fixed $\epsilon>0$ and $s=2,3$ respectively, outside $O_\epsilon(\pi(X)/\log^s X)$ primes $p\le X$,
+
+$$ R(p)\ge (9/(8\pi^2)-\epsilon)\log^2p,\qquad f_{II}(p)\ge(1/(112\zeta(3))-\epsilon)\log^3p. \tag{6} $$
+
+The rates are separate. Take finitely many disjoint narrow log-cubes of fixed positive side widths filling as closely as desired the open simplex $t_i>0,\ \sum t_i<1/2$ in dimension $s$. Here $t_i$ is a free coordinate's log divided by $L$ and all coordinates are $\ge X^g$ in physical units for some $g>0$. The periods of every chosen cube are $\le X^\theta$ for some common fixed $\theta<1/2$. Cubes can be subdivided to meet the small-width conditions of the Haar estimates. For the two trial charts use the **Haar** statement A′ and the weighted variance calculation of E in z79 (mix over the auxiliary primorial to the empty base). These proofs require a fixed polynomial bound on the row modulus and the stated box margins, *not* $2\theta<1/2$, which entered their separate BV prime transfer. More explicitly choose the auxiliary primorial depth much smaller than $g$ and the widths $<g/100$. The determinant cuts there save powers from the smallest coordinates, irrespective of the new simplex height. A′ removes the otherwise extraneous $\sigma+\theta<1/2$ condition; one can in fact also take $\sigma<1/2-\theta$ here. The trial periods/targets are $4acd-1,-a/c$ with $c=1$ for $s=2$ and $(a,c)=1$ for $s=3$. E gives a nonnegative weighted count $Z$ with weights $\le1$, cube center $m$, and $\langle(Z-m)^2\rangle_*=O(L^s)$. In a cube of log-volume $v$, $m\sim (K_s/4)v L^s$, $K_2=12/\pi^2$, $K_3=6/(7\zeta(3))$ (odd factors $1-1/q^3$, factor $3/4$ at 2). For $s=2$ also use the ordered outer-pair chart $(a,b)=1$, $a+b$ odd, periods $4ab$, targets $-a-b$. Use the unweighted variance and center of z79 §11. Its Haar proof, including the bad equal-sum row estimate, uses log-box widths and lower margins but not the BV level. It gives the same center asymptotic with $K_2$, and the same variance order.
+
+For clarity check **both** conditions (4) for $F=(Z-m)^2$ on each cube. The number of atoms is $O(X^{\theta+o(1)})$ by the divisor bound on the period or period plus one; the number of pair cells, including repetitions, is $O(X^{2\theta+o(1)})$. Drop incompatible intersections; compatible ones are reduced single classes of modulus the lcm. The center costs at most a log power in absolute coefficients. For the weighted absolute coefficient sum with $1/\varphi(l)$, before coalescing terms this is $\langle(Z+|m|)^2\rangle_*=O(L^{2s})$ by the very same Haar moment. Thus (5) applies with positive slack and gives the centered prime mean $O(L^s)$; only an upper bound is required. Chebyshev with fixed tolerance and a finite union bound suffice. The count dominates $Z$ pointwise.
+
+Swapping $a,b$ doubles the trial count with no overlap since $(4acd-1)(4bcd-1)=4c^2dp+1>X$ on these trials. The extra ordered pair chart at $s=2$ is disjoint from either orientation since $(4ab)(4ad-1)=4a(p+a)>X$ and likewise for $b$. Here $p\in(X,2X]$, all retained periods $\le X^\theta$, $2\theta<1$; positivity and the injectivity of the ordered denominator map are as in z79 §1 (all the small trial coordinates are $<p$, $b=(cp+a)/(4acd-1)<p$ for large $X$). The coefficients are therefore $3(K_2/4)(1/2)^2/2$ and $2(K_3/4)(1/2)^3/6$, as asserted. Fix the mesh and the tolerance in terms of $\epsilon$ before $X\to\infty$, replace $L$ by $\log p$ at relative cost $1+O(1/L)$, then sum dyadically (discard $p\le\sqrt X$). For (★) the remaining quarter of the log-volume is the central triangle where **each** two-coordinate period has exponent above $1/2$. This proof does not treat its variance.
+
+**Type I (PROVED rel. §3, z79 Lemma K.1 including BV/BT in its witness-prime supply).** Let $v=2m$ be a fixed even integer. With $C_I=(\log2)(1/8-1/10)/(14\zeta(3)\,50^2)$ as in z79 §9, for any fixed $\epsilon>0$,
+
+$$ f_I(p)\ge [2 C_I(25/(26v))^3-\epsilon]\log^3 p $$
+
+outside $O_{v,\epsilon}(\pi(X)/\log^{3m}X)$ primes. Take their boxes $Y=X^\lambda$ with any fixed $\lambda<25/(26v)$ sufficiently close to the endpoint. The atom count is $Y^{26/25+o(1)}$, each period $\le4Y^{26/25}$ (z79 proof of K). Its Haar centered $v$-moment about the common finite center $m_I\sim C_I(\lambda L)^3$ is $O_v(L^{3m})$ by K.1 and the independent conditional Bernoullis. The statistic is an even power on every integer; absolute central expansion costs at most $X^{(26/25)v\lambda+o(1)}$ coefficients and its absolute Haar mass is at most $\langle(Z_I+|m_I|)^v\rangle_*=O_v(L^{3v})$. As above (5) and Markov apply; use the two disjoint orientations in K. This doubles the admissible endpoint in $\lambda$ compared with the ordinary BV $v$-moment transfer, an eightfold gain in that endpoint coefficient. No assertion about the full Type I mean.
+
+### 5. Character correction and the distinction between two normal-order questions
+
+**PROVED (rel. `BM_LVALUE.md` Thm A, Burgess $r=2$ and elementary character orthogonality).** For every fixed $A>0$, outside $O_A(\pi(X)/\log^A X)$ primes $p\le X$ one has $|M_{BM}(p)-M_0(p)|\ll_A (\log\log(3p))^2$. In particular a *relative*, almost-all asymptotic $R(p)\sim M_{BM}(p)$ and one with $M_0(p)$ would be equivalent in prime density, since $M_0(p)\sim 3\log^2p/(2\pi^2)$. Neither asymptotic for **$R$** is proved here; at finer accuracy or for a specified prime the character correction cannot be dropped by that equivalence. No assertion equating all genus fluctuations with this one BM correction.
+
+Indeed work dyadically and truncate $L(1,(\cdot/p))$ at $U=X^{2/5}$ with error $O(X^{-c})$ by partial summation of Burgess $|\sum_{k\le t}(k/p)|\ll t^{1/2}p^{3/16+o(1)}$ for $t\le p$ and periodicity for the tail beyond $p$ (partial sums $\ll p^{11/16+o(1)}$ there). Put $Y=L^{A+5}$. The integer mean square of $\sum_{Y<k\le U}(k/d)/k$, over odd $X<d\le2X$ with the Jacobi symbol, normalized by $X$, is $\ll(1+\log Y)/Y+O(U^2/X)$: for $ij$ nonsquare, $(ij/d)$ is a nonprincipal character on odd residues of period dividing $8ij$ by quadratic reciprocity, hence after summing trivially over an incomplete period its normalized contribution including weight $1/(ij)$ is $O(1/X)$. For $ij$ square write $i=g u^2,j=g v^2$ with $g$ squarefree; the positive contribution is bounded by $\sum_g g^{-2}(\sum_{u:\,gu^2>Y}u^{-2})^2\ll(1+\log Y)/Y$. Restrict the nonnegative square to primes, paying $O(L)$ in the mean. Except on the claimed set the truncated tail is $O(1)$, the initial segment is $O_A(\log L)$, and the bounded Euler factor in BM_LVALUE Thm A gives the claim. Small discarded primes and dyadic summation as in §4.
+
+### 6. Falsifier Table and replay
+
+|Screen|Outcome and scope|
+|---|---|
+|F1 odd squares|No $R_4$ hits at $3^2,5^2,\ldots,79^2$ in the replay. The upper bounds permit zero; the lower bounds average primes, not squares.|
+|F2 numerator 8 / uniformity|$R_8(131)=R_8(241)=0$; the inherited $1,590,284,203,561$ control has $R_4=52,R_8=0$ (`notes/z76/DISPROOF_COMP.md`). No positivity transfers. The $1+$ in (3) permits $M=n+2$, where $(1,1,1)$ is a solution.|
+|F3 composites|All eight $Z_7$ including $4545$ miss $U_7$ and $(\star)$ in the direct replay. No prime lower bound for them.|
+|F4 $(\star)$-zeros|All 14 prime controls $409$ through $8,813,281$ and composite $17,401,609$ miss $R_4$ in the replay. Exceptions are allowed at every height.|
+
+**Assessment.** FRONTIER §§4,6,7: the fixed input in §1 is never averaged; the conductor and detector-frequency averages are not an average of $n$. §§3–4 in contrast transfer only nonnegative moments on prime populations, with the actual tied classes, not signs or independent proxy hits. No finite covering, bounded-factor forcing, local-global principle or transfer of witnesses from a relaxed numerator is used. The numerical tests, including small $R_M$ maxima and a discrete Plancherel test, are in `scripts/z80_r_below_619.py` / `data/z80/r_below_619.txt`; they are finite consistency checks, not analytic estimates.
