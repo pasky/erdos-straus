@@ -1,0 +1,14 @@
+s, split atoms (f=3,7 mod 8): 1 0 0
+s, split atoms (f=3,7 mod 8): 2 162 0
+s, split atoms (f=3,7 mod 8): 3 30 128
+s, split atoms (f=3,7 mod 8): 5 44 176
+s, split atoms (f=3,7 mod 8): 6 82 125
+s, split atoms (f=3,7 mod 8): 13 54 285
+s, split atoms (f=3,7 mod 8): 35 45 221
+degree, modulus, tested primes: 3 12 139
+degree, modulus, tested primes: 4 4 280
+degree, modulus, tested primes: 6 12 139
+degree, modulus, tested primes: 10 20 69
+degree, modulus, tested primes: 15 60 36
+degree, modulus, tested primes: 24 12 139
+HJ symbol/target comparisons 238
