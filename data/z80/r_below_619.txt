@@ -35,3 +35,4 @@ disjoint CRT Fourier l1/sqrt(m0) 1.12479 D 961
 toy signed disjoint kernel 4 -1 D 961 |K|/sqrt(W) 0.77701 |K|/(W/P^2) 0.111
 binding energy / primal diagonal P= 5 sample size 12 min mean max 0.93749 0.99806 1.07774
 binding energy / primal diagonal P= 7 sample size 16 min mean max 0.95391 0.99425 1.02329
+archived BM window (rounded reals) size 12314 below 3/4 1759 median 1.04128

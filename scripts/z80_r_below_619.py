@@ -239,6 +239,18 @@ def central_triangle():
         print('chart partition prime dyad',X,2*X,'covered',num,'total',den,'fraction',round(num/den,4))
 
 
+def bm_window():
+    # Existing tabulation, not a new census. Do not interpret the finite rate
+    # as uniform in epsilon or X. Resolve from the script rather than cwd.
+    from pathlib import Path
+    import gzip,csv
+    from statistics import median
+    source=Path(__file__).resolve().parents[1]/'data/z52c/bmL/window.tsv.gz'
+    with gzip.open(source,'rt') as fh:
+        ratios=[int(row['R'])/(float(row['M0'])-float(row['T'])) for row in csv.DictReader(fh,delimiter='\t')]
+    print('archived BM window (rounded reals) size',len(ratios),'below 3/4',sum(r<.75 for r in ratios),'median',round(median(ratios),5))
+
+
 def exponents():
     t=F(6,19); r=1-3*t; h=2*r; j=1+r-2*t
     for u in (F(2,7), F(142,465), F(213,607)):
@@ -267,4 +279,4 @@ def exponents():
 
 if __name__=='__main__':
     print('# ulimit -v 6000000; timeout 180 uv run --offline --no-project python -B scripts/z80_r_below_619.py')
-    exponents(); selberg(); partial_pin(); small_words(); controls(); plancherel(); traces(); central_triangle(); disjoint_packet(); binding_energy()
+    exponents(); selberg(); partial_pin(); small_words(); controls(); plancherel(); traces(); central_triangle(); disjoint_packet(); binding_energy(); bm_window()
