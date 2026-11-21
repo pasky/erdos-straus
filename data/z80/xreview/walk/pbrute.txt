@@ -1,0 +1,9 @@
+brute 19 6 e0 3196294 E 3196294 hits 0
+brute 23 5 e0 1182242 E 1182242 hits 0
+brute 29 5 e0 2110514 E 2110514 hits 0
+brute 31 5 e0 2493566 E 2493566 hits 0
+brute 37 5 e0 3880848 E 3880848 hits 0
+brute 41 5 e0 5016024 E 5016024 hits 0
+brute 43 5 e0 5650250 E 5650250 hits 0
+brute 47 5 e0 7057570 E 7057570 hits 0
+chainA done

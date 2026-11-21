@@ -1,0 +1,34 @@
+17 1 9 1 0 []
+17 3 36 5 0 []
+17 5 94 5 0 []
+17 7 315 11 0 []
+17 9 371 1 0 []
+17 11 1150 5 0 []
+17 13 1565 10 0 []
+17 15 3129 10 0 []
+17 17 7815 7 0 []
+17 19 7815 6 0 []
+17 21 11419 7 0 []
+17 23 25655 13 0 []
+17 25 39065 12 0 []
+17 27 39065 17 0 []
+17 29 74865 10 0 []
+17 31 152015 17 0 []
+17 33 195315 4 0 []
+17 35 195315 24 0 []
+17 37 270274 14 0 []
+17 39 507267 9 0 []
+vs 13 1 brute 1 search 1 same
+vs 13 3 brute 0 search 0 same
+vs 13 5 brute 0 search 0 same
+vs 17 1 brute 0 search 0 same
+vs 17 3 brute 0 search 0 same
+vs 19 1 brute 0 search 0 same
+vs 19 3 brute 0 search 0 same
+vs 23 1 brute 0 search 0 same
+vs 23 3 brute 0 search 0 same
+vs 29 1 brute 0 search 0 same
+vs 29 3 brute 0 search 0 same
+lemma Fmax 5000 hits 31 max d/D 1/2 0.5 max walk moves 5
+lemma2 3000 60000 1500 primes with nontrivial walk cutoff 1500 hits 1 max d/D 0.046153846153846156
+markov 40 40 20000 base solutions 86 tested points 72 longest walk 21

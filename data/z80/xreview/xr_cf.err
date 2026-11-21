@@ -1,0 +1,8 @@
+r=101 K=9 E=536870912 T=1018573784 live_t=233 all_t=428 orient_digit_mismatch=0 mode=cf
+r=103 K=9 E=536870912 T=1215164721 live_t=214 all_t=374 orient_digit_mismatch=0 mode=cf
+r=107 K=9 E=536870912 T=1712198567 live_t=214 all_t=362 orient_digit_mismatch=0 mode=cf
+r=109 K=9 E=536870912 T=2022733241 live_t=268 all_t=436 orient_digit_mismatch=0 mode=cf
+r=113 K=9 E=536870912 T=2797732072 live_t=270 all_t=413 orient_digit_mismatch=0 mode=cf
+r=97 K=9 E=536870912 T=708020347 live_t=295 all_t=390 orient_digit_mismatch=0 mode=cf
+r=89 K=9 E=536870912 T=326294828 live_t=252 all_t=347 orient_digit_mismatch=0 mode=cf
+done
