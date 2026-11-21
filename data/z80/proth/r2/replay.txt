@@ -1,1 +1,1 @@
-formal and evaluated orbit, thickness and distribution tests through h=199; refined transfer and polynomial boxes OK
+orbit/distribution identities and thickness kernel orders through h=199 (no index computation); refined transfer and polynomial boxes OK

@@ -3,7 +3,8 @@ from math import gcd,prod,isqrt
 from pathlib import Path
 import json
 from z80_proth_check import row,coverage,good,triple
-D=Path('data/z80/proth/r2')
+ROOT=Path(__file__).resolve().parents[1]
+D=ROOT/'data/z80/proth/r2'
 def read(p):return json.loads(p.read_text())
 def order(x,n):
     y=x%n;e=1
@@ -73,7 +74,7 @@ def extensions(h):
 
 def residual():
     c=read(D/'cover-11.json');r=read(D/'transfer.json');T=int(r['T']);O=int(r['O']);M=T//(T&-T);z=21-2**14;P0=c['period'];assert P0==497943285840 and c['m']==11 and c['left']==[0]
-    assert T==3*int(read(Path('data/z79/proth/intersection.json'))['T']) and T%36==0 and O>0 and O%4==0 and pow(2,O,M)==1 and r['b']==14 and gcd(z,M)==gcd(z-1,gcd(M,O))==1
+    assert T==3*int(read(ROOT/'data/z79/proth/intersection.json')['T']) and T%36==0 and O>0 and O%4==0 and pow(2,O,M)==1 and r['b']==14 and gcd(z,M)==gcd(z-1,M)==1
     for R in c['rows']:
         P,j,t,*a=R;assert t!='X' and j!=0;row(11,R)
         if t=='W':Q=8*a[0]
@@ -113,4 +114,4 @@ def poly():
     assert tot>0
 if __name__=='__main__':
     for h in range(3,201,2):orbit(h);old(h);extensions(h);primitive(h)
-    residual();moving();poly();print('formal and evaluated orbit, thickness and distribution tests through h=199; refined transfer and polynomial boxes OK')
+    residual();moving();poly();print('orbit/distribution identities and thickness kernel orders through h=199 (no index computation); refined transfer and polynomial boxes OK')

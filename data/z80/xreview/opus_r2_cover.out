@@ -1,0 +1,7 @@
+    fibres mod 3825360 surviving the P|A rows: 1
+(1) CRT-fibre cover (A=3825360, B=130169): uncovered residues mod L = [0]
+(2) modular rule check at m = m11 failures 0
+(2) modular rule check at m = 11+1T' failures 0
+(2) modular rule check at m = 11+2T' failures 0
+(3) actual-integer rule checks: 1200 instances; rows with ord>ORDMAX tested only at m=11: 67
+(4) gcd-rule triples: 42920 ; epsilon side conditions OK; v2(T') = 51 ; odd primes of gcd(M,z-1): []
