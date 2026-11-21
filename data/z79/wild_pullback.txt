@@ -1,0 +1,34 @@
+# Algebra panel from 38a6dbf29; replay: ulimit -v 6000000; timeout 90 uv run --offline --no-project python -B scripts/z79_wild_pullback.py
+F (1, 0, -3) 0/1/2-roots 277 48 288
+F (1, 0, 24) 0/1/2-roots 301 7 305
+F (3, 2, -5) 0/1/2-roots 290 5 318
+F (1, 0, 0) 0/1/2-roots 409 0 204
+8/131,8/241: no triple
+81 bounded counts ratio/star/C-even 0 0 0 first None
+121 bounded counts ratio/star/C-even 0 0 0 first None
+131 bounded counts ratio/star/C-even 18 7 0 first (3, 1, 1)
+241 bounded counts ratio/star/C-even 6 2 0 first (7, 1, 2)
+1590284203561 bounded counts ratio/star/C-even 8 0 0 first (47, 2, 3)
+105 bounded counts ratio/star/C-even 3 0 0 first (47, 3, 4)
+1465 bounded counts ratio/star/C-even 2 0 0 first (99, 1, 5)
+3865 bounded counts ratio/star/C-even 7 0 0 first (47, 3, 4)
+4545 bounded counts ratio/star/C-even 0 0 0 first None
+10305 bounded counts ratio/star/C-even 6 0 0 first (59, 1, 3)
+12145 bounded counts ratio/star/C-even 5 0 0 first (79, 5, 4)
+39361 bounded counts ratio/star/C-even 8 0 0 first (47, 3, 2)
+67425 bounded counts ratio/star/C-even 5 0 0 first (59, 1, 5)
+409 bounded counts ratio/star/C-even 10 0 0 first (7, 1, 2)
+577 bounded counts ratio/star/C-even 9 0 0 first (7, 1, 2)
+5569 bounded counts ratio/star/C-even 9 0 0 first (39, 1, 5)
+9601 bounded counts ratio/star/C-even 5 0 0 first (23, 3, 2)
+23929 bounded counts ratio/star/C-even 22 0 0 first (7, 1, 2)
+83449 bounded counts ratio/star/C-even 9 0 0 first (59, 3, 5)
+102001 bounded counts ratio/star/C-even 8 0 0 first (23, 1, 6)
+329617 bounded counts ratio/star/C-even 9 0 0 first (15, 1, 2)
+712321 bounded counts ratio/star/C-even 13 0 0 first (23, 1, 2)
+1134241 bounded counts ratio/star/C-even 14 0 0 first (7, 1, 2)
+1724209 bounded counts ratio/star/C-even 10 0 0 first (39, 1, 2)
+1726201 bounded counts ratio/star/C-even 13 0 0 first (239, 2, 5)
+5212561 bounded counts ratio/star/C-even 14 0 0 first (87, 1, 2)
+8813281 bounded counts ratio/star/C-even 9 0 0 first (111, 1, 14)
+17401609 bounded counts ratio/star/C-even 10 0 0 first (87, 1, 2)

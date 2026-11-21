@@ -1,0 +1,15 @@
+s, split atoms (f=3,7 mod 8): 1 0 0
+s, split atoms (f=3,7 mod 8): 2 162 0
+s, split atoms (f=3,7 mod 8): 3 30 128
+s, split atoms (f=3,7 mod 8): 5 44 176
+s, split atoms (f=3,7 mod 8): 6 82 125
+s, split atoms (f=3,7 mod 8): 13 54 285
+s, split atoms (f=3,7 mod 8): 35 45 221
+degree, modulus, gcd checks <4000, fibre counts <500: 3 12 139 25
+degree, modulus, gcd checks <4000, fibre counts <500: 4 4 280 50
+degree, modulus, gcd checks <4000, fibre counts <500: 6 12 139 25
+degree, modulus, gcd checks <4000, fibre counts <500: 10 20 69 13
+degree, modulus, gcd checks <4000, fibre counts <500: 15 60 36 6
+degree, modulus, gcd checks <4000, fibre counts <500: 24 12 139 25
+2j²,j<=40,4|y: forbidden row / replacement hits 0 211
+HJ symbol/target comparisons 238
