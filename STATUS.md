@@ -27,7 +27,7 @@ expert-level deep reference is `FRONTIER.md`. Citations of "STATUS.md §…" wri
   (2026-11-20, GPT-6.2 Astra bursts orchestrated by Claude, all promoted items Opus cross-reviewed) proved BCM + four
   squares + full prime QR + universal TS in one Bézout model, the nonstandard-PID IE₁/IE₁⁻ barrier and norm/elliptic window
   barriers, bounded upstairs étale-BM blindness, `(4^m−1)2^s+1` (`1≤m≤10`; Lean for 3, 15, 63), subexp `e*(n)`,
-  `R(n) ≪ n^{272/857+ε}`, 2/3 `(★)/U₇` tails, sterile Mordell threshold **919**, F₃[T] Conjecture 0.2, and `R₈` 1.59T.
+  `R(n) ≪ n^{272/857+ε}`, 2/3 `(★)/U₇` tails, sterile Mordell threshold **293**, F₃[T] Conjecture 0.2, and `R₈` 1.59T.
 
 Notation: 𝔐 = {1, 121, 169, 289, 361, 529} mod 840 (Mordell's hard classes). R(p) = the (★)/c = 1 Type II count.
 M₀(p) ∼ (3/(2π²))log²p is its expected size. It is a finite sum with an O(log p) secondary term; the exact form is in
@@ -105,8 +105,8 @@ Each item carries a label, then a pointer. "PROVED rel. X" means proved relative
   programs with a finite formal tree at the trap: PROVED (`Z53_NONCRTLOGIC.md`); prime failures CONDITIONAL on Schinzel H.
   Unconditional (z74, Opus-reviewed) for polynomial whole-triple menus in Gaussian + any fixed number of *integral*
   negative-Pell witnesses: miss relative density one of primes ≡ 1 (M), 840 | M (`GAUSSIAN_PELL_MENU.md`). Sterile Mordell
-  points on the r-generic line exist for every prime **r ≥ 919** (PROVED, computer-assisted rel. SE/ZL/z77 incl. inherited
-  libm rows and BBR 2012; `notes/z78/R17_PUSH.md` §7, Opus-reviewed; a round-2 claim r ≥ 293 is under cross-review).
+  points on the r-generic line exist for every prime **r ≥ 293** (PROVED, computer-assisted: integer/rational ledger incl.
+  tails on [293, 919), SE/ZL/z77 with inherited libm rows above, BBR 2012; `notes/z78/R17_PUSH.md` §§7–11, two Opus replays).
 * **Witness sizes are not polylog.** For fixed κ < 1/12, or κ < 1/6 with Gallagher or GRH, infinitely many p have no
   forest edge with larger endpoint in [4, exp((log p)^κ)]. Only {1,2} and {2,3} remain. This refutes Conjecture H₂.
   PROVED rel. the internal energy lemma; `H4_NOT_POLYLOG.md`. Both Type II witness moduli are ≥ the least quadratic
@@ -180,7 +180,7 @@ Ranked by the campaign (Assessment). Definitions are in the cited files.
    `H(A*) = Γ⁰[G]`, norm windows of standard number-field orders, elliptic duplication windows — and end extensions cannot
    repair an old bounded miss, `IE1_NONPID.md` §4, `notes/z78/IE1_UNITS.md` §§4–15; the no-lock fair-chain route stays
    open); `L(Div)` in a BCM+TS ES-countermodel; Bézout+IW₂.
-5. **Coverings:** all-depth sterility for the primes 17 ≤ r < 919 not yet certified, above all r = 17. CERTIFIED: 5 and its
+5. **Coverings:** all-depth sterility for the primes 17 ≤ r ≤ 283 (each fails the current sufficient bound), above all r = 17. CERTIFIED: 5 and its
    inverse survive all seven families through depth 11 (not all-depth; `notes/z78/R17_PUSH.md` §6). At r = 17, x = 5, PROVED:
    a P hit with 17^L ≥ 10⁶ needs e ≤ 466(rN)^{1/4}; ineffectively finitely many hit levels per fixed square class of de (P)
    or d (Q); CONDITIONAL on abc: for each θ < 1/4 no sufficiently deep P hit has de ≤ N^θ (`notes/z78/R17_ENDPOINT.md`
