@@ -1,6 +1,7 @@
-"""Build and check the isolated all-slot word and inert-prime two-cycle."""
+"""Build and check the isolated all-slot word and its two negative prime successors."""
 from math import gcd, isqrt
 from z80_square_span import jac,divs
+from z80_cofactor import basin
 
 def forms(r):
     assert r%2
@@ -25,13 +26,17 @@ def main():
         if not all(prime(x) for x in forms(r)):continue
         _,p,s,l,k=forms(r)
         assert 17==next(x for x in range(2,18) if jac(x,p)==-1) and jac(r,p)==-1
-        print('instance j,r,p,S,L,K:',j,r,p,s,l,k)
+        Q=basin(p,17,False)
+        assert set(Q)=={17,r}
+        print('instance j,r,p,S,L,K:',j,r,p,s,l,k,'prime closure',Q)
         for x in (11,17,r):
             N=p+x; O=[]
             for v in divs(N):
                 if (p+x+v)%(x*v)==0 and min(v,(p+x+v)//(x*v))>=2: O.append((v,(p+x+v)//(x*v)))
-            if x==r: mid=[] if all(u*(17-u)!=186 for u in range(2,16)) and r>1000 else None
+            if x==r: mid=[(u,v) for u in range(2,187) for v in range(2,187//u+1) if u*x*v-u-v==p]
             else: mid=[((d+1)//x,((x*p+1)//d+1)//x) for d in divs(x*p+1) if d%x==x-1 and d+1>=2*x and (x*p+1)//d+1>=2*x]
+            assert set(O)==({(r,11)} if x==17 else {(17,11)} if x==r else set())
+            assert set(mid)==({(r,17),(17,r)} if x==11 else set())
             print('at',x, 'outer(v,t)',O,'middle(u,v)',mid)
         return
     raise ValueError('no instance in search')
