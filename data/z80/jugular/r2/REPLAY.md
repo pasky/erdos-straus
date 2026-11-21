@@ -1,6 +1,6 @@
 # Replay: round-2 counts
 
-Run from the repo root, `ulimit -v 6000000`; every command under `timeout 1800` or less, serially (or at most two processes). All Python commands are `uv run --offline --no-project python -B`. Sources in `scripts/`; compile `z80_parity_{hj,huge,prime,composite,word,hii}.c` with `cc -O3 -lm` (put `-lm` after the source), producing temporary binaries. For `strict` add `-DSTRICT_ONLY` when compiling the prime engine. Redirections below use files in this data directory. Remove binaries after use. Main input list: `z80_jugular_inputs.py`; split by the exact prime sieve in `z80_square_span.py` to obtain `prime.txt` and `comp.txt`. `high.txt` consists of the 12 old R8 controls, the 1.59T control, and 2521 for overlap.
+Run from the repo root, `ulimit -v 6000000`; every command under `timeout 1800` or less, serially (or at most two processes). All Python commands are `uv run --offline --no-project python -B`. Sources in `scripts/`; compile `z80_parity_{hj,huge,prime,composite,word,hii}.c` with `cc -O3 -lm` (put `-lm` after the source), producing temporary binaries. For `strict` add `-DSTRICT_ONLY` when compiling the prime engine. Redirections below use files in this data directory. Remove binaries after use. `z80_jugular_inputs.py` writes `inputs.txt` to stdout by default; arguments `prime`, `comp`, `high` write the respective input lists to stdout. `high.txt` uses `data/z58/screens/r8_zeros_1e10.txt`, the 1.59T control, and 2521 for overlap.
 
 ```
 hj <inputs.txt >hj.csv

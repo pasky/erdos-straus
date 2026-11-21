@@ -11,4 +11,16 @@ def panel():
                 n=int(line.split()[0]);
                 if n<=20_000_000:S.add(n)
     return sorted(P|S|{m*m for m in range(3,102,2)})
-if __name__=='__main__': print(*panel(),sep='\n')
+if __name__=='__main__':
+    import sys
+    kind=sys.argv[1] if len(sys.argv)>1 else 'all'
+    if kind=='high':
+        rows=Path('data/z58/screens/r8_zeros_1e10.txt').read_text().splitlines()
+        out=[2521]+[int(r.split()[0]) for r in rows if r and not r.startswith('#')]+[1590284203561]
+    else:
+        out=panel()
+        if kind!='all':
+            assert kind in ('prime','comp')
+            P=set(primes_to(max(out)))
+            out=[n for n in out if (n in P)==(kind=='prime')]
+    print(*out,sep='\n')

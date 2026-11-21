@@ -32,7 +32,7 @@ def main():
                 for o in range(2):
                     val=q[12*i+6*o+j]
                     if i>=4:
-                        if j in (0,2,3,4,5) and (j!=4 or o==0):assert val==out[name,['ord','un'][o],weights[j]][-1] or (j in (2,) and o and False)
+                        if j in (0,2,3,4,5) and (j!=4 or o==0):assert val==out[name,['ord','un'][o],weights[j]][-1]
                     else:out.setdefault((name,['ord','un'][o],weights[j]),[]).append(val)
         for j,tag in enumerate(weights[:5]):
             for o in range(2):
