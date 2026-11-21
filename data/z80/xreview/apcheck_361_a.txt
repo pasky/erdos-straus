@@ -1,0 +1,5 @@
+# step=840 res=361 lo=3100000000001 hi=3130000000001 primes=5433085 exhaustive=43409 zeros=0
+
+real	5m5.917s
+user	5m5.847s
+sys	0m0.012s

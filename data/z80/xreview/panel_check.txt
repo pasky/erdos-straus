@@ -1,0 +1,8 @@
+panel rows 72 factor/primality/first-inert mismatches 0 record primes 24
+13649154491558298803281 windows I,II = 434 259 panel 434 259 OK
+1000000037842000358005081 windows I,II = 892 585 panel 892 585 OK
+1000000037842000358013481 windows I,II = 1608 882 panel 1608 882 OK
+1000006402010247241 windows I,II = 620 380 panel 620 380 OK
+1000006402010250601 windows I,II = 764 453 panel 764 453 OK
+8089 windows I,II = 28 15 panel 28 15 OK
+1009 windows I,II = 11 8 panel 11 8 OK
