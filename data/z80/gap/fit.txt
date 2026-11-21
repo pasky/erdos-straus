@@ -1,0 +1,12 @@
+record 9 max g 127 max cap 0 max first U7 359
+L 24 max g 31 max cap 0 max first U7 3695
+R8 26 max g 27 max cap 0 max first U7 3223
+L40e18 16 max g 19 max cap 0 max first U7 695
+L40e24 16 max g 11 max cap 0 max first U7 1391
+L40e30 16 max g 19 max cap 0 max first U7 2959
+L40e36 16 max g 11 max cap 0 max first U7 743
+endpoints [10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000, 5000000000000] maxima [23, 31, 59, 107, 107, 107, 107, 107, 111, 127]
+log/loglog coefficient 12.276929 log-RMSE 0.378994
+log coefficient 4.257823 log-RMSE 0.289327
+log^2 coefficient 0.232475 log-RMSE 0.328776
+exp(sqrt(log)) coefficient 1.006607 log-RMSE 0.386769

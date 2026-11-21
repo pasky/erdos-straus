@@ -1,0 +1,3 @@
+# k=8 first=6955940671681 last=19999999939921 step=120120 length=108591903 late_integers=8733 hard_primes=391 miss=0
+# k=8 first=6955940671681 last=99999999939841 step=120120 length=774592569 late_integers=59337 hard_primes=2396 miss=0
+r8full.txt (full replay 120120 1 6955940568722 99999999999999) was byte-identical to data/z80/gap/r8high.txt (diff empty); deleted as duplicate. r8sub (to 2e13) H lines identical to the r8high prefix.

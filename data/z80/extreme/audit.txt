@@ -1,0 +1,26 @@
+odd square 9 strict [0, 0] all sorted 6
+odd square 25 strict [0, 0] all sorted 10
+odd square 49 strict [0, 0] all sorted 18
+odd square 81 strict [0, 0] all sorted 46
+odd square 121 strict [0, 0] all sorted 24
+odd square 169 strict [0, 0] all sorted 24
+odd square 225 strict [0, 0] all sorted 317
+full 8/131 and 8/241: zero; odd primes <=250: ET = direct
+R: 14 prime controls plus composite 17401609; U7 eight zeros; Type II at 4545 empty
+ap361 6661 positive fallback identities; [6955940568721]
+ap9240 2872 positive fallback identities; []
+All panel certificates: positive checked; completeness of windows from divisor enumeration.
+all-prime decade 0 4 1 2 0.47974152705316564 5
+all-prime decade 1 21 4 13 0.08356010997094171 97
+all-prime decade 2 143 6 193 0.04116497329071637 193
+all-prime decade 3 1061 9 2521 0.01873079089366373 2521
+record-list decade 1 2 (4, 17) (0.08863120166734045, 73)
+record-list decade 2 1 (8, 241) (0.048485103575657086, 241)
+record-list decade 3 2 (19, 1009) (0.05741877908116653, 1009)
+record-list decade 4 2 (38, 87481) (0.02578998259047862, 87481)
+record-list decade 5 1 (92, 515761) (0.040427219095509455, 515761)
+record-list decade 6 3 (107, 1083289) (0.03988045318555807, 1083289)
+record-list decade 7 2 (193, 22000801) (0.03993827393479155, 22000801)
+record-list decade 8 3 (296, 175244281) (0.04327997310858427, 175244281)
+fixed fibre 29 c 0.04738111063948217 phi 1.4805379667093617 m 1.2402689833546807 log10Pr0 at 1e18 -1181.240275754601
+record-list held out observed/predicted 0.5443093722878692 1.2732268681982302

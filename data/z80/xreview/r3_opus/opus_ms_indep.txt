@@ -1,0 +1,9 @@
+LO 200000000001 HI 300000000000 DS 8191
+eligible_nonsquare nonM 10714285715 M 714262740 (5mod12 nonM 5714285715 M 0; 1mod12 nonM 5000000000 M 714262740)
+1mod12 survivors_of_d<=DS nonsquare 2198720 (M 676925) surviving_squares 22974; all eligible-class squares M 22974 nonM 0
+max minimal d among survivors 11074055 at n 218136733117; unknown 0
+comp-style late (min d>80000, no pair t<=20000): nonM 143 maxd 579239 n 218294896081 | M 1012 maxd 1462103 n 289626521041
+
+real	0m50.961s
+user	0m50.938s
+sys	0m0.012s

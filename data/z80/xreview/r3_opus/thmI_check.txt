@@ -1,0 +1,24 @@
+k=3 m=35 primes=808 notInM=0 windowSucceeds=0
+k=7 m=15 primes=3895 notInM=0 windowSucceeds=0
+k=11 m=35 primes=899 notInM=0 windowSucceeds=0
+k=15 m=7 primes=3399 notInM=0 windowSucceeds=0
+k=19 m=21 primes=2048 notInM=0 windowSucceeds=0
+k=23 m=35 primes=1239 notInM=0 windowSucceeds=0
+k=27 m=5 primes=5677 notInM=0 windowSucceeds=0
+k=31 m=105 primes=296 notInM=0 windowSucceeds=0
+k=35 m=1 primes=22259 notInM=0 windowSucceeds=0
+k=39 m=7 primes=3692 notInM=0 windowSucceeds=0
+k=43 m=105 primes=688 notInM=0 windowSucceeds=0
+k=47 m=35 primes=838 notInM=0 windowSucceeds=0
+k=51 m=35 primes=678 notInM=0 windowSucceeds=0
+k=55 m=3 primes=12164 notInM=0 windowSucceeds=0
+k=63 m=5 primes=4668 notInM=0 windowSucceeds=0
+k=75 m=7 primes=2258 notInM=0 windowSucceeds=0
+k=99 m=7 primes=3344 notInM=0 windowSucceeds=0
+k=119 m=1 primes=23020 notInM=0 windowSucceeds=0
+k=147 m=5 primes=4298 notInM=0 windowSucceeds=0
+k=175 m=3 primes=10320 notInM=0 windowSucceeds=0
+k=231 m=5 primes=2889 notInM=0 windowSucceeds=0
+k=243 m=35 primes=536 notInM=0 windowSucceeds=0
+k=343 m=15 primes=2596 notInM=0 windowSucceeds=0
+total 112509

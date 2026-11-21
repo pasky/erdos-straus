@@ -1,0 +1,4 @@
+6955940568721 prime 4 unordered 21 first [(4, 59, 7368581111)]
+6955940568721 prime 8 unordered 0 first []
+1590284203561 prime 4 unordered 26 first [(15, 26984, 982239)]
+1590284203561 prime 8 unordered 0 first []

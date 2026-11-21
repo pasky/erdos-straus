@@ -1,0 +1,10 @@
+# step=9240 res=1 lo=1590284203562 hi=1790284203562 primes=3698948 exhaustive=39100 zeros=0
+
+real	3m43.715s
+user	3m43.704s
+sys	0m0.001s
+# step=9240 res=1 lo=14850000000001 hi=15000000000000 primes=2575961 exhaustive=27027 zeros=0
+
+real	5m14.800s
+user	5m14.712s
+sys	0m0.028s

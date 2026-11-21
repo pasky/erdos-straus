@@ -1,0 +1,22 @@
+hard primes in (1e7,2e7] 18878
+k 3 genus 10567 actual 10567 nongenus 0
+k 7 genus 10818 actual 10818 nongenus 0
+k 11 genus 5554 actual 6263 nongenus 709
+k 15 genus 10576 actual 10576 nongenus 0
+k 19 genus 5751 actual 9014 nongenus 3263
+k 23 genus 5608 actual 5842 nongenus 234
+k 27 genus 10484 actual 12671 nongenus 2187
+k 31 genus 5155 actual 6548 nongenus 1393
+k 35 genus 11632 actual 12614 nongenus 982
+k 39 genus 5695 actual 6751 nongenus 1056
+k 51 genus 9709 actual 12878 nongenus 3169
+k 63 genus 10799 actual 12101 nongenus 1302
+k 95 genus 6042 actual 7996 nongenus 1954
+k 119 genus 5358 actual 7055 nongenus 1697
+k 231 genus 9418 actual 12656 nongenus 3238
+3:7 genus 6010 actual 6010
+g distribution [(3, 8311), (7, 4557), (11, 3896), (15, 844), (19, 694), (23, 378), (27, 56), (31, 100), (35, 16), (39, 14), (43, 2), (47, 5), (55, 2), (59, 3)]
+
+real	0m3.376s
+user	0m3.286s
+sys	0m0.090s
