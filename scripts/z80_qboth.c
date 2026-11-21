@@ -17,7 +17,7 @@ int main(int argc,char**argv){assert(argc==5);U r=atoi(argv[1]),k=atoi(argv[2]),
  for(int i=0;i<5;i++){Z H=(Z)(F+h)*(F+h);Z cut=(H/(4*w)+1)/E;if(cut>=h)break;h=(U)cut;}
  U x=T+(u-(F+T)%u)%u;if(x>h)continue;U count=1+(h-x)/u;
  if(count<=256){scan+=count;for(U f=x;f<=h;f+=u)if(V%f==0){tested++;U a=(F+f)/u;Z M=(Z)4*a*a*d+1;if(M%f||M/f<E||(M/f)%r==0||(Z)c*(M/f)<2*a)continue;total+=2;}}
- else { /* upper bound divisors in the progression: at most count. For very small w a pointwise divisor cap is supplied by caller separately below. */
+ else { /* Compare progression length to a divisor bound after extracting g<=u. */
  U cap=1,g=1;Z y=V;for(U p=2;p<=251;p+=(p==2?1:2)){if(y%p)continue;U j=1;do{if(g<=u/p)g*=p;else j++;y/=p;}while(y%p==0);cap*=j;}if(y<=u/g)y=1;while(y>=252){y/=252;cap*=2;}total+=2*(cap<count?cap:count);}
  }
  printf("%lu %lu %lu %lu %lu %lu %lu %lu\n",r,k,E,T,wmax,scan,tested,total);

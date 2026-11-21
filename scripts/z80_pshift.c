@@ -24,7 +24,7 @@ static U count(int n,U*p,unsigned char*h){if(e<=32){U c=1;for(int i=0;i<n;i++)c*
     of residues. M/v = (g/y)*(y^2/v), so only one inversion is needed. */
  gg=1;nfs=0;for(int i=0;i<n;i++){int j=h[i];while(j&&p[i]<=e/gg){gg*=p[i];j--;}if(j){factors[nfs]=p[i]%e;powers[nfs++]=j;}}gs=(Z)gg*gg;y=m/gg;
  ct=0;if(nfs==1&&powers[0]==1){U t=e-m%e;if(t<=gg&&gs%t==0)ct+=2;t=e-gg%e;if(t<=gg&&gs%t==0)ct+=2;
- /* third residue has no candidate if g^2<e and the first v has already been checked? No: always test independently. */
+ /* Test the remaining representative, independently of the other two. */
  U w=(gg*inv(y,e))%e;t=e-w;if(t<=gg&&gs%t==0)ct+=2;return ct;}
  visit(0,(gg*inv(y,e))%e);return ct;}
 static void push(int i,U p,int h){int j=nf[i]++;assert(j<16);pp[i][j]=p;ex[i][j]=h;}

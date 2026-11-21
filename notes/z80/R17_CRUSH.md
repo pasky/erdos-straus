@@ -1,6 +1,6 @@
 Result: The sufficient threshold for positive sterile measure on the r-generic line falls from 149 to 89.            Label: PROVED (rel. SE §3.1, z78/z79 ledger lemmas including BBR, computer-assisted)
 Scope: Ten additional primes; the 17 gap primes from 17 through 83 remain unresolved by this test. This is a barrier to finite ET linear coverings, not a result on ES in ℕ, which is open.
-Review: none (cross-review owed)
+Review: cross-model (`data/z80/xreview/REVIEW_R17_CRUSH_OPUS.md`, Claude Opus; all six stages replayed, three decisive counts independently implemented, replay dispatch and attribution corrected)
 Triage: RECORD
 STATUS delta: Replace the sufficient threshold by 89; retain the inherited high-range qualifications and the finite-depth qualification for the two endpoints at 17.
 
@@ -18,7 +18,7 @@ STATUS delta: Replace the sufficient threshold by 89; retain the inherited high-
 
 **CERTIFIED (z80_crush.py, relative to z79 tables).** Use the unchanged z79 run recurrence at additional primes, and the existing prime-power prefix sieve at more r,k pairs. All charges on new primes and tail comparisons use integers and rationals. At r≥149 or r=137 the old verdicts are preserved; beyond 283 invoke z78/z79 with their original dependencies. The old and new columns below are signed floors of a lower bound in ppm, not estimates of coverage. A failed ledger can saturate its finite-P live mass at zero; its negative margin is then not the improvement sufficient to pass. `data/z80/crush/ledger.txt` lists the P₇, depth-five, remaining finite P, finite Q, P-tail and Q-tail charges rounded up individually before the final margin column (which is calculated before rounding).
 
-|r|old|new|route used on passes|
+|r|old|new|load-bearing new stages (one-at-a-time ablation)|
 |--:|--:|--:|:--|
 |17|-975562|-975562|not cleared|
 |19|-764848|-764848|not cleared|
@@ -37,16 +37,16 @@ STATUS delta: Replace the sufficient threshold by 89; retain the inherited high-
 |73|-240213|-53762|not cleared|
 |79|-242900|-48417|not cleared|
 |83|-219299|-37363|not cleared|
-|89|-175426|15841|prefix + CF + finite layers|
-|97|-146992|81279|prefix + CF + finite layers|
-|101|-143330|29845|prefix + CF + finite layers|
-|103|-149703|24911|prefix + CF + finite layers|
-|107|-139771|47249|prefix + CF + finite layers|
-|109|-123969|29839|prefix + CF + finite layers|
-|113|-116264|86690|prefix + CF + finite layers|
-|127|-102405|55602|prefix + determinant + Q₅|
-|131|-20061|62912|prefix + determinant + Q₅|
-|139|-11317|60669|prefix + determinant + Q₅|
+|89|-175426|15841|prefix, CF, Q₅, runs, shift31|
+|97|-146992|81279|prefix, Q₅|
+|101|-143330|29845|prefix, CF, Q₅, shift31|
+|103|-149703|24911|prefix, CF, Q₅, shift31|
+|107|-139771|47249|prefix, Q₅|
+|109|-123969|29839|prefix, CF, Q₅, shift31|
+|113|-116264|86690|prefix, Q₅|
+|127|-102405|55602|prefix, Q₅|
+|131|-20061|62912|prefix or Q₅ suffices|
+|139|-11317|60669|prefix or Q₅ suffices|
 
 ## Falsifier table and replay
 
@@ -56,6 +56,8 @@ STATUS delta: Replace the sufficient threshold by 89; retain the inherited high-
 | Two-prime x* | CERTIFIED (II3 arithmetic check): residue 12650497 modulo 12670944 hits the point with both 11- and 13-components 2. Distinct from the single-13 test. |
 | Regression | CERTIFIED (z80_crush_checks.py): reconstruct the four z78 native marginal counts at 17..53 and retain all 28 previous passes. |
 
-**Replay.** From the repository root: `bash scripts/z80_crush_replay.sh`. Every generated stage is diffed against the compact certificate. The ledger-only option checks the inherited z79 verdicts, falsifiers and SHA-256 manifest; it does not regenerate the C stages. Independent-check scope: inherited z78/z79 controls only pending cross-review of the new stages.
+**Replay.** From the repository root: `bash scripts/z80_crush_replay.sh`. Every generated stage is diffed against the compact certificate. The ledger-only option checks the inherited z79 verdicts, falsifiers and SHA-256 manifest; it does not regenerate the C stages. Opus independently matched every prefix, CF and both-large Q₅ row. For the reused z79 run and shift engines at new parameters, its coverage was source replay, not a rewrite. The weakest new margin is 15,841 ppm at 89. In the table `shift31` means extending the K=11,13 short shifts through e<2³¹. The J=28 file is not load-bearing for any new pass. See the full review §2 for the ablations. Inputs: `STERILE_EXPLICIT.md` §3.1; `notes/z76/PROOF_LIFT.md` §2; `notes/z77/R17_F3.md` §§3,5; `POINTWISE_MORDELL13B.md` Thm 3.1. The inherited high-range libm qualification starts at r≥919, not on any new prime.
+
+**EVIDENCE (review §2, `scripts/z80_xr_extend.py`).** At 59..83, pushing the prefix and CF combination reduces P₉ to 2–26 ppm but leaves every margin unchanged: the P₁₁ and higher charges saturate the remaining live mass. Sharpening Q₅ or P₉ alone is not the next threshold step.
 
 **Assessment (17).** The test gives no positive local mass at 17. Survival of the point at a finite depth is not all-depth survival of its cylinder. No improvement of the point depth is asserted by the ledger.

@@ -1,0 +1,11 @@
+97 5 4194304 4194304 1048966 13907411 4 23187720
+# exact both-large solutions (one orientation)=60 x2=120 charge=23187720 pairs=852100 beyond_wmax_solutions=0 (scanned to 1*wmax)
+107 5 5817744 5817744 1454215 19333979 1 36588450
+# exact both-large solutions (one orientation)=104 x2=208 charge=36588450 pairs=1184763 beyond_wmax_solutions=0 (scanned to 1*wmax)
+113 5 6980164 6980164 1743099 23172092 8 45388240
+# exact both-large solutions (one orientation)=84 x2=168 charge=45388240 pairs=1419045 beyond_wmax_solutions=0 (scanned to 1*wmax)
+127 5 10297681 10297681 2574951 34282147 4 75148072
+# exact both-large solutions (one orientation)=128 x2=256 charge=75148072 pairs=2101646 beyond_wmax_solutions=0 (scanned to 1*wmax)
+131 5 11417641 11417641 2855993 38038654 0 85337664
+# exact both-large solutions (one orientation)=90 x2=180 charge=85337664 pairs=2331681 beyond_wmax_solutions=0 (scanned to 1*wmax)
+done
