@@ -62,12 +62,14 @@ def crt_checks():
                 continue
             f, x = candidate(a, c, d)
             g = gcd(m, f)
-            val = 1
+            val = val_phi = 1
             for j in range(1, e + 1):
                 h = q**j
                 if f % h == 0:
                     val += h * ((x-r) % h == 0) - (h//q) * ((x-r) % (h//q) == 0)
+                    val_phi += phi(h) * ((x-r) % h == 0) - phi(h//q) * ((x-r) % (h//q) == 0)
             assert val == g * ((x-r) % g == 0)
+            assert val_phi == phi(g) * ((x-r) % g == 0)
             checks += 1
     print('local signed expansions:', checks)
     base = 24
@@ -85,6 +87,13 @@ def crt_checks():
         return Fraction(ph(base),ph(lcm(*(f for f,r in system))))
     assert moments == [sum(prob(((base,1),)+v) for v in product(atoms,repeat=j)) for j in (1,2)]
     print('small CRT fibre:', base, M, len(atoms), len(units), *moments)
+    beta = {f: prod(Fraction(q-1,q) for q in (5,7,11,23) if f%q==0) for f,x in atoms}
+    weighted = [sum(beta[f] for f,x in atoms if (t-x)%f==0) for t in units]
+    for j in (1,2):
+        direct = sum(h**j for h in weighted)/len(units)
+        model = sum(prod(beta[f] for f,x in v)*prob(((base,1),)+v) for v in product(atoms,repeat=j))
+        assert direct == model
+        print('weighted moment',j,model)
 
 
 if __name__ == '__main__':

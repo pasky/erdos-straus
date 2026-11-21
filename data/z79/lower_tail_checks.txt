@@ -1,5 +1,7 @@
 local signed expansions: 15488
 small CRT fibre: 24 212520 18 5280 1093/660 41/11
+weighted moment 1 12568/8855
+weighted moment 2 215300898/78411025
 4 vs 8 131 sorted triples 32 0 even-only 0
   type 1 odd denominator histogram [0, 21, 0, 0] first [(33, 4324, 18692652)]
   type 2 odd denominator histogram [0, 11, 0, 0] first [(33, 4454, 146982)]
