@@ -61,3 +61,5 @@ STATUS delta: Replace the sufficient threshold by 89; retain the inherited high-
 **EVIDENCE (review §2, `scripts/z80_xr_extend.py`).** At 59..83, pushing the prefix and CF combination reduces P₉ to 2–26 ppm but leaves every margin unchanged: the P₁₁ and higher charges saturate the remaining live mass. Sharpening Q₅ or P₉ alone is not the next threshold step.
 
 **Assessment (17).** The test gives no positive local mass at 17. Survival of the point at a finite depth is not all-depth survival of its cylinder. No improvement of the point depth is asserted by the ledger.
+
+**Round 2 (supersedes numerical records above):** see `R17_WALK.md` for primes ≥83 plus 73, the depth-16 endpoint certificate and the Q rational descent through odd level 39.
