@@ -89,7 +89,13 @@ def main():
     for d in range(2,isqrt(len(prime)-1)+1):
         if prime[d]: prime[d*d::d]=b'\0'*len(prime[d*d::d])
     for n in F:
-        locks=[]; cubes=[]; bins=[]
+        locks=[]; cubes=[]; bins=[]; classes=[]
+        # The parent Type II classes, without the cube condition. A>n+u
+        # once x^4>n, since A-u = x^4+2*x*x+x+1.
+        for x in range(1,isqrt(isqrt(n))+1,8):
+            y,A,u,t=nested(x)
+            if n%4==1 and (n+u)%A==0 and (n+u)//A>=2:
+                star(n,t,u,(n+u)//A); classes.append(x)
         for x in range(1,isqrt(isqrt(n))+2,8):
             y,A,u,t=nested(x)
             if y**3 > n-1: break
@@ -109,8 +115,8 @@ def main():
                     if s>n: break
                     if s==n and x%23==a and y%23==b: binary(x,y);bins.append((x,y))
         if n in zeros+Z7+[17401609,131,241,1590284203561]:
-            print(n,'cube',cubes,'lock',locks,'binary',bins)
-        if n in zeros+[17401609] or isqrt(n)**2==n: assert not (locks or cubes)
+            print(n,'cube',cubes,'lock',locks,'binary',bins,'parent class',classes)
+        if n in zeros+[17401609] or isqrt(n)**2==n: assert not (locks or cubes or classes)
         if n in Z7 or isqrt(n)**2==n: assert not bins
     print('square controls:',len(range(3,502,2)))
 
