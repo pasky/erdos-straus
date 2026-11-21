@@ -1284,8 +1284,8 @@ no single-prime lower-tail mechanism is known.
   r ≥ 919 relative to SE/ZL/z77 including inherited libm rows and BBR 2012 Thm 1.2 (`notes/z78/R17_PUSH.md` §7), and on
   [293, 919) by an integer/rational ledger including tail envelopes, relative to BBR 2012 Thm 1.2, the reduction and z76/z77
   lemmas. It reuses round-1 integer packed bounds and layer/P₇ tables, but no libm-dependent row; it starts from exact
-  depth-3 unions and uses exact P₇ counts where available (§§8–10, `R17_R2EXACT.md`; round-2 binding prime 293, margin
-  > 2,427 ppm); two Opus replays; from
+  depth-3 unions and uses exact P₇ counts where available (§§8–10, `R17_R2EXACT.md`; round-2 binding prime 293 with
+  margin above 2,427 ppm); two Opus replays; from
   `STERILE_LOWER.md`'s 2^{21.44} ≈ 2.84·10⁶ via z76 box-centre compression, z77 exact level-1 union and cofactor determinants
   (7 219, `notes/z77/R17_F3.md`), and z78's exact cubic P census, two-shift Q sieve, shift compression and survivor-conditioned
   charges; every prime 17..283 fails this sufficient bound, which is not coverage): no finite ET covering handles all primes with
