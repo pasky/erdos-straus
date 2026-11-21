@@ -27,7 +27,7 @@ expert-level deep reference is `FRONTIER.md`. Citations of "STATUS.md §…" wri
   (2026-11-20, GPT-6.2 Astra bursts orchestrated by Claude, all promoted items Opus cross-reviewed) proved BCM + four
   squares + full prime QR + universal TS in one Bézout model, the nonstandard-PID IE₁/IE₁⁻ barrier and norm/elliptic window
   barriers, bounded upstairs étale-BM blindness, `(4^m−1)2^s+1` (`1≤m≤10`; Lean for 3, 15, 63), subexp `e*(n)`,
-  `R(n) ≪ n^{272/857+ε}`, 2/3 `(★)/U₇` tails, sterile Mordell threshold **293**, F₃[T] Conjecture 0.2, and `R₈` 1.59T.
+  `R(n) ≪ n^{46/145+ε}`, 2/3 `(★)/U₇` tails, sterile Mordell threshold **293**, F₃[T] Conjecture 0.2, and `R₈` 1.59T.
 
 Notation: 𝔐 = {1, 121, 169, 289, 361, 529} mod 840 (Mordell's hard classes). R(p) = the (★)/c = 1 Type II count.
 M₀(p) ∼ (3/(2π²))log²p is its expected size. It is a finite sum with an O(log p) secondary term; the exact form is in
@@ -70,11 +70,11 @@ Each item carries a label, then a pointer. "PROVED rel. X" means proved relative
   * Hence M_BM ≥ 0.1402·log²p and M_BM ≥ 0.9225·M₀ at large p ≡ 1 (8) (Cor 3.1).
   * The odd-square obstruction T1 is built in exactly (`BM_CORRECTED_COUNT.md`).
 * **Type II genus main term ≥ 10⁻¹⁰·log³p** for large p ≡ 1 (4). PROVED, genus part only; `Z57_BFII.md` Thm G.
-* **Upper side:** PROVED unconditionally for every n ≥ 2: **R(n) ≪_ε n^{20/63+ε}** and **n^{272/857+ε}** (≈ 0.317386; two
-  independent Opus reviews each), and n^{46/145+ε} (≈ 0.317241; one Opus review, a second is owed). Common inputs: Weil,
-  uniform stationary phase, the additive large sieve and r₂ ≤ 4τ; the spacing steps use Erdős–Turán and the classical
-  fourth- resp. third-derivative tests; no exponent-pair input (`notes/z78/ANALYTIC_WILD.md` §§7–8, 11–12, 14; supersedes
-  z76's 8/25 and 7955/24966; uniform numerator-M bound R_M in §§13–14; external priority unverified).
+* **Upper side:** PROVED unconditionally for every n ≥ 2: **R(n) ≪_ε n^{46/145+ε}** (≈ 0.317241; two independent Opus
+  reviews, superseding z78's 20/63 and 272/857 and z76's 8/25 and 7955/24966). Common inputs: Weil, uniform stationary
+  phase, the additive large sieve, r₂ ≤ 4τ, Erdős–Turán and the classical third-derivative test (pooled shifts in common
+  quartic bands; no exponent-pair input; uniform numerator-M bound R_M in §§13–14; external priority unverified;
+  `notes/z78/ANALYTIC_WILD.md` §§7–8, 11–14).
 * **Capped relaxation (the first pointwise positive mechanism).** 4/n = 1/x + 1/y + 1/z, x, y ∈ ℤ_{>0}, z ∈ ℚ_{>0}, den z = r²,
   r odd, (r, n) = 1, rad r | y, v_ℓ(r) ≤ e. **Unconditional effective:** e*(n) ≤ exp(C√(log R · log log(3R))) for n > 1,
   R = rad(n) (PROVED rel. Gallagher, Linnik, Minkowski II; explicit 4e*(p) + 3 ≤ √(4p/3) at p ≡ 1 (8)); **CONDITIONAL**
@@ -187,7 +187,7 @@ Ranked by the campaign (Assessment). Definitions are in the cited files.
    or d (Q); CONDITIONAL on abc: for each θ < 1/4 no sufficiently deep P hit has de ≤ N^θ (`notes/z78/R17_ENDPOINT.md`
    §§2–4). F₃[T] Conj. 0.2 is closed (§1D).
 6. **Analytic sub-problems:** FRONTIER §7 (e.g. θ > 3/4 on E(N), cancellation on the height-dependent modular hyperbola,
-   pushing e*(n) below L_R[1/2], R(n) from the once-reviewed 46/145 toward 3/10).
+   pushing e*(n) below L_R[1/2], R(n) from 46/145 toward 3/10).
 
 ## 3. Negative results: summarised, not listed
 Most of the campaign's output is scoped no-gos, meaning "method class X cannot do it". They are kept out of this page on
