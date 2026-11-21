@@ -1,0 +1,4 @@
+F: 27 growing-base instances; all triple and character tests pass
+G small packet: u,g,r,small factors: 72 23 73 [167, 239, 311, 433, 577, 73]
+G exact hits below the cofactor: 8 least 12412943 largest 226392132720599
+G unsifted same class: depth-one shortcut 359
