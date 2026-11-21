@@ -1,0 +1,4 @@
+r 293 K 9 J 20 shifts 261250 checked 1755 violations 0 min slack 24 tot charge (all e<2^J) 20646863
+r 311 K 11 J 24 shifts 4180818 checked 2255 violations 0 min slack 78 tot charge (all e<2^J) 866802384
+r 479 K 7 J 24 shifts 4185548 checked 2256 violations 0 min slack 14 tot charge (all e<2^J) 108934775
+r 293 sampled 3000 of 33602 violations 0 min slack 3

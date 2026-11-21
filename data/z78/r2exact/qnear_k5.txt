@@ -1,0 +1,6 @@
+HIT k=5 j=2 orientation=a a=559 b=264566730 c=127 d=5 e=2083207 v17(4a^2d+5)=2 v17(4b^2d+5)=0
+MAX k=5 orientation=a valuation=2
+HIT k=5 j=2 orientation=b a=15 b=7439 c=2 d=11856 e=3727 v17(4a^2d+5)=0 v17(4b^2d+5)=2
+HIT k=5 j=2 orientation=b a=30 b=14878 c=4 d=2964 e=3727 v17(4a^2d+5)=0 v17(4b^2d+5)=2
+HIT k=5 j=2 orientation=b a=60 b=29756 c=8 d=741 e=3727 v17(4a^2d+5)=0 v17(4b^2d+5)=2
+MAX k=5 orientation=b valuation=2

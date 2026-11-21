@@ -1,0 +1,17 @@
+HIT k=9 j=2 orientation=a a=2 b=5953 c=5 d=2965692947 e=1191 v17(4a^2d+5)=2 v17(4b^2d+5)=0
+HIT k=9 j=2 orientation=a a=19 b=874568 c=21 d=74304795 e=41647 v17(4a^2d+5)=2 v17(4b^2d+5)=0
+HIT k=9 j=2 orientation=a a=320 b=2269453 c=99 d=935958 e=22927 v17(4a^2d+5)=2 v17(4b^2d+5)=0
+HIT k=9 j=2 orientation=a a=383 b=72680071 c=590898 d=131 e=123 v17(4a^2d+5)=2 v17(4b^2d+5)=0
+HIT k=9 j=2 orientation=a a=3891 b=68524 c=1 d=8052021 e=72415 v17(4a^2d+5)=2 v17(4b^2d+5)=0
+HIT k=9 j=2 orientation=a a=11673 b=205572 c=3 d=894669 e=72415 v17(4a^2d+5)=2 v17(4b^2d+5)=0
+HIT k=9 j=2 orientation=a a=31234 b=9100672566357 c=1 d=949189 e=9100672597591 v17(4a^2d+5)=2 v17(4b^2d+5)=0
+HIT k=9 j=2 orientation=a a=5034296 b=7557043953130925 c=1963 d=3 e=3849742209967 v17(4a^2d+5)=2 v17(4b^2d+5)=0
+HIT k=9 j=2 orientation=a a=4941161521 b=83708836029153810277 c=2 d=3 e=41854418017047485899 v17(4a^2d+5)=2 v17(4b^2d+5)=0
+MAX k=9 orientation=a valuation=2
+HIT k=9 j=2 orientation=b a=4101 b=630034 c=1 d=7276261 e=634135 v17(4a^2d+5)=0 v17(4b^2d+5)=2
+HIT k=9 j=2 orientation=b a=4327 b=35666208494 c=659 d=10397 e=54121719 v17(4a^2d+5)=0 v17(4b^2d+5)=2
+HIT k=9 j=2 orientation=b a=14194 b=2555173 c=7001 d=300 e=367 v17(4a^2d+5)=0 v17(4b^2d+5)=2
+HIT k=9 j=2 orientation=b a=28388 b=5110346 c=14002 d=75 e=367 v17(4a^2d+5)=0 v17(4b^2d+5)=2
+HIT k=9 j=2 orientation=b a=70970 b=12775865 c=35005 d=12 e=367 v17(4a^2d+5)=0 v17(4b^2d+5)=2
+HIT k=9 j=2 orientation=b a=141940 b=25551730 c=70010 d=3 e=367 v17(4a^2d+5)=0 v17(4b^2d+5)=2
+MAX k=9 orientation=b valuation=2
