@@ -1,0 +1,11 @@
+# ulimit -v 6000000; timeout 180 uv run --offline --no-project python -B scripts/z80_r2_central.py
+pair parity classes checked (including fixed valuation 2^1,...,2^5)
+Lane 7 panel: odd witness 6955940568721 (4, 59, 7368581111) inherited ordered totals odd/even 42 0
+Lane 7 panel: odd witness 1590284203561 (15, 26984, 982239) inherited ordered totals odd/even 52 0
+BT central bound 1.1344187027020274 relative full first moment upper 1.8844187027020274
+individual theta 1/2 triangle grid fraction 0.75531
+individual theta 4/7 triangle grid fraction 0.92096
+individual theta 2/3 triangle grid fraction 1.0
+pooled vs common-integer transform 15 77 residual 9.89e-18
+pooled vs common-integer transform 35 143 residual 1.96e-16
+multiplier injection identities tested on small hits (I,II) [6, 10]
