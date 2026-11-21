@@ -1,10 +1,10 @@
 ## §0
 
-Result: For every integer $n\ge2$, $R(n)\ll_\epsilon n^{13/41+\epsilon}$. Label: PROVED (rel. the z78 positive conductor enlargement, Weil, uniform stationary phase and the classical second derivative test).
-Scope: Ordered positive words $4abd-a-b=n$, and the uniform numerator version in §2; upper bound only. No improvement to the ES or word exceptional-set exponents, no smaller pointwise cap scale, no full Type II count. ES in ℕ is open. External priority unverified.
-Review: cross-model (`data/z79/xreview/REVIEW_ANALYTIC_PUSH_OPUS.md`, OpenAI author, independent Claude Opus reviewer; accepted §2 and the scoped §§1, 3 with form fixes incorporated).
-Triage: RECORD (§2); §1 BARRIER-SCOPED and §3 NULL, no separate STATUS entries for those sections.
-STATUS delta: In the pointwise upper-side row replace $46/145$ by $13/41$ (saving $1/5945$); in its uniform version replace the analytic term by $n^{13/41}M^{-11/41}$. The new proof uses z78 §§7, 13 but does not depend on the §14 occupancy proof. At export propagate the same exponent to the ES₅ ordered native word upper bound and to the $N_2$ comparison (still no saving when $U\asymp n^{1/4}$), as in z78 §13 and FRONTIER §3/§7. No change to the other analytic rows.
+Result: For every integer $n\ge2$, $R(n)\ll_\epsilon n^{6801/21497+\epsilon}$. Label: PROVED (rel. the z78 positive conductor enlargement, Weil, uniform stationary phase twice, the divisor bound, second derivative test and Trudgian–Yang Lemma 1.1 plus the B transform; §§2, 5–6). The classical version gives $25/79$.
+Scope: Ordered positive words $4abd-a-b=n$, and the uniform numerator versions in §§2, 6; upper bound only. No improvement to the ES or word exceptional-set exponents, no smaller pointwise cap scale, no full Type II count. ES in ℕ is open. External priority unverified.
+Review: cross-model (`data/z79/xreview/REVIEW_ANALYTIC_PUSH_OPUS.md`, OpenAI author [GPT-6.2 Astra lane], independent Claude Opus reviewer; accepted §2 and the scoped §§1, 3 with form fixes incorporated); §§5–6 cross-review owed.
+Triage: RECORD (§§2, 5–6); §1 BARRIER-SCOPED and §3 NULL, no separate STATUS entries for those sections.
+STATUS delta: In the pointwise upper-side row replace $46/145$ by $\theta=6801/21497$ (improves §2's intermediate $13/41$ by $620/881377$); in its uniform version use the analytic term $n^\theta M^{1-4\theta}$. The new proof uses z78 §§7, 13 but does not depend on the §14 occupancy proof. At export propagate the same exponent to the ES₅ ordered native word upper bound and to the $N_2$ comparison (still no saving when $U\asymp n^{1/4}$), as in z78 §13 and FRONTIER §3/§7. No change to the other analytic rows.
 
 ### 1. Exceptional sets: optimizing rather than truncating a Selberg square
 
@@ -87,4 +87,88 @@ More precisely in this ordinary/harmless case, take $u_0=A\log R$, $k=\lfloor2\s
 
 **Assessment (remaining FRONTIER §4 screens).** For items 3–7: no numerator transport of solutions, no untied positive main term, no pointwise assertion from an average over input primes. In (2) the input is fixed, the averages are over detector primes, Fourier index, conductor, shift and dual index; (4) uses absolute upper bounds. For items 8–13: neither residue-shape forcing, parity-to-class inference, off-shift pooling of prime factors, sign reflection, transport from a relaxation, nor a Brauer–Manin local-global assertion is used. For items 14–19: the controls above allow near-squares and Mordell classes without exception; there is no thin-family transfer, bounded-factor cover of a target, external-PID logic or new étale obstruction.
 
-**Assessment (Round 2 target, not an estimate).** In the binding block of (4), $K\asymp N^{3/4}$, $Y\asymp N^2$ in exponent arithmetic. After a second Poisson transform in $m$, the length at shift $k\asymp K$ is $ZNk/Y$; the leading dual phase is quartic in that integer (Legendre transform of $m^{4/3}$). The second derivative bound counts these critical points in absolute value. Keep their signs and the $Q,k$ average instead: this targets the only equality in the $M=4$ LP. It does not require assuming independence of the floor bins and is not yet an estimate.
+**Assessment (Round 2 target, not an estimate).** In the binding block of (4), $K\asymp N^{3/4}$, $Y\asymp N^2$ in exponent arithmetic. After a second Poisson transform in $m$, the length at shift $k\asymp K$ is $ZNk/Y$; the leading dual phase is quartic in that integer (Legendre transform of $m^{4/3}$). The second derivative bound counts these critical points in absolute value. Keep their signs and the $Q,k$ average instead: this targets the only equality in the $M=4$ LP. It does not require assuming independence of the floor bins. This was the open step in Round 1; we now execute it below.
+
+### 5. Round 2: pooling the second stationary phases on products
+
+**PROVED (rel. §2 and the named analytic inputs below).** Uniformly for all integers $n\ge2$, $M\ge1$, the bound (1) holds with first term $n^\theta M^{1-4\theta}$ inside the minimum, for each exponent $\theta$ in §6. In particular $\theta=25/79$ uses only the classical second derivative test for the new product kernel; $6801/21497$ uses a published exponent pair. Unlike a separate derivative test in $Q$ at each $(k,\nu)$, the estimate below uses the **whole product interval** after a positive enlargement. It pools the original Poisson frequencies $\ell$ before estimating spacings.
+
+**Signed reduction.** Continue §2. On dyadic pieces take $|\ell|\asymp E$, $h\asymp S$, and in the second conductor shift take $k\asymp I$, $1\le k<K\le N$. Split off the signs of $\ell$ and the two conductor parities as before. In the next calculation fix $h$ (use $h\asymp S$ only for the LP). Use scales
+
+$$ Y=XEh/W^3,\quad U_0=NI,\quad B=XEh^3 U_0/W^4,\quad V_0=B/Y=h^2 U_0/W,\quad \sigma=(hN/W)^2. $$
+
+The exact individual scales are denoted $Y_\ell=X|\ell|h/W^3$, $T_\ell=WY_\ell$. We use $E$ for frequency length, **not** the exceptional set, and $U_0,V_0$ are unrelated to the original endpoint blocks. The normalized dyadic mean in (2) is formed by summing over $\ell$ as well: triangle on the Poisson frequency sum followed by Cauchy retains $L^{-1}\sum_\ell$ of the nonnegative conductor-shift squares, up to the $n^{O(\delta)}$ cutoff loss (cf. z78 §7). Bound the signed $E_h$ terms on average within this dyad. First Poisson in the primal variable as in §2, then triangle in $m$. Use a smooth cutoff of $m/Y_\ell$ equal to one on all possibly stationary points and supported on a fixed slightly larger compact positive interval. This does not change the nonstationary error; the leading critical amplitude already vanishes off a compact subinterval. In (3) absorb $(Y/Y_\ell)^{1/2}$ into the amplitude. Apply Cauchy on **all** $O(EY)$ pairs $(\ell,m)$ and expand the conductor shift squares, retaining real parts as in §2. Thus the mean of $E_h$ over this dyad of $\ell$ (normalized by $E$) costs
+
+$$ \ll 1+\sqrt{WY}\left[K^{-1}+\sum_{I}\frac I K D_I\right]^{1/2}. \tag{5} $$
+
+Here $D_I$ can be any upper bound for the absolute value of the sum over $|\ell|\asymp E$, $k\asymp I$, $Q\asymp N$, $m$ of the weighted phase $e(F_{Q,k}(m))$ of §2, **normalized by $EINY$**. The weights include $1-k/K$, conductor truncations $N\le Q,Q+2k\le4N$, and the two smooth amplitudes; none of these truncations depend on $m$. Before Cauchy the number of dual samples per $\ell$ is $O(Y)$ on the stationary band $Y\gg1$. Otherwise there is just the first Poisson error. Formula (5) uses no sign cancellation between different $h$. To recover the mean for (2) multiply by $S/H$ and $E/L$ and sum dyads. This order does not replace an average of absolute correlations over $m$ by an absolute average. In particular one must not first bound the correlation for each $\ell$ by its absolute value, then appeal to pooling in $\ell$. Instead the outer absolute values in (3) are handled by Cauchy and **all** the signed second correlations are still inside its square root.
+
+**Second critical point.** Put $p_0=k(Q+k)$, $s_0=(hQ/(2W))^2$, $s_1=(h(Q+2k)/(2W))^2$ and $B_0=X|\ell|h^3p_0/W^4\asymp B$. By integration in $s$ the exact difference phase equals $B_0 g(u)$, $u=m/Y_\ell$, with
+
+$$g(u)=\int_0^1 G_s(u,s_0+t(s_1-s_0))\,dt
+ =a u^{4/3}-\tfrac1{12}(s_1+s_0)u^2+O(\sigma^2),\quad a=2^{-4/3}.$$
+
+Indeed $s_1-s_0=h^2p_0/W^2$, and the Taylor coefficients of $G$ through $s^2$ are $a u^{4/3},-u^2/12$ (z78 §12, implicitly differentiating the stationary equation). The divided difference is smooth *even at* $s_1=s_0$: the error is bounded with every fixed $u$ derivative and scaled parameter derivative by $O(\sigma^2)$ on the compact band. Also $g',g''\asymp1$ there with positive sign. All estimates use $HN/W$ polynomially small.
+
+Poisson in the full integer $m$ variable now has scaled phase $B_0[g(u)-wu]$, $w=\nu Y_\ell/B_0=\nu W/(h^2 p_0)$. Only $\nu\asymp V_0$ in a fixed positive band can contribute. For $B\ll1$ the trivial normalized bound is $O(1)\ll B^{-1/2}$. Otherwise the nonstationary integrals divided by $Y$ sum to $O(B^{-1/2})$ by repeated integration by parts with derivative $\gg B+Y|\nu|$ outside an enlarged band and $Y\gg1$. In band, use Hörmander Thm 7.7.5 as in §2; the stationary contribution per integral is $Y_\ell B_0^{-1/2}$ times a smooth weight and a phase. The normalized errors total $O((1+B/Y)B^{-3/2})=O(B^{-1/2})$ even when the critical point is outside the compact support. One may choose a fixed larger positive $u$ interval containing all the band critical points in its interior, since $g'$ is a small smooth perturbation of $(4a/3)u^{1/3}$ and $w$ ranges on a fixed compact subset of $(0,\infty)$. All fixed derivatives in the scaled parameters of the leading amplitude are bounded, by implicit differentiation and smoothness of the first stationary amplitude (including Schwartz decay in $\ell/L$). Thus no discontinuous $m$-cutoff has been transformed. If $V_0$ is too small for any band integer only the error is needed.
+
+At $s_0=s_1=0$ the critical point is $u_*=(3w/(4a))^3$. Stationarity kills its first-order displacement in the critical **value**. Taylor on this compact family gives for the exact critical phase
+
+$$\Phi=-c\,X\frac{|\ell|\nu^4}{h^5 p_0^3}
+ -c'\, X\frac{|\ell|\nu^6\,[Q^2+(Q+2k)^2]}{h^7 p_0^5}+O(B\sigma^2), \tag{6}$$
+
+with $c=(a/3)(3/(4a))^4$, $c'=(3/(4a))^6/48$. The error has the **same bounds under scaled derivatives** of each fixed order: the exact critical value is smooth in $(w,s_0,s_1)$ with a second-order Taylor remainder, and $k/I,Q/N,\nu/V_0,|\ell|/E$ lie on compact positive intervals. Conjugating changes both signs only. The LP ensures $B\sigma^2\ll1$ with polynomial slack; it does **not** ensure $B\sigma\ll1$.
+
+**Two spacing estimates, no independence hypothesis.** For $a_0=4$ or $6$ form the normalized samples $w_{a_0}=(|\ell|/E)(\nu/V_0)^{a_0}$ with $|\ell|\asymp E$, $\nu\asymp V_0\gg1$. Put $A_0=E V_0$. For each $0<\eta\ll1$ the number of ordered pairs of samples at distance $\le\eta$ (including repeated values and the diagonal) is
+
+$$ \ll n^\epsilon(A_0+\eta A_0^2). \tag{7} $$
+
+For the proof, reduce the fractions $|\ell|/|\ell'|,\nu'/\nu$ separately. In dyads of reduced numerator/denominator sizes $D_1,D_2$ (components comparable), there are $O(D_i^2)$ distinct fractions and they are $\gg D_i^{-2}$ separated. Raising to the fixed positive power preserves spacing on the compact ratio range. For each choice on the smaller-height side there are $O(1+\eta\max(D_1,D_2)^2)$ compatible fractions on the other. The multiplicity for lifting a reduced pair is $O(E V_0/(D_1D_2))$. This gives $O(A_0+A_0\eta D_1D_2)$ per dyad. Logarithms suffice for the summation. No equidistribution of powers modulo one is required.
+
+Partition by $w_6$ into $O(J)$ bins of width $1/J$, $J=\lceil1+B\sigma\rceil$. The second term in (6) has size $O(B\sigma)$, proportional to $w_6$ times a smooth function of $k/I,Q/N$. Freeze $w_6$ there at its bin midpoint; the frozen term is a row weight of modulus one depending on $(Q,k)$ and the bin only. The residual variation, as a function of $(Q/N,k/I)$ **holding each sample fixed**, has bounded derivatives of all fixed orders. This also holds for the leading amplitude, after division by $Y/\sqrt B$, and for the exponentiated $O(B\sigma^2)$ remainder. Use smooth extensions to a slightly larger rectangle and Fourier series in the two row variables to separate this amplitude: coefficients depending on $(\ell,\nu)$ have uniformly summable suprema, by integration by parts (>2 derivatives suffice with suitable multivariate decay). No derivative in the finely binned $w_6$ is required. Hard cutoffs in $Q,k$ and the fixed parity stay in the row weights. Signs/phases independent of the row can likewise stay in the column weights. We can sum on the full rectangular range of $\nu\asymp V_0$ with stationary amplitude zero when necessary.
+
+After this separation, each bin has a bilinear sum with row variable $p_0=k(Q+k)\asymp U_0$, phase a fixed nonzero constant times $B w_4 (U_0/p_0)^3$, and row coefficients bounded by $O(\tau(p_0))$ since $k\mid p_0$ determines $Q$. We bound **only now** by Cauchy in $p_0$, extending its squared column sum positively to the entire integer interval. This avoids the unrestricted use of an exponent pair with a divisor weight. Denote by $P_i$ the number of samples in bin $i$. Cauchy also across bins, with a factor $O(J)$ in the square, gives for the normalized double average on the stationary band (before multiplying by $V_0/\sqrt B$) a squared bound
+
+$$ \ll n^\epsilon\,\frac{J}{A_0^2}
+ \sum_i\sum_{a,b\in i}|\mathcal K(w_4(a)-w_4(b))|, $$
+
+where $\mathcal K(d)$ is the unweighted $U_0^{-1}\sum_{p_0\asymp U_0}e(c B d(U_0/p_0)^3)$ on one common interval, up to absolute scale constants and $O(1)$ dyadic splits. Equivalently one can apply bin Cauchy only to the small-difference part; for a kernel bound uniform by $D$, $\sum_iP_i^2\ll n^\epsilon(A_0+A_0^2/J)$ by (7) on $w_6$. Hence for $D\le1$ this part costs $O(n^\epsilon(D+J/A_0))$ in the square. We need no independent two-dimensional law for $(w_4,w_6)$.
+
+**Product kernel.** Let $(\kappa,\lambda)$ be one of the pairs below (positive perturbations by $\epsilon$ harmless). Uniformly $|\mathcal K(d)|\ll n^\epsilon[\min(1,B^\kappa U_0^{\lambda-\kappa-1})+\min(1,(B|d|)^{-1/2})]$, with the last minimum one at zero. Indeed on dyadic intervals in $p_0$ the phase after conjugating if necessary has derivative exactly $y p_0^{-4}$, $y=3|c d|B U_0^3$. For derivative scale $\gg1$ with the required lower constant use the exponent pair: Trudgian–Yang, *Toward optimal exponent pairs*, [arXiv:2306.05599v3](https://arxiv.org/html/2306.05599v3), §1.1 (1.1)–(1.2) explicitly allows any subinterval of $[N',2N']$, $y\ge(N')^4$, and relative derivative error for every $p=0,\ldots,P-1$ from $y x^{-4}$ (here zero for every $p$). For $B|d|\ll U_0$ the second derivative test gives normalized cost $O((B|d|)^{1/2}/U_0+(B|d|)^{-1/2})=O((B|d|)^{-1/2})$; take the minimum with trivial. Bounded-length intervals can use trivial when $U_0=O(1)$ (or the additive endpoint $1/U_0$ is absorbed by these bounds). For the classical $(1/2,1/2)$ the second derivative test alone covers all scales. The published Bourgain pair in TY (1.3) is $(13/84,55/84)+ (\epsilon,\epsilon)$. Our final pair uses TY Lemma 1.1, last pair in (1.6), $(715/10238,7955/10238)+(\epsilon,\epsilon)$, then the B transform (1.11), yielding $(1418/5119,2917/5119)+(\epsilon,\epsilon)$. This use of the cited results is unconditional, not the exponent pair conjecture; we use these pairs only on the **pure** reciprocal cube, not on an uncontrolled critical phase.
+
+For the decreasing kernel term, split $|d|\ge1/J$ (cost $\ll\min(1,(J/B)^{1/2})$) and $|d|<1/J$. In the latter range (7) on $w_4$, even forgetting the bins, gives for each dyad $|d|\le\eta$ at most $O(n^\epsilon(A_0+\eta A_0^2))$ pairs. The $A_0$ costs $J/A_0$ up to logs; the $\eta A_0^2$ term costs $J\eta\min(1,(B\eta)^{-1/2})\ll (J/B)^{1/2}$ on each dyad of comparable $|d|$. Group all $|d|\le\min(1/B,1/J)$ together, which handles zero and needs only $O(\log n)$ further pieces. After taking the square root and reinstating the stationary multiplier $V_0/\sqrt B$ this proves
+
+$$ D_I\ll n^\epsilon\left[B^{-1/2}+\frac{\sqrt B}{Y}\left\{
+ (J/A_0)^{1/2}+(B^\kappa U_0^{\lambda-\kappa-1})^{1/2}+(J/B)^{1/4}\right\}\right]. \tag{8} $$
+
+The estimate remains valid if $J>A_0$; it need not save there. At small $\ell,k,h$ or with no stationary $\nu$ the second B error alone suffices. We never use a saving for an isolated $(Q,k)$ from the product kernel.
+
+### 6. Global parameters, falsifiers and remaining constraint
+
+**PROVED (rel. (5)–(8)).** Retain §2's polytope and let
+
+$$ z=\frac{8-2\lambda}{3+\kappa+\lambda},\quad \theta=\frac{8-z}{25-3z},\quad t=\theta+(1-3\theta)\mu,\quad K=\max(1,\lfloor X^{zr}\rfloor). $$
+
+Here $r=\beta-t$, $j=2(r+\gamma-t)$, $N=P^2$, $P=X^r\log^3(2n)$, $H=\lceil X^j\rceil$. All three $z$ tested are strictly between 1 and 2, so $1\le K\le N$; $K=1$ just leaves the conductor-shift diagonal. Shortened endpoint dyads of $k,|\ell|,h$ cost no more than full dyads: include their interval cutoffs in the corresponding weights (a shortened $\ell$ interval simply restricts the samples). Write $p=2r$, $v=zr$, $l=\mu+p+\gamma-\beta$, $0\le x\le j,0\le e\le l,0\le i\le v$ for the exponents of $S,E,I$ to base $X$, ignoring $O(\delta)+o(1)$ losses. The exponents $y,u,f,s$ of $Y,U_0,B,\sigma$ are respectively
+
+$$ y=1+e+x-3\gamma,\qquad u=p+i,\qquad f=y+2x+u-\gamma,\qquad s=2(x+p-\gamma). $$
+
+In (5) the exponents **inside the square root** (after expanding $J\ll1+B\sigma$) are $-v$ for the diagonal and $i-v$ plus one of
+
+$$ -f/2,\quad -(y+e)/2,\quad (f+s-y-e)/2,\quad (1+\kappa)f/2-y+(\lambda-\kappa-1)u/2,\quad f/4-y,\quad f/2+s/4-y. $$
+
+For each such exponent $b_0$ require $2(x-j+e-l)+\gamma+y+b_0\le2(\gamma-j)$. The additive $1$ in (5) costs only $X^{O(\delta)+o(1)}$ after the dyad weights. The reduction is exactly §2 with no change to the positive first diagonal. The script `scripts/z79_analytic_r2.py` checks these and **strict** $f+2s<0$, $j+p<\gamma$, $2\gamma<1$, along with $l\ge0$, the constant and both zero modes. The rectangular endpoints in $(x,e,i)$ are affine in the original variables, so after substitution all tests are affine; then use the three original vertices at $\mu=0$ and their coalescence at $1/3$. This even tests nonstationary scale combinations where (8) is not needed. Finite frequency cutoffs $|\ell|\le Ln^\delta$ and dyadic/logarithmic roundoffs perturb these affine forms by at most $O(\delta)+o(1)$; use the strict uniform margins, then absorb into $n^\epsilon$. As in §2, $X^{1/3}<M$ and bounded $X$ are handled by the fibre estimate.
+
+At the binding fixed-numerator vertex, in units of $r$, one has $\gamma=8-z$, $j=2$, $e=l=1$, $y=4$, $u=2+z$, $f=2+2z$ for maximal shifts/frequencies. Requiring the diagonal and the product-kernel term to tie gives the displayed $z$ and $\theta$. The replay `data/z79/analytic_r2_lp.txt` yields:
+
+|kernel input (PROVED relative to indicated theorem)|$z$|$\theta$|
+|---|---:|---:|
+|classical second derivative|$7/4$|$25/79$|
+|Bourgain via TY (1.3)|$281/160$|$999/3157$|
+|B transform of TY (1.6)|$1951/1094$|$6801/21497$|
+
+Thus $R_4(n)\ll_\epsilon n^{6801/21497+\epsilon}$, and uniformly $R_M(n)\ll_\epsilon n^\epsilon\min(n^\theta M^{1-4\theta},(n/M)^{1/3})$ with the final $\theta$. The last exponent is about $0.316370$, not $0.315$ or $4/13$. No condition on the factorization of $n$ was used.
+
+**Assessment (remaining obstruction, scoped).** Even making *every* nonzero correlation in (5) free still pays the upper-bound diagonal $K^{-1}$ with $K\le N$ at maximal $Y$. At the binding vertex, in units $r$, one needs $\gamma/r\ge6$ there, i.e. $t\ge6/19>0.315$, in this particular numerical certificate ($r=1-3t$). This is not a lower bound for the signed sum. Higher $Q$-differencing or a better exponent pair applied only to those correlations does not by itself remove the diagonal. To reach $4/13$, keep the leading first-stationary action $T G(m/Y,0)$ in the mean over $h,\ell,m$ **before** the triangle in (3); that phase has been cancelled identically in every second conductor difference. Mixing only the remaining $(k,Q,\nu)$ cannot recover it. No advance on the exceptional or cap exponents in Round 2.
+
+**CERTIFIED / Assessment (screens).** Exact LP replay command at the head of `data/z79/analytic_r2_lp.txt`. The §4 Falsifier Table applies unchanged to §§5–6: these are upper bounds at fixed input, neither a positivity mechanism at squares or the listed prime/composite zeros, nor a transport between numerators. No false main term on $R_8$, $U_7$ or (★) is inferred from (7), which counts auxiliary pairs only.
