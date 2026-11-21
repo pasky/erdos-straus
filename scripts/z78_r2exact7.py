@@ -5,7 +5,7 @@ distinct after squares, newly covered mod r^4. 17 validated against stored p7.""
 from math import isqrt
 from tempfile import TemporaryDirectory
 from pathlib import Path
-import subprocess,sys
+import subprocess,sys,os
 base=Path('data/z78/exact');dst=Path('data/z78/r2/exact7');dst.mkdir(exist_ok=True);bin=dst.parent
 for r in map(int,sys.argv[1:]):
     n=r**7;E=max(2,isqrt(n)//3);T=(n//E+1)//2;hits=set();cnt=0
@@ -22,4 +22,4 @@ for r in map(int,sys.argv[1:]):
         with TemporaryDirectory(dir=dst) as tmp:
             pre=Path(tmp)/'box';subprocess.run([bin/'depth3.bin',str(r),'--dump-prefix',pre],check=True,capture_output=True,timeout=1200)
             fam=lambda f:set(map(int,Path(f'{pre}.{f}.tsv').read_text().splitlines()[1:]));old=[fam('L1'),fam('P3'),fam('Q3')|fam('P5')]
-    new={x for x in hits if all(x%r**j not in t for j,t in enumerate(old,1))};(dst/f'{r}.txt').write_text(f'{r} {E} {cnt} {len(hits)} {len(new)}\n');print(r,E,cnt,len(hits),len(new),flush=True)
+    new={x for x in hits if all(x%r**j not in t for j,t in enumerate(old,1))};(Path(os.getenv('R2_OUT',dst))/f'{r}.txt').write_text(f'{r} {E} {cnt} {len(hits)} {len(new)}\n');print(r,E,cnt,len(hits),len(new),flush=True)

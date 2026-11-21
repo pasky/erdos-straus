@@ -1,6 +1,6 @@
 Result: Exact sparse native-modulus L1/P3/Q3/P5 census for every prime 211<r<919 plus r=929, independently cell-validated at 223 and 929; exact Q-nearest maxima through k=9 and a rigorous k=11 bracket. Label: CERTIFIED (exact integer enumeration; scopes and cross-checks below)
 Scope: The r-generic line, depth-three boxes only; counts are native-modulus marginal centres, with each deeper family excluding all preceding families. This is not an ES or sterility claim.
-Review: none (parent hostile review pending)
+Review: cross-model for the depth-three certificate (REVIEW_R17_R2_OPUS.md; all 95 primes 293..911 independently counted). Q-nearest is a separate finite census and not an input to that threshold.
 Triage: DATA
 STATUS delta: none
 

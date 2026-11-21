@@ -3,9 +3,11 @@ r exact_live_after3 live_ppm P7_ppm P9_ppm P11plus_ppm Q5plus_ppm tails_ppm resi
 Positive values in ppm rounded upwards; exact fractions used for comparisons.
 """
 from z78_r2ledger import *
+import os
+out=Path(os.getenv('R2_OUT',R))
 primes=[r for r in range(17,919) if all(r%i for i in range(2,isqrt(r)+1))];assert set(primes)<=small.keys()
 rowsout=[];stats=[];fail=[]
-with (R/'ledger.tsv').open('w') as f,(R/'small.tsv').open('w') as sm:
+with (out/'ledger.tsv').open('w') as f,(out/'small.tsv').open('w') as sm:
     print('r live_fraction live_ppm P7 P9 P11 P13_later Qfinite Ptail Qtail residual_ppm binding_level',file=sm)
     for r in primes:
         a,p,q,t,u=budget(r);res=sum(p)+q+t+u;ok=res<a

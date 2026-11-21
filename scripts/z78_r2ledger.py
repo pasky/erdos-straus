@@ -45,7 +45,7 @@ def budget(r):
     for k in range(7,2000,2):
         n=r**k;b=n.bit_length();depth=(k+1)//2;W=r**depth
         if n>=1<<320:
-            G,A=scale[320];pt=globalP(n)*geom(r,G,320)/isqrt(r);break
+            G,A=scale[320];assert all(g*320>=B*G for B,(g,_) in scale.items() if 1<<B<=n);pt=globalP(n)*geom(r,G,320)/isqrt(r);break
         # simple cap: one unit of mass when there is no better input
         old=min(F(1),globalP(n)/isqrt(r));sp=[]
         if b in layers:
