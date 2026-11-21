@@ -6,4 +6,5 @@ mixed period deterministic hit: [15, 299] force 39
 positive covariance at gap 9: 11 9240 3
 positive covariance at gap 9: 17 2042040 3
 positive covariance at gap 9: 31 802241960520 3
+gap 9 direct (units,left,right,both,ratio) 56052 346 54 1 3
 unweighted residual Euler expansions verified

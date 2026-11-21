@@ -52,6 +52,19 @@ def check():
         normalized=Fraction(phi(h),phi(gcd(h,Q)))
         assert normalized==3
         print('positive covariance at gap 9:',B,Q,normalized)
+    # Independent unit enumeration instead of evaluating only the CRT formula.
+    q,a=24,71
+    f,g=8*a-1,44*a-1
+    mod=lcm(q,f,g)
+    total=left=right=both=0
+    for n in range(1,mod,q):
+        if gcd(n,mod)!=1:
+            continue
+        x,y=(n+a)%f==0,(n+a)%g==0
+        total+=1; left+=x; right+=y; both+=x and y
+    ratio=Fraction(total*both,left*right)
+    assert ratio==3
+    print('gap 9 direct (units,left,right,both,ratio)',total,left,right,both,ratio)
     # Product correcting the missing large primes, at four possible small bases.
     for m in (1,24,24*35,24*35*11):
         for a,c,d in atoms:
