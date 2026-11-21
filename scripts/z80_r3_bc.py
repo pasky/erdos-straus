@@ -17,7 +17,14 @@ def patch():
         assert x+r1*y+h1*(2*y-1)<=1 and x+r2*y<1
         assert y>2*x and x+s<=F(1,2) and r1+h1>0
         print('x,s',x,s,'BC-1,BC-2',x+r1*y+h1*(2*y-1),x+r2*y)
-    assert 2*smax*intercept==F(1,2120)
+    # Independent polygon construction from the three half-planes.
+    from itertools import combinations
+    edges=[(0,-1,0),(-1,1,0),(40,66,1)]; vertices=[]
+    for (a,b,c),(d,e,f) in combinations(edges,2):
+        den=a*e-b*d; x,s=F(c*e-b*f,den),F(a*f-c*d,den)
+        if all(u*x+v*s<=w for u,v,w in edges): vertices.append((x,s))
+    twice=abs(sum(x*vertices[(i+1)%3][1]-s*vertices[(i+1)%3][0] for i,(x,s) in enumerate(vertices)))
+    assert 2*twice==2*smax*intercept==F(1,2120)
     print('normalized boost',2*smax*intercept,'full coefficient in M0 units',F(3,4)+2*smax*intercept)
 
 
@@ -67,9 +74,6 @@ def rational_band():
         for u in range(p):
             a=pow(((4*x*u-n)**2-4*u)%p,(p-1)//2,p); row.append(-1 if a==p-1 else a)
         tables[p]=[sum(s*exp(-2j*pi*(b*u%p)/p) for u,s in enumerate(row))/p for b in range(p)]
-    alias={}
-    for i,j,k,l in ((5,7,11,13),(5,11,7,13),(5,13,7,11)):
-        assert i*j*k*l==m
     masses=[]
     for offset in (0,600,1800):
         mass=0.
