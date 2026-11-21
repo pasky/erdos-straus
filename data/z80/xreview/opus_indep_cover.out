@@ -1,0 +1,26 @@
+11 3825360 95 {'M:mordell': 1317, 'D:triple': 126, 'II:triple': 341, 'W:word-only': 483, 'W:triple': 116, 'K:triple': 162} bytes: misses exactly [0]
+13 2162160 59 {'M:mordell': 1317, 'D:triple': 377, 'W:word-only': 1234, 'W:triple': 401, 'II:triple': 163, 'K:triple': 34} bytes: complete
+14 1776574800 161 {'M:mordell': 958, 'D:triple': 730, 'W:word-only': 1674, 'W:triple': 743, 'II:triple': 448, 'K:triple': 436} bytes: complete
+15 497943285840 234 {'M:mordell': 1077, 'D:triple': 238, 'W:word-only': 890, 'II:triple': 908, 'W:triple': 96, 'K:triple': 431} split: complete (155 nodes)
+16 277200 53 {'M:mordell': 958, 'D:triple': 475, 'W:word-only': 1136, 'W:triple': 655, 'II:triple': 498, 'K:triple': 2} bytes: complete
+17 12252240 68 {'M:mordell': 1317, 'D:triple': 637, 'II:triple': 876, 'W:word-only': 593, 'W:triple': 132, 'K:triple': 143} bytes: complete
+18 125558889240985200 514 {'D:triple': 727, 'W:word-only': 1772, 'W:triple': 961, 'II:triple': 1272, 'K:triple': 1571} split: complete (16085 nodes)
+19 720720 56 {'M:mordell': 1317, 'D:triple': 294, 'W:word-only': 925, 'W:triple': 428, 'II:triple': 384, 'K:triple': 105} bytes: complete
+20 318381746482800 387 {'M:mordell': 958, 'D:triple': 308, 'W:triple': 813, 'W:word-only': 1633, 'II:triple': 915, 'K:triple': 705} split: complete (1382 nodes)
+21 145919790198982800 369 {'M:mordell': 1077, 'D:triple': 286, 'II:triple': 654, 'W:word-only': 869, 'W:triple': 519, 'K:triple': 696} split: complete (577 nodes)
+X actual 13 10395 40 instances
+X actual 14 17325 36 instances
+X actual 15 10395 4 instances
+X actual 16 17325 4 instances
+X actual 17 45045 4 instances
+X actual 18 45045 4 instances
+X actual 19 45045 4 instances
+X actual 20 255255 2 instances
+X actual 21 45045 4 instances
+	Command being timed: "timeout 1800 uv run --offline --no-project --with gmpy2 --with cypari2 python -B data/z80/xreview/opus_indep_cover.py 1500"
+	User time (seconds): 67.74
+	System time (seconds): 1.27
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:09.03
+	Maximum resident set size (kbytes): 2504768
+	Exit status: 0

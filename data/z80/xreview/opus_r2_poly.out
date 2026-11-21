@@ -1,0 +1,17 @@
+(10) Theorem 10 box: 40000 cases OK (identity, triple, Jacobi -1, nonsquare); odd-e control sign failures: 90
+(11) 840x+1: roots of F+14 at 48/48 primes q=97 mod 112 below 20000 (sum 1/q=0.0227); share of x<6000 (x=1 mod 8) with a pool divisor q<=4000: 16/750 = 0.021
+(11) 840x^3+1: roots of F+14 at 32/48 primes q=97 mod 112 below 20000 (sum 1/q=0.0077); share of x<6000 (x=1 mod 8) with a pool divisor q<=4000: 7/750 = 0.009
+(11) 8x^5+1: roots of F+14 at 38/48 primes q=97 mod 112 below 20000 (sum 1/q=0.0213); share of x<6000 (x=1 mod 8) with a pool divisor q<=4000: 15/750 = 0.020
+(11) x^3+8x^2+1 (odd deg, not monomial): roots of F+14 at 34/48 primes q=97 mod 112 below 20000 (sum 1/q=0.0201); share of x<6000 (x=2 mod 8) with a pool divisor q<=4000: 32/750 = 0.043
+(11) 8x^4+8x^2+15x-14 (even deg, F+14 has factor x): roots of F+14 at 48/48 primes q=97 mod 112 below 20000 (sum 1/q=0.0227); share of x<6000 (x=1 mod 8) with a pool divisor q<=4000: 32/750 = 0.043
+(11) (8x+1)^2 control: roots of F+14 at 0/48 primes q=97 mod 112 below 20000 (sum 1/q=0.0000); share of x<6000 (x=1 mod 8) with a pool divisor q<=4000: 0/750 = 0.000
+(11) 840x^4+1 control: roots of F+14 at 0/48 primes q=97 mod 112 below 20000 (sum 1/q=0.0000); share of x<6000 (x=1 mod 8) with a pool divisor q<=4000: 0/750 = 0.000
+(11) 840x^2+1 control: roots of F+14 at 0/48 primes q=97 mod 112 below 20000 (sum 1/q=0.0000); share of x<6000 (x=1 mod 8) with a pool divisor q<=4000: 0/750 = 0.000
+     trivial 3-mod-4 divisor (<2000) rule on 840x+1, n=1 mod 4: 2555/5999 = 0.426
+     trivial 3-mod-4 divisor (<2000) rule on 840x^3+1, n=1 mod 4: 2272/5999 = 0.379
+     trivial 3-mod-4 divisor (<2000) rule on 8x^5+1, n=1 mod 4: 3869/5999 = 0.645
+     trivial 3-mod-4 divisor (<2000) rule on x^3+8x^2+1 (odd deg, not monomial), n=1 mod 4: 1271/2999 = 0.424
+     trivial 3-mod-4 divisor (<2000) rule on 8x^4+8x^2+15x-14 (even deg, F+14 has factor x), n=1 mod 4: 859/1500 = 0.573
+     trivial 3-mod-4 divisor (<2000) rule on (8x+1)^2 control, n=1 mod 4: 3622/5999 = 0.604
+     trivial 3-mod-4 divisor (<2000) rule on 840x^4+1 control, n=1 mod 4: 2214/5999 = 0.369
+     trivial 3-mod-4 divisor (<2000) rule on 840x^2+1 control, n=1 mod 4: 2224/5999 = 0.371

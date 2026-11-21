@@ -1,0 +1,256 @@
+(T6) Smith form I/(sigma-1)I = Z^(t-1)+Z/o for all odd 3<=h<=151: True []
+h=3 t=1 o=2 [C:R1]=2 [U:R_h]=2
+h=5 t=1 o=4 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_5(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=7 t=2 o=3 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_7(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=9 t=1 o=6 [C:R1]=6 [U:R_h]=6
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+h=11 t=1 o=10 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_11(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=13 t=1 o=12 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_13(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=15 t=2 o=4 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=5 f=4: split defect 1 primes [] | p^f-1=80
+  T8 p=5 d=3 f=2: split defect 1 primes [] | p^f-1=24
+h=17 t=2 o=8 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_17(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=19 t=1 o=18 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_19(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=21 t=2 o=6 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=7: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=7 f=6: split defect 1 primes [] | p^f-1=728
+h=23 t=2 o=11 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_23(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=25 t=1 o=20 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_25(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+h=27 t=1 o=18 [C:R1]=6 [U:R_h]=6
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+  T7 d=9: [U(A):im R_h]=6=[U(M):R_d]; global/old=1
+h=29 t=1 o=28 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_29(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=31 t=6 o=5 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_31(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=33 t=2 o=10 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=11: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=11 f=5: split defect 1 primes [] | p^f-1=242
+  T8 p=11 d=3 f=2: split defect 1 primes [] | p^f-1=120
+h=35 t=2 o=12 [C:R1]=1 [U:R_h]=1
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=7: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T8 p=5 d=7 f=6: split defect 1 primes [] | p^f-1=15624
+  T8 p=7 d=5 f=4: split defect 1 primes [] | p^f-1=2400
+h=37 t=1 o=36 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_37(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=39 t=2 o=12 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=13: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=13 f=3: split defect 1 primes [] | p^f-1=26
+  T8 p=13 d=3 f=1: split defect 1 primes [] | p^f-1=12
+h=41 t=2 o=20 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_41(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=43 t=3 o=14 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_43(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=45 t=2 o=12 [C:R1]=6 [U:R_h]=6
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=6
+  T7 d=9: [U(A):im R_h]=6=[U(M):R_d]; global/old=1
+  T7 d=15: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+  T8 p=5 d=9 f=6: split defect 1 primes [] | p^f-1=15624
+h=47 t=2 o=23 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_47(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=49 t=2 o=21 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_49(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+  T7 d=7: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+h=51 t=4 o=8 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=17: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=17 f=16: split defect 1 primes [] | p^f-1=43046720
+  T8 p=17 d=3 f=2: split defect 1 primes [] | p^f-1=288
+h=53 t=1 o=52 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_53(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=55 t=2 o=20 [C:R1]=1 [U:R_h]=1
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=11: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T8 p=5 d=11 f=5: split defect 1 primes [] | p^f-1=3124
+  T8 p=11 d=5 f=1: split defect 1 primes [] | p^f-1=10
+h=57 t=2 o=18 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=19: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=19 f=18: split defect 1 primes [] | p^f-1=387420488
+  T8 p=19 d=3 f=1: split defect 1 primes [] | p^f-1=18
+h=59 t=1 o=58 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_59(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=61 t=1 o=60 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_61(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=63 t=6 o=6 [C:R1]=6 [U:R_h]=6
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+  T7 d=7: [U(A):im R_h]=1=[U(M):R_d]; global/old=6
+  T7 d=9: [U(A):im R_h]=6=[U(M):R_d]; global/old=1
+  T7 d=21: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+h=65 t=4 o=12 [C:R1]=1 [U:R_h]=1
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=13: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T8 p=5 d=13 f=4: split defect 1 primes [] | p^f-1=624
+  T8 p=13 d=5 f=4: split defect 1 primes [] | p^f-1=28560
+h=67 t=1 o=66 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_67(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=69 t=2 o=22 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=23: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=23 f=11: split defect 1 primes [] | p^f-1=177146
+  T8 p=23 d=3 f=2: split defect 1 primes [] | p^f-1=528
+h=71 t=2 o=35 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_71(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=73 t=8 o=9 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_73(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=75 t=2 o=20 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T7 d=15: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=25: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=25 f=20: split defect 1 primes [] | p^f-1=3486784400
+h=77 t=2 o=30 [C:R1]=1 [U:R_h]=1
+  T7 d=7: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=11: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T8 p=7 d=11 f=10: split defect 1 primes [] | p^f-1=282475248
+  T8 p=11 d=7 f=3: split defect 1 primes [] | p^f-1=1330
+h=79 t=2 o=39 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_79(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=81 t=1 o=54 [C:R1]=6 [U:R_h]=6
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+  T7 d=9: [U(A):im R_h]=6=[U(M):R_d]; global/old=1
+  T7 d=27: [U(A):im R_h]=6=[U(M):R_d]; global/old=1
+h=83 t=1 o=82 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_83(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=85 t=8 o=8 [C:R1]=1 [U:R_h]=1
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=17: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T8 p=5 d=17 f=16: split defect 1 primes [] | p^f-1=152587890624
+  T8 p=17 d=5 f=4: split defect 1 primes [] | p^f-1=83520
+h=87 t=2 o=28 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=29: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=29 f=28: split defect 1 primes [] | p^f-1=22876792454960
+  T8 p=29 d=3 f=2: split defect 1 primes [] | p^f-1=840
+h=89 t=8 o=11 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_89(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=91 t=6 o=12 [C:R1]=1 [U:R_h]=1
+  T7 d=7: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=13: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T8 p=7 d=13 f=12: split defect 1 primes [] | p^f-1=13841287200
+  T8 p=13 d=7 f=2: split defect 1 primes [] | p^f-1=168
+h=93 t=6 o=10 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=31: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=31 f=30: split defect 1 primes [] | p^f-1=205891132094648
+  T8 p=31 d=3 f=1: split defect 1 primes [] | p^f-1=30
+h=95 t=2 o=36 [C:R1]=1 [U:R_h]=1
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=19: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T8 p=5 d=19 f=9: split defect 1 primes [] | p^f-1=1953124
+  T8 p=19 d=5 f=2: split defect 1 primes [] | p^f-1=360
+h=97 t=2 o=48 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_97(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=99 t=2 o=30 [C:R1]=6 [U:R_h]=6
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+  T7 d=9: [U(A):im R_h]=6=[U(M):R_d]; global/old=1
+  T7 d=11: [U(A):im R_h]=1=[U(M):R_d]; global/old=6
+  T7 d=33: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+  T8 p=11 d=9 f=6: split defect 1 primes [] | p^f-1=1771560
+h=101 t=1 o=100 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_101(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=103 t=2 o=51 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_103(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=105 t=4 o=12 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T7 d=7: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T7 d=15: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=21: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=35: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=35 f=12: split defect 1 primes [] | p^f-1=531440
+  T8 p=5 d=21 f=6: split defect 1 primes [] | p^f-1=15624
+h=109 t=3 o=36 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_109(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=111 t=2 o=36 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=37: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=37 f=18: split defect 1 primes [] | p^f-1=387420488
+  T8 p=37 d=3 f=1: split defect 1 primes [] | p^f-1=36
+h=113 t=4 o=28 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_113(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=115 t=2 o=44 [C:R1]=1 [U:R_h]=1
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=23: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T8 p=5 d=23 f=22: split defect 1 primes [] | p^f-1=2384185791015624
+  T8 p=23 d=5 f=4: split defect 1 primes [] | p^f-1=279840
+h=117 t=6 o=12 [C:R1]=6 [U:R_h]=6
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+  T7 d=9: [U(A):im R_h]=6=[U(M):R_d]; global/old=1
+  T7 d=13: [U(A):im R_h]=1=[U(M):R_d]; global/old=6
+  T7 d=39: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+  T8 p=13 d=9 f=3: split defect 1 primes [] | p^f-1=2196
+h=119 t=4 o=24 [C:R1]=1 [U:R_h]=1
+  T7 d=7: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=17: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T8 p=7 d=17 f=16: split defect 1 primes [] | p^f-1=33232930569600
+  T8 p=17 d=7 f=6: split defect 1 primes [] | p^f-1=24137568
+h=123 t=4 o=20 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=41: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=41 f=8: split defect 1 primes [] | p^f-1=6560
+  T8 p=41 d=3 f=2: split defect 1 primes [] | p^f-1=1680
+h=125 t=1 o=100 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_125(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=25: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+h=127 t=18 o=7 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_127(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=129 t=6 o=14 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=43: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=43 f=42: split defect 1 primes [] | p^f-1=109418989131512359208
+  T8 p=43 d=3 f=1: split defect 1 primes [] | p^f-1=42
+h=133 t=6 o=18 [C:R1]=1 [U:R_h]=1
+  T7 d=7: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=19: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T8 p=7 d=19 f=3: split defect 1 primes [] | p^f-1=342
+  T8 p=19 d=7 f=6: split defect 1 primes [] | p^f-1=47045880
+h=135 t=2 o=36 [C:R1]=6 [U:R_h]=6
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+  T7 d=5: [U(A):im R_h]=1=[U(M):R_d]; global/old=6
+  T7 d=9: [U(A):im R_h]=6=[U(M):R_d]; global/old=1
+  T7 d=15: [U(A):im R_h]=2=[U(M):R_d]; global/old=3
+  T7 d=27: [U(A):im R_h]=6=[U(M):R_d]; global/old=1
+  T7 d=45: [U(A):im R_h]=6=[U(M):R_d]; global/old=1
+  T8 p=5 d=27 f=18: split defect 1 primes [] | p^f-1=3814697265624
+h=137 t=2 o=68 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_137(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=141 t=2 o=46 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=47: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=47 f=23: split defect 1 primes [] | p^f-1=94143178826
+  T8 p=47 d=3 f=2: split defect 1 primes [] | p^f-1=2208
+h=143 t=2 o=60 [C:R1]=1 [U:R_h]=1
+  T7 d=11: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T7 d=13: [U(A):im R_h]=1=[U(M):R_d]; global/old=1
+  T8 p=11 d=13 f=12: split defect 1 primes [] | p^f-1=3138428376720
+  T8 p=13 d=11 f=10: split defect 1 primes [] | p^f-1=137858491848
+h=147 t=2 o=42 [C:R1]=2 [U:R_h]=2
+  T7 d=3: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=7: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T7 d=21: [U(A):im R_h]=2=[U(M):R_d]; global/old=1
+  T7 d=49: [U(A):im R_h]=1=[U(M):R_d]; global/old=2
+  T8 p=3 d=49 f=42: split defect 1 primes [] | p^f-1=109418989131512359208
+h=149 t=1 o=148 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_149(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+h=151 t=10 o=15 [C:R1]=1 [U:R_h]=1
+  layer N=Phi_151(2): [C_N:projR1]=1  [U(N):projR_h]=1  -1 in projR1: True  p in projR1: True
+group checks done for 70 odd h; timeouts: [107, 121, 131, 139, 145]
+EXIT 0
