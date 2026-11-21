@@ -1,0 +1,66 @@
+## §0
+Result: One-way positive divisor steps take every odd quadratic nonresidue to the least one, but prime-factor descent and even arbitrary changes of two word letters can be trapped together at one neutral word. Label: PROVED (rel. elementary finite group arithmetic and quadratic reciprocity; infinitude of the explicit trap CONDITIONAL on Dickson).
+Scope: A reachability theorem at each prime ≡1 (8), and an obstruction for two specific search rules. No existence of a *reciprocal* bichromatic pair follows. ES, (S), U₇ and (MS⁺₁₀₅) remain open.
+Review: none
+Triage: METHOD-CX
+STATUS delta: none
+
+# The cofactor walk: what it can reach, and what it cannot force
+
+**Assessment / screening.** Keep p fixed. Use the character to select actual factors, not to approximate the count of words. The distinction in §§1–3 is between walking on a divisibility arrow and having its reverse at the *same* pair. In particular there is no relaxation-to-ES transport step (FRONTIER §4 items 1–5,9,12–14). No asymptotic count, bounded-height window, signed word, sharing of a large prime between independent shifts, or BM or logical obstruction is used (6–8,10–11,17–19). The explicit family in §3 kills a method; it is not a thin-family proof transferred to arbitrary p, including near squares (15–16).
+
+## 1. A directed descent without negative shifts
+
+**Theorem A (PROVED, elementary).** Let p≡1 mod 8 be prime, χ the Legendre symbol and q the least positive nonresidue. On the nonresidues in [1,p−1] draw an arrow x→d whenever d divides p+x. From **every odd vertex** there is a directed path to q. More generally this holds for every vertex x for which p+x is composite. Only positive shifts are used, without imposing any reverse divisibility. The theorem is about existence of a path, not greedy descent in size or running time.
+
+**Proof.** Since χ(2)=1, q is an odd prime. Write [a] for the representative in [1,p−1] of a nonzero field element. First consider the orbit of an odd seed under multiplication modulo p by powers of 2. The odd representatives in it are mutually reachable: x↦(p+x)/2^{ν₂(p+x)} is exactly the first return to the odd representatives under repeated modular halving. This is a permutation cycle on those representatives of the given orbit, including the possibility of a singleton. Every even representative e in the orbit is reachable as well: choose j minimal with 2^j e>p, so 2^j e−p is an odd representative in the orbit and has an arrow to e. This does **not** promise a return from e.
+
+For a fixed odd nonresidue seed let C be the union of the doubling orbits whose odd part (i.e. some odd representative) is reachable. All elements of C are reachable. If z∈C and d<p is a nonresidue divisor of z or of p+z then d∈C: for p+z take its odd divisor d/2^{ν₂(d)} and use the arrow from z. For z itself, the odd representative 2^j z−p in its orbit, with j minimal so 2^j z>p, has that odd divisor of its shift. This proves the assertion for composite d, not just primes. Let H={h:hC=C} be the multiplicative stabilizer in the field. It contains 2 and consists of residues.
+
+Here is the covering step. If H contains 1,…,m−1 and 2, for 2≤m<p, every coset zH has a representative y<2p/m. Among 0,[z],… ,[(m−1)z] on the circle of circumference p two consecutive points have gap ≤p/m. Their difference gives [kz]=d or p−d with 1≤k<m, 0<d≤p/m. In the former case take y=d. In the latter, double d to D in (p/m,2p/m) (strict since p prime and 1<m<p), and take s=⌊p/D⌋. Then 1≤s<m and y=p−sD is positive, <2p/m and in zH. Thus the orientation of the small gap costs a factor two, exactly what the single shift +p permits.
+
+If m is a residue and every coset has such a representative, take any x∈C and apply the bound to (x/m)H. Then my<2p and [my]∈C. Since y is a nonresidue divisor of either [my] or p+[my], it lies in C. By H-invariance x/m∈C; finiteness upgrades inclusion to equality, hence m∈H. Inducting proves {1,…,q−1}⊂H. For m=q apply the same covering to (x/q)H but now take **q itself** as the negative divisor of my=qy, not y. Thus q∈C. Finally, if p+x is composite and x even, its odd prime factors include a nonresidue by multiplicativity. It is <p since p+x<2p. From it the odd-seed result applies. ∎
+
+**Corollary (PROVED).** Every negative endpoint of an interior bichromatic word can reach q by those arrows: p+x=(tx−1)v is composite. Consequently a reverse search of the one-way graph from q contains a negative endpoint of *every* such word. This does not assert that a negative endpoint carries any word, or that a forward search from q reverses the paths. In particular it is not a reduction to a smaller integer ES input.
+
+## 2. When composite recursion saturates the negative half
+
+**Theorem B (PROVED rel. Bourgain–Glibichuk–Konyagin, partial summation/Fourier completion, smooth number asymptotics and Burgess).** Fix δ>0. At all sufficiently large primes p≡1 (8) with ordₚ(2)≥p^δ, *every* odd negative seed reaches *every* negative vertex, including the even ones as endpoints. Neither a diameter estimate nor an assertion that all p meet the order hypothesis is intended.
+
+Use the same C and H. The only covering input needed to adjoin a residue m to H was that each coset of H has least representative <2p/m. Since |H|≥p^δ, the BGK prime-field subgroup exponential sum bound is ≤|H|p^{−η} at every nonzero frequency for some η(δ)>0, unchanged under translation by a multiplicative coset representative. Fourier completion against an initial interval of length B gives count B|H|/p+O(|H|p^{−η}log p). Hence for a fixed 0<γ<min(η/3,1/4), B=⌊p^{1−γ}⌋ works. This puts **all** residues m≤p^γ in H at the fixed p. In particular H contains the squares of all primes ≤p^{γ/2}. The integers up to p−1 smooth to that bound have positive lower density (Dickman–de Bruijn at fixed parameter); their squares have at most two preimages each mod p, so |H|≫δ p (constant depending on δ). Its index is now bounded. Gauss sums give a coset discrepancy O(√p log p) by multiplicative character orthogonality and Pólya–Vinogradov; B=⌊p^{2/3}⌋ now suffices. Thus H contains every residue m≤p^{1/3}. If H were proper inside the squares, a coset in the squares disjoint from H would have positive bounded-below density in [1,p^{1/3}]: expand its indicator in the bounded number of characters, and apply Burgess to that interval (e.g. r=4 gives a power saving). Contradiction. Hence H is the squares, and C, a nonempty union of H-cosets contained in the negative half, equals that half. ∎
+
+**Assessment.** This is pointwise on the stated order range. The many arrows are not putative ES certificates. Only reciprocal arrows at opposite signs and with the interior inequalities give (S); they cannot be counted by the BGK step. In fact every arrow used *inside* C above has equal signs.
+
+## 3. The prime-only recursion can freeze even at an existing word
+
+**Theorem C (PROVED conditionally for infinitude, on Dickson; finite instance CERTIFIED).** At p=113035442521, q=17 is the least nonresidue. If at each visited prime x one adjoins **all negative prime factors** of p+x, the closure from q is exactly {17,607717433}. There is an actual interior word there. Even allowing a move that keeps just **one numerical letter in any position whatsoever** and replaces the others by arbitrary positive interior letters, the word is isolated up to outer reversal. Under Dickson this happens infinitely often with an outer letter growing linearly in p.
+
+Take r=1231553+3063060j with the five primes
+
+    r,  p=186r−17,  S=(11r−1)/6,  L=(31r−1)/2,  K=527r−48.
+
+The progression has p≡1 (840·11·13), r≡5 (17) and r≡2 (9). The least nonresidue is 17 by reciprocity, since p≡−5 mod 17 is nonsquare. Since 186=2·3·31 and (p/31)=(−17/31)=1, all primes dividing 186 are residues at p. Thus p+17=186r forces χ(r)=−1; p+r=17·6S forces χ(S)=+1. These give exactly the stated prime successors for large r.
+
+To check arbitrary slot changes use p+x=(tx−1)v for an outer x, and (tu−1)(tv−1)=tp+1 for a middle t. At outer 17 a neighbor must be ≡5 (17). No divisor of 186 has that residue; the only divisor of 186 ≡1 is 1 modulo 17 (meaning: only the divisor 1 has that residue). Thus v=r alone works, t=11. At outer r the other endpoint u obeys u=(p+r)/(tr−1)≤(p+r)/(2r−1)<100 for r>1000; r|p+u requires u=17. At middle 11 the number 11p+1=1116 S has just the complementary pair with factors ≡−1 (11), since among the divisors of 1116 only 186 is ≡−1 and the total is ≡1. At middle 17 similarly 17p+1=6K and no divisor of 6 is −1 (17). At outer 11 one has p+11=12L≡1 (11), with no divisor of 12 in −1 (11). Finally at middle r, uv=186+(u+v−17)/r. Since u,v≥2 give u+v≤uv, we have uv≤186r/(r−1)<187 for r>1000. As |u+v−17|<r, this requires simultaneously uv=186 and u+v=17, impossible. Both endpoints of the only word are negative. It is not an ES certificate from the sign test.
+
+The five affine forms are primitive with distinct positive slopes and nonproportional coefficient pairs (printed below in the replay). For primes >5 each nonconstant reduction excludes at most one residue and primitive constant reductions exclude none. For 2,3,5 the progression step of every form is divisible by the prime and each constant is a unit, as directly checked from the five pairs. Dickson now applies. At j=198 all five are prime by trial division through the square root. This is different from merely isolating a small root in the forest (`Z53_FORESTCLASS.md`): the two negative prime-factor successors are forced indefinitely, and the existing word has no all-slot escape even at the moving letter.
+
+## 4. Falsifier Table and replay
+
+|Screen|A (including corollary), B and C|
+|---|---|
+|F1 odd squares|A/B have no negative unit seed; the field coset proof is inapplicable. C requires χ(17)=−1, impossible for a square Jacobi denominator.|
+|F2: 8/131, 8/241, R₈ at 1590284203561|A/B concern one-way divisibility, **not** an 8- or 4-specific point. 131 is outside 1 mod 8; at 241 and at the large control, a saturated walk would not furnish any reciprocal word, much less one on the even-C line. C has a neutral word only, no numerator implication. The conversion of an actual negative interior word to ES uses the five 4-slots (`DEDEKIND_ES.md`, Thm 4.5), not an 8-slot rule.|
+|F3: 4545 and Z₇={105,1465,3865,4545,10305,12145,39361,67425}|All outside the prime hypotheses; in particular the prime-field gap argument does not establish the result for nonunits. No U₇ or Type II existence assertion at these composites.|
+|F4: all fourteen (★)-zero primes 409…8813281, composite 17401609|A gives paths wherever its prime/congruence hypotheses hold, B only under its order and size hypotheses. Neither implies even (S) existence; the corollary starts with a word, not a c=1 witness. None meets the C construction (r≥1231553). 17401609 is not prime.|
+
+**CERTIFIED (single Python implementation per statistic; finite only).** For all 3426 primes ≡1 (840) up to 10⁷, enumerate the prime-factor closure from q and test all interior outer stars in it. For factors of p+x alone this misses 454 primes, first 7561. Even adjoining negative primes from p−x misses three, first 21841 (162 visited), last 1726201. An independent question: can formal multiplicativity alone identify the squareclass of q as an F₂-sum of the endpoint products of interior edges? Yes at 3199/3426, including 3361 with no endpoint q, but not at 2521. These are rational squareclasses, not reduction in the order-two field quotient. Enumeration fixes a least letter k with k³−2k≤p, factors p+k and kp+1 for its two possible roles, and removes outer reversals. The tests are not premises for A/B. No global failure of (S) was found or is claimed.
+
+```
+ulimit -v 6000000
+timeout 1800 uv run --offline --no-project python -B scripts/z80_square_span.py 10000000
+timeout 1800 uv run --offline --no-project python -B scripts/z80_cofactor.py 10000000
+timeout 600 uv run --offline --no-project python -B scripts/z80_jugular_trap.py
+```
+
+Outputs: `data/z80/jugular/{span,basin,trap}.txt`. **Assessment / next test.** Reverse reachability solves the accessibility question for negative endpoints, not the reciprocal-arrow question. A sharper candidate is to test which first-return paths from a residue to the negative half have their *first* sign-changing arrow reciprocated; A/B give no such return. A criterion involving a reciprocal arrow rather than still larger basins is needed.
