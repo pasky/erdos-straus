@@ -26,7 +26,13 @@ def all_counts(B,M):
             if k>0:
                 for b in range(a,(B+a)//k+1):
                     n=k*b-a
-                    if n>=2: ans[n]+=1+(a!=b)
+                    if n>=2:
+                        ans[n]+=1+(a!=b)
+                        if M>=37:
+                            N,r=divmod(n,M); v=(a+b+r)//M
+                            assert (a+b+r)%M==0 and N+v==a*b*d
+                            # §2.1 exact discrepancy, multiplied by M(a+b).
+                            assert a*d*M*(a+b)==n+M*a*a*d+(a+b)
             d+=1
     return ans
 
@@ -83,6 +89,35 @@ def partial_pin():
     print('exact identity on toy CRT fibre (not a row estimate); mixed cases',sorted(seen))
 
 
+def traces():
+    for p in (7,11,17,23,31):
+        psi=[exp(2j*pi*j/p) for j in range(p)]
+        largest=0.
+        for n in (0,2,3):
+            tab={}
+            for v in (1,2,p-1):
+                vals=[]
+                for c in range(p):
+                    def leg(x):
+                        a=pow(x%p,(p-1)//2,p); return -1 if a==p-1 else a
+                    raw=sum(leg((4*c*k-n)**2-4*k)*psi[v*k%p] for k in range(p))
+                    if c and (4*n*c+1)%p:
+                        a=(n*pow(4*c,-1,p)+pow(8*c*c,-1,p))%p
+                        b=v*v*(4*n*c+1)*pow(256*c**4,-1,p)%p
+                        kl=sum(psi[(j+b*pow(j,-1,p))%p] for j in range(1,p))
+                        assert abs(raw-psi[(v*a)%p]*kl)<1e-10
+                    vals.append(raw/(p**.5))
+                tab[v]=vals
+            for v,f in tab.items():
+                for w,g in tab.items():
+                    for delta in (0,1,3):
+                        for b in range(p):
+                            z=sum(f[(c+delta)%p]*g[c].conjugate()*psi[b*c%p] for c in range(p))
+                            main=p*int(delta==0 and v==w and b==0)
+                            largest=max(largest,abs(z-main)/p**.5)
+        print('trace identity p=',p,'sample max |K-main|/sqrt(p)',round(largest,5))
+
+
 def plancherel():
     def e(z):return exp(2j*pi*z)
     for Q,H,W,C in ((9,4,24,6773),(15,9,80,118867),(6,2,13,3881)):
@@ -113,9 +148,14 @@ def exponents():
         assert F(25,26*v)**3/F(25,52*v)**3==8
         assert 3*F(12,4)*F(1,v)**2/2==F(9,2*v**2)
         assert 2*F(6,7)/4*F(1,v)**3/6==F(1,14*v**3)
-    print('exact arithmetic: absolute lift deficit 1/19, level-one constants 9/8, 1/112; no new exponent pair used')
+    for k,l,goal in ((F(1,6),F(2,3),F(4,13)),(F(13,84),F(55,84),F(55,181))):
+        t=l/(1+2*l-k); assert t==goal and 4*t>1
+        B=1-2*t; H=(B*(1-l+2*k)-k)/(1+k)
+        assert B-H==t and k*(H+1-2*B)+l*B==t
+        print('reciprocal discrepancy pair',k,l,'power',t,'cutoff power at large B',H)
+    print('exact arithmetic: absolute lift deficit 1/19, level-one constants 9/8, 1/112')
 
 
 if __name__=='__main__':
     print('# ulimit -v 6000000; timeout 180 uv run --offline --no-project python -B scripts/z80_r_below_619.py')
-    exponents(); selberg(); partial_pin(); small_words(); controls(); plancherel()
+    exponents(); selberg(); partial_pin(); small_words(); controls(); plancherel(); traces()
