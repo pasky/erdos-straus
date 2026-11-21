@@ -117,9 +117,11 @@ approximation always exists, and BM does not explain all failures of strong appr
 
 **Thin infinite families proved here** (PROVED, computer-assisted; Wave Z, expanded z75 & z77): ES holds for all
 n = 4^s + k, k ∈ {9, 33, 57, 81, 105, 129, 153, 177, 201, 225, 249, 273, 297} ((J)62, (J)69; k ∈ {33, 273, 297} in z75,
-Opus-reviewed `notes/z75/THIN_CYCLO.md`), all **`(4^m − 1)·2^s + 1` for `1 ≤ m ≤ 6`** (`3, 15, 63, 255, 1023, 4095`; `3`
-and `15` **Lean 4 verified** in `Proth3.lean`, `Proth15.lean`; `255, 1023, 4095` proved in z77 via moving cyclotomic
-products, Opus-reviewed `notes/z77/PROOF_S_WILD.md`), all `7·4^s + 9`, and **infinitely many non-ET-coverable families**:
+Opus-reviewed `notes/z75/THIN_CYCLO.md`), all **`(4^m − 1)·2^s + 1` for `1 ≤ m ≤ 10`** (`3`, `15` and `63` **Lean 4
+verified** in `Proth3.lean`, `Proth15.lean`, `ProthCore.lean`; `255, 1023, 4095` proved in z77 via moving cyclotomic
+products, Opus-reviewed `notes/z77/PROOF_S_WILD.md`; m = 7–10 by z78 certificates, Opus-reviewed `notes/z78/PROTH_ALLM.md` §3;
+for every 2 ≤ m ≤ 131, m = 365 and explicit infinite sets of m there are good-word core progressions and density-one
+exponent sets, not full families, `PROTH_ALLM.md` §§1, 6–7, 10, `notes/z78/WILD_ES.md` §1 (z78)), all `7·4^s + 9`, and **infinitely many non-ET-coverable families**:
 `15·b^s + 1` (`b ≡ 2 mod L`, `THIN_CYCLO.md` §2) and fixed-base-2 `c_J·2^s + d_J` with distinct odd `c_J` (`PROOF_S_WILD.md`
 §3). None of these Proth/`c_J·2^s+d_J` families admits a finite ET/divisor covering, and none transfers to primes ((J)76;
 z75 thin-core barrier `notes/z75/PROOF_WILD2.md` §2).
@@ -491,10 +493,12 @@ ES for a prescribed prime. Fixed-p variance diagnostics were tried and fail ((J)
 **Tied modulus / height-dependent target.** `PARITY_AUDIT.md` Lemma 2.1′, Assessment 2.2, Remark 3.1; (J)87.
 * *Statement.* Previous elementary pointwise benchmark: |E(p)| = |R(p) − M(p)| ≪ p^{1/3+o(1)} (PROVED, elementary block count
   N(U,V) ≤ p^{o(1)}min(U, V, p/(UV)+1), `Z52D_HYPERBOLA.md` Thm 1; ET Prop 1.7's p^{2/5} is for the full Type II count; no
-  cancellation either way), against M(p) ≍ (log p)². *(z53, improved z76, Opus-reviewed:)* now **R(n) ≪_ε n^{8/25+ε}**
-  (rel. Weil + classical derivative tests) and **n^{7955/24966+ε}** (≈ 0.318633, rel. also Trudgian–Yang Lemma 1.1) for
-  every n ≥ 2 (`notes/z76/ANALYTIC_34.md`, shifting by the conductor before Cauchy; improves `Z53_SQSIEVE.md` Thm A's
-  12/37 and Bourgain 21/65, preceded by `Z53_HYPSUMPROD.md` Thm 1's 1/3 − 1/225; external priority unverified): near the cube the tie is a perfect-square condition, detected by Heath-Brown's
+  cancellation either way), against M(p) ≍ (log p)2. *(z53, improved z76 and z78, Opus-reviewed:)* now **R(n) ≪_ε n^{272/857+ε}**
+  (≈ 0.317386; rel. Weil, uniform stationary phase, additive large sieve, Erdős–Turán, classical fourth-derivative test; two
+  independent Opus reviews) and n^{46/145+ε} (≈ 0.317241; one Opus review, second owed) for every n ≥ 2
+  (`notes/z78/ANALYTIC_WILD.md` §§7–8, 11–14 (z78): positive conductor average before the B-process, fourth moment, inverse-phase
+  spacing; supersedes z76's 8/25 and 7955/24966 of `notes/z76/ANALYTIC_34.md`, `Z53_SQSIEVE.md` Thm A's 12/37 and Bourgain
+  21/65, preceded by `Z53_HYPSUMPROD.md` Thm 1's 1/3 − 1/225; external priority unverified): near the cube the tie is a perfect-square condition, detected by Heath-Brown's
   square sieve. Upper bound uniform in n, valid at odd squares — silent on positivity. Weil on the modular hyperbola 𝓗 = {xy ≡ 1 (mod 4p)} has error p^{1/2+o(1)}
   even for one box, and (★) is ≍ p height-sub-counts, so Weil does not even bound E(p). Remark 3.1 (Assessment): every result
   beating Weil/Selberg–Hooley averages over a variable *independent of the modulus* (the residue, the moduli q ≤ x^θ with n
@@ -872,6 +876,21 @@ the z58/z59 blocks: theorems about specified classes, none a necessity theorem f
   * *Rules out:* nonstandard external-PID constructions (and any `⋂ 2^n R = 0` or rank-one order model) for `IE₁ ⊬ ES` or
     (assuming ES in ℕ) `IE₁⁻ ⊬ ES`. Does not exclude `IE₁⁻` alone in a nonstandard external PID.
   * *Does NOT rule out:* non-Noetherian / twisted-axis / `J² = J ≠ 0` models, or first-order Bézout non-PIDs.
+* **Window barriers for `IE₁⁻` ES countermodels above a PA cut (z78, BARRIER-BROAD; PROVED rel. the z75–z77 stage lemmas,
+  Dirichlet's unit theorem, elliptic duplication and rigidity of curve maps to abelian varieties; Opus-reviewed, three passes,
+  `notes/z78/IE1_UNITS.md` §§4–15).**
+  * *Statement.* `IE₁⁻` forces parameter-free, polynomial-width windows whose base and successor step hold in every normal
+    `IOpen` ring: the cubic norm window `C₃` (and all odd `C_k`, more generally balanced norm-one windows of every
+    number-field order) and the duplication window on `y² = x³ − 2`. (i) Towers built from quadratic torus, row, chart and
+    circle edges have only scalar units after adjoining `∛2`, so `C₃` defines the cut there even when every multiquadratic
+    height hyperplane `H(A*) = Γ⁰[G]` is filled; (ii) a model filling all balanced number-field norm windows (weights 1 at
+    real, 2 at complex places) with ¬ES(P) misses the elliptic window; a model filling that one misses the window of the
+    nonisogenous `y² = x³ − 36x`; (iii) end extensions can never fill a bounded window at an old height, joint fillability
+    fails for weak arrows even with normality + Lagrange, and height-only windows on fixed pointed single-boundary varieties
+    cannot force an ES triple at a fresh prime (§15).
+  * *Rules out:* `IE₁⁻ ⊬ ES` via any tower of the listed quadratic edges; via norm-torus adjunctions alone; via a fair
+    end-extension schedule over a fixed base. *Does NOT rule out:* a base stage that is window-complete at its own heights,
+    or an ES-forcing window (none is known); `IE₁⁻` versus ES stays open in both directions.
 
 * **Bounded-exponent étale-Brauer blindness on open ES varieties (z77, BARRIER-BROAD; PROVED rel. absolute purity, local/global reciprocity, Chebotarev; Opus-reviewed `notes/z77/DISPROOF_KUMMER.md`).**
   * *Statement.* On `V ∈ {S_n°, X_n°, U_n°}` (`k = 4, 8`; squarefree kernel `s ≠ 1` for `k = 4`, `s ∉ {1, 2}` for `k = 8`),
@@ -1098,7 +1117,10 @@ has passed all lines.
     nonzero dyadic kernel `J = ⋂ 2^n R` (with `J² = J` under Lagrange), excluding nonstandard external `IOpen` PIDs and
     rank-one orders; in any integrally closed signed `IOpen` proper end extension of a PA cut, simultaneous Pell windows for
     independent cut squareclasses are equivalent to `H(A*) = Γ⁰[G]` (`IE₁⁻` forces this for standard-prime systems, ruling
-    out realizations inside upper algebras of finite rational unit rank modulo `Ē*`).
+    out realizations inside upper algebras of finite rational unit rank modulo `Ē*`). *(z78, `notes/z78/IE1_UNITS.md`:)* that
+    condition is necessary, not sufficient — ask of any proposed `IE₁⁻` countermodel: do relative norm-one heights fill every
+    number-field order's weighted archimedean hyperplane, are there primitive points at polynomially spaced heights on every
+    positive-rank standard elliptic curve, and is every bounded window already witnessed at the heights of the base stage?
 19. **No fixed-`(m, M)` open-surface étale-Brauer obstruction (z77, `DISPROOF_KUMMER.md`).** On `S_n°, X_n°, U_n°`
     (`s ≠ 1` / `s ∉ {1, 2}`, outer-integral positive adeles), a `q^{mM}` repair lifts to some twist of every finite ℚ-group
     torsor of geometric monodromy exponent dividing `m` orthogonal to `Br(W)[M]` (`mM | E` sharp for the specified repair on
@@ -1230,15 +1252,17 @@ no single-prime lower-tail mechanism is known.
   with an effective absolute C (PROVED rel. Gallagher, Linnik, Minkowski II; supersedes effective rad(n)^5, (p−5)/8 and
   ineffective n₀^{1/4+ε}), via planted carriers, disjoint-alphabet Gallagher and quotient-index correction; also explicit
   **4e*(p) + 3 ≤ √(4p/3)** at p ≡ 1 (8) (Gauss reduction/genus theory), and **CONDITIONAL on Dirichlet GRH alone**:
-  exp(O(√(log₂R · log₃R))) asymptotically (superseding Dedekind GRH in `CAP_INTERPOLATION.md` Thm 4.2(b)). ES ⟺ e* = 0;
+  exp((2√2 + o(1))√(log₂R · log₃R)) (constant from single-valuation planting, `notes/z78/ANALYTIC_WILD.md` §4 (z78);
+  superseding Dedekind GRH in `CAP_INTERPOLATION.md` Thm 4.2(b)). ES ⟺ e* = 0;
   at a fixed window, the δ_p = 0 branch of cap 0 is the B2 event (`CAP_DOWN.md`).
 * Provable T1-bearing cousins: ES^{(S)} (|S| ≥ 4, unconditional), ES^□ (elementary), V_φ (GRH; unconditional with a
   power-saving exceptional set), ES_(k) for every k and every n ≥ 2 ((J)108 Cor 2.5; the even-k construction itself works at odd non-squares and
   extends by scaling), M^□ for all M ≡ 0 (4) ((J)41) — see B-fin for why they don't
   transfer.
-* Thin families: all **`(4^m − 1)·2^s + 1` for `1 ≤ m ≤ 6`** (`3, 15, 63, 255, 1023, 4095`; `3` and `15` Lean 4 verified,
-  `Proth3.lean` & `Proth15.lean`; `255, 1023, 4095` computer-assisted via moving cyclotomic products in z77, Opus-reviewed
-  `notes/z77/PROOF_S_WILD.md`), `7·4^s + 9`, `4^s + k` for `k ∈ {9, 33, 57, 81, 105, 129, 153, 177, 201, 225, 249, 273, 297}`
+* Thin families: all **`(4^m − 1)·2^s + 1` for `1 ≤ m ≤ 10`** (`3`, `15`, `63` Lean 4 verified, `Proth3.lean`,
+  `Proth15.lean`, `ProthCore.lean`; `255, 1023, 4095` computer-assisted via moving cyclotomic products in z77, Opus-reviewed
+  `notes/z77/PROOF_S_WILD.md`; m = 7–10 computer-assisted in z78, `notes/z78/PROTH_ALLM.md` §3; restricted-exponent good-word
+  cores and density-one exponent sets for every 2 ≤ m ≤ 131, m = 365 and infinite sets of m, `PROTH_ALLM.md`, `WILD_ES.md` §1), `7·4^s + 9`, `4^s + k` for `k ∈ {9, 33, 57, 81, 105, 129, 153, 177, 201, 225, 249, 273, 297}`
   (z75 `THIN_CYCLO.md`, computer-assisted), plus infinitely many non-ET-coverable `15·b^s + 1` (`b ≡ 2 mod L`) and
   fixed-base-2 `c_J·2^s + d_J` (`PROOF_S_WILD.md` §3).
 * Function fields: one mute place makes the ES variant over F_q[T] a theorem at every P, unconditionally and effectively
@@ -1251,14 +1275,18 @@ no single-prime lower-tail mechanism is known.
   mod 840). Elementary statements only; infinitude claims and censuses are not formalised.
 
 **5.3 Obstruction-side theorems** (useful because they bound what coverings can do).
-* Sterile Mordell points exist on the r-generic line for every prime **r ≥ 7 219** (z77, Opus-reviewed `notes/z77/R17_F3.md`,
-  393× total drop from `STERILE_LOWER.md`'s 2^{21.44} ≈ 2.84·10⁶ via z76 box-centre compression + z77 exact level-1 union,
-  per-prime cube sieve, pooled `4τ` bound and cofactor Coppersmith determinants; computer-assisted rel. SE/ZL/z76 inputs;
-  Opus replayed the new tables, not inherited SE/ZL high rows): no finite ET covering handles all primes with least QNR r.
+* Sterile Mordell points exist on the r-generic line for every prime **r ≥ 919** (z78, Opus-reviewed `notes/z78/R17_PUSH.md`
+  §7; from `STERILE_LOWER.md`'s 2^{21.44} ≈ 2.84·10⁶ via z76 box-centre compression, z77 exact level-1 union and cofactor
+  determinants (7 219, `notes/z77/R17_F3.md`), and z78's exact cubic P census, two-shift Q sieve, shift compression and
+  survivor-conditioned charges; computer-assisted rel. SE/ZL/z77 inputs incl. their libm caveat, which is material at the
+  binding prime 929; 911 fails this bound, which is not coverage): no finite ET covering handles all primes with least QNR r.
   Exact level-1 union is CERTIFIED for `17 ≤ r ≤ 181 391` and combined with z76's all-depth tail yields level-1 survival
   for **every prime r ≥ 17** (`r ≤ 13` covered at level 1); all-depth sterility at `r = 17` remains open.
 * Function fields: ES_q(T^k) has no finite linear covering for q = 3^r, r ≥ 2; ES_q(T) none for q = 3^r, r ≥ 2, via a Weil-
-  reciprocity root-product law ((J)51, (J)56, (J)67; ET-type coverings included by (J)73). Only q = 3 (CONJECTURE 0.2) is open.
+  reciprocity root-product law ((J)51, (J)56, (J)67; ET-type coverings included by (J)73). For q = 3, A = T² the former
+  CONJECTURE 0.2 is PROVED (z78, `notes/z78/F3_CONJ.md`, two Opus reviews, endpoint algebra Lean-checked in `F3Endpoint.lean`):
+  x*_1, x*_2 ∈ O(3, T²), hence no finite linear covering — two logarithmic-derivative contacts force deg g′ < N and a monic
+  T-unit determinant W of degree ≤ 1 (A) / ≤ 2 (B), and a third exact elimination kills W. Not a statement for A = T.
 * W(p) ≥ exp(c(log p)^{1/4}(log log p)^{−1/4}) for infinitely many Mordell-hard primes (`POINTWISE_OMEGA13.md`; rel. Gallagher,
   Nair–Tenenbaum, energy bound); the Haar avoider exponent and the tail exponent of W over primes are both 3.
 * Infinitely many 3·2^s + 1 etc. lie outside every finite ET covering ((J)22 Cor 1.5, (J)68).
@@ -1333,8 +1361,8 @@ SQ: for odd n, V_I(n) ∪ V_II(n) empty (ET N-points, no coprimality) ⟺ n squa
 coprime Type I/II of §1 the statement is false at 105, 345, 561, 5985 — a transcription error here, not in O146/(J)1; `Z52_BANKED.md` §1(d)); SQ₅ (five slices; n ≠ 105) [10⁶]; SQ_± and 3SQ
 (exception-free companions, (J)52, (J)53); PH (full-coset covers; all Mordell-hard primes < 10⁶ except 3529, 110881 at e ≤ 2000,
 samples to 10⁸, 14 hard primes ≤ 3.7·10⁷; R290 repair); PM-II (3361 only) [10⁸]; X_win: a_min(p) ≪ log p;
-U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [10¹¹]); López's union conjecture; CONJECTURE 0.2
-(F₃[T] sterile point x*_c); x** sterile (r = 13; certified through ES level 2.59·10¹⁰).
+U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [10¹¹]); López's union conjecture; x** sterile
+(r = 13; certified through ES level 2.59·10¹⁰). (CONJECTURE 0.2, the F₃[T] sterile point x*_c, is PROVED in z78, §5.3.)
 
 ## 6. Dead ends (one line each; do not repeat without a new ingredient)
 
@@ -1667,6 +1695,12 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * (z76) Unmodified z75 twisted BCM successor fails prime QR at 3 or 5 (`QR_TS_BCM.md` §5; repaired in §4).
 * (z77) Two-prime square-sieve Cauchy model below 4/13 & short-witness primorial sharpness (`notes/z77/ANALYTIC_413.md`, Opus-reviewed) → hypothetical termwise `W^{1/2}` kernel majorant caps at `4/13` (Assessment: `n^{1/20}` deficit at `θ = 3/10`, not a general signed-mean barrier); on a primorial fibre in every long interval, even all short noncoprime endpoint pairs leave `O((log H)^{2/3}/(log log H)^{1/3})` short witnesses at z75 all-integer height (does not rule out loss-free zero bounds).
 * (z77) Unchanged z76 BCM successor fails TS and `L(Div)`; ordinary-only rotations fail at a forced nonstandard circle class (`notes/z77/IE1_NONPID.md` §§2, 5, Opus-reviewed); polynomial-input fixed-`c` **non-BM** sterile fibres have density 0 (`KUMMER_FIBRES.md`).
+* (z78) Signed prime-pair square-sieve Cauchy using only row-size, complete-Fourier and CRT information (`notes/z78/ANALYTIC_WILD.md` §§1, 6, Opus-reviewed) → shared mock rows saturate it exactly at 3/10 (no barrier above 3/10); absolute values on the genuine completed off-diagonal lose to the many stationary dual frequencies; the z75 cap deletion budget has an adaptive-window entropy floor and the fixed disjoint cap menus leave an explicit residue-class intersection (§§2–3, 15); MPZ-type smooth-moduli level cannot supply the Bonferroni depth needed for θ > 3/4 (§10).
+* (z78) Bounded menus of rational-function ES triples on `(4^m−1)2^s+1` cores (`notes/z78/PROTH_RIGIDITY.md`, Opus-reviewed) → for bounded `(P, L, K)` only finitely many m (Siegel + Mordell–Schinzel + van der Waerden); shifted outer letters `u = (4^m−1)2^a − 1` give no interior word for `s ≤ m`, forcing growing cutoffs or moduli on sparse `s = B·2^v` (`PROTH_ALLM.md` §8); the cyclotomic core itself is certified, not proved, for general m.
+* (z78) Obstructions beyond coordinate Brauer at the actual failures 8/131, 8/241, and solution transport (`notes/z78/WILD_ES.md` §§2–3, 7, Opus-reviewed) → a non-coordinate deletion's quaternion rejects the old one-prime repairs, but another repair passes the simultaneous Legendre `S₃ × S₃` descent with upstairs `Br[M]` (`5 ∤ M`) and the tested tame covers of bounded ramification; finite-étale preprocessing on the four-line open gives no fixed-n positive move except the swap, and modular-isogeny correspondences cannot transport a solution to a larger prime.
+* (z78) Integer port of the F₃[T] endpoint elimination at `r = 17`, `x = 5` (`notes/z78/R17_ENDPOINT.md`, Opus-reviewed) → the identities port, but positivity leaves an integer carry `I ≥ 1` (not a forced leading coefficient) and Q has a moving denominator `e`; only `e ≤ 466(rN)^{1/4}`, ineffective Subspace finiteness per square class, and an abc-conditional exclusion for `de ≤ N^θ` (`θ < 1/4`) survive. The exact-level P-centre language at 17 is non-regular (`notes/z78/R17_PUSH.md` §2).
+* (z78) Logic (`notes/z78/IE1_UNITS.md` §§3, 8, 10–12, Opus-reviewed) → end extensions cannot fill bounded windows at old heights; weak-arrow joint fillability fails even with normality + Lagrange; pointwise cofinality of witnesses is insufficient for a successor-closed window; `L(Div)` fails in the BCM+TS tower by the axis-divisor argument (not a general incompatibility).
+* (z78) Masullo's announced GRH manuscript (unrefereed) as a source of ES tools (`notes/z78/MASULLO_GRH_TRANSFER.md`, Opus grading, Astra-reviewed; `MASULLO_GRH_SKIM.md` is a page map only) → NULL: the live proof is positivity-free, Hecke GRH adds no character to the direct (★) expansion, termwise GRH at one integer loses `√N`, Kummer–Chebotarev is useless below about `ℓ⁴`, and `PC(F,η)` is untouched.
 
 ## 7. Open sub-problems that are well-posed and plausibly tractable
 
@@ -1687,11 +1721,14 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
    across conductors/frequencies, short-segment beyond-square-root bounds, the 2-cycle count of x ↦ (−p mod x), unbalanced
    blocks. It is no longer "the only lead not ruled out" — it is B2 at its self-dual scale with the standard tools closed.
    *(z53, five lanes, each cross-model reviewed; `Z53_SUMMARY.md` §1.)*
-   * **Upper side moved (PROVED; improved z76).** Now **R(n) ≪_ε n^{8/25+ε}** (rel. Weil, Kusmin–Landau and classical
-     second-derivative test) and **n^{7955/24966+ε}** (≈ 0.318633, rel. also Trudgian–Yang Lemma 1.1) for every n ≥ 2
-     (`notes/z76/ANALYTIC_34.md`, Opus-reviewed; shifts by multiples of the conductor before Cauchy to remove the periodic
-     weight; strictly beats `Z53_SQSIEVE.md` Thm A's 12/37 and Bourgain 21/65; still does not beat 4/13 or save a power on
-     the fourth-root balanced block; external priority unverified). Earlier: `Z53_SQSIEVE.md` (12/37; 4/13 conditional on EPC)
+   * **Upper side moved (PROVED; improved z76, z78).** Now **R(n) ≪_ε n^{272/857+ε}** (≈ 0.317386, classical inputs only,
+     two independent Opus reviews) and n^{46/145+ε} (≈ 0.317241, one Opus review) for every n ≥ 2
+     (`notes/z78/ANALYTIC_WILD.md` §§7–8, 11–14 (z78); enlarges the prime-pair conductor average while the shifted squared norm
+     is still nonnegative, then stationary phase, a fourth moment of quadratic conductor sums, and frequency spacing in
+     quartic bands; supersedes z76's 8/25 and 7955/24966 (`notes/z76/ANALYTIC_34.md`), `Z53_SQSIEVE.md` Thm A's 12/37 and
+     Bourgain 21/65; still does not beat 4/13 or save a power on the fourth-root balanced block; a model obstruction shows
+     the signed-Cauchy norm with only row-size and complete-Fourier information cannot go below 3/10; external priority
+     unverified). Earlier: `Z53_SQSIEVE.md` (12/37; 4/13 conditional on EPC)
      and `Z53_HYPSUMPROD.md` Thm 1 (1/3 − 1/225). Near the cube, a (★) triple is a point (C, k) of a thin strip where
      (4Ck − n)² − 4k is a square, and Heath-Brown's square sieve detects the tie. The bound is uniform in n and valid at
      squares. The gain lives near the cube. Proposition B2 excludes a balanced-block power saving only for the §4
@@ -2423,12 +2460,17 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
 9. **Uniform multiplicity on the r-generic line** (`SIBLING.md` Conj 4.2; EVIDENCE: r ≤ 61 through depth 4, r = 19 through 6,
    r = 17 through 7) and **r = 17**. **Level-1 survival gap CLOSED (z77, `notes/z77/R17_F3.md`):** exact level-1 union is
    CERTIFIED for `17 ≤ r ≤ 181 391` and combined with z76's tail gives a surviving nonsquare cell at **every prime r ≥ 17**
-   (fails for r ≤ 13), while full all-depth sterility holds for every prime **r ≥ 7 219** (sufficient threshold, not a proof
-   of Conj 4.2 above 7 219). *Why:* Conj 4.2 on **17 ≤ r < 7 219** alone (393× smaller than 2^{21.44}, no level-1 proviso
-   left) would give sterile r-generic points for every prime r ≥ 17 — a sharp threshold ((J)77).
-10. **F₃[T], CONJECTURE 0.2** (the thirds corner x*_c is uncovered). *Why:* the last open case of function-field sterility;
-    a percolation/König question ((J)71, (J)72, (J)77). *(z77, `notes/z77/F3_TARGET.md`, Opus-reviewed: for every N ≥ 4, both
-    search cases in orientation A require `deg M ≥ ⌈(N+1)/2⌉`; unbounded lopsided tuples and orientation B remain open.)*
+   (fails for r ≤ 13), while full all-depth sterility holds for every prime **r ≥ 919** (z78, `notes/z78/R17_PUSH.md`;
+   sufficient threshold, not a proof of Conj 4.2 above 919). *Why:* Conj 4.2 on **17 ≤ r < 919** alone (no level-1 proviso
+   left) would give sterile r-generic points for every prime r ≥ 17 — a sharp threshold ((J)77). *(z78:)* at r = 17 the
+   point 5 survives all seven families through depth 11 (CERTIFIED), the exact-level P-centre language is non-regular, and
+   the F₃[T] endpoint elimination ports only partially (`notes/z78/R17_ENDPOINT.md`: fourth-root shift bound, ineffective
+   finiteness per square class, abc-conditional exclusion).
+10. **CLOSED (z78) — F₃[T], CONJECTURE 0.2** (the thirds corner x*_c is uncovered): PROVED rel. the tuple/parity reductions
+    and Mason–Stothers, both orientations and both c, all levels (`notes/z78/F3_CONJ.md` §§1–7, two Opus reviews; §6 algebra
+    Lean-checked). The integer analogue is item 9: the same third elimination ports to P boxes at r = 17 but positivity
+    leaves an integer carry instead of a forced leading coefficient (`notes/z78/R17_ENDPOINT.md`). Nothing new is claimed for
+    A = T (at q = 3 the A = T slice test finds no uncovered unit, `FUNCTIONFIELD_ES2.md` §0.1).
 11. **Question R / restricted Hypothesis TG** (`QUESTION_R.md`, (J)99): self-levelled SL₂ words and the theta multiplier.
     *Why:* the exact Rickards–Stange form of T1; open in its own right.
 12. **Exceptional-set exponent θ > 3/4**: weak SPW (log(K/η) = O((log N)^{3/4})), the shift-uniform avoider count (W_𝔊),
@@ -2870,6 +2912,13 @@ no HOT LEAD.**
 * **Coverings & thin families (`notes/z77/R17_F3.md`, `F3_TARGET.md`, `PROOF_S_WILD.md`):** PROVED sterile Mordell points on the `r`-generic line exist for every prime **`r ≥ 7,219`** (393× total drop from `2.84·10⁶`, rel. SE/ZL/z76 inputs; Opus replayed the new tables across all 15,202 primes, not inherited SE/ZL high rows), and CERTIFIED exact level-1 nonsquare survival for `17 ≤ r ≤ 181,391` (with z76's tail closing the level-1 survival gap for all primes `r ≥ 17`). PROVED `ES((4^m−1)2^s + 1)` for `m = 4, 5, 6` (`k = 255, 1023, 4095`, all `s ≥ 0`) via moving cyclotomic products, and for **infinitely many fixed-base-2 pairs `c_J·2^s + d_J`** with distinct odd `c_J` and no finite ET/divisor cover; also PROVED shift-uniform `O(H exp(−c√(log H log log H)))` lower tail for **primes** with `ω(f) ≤ 2` U₇ witnesses (sketch-level review) and checked 7,771 hard primes for Conj. B/C (no new exceptions). For `𝔽₃[T]` Conj. 0.2, PROVED orientation-A search cases require `deg M ≥ ⌈(N+1)/2⌉` for all `N ≥ 4`.
 * **Broad barrier & fibres (`notes/z77/DISPROOF_KUMMER.md`, `KUMMER_FIBRES.md`):** PROVED **BARRIER-BROAD** (§3): on `S_n°, X_n°, U_n°` (`s ≠ 1` for `k = 4`, `s ∉ {1,2}` for `k = 8`, outer-integral positive adeles), for every fixed `(m, M)` a `q^{mM}` repair lifts to some rational twist of every finite ℚ-group torsor of geometric monodromy exponent dividing `m` orthogonal to `Br(W)[M]` (including `(x,y)` when `m, M` are both even); `mM | E` is sharp for the specified one-coordinate repair on the simultaneous coordinate cover. PROVED bounded-`c` polynomial **non-BM** sterile fibres have density 0; CERTIFIED all 23,325,118 square-offset primes `p = m² + c` (`m ≤ 10⁸`, `c ∈ {1,4,16,36,64,100}`, above the z76 floor) have `R₈, R, A` witnesses and all 1,881,841 forced-composite entries have `R, U₇` witnesses.
 * **Logic & analytic barriers (`notes/z77/IE1_NONPID.md`, `ANALYTIC_413.md`):** PROVED `C ⊊ D ⊊ R` BCM+Lag+QR ES countermodel over a nonstandard true-arithmetic cut `C⁺ ≡ ℕ` with global cut-coefficient linear minimization (`D` has TS and `L(Div)`; `R` fails both and lacks Pell windows). Separately, PROVED for any integrally closed signed `IOpen` proper end extension of a PA cut that simultaneous Pell windows for independent cut squareclasses are equivalent to `H(A*) = Γ⁰[G]` (`IE₁⁻` forces this for standard-prime systems, ruling out finite-unit-rank upper realizations), and proved ordinary-only rotations fail at a forced nonstandard circle class (`IE1_NONPID.md` §5). PROVED primorial-fibre sharpness forcing the `(log log H)^{1/3}` loss for many short witnesses at z75 all-integer height even with all noncoprime endpoint pairs, and gave an Assessment of a `n^{1/20}` deficit at `θ = 3/10` for the hypothetical termwise `W^{1/2}` kernel majorant in one two-prime square-sieve Cauchy model.
+
+**z78 update (6-lane GPT-6.2 Astra burst orchestrated by Claude, multi-round; every lane Opus cross-reviewed ACCEPT or ACCEPT-WITH-FIXES, fixes applied; ES in ℕ remains open).**
+* **Function fields & coverings (`notes/z78/F3_CONJ.md`, `R17_PUSH.md`, `R17_EXACT.md`, `R17_ENDPOINT.md`):** PROVED the F₃[T] Conjecture 0.2 (`q = 3`, `A = T²`: `x*_1, x*_2 ∈ O(3, T²)`, no finite linear covering; rel. the tuple/parity reductions and Mason–Stothers; §6 algebra Lean-checked in `F3Endpoint.lean`). PROVED sterile Mordell points on the r-generic line for every prime **`r ≥ 919`** (computer-assisted rel. SE/ZL/z77 inputs incl. their libm caveat and BBR 2012; exact cubic P census at all 916 gap primes, two-shift Q sieve, shift compression, survivor-conditioned charges; Opus replay with one nesting-order correction; a round-2 claim `r ≥ 293` with an all-integer ledger is under cross-review); CERTIFIED exact L1+P₃+Q₃+P₅ unions for every prime `r ≤ 211`, and that 5 and 1/5 survive all seven families through depth 11 at `r = 17`; PROVED the exact-level P-centre language at 17 is non-regular while P-centres accumulate in every nonsquare cylinder. Integer endpoint port (`R17_ENDPOINT.md`): a P hit needs `e ≤ 466(rN)^{1/4}`; finitely many levels per square class (ineffective); CONDITIONAL on abc no sufficiently deep P hit has `de ≤ N^θ`, `θ < 1/4`.
+* **Thin families (`notes/z78/PROTH_ALLM.md`, `PROTH_RIGIDITY.md`, `WILD_ES.md` §1):** PROVED (computer-assisted) full `ES((4^m−1)2^s+1)` for `m = 7, 8, 9, 10`; good-word core progressions with square-unit closure and density-one exponent sets for every `2 ≤ m ≤ 131`, `m = 365`, and the infinite sets `h = 2m−1 = 4^i+1` (two independent lanes; ES on this core Lean-checked in `ProthCore.lean`, together with all exponents of `63·2^s+1`) and `h = 2^{12t+6}+13`; good words on cubic families `(2^{h+1}−1)y³+1`, `h = 7^i`. The core for all m and all exponents for `m > 10` are open; bounded menus cannot cover all m.
+* **Analytic (`notes/z78/ANALYTIC_WILD.md`):** PROVED `R(n) ≪_ε n^{20/63+ε}`, `n^{272/857+ε}` (each with two independent Opus reviews) and `n^{46/145+ε}` (one review), classical inputs only, with a uniform numerator-M form; CONDITIONAL on Dirichlet GRH the cap `e*(n)` has leading constant `2√2`. No exceptional-set exponent moved.
+* **Logic (`notes/z78/IE1_UNITS.md`):** PROVED one `IOpen + Bézout + BCM + Lagrange + full prime QR + universal TS` model with `¬ES(P)` (fails `L(Div)`); separate normal `IOpen + Lag` ES-countermodels with all multiquadratic heights, with all balanced number-field norm windows, and with one elliptic duplication window, each failing `IE₁⁻` at an explicit window (BARRIER-BROAD, §3); over any countable PA base a fresh ES-failing prime with pointed single-boundary height windows; end-extension and amalgamation limits.
+* **Disproof side & literature (`notes/z78/WILD_ES.md` §§2–7, `MASULLO_GRH_TRANSFER.md`):** PROVED infinitely many primes whose seven ET period searches all exceed `exp((log p)^κ)` with prescribed exact first hit (`κ < 1/8` by PNT, `κ < 1/4` rel. Gallagher or GRH; 192 exact minima CERTIFIED); bounded nonabelian/tame blindness at 8/131 and 8/241; no upward prime transport. Authoritative grading of Masullo's announced GRH manuscript: nothing transfers to B2.
 
 ## 8. Pointers into the repository
 
