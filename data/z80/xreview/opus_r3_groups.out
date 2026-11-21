@@ -1,0 +1,8 @@
+(1) h=343: 5 unit-index ratios give -1 mod 2^343-1; ord_h(2)=147 odd (index 2); -2^-sum*prod D^2 = 7 mod Phi_343(2); with the sign: +7 in proj R1
+(1) h=529: 6 unit-index ratios give -1 mod 2^529-1; ord_h(2)=253 odd (index 2); -2^-sum*prod D^2 = 23 mod Phi_529(2); with the sign: +23 in proj R1
+(2) Theorem 12 criterion OK for odd h<=5000 (3∤h); explicit -1 word on 97 h<=601; 9005 primes 3,5 mod 8 checked
+(3) char-0 norm screens: 17 (p,h) cases; N(B_a)=1, N(u) positive real != 1
+(4) divisor classes exact on 1<=m<=40, 0<=s<=400, q<=1500; 10551 scaled q≡3 (4) triples
+(5) noncontainment lemma exhaustive: 105 (m,B) pairs, no c|k, F|2^B+1 with cF=-1 mod H
+(6) strengthening: for all odd d<=30000 and 5 values of B a good b=2i+1 exists with i<=2*4^omega; max i used 4
+EXIT 0

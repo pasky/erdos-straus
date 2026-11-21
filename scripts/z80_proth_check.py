@@ -1,4 +1,4 @@
-"""Finite proof checks independent of discovery code; reuse the z78 arithmetic helpers. No factoring or search needed. Run with -B, not -O."""
+"""Verify all-s certificates for m=13..30 independently of mask discovery; reuse z78 small triples and direct divisor checks. Run with -B, not -O."""
 import json
 from pathlib import Path
 from math import gcd,lcm,isqrt

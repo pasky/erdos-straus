@@ -1,0 +1,12 @@
+(0) s<64 triples for m=22..30 re-verified: 576
+(D) X core lemma on actual integers (small analogues): 30 instances
+m=22 period=8014397185594800 rows=245 X(P,e)=[(137837700, 34459425), (872972100, 218243025)] X-sources=84 cover-nodes=100 box 513..1600: 3388 rule firings, 2663 explicit triples OK
+m=23 period=351050016517200 rows=316 X(P,e)=[(446185740, 111546435)] X-sources=24 cover-nodes=48 box 513..1600: 2615 rule firings, 1618 explicit triples OK
+m=24 period=3859455600 rows=170 X(P,e)=[(137837700, 34459425)] X-sources=46 cover-nodes=627 box 513..1600: 4173 rule firings, 4173 explicit triples OK
+m=25 period=10475665200 rows=219 X(P,e)=[(137837700, 34459425)] X-sources=42 cover-nodes=272 box 513..1600: 2525 rule firings, 1528 explicit triples OK
+m=26 period=11480082455041200 rows=476 X(P,e)=[(137837700, 34459425)] X-sources=32 cover-nodes=110 box 513..1600: 4389 rule firings, 3664 explicit triples OK
+m=27 period=551350800 rows=91 X(P,e)=[(137837700, 34459425)] X-sources=52 cover-nodes=49 box 513..1600: 3144 rule firings, 2328 explicit triples OK
+m=28 period=551350800 rows=111 X(P,e)=[(137837700, 34459425)] X-sources=40 cover-nodes=81 box 513..1600: 2773 rule firings, 2048 explicit triples OK
+m=29 period=618064246800 rows=362 X(P,e)=[(137837700, 34459425)] X-sources=36 cover-nodes=83 box 513..1600: 2709 rule firings, 1712 explicit triples OK
+m=30 period=20044007361172594800 rows=663 X(P,e)=[(137837700, 34459425)] X-sources=58 cover-nodes=356 box 513..1600: 5321 rule firings, 5321 explicit triples OK
+EXIT 0

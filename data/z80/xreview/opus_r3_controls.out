@@ -1,0 +1,12 @@
+r2/cover-11 (known sole gap 0 mod P9): ('UNCOVERED', 0, 497943285840)
+r2/cover-11 + dummy [P9,0]: None
+m=22 drop X: ('UNCOVERED', 0, 8014397185594800); drop X2 only: ('UNCOVERED', 5342931457063200, 8014397185594800); drop X1 only: None; 8/25 random single-row deletions create a detected gap
+m=23 drop X: ('UNCOVERED', 0, 351050016517200); 22/25 random single-row deletions create a detected gap
+m=24 drop X: ('UNCOVERED', 0, 3859455600); 13/25 random single-row deletions create a detected gap
+m=25 drop X: ('UNCOVERED', 0, 10475665200); 15/25 random single-row deletions create a detected gap
+m=26 drop X: ('UNCOVERED', 0, 11480082455041200); 21/25 random single-row deletions create a detected gap
+m=27 drop X: ('UNCOVERED', 0, 551350800); 21/25 random single-row deletions create a detected gap
+m=28 drop X: ('UNCOVERED', 0, 551350800); 15/25 random single-row deletions create a detected gap
+m=29 drop X: ('UNCOVERED', 0, 618064246800); 7/25 random single-row deletions create a detected gap
+m=30 drop X: ('UNCOVERED', 0, 20044007361172594800); 10/25 random single-row deletions create a detected gap
+EXIT 0
