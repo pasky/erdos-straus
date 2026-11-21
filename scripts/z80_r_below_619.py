@@ -115,7 +115,7 @@ def traces():
                             z=sum(f[(c+delta)%p]*g[c].conjugate()*psi[b*c%p] for c in range(p))
                             main=p*int(delta==0 and v==w and b==0)
                             largest=max(largest,abs(z-main)/p**.5)
-        print('trace identity p=',p,'sample max |K-main|/sqrt(p)',round(largest,5))
+        print('trace normalization checked at p=',p,'sample max mixed error/sqrt(p)',round(largest,5))
 
 
 def plancherel():
@@ -137,8 +137,81 @@ def plancherel():
         print('Plancherel Q,H,W',Q,H,W,'energy',round(lhs,6),'absolute residual',f'{abs(rhs-lhs):.2e}')
 
 
+def disjoint_packet():
+    # Signed test kernel. The c-amplitude is one smoothness-control polynomial
+    # bump rather than the exact detector window: this is not a bound on (1).
+    primes=(7,11,13,17); P=7; W=P**6; n=4*P**19+41
+    qi=primes[0]*primes[1]; qj=primes[2]*primes[3]; m0=qi*qj
+    for hi,hj in ((2,-3),(3,2),(4,-1)):
+        D=hi*qj-hj*qi; assert gcd(D,m0)==1
+        # Local trace at the ONE primitive numerator D mod m0. CRT signs match
+        # hi and -hj exactly, since D/m0=hi/qi-hj/qj.
+        tables=[]
+        for p in primes:
+            v=D*pow(m0//p,-1,p)%p
+            psi=[exp(2j*pi*j/p) for j in range(p)]
+            tab=[]
+            for c in range(p):
+                summands=[pow(((4*c*k-n)**2-4*k)%p,(p-1)//2,p) for k in range(p)]
+                tab.append(sum((t if t!=p-1 else -1)*psi[v*k%p] for k,t in enumerate(summands))/p**.5)
+            tables.append(tab)
+        periodic=[tables[0][x%7]*tables[1][x%11]*tables[2][x%13]*tables[3][x%17] for x in range(m0)]
+        z=0j
+        for x in range(W+1,2*W):
+            den=4*m0*x; phase=(-n*D)%den
+            weight=(4*(x-W)*(2*W-x)/W**2)**6
+            z+=weight*periodic[x%m0]*exp(2j*pi*(phase/den))
+        print('toy signed disjoint kernel',hi,hj,'D',D,'|K|/sqrt(W)',round(abs(z)/W**.5,5),'|K|/(W/P^2)',round(abs(z)/(W/P**2),5))
+
+
+def central_triangle():
+    # Exact decomposition, including all boundary cases, not the log-cube truncations.
+    B=500000; sieve=bytearray([1])*(B+1); sieve[:2]=bytes(2)
+    for q in range(2,isqrt(B)+1):
+        if sieve[q]: sieve[q*q::q]=bytes((B-q*q)//q+1)
+    total=[0]*(B+1); covered=[0]*(B+1)
+    for a in range(1,(1+isqrt(1+4*B))//4+1):
+        d=1
+        while (4*a*d-1)*a<=B+a:
+            f=4*a*d-1
+            for b in range(a,(B+a)//f+1):
+                n=f*b-a
+                if n<3 or not sieve[n]: continue
+                total[n]+=1+(a!=b)
+                # Comparison to sqrt(n) without floating point, for both orientations.
+                hits=int(f*f<=n)+int((4*b*d-1)**2<=n)+int((4*a*b)**2<=n)
+                assert hits<=1
+                if hits: covered[n]+=1+(a!=b)
+            d+=1
+    # Independent fixed-input replay: solve (4ad-1)b=p+a by divisors of p+a,
+    # instead of sweeping p upward on a progression. Sample, not independent
+    # full coverage of the three dyads.
+    ps=[p for p in range(5000,B) if sieve[p]][::971]
+    for p in ps:
+        tot=cov=0
+        for a in range(1,(1+isqrt(1+4*p))//4+1):
+            s=p+a
+            for r in range(1,isqrt(s)+1):
+                if s%r: continue
+                for b in ((r,) if r*r==s else (r,s//r)):
+                    if b<a or (s//b+1)%(4*a): continue
+                    d=(s//b+1)//(4*a)
+                    tot+=1+(a!=b)
+                    if min(4*a*b,4*a*d-1,4*b*d-1)**2<=p: cov+=1+(a!=b)
+        assert (tot,cov)==(total[p],covered[p])
+    print('independent divisor replay of word and chart counts at',len(ps),'sample primes')
+    for X in (10000,50000,250000):
+        num=sum(covered[X+1:2*X+1]); den=sum(total[X+1:2*X+1])
+        print('chart partition prime dyad',X,2*X,'covered',num,'total',den,'fraction',round(num/den,4))
+
+
 def exponents():
     t=F(6,19); r=1-3*t; h=2*r; j=1+r-2*t
+    for u in (F(2,7), F(142,465), F(213,607)):
+        d=1-2*u; cube=d/3; ep=F(55,181)*d; density=d/2-u/4; approx=d/2-u/6
+        if u==F(2,7): assert cube==density>ep
+        if u==F(142,465): assert ep==density<cube
+        if u==F(213,607): assert ep==approx and ep>density
     assert (3*h+j)/2-t==F(1,19)
     t=F(8,25); assert (1+7*(1-3*t)-4*t)==0
     assert 3*F(12,4)*F(1,2)**2/2==F(9,8)
@@ -158,4 +231,4 @@ def exponents():
 
 if __name__=='__main__':
     print('# ulimit -v 6000000; timeout 180 uv run --offline --no-project python -B scripts/z80_r_below_619.py')
-    exponents(); selberg(); partial_pin(); small_words(); controls(); plancherel(); traces()
+    exponents(); selberg(); partial_pin(); small_words(); controls(); plancherel(); traces(); central_triangle(); disjoint_packet()

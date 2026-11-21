@@ -18,8 +18,15 @@ U7 misses (105, 1465, 3865, 4545, 10305, 12145, 39361, 67425)
 Plancherel Q,H,W 9 4 24 energy 8.153099 absolute residual 1.07e-14
 Plancherel Q,H,W 15 9 80 energy 27.288906 absolute residual 4.26e-14
 Plancherel Q,H,W 6 2 13 energy 4.942312 absolute residual 2.66e-15
-trace identity p= 7 sample max |K-main|/sqrt(p) 2.98293
-trace identity p= 11 sample max |K-main|/sqrt(p) 2.59108
-trace identity p= 17 sample max |K-main|/sqrt(p) 3.12742
-trace identity p= 23 sample max |K-main|/sqrt(p) 2.48768
-trace identity p= 31 sample max |K-main|/sqrt(p) 3.02095
+trace normalization checked at p= 7 sample max mixed error/sqrt(p) 2.98293
+trace normalization checked at p= 11 sample max mixed error/sqrt(p) 2.59108
+trace normalization checked at p= 17 sample max mixed error/sqrt(p) 3.12742
+trace normalization checked at p= 23 sample max mixed error/sqrt(p) 2.48768
+trace normalization checked at p= 31 sample max mixed error/sqrt(p) 3.02095
+independent divisor replay of word and chart counts at 43 sample primes
+chart partition prime dyad 10000 20000 covered 10496 total 16410 fraction 0.6396
+chart partition prime dyad 50000 100000 covered 61692 total 94336 fraction 0.654
+chart partition prime dyad 250000 500000 covered 355324 total 533516 fraction 0.666
+toy signed disjoint kernel 2 -3 D 673 |K|/sqrt(W) 0.47882 |K|/(W/P^2) 0.0684
+toy signed disjoint kernel 3 2 D 509 |K|/sqrt(W) 0.09336 |K|/(W/P^2) 0.01334
+toy signed disjoint kernel 4 -1 D 961 |K|/sqrt(W) 0.77701 |K|/(W/P^2) 0.111
