@@ -82,5 +82,46 @@ def check():
     assert min(cases, composite_b, proper_index, nontrivial_correction, exact) > 0
 
 
+def binary_check():
+    # Finite instance of QB's last step. Only cogredient *even* products permitted.
+    q, R = 11, 241
+    allrs = [r for r in range(5, 8000, 24) if r % 5 != 1 and prime(r)]
+    L = lcm(*(r - 1 for r in allrs))
+    o = L
+    while not o % 2:
+        o //= 2
+    assert gcd(L, 5) == 1 and pow(R, 5, q) == q-1
+    for delta in (0, 1):
+        rs = [r for r in allrs if pow(R*pow(4,-1,r)*3**(2*delta), (r-1)//4, r) == r-1]
+        basis = []
+        for i in range(3):
+            basis.append(next(v for v in range(7, 500, 4) if prime(v) and
+                              pow(v, 2*L, q) == pow(4, 2**i, q)))
+        D = prod(basis)
+        least = {(1, 0): 1}
+        for r in rs:
+            new = dict(least)
+            for (a,e), val in least.items():
+                key, b = (a*r%D, 1-e), val*r
+                if key not in new or b < new[key]:
+                    new[key] = b
+            least = new
+        if ((-R*pow(q,-1,D))%D,0) not in least:
+            continue
+        b = least[((-R*pow(q,-1,D))%D,0)]
+        K = (R+q*b)//4
+        assert K%2 and K%3 == K%D == 0 and b%24 == 1
+        g = 3**(2*delta)*prod(p**(n%4) for p,n in factor(K).items())
+        e = next(i for i in range(5) if pow(4,i,q)*pow(g,o,q)%q == q-1)
+        bits = [v for i,v in enumerate(basis) if e & (1<<i)]
+        residue = pow(g,o,q*b)*pow(prod(bits),2*L,q*b)%(q*b)
+        assert residue == q*b-1
+        print('binary packet at R=241: delta, cofactor primes, basis, b, K, binary digits, L =',
+              delta, len(rs), basis, b, K, bits, L)
+        return
+    raise AssertionError('no even-product target on panel')
+
+
 if __name__ == '__main__':
     check()
+    binary_check()
