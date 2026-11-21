@@ -1,0 +1,7 @@
+cutoff ok 12 60000 1000000 1500 3000000
+cutoff ok 13 160000 3000000 11000 7400000
+cutoff ok 14 160000 8000000 70000 29000000
+positive comparisons e 3
+positive comparisons J 3
+positive comparisons Hd 3
+positive comparisons HZ 3
