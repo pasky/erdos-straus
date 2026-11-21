@@ -1,7 +1,6 @@
-"""Index of the full gcd-ratio group. Produce/replay rows of certified factorizations.
-No full discrete logarithms: the expected local defect has length at most one.
-Track a minor of index prime to l or of l-valuation one. Deterministic PARI
-isprime (not ispseudoprime) in replay. Run with -B; see note for invocation.
+"""Index of the full gcd-ratio group. Check factors using PARI isprime, then
+compute the primary cokernel modulo l^2 by HNF. Accept a truncated index
+only when it is strictly smaller than l^2. See note for replay with -B.
 """
 from math import gcd, prod
 from functools import cache

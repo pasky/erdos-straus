@@ -1,0 +1,12 @@
+(c) primary.json: 69 rows h=263..399, -1/(c 3^|T0|) in unit-index ratio group
+(c) tower-7: 3^6 = product of ratios with gcds [1, 3] modulo 2^2187-1
+(c) 2^729 = -1 mod 2187, 729 = 3 mod 6
+(d) quadratic transfer: 64x64 triples, words, nonsquare
+(e) z79 T: 4^T=1 mod n_{11,s} (1<=s<64) and all cover-11 odd moduli; dyadic<=2^64; square exponent 2m+2 covered by row types ['D']
+(b) h=9: [G:R]=6, layer indices=[2, 1], prime-to-3 parts equal: True; 3-parts: global 3 vs product 1
+(b) h=25: [G:R]=1, layer indices=[1, 1], prime-to-5 parts equal: True; 5-parts: global 1 vs product 1
+(b) h=27: [G:R]=6, layer indices=[2, 1, 1], prime-to-3 parts equal: True; 3-parts: global 3 vs product 1
+(b) h=49: [G:R]=1, layer indices=[1, 1], prime-to-7 parts equal: True; 7-parts: global 1 vs product 1
+(b) h=81: [G:R]=6, layer indices=[2, 1, 1, 1], prime-to-3 parts equal: True; 3-parts: global 3 vs product 1
+Command exited with non-zero status 143
+317.85 s 187644 KB exit 143

@@ -1,4 +1,4 @@
-"""Standalone finite proof checks. No factoring or search needed. Run with -B, not -O."""
+"""Finite proof checks independent of discovery code; reuse the z78 arithmetic helpers. No factoring or search needed. Run with -B, not -O."""
 import json
 from pathlib import Path
 from math import gcd,lcm,isqrt

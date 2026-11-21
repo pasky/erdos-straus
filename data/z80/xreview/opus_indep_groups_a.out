@@ -1,0 +1,77 @@
+h 3 2 2
+h 5 1 1
+h 7 1 1
+h 9 6 6
+h 11 1 1
+h 13 1 1
+h 15 2 2
+h 17 1 1
+h 19 1 1
+h 21 2 2
+h 23 1 1
+h 25 1 1
+h 27 6 6
+h 29 1 1
+h 31 1 1
+h 33 2 2
+h 35 1 1
+h 37 1 1
+h 39 2 2
+h 41 1 1
+h 43 1 1
+h 45 6 6
+h 47 1 1
+h 49 1 1
+h 51 2 2
+h 53 1 1
+h 55 1 1
+h 57 2 2
+h 59 1 1
+h 61 1 1
+h 63 6 6
+h 65 1 1
+h 67 1 1
+h 69 2 2
+h 71 1 1
+h 73 1 1
+h 75 2 2
+h 77 1 1
+h 79 1 1
+h 81 6 6
+h 83 1 1
+h 85 1 1
+h 87 2 2
+h 89 1 1
+h 91 1 1
+h 93 2 2
+h 95 1 1
+h 97 1 1
+h 99 6 6
+h 101 1 1
+h 103 1 1
+h 105 2 2
+skip 107 AlarmInterrupt
+h 109 1 1
+h 111 2 2
+h 113 1 1
+h 115 1 1
+h 117 6 6
+h 119 1 1
+skip 121 AlarmInterrupt
+h 123 2 2
+h 125 1 1
+h 127 1 1
+h 129 2 2
+skip 131 AlarmInterrupt
+h 133 1 1
+h 135 6 6
+h 137 1 1
+skip 139 AlarmInterrupt
+h 141 2 2
+h 143 1 1
+skip 145 AlarmInterrupt
+h 147 2 2
+h 149 1 1
+h 151 1 1
+(a) full-log index agrees with indices.json for 70 h; mismatches: [] skipped (dlog timeout): [107, 121, 131, 139, 145]
+907.18 s 240400 KB exit 0
