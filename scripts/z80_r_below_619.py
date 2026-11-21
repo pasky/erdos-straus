@@ -80,7 +80,7 @@ def partial_pin():
             assert forward==reverse
             if h not in (gcd(q,a[0]),gcd(q,b[0])): seen.add((q,h,k))
     assert (15,15,3) in seen
-    print('partial vs full pins verified; mixed cases',sorted(seen))
+    print('exact identity on toy CRT fibre (not a row estimate); mixed cases',sorted(seen))
 
 
 def plancherel():
