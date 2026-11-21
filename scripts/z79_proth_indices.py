@@ -12,6 +12,7 @@ def indices(h):
     B = lambda a: 1 + (1 << a)
     # One generating column for each index; fix the gcd representative in each orbit.
     ab = [(a, gcd(a,h)) for a in range(1,h) if a != gcd(a,h)]
+    print(f'h={h}')
     blocks = []
     for q, e in fac((1 << h)-1).items():
         n = q**e
@@ -28,6 +29,7 @@ def indices(h):
         i = ix(z)
         iu = ix([x for x,(_,b) in zip(z,ab) if b==1])
         blocks.append((q,n,order,F,z,i))
+        # Include the full projection at 73 to distinguish it from the diagonal obstruction.
         if i!=1 or iu!=1 or q==73: print(f'  q={q} power={e} local_index={i} unit_only={iu}')
     powers = Counter(l for _,_,_,F,_,_ in blocks for l in F)
     index = 1
@@ -44,7 +46,7 @@ def indices(h):
         if rows:
             G=p.matrix(len(rows),len(ab),sum(rows,[]))
             index *= int(p.matdet(p.mathnf(p.concat(p.matdiagonal(p.Vec(mods)),G))))
-    print(f'h={h} blocks={len(blocks)} local_product={prod(b[-1] for b in blocks)} index={index}',flush=True)
+    print(f'  blocks={len(blocks)} local_product={prod(b[-1] for b in blocks)} index={index}',flush=True)
 
 if __name__=='__main__':
     for h in (9,27,35,77,105,115,119,127,133,143,165,255): indices(h)
