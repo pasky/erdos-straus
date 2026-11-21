@@ -33,6 +33,7 @@ int main(int argc,char**argv){assert(argc==7);int L=atoi(argv[1]);p=atoi(argv[2]
  /* Small synthetic endpoint tests use the elementary e<=N; actual levels
     use 466 ceil(sqrt W). All products in test() guarded by division. */
  emax=N;if(L>=12&&p*q==5&&p+q==6){U z=1;while((Z)z*z<W)z*=2;U l=z/2;while(z-l>1){U m=(l+z)/2;if((Z)m*m>=W)z=m;else l=m;}emax=466*(Z)z;}
+ if(!strcmp(mode,"bound")){assert(!gen);pr(emax);putchar('\n');return 0;}
  if(!strcmp(mode,"e")){for(U e=4-(U)(N%4);e<=C;e+=4){if(e%17==0)continue;keys++;Z M=(N+e)/4;int n=factors(M,A);for(int i=0;i<n;i++){Z a=A[i];if(a>M/a)continue;Z rest=M/a;for(int j=0;j<n;j++){Z b=A[j];if(b>=a&&rest%b==0)test(a,b,rest/b);}}}}
  else if(!strcmp(mode,"J")){for(U J=1;J<=C;J++){Z v=q*B+J;if(v%4)continue;keys++;int n=factors(v/4,A),nd=factors(p*B+J,D);for(int i=0;i<n;i++){Z M=4*A[i];for(int j=0;j<nd;j++){Z e=D[j];if(e>emax||q*e>=W*J||(N+e)%M)continue;Z z=W*J-q*e;if(z%(p*M))continue;Z a=z/(p*M);if(a&&A[i]%a==0)test(a,(N+e)/M,A[i]/a);}}}}
  else if(!strcmp(mode,"HZ")){for(U H=1;H<=C;H++)for(U Zed=1;Zed<=C/H;Zed++){if(B*Zed<=q*H)continue;Z n=B*Zed-q*H;if(n%p)continue;keys++;int na=factors(n/p,A);for(int i=0;i<na;i++)at_a(H,A[i]);}}

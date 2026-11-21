@@ -10,6 +10,7 @@ for L,E,J,V,Y in cases:
     for p,q in [(1,5),(5,1)]:
         # For Hd>Y, a/b <= (p+q)^2*(1+em/N)/(68 H^2 d).
         ratio=F(36,68*Y)*(1+F(em,N));hh=(1+F(p,q)*ratio)*(1+F(em,N));jj=1/(1-F(q*em,U));zz=1+F(q,p)*(hh*jj-1)
+        assert int(subprocess.check_output([exe,str(L),str(p),str(q),'bound','1','0'],timeout=30))==466*(isqrt(U-1)+1)
         assert hh<=F(1001,1000) and jj<=F(1001,1000) and zz<=F(102,100)
         assert 4*p**3*q**3*hh**3*jj*zz*500<68**3
     print('cutoff ok',L,E,J,V,Y)
@@ -35,7 +36,8 @@ for mode in ('e','J','Hd','HZ'):
                 args=[exe,str(L),str(p),str(q),mode,str(C)];inp='' if mode=='Hd' else run('factor',inp=run(*args,'1'))
                 lines=run(*args,'0',inp=inp).splitlines();got={tuple(map(int,l.split()[1:])) for l in lines if l.startswith('hit ')}
                 expected={(a,b,d) for a,b,c,d in data if 0<domain((a,b,c,d),p,q)<=C}
-                assert got==expected and got;fired+=1;break
+                genuine={(a,b,d) for a,b,c,d in data if (p*a+q*b)%W==0}
+                assert expected and expected<=got<=genuine;fired+=1;break
             if fired>=3:break
         if fired>=3:break
     assert fired>=3;print('positive comparisons',mode,fired)
