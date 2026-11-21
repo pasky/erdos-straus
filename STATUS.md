@@ -105,8 +105,9 @@ Each item carries a label, then a pointer. "PROVED rel. X" means proved relative
   programs with a finite formal tree at the trap: PROVED (`Z53_NONCRTLOGIC.md`); prime failures CONDITIONAL on Schinzel H.
   Unconditional (z74, Opus-reviewed) for polynomial whole-triple menus in Gaussian + any fixed number of *integral*
   negative-Pell witnesses: miss relative density one of primes ≡ 1 (M), 840 | M (`GAUSSIAN_PELL_MENU.md`). Sterile Mordell
-  points on the r-generic line exist for every prime **r ≥ 293** (PROVED, computer-assisted: integer/rational ledger incl.
-  tails on [293, 919), SE/ZL/z77 with inherited libm rows above, BBR 2012; `notes/z78/R17_PUSH.md` §§7–11, two Opus replays).
+  points on the r-generic line exist for every prime **r ≥ 293** (PROVED, computer-assisted rel. BBR 2012 Thm 1.2; r ≥ 919: SE/ZL/z77
+  incl. inherited libm rows; [293, 919): integer/rational ledger and tails using the reduction, z76/z77 lemmas and round-1
+  integer inputs; `notes/z78/R17_PUSH.md` §§7–10, two Opus replays).
 * **Witness sizes are not polylog.** For fixed κ < 1/12, or κ < 1/6 with Gallagher or GRH, infinitely many p have no
   forest edge with larger endpoint in [4, exp((log p)^κ)]. Only {1,2} and {2,3} remain. This refutes Conjecture H₂.
   PROVED rel. the internal energy lemma; `H4_NOT_POLYLOG.md`. Both Type II witness moduli are ≥ the least quadratic
