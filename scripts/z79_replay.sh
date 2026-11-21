@@ -8,7 +8,7 @@ trap 'rm -r -- "$D"' EXIT
 C(){ timeout 60 gcc -O3 "scripts/$1.c" -o "$D/$2"; }
 P(){ timeout 1750 uv run --offline --no-project python -B "$@"; }
 rs=$(awk '$1>=17 && $1<=283{print $1}' data/z78/r2/ledger.tsv)
-for stage in ${1:-'p7 low q5 layer ledger'}; do
+for stage in ${1:-'p7 low q5 layer ledger r2flat r2runs r2high r2shifts r2ledger r2point'}; do
  case $stage in
  p7) C z78_r2p7exact se; C z78_r2exact dep; C z78_r2cf cf
  for r in $rs; do
@@ -28,6 +28,7 @@ for stage in ${1:-'p7 low q5 layer ledger'}; do
  timeout 1750 "$D/pl" data/z78/r2/log16.txt "$k" 7 $R | diff - "$base/layer/$k.txt"
  done;;
  ledger) P scripts/z79_pbudget.py |diff - "$base/ledger.txt"; awk '$1==233 || $1>=241{if($9<=0)exit 1;n++}END{if(n!=10)exit 1}' "$base/ledger.txt";;
+ r2*) bash scripts/z79_r2stage.sh "$D" "$stage";;
  *) echo "unknown stage" >&2; exit 2;;
  esac
 done
