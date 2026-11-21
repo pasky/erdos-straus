@@ -1,6 +1,6 @@
 """Integer certificate for long shifts: split off all b/a<=H by w=c*c*d.
-The remaining 1-4t list has about half the former length. Optional complement
-of an explicit list of initial whole t-values disqualified arithmetically.
+The remaining 1-4t list has about half the former length for large H.
+At the certified primes the determinant rather than this split wins.
 """
 from fractions import Fraction as F
 from math import isqrt

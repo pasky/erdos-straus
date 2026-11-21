@@ -1,0 +1,11 @@
+primes 8312040 up to 147507848, M 21758564914962942..21758564928606526
+small r 263 E 54574341 hits 1558
+large r 263 E 54574341 hits 463
+263 tuples 2021 distinct 2709 new 1612
+ 1558 data/z79/xreview/xp7/s263.txt
+  463 data/z79/xreview/xp7/l263.txt
+ 2021 total
+
+real	2m35.270s
+user	2m35.166s
+sys	0m0.078s
