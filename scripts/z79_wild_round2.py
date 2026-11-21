@@ -44,8 +44,23 @@ def main():
             deg=gcd(l-1,h)
             assert deg==gcd(h,2)
             if l<500:
-                assert {pow(j,h,l) for j in range(l)}=={pow(j,deg,l) for j in range(l)}
-        print('degree, modulus, tested primes:',h,m,len(ls1))
+                from collections import Counter
+                assert Counter(pow(j,h,l) for j in range(l))==Counter(pow(j,deg,l) for j in range(l))
+        print('degree, modulus, gcd checks <4000, fibre counts <500:',h,m,len(ls1),sum(l<500 for l in ls1))
+    # With y>=4 and z>=1, xy-1 divides n+x; x<=(n+1)/3.
+    counts = [0,0]
+    for j in range(1,41):
+        n = 2*j*j
+        for x in range(1,(n+1)//3+1):
+            for y in range(4,(n+x+1)//x+1,4):
+                if (n+x)%(x*y-1)==0:
+                    counts[0] += int(x*y%8==0)
+                    counts[1] += int(x%2==1 and y%8==4)
+        # Also y<4 or y not 4-divisible could satisfy 8|xy.
+        # Need x bound for y=1 or 2: exchange or use f=xy-1 and the sign
+        # obstruction instead. The raw scan is labelled restricted to 4|y.
+    assert not counts[0] and counts[1]>0
+    print('2j²,j<=40,4|y: forbidden row / replacement hits',*counts)
     count=0
     for p in range(841,20000,840):
         if not prime(p): continue
