@@ -1,0 +1,84 @@
+## §0
+Result: At product height T, the classical single-block and minimum ternary square-block packets together have a fixed-height prime miss density exp(−(log T)^{1+o(1)}); a double prime-progression sieve gives a finite-range exponent 1/2. Label: PROVED (rel. PNT in fixed APs, BV, BT, Shiu, Mertens and the internal weighted square-quarantine/LLL lemmas specified in §3).
+Scope: The density is exact by finite rational arithmetic, conditional on any one Mordell prime class. The asymptotic gives its logarithmic power, not its leading constant. The finite-range bound is not a sharp lower tail at a prescribed p. No all-prime ES result, nor a cap on arbitrary sieves.
+Review: none
+Triage: BARRIER-SCOPED
+STATUS delta: none
+
+# Which primes actually supply a packet?
+
+This is the analytic supplement to `ES_JUGULAR.md` §§7,10. In FRONTIER §4 terms: unit squares are safe; the denominator 4 is retained in every cylinder; F1–F4 are treated below. We take the prime-input limit with the packet height fixed **first**. No thin-to-pointwise, two-sided count, BM, signed transfer, shared-factor transfer, or model-theoretic argument is being made. The finite-range bound needs a separate arithmetic argument: density, even with its correct exponent in T, does not control a specified prime or allow the two limits to be exchanged.
+
+## 1. Exact density at fixed height
+
+Let a be any of 1,121,169,289,361,529 mod 840. Write dₐ(T) for the natural density *relative to the primes p≡a (840)* of the following union. Use precisely the packets proved in §7 of the parent note, with arbitrary choices of representatives and generator. The height is max(q,G), charging the entire positive fixed product, **not** the variable cofactor (charging it would give a finite set of inputs). In both families q≥7 is prime, q≡3 (4). The two tests are:
+
+1. Single block: G≡−1 mod q, 4G|p+q. No sign test.
+2. Neutral blocks: Q=(q−1)/2, k=⌈log₃Q⌉, some generator h of the squares mod q, gᵢ≡h^{3^i} mod q for 0≤i<k, G=∏gᵢ, 4G|p+q and (p/q)=−1.
+
+**Theorem H (PROVED rel. PNT in fixed progressions).** Let E consist of the distinct pairs (m,b)=(4G,−q mod 4G) in test 1 and, for test 2, the CRT combinations of that class with each nonsquare mod q. For S⊆E let m(S)=lcm(840,m : (m,b)∈S), and let c(S) be 1 if those classes and (840,a) are consistent, 0 otherwise. Then the exact answer is
+
+    1 − dₐ(T) = Σ_{S⊆E} (−1)^|S| c(S) φ(840)/φ(m(S)).
+
+All classes are reduced, q∤4G. The compatible simultaneous event is one reduced class. Inclusion–exclusion and PNT prove H; finite exceptions from any fixed modulus are immaterial. **Normalization:** as literally posed (only p≡1 allowed but conditional on *all* 𝔐 primes), δ(T)=d₁(T)/6, not d₁(T). To cover all six classes use δ_all(T)=Σₐdₐ(T)/6. Bounded-height adaptation changes neither formula: the condition that *some* such alphabet can be planted is a finite union of CRT events. This does **not** imply the different events are independent.
+
+**CERTIFIED, tiny exact evaluations (one script, brute-period cross-check through T=16).** `ulimit -v 6000000; timeout 60 uv run --offline --no-project python -B scripts/z80_packet_density.py 7 11 16 24 32 48 64 80` → `data/z80/jugular/packet-density.txt`. At T=80 the exact relative densities at a=1 and 169 are 194466339287/429981696000 and 1816930813/2627665920. These small heights are not a fit to the exponent.
+
+## 2. Upper bound for the miss probability, and transfer to prime inputs
+
+**Theorem I (PROVED rel. two applications of Bombieri–Vinogradov, Brun–Titchmarsh and Mertens).** With L=log T, for large T, 1−dₐ(T)≤exp(−cL). Furthermore in (N,2N] the number of primes ≡a mod 840 missing all packets up to T=exp(c₀√log N) is O(N exp(−c₁√log N)) for some absolute c₀,c₁>0. The same power holds for the proportion among these primes (reduce c₁). Only single blocks are needed for this direction.
+
+Here are the details of the prime-shift restriction, which prevents importing the unrestricted-word exponent. Use odd multipliers k≤K=T^{1/200} coprime to 210, window primes T^{1/20}<q≤T^{1/10}, and pivot primes T^{3/5}<r≤T^{4/5}. Use whole dyadic blocks contained in those ranges. Put G=kr and retain q|kr+1. Then G<T. Condition on the small coordinates c mod lcm(840,4k:k allowed), initially on units, c≡a (840). At fixed k activation requires q≡−c mod 4k. Let J be the k with (c,k)=1 and H=Σ_{k∈J}1/k. Conditional on c, distinct labels at any r give distinct target classes −q mod r: q<r fixes q, then q>K and kr≡−1 mod q fixes k. Distinct r are independent. The same construction works with arbitrary small digits c≡a (840) on integers (not necessarily units away from 840), where only J can be active.
+
+In a q-block (V,2V] write b(q)=#{k∈J:q≡−c mod 4k}. Then
+
+    Σ_{V<q≤2V prime} b(q)/(q−1) ≍ H/log V.
+
+Indeed summing dyadic π-form BV at the distinct moduli 4k (≤4T^{1/200}) has total error O_A(V/log^A V), compared with main ≍(V/log V)Σ1/φ(4k). For a *general* J arising here the latter is comparable to H: sum k/φ(k)=Σ_{d|k}μ²(d)/φ(d) with weight 1/k and use divisor-closure of J to bound Σ_{k∈J,d|k}1/k≤H/d. This also gives the matching BT upper bound. H≥1. Endpoints or replacement of 1/(q−1) by constant multiples of 1/V do not alter the inequalities. Summing over the Θ(L) q-blocks gives ≍H.
+
+In a pivot block (x,2x], count r≡−k⁻¹ mod q for each active (k,q). For error control put E(q)=maximum dyadic π discrepancy. Then Σ_{q} E(q)≪_A x L^{−A} by BV (all q≤T^{1/10}), and E(q)≪x/(q log x) by BT. Uniformly in c,
+
+    Σ_{q prime} b(q)²/q ≪ L Σ_{k,k′≤K}1/[k,k′] ≪ L⁴.
+
+To see the first inequality, replace primes by integers in the q-range satisfying both progression conditions (define b on those integers by the same formula); per dyadic block an intersection costs O(1/[k,k′]+1/V)=O(1/[k,k′]) because V>K². The last divisor sum follows by writing the gcd first. Thus the weighted discrepancy by Cauchy is O_A(x L^{2−A/2}) and is negligible compared with the pivot-block main term ≍xH/log x. After division by x and summing over Θ(L) pivot blocks the conditional Bernoulli mean μ satisfies c₂ H≤μ≤C₂ H. Unit Haar at r uses 1/(r−1) rather than 1/r; the same bounds apply. In the relative prime density problem all k are units and H≍L, so the void ≤exp(−μ) proves the first assertion.
+
+For the finite-range transfer **do not** expand the huge modulus of c. Use integer Haar on the progression a (840) with the rough selector forbidding primes ℓ≤y=L away from 840, as in `I3_DEEP_ASTRA.md` §8.8. Every prime input in range satisfies the selector. On selected c let Z=Σ_{y<ℓ≤K, ℓ|c}1/ℓ. Then P(Z>1/2)≤exp(O(1)−y/2), since E exp(yZ)≤exp(Σ_{ℓ>y}(exp(y/ℓ)−1)/ℓ)=O(1). On the complement H≥(1−Z)Σ_{k≤K,(k,210)=1}1/k≫L by a union bound over removed multiples. Always μ≪L. The integer-Haar number of active pivot hits is a sum of independent Bernoullis conditional on c. The even Bonferroni polynomial of degree j (least even ≥C₃L, C₃ large) is nonnegative, majorizes the void, and is ≤1[void]+binom(hits,j+1). Its last term in conditional expectation is ≤(C₂′L)^{j+1}/(j+1)!≤e^{−2L}. Its selected mean is O(e^{−cL}). There are only T^{O(1)} indexed atoms. Each intersection including a term of the selector and the 840 condition is empty or one AP. Expanding through degree j and the ≤2^{π(y)} selector terms costs exp(O(L²)) in absolute coefficient sum, hence in total integer-counting remainder. In (N,2N] this yields O(N exp(−cL)+exp(C L²)); choose log T=c₀√log N. All arguments are for upper bounds for failures; no prime was manufactured by an average at a specified input. This is a prime-window, one-block version of the fibre conditioning in `I3_DEEP_ASTRA.md` Lemma 8.7, not a new BV theorem.
+
+## 3. A matching logarithmic power for the full packet union
+
+**Theorem J (PROVED rel. Shiu's multiplicative mean bound in APs, elementary divisor moments, and the internal `POINTWISE_OMEGA13.md` (O13) Lemmas 1.1, 3.2 and 3.3(B)).** For each ε>0 and all sufficiently large T,
+
+    exp(−L^{1+ε}) ≤ 1−dₐ(T) ≤ exp(−c L).
+
+In particular log log(1/(1−dₐ(T)))/log log T→1. The bound also holds for the all-six-class average. The lower bound is for the **full union**, not merely the prime pivots used in I; restricting to prime blocks for this direction would be invalid.
+
+*1. Quarantine only the single blocks.* In the following take 0<e<min(ε/4,1/4), B=L^{1+e}, β=1+1/log L. First prescribe random unit squares at first digits at all odd primes ≤B outside 840; the 840 fibre is already a unit square. The cost of retaining a **single** resulting class has logarithm O(B), acceptable here. These digits kill every neutral packet with q≤B by its sign condition, without checking divisibility. Now apply O13's heavy-coordinate square quarantine for the single-block events E=(m,b), m=4G. Every such class avoids all unit squares: if it matched, a positive odd integer square in it would give a point of the unrestricted N_II square-obstructed surface via the one-block construction (Z57_BFII Cor 2.3). Hence completing a deterministic matched event is impossible on this process. All free digits remain independent units, ordinary uniform lifts after the first digit. The fixed 840 conditioning costs only an absolute factor in all the following estimates. We spell out the moment verification to distinguish a density theorem from an expectation of a count.
+
+Let L'=log(4T), Y=L^A for a sufficiently large fixed A, m_Y its Y-smooth part, and N_m the number of labels at m. For W_m=β^{ω(m)}2^{ω_Y(m)}, the two inputs to the quarantine are
+
+    Σ (N_m/m) W_m (m/φ(m))(1+log m_Y) ≤ L^{1+o(1)},
+    Σ N_m² (m/φ(m))² (2β)^{2ω(m)} τ(m)²/m ≤ L^{C₄}.
+
+Here and below L^{1+o(1)} means ≤L^{1+η} eventually for every fixed η>0 (A fixed). For the first input, unweighted mass Σ N_m/m≪L log L, by summing 1/G over G≡−1 mod q, q≤T (first term 1/(q−1), then harmonic sum O(L/q)). N_{4G}≤ω(G+1)≤τ(G+1), so all fixed harmonic moments with fixed divisor weights are polylogarithmic in T by dyadic Cauchy, τ^j≤τ_{2^j}, and the divisor summatory bound applied after the shift G+1. This proves the second input with absolute C₄ independent of A. To restore W_m(m/φ(m))(1+log m_Y)=V_m in the first input, Σ_{m≤4T}V_m^s/m ≤ L^{1+o(1)} for each fixed s: m/φ(m)≪log L, log m_Y≤log Y·τ(m_Y), the small-prime Euler product costs (log Y)^{O_s(1)}, and beyond Y the prime coefficient is β^s=1+O_s(1/log L). Hölder on N_m^{1−t}, N_m^t, V_m with exponents 1/(1−t),2/t,2/t and t small gives the displayed exponent (pay a t/2 power of the second moment). This is the interpolation of `notes/z78/WILD_ES.md` §6.2 at *linear* unweighted mass.
+
+Here is the exact imported interface. Start at 840, with the indicated forced digits at ≤B, then take random square-class steps only at ℓ≤Y while the free-coordinate load Σ_{E using ℓ} β^{s_E}P_fibre(E) exceeds η=(3/4)log β, where s_E counts remaining prime coordinates. O13 Lemma 3.2(a–c) bounds the expected terminal weighted mass and expected log modulus cost after the preload by the first input, with an extra 1/η in the cost. This accounts for forced digits by the same supermartingale, not by multiplying by the inverse probability of the loaded fibre. Pair drift 3.2(d) and the regrouping in 3.3(B) bound the probability some ℓ>Y exceeds η by O(η^{−2}(1+L')L^{C₄}/Y)=o(1); choose A>C₄+5. These bookkeeping lemmas need only the factor ≤2 on first-square-digit drift, the uniform subsequent digits, the absence of a unit square in each complete atom and the two displayed moment bounds (see z78 §6.2 for moduli divisible by 4). Thus with probability ≥3/4 for large L the final congruence fibre has log modulus ≤O(B)+L^{1+2e}, residual weighted mass ≤L^{1+2e}, and all loads ≤η. Markov suffices after enlarging L. By O13 Lemma 1.1 its conditional single-block void has probability ≥exp(−(4/3)L^{1+2e}). We also need the lemma's **arbitrary-cylinder** conclusion: conditional on avoiding these single blocks, any cylinder D has probability ≤β^{s_D}P_fibre(D). This matters because a large-q packet need not be a single-block event.
+
+*2. Neutral packets left by this process.* For q>B discard the sign, enlarging the hit to a single cylinder D: n≡−q mod 4G. At the random stopping time even if D can match a unit square, O13 Lemma 3.2(a)'s one-event supermartingale (or the single-digit drift calculation) gives
+
+    E[β^{s_D}P_fibre(D)] ≤ C W_{4G}/φ(4G).
+
+The process is bounded and its stopping rule does not depend on D; the inequality includes a completely determined D. It is here that trying to add all residue classes mod q for the sign at once would give an unnecessary late-prime load. We claim that the RHS summed over **all** packets with q>B is o(1), even before deduplication. Put w(v)=β^{ω(v)}2^{ω_Y(v)} v/φ(v), so w is submultiplicative; the sum at fixed (q,h) is bounded by a constant times
+
+    ∏_{i<k} S_q(r_i),   S_q(r)=Σ_{g≤T, g≡r(q)} w(g)/g,   r_i=[h^{3^i}]_q.
+
+Dropping the product cutoff in this upper bound is harmless. Uniformly for 1≤r<q and B<q≤T,
+
+    S_q(r) ≤ C/√r + o(1).
+
+Indeed w(g)≪_σ g^σ for every fixed σ>0 uniformly (β≤2). Up to q² separate the first representative; the others cost O(q^{−1+2σ}log(2q)). In dyadic intervals beyond q², Shiu for the full interval and the reduced residue mod q (q≤√x) gives sum of w bounded by O(x/(φ(q)log x)) exp(Σ_{l≤2x}w(l)/l), l prime. Its constants are uniform: prime-power growth bounded by an absolute constant and uniform sub-power growth as above. The exponential is ≪(log(3x))^β (log(3Y))^{O(1)} from the prime weights. After reciprocal weighting and summing dyadically this contribution is ≪L^{1+o(1)}/q=o(1). End intervals may be enlarged. Since r_i are distinct (3^i<Q for i<k), all but O(1) of the S_q(r_i) are <1/243 for large T, and every factor is O(1). Consequently the product is O(243^{−k})=O(q^{−5}), with absolute constants for fixed e,A; there are <q generators. Summation over q>B proves the claim. That argument uses the indivisible, distinct **basis residues**, not a heuristic independent-divisor model.
+
+Markov now gives positive probability of a good terminal fibre as in step 1 also having total conditional cylinder bound <1/2. By the conditional LLL bound, adding all the large-q neutral packets there costs at most another factor two in survival probability. Pay for this fibre in the original unit Haar space (≥1/modulus) to get survival ≥exp(−L^{1+ε}) eventually. This proves J. ∎
+
+**Exponent comparison (Assessment).** The exponent proved on a finite prime range here is **1/2**, worse than 3/4. The density exponent **1** in height is sharp in log power; it is not an exceptional exponent 1 in the input p. In particular with log T of order √log N the limiting density saving has only square-root power in log N. It would be unjustified to declare 1/2 an absolute ceiling for every larger-height or non-CRT transfer; no matching finite-N lower bound on actual failures has been proved. Conversely there is no evidence for calling bounded-height post-selection a non-CRT mechanism. The two-sided bias comparison in `side-agent/z80-beyond-34:notes/z80/BEYOND_34.md` §13 is for an audited majorant universe; we neither identify all our cylinders with that universe nor need its comparison theorem for J.
+
+**Falsifier Table (H–J).** F1: at a square unit the sign in neutral packets fails, and the unrestricted Type II square obstruction rules out the classical packet too; J *uses* such CRT digits to construct avoider fibres, not integer solutions at squares. F2: 131 is not in the prime classes; 241 and the large R₈ zero do not test a C-even positivity assertion. H–J are densities of actual numerator-4 windows; replacing 4G by 8G is a different family (at q=3 mod 8, p=1 mod 8 the quotient by 8 is not integral). F3: densities are for primes; a packet hit at composite n would give unrestricted N_II, so none at 4545, and hits need not give U₇ at Z₇. F4: these packets are not (★) positivity; coverage is not asserted at any of the fourteen prime zeros or 17401609. H counts classes regardless of these finite controls; I is one-sided on the prime population, and J concerns avoider *density*, not that any specific prime is an avoider.
