@@ -5,7 +5,9 @@ from itertools import product
 
 def strengthened(kappa, lam):
     z=(8-2*lam)/(3+kappa+lam); theta=(8-z)/(25-3*z)
+    names=('shift-diagonal','B-tails','bin-diagonal','bin-correction','kernel','reciprocal','residual')
     worst={}
+    print('theta',theta,'columns',*names)
     for mu in (F(0),F(1,3)):
         t=theta+(1-3*theta)*mu
         for a,b,g in dict.fromkeys(((t,1-2*t,t),(t,t,1-2*t),(1-2*t,t,t))):
@@ -13,6 +15,7 @@ def strengthened(kappa, lam):
             l=p+g-b  # base D=n/M², b=log_D(V/M)
             assert min(l,r,j,v,p-v)>=0 and g>j+p and 1+mu>2*g
             assert b-p<=t and b-g<=t and 0<=g-j and g+p+g-j==2*t
+            local={}
             for x,e,i in product((F(0),j),(F(0),l),(F(0),v)):
                 y=1+mu+e+x-3*g; u=p+i; f=y+2*x+u-g; s=2*(x+p-g)
                 assert f+2*s<0
@@ -22,6 +25,8 @@ def strengthened(kappa, lam):
                 for num,cost in enumerate(costs):
                     slack=2*(g-j)-(2*(x-j+e-l)+g+y+cost)
                     worst[num]=min(slack,worst.get(num,slack))
+                    local[num]=min(slack,local.get(num,slack))
+            print('mu',mu,'vertex',a,b,g,'min squared slacks',*local.values())
     assert min(worst.values())>=0
     print('theta',theta,'M exponent',1-5*theta,'min squared slacks',*worst.values())
 
