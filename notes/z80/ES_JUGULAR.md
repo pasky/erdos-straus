@@ -1,8 +1,8 @@
 ## §0
-Result: One-way positive divisor steps take every odd quadratic nonresidue to the least one, but prime-factor descent and even arbitrary changes of two word letters can be trapped together at one neutral word. Label: PROVED (rel. elementary finite group arithmetic and quadratic reciprocity for A,C; BGK, Dickman–de Bruijn, Pólya–Vinogradov and Burgess for B; infinitude in C CONDITIONAL on Dickson).
-Scope: Exact reverse basin at each prime p≡1 (8); forward saturation at large p with ordₚ(2)≥p^δ for fixed δ>0. A trap for adjoining negative prime factors of p+x and moving between words that retain any one letter. No existence of a *reciprocal* bichromatic pair follows. ES, (S), U₇ and (MS⁺₁₀₅) remain open.
+Result: At selected primes of prescribed least nonresidue q, every good word and both moduli of every Type II solution need an odd-valuation prime factor exponentially large in a power of q, although a (★) solution exists. Label: PROVED (rel. fixed-modulus prime distribution, Mertens, Brun–Titchmarsh, ET parametrisation and quadratic ideal factorisation for D below; elementary for A,C, BGK/Dickman–de Bruijn/Pólya–Vinogradov/Burgess for B; infinitude in C CONDITIONAL on Dickson).
+Scope: Positive relative density inside a finite sign profile for each large q in D, not a height bound in p or a Type I assertion. Exact reverse basin at each prime p≡1 (8); forward saturation at large p with ordₚ(2)≥p^δ for fixed δ>0. A trap for adjoining negative prime factors of p+x and moving between words that retain any one letter. No existence of a *reciprocal* bichromatic pair follows. ES, (S), U₇ and (MS⁺₁₀₅) remain open.
 Review: cross-model (`data/z80/xreview/REVIEW_ES_JUGULAR_OPUS.md`, Claude Opus; accepted A–C and censuses, scope/label and replay fixes applied).
-Triage: METHOD-CX
+Triage: BARRIER-SCOPED
 STATUS delta: none
 
 # The cofactor walk: what it can reach, and what it cannot force
@@ -64,3 +64,48 @@ timeout 600 uv run --offline --no-project python -B scripts/z80_jugular_trap.py
 ```
 
 Outputs: `data/z80/jugular/{span,basin,trap}.txt`. **Assessment / next test.** Reverse reachability alone does not distinguish endpoints from almost all non-endpoints. A sharper candidate is to test which first-return paths from a residue to the negative half have their *first* sign-changing arrow reciprocated; A/B give no such return. A criterion involving a reciprocal arrow rather than still larger basins is needed.
+
+## 5. Escaping the least nonresidue in *prime support*, not just in height
+
+**Theorem D (PROVED rel. PNT in fixed progressions, QR, Mertens, Brun–Titchmarsh, ET's Type II parametrisation and unique factorisation of ideals in a quadratic maximal order).** Write sf for the squarefree representative modulo rational squares. For every sufficiently large prime q there is a positive-relative-density family of primes p≡1 (840) with least quadratic nonresidue q, having an interior (★) word, such that simultaneously:
+
+* For **every** interior good word p=tuv−u−v, sf(uv) has a prime factor >exp(c q^{1/4}), for some absolute c>0.
+* For **every** positive Type II parameterisation 4abd=p+e, a+b=ce, **each** of sf(4acd−1) and sf(4bcd−1) has a prime factor >exp(q^{1/15}). More generally any fixed exponent <1/14 works for sufficiently large q.
+
+These large primes need not be nonresidues; the sign may still be carried by q. No relation between p and q beyond the conditions stated, nor any conclusion for every sufficiently large p. The prime factors required here cannot be produced merely by making both endpoints very large squares times a bounded kernel. This differs from the ET period-height and good-denominator bounds of `notes/z78/WILD_ES.md` §6 and `notes/z79/WILD_ES.md` §9; no external priority claim.
+
+**Sign profiles.** Fix Y=exp(c q^{1/4}), and condition the prime variable on p≡1 (840), (p/l)=+1 for odd primes l≤Y other than q, (p/q)=−1. Discard p≤Y. These are compatible reduced CRT classes with fixed positive prime density for each q. Thus χ_p has the asserted least negative. On this probability space each compatible prescribed unit class mod m costs at most
+
+    C₀ 2^{ω(m)} / φ(m)
+
+in relative density by CRT and the prime number theorem for the fixed moduli; the constant absorbs 840. This also bounds the probability of each of finitely many tests jointly by the union bound (summing their individual costs).
+
+**Word calculation.** A small-kernel good word requires q∣uv to odd order, since χ(uv)=−1. For fixed unordered endpoints or even ordered coprime endpoints the input test is a single class p≡−u−v (uv); coprimality holds because any common prime divides p, and both endpoints are <p. Summing the costs over all admissible u,v, without any cap on square parts, is at most
+
+    (C/q) ∏_{l≤Y}(1+4 l/(l−1)²) · ∏_{l>Y}(1+4∑_{j≥1}1/φ(l^{2j})) ≪ (log Y)^4/q.
+
+Indeed at each prime there are two choices of slot and the class cost contributes 2, whereas q is mandatory and its own factor can be bounded by O(1/q). Mertens controls the first product; the second is bounded uniformly. Choose c small enough for this bound to be <1/4. To justify the infinite union in prime density: for fixed q,Y the possible squarefree kernels are finite. At m=uv with Y-smooth kernel there are ≤2^{ω(m)} orientations, ≪ε m^ε. Up to X, uv≤p since t≥2 and u+v≤uv. For T<m≤√X, unconditional Brun–Titchmarsh gives an upper density bound by a constant times the convergent tail ∑_{m>T}2^{ω(m)}/φ(m); here and below such a tail is **restricted to smooth kernels**, m=s h² with s in a finite set. Division by the fixed profile density does not affect its convergence to zero. In √X<m≤X count integers by O(1+X/m) per class; summing over s h² gives o_Y(X/log X) even with the m^ε orientation factor. Take X→∞ before T→∞. This proves that the upper bound by the Euler product really applies to prime inputs, not just to a formal Haar sum.
+
+**Full Type II calculation.** Write Z=exp(q^β), 0<β<1/14 fixed (so Z≤Y eventually). At either orientation f=4acd−1 of a positive solution, f∣cp+a, (f,c)=1. At fixed f the number of possible classes is ≤τ₃((f+1)/4)≤τ₃(f+1) for f≡3 mod 4. Also χ_p(f)=−1 by `Z57_BFII.md` Prop 2.2: (p/f)=(−ac/f)=−1 since f≡−1 (4ac). Thus Z-smooth sf(f) again requires q∣f. Put α=1/log Z. For large q the tilted Euler product satisfies
+
+    ∑_{q|f, sf(f) Z-smooth} 4^{ω(f)} / f^{1−α} ≪ (log Z)^4/q.
+
+Indeed q^α≤e, ∑_{k≥1}4/q^{k(1−α)}≪1/q. At l≤Z the linear term in the logarithm is 4/l^{1−α}=4/l+O(α log(l)/l); its accumulated correction is O(1) by Mertens. The higher powers have bounded mass (α≤1/4); at l>Z only even exponents occur. On a block F≤f<2F, f/φ(f)≪log log(4F), and ∑ τ₃(f+1)²/f≪(log(3F))^8 by τ₃²≤τ₉ and the elementary summatory bound for τ₉. Cauchy–Schwarz now bounds the summed class costs on this block by
+
+    ≪ q^{−1/2} (log Z)^2 F^{−α/2} (log(3F))^4 log log(4F).
+
+Summing F=2^j gives ≪ q^{−1/2}(log Z)^7 log log(4Z)=o(1). This estimate does not pay a fixed-modulus equidistribution error for each growing f: first use it for fixed f≤T. The following tail argument, including the large orientation, is essential.
+
+**Large-modulus tail.** For fixed Z and primes p≤X, use BT for T<f≤√X as before, with weight τ₃(f+1)≪ε f^ε. For √X<f≤X^{3/2}, summing f^ε(1+X/f) over f=s h² still gives o_Z(X/log X). One must *not* continue this argument up to X². Orient f=4bcd−1; since a+b≤2ab, 2abd≤p. When b≤a, f<4b(a+b)d≤8abd≤4X. When b≥a, f<8b²d/e≤2X²/(a²de). Thus f>X^{3/2} implies a²de≤2√X. For each such a,d,e and kernel s the equality f=s h² gives the norm equation
+
+    [d(2b+a)]² − des·h² = d(da²+e) = N > 0.
+
+For a fixed triple there are O(τ(N) log(3X)) possibilities, constant independent of the real quadratic discriminant (for fixed Z). If des is square, factor the difference of squares over the integers. Otherwise the element d(2b+a)+h√(des) is in the quadratic maximal order, and its principal ideal is an integral ideal of norm N. There are at most τ(N) such ideals by prime-ideal decomposition of rational primes. Generators in our range per ideal differ by units; both conjugates are positive, the larger is polynomially bounded in X (indeed <2d(2b+a)), and the least totally positive unit >1 has trace ≥3. This gives the uniform logarithmic bound, without assuming unique factorisation of elements. Summing over O(√X log²X) triples, all with N polynomially bounded, and finitely many s, gives o_Z(X/log X). Thus the density bound applies even to a solution's *larger* f. In all these tail arguments the constant may depend arbitrarily on the fixed sign profile; no such dependence is allowed in the Euler-product estimates.
+
+Finally there is an actual (★) witness on a relative density-one subset of the profile. For an auxiliary prime g≡3 (4), g>max(11,Y), use t=4, u=(g+1)/4, p≡−u mod g; then v=(p+u)/g≥2 eventually and χ(g)=−1 by reciprocity. The relative avoidance density for any finite such set is ∏(1−1/(g−1)), which tends to zero by the divergence of prime reciprocals in this class. Apply the two upper bounds and remove this null set. Natural relative density exists for the avoidance conditions: the fixed finite-class truncations approximate them up to a tail of upper density tending to zero (one may impose the remaining interior inequalities, automatic eventually for fixed word endpoints or valid Type II classes). ∎
+
+**Controls for D.** F1: the profile includes (p/q)=−1; no square unit qualifies. F2: it is an avoidance theorem for selected primes >Y with Y→∞, not coverage for numerator 8 or the C-even branch; the guaranteed word has t=4. F3: only primes; excluded all Z₇ including 4545. F4: for large enough q, Y exceeds the whole panel; no positivity at the zeros is invoked. Items 4–9,15–17 of the preflight: the two density bounds sieve *against* small prime support; they do not prove a divisor class at a prescribed p. A prime larger than the threshold must actually occur, to odd valuation, on each specified object, with no maximum allowed height. This is not a power bound in p.
+
+**CERTIFIED (same word engine as §4).** `ulimit -v 6000000; timeout 1800 uv run --offline --no-project python -B scripts/z80_kernel_budget.py 10000000` → `data/z80/jugular/kernel.txt`. At 435/3426 primes the best attainable largest prime of sf(uv) exceeds q. At q≡1 (4) none has sf(uv)=q: indeed in a coprime pair with kernel q one outer letter is a square, the other is divisible by q, giving (p/q)=(−1/q)=+1, impossible. The census sanity check is not evidence for the asymptotic exponents. As a second check on §3's scope, the trapped primes themselves have the good word u=5,t=7,v=(p+5)/34 (p≡−5 mod 34 and χ(34)=−1); the trap is strictly local to its seeds.
+
+**Assessment: next step.** Do Type I solutions at these same primes also require a large prime in a specified squarefree kernel? A height bound for a chart does not resolve that question. For Type II the norm equation controls the tail beyond X^{3/2}; a comparable argument for the Type I modulus with two root classes is missing.
