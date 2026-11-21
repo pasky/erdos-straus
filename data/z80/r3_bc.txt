@@ -1,0 +1,8 @@
+# ulimit -v 6000000; timeout 120 uv run --offline --no-project python -B scripts/z80_r3_bc.py
+x,s 0 0 BC-1,BC-2 39/40 15/16
+x,s 1/40 0 BC-1,BC-2 1 77/80
+x,s 1/106 1/106 BC-1,BC-2 1 409/424
+normalized boost 1/2120 full coefficient in M0 units 1591/2120
+CRT cases 7156 with gcd>1 156
+toy 6-variable sum 1521 nonzero-shift portion 16 unmarked 8301
+primitive interval masses / length for toy m 5005 [0.5082, 0.5208, 0.5472]
