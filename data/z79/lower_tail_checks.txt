@@ -1,0 +1,26 @@
+local signed expansions: 15488
+small CRT fibre: 24 212520 18 5280 1093/660 41/11
+4 vs 8 131 sorted triples 32 0 even-only 0
+  type 1 odd denominator histogram [0, 21, 0, 0] first [(33, 4324, 18692652)]
+  type 2 odd denominator histogram [0, 11, 0, 0] first [(33, 4454, 146982)]
+  star [(1, 44, 1), (1, 12, 3), (2, 19, 1), (4, 9, 1)]
+4 vs 8 241 sorted triples 8 0 even-only 0
+  type 1 odd denominator histogram [0, 4, 0, 0] first [(62, 2139, 1030998)]
+  type 2 odd denominator histogram [0, 4, 0, 0] first [(62, 2169, 134478)]
+  star [(1, 22, 3)]
+star zero 409 first U7 (f,x,y,z) (7, 4, 2, 59)
+star zero 577 first U7 (f,x,y,z) (7, 4, 2, 83)
+star zero 5569 first U7 (f,x,y,z) (39, 8, 5, 143)
+star zero 9601 first U7 (f,x,y,z) (111, 56, 2, 87)
+star zero 23929 first U7 (f,x,y,z) (7, 4, 2, 3419)
+star zero 83449 first U7 (f,x,y,z) (679, 68, 10, 123)
+star zero 102001 first U7 (f,x,y,z) (23, 4, 6, 4435)
+star zero 329617 first U7 (f,x,y,z) (15, 8, 2, 21975)
+star zero 712321 first U7 (f,x,y,z) (23, 12, 2, 30971)
+star zero 1134241 first U7 (f,x,y,z) (7, 4, 2, 162035)
+star zero 1724209 first U7 (f,x,y,z) (39, 20, 2, 44211)
+star zero 1726201 first U7 (f,x,y,z) (1735, 124, 14, 995)
+star zero 5212561 first U7 (f,x,y,z) (87, 44, 2, 59915)
+star zero 8813281 first U7 (f,x,y,z) (111, 8, 14, 79399)
+star zero 17401609 first U7 (f,x,y,z) (87, 44, 2, 200019)
+R8 record: 3 inherited odd-C examples replayed, not a new exhaustive count
