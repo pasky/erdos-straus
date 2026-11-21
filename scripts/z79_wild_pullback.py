@@ -71,4 +71,5 @@ def panel():
 
 
 if __name__=='__main__':
+    print('# Algebra panel from 38a6dbf29; replay: ulimit -v 6000000; timeout 90 uv run --offline --no-project python -B scripts/z79_wild_pullback.py')
     tests(); panel()

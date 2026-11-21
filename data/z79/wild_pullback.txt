@@ -1,3 +1,4 @@
+# Algebra panel from 38a6dbf29; replay: ulimit -v 6000000; timeout 90 uv run --offline --no-project python -B scripts/z79_wild_pullback.py
 F (1, 0, -3) 0/1/2-roots 277 48 288
 F (1, 0, 24) 0/1/2-roots 301 7 305
 F (3, 2, -5) 0/1/2-roots 290 5 318
