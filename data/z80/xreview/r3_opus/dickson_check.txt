@@ -1,0 +1,9 @@
+J 1 T 3 b 11 p 604801 g 7
+J 1 T 3 b 11 p 12579841 g 7
+J 1 instances 20
+J 2 T 7 b 19 p 814671648001 g 11
+J 2 T 7 b 19 p 1777519296001 g 11
+J 2 instances 20
+J 3 T 11 b 23 p 270875803968001 g 15
+J 3 T 11 b 23 p 8054843803776001 g 15
+J 3 instances 20
