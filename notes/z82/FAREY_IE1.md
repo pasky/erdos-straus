@@ -1,9 +1,9 @@
 ```
 Result: A different countable power cut T_F adds full Farey, Th(n) at every modulus and proper reduction at every discriminant to the z81 PW + Bézout + (Sep) + Lag + internal Dirichlet relaxation, still with ¬ES(P).            Label: PROVED (rel. z80 §§2–6,9,15, z81 §§2–5,7–8,10–14, Nagata, quadric Picard groups, purity of branch locus, étale fundamental groups of geometric affine spaces and smooth affine three-dimensional quadrics, classical planar Minkowski and true-arithmetic transfer; Duke only for the old-model scalar iff, Łoś in §5); §6 missing-digit consequence CONDITIONAL on host ES at P
-Scope: Round 1 §§1–6: exact scalar determinant and partial kP ranges in the OLD T*, not universal Th there. Round 2 §§7–12: a NEW order/edge schedule, not an end extension of T*. All forms and all Farey levels, even at the bad prime. Not IE₁⁻: the power cut still fails BCM, and the construction is not a proof of or counterexample to ES in ℕ or IE₁⁻.
-Review: cross-model (Claude Opus 5.5, ACCEPT WITH FIXES on 011ce92f9; data/z82/xreview/REVIEW_FAREY_IE1_R1_OPUS.md; fixes applied)
+Scope: Round 1 §§1–6: exact scalar determinant and partial kP ranges in the OLD T*, not universal Th there. Round 2 §§7–12: a NEW order/edge schedule, not an end extension of T*. All forms and all Farey levels, even at the bad prime. No IE₁⁻ assertion. The power cut still fails BCM, which is not an IE₁⁻ theorem. The construction is not a proof of or counterexample to ES in ℕ or IE₁⁻.
+Review: Round 1 §§1–6: cross-model (Claude Opus 5.5, ACCEPT WITH FIXES on 011ce92f9; data/z82/xreview/REVIEW_FAREY_IE1_R1_OPUS.md; fixes applied). Round 2 §§7–12: none; requested hostile Opus review of ff4a75afe returned no review text (expired provider authentication). Cross-review owed; do not promote.
 Triage: RECORD (Round 2; cross-review owed before promotion)
-STATUS delta: Compress the PW row: “New T_F additionally has full Farey/Thue and all variable-discriminant proper reduction, still ¬ES(P); not IE₁⁻ (z82 FAREY_IE1 §§7–12).” Keep T* and T_F distinct.
+STATUS delta: Compress the PW row: “New T_F additionally has full Farey/Thue and all variable-discriminant proper reduction, still ¬ES(P); no IE₁⁻ conclusion (z82 FAREY_IE1 §§7–12).” Keep T* and T_F distinct.
 ```
 
 # Exact Farey brackets from coarse approximation; the discriminant boundary
@@ -268,7 +268,7 @@ Finally scalar Minkowski gives a nonzero `z∈B²` with `N⁻¹z` of norm ≤2 (
 
 The union and power cut at `H` have the z81 integer-part, Bézout, (Sep), flag, PW and Lag properties by exactly their valuation, positive-size and floor invariants, all maintained on each actual edge. Keep the z81 §7 cut-height choice at Dirichlet tasks. For cut `n`, a short vector in the union restricts: `Y,|X|≤√n`, and `|(aY−X)/n|≤Y+1`; hence no loss in the congruence. The square-tested seed is unchanged. At a new two-free block the negative total polynomial-degree valuation, trivial on the old fraction field, makes every nonconstant denominator polar, with constant contraction. In a positive reciprocal identity the surviving constants must already sum to `4/P`, excluding any omitted positive term. Thus the same finite descent and thick square specialization as z81 §4 still exclude `ES(P)`; primitivity and geometric primality persist. This proves §7. Notice that after *every* Dirichlet birth the resulting bad-slope candidates are themselves scheduled. The theorem does not posit that `(B)` was false at the instant of that birth.
 
-**Assessment.** This does not decide `IE₁⁻` versus ES. In particular full Farey in this model does not rescue the power-cut common-multiple defect (z81 §15), and we have not arranged every parameter-free induction axiom. The standard conjecture is open.
+**Assessment.** This does not decide `IE₁⁻` versus ES. In particular full Farey in this model does not rescue the power-cut common-multiple defect (z81 §15), and we have not verified every parameter-free induction axiom. BCM failure is not an induction refutation: even IΔ₀ need not have global BCM (z75 `IE1_ES.md` §5). The standard conjecture is open.
 
 ## 12. Cross-lane comparison: a different schedule, not a contradictory pair of assertions
 
