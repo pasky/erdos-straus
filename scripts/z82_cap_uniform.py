@@ -34,7 +34,16 @@ def linked_check():
                     if example is None: example=(n,f,D,x,y,str(z))
     assert mixed
     print('linked unit chart two-way, rejected, exact mixed cubefree packets:',ntest,nonlegal,mixed,'example:',example)
-    star=[int(x) for x in Path('data/z58/screens/star_prime_zeros.txt').read_text().splitlines() if x and not x.startswith('#')]
+    # Same tag-3 class: a shared prime need not remain in the root.
+    for n,want_z in [(13,F(26,3)),(24,F(24))]:
+        _,y,z=packet(n,11,3**3)
+        assert z==want_z and linked(n,y,z,1)
+    # A shared prime that does remain invalidates the linked packet.
+    _,y,z=packet(51,11,3**5)
+    assert z==F(68,3) and not linked(51,y,z,3)
+    print('nonunit controls: tag 3 at n=13,24 gives z=26/3,24; tag 5 at n=51 gives illegal z=68/3')
+    ledger=Path(__file__).resolve().parents[1]/'data/z58/screens/star_prime_zeros.txt'
+    star=[int(x) for x in ledger.read_text().splitlines() if x and not x.startswith('#')]
     groups={'squares':[s*s for s in range(1,130,2)],'F2':[11,17,131,241,1590284203561,6955940568721],
         'F3':[105,1465,3865,4545,10305,12145,39361,67425], 'F4':star+[17401609,2521,3361,21841,76441,113035442521,183783601,2238327841,4367159449,3153419441929]}
     for name,ns in groups.items():
@@ -62,8 +71,7 @@ def cofactor():
         q=1+2*b*d; assert q%4==3; buckets[b].append(q)
     b,T=max(buckets.items(),key=lambda kv:len(kv[1])); h=3*b*prod(base)
     assert all(h%((q-1)//2)==0 for q in T)
-    # A reduced support illustrating some of this pool; permits manageable
-    # Fractions, unlike the full untrimmed synchronized h.
+    # Separate two-donor test from the b=1 bucket (not the largest bucket).
     qs=buckets[1][:2]; hsmall=lcm(3,*[(q-1)//2 for q in qs]); ex=None
     for p in [17,41,73,89,97,193,241,409,577,2521,3361,21841]:
         for s in range(5,500,4):
@@ -87,7 +95,7 @@ def cofactor():
                     assert z.denominator==s**(hsmall-1) and F(1,K)+F(1,p*a)+1/z==F(4,p)
                     ex=(p,s,m,hsmall);break
     assert ex
-    print('exact shortened-pool inverse packet (p,s,m,h):',ex)
+    print('exact inverse packet from b=1 donor list',qs,'(p,s,m,h):',ex)
 
 
 def band():
@@ -109,8 +117,9 @@ def band():
                 pool[ell].append((k,D,F(a-1,a)))
                 kept+=1;big+=D>ell
     assert killed and big and kept
-    # Direct conditional first and fourth centered moments over two genuine
-    # pivot digits, independently iterating multiplicities, not the theorem's tail bound.
+    # Arithmetic identity checks for second and fourth centered moments of
+    # two independent pivot digits. The separate mean check detects collisions;
+    # these finite identities do not test the theorem's tail bound.
     fibers=moments=0
     for c in range(15): # include nonunits, repair at separate multiplier primes
         active=lambda k,D: k==1 or ((c%k or 1)+4*D)%k==0
