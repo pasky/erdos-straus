@@ -1,0 +1,3 @@
+A=512, retained=74, planted=[(769, 773), (641, 643), (577, 587), (547, 557)]
+first-digit partner counts: one=70, two=4
+interval divisors checked=1347799, hits=[92829293041, 114717012601, 169878338569, 353355346969], endpoint hit=False
