@@ -1,5 +1,5 @@
 """Outward-rounded sieve certificates. Scaled integers (S units); no libm signs.
-Memory: ~4*g^2 integer cells in the largest grid, <400 MB at g=1200.
+At g=2000 the two main grids hold 2*1000*776 signed 64-bit entries (~12 MiB total), besides lookup tables and the bounded function cache.
 The exp(γ) and π brackets are independently checked at startup.
 """
 from fractions import Fraction as Q
@@ -27,6 +27,7 @@ elo=sum((gam-Q(1,20000)-Q(1,10**14))**j/factorial(j) for j in range(12));ehi=sum
 # Machin identity, alternating arctan at 1/5 and 1/239
 at=lambda z,m:sum((-1)**i*z**(2*i+1)/(2*i+1) for i in range(m))
 pl=16*at(Q(1,5),10)-4*at(Q(1,239),11);ph=16*at(Q(1,5),11)-4*at(Q(1,239),10)
+assert Q(31415926,10**7) < pl < ph < Q(31415927,10**7)
 El=17810*S//10000; Eu=17812*S//10000
 assert El<S*elo<S*ehi<Eu
 Al=2*sq((elo/ph).numerator,(elo/ph).denominator);Au=2*(1+sq((ehi/pl).numerator,(ehi/pl).denominator))
