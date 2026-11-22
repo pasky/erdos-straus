@@ -1,6 +1,7 @@
-exact dictionary packets (E=1..4), multi-prime denominators, nonunit counterexamples: 40448 3967 3264
+exact dictionary packets (E=1..4), packets with multi-prime denominators, nonunit counterexamples: 40448 3967 3264
 illegal composite hit at E=2: n,f,D,x,y,z = 21 11 729 72 63 56/9
-V/C1 identical ordered triples: 99
+two-way unit-chart labels, including rejected: 77908 73453
+V formula equals chart at D=a²r⁴w, ordered triples: 99
 6 odd exponents: finite-group root counts and CRT binomial moments verified
 HC two-way bounded search, exact cubic packets: 1 example (p,s,d,b,k,j) (593, 2029, 5, 157, 16, 3)
 squares 65 (n,first numerator-4 test (f,D) or None): all miss

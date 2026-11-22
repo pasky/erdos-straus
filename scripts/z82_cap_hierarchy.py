@@ -56,13 +56,36 @@ def exhaustive():
                     if ok and len(factor(z.denominator))>1:
                         composite_roots+=1
                     total+=1
-    print('exact dictionary packets (E=1..4), multi-prime denominators, nonunit counterexamples:',total,composite_roots,invalid)
+    print('exact dictionary packets (E=1..4), packets with multi-prime denominators, nonunit counterexamples:',total,composite_roots,invalid)
     f,d=11,3**6
     # use a CRT hit with v_3(n)=1 rather than a deep collision
     n=next(n for n in range(2,1000) if n%3==0 and n%9 and not (n+4*d)%f)
     x,y,z=packet(n,f,d)
     assert not check_cap(n,y,z,2)
     print('illegal composite hit at E=2: n,f,D,x,y,z =',n,f,d,x,y,z)
+
+
+def test_converse():
+    tested = rejected = 0
+    for a in range(1,101):
+        f=4*a-1
+        # One prime at a time isolates every valuation, including 2 and
+        # foreign primes; then independently include small mixed labels.
+        candidates=set(range(1,201))
+        for s in {*factor(a),2,3,5,7}:
+            if f%s:
+                candidates.update(s**d for d in range(2*factor(a).get(s,0)+12))
+        for E in range(4):
+            legal=set(labels(a,E))
+            for d in sorted(candidates):
+                if gcd(d,f)>1: continue
+                n=(-4*d)%f+f
+                while gcd(n,d)>1: n+=f
+                _,y,z=packet(n,f,d)
+                ok=check_cap(n,y,z,E)
+                assert ok==(d in legal)
+                rejected+=not ok; tested+=1
+    print('two-way unit-chart labels, including rejected:',tested,rejected)
 
 
 def ratio():
@@ -78,7 +101,7 @@ def ratio():
         S=(n*v+a*r**3)//f
         assert packet(n,f,d)==(a*r*w*S,n*A,F(n*v*w*S,r*r))
         num+=1
-    print('V/C1 identical ordered triples:',num)
+    print('V formula equals chart at D=a²r⁴w, ordered triples:',num)
 
 
 def partial():
@@ -156,4 +179,4 @@ def screens():
 
 
 if __name__=='__main__':
-    exhaustive(); ratio(); partial(); hc(); screens()
+    exhaustive(); test_converse(); ratio(); partial(); hc(); screens()
