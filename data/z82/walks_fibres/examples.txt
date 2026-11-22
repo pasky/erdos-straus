@@ -1,0 +1,2 @@
+norm family example 212574092116681 odd part factors {101: 1, 509: 1, 2067479353: 1} q s t v 73 101 1415396087 1487
+smooths 5194 short 493 reduced ratios 14477

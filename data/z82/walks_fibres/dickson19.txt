@@ -1,0 +1,2 @@
+hit 305761 q 19 depth 4 pops 82 path 19 15289 6421 12007 23 t 554 v 24
+tested 5805 histogram 1978 0 1591 2144 92 worst_pops 1055 at 16342623361

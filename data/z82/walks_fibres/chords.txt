@@ -1,0 +1,12 @@
+409 Q finite off axes 90 axis 0 smallest joint den of third input 1940286092148908 best None
+409 W finite off axes 90 axis 0 smallest joint den of third input 3131 best None
+577 Q finite off axes 108 axis 0 smallest joint den of third input 35224773619248 best None
+577 W finite off axes 108 axis 0 smallest joint den of third input 9348 best None
+2521 Q finite off axes 54 axis 0 smallest joint den of third input 23953328746995365400 best None
+2521 W finite off axes 54 axis 0 smallest joint den of third input 477841 best None
+3361 Q finite off axes 90 axis 0 smallest joint den of third input 511017428813698772 best None
+3361 W finite off axes 90 axis 0 smallest joint den of third input 20508803 best None
+102001 Q finite off axes 366 axis 0 smallest joint den of third input 3471569554039530118540967168 best None
+102001 W finite off axes 366 axis 0 smallest joint den of third input 1047242635 best None
+8813281 Q finite off axes 990 axis 0 smallest joint den of third input 37584696105669898540365815978689628920 best None
+8813281 W finite off axes 990 axis 0 smallest joint den of third input 44087399 best None
