@@ -1,0 +1,12 @@
+trap 183783601 9189181 [(2, 1), (3, 1), (5, 1), (7, 1), (11, 1), (13, 1), (17, 1), (19, -1)] [1, 2, 4, 5, 10]
+chord law 4 25 377 87
+chord law 4 49 373 98
+chord law 4 409 384 83
+chord law 4 577 377 76
+chord law 4 2521 361 74
+chord law 4 3361 353 85
+chord law 4 4545 414 108
+chord law 8 11 209 0
+chord law 8 17 321 75
+chord law 8 131 327 42
+chord law 8 241 328 62
