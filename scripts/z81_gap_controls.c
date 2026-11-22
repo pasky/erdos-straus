@@ -31,7 +31,7 @@ int main(int argc,char **argv){assert(argc==4);U lo=strtoull(argv[1],0,10),hi=st
  unsigned char *er=calloc(root+1,1), *com=calloc(hi-lo,1), *small=calloc(hi-lo,1);U *rem=malloc(len*sizeof(U));Fac *fac=calloc(len,sizeof(Fac));assert(er&&com&&small&&rem&&fac);
  for(int j=0;j<len;j++)rem[j]=x0+j;
  for(int q=2;q<=root;q++)if(!er[q]){
-  for(U z=(U)q*q;z<=root;z+=q)er[z]=1;
+  for(U z=(U)q*q;z<=(U)root;z+=q)er[z]=1;
   U st=(lo+q-1)/q*q;if(st<(U)q*q)st=(U)q*q;
   for(U z=st;z<hi;z+=q){com[z-lo]=1;if(q<=B)small[z-lo]=1;}
   if((U)q*q>=x1)continue;

@@ -9,3 +9,16 @@ p q g Kgen Ksub missed windows: genus / no-genus-but-subgroup-miss / budget-only
 1889389369729 41 119 43 43 24 0 5 67 0
 3153419441929 41 127 27 27 27 0 4 27 0
 nonquadratic subgroup obstruction 60601 51 15163 [1, 2, 4, 8, 13, 16, 26, 32]
+two rooted prime-level budget misses on distinct seeds 1915201 [31, 75, 11, 63] (47, (478812, 19511110188, 18683848871583894))
+b, count of q=1 mod 8, min q, max least prime s, max least split-supported s=3(4),s=u(b) over allowed u
+3 9820 17 7 7
+5 4915 73 7 7
+7 2447 241 43 43
+11 1223 1009 71 31
+13 606 2689 67 67
+17 290 8089 163 63
+19 153 33049 263 139
+23 67 53881 239 239
+29 22 87481 751 99
+31 6 483289 547 311
+37 3 515761 631 631
