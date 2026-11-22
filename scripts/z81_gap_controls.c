@@ -25,7 +25,29 @@ static int miss(U n,int k,const Fac *f){
  }
  return 1;
 }
-int main(int argc,char **argv){assert(argc==4);U lo=strtoull(argv[1],0,10),hi=strtoull(argv[2],0,10);int B=atoi(argv[3]);
+/* Round 2 optional endpoint-phase transport. State -1 is unconditional;
+   0,1 condition on both previous misses, classified by sparse/dense last side. */
+static void phase_counts(U lo,U hi,U x0,const unsigned char *com,const unsigned char *small,const Fac *fac,int r){
+ int phi[124]={0},stat[16][3][4]={0};for(int k=3;k<=123;k+=4)for(int a=1;a<k;a++)phi[k]+=gcd(a,k)==1;
+ for(U n=lo+(840+r-lo%840)%840;n<hi;n+=840)if(com[n-lo]&&!small[n-lo]){
+  int prev=-1;
+  for(int j=0;j<16;j++){int k=8*j+3,h=k+4;
+   if(gcd(n%k,k)!=1 || (h<=123 && gcd(n%h,h)!=1)){prev=-1;continue;}
+   const Fac *first=fac+((n+k)/4-x0);int m=miss(n,k,first);
+   const Fac *last=h<=123?first+1:first;int both=m&&(h>123 || miss(n,h,last));
+   int size=1;for(int e=0;e<last->n;e++)size*=3;
+   int phase=size>=phi[h<=123?h:k];
+   for(int s=0;s<3;s++)if(!s || (prev>=0 && s==prev+1)){
+    int *v=stat[j][s];v[0]++;v[1]+=m;v[2+phase]+=both;
+   }
+   prev=both?phase:-1;
+  }
+ }
+ for(int j=0;j<16;j++)for(int s=0;s<3;s++){
+  int *v=stat[j][s];printf("%d %d %d %d %d %d %d\n",r,8*j+3,s-1,v[0],v[1],v[2],v[3]);
+ }
+}
+int main(int argc,char **argv){assert(argc==4 || (argc==5 && strcmp(argv[4],"phase")==0));U lo=strtoull(argv[1],0,10),hi=strtoull(argv[2],0,10);int B=atoi(argv[3]);
  assert(hi<=5000000000001ULL && hi>lo && lo>=124 && hi-lo<=1<<24);int root=(int)sqrtl(hi)+2;
  U x0=lo/4,x1=(hi+123)/4+1;int len=x1-x0;
  unsigned char *er=calloc(root+1,1), *com=calloc(hi-lo,1), *small=calloc(hi-lo,1);U *rem=malloc(len*sizeof(U));Fac *fac=calloc(len,sizeof(Fac));assert(er&&com&&small&&rem&&fac);
@@ -41,6 +63,7 @@ int main(int argc,char **argv){assert(argc==4);U lo=strtoull(argv[1],0,10),hi=st
  const int rs[]={1,121,169,289,361,529};
  for(int ri=0;ri<6;ri++){
   int stat[16][4]={0};int r=rs[ri];
+  if(argc==5){phase_counts(lo,hi,x0,com,small,fac,r);continue;}
   for(U n=lo+(840+r-lo%840)%840;n<hi;n+=840)if(com[n-lo]&&!small[n-lo]){
    for(int k=3;k<=123;k+=8){int h=k+4,j=k/8;
     if(gcd(n%k,k)!=1 || (h<=123 && gcd(n%h,h)!=1))continue;
