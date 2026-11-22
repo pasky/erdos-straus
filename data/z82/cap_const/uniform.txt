@@ -1,0 +1,8 @@
+linked unit chart two-way, rejected, exact mixed cubefree packets: 22382 17193 68 example: (92, 59, 10125, 195, 1380, '1196/45')
+squares actual odd-overflow shots (numerator 4 only): 0 of 65
+F2 actual odd-overflow shots (numerator 4 only): 6 of 6
+F3 actual odd-overflow shots (numerator 4 only): 3 of 8
+F4 actual odd-overflow shots (numerator 4 only): 20 of 24
+least-AP common odd cofactor, donors, h: 3 10 9704539845
+exact shortened-pool inverse packet (p,s,m,h): (17, 37, 131, 1365)
+band colliding pivots discarded, retained packets, D>pivot: 97 230 91 fibres/exact centered moments: 15 30
