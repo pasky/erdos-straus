@@ -135,3 +135,21 @@ The largest discrepancies are a positive term missing from the Type II record, a
 * Reviewed the four-file diff (`145` insertions, `77` deletions), including FRONTIER's masthead and end-of-§7 placement, all four §6 lines and the process-only OPS edits. No changed source note is part of the export. STATUS has **250 lines** (`wc -l`); counting each top-level §1 bullet plus continuations and nested bullets, **only :40–46 exceeds six**. Six §2 target numbers. WAVES z80 has **9 nonblank lines** after the heading (6 `+`, 1 `−`, 1 `→`, 1 `R`; 10 including the blank separator). Keep each WAVES edit on its existing physical line. The suggested STATUS replacements fit without increasing either cap.
 * Searched README, STATUS, WAVES, FRONTIER, paper/README and OPERATIONS for the old constants, thresholds, index ranges, point depths, census floors and open-relaxation wording, including grouped/spaced numbers and neighbouring lines. No z80 consistency change found for either README. No surviving **current** `9/(32π²)`, `149+137`, `27 primes`, `m≤12`, or `2√2` record outside the issues above. Dated z75–79 WAVES/FRONTIER/OPERATIONS mentions, the z79 ledger description, and actual depth-14 cylinder arguments are historical and should stay. FRONTIER:495,2499–2504,319–21,2644–45 are important *current* passages even though not all their stale text was in the diff. The historical 1.59T value in STATUS:182 is explicitly an earlier floor, not a second record.
 * No new fixed-4 exponent, no all-depth endpoint proof at 17, no infinite all-exponent Proth theorem, no unconditional two-sided normal order, no IE₁⁻ separation and no standard ES proof or counterexample. `R(p)>0` on the word slice is sufficient only. Correcting the export does not retract a source theorem. No new externally published record or independent verification of external priority is certified here.
+
+## Application log
+
+Applied on the review branch at the orchestrator's request; the findings and line references above describe the **original** export.
+
+| Finding | Applied | Finding | Applied |
+|---|---|---|---|
+| 1 — Type I/II coefficients and rates | Yes | 10 — Proth index, cores and Lean scope | Yes; index kept out of STATUS |
+| 2 — triangle, discrepancy hypothesis, deficit | Yes | 11 — fixed windows and prime populations | Yes |
+| 3 — uniform numerator and fixed-4 distinction | Yes | 12 — height vs gap triage | Yes; gap comparison attached to §1D, §1F duplicate removed |
+| 4 — cap, effective bounds, QB vs QR reviews | Yes | 13 — R₈ and (MS⁺₁₀₅) certification coverage | Yes |
+| 5 — polynomial box, prime population, word tails and line cap | Yes | 14 — hypothetical-failure checklist | Yes |
+| 6 — separate models and conditional existence of a failure | Yes | 15 — synchronized planting, packet and marginal bounds | Yes |
+| 7 — broad factorial screen vs scoped linear error | Yes | 16 — four labeled §6 lines | Yes |
+| 8 — sterile measure, prefix charges and finite endpoints | Yes | 17 — §5 records and §7 digest | Yes; per orchestrator, retain and correct the digest and z72–z80 masthead rather than delete them |
+| 9 — transfer progression and gcd-test quantifiers | Yes | 18 — review counts, dates and disposition | Yes; z80 dated 2026-11-21/22 |
+
+Re-read the four-master diff and checked the six consistency-duty files for stale current records. STATUS: 244 lines, maximum six per §1 item. WAVES z80: nine nonblank body lines (ten with separator), all four parts present. This application changes no note or certificate.
