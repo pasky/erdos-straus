@@ -1,6 +1,6 @@
 Result: Shortest depth exactly two occurs at ≫X/log²X hard primes in a dyadic interval; a ratio-preserving symmetric plane sends the half-integral W to an elementary integral split on a density-one hard prime family, with rank ≥2 on an explicit subprogression.            Label: PROVED (rel. ordinary BV, linear and upper sieves, the cited dynamics, algebra and specialization inputs); CONDITIONAL on Dickson for unbounded delay; CERTIFIED for stated finite scopes
 Scope: Pointwise growth, large-subgroup saturation and exact-depth supplies, not universal escape. The W move needs a divisor of p+1; the rank-four secant pencils start with a known solution. No new all-prime integrality theorem. ES in ℕ remains open.
-Review: cross-model (`data/z82/xreview/REVIEW_WALKS_FIBRES_R1_OPUS.md`, Opus R1: all outputs replayed; scope, headline, proof wording and replay fixes applied)
+Review: cross-model (`data/z82/xreview/REVIEW_WALKS_FIBRES_R1_OPUS.md`, Opus R1: all outputs replayed; scope, headline, proof wording and replay fixes applied); §§7–11 R2 cross-review owed (Opus OAuth refresh expired before any review was produced)
 Triage: BARRIER-SCOPED
 STATUS delta: none
 
