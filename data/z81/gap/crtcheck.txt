@@ -1,0 +1,3 @@
+unit? False period 96577 all-fail 79826 law size 96577 hist [79826, 8879, 7096, 753, 22, 1, 0, 0]
+unit? True period 96577 all-fail 61997 law size 76032 hist [61997, 7314, 6022, 677, 21, 1, 0, 0]
+starved primitive generator control 4063936801 x11=3* 13 * 26050877 Kgen=Ksub= 11 g= 55 triple (1015984214, 75070829754721213, 42454406437943832605617236700582)

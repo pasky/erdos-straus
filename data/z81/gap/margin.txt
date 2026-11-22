@@ -1,0 +1,2 @@
+direct level 49539/50000 switched 49539/50000 zeta 9723/20000 normalized lower > 7531/100000 upper < 7523/100000 margin > 1/12500 (exact rational)
+direct level 19977/20000 switched 4999/10000 zeta 498259/1000000 normalized lower > 9349/1000000 upper < 1861/200000 margin > 11/250000 (exact rational)
