@@ -19,6 +19,5 @@ fibre k,r,s,Q,b1: 7 169 1 105 22
 fibre k,r,s,Q,b1: 7 289 1 105 37
 fibre k,r,s,Q,b1: 7 361 1 105 46
 fibre k,r,s,Q,b1: 7 529 1 105 67
-t, rich-layer tilt recovery, denominator exponent (single layer): 2.718281828459045 1.718281828459045 0.8160602794142788
-t, rich-layer tilt recovery, denominator exponent (single layer): 3 2.0 0.8333333333333334
-tilted denominator exponent at and above log 3: 0.6666666666666666
+toy H2: k, quotient-square=determinant sum, disjoint edges, spurious unrestricted pairs: 3 2776 10 41430
+toy H2: k, quotient-square=determinant sum, disjoint edges, spurious unrestricted pairs: 7 1596 2 41261

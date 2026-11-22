@@ -1,7 +1,7 @@
 """Lane 4 finite checks (stdlib only). No asymptotic is inferred from a census."""
 from fractions import Fraction as F
-from math import gcd, isqrt, prod, sqrt, pi, log, e
-from itertools import product
+from collections import Counter
+from math import gcd, isqrt, prod, sqrt, pi
 
 
 def primes(n):
@@ -97,15 +97,34 @@ for k in [3,7]:
         assert all(chi(q,k)==1 for q in primes(s) if s%q==0)
         assert all(Q%q==0 for q in [2,3,5,7] if chi(q,k)!=1)
         print('fibre k,r,s,Q,b1:',k,r,s,Q,b//s)
-    # Check the recalled-label phase: integer determinant mod p and line.
-    for q in [11,13,17,19]:
-        b=-k; P=31*37
-        for n,f,h0 in product(range(1,7), range(1,5), range(-5,6)):
-            det=b*(P-q*n*f)
-            assert det%q!=0 and h0*pow(det,-1,q)%q==h0*pow(b*P,-1,q)%q
 
-for t in [e,3]:
-    I=lambda x: 1-x+x*log(x)
-    assert abs(t*log(t)-I(t)-(t-1))<1e-12
-    print('t, rich-layer tilt recovery, denominator exponent (single layer):',t,t*log(t)-I(t),1-1/(2*t))
-print('tilted denominator exponent at and above log 3:',2/3)
+# Toy H2 with signed coefficients: compare the actual quotient square with a
+# separate enumeration by determinant and measure the false noncoprime edges.
+# No Fourier estimates or primality asymptotics are being tested here.
+labels = [i*j for i in (11,13) for j in (17,19)]
+mn = Counter()
+for m in range(360,721):
+    for n in range(320,641):
+        if gcd(m*n, 2*11*13*17*19)==1:
+            mn[m*n] += (-1 if m%4==3 else 1)*(1+n%4)
+for k in [3,7]:
+    byH=Counter()
+    for P,cnt in mn.items():
+        for a in labels:
+            if (P+k)%a==0:
+                byH[(P+k)//a]+=cnt
+    direct=sum(x*x for h,x in byH.items() if h%(k+1)==0)
+    paired=spurious=disjoint=0
+    for a in labels:
+        for c in labels:
+            for P,cnt in mn.items():
+                num=c*P+k*(c-a) # cP-aP'=k(a-c)
+                if num%a or (Q:=num//a) not in mn: continue
+                if (P+k)%a:
+                    assert gcd(a,c)>1
+                    spurious+=1; continue
+                if ((P+k)//a)%(k+1)==0:
+                    paired+=cnt*mn[Q]
+                    disjoint+=gcd(a,c)==1
+    assert direct==paired and min(paired,spurious,disjoint)>0
+    print('toy H2: k, quotient-square=determinant sum, disjoint edges, spurious unrestricted pairs:',k,direct,disjoint,spurious)
