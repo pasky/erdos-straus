@@ -32,8 +32,16 @@ def check(unit):
     print('unit?',unit,'period',Q,'all-fail',haar[0], 'law size',den,'hist',haar)
 if __name__=='__main__':
     check(False);check(True)
-    from z81_gap_audit import gap,isprime,genus
+    from z81_gap_audit import gap,isprime,genus,factor
     p,b,r=4063936801,13,26050877
     assert all(isprime(t) for t in (p,b,r)) and p==12*b*r-11 and p%11==1 and b%11==2
     q,kg=genus(p);g,triple=gap(p);assert kg==11 and g==55
-    print('starved primitive generator control',p,'x11=3*',b,'*',r,'Kgen=Ksub=',kg,'g=',g,'triple',triple)
+    for ks in range(3,kg+1,4):
+        H={1}
+        for a in [p]+[u for u,_ in factor((p+ks)//4)]:
+            powers={1};w=a%ks
+            while w not in powers:powers.add(w);w=w*a%ks
+            H={v*w%ks for v in H for w in powers}
+        if ks-1 in H:break
+    assert ks==kg and ks-1 in H
+    print('starved primitive generator control',p,'x11=3*',b,'*',r,'Kgen=Ksub=',ks,'g=',g,'triple',triple)
