@@ -268,6 +268,7 @@ sieve / composite multipliers à la 3/4 note / mass-driven CRT ceiling):
 `  e:                  0      1      2      e`
 `  prime-modulus LS:   2/3    3/4    4/5    (e+2)/(e+3)    PROVED (CAP_GROWING Thm 1.4; Thm 2.1 uniform)`
 `  3/4-note multipliers: 3/4  4/5    5/6    (e+3)/(e+4)    Assessment: only the class supply changes (Cor 5.2)`
+> **Update (z81):** The `e = 1` multiplier row (`4/5`) is now PROVED on all integers `2 ≤ n ≤ N` (`#{n ≤ N : e*(n) > 1} ≪ N exp(−c(log N)^{4/5})`, and `≪ N exp(−c(log N)^{3/4}(log₂N)^{1/4})` for root 1 or prime), via two packet/supply derivations sharing the z79/TQ transfer, twice Opus cross-reviewed (`notes/z81/CAP_ZERO.md` Thm V, `notes/z81/SPECIFIC_CLASS.md` Thm C1, `data/z81/xreview/REVIEW_CAP_RECORDS_OPUS2.md`). The `e = 1` KARY3-type ceiling remains an Assessment.
 `  KARY3-type ceiling:  3/4    4/5    5/6    (e+3)/(e+4)    Assessment (KARY3 itself does NOT apply for e ≥ 1)`
 KARY3 / LARGESIEVE3–4 / the sieve-limits note cap mixtures of ℛ(M), (a,D), Case-A and selector classes; 𝒟_e(M) ⊋
 𝒟_0(M) = ℛ(M) for e ≥ 1 (odd even-excess exponents), so those theorems do not apply to ES^{(y,e)} — exactly why

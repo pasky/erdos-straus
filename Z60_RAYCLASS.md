@@ -193,7 +193,8 @@ the quartic residues. The 9 303 primes that split completely in L₁ but not L�
 **on this sample** (primes q ≤ 2·10⁶ splitting completely in L₁), the ring class in Cl(−1156) modulo its order-2
 subgroup coincides with the quartic residue character of q mod 17. The group theorem guarantees *some* cyclic quartic
 subfield of L₁L₂. Its identification with the quartic subfield of ℚ(ζ₁₇) (up to a χ_{−4}-twist, which is invisible on
-q ≡ 1 (4)) rests on this sample and was not proved here. This is classical in spirit (rational
+q ≡ 1 (4)) rests on this sample and was not proved here.
+> **Erratum (z81):** Identification up to inversion and `χ_{−4}` is now PROVED (via dyadic inertia); furthermore, any finite compositum of imaginary quadratic ring class fields (or mixed real/imaginary bases sharing an odd ramified prime `p`) has abelian exponent dividing 4 (`C | 60`), Hilbert-only dividing 2 (`C | 6`), while unrestricted mixed real/imaginary menus of base rank `r` have sharp exponent `2^r`. See `notes/z81/S_U7_FORCE.md` §§4, 6. This is classical in spirit (rational
 quartic reciprocity: Burde 1969; Lemmermeyer, Acta Arith. 67 (1994) eq. (7), "(p/q)₄(q/p)₄ = ((ac − bd)/q)"; source
 check §8). It is quoted here only for its consequence: **WINDMILL_REDUCTION Prop 10.3 and B2_ACROSS_FIELDS "F6"
 ("class-group / genus data see only the quadratic shadow") are per-field statements.** For joint data across fields
