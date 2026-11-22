@@ -47,7 +47,7 @@ static u64 check(u64 p){
 static i64 inv(i64 a,i64 m){i64 x=1,y=0,b=m;while(b){i64 q=a/b,r=a%b;a=b;b=r;r=x-q*y;x=y;y=r;}assert(a==1);return (x%m+m)%m;}
 int main(int argc,char**argv){
  assert(argc==6);u64 step=strtoull(argv[1],0,10),base=strtoull(argv[2],0,10),first=strtoull(argv[3],0,10),cnt=strtoull(argv[4],0,10),lim=strtoull(argv[5],0,10);
- assert((u128)step*(first+(u128)cnt)+base<100000000000000ULL && cnt<=500000000 && base%8==1 && step%8==0 && lim<=5000000);
+ assert((u128)step*(first+(u128)cnt)+base<99000000000000ULL && cnt<=500000000 && base%8==1 && step%8==0 && lim<=5000000);
  for(int i=2;i<1000;i++)if(isprime(i))sp[nsp++]=i;
  unsigned char* closed=calloc(cnt,1);assert(closed);
  for(u64 f=7;f<=lim;f+=8){if(!ok(f))continue;
