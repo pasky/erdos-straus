@@ -1,0 +1,26 @@
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 5 (-2, -2, -1) 9 [[3], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 17 (-2, -2, -1) 15 [[], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 41 (-2, -2, -1) 27 [[7], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 73 (-2, -2, -1) 9 [[], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 109 (-2, -2, -1) 27 [[11], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 409 (-2, -2, -1) 27 [[], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 577 (-2, -2, -1) 15 [[], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 2521 (-2, -2, -1) 27 [[], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 3361 (-2, -2, -1) 15 [[], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 5569 (-2, -2, -1) 27 [[], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 9601 (-2, -2, -1) 9 [[], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 21841 (-2, -2, -1) 27 [[], []]
+W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb 8813281 (-2, -2, -1) 27 [[], []]
+ES -> nontrivial locally clearable, Type I/II 17 [2, 2]
+ES -> nontrivial locally clearable, Type I/II 41 [3, 4]
+ES -> nontrivial locally clearable, Type I/II 409 [9, 6]
+ES -> nontrivial locally clearable, Type I/II 577 [11, 7]
+ES -> nontrivial locally clearable, Type I/II 2521 [6, 3]
+ES -> nontrivial locally clearable, Type I/II 3361 [13, 2]
+unit-chart tests, trapped exponent-4 example exists 12731 True
+prime 4/p panel chart counts (prime status of large rows from cited ledgers) {'t%p=0': 18, 'split': 4, 'outside': 2}
+unlinked small carriers and reverse pivots OK
+Dickson offset control 10311841 least successful prefix size 2 (15950112299355, 97848493216151605708245270, Fraction(7733882, 3))
+rectangle p D -> 13 -> 11 1134841 2107631 prime verified
+rectangle p D -> 13 -> 11 1924976761 3574956911 composite
+rectangle p D -> 13 -> 11 3848818681 7147806191 composite

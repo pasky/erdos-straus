@@ -1,0 +1,8 @@
+half-level tags identity and no reduced-class collision; total, r=3, k>1 1417 117 108
+composite r sample (n,a,r,v,k,l,w,triple) (163489, 11, 15, 13, 7, 37997, 31, (40920, 10871201055, Fraction(527088536, 15)))
+split quartic (p,D,prime factors) 13441 2049494447 [7, 11, 13, 113, 18119]
+TCk<=11 3361 [(11, 1, 1)]
+TCk<=11 2521 []
+TCk<=11 13441 []
+TCk<=11 21841 [(11, 1, 1)]
+TCk<=11 234361 [(11, 1, 1)]
