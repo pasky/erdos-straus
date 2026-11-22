@@ -1,0 +1,4 @@
+unconditional grid (a,b,tau): 31/80 57/1000 999/2000 lower, cost3, cost7(>=6), net (1e-12 units): 421136185125 412330051185 7295315712 1510818228
+unconditional grid (a,b,tau): 31/80 23/400 999/2000 lower, cost3, cost7(>=6), net (1e-12 units): 417813030327 413473144397 7054561350 -2714675420
+bare asymmetric full-convolution switch, b=0.0338, lower minus cost: 1095284378
+ordinary conditional tau,z0, enhanced cost and margin (1e-12 units): 9569/10000 7/20 1149438437730 1007540655
