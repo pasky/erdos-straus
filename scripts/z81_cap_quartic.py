@@ -1,5 +1,6 @@
 """Exact packet, residue uniqueness and cubic divisor-budget checks (small boxes only)."""
 from math import gcd, prod
+from functools import lru_cache
 from fractions import Fraction
 from z81_cap_probe import factors, divisors, prime, packet
 
@@ -54,4 +55,29 @@ def cubic():
                 assert (p*p*((s**3+1)//m)+2*p+m)%(s*s)==0
     return cnt
 
-if __name__=='__main__': print('V collision/packet checks, multisupport example:',ratio()); print('h=3 exact packets and height integrality:',cubic())
+def neighbor():
+    # R3 reviewer's J=1 case. factorint proposes decompositions; Lucas tests
+    # below independently certify every prime used, including the input p.
+    from sympy import factorint
+    @lru_cache(None)
+    def certified_prime(p):
+        if p==2: return True
+        f={int(l):int(e) for l,e in factorint(p-1).items()}
+        assert prod(l**e for l,e in f.items())==p-1 and all(certified_prime(l) for l in f)
+        return all(any(pow(a,p-1,p)==1 and gcd(pow(a,(p-1)//l,p)-1,p)==1 for a in range(2,min(p,10000))) for l in f)
+    p=3189177846574333650961; x=797296593515992469436; m=4*x-p
+    assert certified_prime(p) and (9*p+4)%m==0 and m%12==11
+    packet(p,m,9*x*x,3)
+    counts=[]
+    for j in [-1,0,1]:
+        k=x+3*j; mod=4*k-p; N=p*k
+        ff={int(l):int(e) for l,e in factorint(k).items()}; ff[p]=1
+        assert prod(l**e for l,e in ff.items())==N and all(certified_prime(l) for l in ff)
+        ds=divisors({l:2*e for l,e in ff.items()}); assert all((d+N)%mod for d in ds); counts.append(len(ds))
+    return p,x,counts
+
+if __name__=='__main__':
+    cnt,multi,example=ratio()
+    print(f'V collision-safe checks={cnt}, composite roots therein={multi}; separate multisupport example (n,r,a,v,w)={example}')
+    print('h=3 exact packets and height integrality:',cubic())
+    print('J=1 fixed x+3j misses (p,x,divisors examined):',neighbor())
