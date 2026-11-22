@@ -92,7 +92,27 @@ def inv_examples():
     return sorted(cnt.items()),worked
 
 
+def prescribed():
+    C=Counter(); exc=None
+    for s in range(3,100,2):
+        if not prime(s): continue
+        for p in range(17,6000,8):
+            if not prime(p) or pow(p,(s-1)//2,s)!=s-1: continue
+            q=next(q for q in range(3,20000,4) if (q+p)%s==0 and prime(q))
+            a=5 if ((s**5+1)//(s+1))%q else 13
+            F=(s**a+1)//(s+1); h=a*((q-1)//2)
+            m=q if (p+q)%(s*s) else q*F; K=(p+m)//4
+            assert F%q and K%s==0 and K%(s*s)!=0 and pow(s,h,m)==m-1
+            C['modular']+=1; C['use13']+=a==13; C['lifted']+=m!=q
+            if h<=400:
+                _,y,_=packet(p,m,K*s**h,s**((h-1)//2)); assert y%s==0
+                C['fractions']+=1
+            if a==13 and m!=q: exc=(p,s,q,a)
+    return sorted(C.items()),exc
+
+
 def main():
+    print('prescribed nonresidue packets (including simultaneous collision+lift):',prescribed())
     print('fixed-x obstruction on 1 mod 840 (p,m,K,factors):',find_block())
     print('inverse packets:',inv_examples())
     zeros=[int(t) for t in Path('data/z58/screens/star_prime_zeros.txt').read_text().splitlines() if t and not t.startswith('#')]
