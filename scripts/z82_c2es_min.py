@@ -56,11 +56,11 @@ def solve(n,M,D,limit):
 
 def test(n,M):
     complete=n<1000
-    for D in range(3,62,2):
-        if gcd(D,n)>1:continue
+    eligible=[D for D in range(3,62,2) if gcd(D,n)==1]
+    for D in eligible:
         xyz=solve(n,M,D,3*D*n//M+2 if complete else 50)
         if xyz:
-            print(n,M,D,'minimum' if complete or D==3 or (D==5 and n%3==0) else 'upper', *xyz);return
+            print(n,M,D,'minimum' if complete or D==eligible[0] else 'upper', *xyz);return
     print(n,M,'no hit to 61', 'exhaustive' if complete else 'partial offsets')
 
 

@@ -2,7 +2,7 @@
 from fractions import Fraction as F
 from math import gcd,prod
 from pathlib import Path
-from z82_c2es_min import divs,solve
+from z82_c2es_min import divs,factors,solve
 from z82_c2es_panel import prime,check
 from z82_c2es_moves import move,v
 from z82_c2es_normal import all_integral
@@ -37,18 +37,24 @@ def lanes():
         while stack:
             u,last,r=stack.pop();assert tuple(v(a,2) for a in u)==vs
             if r: stack.extend((move(u,i),i,r-1) for i in range(3) if i!=last)
+        # This negative certificate requires all divisors, unlike the capped witness search.
+        fb=factors(b)
+        assert prime(p) and p not in fb and all(prime(q) for q in fb)
+        assert prod(q**k for q,k in fb.items())==b
+        g=p*b; ds=divs(((p,2),(b,2)))
+        assert len(set(ds))==3*prod(2*k+1 for k in fb.values()) and all(g*g%e==0 for e in ds)
         rows=[]
         for x,j in ((b,p+2),(p*b,2*p+1)):
-            g=p*b; hits=set()
+            hits=set()
             for D in divs(((b,1),)):
                 if D==1:continue
-                for e in divs(((g,2),)):
+                for e in ds:
                     if gcd(e,D)>1 or (e+g*D)%j:continue
                     Z=(e+g*D)//j;B=(g//D+g*g//e)//j
                     check(p,4,(x,D*B,F(Z,D)));assert gcd(D,Z)==1
                     hits.add(D)
             rows.append(sorted(hits))
-        print('W: p, 2-valuations of shares, all D>1 at b and pb',p,vs,rows)
+        print('W: p, 2-valuations of shares, #divisors of g², all D>1 at b and pb',p,vs,len(ds),rows)
     for p in (17,41,409,577,2521,3361):
         tallies=[0,0]
         for xyz in all_integral(p):
@@ -107,9 +113,9 @@ def rectangles():
         for xyz in rows:
             check(p,4,xyz);assert xyz[0]%xyz[2].denominator==xyz[1]%xyz[2].denominator==0
         assert [w[-1].denominator for w in rows]==[D,13,11] and D>p and 2*g*11**2-11<=p
+        assert [v(F(w),13) for w in rows[0]]==[0,0,0] and sorted(v(F(w),13) for w in rows[-1])==[0,1,1]
         if J==496:
             assert prime(37) and prime(56963) and 37*56963==D
-            assert [v(F(w),13) for w in rows[0]]==[0,0,0] and sorted(v(F(w),13) for w in rows[-1])==[0,1,1]
         print('rectangle p D -> 13 -> 11',p,D,'prime verified' if prime(p) else 'composite')
 
 if __name__=='__main__':lanes();chart();rectangles()
