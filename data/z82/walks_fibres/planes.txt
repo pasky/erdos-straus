@@ -1,0 +1,6 @@
+p 409 k 8219 unordered 15 all signed-integer kprime/k hits [] individual upper bound 3284583505
+p 577 k 11579 unordered 18 all signed-integer kprime/k hits [] individual upper bound 270225821292
+p 2521 k 15137 unordered 9 all signed-integer kprime/k hits [] individual upper bound 332899259027
+p 3361 k 20177 unordered 15 all signed-integer kprime/k hits [] individual upper bound 308848532868204
+p 102001 k 1632047 unordered 61 all signed-integer kprime/k hits [] individual upper bound 601213125667012851825
+p 8813281 k 141012527 unordered 165 all signed-integer kprime/k hits [] individual upper bound 3942220602079066737446625822108

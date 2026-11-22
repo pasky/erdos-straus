@@ -1,0 +1,28 @@
+hit 183783601 q 19 depth 4 pops 343 path 19 9189181 314 20420435 111 t 16895 v 98
+hit 409 q 7 depth 0 pops 1 path 7 t 15 v 4
+hit 577 q 5 depth 0 pops 1 path 5 t 39 v 3
+hit 5569 q 13 depth 4 pops 107 path 13 2791 76 1129 17 t 47 v 7
+hit 9601 q 13 depth 0 pops 1 path 13 t 39 v 19
+hit 23929 q 7 depth 0 pops 1 path 7 t 855 v 4
+hit 83449 q 13 depth 3 pops 143 path 13 41731 2845 26 t 51 v 63
+hit 102001 q 23 depth 0 pops 1 path 23 t 1109 v 4
+hit 329617 q 5 depth 0 pops 1 path 5 t 21975 v 3
+hit 712321 q 23 depth 0 pops 1 path 23 t 2581 v 12
+hit 1134241 q 7 depth 0 pops 1 path 7 t 40509 v 4
+hit 1724209 q 13 depth 2 pops 8 path 13 131 116 t 991 v 15
+hit 1726201 q 19 depth 3 pops 35 path 19 86311 8714 615 t 27 v 104
+hit 5212561 q 11 depth 1 pops 3 path 11 122 t 7 v 6111
+hit 8813281 q 17 depth 2 pops 39 path 17 2678 381 t 2103 v 11
+hit 17 q 3 depth 0 pops 1 path 3 t 2 v 4
+hit 241 q 7 depth 0 pops 1 path 7 t 9 v 4
+hit 2521 q 11 depth 4 pops 44 path 11 211 683 89 29 t 44 v 2
+hit 3361 q 11 depth 3 pops 40 path 11 1124 39 34 t 20 v 5
+hit 21841 q 11 depth 3 pops 104 path 11 1214 7685 38 t 64 v 9
+hit 76441 q 11 depth 2 pops 16 path 11 554 29 t 879 v 3
+hit 113035442521 q 17 depth 2 pops 9 path 17 607717433 34 t 664914368 v 5
+hit 2238327841 q 11 depth 2 pops 28 path 11 746109284 29 t 7718372 v 10
+hit 4367159449 q 17 depth 2 pops 29 path 17 1455719822 59 t 46 v 1609716
+hit 3153419441929 q 41 depth 3 pops 203 path 41 15016283057 31063095343 202 t 1654232 v 9437
+hit 1590284203561 q 43 depth 0 pops 1 path 43 t 30 v 1233734836
+hit 6955940568721 q 17 depth 0 pops 1 path 17 t 68195495772 v 6
+tested 27 histogram 12 1 6 5 3 worst_pops 343 at 183783601
