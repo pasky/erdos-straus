@@ -1,0 +1,3 @@
+V collision-safe checks=2607, composite roots therein=0; separate multisupport example (n,r,a,v,w)=(74291, 15, 7, 11, 13)
+h=3 exact packets and height integrality: 41
+J=1 fixed x+3j misses (p,x,divisors examined): (3189177846574333650961, 797296593515992469436, [45, 135, 27])
