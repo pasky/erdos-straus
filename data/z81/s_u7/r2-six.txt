@@ -1,0 +1,5 @@
+step=120120 base=1 first=41000000 count=100000000 sieveF=2000000 survivors=2160 primeSurvivors=26 nosix=0 maxReturnedF=6507082972023
+step=720720 base=1 first=1000000 count=60000000 sieveF=2000000 survivors=1113 primeSurvivors=20 nosix=0 maxReturnedF=14481972125639
+step=24504480 base=1 first=100000 count=3000000 sieveF=2000000 survivors=84 primeSurvivors=0 nosix=0 maxReturnedF=0
+step=892371480 base=1 first=1 count=100000 sieveF=3000 survivors=844 primeSurvivors=164 nosix=0 maxReturnedF=82770933506279
+step=25878772920 base=1 first=1 count=3800 sieveF=500 survivors=337 primeSurvivors=65 nosix=0 maxReturnedF=44537368195487

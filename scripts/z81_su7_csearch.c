@@ -12,8 +12,14 @@ static void safe_divs(u64 N,u64 L,u64 r,u64 max){
  factor(N); u64 count=1;for(int i=0;i<nf;i++)count*=fe[i]+1;
  assert(count<=sizeof(divs)/sizeof(*divs));gL=L;gR=r%L;gMax=max;nd=0;gen(0,1);
 }
+#ifdef SIX
+static int ct[] = {1,3,5,7,9,25};
+#define MENUNAME "six"
+#else
 static int ct[] = {1,3,5};
-static int ok(u64 f){if(f%8!=7)return 0;for(int j=0;j<3;j++)if(f%ct[j]==0 && isprime(f/ct[j]))return 1;return 0;}
+#define MENUNAME "135"
+#endif
+static int ok(u64 f){if(f%8!=7)return 0;for(size_t j=0;j<sizeof(ct)/sizeof(ct[0]);j++)if(f%ct[j]==0 && isprime(f/ct[j]))return 1;return 0;}
 static u64 word(u64 p,u64 x,u64 y,u64 z){
  assert((u128)x*y*z==p+x+z && x && y && z);
  u64 a=x*y-1,b=z*y-1;
@@ -56,8 +62,8 @@ int main(int argc,char**argv){
  u64 left=0,prime=0,none=0,last=0;
  for(u64 i=0;i<cnt;i++)if(!closed[i]){
    left++;u64 p=base+step*(first+i);if(!isprime(p))continue;prime++;u64 f=check(p);
-   if(!f){printf("NO135 %" U "\n",p);fflush(stdout);none++;}else {u64 r=f-p%f;assert(r<f&&(f+1)%r==0);if(f>last)last=f;}
+   if(!f){printf("NO" MENUNAME " %" U "\n",p);fflush(stdout);none++;}else {u64 r=f-p%f;assert(r<f&&(f+1)%r==0);if(f>last)last=f;}
  }
- printf("step=%" U " base=%" U " first=%" U " count=%" U " sieveF=%" U " survivors=%" U " primeSurvivors=%" U " no135=%" U " maxReturnedF=%" U "\n",step,base,first,cnt,lim,left,prime,none,last);
+ printf("step=%" U " base=%" U " first=%" U " count=%" U " sieveF=%" U " survivors=%" U " primeSurvivors=%" U " no" MENUNAME "=%" U " maxReturnedF=%" U "\n",step,base,first,cnt,lim,left,prime,none,last);
  free(closed);return 0;
 }
