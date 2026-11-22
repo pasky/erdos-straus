@@ -1,0 +1,40 @@
+D -1827908 invariants [176, 4] gens [Qfb(181, -98, 2538), Qfb(294, 122, 1567)] chi 17 [-1, -1]
+prime 83 form Qfb(83, 82, 5526) quartic_log 2
+prime 2447 form Qfb(747, -746, 798) quartic_log 0
+D -31074436 invariants [208, 8] gens [Qfb(5, 2, 1553722), Qfb(1223, 170, 6358)] chi 17 [-1, 1]
+prime 83 form Qfb(83, 10, 93598) quartic_log 2
+prime 2447 form Qfb(2447, 204, 3179) quartic_log 2
+D -18757255 invariants [1476, 2] gens [Qfb(2, 1, 2344657), Qfb(11, 11, 426304)] chi 5 [-1, 1]
+prime 151 form Qfb(151, 95, 31070) quartic_log 0
+prime 239 form Qfb(239, 95, 19630) quartic_log 0
+D -93786275 invariants [1388, 2] gens [Qfb(3, 1, 7815523), Qfb(275, 275, 85329)] chi 5 [-1, 1]
+prime 151 form Qfb(151, 91, 155289) quartic_log 2
+prime 239 form Qfb(239, 77, 98109) quartic_log 0
+control 409 [(1, 1, 1), (1, 1, 0), (2, 1, 1)] counts 0 3 4
+control 577 [(1, 1, 1), (1, 1, 1), (2, 0, 0)] counts 0 6 9
+control 2521 [(1, 1, 1), (1, 1, 0), (2, 1, 0)] counts 1 1 2
+control 3361 [(1, 1, 1), (1, 1, 1), (2, 1, 0)] counts 1 2 4
+control 5569 [(1, 1, 1), (1, 1, 1), (2, 1, 1)] counts 0 6 8
+control 9601 [(1, 1, 1), (1, 1, 1), (2, 1, 0)] counts 0 2 4
+control 21841 [(1, 1, 1), (1, 1, 1), (2, 1, 0)] counts 3 3 1
+control 23929 [(1, 1, 1), (1, 1, 0), (2, 1, 0)] counts 0 12 21
+control 76441 [(1, 1, 1), (1, 1, 0), (2, 1, 0)] counts 2 3 7
+control 83449 [(1, 1, 0), (1, 1, 1), (2, 1, 0)] counts 0 3 7
+control 102001 [(1, 1, 1), (1, 1, 1), (2, 1, 1)] counts 0 5 13
+control 329617 [(1, 1, 0), (1, 1, 0), (2, 0, 0)] counts 0 8 20
+control 712321 [(1, 1, 1), (1, 1, 1), (2, 1, 0)] counts 0 4 11
+control 1134241 [(1, 1, 0), (1, 1, 0), (2, 1, 0)] counts 0 11 26
+control 1724209 [(1, 1, 0), (1, 1, 0), (2, 1, 0)] counts 0 7 18
+control 1726201 [(1, 1, 0), (1, 1, 1), (2, 1, 1)] counts 0 6 11
+control 5212561 [(1, 1, 1), (1, 1, 1), (2, 1, 1)] counts 0 13 26
+control 8813281 [(1, 1, 1), (1, 1, 1), (2, 1, 1)] counts 0 11 23
+rank8 triple, p count, R zeros, means of R U7 HJ3good (unordered; descriptive only), min R U7 S
+(0, 0, 0) 430 0 (12.9, 23.5, 38.25) (2, 5, 10)
+(0, 0, 1) 446 0 (12.61, 23.03, 38.33) (1, 5, 5)
+(0, 1, 0) 443 0 (13.2, 24.44, 39.7) (2, 6, 11)
+(0, 1, 1) 416 1 (13.35, 24.87, 40.65) (0, 6, 4)
+(1, 0, 0) 421 0 (12.94, 24.36, 39.49) (1, 1, 2)
+(1, 0, 1) 428 0 (12.94, 24.23, 39.7) (1, 5, 7)
+(1, 1, 0) 423 1 (12.78, 23.29, 38.61) (0, 2, 1)
+(1, 1, 1) 419 1 (13.01, 23.49, 38.94) (0, 6, 13)
+main 3426

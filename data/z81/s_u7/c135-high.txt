@@ -1,0 +1,1 @@
+step=120120 base=1 first=1000000 count=40000000 sieveF=1500000 survivors=2401 primeSurvivors=72 no135=0 maxReturnedF=4610497578839

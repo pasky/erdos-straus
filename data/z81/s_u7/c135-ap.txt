@@ -1,0 +1,5 @@
+NO135 3361
+NO135 21841
+NO135 76441
+NO135 2238327841
+step=840 base=1 first=0 count=120000000 sieveF=500000 survivors=15178 primeSurvivors=518 no135=4 maxReturnedF=100636537719
