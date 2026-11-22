@@ -1,0 +1,2 @@
+V collision/packet checks, multisupport example: (2607, 0, (74291, 15, 7, 11, 13))
+h=3 exact packets and height integrality: 41
