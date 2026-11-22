@@ -77,5 +77,6 @@ def phase():
 
 
 if __name__ == '__main__':
+    print('Engine: scripts/z82_b34_controls.py | exact integer and Fraction arithmetic | deterministic')
     harris()
     phase()
