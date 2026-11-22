@@ -102,7 +102,7 @@ def prescribed():
             a=5 if ((s**5+1)//(s+1))%q else 13
             F=(s**a+1)//(s+1); h=a*((q-1)//2)
             m=q if (p+q)%(s*s) else q*F; K=(p+m)//4
-            assert F%q and K%s==0 and K%(s*s)!=0 and pow(s,h,m)==m-1
+            assert 4*K==p+m and F%q and K%s==0 and K%(s*s)!=0 and pow(s,h,m)==m-1
             C['modular']+=1; C['use13']+=a==13; C['lifted']+=m!=q
             if h<=400:
                 _,y,_=packet(p,m,K*s**h,s**((h-1)//2)); assert y%s==0
