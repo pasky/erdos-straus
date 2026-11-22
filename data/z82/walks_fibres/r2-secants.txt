@@ -1,0 +1,7 @@
+p 409 ordered nondegenerate skew 90 example (104, 6084, 4976712)
+p 577 ordered nondegenerate skew 108 example (145, 27890, 466683370)
+p 2521 ordered nondegenerate skew 54 example (636, 69748, 131876031)
+p 3361 ordered nondegenerate skew 90 example (841, 942210, 91836266490)
+p 102001 ordered nondegenerate skew 366 example (25502, 371604238, 5894072603377009)
+p 8813281 ordered nondegenerate skew 990 example (2203321, 6472829035494, 447304438314532718777574)
+symmetric X squareclasses [Fraction(-2797741470135360, 77673921984961), Fraction(-13322578429216, 440538121), Fraction(1579005804016770633799680, 8813281)] row masks [1, 7, 4] skew True

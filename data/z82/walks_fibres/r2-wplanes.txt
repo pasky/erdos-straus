@@ -1,0 +1,6 @@
+p 409 symmetric sorted [] least normal through H=100 (7, -36, 2, 6544, 85072, 104)
+p 577 symmetric sorted [] least normal through H=100 (26, -35, -14, 5770, 148, 426980)
+p 2521 symmetric sorted [] least normal through H=100 None
+p 3361 symmetric sorted [] least normal through H=100 None
+p 102001 symmetric sorted [] least normal through H=100 None
+p 8813281 symmetric sorted [(-70548236, 9253945050, 194231052654450, 2203845)] least normal through H=100 None
