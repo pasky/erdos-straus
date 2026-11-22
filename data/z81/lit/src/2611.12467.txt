@@ -1,0 +1,2869 @@
+                                               AN ASYMPTOTIC FORMULA FOR PRIMES OF THE FORM u2 + v 2 + 1
+
+                                                                      YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+
+                                                   Abstract. We prove Motohashi’s conjecture on primes of the form u2 + v 2 + 1, with Iwaniec’s
+                                                   corrected constant. Let b denote the characteristic function of the positive integers representable
+                                                   as a sum of two squares. Then, as x → ∞,
+                                                                                                                                 
+                                                                                                 x                   x
+arXiv:2611.12467v2 [math.NT] 11 Nov 2026
+
+
+
+
+                                                                       X
+                                                                             b(p − 1) = κS              +O           √                ,
+                                                                                             (log x)3/2    (log x)3/2 log log x
+                                                                       p≤x
+                                                                                                              Q                           
+                                                   where κ is the Landau–Ramanujan constant and S = p≡3 (mod 4) 1 − 1/(p(p − 1)) . The proof
+                                                   combines auxiliary prime factors with a mean square estimate for bilinear sums. We obtain the
+                                                   minor arc bound through harmonic switching and high moments, replacing arithmetic divisibility
+                                                   conditions by independent projective lines. We remove the auxiliary weights using Selberg’s sieve.
+
+
+
+
+                                                                                                Contents
+                                             1. Introduction                                                                                              2
+                                             1.1. Outline of the proof                                                                                    3
+                                             2. Preliminary reductions                                                                                    3
+                                             2.1. Auxiliary primes and weights                                                                            3
+                                             2.2. Vaughan’s identity                                                                                      4
+                                             3. The Type I asymptotic                                                                                     5
+                                             3.1. A Bombieri–Vinogradov theorem for the weighted indicator                                                5
+                                             3.2. Reduction of the Type I sums                                                                            6
+                                             3.3. Evaluation of the main term                                                                            10
+                                             4. A mean square estimate and Type II sums                                                                  11
+                                             4.1. The mean square estimate                                                                               11
+                                             4.2. The Type II sums                                                                                       12
+                                             5. Reduction of the minor arc estimate                                                                      13
+                                             5.1. The major and minor arcs                                                                               13
+                                             5.2. Inserting sums over auxiliary primes                                                                   14
+                                             5.3. An operator on labelled points                                                                         15
+                                             5.4. Reduction to a moment estimate                                                                         17
+                                             5.5. Expanding powers of the operator                                                                       18
+                                             6. The moment estimate and exceptional terms                                                                21
+                                             6.1. Averaging over the initial point                                                                       21
+                                             6.2. Construction of an auxiliary operator                                                                  24
+                                             6.3. Lattice and exponential sum estimates                                                                  25
+                                             6.4. The moment estimate                                                                                    27
+                                             6.5. Exceptional terms                                                                                      30
+                                             7. The major arc estimate                                                                                   33
+                                             Date: November 13, 2026.
+                                             2020 Mathematics Subject Classification. Primary 11N37; Secondary 11N05, 11N36.
+                                             Key words and phrases. Motohashi’s conjecture, sums of two squares, shifted primes, auxiliary prime factors,
+                                           Vaughan’s identity, Selberg sieve.
+                                                                                                      1
+2                          YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+    7.1. Estimates for Dirichlet polynomials                                                           33
+    7.2. Proof of Proposition 7.1                                                                      35
+    7.3. Proof of Theorem 4.1                                                                          37
+    8. Removal of the auxiliary weights                                                                38
+    8.1. A weighted asymptotic formula                                                                 38
+    8.2. Averaging the weights                                                                         38
+    8.3. An upper bound for the weighted sum over primes                                               39
+    8.4. Proof of Theorem 1.1                                                                          41
+    References                                                                                         42
+
+
+
+                                             1. Introduction
+   Let b denote the characteristic function of the positive integers of the form u2 + v 2 , where
+u, v ∈ Z. By the Fermat–Euler criterion [17, Section 1.4],
+                                         (
+                                           1,     p = 2 or p ≡ 1 (mod 4),
+                              b(pj ) =                                                               (1.1)
+                                           12|j , p ≡ 3 (mod 4).
+Landau [20] proved an asymptotic formula for the summatory function of b:
+                                    X               x
+                                        b(n) ∼ κ √       ,
+                                    n≤x
+                                                   log x
+                                   −1/2
+where κ = √12 p≡3 (mod 4) 1−p−2
+              Q
+                                         is the Landau–Ramanujan constant. We seek an asymptotic
+formula for p≤x b(p − 1), the number of primes p ≤ x of the form u2 + v 2 + 1. Linnik [21] and
+            P
+
+Bredikhin [4] proved that there are infinitely many such primes. Motohashi [28, 29] obtained a lower
+bound of order x(log x)−2 and formulated an asymptotic conjecture for this count (Conjecture J∗
+[28]). Iwaniec [15, p. 204] corrected its leading constant and used the half-dimensional sieve to
+establish the true order of magnitude
+                                      X                  x
+                                          b(p − 1) ≍            .                               (1.2)
+                                      p≤x
+                                                     (log x)3/2
+  We prove the asymptotic formula conjectured by Motohashi, with Iwaniec’s corrected constant
+and a quantitative error term.
+Theorem 1.1. As x → ∞, we have
+                                           x                     x
+                      X                                                            
+                         b(p − 1) = κS         3/2
+                                                   +O         3/2
+                                                                  √           ,
+                     p≤x
+                                       (log x)        (log x)       log log x
+                                                                                    1
+                                                                                          
+                                                                 p≡3 (mod 4) 1 − p(p−1)
+                                                             Q
+where κ is the Landau–Ramanujan constant and S =                                              > 0.
+   Iwaniec [16, Corollary 2, (2.1)] related the error in this asymptotic formula to the distribution
+of primes in arithmetic progressions:
+                      X                      x
+                                                     1 + O(εγ ) + θ1 E(x, x1−ε ),
+                                                               
+                         b(p − 1) = κS           3/2
+                     p<x                 (log x)
+where ε > log log x/ log x, γ > 0, |θ1 | ≤ 1, and
+                                             X                         Li(x)
+                              E(x, Q) =            max π(x; q, a) −          .
+                                             q<Q
+                                                   (a,q)=1             φ(q)
+
+The Elliott–Halberstam conjecture predicts E(x, x1−ε ) ≪ε,A x(log x)−A for every fixed 0 < ε < 1
+and A > 0. As Iwaniec observed after [16, (2.3)], this bound would yield the conjectured asymptotic.
+                                   PRIMES OF THE FORM u2 + v 2 + 1                                3
+
+1.1. Outline of the proof.      Write L = log x. We first establish an asymptotic formula for the
+weighted sum Θb,W (x, Φ) = n Λ(n)b(n − 1)W(n − 1)Φ(n/x), where Φ is smooth and supported in
+                             P
+
+[1/2, 1]. We form W from the numbers of prime divisors in K disjoint sets Pν of primes congruent
+to 1 modulo 4. These sets lie in the separated ranges defined in (2.4).
+   Vaughan’s identity, in Section 2, reduces the weighted sum to Type I and Type II sums. Section 3
+treats the Type I sums through the distribution of b(n)W(n) in arithmetic progressions. We
+deduce the required Bombieri–Vinogradov estimate from Fouvry and Tenenbaum’s theorem [7,
+Theorem 1.8] by applying Cauchy’s formula to a family of multiplicative functions with complex
+parameters. A Dirichlet convolution with b then reduces the evaluation of the main term to
+Landau’s asymptotic formula and an Euler product.
+   The Type II sums have the form
+               X X
+                        αm βn b(mn − 1)W(mn − 1),           M N ≍ x,    M, N ≥ x1/5 ,
+              m≍M n≍N
+
+where αm = µ(m)miv on its support. The support and coefficient conditions are stated in
+Proposition 4.2. Expanding W(mn − 1) extracts a divisor a = p1 · · · pK , with pν ∈ Pν . Since
+every pν is congruent to 1 modulo 4, the relation mn − 1 = ah implies b(mn − 1) = b(h) without
+a coprimality condition. After dividing a into dyadic intervals, Cauchy’s inequality over h removes
+b(h) and reduces the problem to the mean square QY in (4.3). For each prescribed R > 0,
+Theorem 4.1 proves QY ≪ XY L−R , where X = M N , once K is sufficiently large.
+   Expanding this mean square pairs the equations mn − 1 = ah and rs − 1 = ch, and hence
+introduces the determinant relation
+                                         cmn − ars = c − a.
+We compare QY with its major arc approximation. Sections 5 and 6 estimate the difference by
+harmonic switching and high moments of an operator on labelled primitive points. We follow
+closely the method of [30, 22], adapting it to the auxiliary weights W considered here. We establish
+the high moment estimate and the minor arc comparison in Proposition 5.1.
+   Section 7 estimates the major arcs. We write c = pc′ with p ∈ P1 and, for fixed c′ , obtain a
+prime Dirichlet polynomial of length xo(1) . We collect the unit intervals containing a point where
+this polynomial is large; [18, Lemma 6.5] bounds their number. The contribution outside their
+union is negligible. On these intervals, we combine Möbius cancellation from Lemma 7.2 with the
+mean square estimate in Lemma 7.3. The Möbius estimate uses the bound for 1/L(s, χ) in [27,
+Theorem 24.20], together with the exclusion of Landau–Siegel zeros [1, 11]. This completes the
+proof of Theorem 4.1.
+   Finally, Section 8 removes the auxiliary weights using Selberg’s sieve. Smooth approximation
+then completes the proof of Theorem 1.1.
+
+                                   2. Preliminary reductions
+2.1. Auxiliary primesQ and weights. For the rest of the paper, write L = log x and z =
+exp(L0.24 ). Put P (t) = p≤t p. Write P − (n) and P + (n) for the least and greatest prime factors,
+with P − (1) = ∞ and P + (1) = 1. Write ω(n) = p|n 1 for the number of distinct prime factors.
+                                                 P
+
+We use e(t) = exp(2πit) and eq (t) = e(t/q). An integer n is called z-rough if P − (n) > z. Let
+K ≥ 1 be a fixed integer. Let J = J(x) be an integer satisfying
+                                               log L
+                                                           
+                                       1≤J ≤           .                                       (2.1)
+                                             20K log 2
+Choose
+                               1    (ν − 1)J + j
+                      ϑj,ν =      +                    (1 ≤ j ≤ J, 1 ≤ ν ≤ K).                 (2.2)
+                               10   10(KJ + 1)
+4                           YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+All KJ exponents form an equally spaced grid in (1/10, 1/5). Within each family,
+                                                     J            1        1
+                           ϑj,ν+1 − ϑj,ν =                  ≥           ≥     .
+                                                 10(KJ + 1)   10(K + 1)   20K
+When working with one family we write ϑν for ϑj,ν , so that
+                  1                     1                                    1
+                     < ϑ1 < · · · < ϑK < ,                 ϑν+1 − ϑν ≥               (1 ≤ ν < K).          (2.3)
+                  10                    5                                   20K
+We use
+                       Pν = {p : exp(Lϑν ) < p ≤ exp(2Lϑν ), p ≡ 1 (mod 4)}.                               (2.4)
+These sets, and hence the weights below, depend on x. They are held fixed when an auxiliary
+summation limit varies. Define
+                                                                                     K
+                            X 1                          X                           Y ων (n)
+                    Vν =              ,       ων (n) =          1p|n ,      W(n) =              .          (2.5)
+                           p∈Pν
+                                  p                      p∈Pν                        ν=1
+                                                                                           Vν
+
+                       [                                                                    K
+                                                                                            Y
+                P∗ =       Pν ,           A(P) = {p1 · · · pK : pν ∈ Pν },        V(P) =            Vν .   (2.6)
+                       ν                                                                    ν=1
+
+For (2.4), the prime number theorem in fixed progressions [25, Corollary 11.19] and partial
+summation imply Vν = 12 log 2 + o(1). In particular, 1/4 ≤ Vν ≤ 1/2 for sufficiently large x,
+uniformly in the exponents in (2.3). The weight vanishes unless n has a prime divisor from every
+set Pν . Moreover,
+                                            1    X
+                             0 ≤ W(n) =               1 ≤ 4K d(n).
+                                          V(P) a∈A(P)
+                                                                 a|n
+
+Here d(n) = a|n 1. All primes in P∗ lie below z for sufficiently large x, and a product of one
+              P
+
+prime from each set is xo(1) . Choose once a nonnegative η ∈ Cc∞ ([1, 4]) with j∈Z η(t/2j ) = 1 for
+                                                                                     P
+
+t > 0. In particular, 0 ≤ η ≤ 1. For all sufficiently large x, (2.1) implies log L/[10(KJ + 1)] > log 2.
+Hence all KJ prime sets associated with (2.2) are pairwise disjoint, uniformly in J. The gap within
+each family still satisfies (2.3). The integer J0 introduced in the mean square proof counts shared
+prime labels. Write P (j) = (Pj,1 , . . . , Pj,K ) for the family obtained from (2.4) with exponents ϑj,ν .
+Let Vj,ν , ωj,ν and Wj denote the quantities in (2.5) for this family, and put
+                                                         J [
+                                                         [ K
+                                                   E=              Pj,ν .
+                                                         j=1 ν=1
+
+
+2.2. Vaughan’s identity. The prime sets are given by (2.4). Extend b by zero on nonpositive
+integers, and put f (n) = b(n)W(n). Then 0 ≤ f (n) ≤ 4K d(n). Let Φ ∈ Cc∞ ((0, ∞)) be supported
+in [1/2, 1]. For every integer B ≥ 0, put NB (Φ) = B     (r)
+                                                   r=0 ∥Φ ∥∞ . We record the dependence on Φ
+                                                  P
+
+through these seminorms. Put
+                                                X
+                           Θb,W (x, Φ) =              Λ(n)b(n − 1)W(n − 1)Φ(n/x).
+                                                n≥2
+
+Vaughan’s identity [17, Proposition 13.4, (13.39)] takes the form
+
+                              Θb,W = T1 − T2 + T3 + OA,K (∥Φ∥∞ xL−A ),                                     (2.7)
+                                      PRIMES OF THE FORM u2 + v 2 + 1                                          5
+
+where
+                                   X                  X
+                        T1 =                 µ(d)               (log j)f (dj − 1)Φ(dj/x),
+                                   d≤U0                j≥1
+                                 P − (d)>z          P − (j)>z
+                                    X                           X
+                        T2 =                  µ(d)Λ(ℓ)                 f (dℓj − 1)Φ(dℓj/x),
+                                  d,ℓ≤U0                     j≥1
+                                 P − (dℓ)>z               P − (j)>z
+                                    X
+                        T3 =                  µ(d)cU0 (t)f (dt − 1)Φ(dt/x).                                 (2.8)
+                                  d,t>U0
+                                 P − (dt)>z
+
+Here                                                                X
+                               U0 = x1/5 ,            cU0 (t) =             Λ(ℓ) ≤ log t.
+                                                                     ℓ|t
+                                                                    ℓ>U0
+Indeed, the restriction to z-rough integers only removes prime powers pj with p ≤ z and j ≥ 2.
+Their contribution is OK,ϵ (∥Φ∥∞ zxϵ L) = OA,K (∥Φ∥∞ xL−A ).
+   With n = dj − 1 in T1 , we have n ≡ −1 (mod d); removing the restriction P − (j) > z by Möbius
+inversion introduces moduli dc in T1 and dℓc in T2 , where c | P (z). Section 3 uses the distribution
+of f in arithmetic progressions to evaluate T1 − T2 .
+
+                                       3. The Type I asymptotic
+  We retain the notation of Section 2. We first establish a Bombieri–Vinogradov estimate for
+f = bW and reduce T1 − T2 to a weighted mean of b. A Dirichlet convolution with b and an
+evaluation of the Euler factors then determine its main term.
+3.1. A Bombieri–Vinogradov theorem for the weighted indicator. For 4 ∤ q and (c, q) = 1,
+define
+                                   X             1   X
+                    ∆f (y; q, c) =      f (n) −          f (n).
+                                   n≤y
+                                                φ(q) n≤y
+                                               n≡c (mod q)                           (n,q)=1
+
+Lemma 3.1. For every fixed A > 0,
+                                                    max |∆f (y; q, c)| ≪A,K xL−A .
+                                         X
+                             sup
+                           x/4≤y≤x q≤x0.41 (c,q)=1
+                                     4∤q
+
+The prime sets defining f remain fixed by x throughout the supremum.
+Proof. For complex parameters t = (t1 , . . . , tK ) with |tν − 1| = 1/2, consider the multiplicative
+function
+                                                                  K
+                                                                  Y
+                                              bt (n) = b(n)            tων ν (n) .
+                                                                 ν=1
+For each fixed n, this is a polynomial in the parameters. On these circles |tν | ≤ 3/2, so |bt (pj )| ≤
+3/2 ≤ d(pj ) for j ≥ 1, and hence |bt (n)| ≤ d(n). Its values at primes are
+                                                      (
+                                                         b(p)tν , p ∈ Pν ,
+                                         bt (p) =
+                                                         b(p),    p∈/ P∗ .
+Outside P∗ , the values at odd primes are 1 and 0 in the classes 1 and 3 modulo 4, respectively.
+  As in [7, Definition 1.1], use the increasing sequence formed by
+               2,   exp(Lϑν ),      exp(2Lϑν )         (1 ≤ ν ≤ K),              2j exp(2LϑK )   (j ≥ 1).
+6                                 YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+For sufficiently large x, successive terms have ratio at least 2, by (2.3). Thus they satisfy the
+spacing condition in that definition. If two primes lie in the same interval of this sequence and are
+congruent modulo 4, the displayed prime values agree. It follows that bt ∈ F(4, 2), uniformly in t
+on these circles.
+   For q > 1 with 4 ∤ q, put q4 = (q, 4∞ ) = (q, 4) ∈ {1, 2}. For (c, q) = 1, the main term in [7,
+(1.15)] is
+                               1         X                1     X
+                                                bt (n) =            bt (n).
+                            φ(q/q4 )    n≤y
+                                                         φ(q) n≤y
+                                               n≡c (mod q4 )                       (n,q)=1
+                                                (n,q/q4 )=1
+
+For odd q, every reduced residue class has an odd representative; for even q, every reduced
+representative is odd. Hence the maxima over (c, q) = 1 and (c, 4q) = 1 coincide. For q = 1 the
+discrepancy is zero.
+                                    √
+   For every fixed B > 0, x0.41 < y(log y)−B uniformly for x/4 ≤ y ≤ x once x is sufficiently
+large. Theorem 1.8 of [7] is uniform over F(4, 2). Applying it at each such y, with the prime sets
+and bt still fixed by x, we obtain
+
+                                                                  max |∆bt (y; q, c)| ≪A xL−A .
+                                                       X
+                                sup        sup                                                                          (3.1)
+                              x/4≤y≤x |tν −1|=1/2 q≤x0.41 (c,q)=1
+                                        1≤ν≤K       4∤q
+
+Here ∆bt is defined in the same way as ∆f .
+  By (2.5),
+                                                  K
+                                                                   ∂
+                                                 Y                     
+                                      f (n) =              Vν−1       bt (n)               .
+                                                     ν=1
+                                                                  ∂tν        t1 =···=tK =1
+
+Thus, by Cauchy’s formula,
+                                                 1                            ∆bt (y; q, c)
+                                                             I          I
+                       ∆f (y; q, c) =                             ···        QK               dtK · · · dt1 ,           (3.2)
+                                         (2πi)K V(P)                          ν=1 (tν − 1)
+                                                                                            2
+
+where the νth integral is over the positively oriented circle |tν − 1| = 1/2. Take absolute values in
+(3.2) and move the sum over q and the maximum over c inside the integrals. Since Vν−1 ≤ 4 for
+sufficiently large x, we obtain
+
+                                                                                             max |∆bt (y; q, c)| ≪A,K xL−A ,
+              X                                                                     X
+      sup            max |∆f (y; q, c)| ≤ 8K               sup              sup
+    x/4≤y≤x q≤x0.41 (c,q)=1                           x/4≤y≤x |tν −1|=1/2 q≤x0.41 (c,q)=1
+               4∤q                                              1≤ν≤K       4∤q
+
+by (3.1). This proves the lemma.                                                                                           □
+
+3.2. Reduction of the Type I sums. Put
+                                                                                   Y           1 
+                                               (1 − p−1 ),
+                                         Y
+                               W (z) =                                  wz (n) =         1−         .
+                                         p≤z                                       p≤z
+                                                                                               p−1
+                                                                                   p∤n
+
+Here 0 ≤ wz (n) ≤ 1, and the factor at 2 forces wz (n) = 0 for odd n.
+Lemma 3.2. For every fixed A > 0,
+                                 1 X
+                 T1 − T2 =                b(n)W(n)wz (n)Φ((n + 1)/x) + OA,K (N1 (Φ)xL−A ).
+                                W (z) n≥1
+                                             PRIMES OF THE FORM u2 + v 2 + 1                                                        7
+
+Proof. By homogeneity we may assume N1 (Φ) ≤ 1. All implied constants in this proof may depend
+on K. We first evaluate T1 . By Möbius inversion,
+                                           X                  X                   X
+                              T1 =                   µ(d)              µ(c)                    f (n)Ψd (n),
+                                          d≤U0               c|P (z)             n≥1
+                                       (d,P (z))=1                            n≡−1 (mod dc)
+
+where Ψd (n) = Φ((n + 1)/x) log((n + 1)/d). We truncate the c-sum at R0 = exp(L1/2 ). For each
+d ≤ U0 with (d, P (z)) = 1, interchanging the two inner sums, we get
+                    X                   X                                     X                          X
+                             µ(c)                    f (n)Ψd (n) =                f (n)Ψd (n)                        µ(c).
+                   c|P (z)             n≥1                                 n≥1                       c|(n+1,P (z))
+                   c>R0             n≡−1 (mod dc)                         d|n+1                          c>R0
+
+Here (d, c) = 1, and f (n)Ψd (n) is independent of c. For each n, one has
+                                                     X                            X
+                                                                µ(c) ≤                        1.
+                                               c|(n+1,P (z))                  c|(n+1,P (z))
+                                                   c>R0                        R0 <c≤zR0
+
+By Shiu’s theorem [35, Theorem 1],
+                                             X                           xL
+                                                            d(n) ≪                  (q ≤ x0.41 ).
+                                           n≍x                          φ(q)
+                                        n≡−1 (mod q)
+
+Since f (n) ≪K d(n), |Ψd (n)| ≪ L, and dc ≤ U0 zR0 < x0.41 , the preceding two bounds show that
+the omitted contribution to T1 is
+                                                     X              X               X
+                                        ≪L                                                      d(n)
+                                                  d≤U0       c|P (z)    n≍x
+                                               (d,P (z))=1 R0 <c≤zR0 n≡−1 (mod dc)
+                                                       X            1           X        1
+                                        ≪ xL2
+                                                      d≤U0
+                                                                   φ(d)     c|P (z)
+                                                                                        φ(c)
+                                                   (d,P (z))=1            R0 <c≤zR0
+                                                     X      1
+                                        ≪ xL3                   ,
+                                                   c|P (z)
+                                                           φ(c)
+                                                    c>R0
+
+                φ(d)−1 ≪ L. It is known from Rankin’s trick that
+        P
+where    d≤U0
+
+                     1      −1/ log z Y
+                                              p1/ log z 
+                                                           ≪ exp −L0.26 + O(log L) ≪A L−A .
+            X                                                                     
+                         ≤ R0               1+                                                                                   (3.3)
+            c|P (z)
+                    φ(c)              p≤z
+                                                p−1
+            c>R0
+
+Applying (3.3) with exponent A + 4, we obtain an error OA (xL−A ) for the omitted contribution.
+Thus, we have
+                                                                                    f (n)Ψd (n) + OA (xL−A ).
+                                X                  X                     X
+                   T1 =                    µ(d)             µ(c)                                                                 (3.4)
+                                d≤U0              c|P (z)             n≥1
+                             (d,P (z))=1          c≤R0             n≡−1 (mod dc)
+
+  By partial summation,
+                                                                                              Z x
+                                         1
+                                                                                                     ∆f (y; dc, −1)Ψ′d (y) dy.
+             X                                               X
+                         f (n)Ψd (n) −                                 f (n)Ψd (n) = −
+           n≥1
+                                       φ(dc)              n≥1                                  x/4
+        n≡−1 (mod dc)                                   (n,dc)=1
+
+The derivative is supported in [x/2 − 1, x − 1] and satisfies Ψ′d (y) ≪ L/x. Since (d, P (z)) = 1 and
+c | P (z), we have 4 ∤ dc, and dc determines d and c. Here U0 R0 < x0.41 for large x. Replacing the
+8                                    YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+progression sum in (3.4) by its reduced-residue main term introduces an error which, by Lemma 3.1
+with exponent A + 1, is
+               Z x
+           L
+                                                                                         max |∆f (y; q, a)| ≪A xL−A .
+                       X                                                          X
+       ≪                       max |∆f (y; q, a)| dy ≪ L                sup
+           x    x/4           (a,q)=1                               x/4≤y≤x q≤x0.41 (a,q)=1
+                      q≤x0.41
+                        4∤q                                                   4∤q
+
+Since (d, c) = 1, we obtain
+                                               µ(d) X µ(c)
+                                                                               f (n)Ψd (n) + OA (xL−A ).
+                                     X                                 X
+                        T1 =                                                                                            (3.5)
+                                    d≤U0
+                                               φ(d) c|P (z) φ(c)      n≥1
+                                 (d,P (z))=1         c≤R0           (n,dc)=1
+
+    For (d, P (z)) = 1 and d ≤ U02 , every prime factor of d exceeds z, so
+                               X1             log d       L                 d        L 
+                                         ≤           ≪         ,                =1+O         .
+                               p|d
+                                     p       z log z   z log z             φ(d)      z log z
+       P             −1 ≪ L. Since f (n) ≪ d(n), we have
+Also     c|P (z) φ(c)                     K
+                               X                                X                    X                xL
+                                       f (n) ≪K xL,                    d(n) ≤ 2              d(v) ≪      .
+                              n≤2x                              n≤2x              v≤2x/p
+                                                                                                       p
+                                                                 p|n
+
+Replacing 1/φ(d) by 1/d and removing (n, d) = 1 from (3.5) contribute at most
+                            xL4                    1                       1X1        xL5
+                                                                                             ≪A xL−A .
+                                         X                         X
+                       ≪                             + xL3                         ≪
+                           z log z      d≤U0
+                                                   d            d≤U0
+                                                                           d p|d p   z log z
+                                     (d,P (z))=1             (d,P (z))=1
+
+The extension of the c-sum to all c | P (z) contributes
+                                                                    1
+                                                                        ≪A xL−A
+                                                            X
+                                                   ≪ xL3
+                                                           c|P (z)
+                                                                   φ(c)
+                                                            c>R0
+
+by (3.3). Interchanging the order of summation and evaluating the c-sum, we obtain
+                                                                                 µ(d)     n+1
+                                                                                              + OA (xL−A )
+                            X                                          X
+                 T1 =            f (n)wz (n)Φ((n + 1)/x)                              log
+                           n≥1                                        d≤U0
+                                                                                  d        d
+                                                                   (d,P (z))=1                                          (3.6)
+                                                                                                             −A
+                            X                                                                   
+                       =         f (n)wz (n)Φ((n + 1)/x) M0 log(n + 1) − M1 + OA (xL                              ),
+                           n≥1
+
+where
+                                               X       µ(d)                       X          µ(d) log d
+                                 M0 =                       ,          M1 =                             .
+                                            d≤U0
+                                                        d                         d≤U0
+                                                                                                 d
+                                         (d,P (z))=1                           (d,P (z))=1
+    We use the identity
+                                                                           X
+                                                µ(n)1(n,P (z))=1 =                   µ(m)
+                                                                          vm=n
+                                                                         P + (v)≤z
+to get
+                             X         1 X µ(m)                                X       1 X µ(m) log(am)
+                M0 =                              ,                M1 =                                 .
+                             a≤U0
+                                       a m≤U /a m                            a≤U0
+                                                                                       a m≤U /a m
+                                               0                                                0
+                           P + (a)≤z                                       P + (a)≤z
+                                           PRIMES OF THE FORM u2 + v 2 + 1                                           9
+
+By [25, (6.18) and Exercise 16(a)] and partial summation, for y ≥ 2,
+             X µ(m)                                            X µ(m) log m
+                            ≪A (log y)−A−7 ,                                         = −1 + OA ((log y)−A−5 ).
+             m≤y
+                     m                                         m≤y
+                                                                           m
+         √
+For a ≤ U0 , these estimates yield the
+                                     √ main terms 0 and −1 in the inner sums of M0 and M1 ,
+with total error OA (L−A−4 ). For a > U0 , we use Rankin’s trick again and get
+                 1                                      −1       L0.76
+                      −1/(2 log z) Y
+                                                                                    
+                                       1 − p−1+1/ log z                  + O(L0.24 ) ≪A L−A−7 .
+         X
+                   ≤ U0                                     ≪ exp −
+           √     a                 p≤z
+                                                                    10
+        a> U0
+         +
+       P (a)≤z
+                                                √                                  −1 = W (z)−1 ≪ L. Thus
+Both inner sums are O(L2 ) for a >
+                                                                   P
+                                                    U0 , and         P + (a)≤z a
+
+                            M0 ≪A L−A−4 ,                  M1 = −W (z)−1 + OA (L−A−4 ).                           (3.7)
+Inserting (3.7) into (3.6), we conclude
+                                    1 X
+                           T1 =              f (n)wz (n)Φ((n + 1)/x) + OA (xL−A ).                                (3.8)
+                                   W (z) n≥1
+
+  For T2 , the same argument applies with m = dℓ. Indeed,
+                      mc ≤ U02 zR0 = x0.4 exp(L1/2 + L0.24 ) < x0.41                         (c ≤ zR0 ),
+and
+                                       X                           X
+                                              |µ(d)|Λ(ℓ) ≤               Λ(ℓ) = log m ≪ L.
+                                    dℓ=m                           ℓ|m
+                                   d,ℓ≤U0
+
+Thus
+                                                                                f (n)Φ((n + 1)/x) + OA (xL−A )
+                      X                        X                       X
+          T2 =                   µ(d)Λ(ℓ)               µ(c)
+                    d,ℓ≤U0                    c|P (z)              n≥1
+                  (dℓ,P (z))=1                c≤R0             n≡−1 (mod dℓc)
+
+                                       Λ(ℓ)
+                                             X
+                                                        f (n)wz (n)Φ((n + 1)/x) + OA (xL−A )                      (3.9)
+                            X
+             = M0
+                            ℓ≤U0
+                                        ℓ       n≥1
+                         (ℓ,P (z))=1
+
+             ≪ xL−A ,
+where the last bound follows from (3.7). Combining (3.9) with (3.8) completes the proof.                            □
+
+  To evaluate the main term, we separate the factor at 2 and write
+                                                   wz (n) = Az 12|n Rz (n),                                      (3.10)
+where
+                                              Y p−2                                  Y p−1
+                                  Az =                         ,       Rz (n) =                  .
+                                          3≤p≤z
+                                                    p−1                            3≤p≤z
+                                                                                           p−2
+                                                                                    p|n
+
+The function Rz is multiplicative and satisfies Rz (2n) = Rz (n). Moreover,
+                                         Az       Y         1     
+                                              =2       1−            ≍ 1.
+                                        W (z)    3≤p≤z
+                                                          (p − 1)2
+10                        YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+3.3. Evaluation of the main term. Since every auxiliary prime exceeds exp(L0.1 ), we have
+                                     X       1   1
+                                                −    ≪ exp(−L0.1 ).
+                                     p∈Pν
+                                             p−1 p
+
+Consequently,
+                             K 
+                                 1 X         1
+                             Y                         
+                                                            = 1 + OK exp(−L0.1 ) ,
+                                                                                           
+                                                                                                           (3.11)
+                             ν=1
+                                    Vν p∈P p − 1
+                                             ν
+
+uniformly in the family index.
+Proposition 3.3. Let K ≥ 1 be fixed. Uniformly for J in (2.1) and every Φ ∈ Cc∞ ((0, ∞))
+supported in [1/2, 1], we have
+                                 x     ∞        Z                                                 
+                                         Φ(t) dt + OK N1 (Φ)L−1/2 .
+                                                                 
+                      T1 − T2 = √ κS
+                                  L  0
+
+Proof. By Lemma 3.2 with A = 1, it suffices to prove
+      1 X                                    x     ∞              Z                                   
+                                                     Φ(t) dt + OK N1 (Φ)L−0.76 .
+                                                                              
+               b(n)W(n)wz (n)Φ((n + 1)/x) = √ κS                                                           (3.12)
+     W (z) n≥1                                L  0
+
+Since wz (n) = 0 for odd n, it follows from the identities b(2n) = b(n), W(2n) = W(n) and (3.10)
+that                    X                           X
+                            b(n)W(n)wz (n) = Az          b(m)Rz (m)W(m).                  (3.13)
+                         n≤y                                 m≤y/2
+Put
+                                         Y               p−s             Y             p−2s 
+                       Gz (s) =                      1+                              1+          .
+                                      p≤z
+                                                          p−2        p≤z
+                                                                                          p−2
+                                   p≡1 (mod 4)                    p≡3 (mod 4)
+
+For ℜs > 1, put B(s) =
+                         P          −s
+                           n≥1 b(n)n . Comparing Euler factors, we find
+                                   X b(n)Rz (n)W(n)                        X h(d)
+                                                                 = B(s)               ,
+                                   n≥1
+                                                 ns                        d≥1
+                                                                                 ds
+
+where
+                                                      K 
+                           X h(d)                         1 X (p − 1)p−s
+                                                      Y                  
+                                         = Gz (s)                                              .           (3.14)
+                           d≥1
+                                    ds                ν=1
+                                                             Vν p∈P p − 2 + p−s
+                                                                       ν
+
+Indeed, choosing a prime p in a band replaces the factor 1 + p−s /(p − 2) by (p − 1)p−s /(p − 2). The
+chosen primes belong to distinct bands, so these factors cancel separately in (3.14). In particular,
+the right side is a Dirichlet polynomial with nonnegative coefficients. Since p1/ log z ≤ e for p ≤ z,
+we obtain
+                          X h(d)                  X h(d) log d
+                               1−1/ log z
+                                          ≪K 1,                   ≪K log z.                     (3.15)
+                          d≥1
+                              d                   d≥1
+                                                           d
+For the first estimate, the product of the unselected Euler factors is bounded by exp(O( p p−2 )),
+                                                                                                       P
+
+and each selected prime sum, after division by Vν , is bounded. The second follows from
+(log d)d−1/ log z ≪ log z.
+   By [5, Theorem 2.1], with f = b, r = 1/2, A = 2 and σ = 3/4, we have
+                           X            κv            v      
+                               b(n) = √       +O                  (v ≥ 2).
+                           n≤v
+                                        log v      (log v)3/2
+                                    PRIMES OF THE FORM u2 + v 2 + 1                                     11
+
+                                               √
+We apply this to b ∗ h = bRz W, first for d ≤ y. The replacement of (log(y/d))−1/2 by (log y)−1/2
+                                                            √
+costs OK (y log z/(log y)3/2 ) by (3.15). The terms with d > y are OK (y 1−1/(2 log z) ), since
+                                X h(d)                                    h(d)
+                                                ≤ y −1/(2 log z)
+                                                                   X
+                                                                                      .
+                                 √
+                               d> y
+                                          d                         d
+                                                                        d1−1/ log z
+
+At s = 1, it follows from (3.14) and (3.11) that
+                               X h(d)
+                                          = Gz (1) 1 + OK (exp(−L0.1 )) .
+                                                                                      
+
+                               d
+                                    d
+Consequently, uniformly for y ≍ x,
+                                                        κy
+                                                              Gz (1) + OK (L−0.76 ) .
+                       X                                                           
+                             b(n)Rz (n)W(n) = √                                                      (3.16)
+                       n≤y
+                                                        log y
+
+Here log z = L0.24 and y −1/(2 log z) ≪ (log y)−2 .
+  The Euler factor of Az Gz (1)/(2W (z)) is 1 at p = 2 and at p ≡ 1 (mod 4). For p ≤ z with
+p ≡ 3 (mod 4), it is
+                         p − 2            1         1 −1          1
+                                  1+ 2              1−       =1−            .
+                         p−1          p (p − 2)        p           p(p − 1)
+Thus
+                       Az Gz (1)                        1    
+                                                                = S + O(z −1 ).
+                                         Y
+                                   =             1−                                   (3.17)
+                        2W (z)          p≤z
+                                                     p(p − 1)
+                                      p≡3 (mod 4)
+Combining (3.13), (3.16) and (3.17), we obtain
+                      1 X                         y
+                                                       κS + OK (L−0.76 ) .
+                                                                        
+                              b(n)W(n)wz (n) = √
+                    W (z) n≤y                    log y
+Partial summation proves (3.12), with the dependence on Φ bounded by N1 (Φ).                            □
+
+                       4. A mean square estimate and Type II sums
+4.1. The mean square estimate. We retain the notation of Section 2, with K fixed as x → ∞.
+For the mean square estimate, let P1 , . . . , PK be any sets of primes satisfying
+                   Pν ⊆ [exp(Lϑν ), exp(2Lϑν )],        Pν ∩ Pµ = ∅ (ν ̸= µ),
+                                                        1                       1        1      (4.1)
+      0.1 < ϑ1 < · · · < ϑK < 0.2,     ϑν+1 − ϑν ≥            (1 ≤ ν < K),        ≤ Vν ≤ .
+                                                       20K                      4        2
+The quantities in (2.5) and (2.6) now refer to these sets. Put p0 = min P∗ , so p0 ≥ exp(L0.1 ). The
+application sets in (2.4) satisfy (4.1) for sufficiently large x. The proof of Theorem 4.1 uses only
+(4.1).
+   Fix δ, C > 0, and suppose X = M N ≍ x and M, N ≥ xδ . Let (αm ) and (βn ) be complex
+sequences satisfying
+      supp α ⊆ {m ∈ [M, 2M ] : P − (m) > z},                supp β ⊆ {n ∈ [N, 2N ] : P − (n) > z},
+                                                                                                      (4.2)
+                                              |αm |, |βn | ≤ LC .
+Using the cutoff η fixed in Section 2, define, for Y > 0, the mean square
+                                                                                          2
+                                          V(P)−1
+                                    X                     X
+                             QY =                                   η(a/Y )αm βn .                    (4.3)
+                                    h≥1              a∈A(P), m,n
+                                                      mn−1=ah
+12                        YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+Theorem 4.1. For every R > 0, there is an integer K0 = K0 (δ, C, R, η) with the following
+property. Let K ≥ K0 be fixed, and let the exponents and prime sets satisfy (4.1). If
+          αm = µ(m)miv 1m∈I 1P − (m)>z ,             I ⊆ [M, 2M ] an interval,         v ∈ R, |v| ≤ LC ,
+then, for x ≥ x0 (δ, C, R, K, η), where x0 may be ineffective,
+                                    QY ≪δ,C,R,K,η XY L−R               (Y > 0).
+  The proof of Theorem 4.1 occupies Sections 5–7. We first deduce the estimates for the Type II
+sums in the proof of Theorem 1.1.
+4.2. The Type II sums. In this subsection the prime sets are given by (2.4).
+Proposition 4.2. For every fixed δ, C, A > 0, there is an integer K0 = K0 (δ, C, A) with the
+following property. Let K ≥ K0 be fixed, M, N ≥ xδ and M N ≍ x. Suppose that
+       αm = µ(m)miv 1m∈I 1P − (m)>z ,                I ⊆ [M, 2M ] an interval,          v ∈ R,   |v| ≤ LC ,
+and that β is supported on the z-rough integers in [N, 2N ] with |βn | ≤ LC . Then
+                                αm βn b(mn − 1)W(mn − 1) ≪δ,C,A,K xL−A .
+                          X
+
+                          m,n
+
+Proof. By (2.5), for u ≥ 1 we have
+                                                          1     X
+                                         b(u)W(u) =                  b(u).
+                                                         V(P) a∈A(P)
+                                                                 a|u
+
+Write a = p1 · · · pK , with pν ∈ Pν , and u = ah. Since every auxiliary prime is congruent to 1
+modulo 4,P(1.1) implies b(ah) = b(h) without a coprimality condition.
+   Using Y η(a/Y ) = 1, with Y running over powers of 2, we divide the a-sum into dyadic
+intervals. Since a is a product of K auxiliary primes, only OK (L) values of Y occur, and for these
+1 ≤ Y ≤ exp(2KL0.2 ) for sufficiently large x. On the support of η(a/Y ), we have h ≪ x/Y . Since
+0 ≤ b(h) ≤ 1,
+                                           X             x
+                                                b(h)2 ≪ .
+                                         h≪x/Y
+                                                         Y
+It follows from Cauchy’s inequality and (4.3) that
+                         X                                             X x           1/2
+                               αm βn b(mn − 1)W(mn − 1) ≪                        QY          .
+                         m,n                                            Y
+                                                                             Y
+By Theorem 4.1, with R > 2A + 4,
+                               X x           1/2
+                                         QY          ≪δ,C,R,K xL1−R/2 ≪ xL−A .
+                                Y
+                                     Y
+This proves the proposition.                                                                                  □
+Corollary 4.3. For every A > 0, there is an integer K0 = K0 (A) such that, for each fixed K ≥ K0
+and every Φ ∈ Cc∞ ((0, ∞)) supported in [1/2, 1], the sum T3 defined by (2.8) satisfies
+                                          T3 ≪A,K N⌈A⌉+7 (Φ)xL−A .
+Proof. Partition d, t > U0 into (M, 2M ] and (N, 2N ], where M = 2i U0 , N = 2j U0 , and i, j ≥ 0.
+Only O(L2 ) pairs of intervals meet the support of Φ(dt/x). For each such pair,
+                                    x/8 ≤ M N ≤ x,             M, N ≥ x1/5 .
+                                      PRIMES OF THE FORM u2 + v 2 + 1                                       13
+
+Mellin inversion gives
+                                            dt iv                          Z ∞
+                           1
+                                Z
+                Φ(dt/x) =             Φ(iv)
+                                      b             dv,            Φ(iv)
+                                                                   b     =         Φ(y)y −1−iv dy.
+                          2π      R            x                             0
+
+Integration by parts in the variable log y shows that Φ(iv)
+                                                      b     ≪B NB (Φ)(1 + |v|)−B for every integer
+B ≥ 2. We have bW ≪K d and
+                 X                       X
+                         d(dt − 1) ≤             d(u + 1)d(u)
+               2≤dt≤4x                  1≤u≤4x
+                                         X                       1/2  X               1/2
+                                                              2                      2
+                                    ≤              d(u + 1)                      d(u)           ≪ xL3 ,
+                                         1≤u≤4x                       1≤u≤4x
+
+The last estimate follows from Lemma 6.14 with q = 1. Together with cU0 (t) ≤ log t ≪ L,
+this shows that the integral over |v| > L, summed over these pairs of intervals, contributes
+OK (NB (Φ)xL5−B ). Taking B = ⌈A⌉ + 7 bounds this by OA,K (NB (Φ)xL−A ).
+  For |v| ≤ L, take
+              αd = µ(d)div 1M <d≤2M 1P − (d)>z ,              βt = cU0 (t)tiv 1N <t≤2N 1P − (t)>z .
+Here 2N ≤ 2x4/5 < x for large x, so |βt | ≤ L. Proposition 4.2 applies with δ = 1/5, C = 1,
+and saving L−A−3 . Summing over the O(L2 ) pairs and using R |Φ(iv)|
+                                                           R
+                                                               b     dv ≪ N2 (Φ) proves the
+assertion.                                                                               □
+   Combining (2.7), Lemma 3.2 and Corollary 4.3, we obtain, for every fixed A > 0 and all
+sufficiently large fixed K,
+                          1 X
+          Θb,W (x, Φ) =            b(n)W(n)wz (n)Φ((n + 1)/x) + OA,K (N⌈A⌉+7 (Φ)xL−A ). (4.4)
+                         W (z) n≥1
+
+                           5. Reduction of the minor arc estimate
+   We return to the prime sets satisfying (4.1). The coefficients are arbitrary complex sequences
+satisfying (4.2). Here δ, C > 0 and K are fixed as x → ∞, X = M N ≍ x, M, N ≥ xδ , and Y > 0.
+We retain the notation of Section 4, including p0 = min P∗ and QY from (4.3). In this section and
+Section 6, all estimates are uniform in the exponents and prime sets satisfying (4.1).
+   We first separate the major and minor arcs. For the latter, we expand a power of an operator
+as a sum over paths. Section 6 bounds this sum, and Section 7 estimates the contribution from
+the major arcs. The two bounds prove Theorem 4.1.
+
+5.1. The major and minor arcs. For the minor arc argument we may replace δ by min(δ, 1/4).
+We may also assume A(P) ∩ [Y, 4Y ] ̸= ∅, since otherwise QY = 0. Then p0 /4 ≤ Y ≤ exp(2KL0.2 ).
+   In the expansion of (4.3), the relations mn − 1 = ah and rs − 1 = ch imply
+                                              cmn − ars = c − a.                                          (5.1)
+Conversely, for (a, c) = 1 the identity c(mn − 1) = a(rs − 1) implies a | mn − 1 and c | rs − 1,
+with equal quotients. These quotients are positive for sufficiently large x, since mn, rs ≫ x2δ . We
+detect (5.1) by Fourier orthogonality, as in the dispersion method [9, Section 19.2].
+  Fix once and for all an even real ψ ∈ Cc∞ (R) that is one on [−4, 4] and supported on [−5, 5].
+Write T = R/Z and let ∥ · ∥ denote distance to the nearest integer. For A0 > 0 put
+                                                                        u   2LA0
+                                        [                                               
+                          M=                           θ ∈ R/Z : θ −      ≤      .                        (5.2)
+                                                                        q    Y
+                                      q≤LA0
+                                0≤u<q, (u,q)=1
+14                         YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+Define the kernel and the corresponding contribution by
+                                    Z
+                                                              
+           HM (t, a, c) = ψ(t/Y )          e θ(t − c + a) dθ,
+                                      M
+              QY (M) = V(P)−2
+                                           X
+                                                 η(a/Y )η(c/Y )αm αr βn βs HM (cmn − ars, a, c).                        (5.3)
+                                     a,c∈A(P)
+                                      m,n,r,s
+
+   The sum defining QY (M) includes all pairs a, c. When mn − 1 = ah and rs − 1 = ch,
+t = cmn−ars = c−a satisfies |t| ≤ 3Y , so ψ(t/Y ) = 1. Put m = T\M and QY (m) = QY −QY (M).
+This difference is the sum in (5.3) with HM (t, a, c) replaced by
+                                               X                                         Z                         
+                                                                                                            
+          BY (a, c; m, n, r, s) = ψ(t/Y )              1mn−1=ah 1rs−1=ch −                     e θ(t − c + a) dθ .      (5.4)
+                                                 h≥1                                       M
+                                                                                                                R
+When (a, c) = 1, (5.1) and Fourier orthogonality identify this bracket with ψ(t/Y ) m e(θ(t − c +
+a)) dθ. For (a, c) > 1 we retain the sum over the positive integer h in (5.4).
+Proposition 5.1. For fixed 0 < δ < 1/2 and C, R > 0, there exist A0 > 0 and K0 ≥ 1, depending
+only on δ, C, R, η, such that for each fixed K ≥ K0 ,
+                          |QY − QY (M)| ≪δ,C,R,K,η XY L−R                                 (Y > 0).
+  The rest of this section reduces Proposition 5.1 to (5.15), apart from exceptional terms. Section 6
+proves this bound and estimates the exceptional terms.
+5.2. Inserting sums over auxiliary primes. Put J0 = ⌊L0.01 ⌋ and m0 = J0 + 1. For each ν,
+we adjoin J0 shared prime labels from Pν to the two endpoints, weighting each choice of p by
+(Vν p)−1 as in [14, §2.2]. Thus
+                                                                    J0
+                                                                  K Y
+                                                   X              Y        1
+                                    1=                                          .                                       (5.5)
+                                               pν,h ∈Pν
+                                                                         V p
+                                                                  ν=1 h=1 ν ν,h
+                                            1≤ν≤K, 1≤h≤J0
+                                                          J0
+For each choice of the shared primes, put D = K
+                                                              Q      Q
+                                                     ν=1 h=1 pν,h . We divide the products D into
+OK (L) dyadic intervals [d0 , 2d0 ). Multiplying the sum for QY (m) by (5.5), we obtain
+                                                    J0
+                                                  K Y
+                                                           1      1
+                          X           X          Y                    
+            QY (m) =
+                       d0 dyadic pν,h ∈Pν
+                                                         V p
+                                                  ν=1 h=1 ν ν,h
+                                                                V(P)2
+                                d0 ≤D<2d0
+                                 X                                X
+                          ×                η(a/Y )η(c/Y )               αm βn αr βs BY (a, c; m, n, r, s),              (5.6)
+                              aν ,cν ∈Pν                      m,n,r,s
+                               1≤ν≤K
+
+where
+                                                 K
+                                                 Y                     K
+                                                                       Y
+                                           a=          aν ,       c=           cν .
+                                                 ν=1                   ν=1
+Fix d0 and put
+                                                                                   
+                                         Dcm                         Dar
+                                     P =     ,                    Q=     .                                              (5.7)
+                                          s                           n
+Then
+                                           det(P, Q) = D(cmn − ars).
+Put
+                                 H = d0 Y,              U = HM,                V = N.                                   (5.8)
+                                       PRIMES OF THE FORM u2 + v 2 + 1                                     15
+
+On the support of the sum we have P, Q ∈ [U, 16U ] × [V, 2V ] and | det(P, Q)| ≤ 10H. Suppose
+µ2 (Dac) = 1 and the coefficients and bracket are nonzero. Then t = cmn − ars ̸= 0, since
+cmn = ars would imply a | mn. Indeed, since µ2 (Dac) = 1, we have (a, c) = 1, and all auxiliary
+primes are less than z, hence coprime to m, n, r, s. The endpoint gcds are (m, s) and (r, n). Each
+divides t and has all its prime factors greater than z. Since 0 < |t| ≤ 5Y < z for fixed K and large
+x, both points are primitive.
+   For each ν, attach an ordered tuple of m0 = J0 + 1 primes from Pν to each endpoint. Along an
+edge the two tuples share J0 entries, so, after reordering, they take the form
+                       Lν = (pν,1 , . . . , pν,J0 , cν ),       L′ν = (pν,1 , . . . , pν,J0 , aν ).      (5.9)
+The pν,h are the
+              Q Q
+                 shared labels, cν the leaving label, and aν the entering label. With L = (L1 , . . . , LK )
+and Π(L) = ν p∈Lν p, we have
+                                        Π(L) = Dc,             Π(L′ ) = Da.
+Definition 5.2. A state consists of a primitive point P ∈ [U, 16U ] × [V, 2V ] and, for each ν, a
+tuple Lν ∈ Pνm0 whose entries are distinct prime divisors of P1 . A directed edge (P, L) → (Q, L′ )
+is admissible if, for every ν, the two tuples share exactly J0 entries, and the product D of all
+shared entries lies in [d0 , 2d0 ). Writing cν and aν for the remaining entries as in (5.9), we then
+have µ2 (Dac) = 1.
+  An admissible edge determines the shared product D and the four arithmetic variables through
+                           P1                         Q1
+                     m=        ,     s = P2 ,   r=         ,    n = Q2 .
+                          Π(L)                      Π(L′ )
+      Sd0 be the set of all states, including isolated states. Assign to each state the mass
+  Let Q
+wst = ν Vν−m0 and put
+                                      H = ℓ2 (Sd0 , wst ).
+5.3. An operator on labelled points. For D ∈ [d0 , 2d0 ), put t = det(P, Q)/D and define the
+kernel
+                         d0
+                                                         Z                   
+                                                                           
+       K(P, Q; D, a, c) = η(c/Y )η(a/Y )ψ(t/Y ) 1t=c−a −     e θ(t − c + a) dθ .       (5.10)
+                         D                                 M
+
+When (a, c) = 1, the first term imposes equality of the two quotients, as in (5.1). The factors
+associated with auxiliary primes involve only the selected labels. An auxiliary prime divisor of an
+endpoint coordinate that is not selected receives no additional factor.
+   Each unordered state has (m0 !)K ordered representatives. For two unordered tuples drawn from
+the same set of primes and sharing J0 entries, there are (m0 !)2 ways to order the two tuples and
+J0 ! ways to order their shared entries in (5.6). We therefore put κJ0 = (mJ00!)! 2 = (J0 +1)(J
+                                                                                             1
+                                                                                               0 +1)!
+                                                                                                      . For
+an admissible edge (x, y), define
+                                                     κK
+                                                      J0
+                                      κ(x, y) =          K(P, Q; D, a, c),
+                                                    V(P)
+and set κ(x, y) = 0 on all other pairs. The associated operator and its form are
+                              X                                               X
+                 (Kf )(x) =        κ(x, y)f (y),            ⟨F, KG⟩ = wst           F (x) κ(x, y)G(y).
+                               y                                              x,y
+
+Thus the kernel relative to the state measure is κ(x, y)/wst . For unordered states, sum the
+coefficients over the ordered representatives of the target state [6, §2.3]. There are (m0 !)K such
+representatives, so a pair of unordered states contributes (m0 !)2K wst κ(x, y) to the form on their
+indicators.
+16                             YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+     For a primitive endpoint P = (u, v)t , put
+                          ξP
+                    τ (P ) =    (mod 1),      vξP ≡ −1 (mod u), 0 ≤ ξP < u.
+                           u
+For a tuple L, let D consist of the products obtained by omitting one entry from each tuple. Thus
+|D| ≤ mK0 .
+  For 1 ≤ s ≤ K set
+                              Y                                          Y                
+                  Ns = D             pν : D ∈ D, pν ∈ Pν ,          Fs =          qν : qν ∈ Pν .
+                               ν<s                                          ν>s
+
+Repeated representations of the same integer in Ns are counted once. Assign to F = ν>s qν the
+                                                                                                   Q
+
+weight ws (F ) = ν>s (Vν qν )−1 , so that F ∈Fs ws (F ) = 1. Empty products are 1. For F ∈ Fs let
+                  Q                       P
+
+Es (F ) be the set of r for which two distinct n, n′ ∈ Ns satisfy
+                                                                      ϑs
+                                          ∥(n − n′ )F r∥ ≤ 100e−L .
+We call r separated for L if
+   (1) ∥lDr∥ > Y −0.7 for all D ∈ D and integers 1 ≤ l ≤ Y 0.2 ;
+   (2) for each 1 ≤ s ≤ K one has
+                                                                              ϑs /4
+                                                     ws (F )1r∈Es (F ) ≤ e−L
+                                              X
+                                 Ws (r) :=                                            .                (5.11)
+                                             F ∈Fs
+
+Let 1sep (r, L) denote the indicator of these two conditions. The first condition will allow us to
+choose a common basis for the determinant estimate. The second condition ensures that, outside
+                                 ϑs
+a set of F of weight at most e−L /4 , the values nF r mod 1 are then separated as n varies. At an
+integral point put
+                                    1sep (P, L) = 1sep (τ (P ), L).                         (5.12)
+     Let G denote multiplication by 1sep (P, L), and put
+                                                       A = GKG.                                        (5.13)
+Reversing an edge interchanges a, c and sends t to −t. Since ψ is real and even and M = −M, the
+kernel in (5.10) is real and symmetric. The state mass is constant, so K is self-adjoint. As G is
+multiplication by a real indicator, A is also self-adjoint.
+  For a state (P, L), define
+                                      F (P, L) = αP1 /Π(L) βP2 ,                           (5.14)
+with coefficients extended by zero. For P, Q as in (5.7),
+                                        F (P, L) F (Q, L′ ) = αm βn αr βs .
+If F (P, L) ̸= 0, then P1 /Π(L) is z-rough. The entries of L therefore account for all auxiliary
+primes dividing P1 , each to exponent one. Every tuple above P is then a reordering of L. Thus F
+takes a constant value f (P ) on each fibre, with f (P ) = 0 on an empty fibre. All fibres, including
+those where f (P ) = 0, enter the powers of A.
+Proposition 5.3. We have
+                                                       X      1
+                               QY − QY (M) =                     ⟨F, AF ⟩ + E1 + E2 ,
+                                                  d0   dyadic
+                                                              d0
+
+where E1 and E2 are the sums in (5.6) over µ2 (Dac) = 1 with at least one endpoint not separated,
+and over µ2 (Dac) = 0, respectively.
+                                    PRIMES OF THE FORM u2 + v 2 + 1                                     17
+
+Proof. For µ2 (Dac) = 1 every contributing pair is primitive, and (5.1) identifies the two terms of
+(5.10) with those of (5.4). The two factors G select the pairs whose endpoints both satisfy the
+separation conditions.
+   Fix the sets of labels in the two endpoint tuples. Their (m0 !)2K orderings supply (m0 !)2K κK
+                                                                                                J0 =
+(J0 !)K , exactly the number of ordered shared tuples in (5.6). For each such tuple the remaining
+scalar is
+                                                      K
+                                   wst 1 d0        1 Y
+                                                =        V −(J0 +2) .
+                                    d0 V(P) D      D ν=1 ν
+This is precisely the weight of this choice in (5.6).                                                   □
+
+5.4. Reduction to a moment estimate. Take T = 2⌈L1/2 /2⌉. All estimates for powers of the
+operator below hold for even    T ≍ L1/2 with fixed implied constants. In each dyadic range for
+D, (5.8) and log d0 ≤ 2J0 ν L imply H = exp(OK (L0.21 )) and xδ ≤ U, V ≤ xO(1) . For each
+                           P ϑν
+
+primitive P , let uP be the indicator of its full tuple fibre in H, interpreted as zero when the fibre
+is empty. For every prescribed E > 0 we shall prove
+                               1
+                                                      ⟨uP , AT uP ⟩ ≪ L−ET
+                                         X
+                                                                                                (5.15)
+                              U V P ∈[U,16U ]×[V,2V ]
+                                       (P1 ,P2 )=1
+
+with the parameters of Proposition 5.7. The usual trace sums walks returning to the same state [14,
+§3.2]. Here the endpoints have the same position P , and their tuples are summed independently.
+Lemma 5.4. Let A act on a finite-dimensional Hilbert space, let T ≥ 2 be even, and put
+B = (AA∗ )T /2 . For a finite family (ui ) write bij = ⟨ui , Buj ⟩. Suppose each row of (bij ) has at most
+D0 nonzero entries. If F = i fi ui ̸= 0, then for any G,
+                               P
+
+                                                                            X         1/T
+                                                     1−2/T
+                           |⟨F, AG⟩| ≤ ∥G∥ ∥F ∥                  D0 ∥f ∥2∞       bii          .
+                                                                             i
+
+Proof. The spectral measure of AA∗ at F/∥F ∥ is a probability measure on [0, ∞). Jensen’s
+inequality for t 7→ tT /2 gives the Hölder–McCarthy bound [10, Theorem 1.4(i)]
+                                    ∥A∗ F ∥ ≤ ∥F ∥1−2/T ⟨F, BF ⟩1/T .
+The matrix (bij ) is the Gram matrix of (B1/2 ui ), so 2|bij | ≤ bii + bjj . Its support is symmetric.
+Hence
+                                    ∥f ∥2∞ X                           X
+                         ⟨F, BF ⟩ ≤          (bii + bjj ) ≤ D0 ∥f ∥2∞       bii .
+                                      2 b ̸=0                           i
+                                              ij
+
+Together with |⟨F, AG⟩| ≤ ∥A∗ F ∥ ∥G∥, this proves the assertion.                                       □
+  To apply Lemma 5.4, write σ(P ) = P2 /P1 . For distinct primitive positions, Farey spacing gives
+                                                     | det(P, Q)|      1
+                               |σ(P ) − σ(Q)| =                   ≥         .                      (5.16)
+                                                         P1 Q1      (16U )2
+See [24, proof of Corollary 1]. On an edge the same identity and | det(P, Q)| ≤ 10H imply
+|σ(P ) − σ(Q)| ≤ 10H/U 2 . Thus at most O(1 + sH) primitive positions can be reached from P in
+s steps. This use of slope to restrict a determinant is also made in [8, §12, following (12.6) and
+(12.9)].
+Proposition 5.5. Suppose (5.15) holds in every dyadic range for D with exponent E > 0. Then
+                           QY − QY (M) = E1 + E2 + O XY L−E+4C+1 .
+                                                                                         
+18                              YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+Proof. By (5.14) we have F = P f (P )uP with ∥f ∥∞ ≤ L2C . For a fixed ordered tuple L, at
+                                      P
+
+most 16U/Π(L) positive multiples of Π(L) lie in the first-coordinate range, and there are at most
+2V choices for P2 . Dropping primitivity and summing with the state mass, we obtain
+                                                          K Y
+                                                         XY          1
+                               ∥F ∥2 ≤ 32U V L4C                          ≤ 32U V L4C .
+                                                          L ν=1 p∈L
+                                                                    V ν p
+                                                                         ν
+
+The last sum is at most one since the weights (Vν p)−1 sum to one on each set of primes. Apply
+Lemma 5.4 with the fibre indicators uP , taking both input vectors to be F . Then (5.15) bounds
+the sum i bii by U V L−ET , and the preceding slope bound implies D0 ≪ 1 + T H. Hence
+       P
+
+                             |⟨F, AF ⟩| ≪ U V L−E+4C (1 + T H)1/T ≪ U V L−E+4C ,
+as log H = o(T ). The assertion follows from Proposition 5.3, since U V /d0 = XY in each of the
+OK (L) ranges.                                                                               □
+5.5. Expanding powers of the operator. With the even parameter T as in the preceding
+subsection, take for each primitive initial position P0 = (u0 , v0 )t the canonical frame
+                                                                               
+                                            u0       ξP0
+                                 g = gP0 :=                     ∈ SL2 (Z),
+                                            v0 (1 + v0 ξP0 )/u0
+where 0 ≤ ξP0 < u0 and v0 ξP0 ≡ −1 mod u0 . Then ge1 = P0 , where e1 = (1, 0)t .
+  For a walk of length T returning to P0 , write its positions uniquely as
+                                            Pj = gzj ,               z0 = zT = e1 ,
+where the zj are primitive integer vectors. Every contributing walk satisfies
+                             (Pj )1 ≍ U,          (Pj )2 ≍ V,            | det(Pj , Pj+1 )| ≪ H.
+     For a primitive z, choose wz ∈ Z2 with det(z, wz ) = 1. Whenever (gz)1 ̸= 0, put
+                                                (gwz )1
+                                            αg (z) :=   (mod 1).
+                                                 (gz)1
+The choice of complement affects the quotient by an integer. In an integral frame, gwz completes
+P = gz to a basis of determinant one, so αg (z) = τ (P ). For p ∈ P∗ and g ∈ SL2 (Z), write
+ℓp = ℓp (g) for the kernel of the first row of g mod p. This line belongs to P1 (Fp ), the set of p + 1
+lines in F2p .
+   If [z]p denotes the line spanned by a primitive vector z modulo p, then
+                                            p | (gz)1        ⇐⇒          [z]p = ℓp .                           (5.17)
+     To average over P0 , replace the parameters in its canonical frame by real variables, putting
+                                                  
+                           Uu       U ur
+        g(u, v, r) =                          ,                 (u, v, r) ∈ D∞ := [1, 16] × [1, 2] × [0, 1].   (5.18)
+                           V v V vr + (U u)−1
+It has determinant one. For an integral initial point, its parameters are (u0 /U, v0 /V, ξP0 /u0 ). For
+the continuous average, choose ℓp uniformly and independently in P1 (Fp ) for all p ∈ P∗ . Write
+Eℓ for this product expectation. For a test function Φ of the frame and the lines, our averaging
+functionals are
+                                  1            X                                
+                       Aar (Φ) =                            Φ gP0 , (ℓp (gP0 ))p ,
+                                 UV         (u ,v )=1       0    0
+                                                  u0 /U ∈[1,16], v0 /V ∈[1,2]
+                                            1
+                                                  Z
+                            Amod (Φ) =                   Eℓ Φ(g(u, v, r), ℓ) du dv dr.
+                                           ζ(2)     D∞
+                                        PRIMES OF THE FORM u2 + v 2 + 1                                                    19
+
+The integral with independent choices of lines has total mass 15/ζ(2); the sum over primitive
+initial points has total mass O(1).
+   A single finite family of paths suffices for both averages. Indeed, summing the signed slope
+differences in (5.16), we obtain
+                                                                  X det(Pi , Pi+1 )
+                               det(P0 , Pj ) = (P0 )1 (Pj )1                              .
+                                                                  i<j
+                                                                        (Pi )1 (Pi+1 )1
+
+The support of ψ and Di < 2d0 imply | det(Pi , Pi+1 )| ≤ 10H. Since det g = 1 and P0 = ge1 ,
+                                                                  (Pj )1
+        |zj,2 | = | det(P0 , Pj )| ≤ 2560T H,            zj,1 =          − rzj,2 ,            |zj,1 | ≤ 16 + |zj,2 |.
+                                                                  (P0 )1
+These statements also hold for a continuous frame in (5.18). We may therefore fix C∗ = 104 and
+use the finite set
+                Z0 = {z ∈ Z2 : gcd(z1 , z2 ) = 1, |z2 | ≤ C∗ T H, |z1 | ≤ 16 + C∗ T H}.                                 (5.19)
+Let Γ consist of all labelled paths
+                    γ = (z0 , . . . , zT ; L0 , . . . , LT ),     zj ∈ Z0 ,      z0 = zT = e1 ,                         (5.20)
+with the following restrictions. For each ν, each list contains m0 distinct entries from Pν , and
+consecutive lists share exactly J0 such entries. Their shared, entering and leaving products
+Dj , aj , cj satisfy
+     µ(Dj aj cj )2 = 1,       d0 ≤ Dj < 2d0 ,             Dj | det(zj , zj+1 ),           | det(zj , zj+1 )| ≤ 10H.
+Only the endpoint positions are identified. Membership in Γ depends on the path in integral
+coordinates and its labels, so it is independent of the frame.
+  For γ ∈ Γ put
+                                        T
+                                        Y
+                          Kγbox (g) =         1U ≤(gzj )1 ≤16U 1V ≤(gzj )2 ≤2V ,
+                                        j=0
+                                        T
+                                        Y
+                          Kγsep (g) =         1sep (αg (zj ), Lj ),       Kγ = Kγbox Kγsep .
+                                        j=0
+
+We set Kγ = 0 outside the coordinate bounds before evaluating the quotients. On the set defined
+by these bounds, their denominators are nonzero. Primitivity of zj is part of the definition of Z0 .
+  For a prime p, let
+              Ap = {0 ≤ j ≤ T : p ∈ Lj },                rp = #{j ∈ Ap : j = 0 or j − 1 ∈
+                                                                                        / Ap }.
+The number rp counts the maximal intervals of consecutive indices j for which p ∈ Lj ; we call
+these intervals the runs of p. Write Pact (γ) = {p : Ap ̸= ∅}. The divisibility conditions for this
+prime are represented by                         Y
+                                     Lγ,p (ℓ) =      1ℓ=[zj ]p .                             (5.21)
+                                                           j∈Ap
+It equals one for p ∈
+                    / Pact (γ). For each γ ∈ Γ, define
+                                       −1
+                                     TY                                   K Y
+                                                                          Y
+                          cγ = κKT
+                                J0            K(zj , zj+1 ; Dj , aj , cj )                Vν−rp .
+                                        j=0                                  ν=1 p∈Pν
+
+The kernel uses tj = det(zj , zj+1 )/Dj and hence
+                                             P
+                                                  is independent of g. At each step, one entering
+label is chosen from each set of primes, so p∈Pν rp = m0 + T . By (5.19) each position admits
+exp(OK (L0.21 )) choices. The same bound holds for its prime tuples since there are Km0 entries,
+20                         YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+each at most exp(2L0.2 ). With T ≍ L1/2 , it follows that |Γ| ≤ exp(OK (L0.71 )). Moreover, |K| ≪ 1,
+κJ0 ≤ 1 and Vν ≍ 1, so |cγ | ≤ exp(OK (T + J0 )). In particular, for a fixed CΓ ,
+
+                                       |Γ|, max |cγ | ≤ exp(CΓ L0.73 ).                            (5.22)
+                                                γ∈Γ
+
+For a family Γ and coefficients satisfying this bound, define
+                                                     X               Y
+                                  F(g, ℓ) =              cγ Kγ (g)          Lγ,p (ℓp ),
+                                                 γ∈Γ                 p∈P∗                          (5.23)
+                                  MT (g) = Eℓ F(g, ℓ)
+
+An explicit expression for MT (g) appears in (6.6).
+Lemma 5.6. For the full path family and the coefficients cγ defined above, every primitive P0 in
+the coordinate box satisfies
+                                     uP0 , AT uP0 = F gP0 , (ℓp (gP0 ))p .
+                                                                                    
+                                                                                                   (5.24)
+Hence
+                         1                  X
+                                                                   uP0 , AT uP0 = Aar (F).         (5.25)
+                        UV              P0 primitive
+                             (P0 )1 /U ∈[1,16], (P0 )2 /V ∈[1,2]
+
+Proof. Let ac (x, y) for the coefficient of f (y) in (Af )(x). Expanding AT , we obtain
+                                                             X           −1
+                                                                        TY
+                           uP0 , AT uP0 = wst                                  ac (xj , xj+1 ).
+                                                       x0 ,...,xT ∈Sd0 j=0
+                                                      x0 ,xT above P0
+
+The single factor wst comes from the inner product. With g = gP0 fixed, write xj = (Pj , Lj ) and
+zj = g −1 Pj . Unimodularity preserves primitivity and determinants, and the slope bound puts
+each zj in (5.19). Conversely, a contributing path in Γ determines the unique walk xj = (gzj , Lj ).
+   The indicators of the coordinate bounds and separation conditions have product Kγ (g). When
+p ∈ Lj , the divisibility indicator is 1ℓp (g)=[zj ]p by (5.17). Thus the conditions at all the primes are
+expressed by the product of (5.21) over the primes occurring on the path.
+   Finally det(gzj , gzj+1 ) = det(zj , zj+1 ), and the scalar left after the kernels have been extracted
+is
+                                                      T             K Y
+                                                Vν−1                              Vν−rp ,
+                                           Y                          Y
+                               wst κK
+                                    J0                      = κKT
+                                                               J0
+                                            ν                         ν=1 p∈Pν
+
+since, for each ν, m0 runs start at index 0 and one new run starts at each edge. This proves (5.24)
+with the stated cγ . Averaging over P0 proves (5.25).                                            □
+
+     The following proposition supplies the moment estimate in (5.15). We prove it in Section 6.
+Proposition 5.7. For every E > 0, there exist A0 > 0 and K0 ≥ 1, depending only on E, such
+that for each fixed K ≥ K0 and even T ≍ L1/2 , |MT (g)| ≪ L−ET , uniformly in the real frame g
+and the dyadic range for D. In particular,
+                                    1
+                                                 uP , AT uP ≪ L−ET ,
+                                          X
+                                   U V (P ,P )=1
+                                            1    2
+
+
+where the sum is over the primitive positions in the coordinate box.
+                                     PRIMES OF THE FORM u2 + v 2 + 1                                 21
+
+                      6. The moment estimate and exceptional terms
+   Throughout this section the prime sets satisfy (4.1). We prove Proposition 5.7 and estimate the
+exceptional terms in Proposition 5.3. We first replace the sum over primitive initial points by an
+integral over real frames and an average over independent projective lines. For a fixed real frame,
+we construct an auxiliary operator that records repeated prime labels. Lattice and exponential
+sum estimates bound its norm and imply the required moment estimate. We treat the exceptional
+terms last and apply Proposition 5.5 to complete the proof of Proposition 5.1.
+
+6.1. Averaging over the initial point. For squarefree S, write GS = SL2 (Z/SZ).
+Lemma 6.1. Let S be squarefree, and let fp be a complex-valued function on P1 (Fp ) for each
+p | S. If ℓp (g0 ) is the kernel of the first row of g0 mod p, then
+                         1 X Y                            1
+                                                                                     
+                                                  Y               X
+                                      fp ℓp (g0 ) =                            fp (ℓp ) .
+                       |GS | g ∈G p|S                   p + 1
+                             0   S                  p|S         ℓp ∈P1 (Fp )
+
+Proof. For gp = g0 mod p we have ℓp (g0 ) = gp−1 [0 : 1]. By transitivity on P1 (Fp ) [31, Lemma 3.15],
+the distribution at each p is uniform. Since S is squarefree, independence over p | S follows from
+the Chinese remainder theorem.                                                                      □
+Lemma 6.2. Let Ωγ = {(u, v, r) ∈ D∞ : Kγ (g(u, v, r)) = 1}. For each primitive P0 = (u0 , v0 )t in
+the initial box,
+                            Kγ (gP0 ) = 1Ωγ (u0 /U, v0 /V, ξP0 /u0 ).                        (6.1)
+For the grid of mesh ε = 1/n, n ≥ 2, there are unions of cubes Ω− ⊆ Ωγ ⊆ Ω+ and 1 ≤ Nγ ≤
+exp(OK (L0.21 )) such that
+                      |Ω+ \ Ω− | ≪ Nγ ε,       #{cubes in Ω+ \ Ω− } ≪ Nγ ε−2 .                    (6.2)
+Proof. Substituting (u, v, r) = (u0 /U, v0 /V, ξP0 /u0 ) in (5.18) recovers gP0 , hence (6.1). For z =
+(z1 , z2 )t put τz = z1 + rz2 . Then
+                          (gz)1 /U = uτz ,      (gz)2 /V = vτz + z2 /(U V u).
+Thus the box boundaries at each vertex lie in the zero sets of the polynomials uτz − a for a = 1, 16,
+and uvτz − v∗ u + z2 /(U V ) for v∗ = 1, 2. All have degree at most three.
+   On the set defined by the coordinate bounds, r lies in the interval Iz = {r ∈ [0, 1] : 1/16 ≤ τz ≤
+16}. There we use the real-valued lift ϕ = τwz /τz with ϕ′ = τz−2 ≤ 256. Each value modulo one
+has at most 257 preimages since ϕ is strictly increasing. An empty interval makes the region empty,
+and a singleton confines it to one plane. On a nondegenerate interval Iz the separation conditions
+change only at the preimages of the endpoints of the circle inequalities in Section 5.3. This also
+holds for the weighted condition, a finite sum of indicators. The first condition has at most mK 0 Y
+                                                                                                     0.2
+
+frequencies lD. In the second condition                                  ′             ′
+                                             the frequencies are (n − n )F , with n, n ∈ Ns distinct
+and F ∈ Fs . There are at most s |Ns |2 |Fs | ≤ m2K               0.2
+                                  P
+                                                     0 exp(OK (L )) of them. Every frequency h in
+either condition satisfies 0 < |h| ≤ exp(OK (L0.21 )) and contributes at most 2|h| endpoints modulo
+one. Including the ends of the Iz and the faces of the box for the initial point, the boundary of Ωγ
+lies in Nγ ≤ exp(OK (L0.21 )) planes and algebraic hypersurfaces of degree at most three.
+   Partition D∞ into 15n3 disjoint grid cubes, assigning each common face to one side. Take for
+Ω− the cubes whose closures lie in the interior of Ωγ , and for Ω+ those whose closures meet Ωγ .
+Each cube of the difference lies within 2ε of one of the covering zero sets. In a fixed ball containing
+D∞ , Wongkew’s tube estimate [36, Main Theorem] bounds the volume of the 2ε-neighbourhood of
+each such set by O(ε), uniformly for nonzero polynomials of degree at most three. This proves the
+volume bound in (6.2). Dividing by ε3 bounds the number of cubes.                                     □
+22                            YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+   We count the canonical matrices associated with initial points in each grid cube, uniformly in
+the sides of the cube and in the modulus S. For a related count at fixed
+                                                                        level see Boca [2, §3].
+   For P = (u, v)t abbreviate the canonical frame gP to gu,v = uv dc , where c = ξP and d =
+(1 + vc)/u.
+Lemma 6.3. Fix δ, C > 0. Suppose U, V ≥ xδ and 1 ≤ S ≤ exp C(log x)0.98 is squarefree. For
+                                                                                               
+
+sufficiently large x, uniformly in g0 ∈ GS and intervals I1 ⊂ [1, 16], I2 ⊂ [1, 2], and I3 ⊂ [0, 1], we
+have, with cδ = δ/4,
+                       
+                    # (u, v) ∈ U I1 × V I2 : (u, v) = 1, c/u ∈ I3 , gu,v ≡ g0 (mod S)
+                        U V |I1 ||I2 ||I3 |
+                                            + Oδ,C U V x−cδ .
+                                                           
+                  =
+                      ζ(2)| SL2 (Z/SZ)|
+                                                                                         u c   
+Proof. We first take U ≤ V , allowing both I1 , I2 ⊆ [1, 16]. Write g0 = v00 d00 and choose integer
+representatives for its entries. For fixed u ≡ u0 (mod S), the residue conditions on the canonical
+frame are equivalent to
+                   c ≡ c0 (mod S),             v ≡ v0 (mod S),           cv ≡ ud0 − 1 (mod uS),    (6.3)
+with 0 ≤ c < u. The last congruence implies both (u, v) = 1 and d = (1 + cv)/u ≡ d0 (mod S).
+   Write u = dS q, where dS = p|S pvp (u) , and set B = dS S. Then uS = Bq with (B, q) = 1. The
+                              Q
+
+reduction of (6.3) modulo B admits exactly dS residue pairs (c∗ , v∗ ). Indeed, for p | S with pe ∥u,
+e ≥ 1, the determinant condition implies c0 v0 ≡ −1 (mod p). Each of the pe lifts of c0 mod p to
+pe+1 is a unit and determines a unique lift of v0 . At each p | S with p ∤ u the pair is fixed modulo
+p. The count follows by the Chinese remainder theorem.
+   Modulo q the remaining condition is cv ≡ −1 (mod q). For one of the dS pairs, write c = c∗ +Bi,
+v = v∗ + Bj. If q > 1 and B B̄ ≡ 1 (mod q), set
+                                         s = i + B̄c∗ ,           t = j + B̄v∗ .
+The remaining congruence is st ≡ −B̄ 2 (mod q). The two new variables range over independent
+translates of intervals of lengths u|I3 |/B and V |I2 |/B. Taking f ≡ 1 and subdivision parameter 2
+in [3, Proposition 4.4], we obtain, for intervals I, J and (h, q) = 1,
+                                                φ(q)                         |I|     |J | 
+                                                                                                 
+     #{(s, t) ∈ (I × J ) ∩ Z : st ≡ h (mod q)} = 2 |I| |J | + Oε q 1/2+ε 1 +
+                               2
+                                                                                    1+        .
+                                                 q                            q         q
+The condition (h, q) = 1 forces both coordinates to be units modulo q, so fixing an endpoint
+changes the count by O(1 + |I|/q + |J |/q). For q = 1 the formula follows by counting the integers
+in each interval. Since u/B = q/S, summing over the dS residue pairs shows that the number of
+canonical matrices for this u is
+                                 V |I2 ||I3 | φ(q)                      V 
+                                                                          
+                                                             1/2+ε
+                         N (u) =                   + Oε dS q         1+       .
+                                    S2         q                        uS
+     For the total error it suffices to sum over all u ≤ 16U . Writing dS = dS (u), we have
+                                                                (1 − p−1/2 )−1 ≤ 16U S 2 .
+                              X                           Y
+                                     dS (u)1/2 ≤ 16U
+                             u≤16U                        p|S
+
+Indeed, a given dS occurs at most 16U/dS times, and (1 − p−1/2 )−1 ≤ p2 . On u ≍ U one has
+                      1/2
+dS q 1/2+ε ≪ U 1/2+ε dS . Since U ≤ V and 1 + V /(uS) ≪ V /U on this range,
+                                    X                        V 
+                                             dS q 1/2+ε 1 +       ≪ε V U 1/2+ε S 2 .               (6.4)
+                                   u/U ∈I1
+                                                              uS
+                                     PRIMES OF THE FORM u2 + v 2 + 1                                   23
+
+Take ε = 1/8. For large x in terms of δ, C we have S 2 ≤ U 1/8 , so the total error is ≪ V U 3/4 ≤
+U V x−δ/4 .
+   For the main term use φ(q)/q = r|u, (r,S)=1 µ(r)/r. The conditions r | u and u ≡ u0 (mod S)
+                                  P
+
+specify one class modulo rS. Thus
+                                     φ(q)   U |I1 | Y
+                                                      (1 − p−2 )−1 + O(log(2U )),
+                           X
+                                          =                                                         (6.5)
+                        u/U ∈I1
+                                      q     Sζ(2) p|S
+                      u≡u0 (mod S)
+
+since the count in each class has error O(1) and the tail (U/S) r>16U r−2 is bounded. The group
+                                                                    P
+
+has order |GS | = S 3 p|S (1 − p−2 ). Multiplying (6.5) by V |I2 ||I3 |/S 2 , we obtain the asserted main
+                     Q
+
+term. Its error O(V log(2U )/S 2 ) is absorbed by (6.4).
+   If V < U , exchange u, v. The canonical frame is then
+                                      v v−d            v−d    c  1
+                                              
+                           gv,u =           ,              =1− −   .
+                                      u u−c             v     u uv
+Indeed 0 ≤ v − d < v and u(v − d) ≡ −1 (mod v). This involution sends g0 to a single prescribed
+class modulo S. Put J3 = 1 − I3 and ∆ = (U V )−1 . The transformed third parameter differs from
+1 − c/u by at most ∆. The desired count lies between the swapped counts with J3 contracted and
+enlarged at both endpoints by ∆, respectively, intersected with [0, 1] and allowing an empty inner
+interval. Their lengths differ from |I3 | by O(∆), so the change in the main term is O(1). Applying
+the first case with scales (V, U ) bounds the error by Oδ,C (U V x−δ/4 ).                        □
+Lemma 6.4. Let K be an indicator satisfying the identity and grid bounds of Lemma 6.2, with
+support Ω and constant N . Let S be squarefree with log S ≤ CL0.98 , and let 0 ≤ Φ ≤ 1 be a
+function of the lines at the primes dividing S. For U, V ≥ xδ and ε = 1/n, n ≥ 2, we have
+                                           |Ω|
+                            Aar (KΦ) −          Eℓ Φ ≪δ,C N ε + x−cδ ε−3 S 3 .
+                                           ζ(2)
+Proof. On each grid cube B, sum Lemma 6.3 over GS with weight Φ. Lemma 6.1, applied to
+the indicators of individual tuples of lines, identifies the main term as |B|Eℓ Φ/ζ(2). The error is
+Oδ,C (x−cδ |GS |). Since 0 ≤ Φ ≤ 1, summing over the inner and outer approximations to Ω bounds
+Aar (KΦ) on either side. Now |GS | ≤ S 3 , each union has at most 15ε−3 cubes and their volumes
+differ by O(N ε). This proves the lemma.                                                          □
+  When S, N = xo(1) , the error in Lemma 6.4 with n = ⌈xcδ /4 ⌉ is x−cδ /4+o(1) . We use this choice
+both for a single edge and for a path of length T . For a path, the modulus in Lemma 6.4 is the
+product of its distinct prime labels.
+Proposition 6.5. Let T ≍ L1/2 be even, with fixed implied constants, and U, V ≥ xδ . For
+any subfamily of (5.20) and coefficients independent of the frame and lines satisfying (5.22), the
+function (5.23) satisfies
+                                Aar (F) = Amod (F) + O(x−δ/20 ).
+The estimate is uniform in U, V and these choices, with its constant and the lower threshold for x
+depending only on CΓ and the fixed parameters.
+                                      Q
+Proof. For a given path put qγ = p∈Pact (γ) p. There are m0 initial labels from each set of primes
+and at most T further choices from that set, so log qγ ≪K (m0 + T )L0.2 ≪K L0.70 . The product
+of divisibility indicators in (5.23) takes values in [0, 1] and depends only on the lines at p | qγ . By
+Lemma 6.2, Nγ = xo(1) . Thus the error in Lemma 6.4 with S = qγ and n = ⌈xcδ /4 ⌉ is x−δ/16+o(1)
+per path, since cδ = δ/4. By (5.22), γ |cγ | ≤ exp(2CΓ L0.73 ) = xo(1) . Summing proves the
+                                           P
+
+proposition.                                                                                           □
+24                         YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+   For each prime p occurring on the path, let Ip (γ) be the indicator that the lines [zj ]p with
+j ∈ Ap all coincide. Their common line has probability 1/(p + 1). By independence,
+                                                                       K Y
+                                        X                Y             Y               Ip (γ)
+                      MT (g) =                  κKT
+                                                 J0           Kj (γ)                  rp       ,              (6.6)
+                                   γ:Kγ (g)=1           j<T            ν=1 p∈Pν
+                                                                                    Vν (p + 1)
+                                                                           Ap ̸=∅
+
+where Kj (γ) is the kernel on the jth edge. Consequently,
+                                     1
+                                        Z
+                       Amod (F) =            Eℓ MT (g(u, v, r), ℓ) du dv dr.
+                                    ζ(2) D∞
+6.2. Construction of an auxiliary operator. Fix a frame g in (5.18). In (6.6), a prime p ∈ Pν
+                               −r
+with rp runs contributes Vν p /(p + 1) if the prescribed lines agree in all its runs. When p next
+occurs, we must impose the same line condition as in its preceding run. We therefore record the
+prime and its line between consecutive runs. In Pilatte’s additive paths, a prime dividing two
+positions likewise divides the sum of the intervening increments [32, Definitions 8.2 and 8.4(2)].
+   Let Xg consist of triples ξ = (z, L, C), where z ∈ Z0 , gz ∈ [U, 16U ] × [V, 2V ], and αg (z)
+is separated for L. For each ν, the tuple Lν consists of m0 distinct primes from Pν . Here
+C = (C1 , . . . , CK ), where each Cν is a set of pairs (p, ℓ) with p ∈ Pν and ℓ ∈ P1 (Fp ). Every
+prime recorded       in C occurs in just one pair and is absent from the current tuple. We require
+|C| := ν |Cν | ≤ B∗ := KT . Each step adds at most one pair to each of these sets, so every
+       P
+
+sequence of T transitions starting with C = ∅ satisfies this bound.
+   For a prime p ∈ Pν , put
+                                             1               X
+                              πν (p) =             ,  sν =      πν (p) ≤ 1.
+                                        Vν (p + 1)          p∈P            ν
+
+Equip Xg with the measure
+                                               K  Y
+                                                                                     1
+                                               Y                        Y               
+                            ϖ(z, L, C) =                      πν (p)
+                                               ν=1 p∈Lν                 (p,ℓ)∈Cν
+                                                                                    p+1
+with counting measure on positions. The function b = 1z=e1 1C=∅ satisfies
+                                                           K
+                                                           Y
+                                               ∥b∥2 ≤           sm
+                                                                 ν ≤ 1.
+                                                                   0
+
+                                                          ν=1
+Indeed, the product on the right is obtained by dropping the separation and distinctness restrictions.
+   In a transition from ξ to ξ ′ , the two tuples share J0 primes from each set. Write cν for  Q
+                                                                                                  the
+leaving
+     Q
+        prime,  a ν for the entering prime, D for the product  of the shared primes, and  c =    ν cν ,
+a = ν aν . We require
+            µ(Dac)2 = 1,          d0 ≤ D < 2d0 ,              D | det(z, z′ ),        | det(z, z′ )| ≤ 10H.
+We evaluate K = K(z, z′ ; D, a, c) from (5.10) at t = det(z, z′ )/D.
+  A pair ϵ, δ ∈ {0, 1}K specifies how C changes. If δν = 1, choose the pair (aν , [z′ ]aν ) from Cν and
+remove it. If δν = 0, choose aν outside the primes occurring in Cν . If ϵν = 1, adjoin (cν , [z]cν ) to
+the resulting set. If ϵν = 0, do not record cν . These choices determine Cν′ . Define the transition
+operator by
+                                               K
+                                                     πν (aν )1−δν Vν−δν f (ξ ′ ),
+                                  X            Y                                              X
+                 (Tϵ,δ f )(ξ) =        κK
+                                        J0 K                                           T=           Tϵ,δ .    (6.7)
+                                  ξ′           ν=1                                            ϵ,δ
+
+Here the sum is over the admissible transitions with ξ ′ ∈ Xg . The kernel relative to ϖ is the
+coefficient of f (ξ ′ ) in this sum divided by ϖ(ξ ′ ).
+                                    PRIMES OF THE FORM u2 + v 2 + 1                                       25
+
+  Reversing an edge exchanges addition to and removal from C. To check the adjoint, fix an index
+and omit the factors from the shared tuple and from pairs unchanged in C. The source mass times
+the coefficient associated with the entering and leaving primes is
+                         πν (cν )(aν + 1)−δν πν (aν )1−δν Vν−δν = πν (cν )πν (aν ),
+because 1/(Vν (p + 1)) = πν (p). In reverse the same expression uses cν in place of aν and ϵν in
+place of δν . The kernel is real and symmetric. Consequently
+                                       T∗ϵ,δ = Tδ,ϵ ,      T∗ = T.                                     (6.8)
+   Let ♭ restrict the expansion of ⟨b, TT b⟩ to sequences for which the initial tuple entries and all
+values aν chosen with δν = 0 are distinct. A sequence specifies all the choices in (6.7), including
+the pairs added to and removed from C.
+Proposition 6.6. For every frame g in (5.18),
+                                          MT (g) = ⟨b, TT b⟩♭ .
+Proof. Fix a path of positions and tuples in (6.6). Within a run of a prime p, the line [zj ]p is
+constant. Indeed, at each internal edge p | D, so det(zj , zj+1 ) ≡ 0 (mod p), and both vectors are
+primitive.
+   On its first run p ∈ Pν contributes πν (p), through the initial state mass if the run starts at time
+0 and through the coefficient for δν = 0 otherwise. Between consecutive runs, ♭ forces the pair to
+be added to Cν at departure and selected from Cν at the next entry. This selection requires the
+same line and contributes Vν−1 . At a departure after the last run we must have ϵν = 0, since the
+terminal set C is empty.
+   Thus the path contributes zero if its prescribed lines disagree. Otherwise the choices of ϵ, δ are
+unique, and each prime with rp ≥ 1 runs contributes
+                                                              −r
+                                                             Vν p
+                                        πν (p)Vν−(rp −1) =        ,
+                                                             p+1
+while each absent prime contributes 1. The product of these factors with κKT             j<T Kj is precisely
+                                                                                       Q
+                                                                          J0
+the summand in (6.6).                                                                                     □
+6.3. Lattice and exponential sum estimates. We next choose an integral basis using the first
+separation condition. In these coordinates, the required bound follows from the additive large
+sieve. Write MA1 for the arcs in (5.2) with exponent A1 > 0 in place of A0 , and mA1 = T \ MA1 .
+Lemma 6.7. Let C0 > 0 and let α ∈ R satisfy ∥lα∥ > Y −0.7 for 1 ≤ |l| ≤ Y 0.2 . There are
+A, B > 0 and a basis {b1 , b2 } with (b1 b2 ) ∈ SL2 (Z) such that every (h, l)t ∈ Z2 with |h + αl| ≤ C0
+and |l| ≤ C0 Y has the form mb1 + nb2 with
+                |m| ≪ A,        |n| ≪ B,        AB ≪C0 Y,             Y 0.1 ≪ A, B ≪ Y 0.9 .
+Proof. Use
+                 Φα (h, l) = (h + αl, l/Y ),   Λα = Φα (Z2 ),      covol(Λα ) = Y −1 .
+If the shortest nonzero vector had length < Y −0.8 , its second coordinate would force 1 ≤ |l| < Y 0.2
+and its first coordinate would imply ∥lα∥ < Y −0.8 , a contradiction. Dirichlet approximation
+supplies 1 ≤ l ≤ Y 1/2 with ∥lα∥ ≤ Y −1/2 , so, writing the first minimum as λ1 ,
+                                         Y −0.8 ≤ λ1 ≪ Y −1/2 .
+Use the reduced basis in Heath-Brown [13, pp. 7–8], taking E = Y 2 , M = Y and s0 = −α in
+his lattice. Its vectors v1 , v2 have lengths λ1 ≤ λ2 , satisfy λ1 λ2 ≍ Y −1 , and have the following
+coordinate bound. If mv1 + nv2 belongs to the fixed box [−C0 , C0 ]2 , then |m| ≪C0 λ−1       1 and
+26                            YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+|n| ≪C0 λ−1
+          2 . Pull the basis back by Φα and choose its orientation to have determinant one. The
+choices A = λ−1             −1
+              1 and B = λ2 ≍ Y λ1 satisfy the asserted ranges and AB ≍ Y .                   □
+Lemma 6.8. Fix A1 ≥ G > 0, 0 < σ < 1/2, υ > 0 and ψ ∈ Cc∞ (R). Suppose Lυ ≪ log Y ,
+Y σ ≤ A, B ≤ Y 1−σ and AB ≪ Y . Then for every θ ∈ mA1 ,
+              Y −1 ψ(det(u, v)/Y )e(θ det(u, v)) u∈B1 ,v∈B2                                  ≪G,A1 ,σ,υ,ψ L−G
+                                                           
+                                                                         ℓ2 (B2 )→ℓ2 (B1 )
+
+for rectangles Bi ⊂ Z2 of side lengths O(A) × O(B).
+Proof. Fourier inversion gives
+                                                                                  s
+                                                                    Z                       
+                 −1                                            −1
+             Y        ψ(det(u, v)/Y )e(θ det(u, v)) = Y                 ψ(s)e θ +
+                                                                        b            det(u, v) ds.
+                                                                    R                   Y
+Since both rectangles have O(Y ) points, the part |s| > LA1 /2 contributes OR (L−R ) to the operator
+norm in the lemma, for every R > 0. For the remaining part put θ′ = θ + s/Y and Q = ⌊Y /LA1 ⌋.
+Dirichlet’s theorem provides a reduced b0 /q with q ≤ Q and |θ′ − b0 /q| ≤ (qQ)−1 . If q ≤ LA1 ,
+then ∥θ − b0 /q∥ ≤ (qQ)−1 + LA1 /(2Y ) < 2LA1 /Y for large Y , contrary to θ ∈ mA1 . Thus
+LA1 < q ≤ Y /LA1 .
+  Put TI,J (θ′ ) = (e(θ′ mn))m∈I,n∈J . Writing B1 = I1 × I2 and B2 = J1 × J2 , we obtain
+                              e(θ′ det(u, v))
+                                             
+                                                ∼ TI ,J (θ′ ) ⊗ TI ,J (θ′ ).
+                                                =    u,v        1   2           2   1
+
+For integer intervals I, J of cardinalities M, N , partition I into O(M/q + 1) consecutive blocks of
+at most ⌊q/2⌋ integers. Since |θ′ − b0 /q| ≤ q −2 , distinct m, m′ in one block satisfy
+                                         (m − m′ )b0    |m − m′ |     1
+                             ∥(m − m′ )θ′ ∥ ≥         −           ≥ .
+                                             q             q2        2q
+The additive large sieve of Montgomery–Vaughan [24, Theorem 1], applied to these 1/(2q)-separated
+frequencies, implies
+                                                                2
+                                                  fn e(θ′ mn)
+                                 X         X                                        X
+                                                                    ≤ (N + 2q)            |fn |2 .
+                             m in one block n∈J                                     n∈J
+Summing over the blocks, we obtain
+                                      ∥TI,J (θ′ )∥2 ≪ (M/q + 1)(N + q).
+Consequently the tensor-product norm satisfies
+       ∥TI1 ,J2 ∥∥TI2 ,J1 ∥   (A + q)(B + q)   AB A + B   q
+                            ≪                =    +     +   ≪ L−A1 + Y −σ ≪ L−G .
+                Y                   qY         qY   Y     Y
+Here AB ≪ Y , A, B ≤ Y 1−σ and LA1 < q ≤ Y /LA1 . The assertion follows on integrating against
+|ψ(s)|.
+ b                                                                                          □
+  To apply Lemma 6.8 to a transition with ϵ = δ = 0, we use the same integral basis at both
+ends of each block.
+Lemma 6.9. Fix the ordered shared labels with product D ∈ [d0 , 2d0 ), the sets C, and a projective
+class modulo D. Partition the slopes (gz)2 /(gz)1 into intervals of length H/U 2 . For two intervals
+whose indices differ by at most 11, if the source interval contains a state with these data, both
+position sets admit common integral coordinates u, v in rectangles as in Lemma 6.7, and
+                                      det(z, z′ )
+                                                  = det(u, v).
+                                          D
+The norm of the operator with ϵ = δ = 0 is at most an absolute constant times the largest block
+norm.
+                                  PRIMES OF THE FORM u2 + v 2 + 1                                  27
+
+Proof. On ℓ2 (Xg , ϖ), let S average the tuple orders while fixing z and C. Since ϖ is invariant
+under these permutations, ∥S∥ ≤ 1. Define Tfixed,0 by changing only the last slot of each tuple,
+preserving the first J0 slots in order, and using the coefficient in (6.7) with ϵ = δ = 0 and the
+factor κK                                                        2
+        J0 omitted. For each index ν, exactly J0 ! of the (m0 !) pairs of endpoint orders have the
+shared entries in the first J0 slots in the same order. Since J0 !/(m0 !)2 = κJ0 , we obtain
+                             T0,0 = STfixed,0 S,         ∥T0,0 ∥ ≤ ∥Tfixed,0 ∥.
+The operator Tfixed,0 preserves the ordered shared tuple and C. Since D is squarefree and both
+vectors are primitive, the condition D | det(z, z′ ) implies that the source and target have the same
+projective class modulo every prime p | D. These data define orthogonal blocks.
+   Since | det(z, z′ )| ≤ 10H, the two slopes differ by at most 10H/U 2 . Hence the indices of their
+intervals differ by at most 11. For a fixed offset the source intervals and target intervals are
+separately disjoint, so the operator norm is the supremum of the block norms. Summing the
+bounded number of offsets multiplies the bound by an absolute constant.
+   Choose the position z◦ of any source state in the interval and an integral complement w◦ with
+det(z◦ , w◦ ) = 1. All positions in the block belong to the same index-D lattice
+                              Λ = {z : D | det(z◦ , z)} = Zz◦ + ZDw◦ .
+Write z = hz◦ + Dlw◦ and put r◦ = (gw◦ )1 /(gz◦ )1 . The common or neighboring slope intervals
+ensure | det(z◦ , z)| ≪ H, while the first-coordinate box imposes
+                                                                     (gz)1
+                          |l| ≪ H/D ≪ Y,           |h + Dlr◦ | =            ≤ 16.
+                                                                    (gz◦ )1
+The shared D occurs among the products tested at the chosen source, so (5.12) applies to Dr◦ .
+Apply Lemma 6.7 to (h, l) once, using the same basis for both endpoints. The map from these
+new coordinates to z has determinant D, proving the determinant identity. In these coordinates
+the restriction | det(z, z′ )| ≤ 10H holds throughout the support of ψ(t/Y ) since D < 2d0 and
+|t| ≤ 5Y . The box, primitivity, membership in Z0 , separation, and the requirement that no tuple
+prime occurs in the fixed sets C are all conditions on the individual endpoints. The only remaining
+restriction coupling the two label tuples is aν ̸= cν for every index. The chosen basis therefore also
+applies after this restriction is removed.                                                          □
+6.4. The moment estimate. For ϵ = δ = 0, we use an exponential sum estimate. For the
+remaining choices, Schur’s test [34] bounds the operator norm on ℓ2 (ϖ) by the geometric mean of
+the maximal absolute row sum and the maximal weighted column sum. In the column sum, the
+absolute coefficient of the transition from ξ to ξ ′ is weighted by ϖ(ξ)/ϖ(ξ ′ ).
+Lemma 6.10. For each (ϵ, δ), the row and weighted column sums of the absolute transition
+coefficients in (6.7) are ≪K (1 + B∗ )K (1 + L3A0 ). In either orientation, fixing aν = p with δν = 0
+contributes an additional factor πν (p) in the row bound.
+Proof. Fix a source (z, L, C). For each D, a, c write z′ = hz + Dtwz with det(z, wz ) = 1. For
+a given t, the box for the first coordinate permits O(1) integers h. Since the measure of M is
+O(L3A0 /Y ),
+                        |K| ≪ |η(c/Y )η(a/Y )ψ(t/Y )|(1t=c−a + L3A0 /Y ).                    (6.9)
+                                                        3A
+Summing this upper bound over h, t, we obtain O(1 + L ). For each tuple, the m0 choices of the
+                                                          0
+
+prime that leaves it and the m0 ! orders of the target tuple cancel κJ0 = 1/(m0 m0 !). For δν = 0,
+summation over aν contributes sν ≤ 1. For δν = 1, there are at most |Cν | choices, each of weight
+1/Vν . Thus the sum of absolute values in the row is bounded by
+                                                    Y
+                                 ≪K (1 + L3A0 )          (sν + |Cν |/Vν ).
+                                                     ν
+28                          YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+Fixing aν = p when δν = 0 replaces sν by πν (p). Reversing the transition as in (6.8) proves the
+column bound.                                                                                 □
+  We allow a separate multiplier on each aν chosen with δν = 0. This uniformity allows us to
+impose the restriction ♭ in the proof of Proposition 5.7.
+Lemma 6.11. Suppose 2 ≤ T ≪ L1/2 and L0.1 ≪ log Y ≪K L0.2 . Given G > 0, take A0 = G + 3
+and K0 with 0.005K0 > G + 1. For each fixed K ≥ K0 , uniformly in g, ϵ, δ,
+                                        ∥Tϵ,δ ∥ℓ2 (ϖ)→ℓ2 (ϖ) ≪K,G L−G .
+The same bound holds in either orientation with factors χν (aν ), |χν | ≤ 1, for δν = 0.
+Proof. First suppose ϵ = δ = 0. By the norm reduction in Lemma 6.9, it suffices to estimate the
+operator with the first J0 slots of each tuple fixed. Keep the distinctness condition within each
+endpoint tuple, but extend its kernel to pairs with aν = cν for some ν. For fixed source, this
+equality determines aν and contributes at most ∆ = maxν,p πν (p) ≪K p−1   0 . The leaving slots and
+target order are fixed, so (6.9) bounds the added row sum by OK (∆(1 + L3A0 )), after summing
+over ν. The same column bound follows by reversal. By Schur’s test the extension changes the
+norm by OA (L−A ) for every fixed A > 0, uniformly Q
+                                                      in the multipliers.
+  Within a block of Lemma 6.9, write m(c) = ν πν (cν ) and similarly for a. The source and
+target have masses Msh m(c) and Msh m(a), where p    Msh is constant on the block. Conjugating to
+counting measure changes the coefficient m(a) to m(c)m(a). In common integral coordinates
+put
+                                                                                Xq
+     Bθ (u, v) = ψ(det(u, v)/Y )e(θ det(u, v)),                  (Uθ F )(u) =        m(c)η(c/Y )e(θc)F (u, c).
+                                                                                c
+Use superscripts s, t for the latter maps at the two endpoints. Fourier orthogonality for the integer
+t = det(z, z′ )/D = det(u, v) identifies the enlarged block with
+                                        d0
+                                                 Z
+                                           Ps              (Uθs )∗ Bθ Uθt dθ Pt .                            (6.10)
+                                        D         T\MA0
+
+Here Ps , Pt are the diagonal contractions
+                                         Q
+                                           imposing the endpoint conditions of Lemma 6.9. Since
+the shared entries are fixed, the factor ν χν (aν ) depends only on the target tuple and may be
+included in Pt . Distinct tuples c determine distinct integer products and hence distinct integer
+frequencies c. Parseval therefore yields
+                    Z
+                                                 m(c)|η(c/Y )|2 |F (u, c)|2 ≪K Y −1 ∥F ∥22 ,
+                                           X
+                         ∥Uθ F ∥22 dθ =                                                                      (6.11)
+                     T                     u,c
+
+since m(c) ≤ (V(P)c)−1 and c ≍ Y on the support of η. By Cauchy–Schwarz in θ and (6.11), the
+block norm in (6.10) is ≪K Y −1 supθ∈mA ∥Bθ ∥. Lemma 6.8 with A1 = A0 , σ = 1/20 and υ = 0.1
+                                         0
+bounds the supremum by O(Y L−G ). The side lengths in Lemma 6.7 satisfy its hypotheses for
+large Y . Combining the block estimates and applying the norm reduction in Lemma 6.9 proves
+the estimate for ϵ = δ = 0.
+   We next estimate the term t = c − a for the remaining choices of ϵ, δ. Fix a source (z, L, C) and
+write P∗ = Π(L) = Dc, which is independent of the leaving choices. When δ = 0, no entering
+prime is chosen from C, and for each choice of labels t = c − a permits O(1) targets. Summing the
+corresponding coefficients as in Lemma 6.10 bounds this row sum by OK (1).
+   Suppose δ ̸= 0, and let s = max{ν : δν = 1}. Fix the pair (p∗ , ℓ∗ ) selected from Cs , so that
+as = p∗ . There are at most B∗ possibilities. Write
+                                  Y                        Y
+                          a<s =         aν ,         F =         aν ,    n = Da<s ∈ Ns .
+                                  ν<s                      ν>s
+                                  PRIMES OF THE FORM u2 + v 2 + 1                                  29
+
+For every ν > s we have δν = 0. Using the equality t = c − a, we have
+                        d∗ := det(z, z′ ) = P∗ − p∗ nF,        z′ = hz + d∗ wz .
+Since p∗ ∤ P∗ , the target in the basis (z, wz ) modulo p∗ has coordinates (h, P∗ ) with nonzero
+second entry. The intersection of ℓ∗ with the affine line of points (h, P∗ ) is empty or fixes one
+residue h ≡ h∗ (mod p∗ ). This residue depends only on the source and the selected pair. Let
+rz = (gwz )1 /(gz)1 . The first-coordinate box imposes |h + d∗ rz | ≤ 16, whence
+                                              P∗ rz + h∗
+                                    nF rz −              ≤ 16/p∗ .                              (6.12)
+                                                  p∗
+                                                                                   ϑs
+If two distinct n, n′ satisfy this condition, then ∥(n − n′ )F rz ∥ ≤ 32/p∗ ≤ 100e−L .
+   For Fexc = {F : rz ∈ Es (F )}, the separation condition (5.11) and πν (p) ≤ (Vν p)−1 imply
+                                                                   ϑs /4
+                                                  πν (aν ) ≤ e−L
+                                     X     Y
+                                                                           .
+                                    F ∈Fexc ν>s
+
+For each other F , (6.12) determines at most one n. Now (a<s , P∗ ) = 1 and D | P∗ , so D = (n, P∗ )
+and a<s = n/D determine all the leaving choices and all lower incoming primes. Thus the target
+orders contribute (m0 !κJ0 )K = m−K  0 , and the fixed determinant allows O(1) choices of h. For
+ν < s, each choice with δν = 0 contributes πν (aν ); a prime chosen with δν = 1 occurs at most once
+in Cν and has weight Vν−1 . The sum of the weights for ν > s is at most one. Summing also over
+the at most B∗ choices of (p∗ , ℓ∗ ) contributes OK (B∗ m−K
+                                                          0 ).
+   For exceptional F , allow all leaving choices and target orders, whose number cancels κK  J0 . The
+                                                                              K
+choices for which δν = 1, including the pair with index s, contribute OK (B∗ ) in total. For each
+remaining index ν < s the sum of the weights is at most one. Thus the row sum for t = c − a
+when δ ̸= 0 is OK (εK ), where
+                                             B∗            0.1
+                                       εK = K + B∗K e−L /4 .
+                                             m0
+Reversing the transitions exchanges the absolute row and column sums and interchanges ϵ and
+δ. The column bound is OK (1) when ϵ = 0 and OK (εK ) otherwise. At least one bound is
+OK (εK ), and the other is OK (1). Since B∗ ≪K L1/2 , m0 > L0.01 and K0 /200 > G + 1, we have
+√
+  εK ≪K,G L1/4−K/200 + L−G ≪K,G L−G . Schur’s test proves the same bound for the operator
+norm.
+   It remains to estimate the major arc term for these choices of ϵ, δ. If δ ̸= 0, fix the source,
+leaving choices, entering primes and all pairs selected from C. Choose one such pair (p, ℓ). Writing
+z′ = hz + Dtwz as above places (h, t) in the centrally symmetric parallelogram
+                                   |h + Dtrz | ≤ 16,        |t| ≤ 5Y,
+of area O(Y ). Since p ∤ D, the inverse image of ℓ under (h, t) 7→ hz + Dtwz (mod p) is an index-p
+lattice. In a basis of this lattice the parallelogram has area O(Y /p), and admissible pairs have
+primitive coordinates in that basis, since a common divisor would divide both entries of z′ . Heath-
+Brown [12, Lemma 1(vii)] therefore bounds the number of targets by O(1 + Y /p). Multiplying by
+the major-arc measure and summing the label choices as in Lemma 6.10 bounds the row sum by
+                            OK L3A0 (1 + B∗ )K (p−1   −1
+                                                         ) ≪A L−A
+                                                                    
+                                                 0 +Y
+for any fixed A. If δ = 0, some ϵν = 1 and the same column bound follows by the reverse argument.
+For the opposite orientation, use the bound for the sum of absolute values from Lemma 6.10 for
+the contribution from the major arcs. Taking A sufficiently large, we obtain the required norm
+bound from Schur’s test. All estimates for these choices of ϵ, δ use absolute values, so they hold
+with the stated multipliers.                                                                    □
+30                             YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+  It remains to impose the restriction ♭ in the identity of Proposition 6.6 and to replace the
+expectation over lines by the sum over primitive initial points.
+
+Proof of Proposition 5.7. Take G = E + 4 and choose A0 , K0 as in Lemma 6.11. Let tp , p ∈ P∗ ,
+be independent circle variables with the degree-one Fejér density 1 + cos(2πt) = |1 + e(t)|2 /2, and
+put Zp = 2e(tp ). Fourier orthogonality gives
+                                                                           (
+                                                                               1,     j = 0, 1,
+                        Z
+            EZpj = 2j         e(jt) 1 + 12 e(t) + 21 e(−t) dt =
+                                                               
+                                                                                                       (j ∈ Z≥0 ).   (6.13)
+                          T                                                    0,     j≥2
+Let T(Z) be the sum of the operators in (6.7), with an additional factor Zaν whenever δν = 0. Put
+                                                                   K Y
+                                                                   Y
+                                             bZ (ξ) = b(ξ)                     Zp .
+                                                                ν=1 p∈Lν
+
+Conjugation in the first argument of the inner product introduces one factor Zp for each initial
+entry p. For a sequence of transitions, let jp count the initial entries equal to p and the choices
+                                               Q j
+aν = p with δν = 0. Its multiplier is then p Zpp . By independence and (6.13), its expectation
+equals 1jp ≤1 for all p . Proposition 6.6 now implies
+
+                                             MT (g) = E⟨bZ , T(Z)T b⟩.
+  We have ∥bZ ∥ ≤ 2Km0 and ∥b∥ ≤ 1. For each ϵ, δ, apply Lemma 6.11 with the unit-modulus
+multiplier Zp /2 and restore a factor 2 for each index with δν = 0. Summing the 4K choices, we
+obtain ∥T(Z)∥ ≤ 8K CK,G L−G uniformly in Z. It follows that
+                                   |MT (g)| ≤ 2Km0 (8K CK,G L−G )T ≪ L−ET ,
+since K is fixed, m0 = o(T ) and G = E + 4. By (5.25) and Proposition 6.5, the average over
+primitive initial points is
+                               1
+                                     Z
+                                            MT (g(u, v, r)) du dv dr + O(x−δ/20 ).
+                              ζ(2)     D∞
+
+The domain has volume 15, and T log L = o(log x), which proves the asserted mean value estimate.
+                                                                                             □
+
+6.5. Exceptional terms. The term E1 in Proposition 5.3 is the sum over edges with squarefree
+Dac at which separation fails at one or both endpoints.
+Lemma 6.12. Let Γ1 be a family of edges γ = (e1 , z′ ; L0 , L1 ) with primitive z′ . Assume the label,
+dyadic and determinant conditions in (5.20), with the coordinate bounds holding on a nonempty
+set of real frames. Suppose that
+                                         |Γ1 |, max |dγ | ≤ exp(C1 L0.21 ),
+                                                  γ∈Γ1
+
+where C1 is fixed and dγ depends only on γ. At each endpoint choose one of 1, 1sep or 1 − 1sep .
+Let Kγ,1 be their product on the coordinate boxes and zero outside. Put
+
+                                                                                                         z1 = z′ .
+                            X                       Y         Y
+            F1 (g, ℓ) =            dγ Kγ,1 (g)                         1ℓp =[zj ]p ,       z0 = e1 ,
+                            γ∈Γ1                 p∈Pact (γ) j∈Ap (γ)
+
+Here Ap (γ) ⊆ {0, 1} records the two endpoint lists. Then
+                            Aar (F1 ) = Amod (F1 ) + OA,C1 (L−AT )                        (A > 0).
+                                    PRIMES OF THE FORM u2 + v 2 + 1                                 31
+
+Proof. The slope bound on an edge implies |z2′ | ≪ H and |z1′ | ≪ H + 1. Replacing a separation
+indicator by its complement introduces no further boundary points, so by Lemma 6.2 we have
+N ≤ exp(OK (L0.21 )). All line conditions are modulo primes dividing S = Dac, with log S ≪K
+(J0 + 2)L0.2 . Thus the error in Lemma 6.4 with the choice of n above is x−cδ /4+o(1) per edge. Since
+                 o(1) , the total error is ≪ L−AT .
+  γ∈Γ1 |dγ | = x
+P
+                                            A                                                      □
+  At the initial point, αg (e1 ) = r. It therefore suffices to bound the measure of the values for
+which the separation conditions fail.
+Lemma 6.13. There is c1 > 0 such that, uniformly in tuples L with m0 distinct entries from each
+                                                                   0.1
+Pν , the set of r ∈ T failing separation for L has measure O(e−c1 L ).
+Proof. For a nonzero integer h, multiplication by h preserves circle measure, so meas{r : ∥hr∥ ≤
+t} = 2t for 0 ≤ t ≤ 1/2. Summing over l, D bounds the exceptional measure for the first condition
+by 2mK      −1/2 .
+        0 Y
+   For the second condition, the integer (n − n′ )F is nonzero whenever n ̸= n′ . Fix s and F ∈ Fs ,
+                          ϑs
+and put t = 100e−L . Summing the same identity over distinct pairs n, n′ ∈ Ns , we obtain
+|Es (F )| ≤ 2t |N2s | , as in the first moment estimate of Rudnick [33, (2), (10)]. The lower bound for
+                     
+
+the gaps in (4.1) implies
+                                          log |Pν | ≤ K log m0 + 2KLϑs −1/(20K) = oK (Lϑs ),
+                                    X
+           log |Ns | ≤ K log m0 +
+                                    ν<s
+
+uniformly in the allowed  exponents, since Lϑs ≥ L0.1 . Averaging the preceding measure bound
+over F , we obtain T Ws (r) dr ≪ exp(−Lϑs + oK (Lϑs )). By Markov’s inequality, (5.11) fails on a
+                  R
+                     ϑs
+set of measure ≪ e−L /2 . Now sum over s and use log Y ≥ Lϑ1 − O(1) in the first bound.        □
+   For the terms in which prime labels are repeated we count factorizations of ah + 1 using the
+following divisor estimate.
+Lemma 6.14. Uniformly for Z ≥ 2 and 1 ≤ q ≤ Z 1/4 ,
+                                          X                  Z(log Z)3
+                                                  d(n)2 ≪              .
+                                      n≤Z
+                                                                 q
+                                    n≡1 (mod q)
+
+Proof. See [35, Theorem 2].                                                                         □
+Proposition 6.15. Let K and A0 > 0 be fixed. Under (4.2), the terms E1 , E2 in Proposition 5.3
+satisfy
+                          |E1 | + |E2 | ≪R XY L−R     (R > 0).
+Proof. We first estimate E1 . Let AY = {a ∈ A(P) : η(a/Y ) ̸= 0}. For a, c ∈ AY , the absolute
+value of the kernel in (5.10) is ≪η,ψ (d0 /D)λa,c (t), where
+                  λa,c (t) = 1t=c−a + L3A0 Y −1 1|t|≤5Y ,
+                                                                   X
+                                                                        λa,c (t) ≪ 1 + L3A0 .
+                                                                    t
+We bound |E1 | by the sum of the absolute contributions from failure at the source and at the
+target. For the source, bound the four coefficients by L4C and retain the primitive endpoints,
+their coordinate boxes and the divisibility conditions. Place the ordered shared primes first in the
+two corresponding tuples, followed by cν at the source and aν at the target. Each term of (5.6)
+occurs once. In each dyadic range the source contribution is therefore ≪ L4C (U V /d0 )Aar (F1 ),
+with 1 − 1sep at the source, no separation condition at the target and
+                                                           K
+                                              d0
+                                                              Vν−(J0 +2) .
+                                                          Y
+                                     dγ =        λa,c (t)
+                                              D           ν=1
+32                         YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+Here z′ = (h, Dt)t with |h| ≪ H and |t| ≤ 5Y . Each edge has OK (J0 ) selected primes. Thus |Γ1 |
+and max |dγ | are at most exp(OK (L0.21 )), as required in Lemma 6.12. After averaging over the
+independent lines, for fixed labels with Dac squarefree, the line conditions have probability
+                                         Y     1       1
+                                                   ≤      .
+                                        p|Dca
+                                              p+1     Dca
+
+For shared primes this uses D | det(e1 , z′ ), so their source and target lines agree.
+  For fixed u, r, t the first-coordinate condition 1 ≤ u(h + Dtr) ≤ 16 allows O(1) integers h. The
+separation conditions at the source are evaluated at r. By Lemma 6.13,
+                                   Z 1
+                                                                         0.1
+                                          1 − 1sep (r, L) dr ≪ e−c1 L .
+                                                            
+                                     0
+It remains to sum λa,c (t) over t and the line probabilities over the labels. Dropping the dyadic
+and coprimality conditions, we have
+                  ordered K                            K              X J0 +2
+                    X Y                           1                      1
+                                              
+                                 Vν−(J0 +2)               Vν−(J0 +2)
+                                                       Y
+                                                     ≤                          = 1.
+                   D,c,a   ν=1
+                                                  Dca ν=1             p∈P
+                                                                          p
+                                                                               ν
+
+Since U V /d0 = XY and d0 /D ≤ 1, the contribution from failure at the source in one dyadic range
+satisfies
+                                                        0.1
+                    |E1,src | ≪ XY L4C (1 + L3A0 )e−c1 L + OA (XY L−AT ).
+The same bound holds at the target on reversing the edge, since λa,c (t) = λc,a (−t). Summing over
+the OK (L) dyadic ranges, we obtain
+                                              |E1 | ≪R XY L−R .
+  We next estimate E2 . For a ∈ AY we have a ≍ Y = X o(1) . The arguments ah + 1 and ch + 1
+are positive for every h ≥ 1. Taking Z ≍ X sufficiently large in Lemma 6.14, first with q = a and
+then with q = 1, we obtain
+                           X                         X 3          X
+                                 d(ah + 1)2 ≪          L ,             d(u)2 ≪ XL3 .         (6.14)
+                       h≪X/Y
+                                                     Y           u≪X
+
+For fixed a, c ∈ AY , Cauchy’s inequality and (6.14) imply
+                                    X
+                           L4C             d(ah + 1)d(ch + 1) ≪ L4C+3 X/Y
+                                  h≪X/Y
+
+for the terms with mn − 1 = ah and rs − 1 = ch. For the major-arc term put u = mn and v = rs,
+so u, v ≪ X and |cu − av| ≤ 5Y . Since a, c ≍ Y , each u is paired with O(1) values of v, and
+conversely. Applying 2d(u)d(v) ≤ d(u)2 + d(v)2 and (6.14) bounds the sum of d(u)d(v) over these
+pairs by O(XL3 ). As meas(M) ≪ L3A0 /Y , the combined absolute weight for any S ⊆ A2Y is
+                                                    X
+                                         ≪ L3A0 +4C+3 V(P)−2 |S|.
+                                                    Y
+Since   |AY | ≤ 4Y , we have V(P)−2 |AY |2 ≪K Y 2 . For fixed a, c, under the product measure
+Q               −1
+  ν,h (Vν pν,h ) , the probability of a repetition among the J0 shared labels chosen from one set
+or a common prime factor of D and ac is OK (J02 p−1               2 −L0.1 ). Indeed, each pairwise
+                                                       0 ) = OK (J0 e
+coincidence has probability at most 4/p0 , as does equality with any fixed prime factor of ac.
+Counting pairs for each common prime, we obtain
+                                                                                       0.1
+                                                            (4Y /p)2 ≪K Y 2 p−1    2 −L
+                                                      X
+              #{(a, c) ∈ A2Y : (a, c) > 1} ≤                                 0 ≪K Y e   .
+                                                     p∈P∗
+                                     PRIMES OF THE FORM u2 + v 2 + 1                               33
+
+Consequently
+                                                                     0.1
+                              |E2 | ≪K XY L3A0 +4C+3 J02 e−L               ≪R XY L−R .
+                                                                                                   □
+Proof of Proposition 5.1. Given R > 0, take E = R + 4C + 6, G = E + 4, A0 = G + 3 and
+K0 = ⌊200(G + 1)⌋ + 1 in Lemma 6.11. For fixed K ≥ K0 , Proposition 5.7 supplies (5.15) in every
+dyadic range for D. For the same A0 , Proposition 6.15 bounds |E1 | + |E2 | by OR (XY L−R ). Since
+E > R + 4C + 1, the required bound follows from Proposition 5.5.                                □
+
+                                     7. The major arc estimate
+  We now estimate QY (M) for the Möbius coefficients αm in Theorem 4.1. We combine Möbius
+cancellation with a mean square estimate on the intervals where a prime Dirichlet polynomial
+takes a large value. The estimate holds for every fixed A0 > 0 and K ≥ 1, so it applies to the arcs
+chosen in Proposition 5.1. Adding that comparison completes the proof of Theorem 4.1.
+Proposition 7.1. Let the coefficients have the form specified in Theorem 4.1, and let M be defined
+by (5.2) for A0 > 0. For every fixed K ≥ 1 and every R > 0, we have
+                                    |QY (M)| ≪ xY L−R                 (Y > 0),
+where the implied constant and an ineffective lower threshold for x depend only on δ, C, R, A0 , K, η.
+7.1. Estimates for Dirichlet polynomials.
+Lemma 7.2. Let δ, A, B > 0. Suppose xδ ≤ M ≤ x and q ≤ LB , and let χ be any Dirichlet
+character modulo q. Then, uniformly for t ∈ R, |t| ≤ x2 ,
+                                                µ(m)χ(m)mit ≪ M L−A ,
+                                        X
+
+                                      m≤M
+                                    P − (m)>z
+
+where the implied constant depends on δ, A, B.
+Proof. Let χ∗ be the primitive character modulo q ∗ | q inducing χ. Since q ≤ LB < z for large x,
+every integer with P − (n) > z is coprime to q, and hence χ(n) = χ∗ (n). Thus, for ℜs > 1,
+                                                     µ(n)χ(n)
+                                                                    1 − χ∗ (p)p−s
+                                           X                    Y                 
+                          Fz (s, χ) :=                    s
+                                                              =
+                                            n≥1
+                                                        n       p>z
+                                         P − (n)>z
+                                            1                       −1
+                                                      1 − χ∗ (p)p−s
+                                                  Y
+                                    =          ∗
+                                                                        .
+                                         L(s, χ ) p≤z
+
+The exclusion of Landau–Siegel zeros (see [1, 11]), together with [27, Theorem 24.20], shows that
+there exists some absolute c0 > 0 such that
+                                                                           c0
+         L(s, χ∗ )−1 ≪ log q ∗ + (log(|u| + 3))3/4  for σ ≥ 1 −      ∗
+                                                                                          ,
+                                                                log q + (log(|u| + 3))3/4
+where s = σ + iu. For q ∗ = 1, the same bound follows from the estimate for ζ(s)−1 in [27,
+Theorem 24.18]. We take σ0 = 1 − 14 c0 L−3/4 . For q ∗ ≤ LB , |L(s, χ∗ )−1 | ≪B L3/4 uniformly for
+ℜs ≥ σ0 and |ℑs| ≤ 2x2 . Since (1 − σ0 ) log z = o(1), Mertens’ theorem [25, Theorem 2.7] shows
+that, uniformly for ℜs ≥ σ0 ,
+                                              −1
+                              1 − χ∗ (p)p−s                    p−σ0 + O(1) = log log z + O(1).
+                        Y                                X
+                  log                                ≤
+                        p≤z                              p≤z
+34                            YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+Consequently,
+                         |Fz (s, χ)| ≪B L3/4 log z ≪B L              (ℜs ≥ σ0 , |ℑs| ≤ 2x2 ).               (7.1)
+  Let σ1 = 1 + 1/ log M and T = LA+3 . We obtain from the truncated Perron formula [19,
+Theorem 7.2] that
+                                                                            Ms
+                                               Z σ1 +iT
+                                          1                                           M log M
+            X                                                                                          
+                     µ(m)χ(m)mit =                         Fz (s − it, χ)      ds + O         +1 .
+           m≤M
+                                         2πi     σ1 −iT                     s            T
+         P − (m)>z
+
+The error is Oδ,A (M L−A ). We shift the contour to ℜs = σ0 . The function Fz (s − it, χ) is
+holomorphic throughout the rectangle, where (7.1) applies since |ℑ(s − it)| ≤ T + |t| ≤ 2x2 for
+large x. The two horizontal integrals and the new vertical integral contribute in total
+                                        ML
+                                   ≪B      + M σ0 L log T ≪δ,A,B M L−A ,
+                                        T
+since M ≥ xδ . This completes the proof of Lemma 7.2.                                                         □
+Lemma 7.3. Let δ, A > 0, and suppose N ≥ xδ and 12 L0.1 ≤ log P ≤ 2L0.2 . For |vp | ≤ 1 and
+arbitrary complex coefficients βn , we consider
+                                   1 X                                   1    X
+                          D(t) =             vp pit ,         Nβ (t) =             βn nit .
+                                   P P ≤p<2P                             N N ≤n≤2N
+
+We define
+                     n                                                                              o
+             I = [j, j + 1] : j ∈ Z,           ∃ t ∈ [j, j + 1] ∩ [−x2 , x2 ] with |D(t)| > L−A .
+
+Then we have
+                                                       X                       L X
+                     |I| ≤ exp O(L0.91 ) ,                 sup |Nβ (t)|2 ≪               |βn |2 ,
+                                           
+
+                                                       I∈I t∈I
+                                                                               N N ≤n≤2N
+
+where the two implied constants depend on A and on δ, A, respectively.
+Proof. For each I = [j, j + 1] ∈ I, we choose tI ∈ I ∩ [−x2 , x2 ] with |D(tI )| > L−A . For h = 0, 1,
+the points tI with j ≡ h (mod 2) are 1-separated. We apply [18, Lemma 6.5] to each parity class
+with q = 1 and α = (A + 1) log L/ log P , and obtain
+                               |I| ≤ exp OA (L0.9 log L) ≤ exp OA (L0.91 ) .
+                                                                                        
+
+  We now prove the mean square bound. We may assume I ̸= ∅. For each I ∈ I, we choose
+uI ∈ I at which |Nβ | attains its maximum. We order the intervals by their left endpoints
+and write u1 , . . . , u|I| for the corresponding points, which satisfy |ur | ≤ x2 + 1. We write
+SN (u) = N ≤n≤2N niu . For |u| ≤ N , we have by [26, Theorem 16.13]
+        P
+
+                                               Z 2N
+                                                                               N
+                                   SN (u) =            v iu dv + O(1) ≪              .
+                                                N                            1 + |u|
+For N < |u| ≤ 3x2 , the higher derivative estimate [26, Theorem 16.12], with a fixed derivative
+order greater than 2/δ, shows that SN (u) ≪δ N x−c for some c = c(δ) > 0, since N ≥ xδ . Thus
+                                                      1          
+                               SN (u) ≪δ N                  + x−c           (|u| ≤ 3x2 ).
+                                                    1 + |u|
+                                                 PRIMES OF THE FORM u2 + v 2 + 1                                                            35
+
+By the duality argument in [17, proof of Theorem 9.6] and the ordering of the intervals, we obtain
+             |I|                                         |I|
+             X                           1        X                      X
+                   |Nβ (ur )|2 ≤          2
+                                            max       |SN (ur − uℓ )|         |βn |2
+             r=1
+                                        N 1≤r≤|I| ℓ=1                 N ≤n≤2N
+                                          log(2|I|) + |I|x−c X                  L X
+                                   ≪δ                               |βn |2 ≪δ,A           |βn |2 ,
+                                                  N         N ≤n≤2N
+                                                                                N N ≤n≤2N
+
+where the last step follows from |I|x−c = o(1) and log(2|I|) ≪A L.                                                                          □
+Lemma 7.4. For a finite complex sequence (wℓ ) and yℓ ∈ [1, 16], we consider
+                                                   X                                          X
+                                        S(ξ) =          wℓ e(ξyℓ ),             F (t) =           wℓ yℓit .
+                                                    ℓ                                         ℓ
+For every T ≥ 1,
+                              Z T                         Z 200T                                       2
+                                                                                              1 X
+                                                                                               
+                                       |S(ξ)|2 dξ ≪                     |F (t)|2 dt +             |wℓ | .
+                               −T                             −200T                           T ℓ
+
+Proof. Let g ∈ Cc∞ ((1/2, 20)) be fixed and equal to 1 on [1, 16], and write
+                                             1 ∞                   dy
+                                               Z
+                                  gbξ (t) =        g(y)e(ξy)y −it     .
+                                            2π 0                   y
+For |ξ| ≤ T and |t| > 200T , we have |2πξ − t/y| ≥ |t|/100 on the support of g. Applying integration
+by parts twice, we find gbξ (t) ≪ |t|−2 . Mellin inversion [17, (4.106)] therefore yields
+                                                           1X
+                                    Z                                                            
+                       S(ξ) =          gbξ (t)F (t) dt + O     |wℓ |                                     (|ξ| ≤ T ).                      (7.2)
+                              |t|≤200T                     T ℓ
+By Fubini’s theorem,
+                                                              Z ∞
+                                                         1             g(y)
+               Z                                                              Z                               
+                                                                                                       −it
+                              gbξ (t)F (t) dt =                                               F (t)y          dt e(ξy) dy.
+                   |t|≤200T                             2π     0        y         |t|≤200T
+
+By Plancherel’s formula [17, (4.98)] with respect to ξ, we get
+                                             2                                                                      2
+                                                                        |g(y)|2
+                                                               Z ∞
+                                                         1
+       Z Z                                                                         Z
+                       gbξ (t)F (t) dt dξ =                                                       F (t)y −it dt dy
+        R   |t|≤200T                                    4π 2       0      y2         |t|≤200T
+                                                         Z Z                                      2            Z
+                                                                                       −itv
+                                                    ≪                         F (t)e          dt dv ≪                      |F (t)|2 dt,
+                                                          R    |t|≤200T                                         |t|≤200T
+where the first inequality follows from the substitution v = log y on the compact support of g,
+and the second from Plancherel’s identity applied to F (t)1|t|≤200T . Combining this with (7.2)
+completes the proof.                                                                         □
+7.2. Proof of Proposition 7.1.
+Proof. If A(P) ∩ [Y, 4Y ] = ∅, then QY (M) = 0. By Fourier inversion, we have
+                                                                                                                           2
+                                                                                           ξcmn
+                                   Z     Z                                              
+                              −2
+                                                         X
+       QY (M) = V(P)                         ψ(ξ)
+                                             b                 η(c/Y )αm βn e θ(cmn − c) +                                      dξ dθ.
+                                    M R
+                                                        c∈A(P)
+                                                                                             Y
+                                                         m,n
+
+We parametrize the arcs in (5.2) by θ = u/q + λ/Y . Since (ucmn, q) = 1 on the support of the
+sum, we use the character expansion [17, (3.11)]
+                                           1     X
+                            eq (ucmn) =               τ (χ)χ(ucmn),
+                                         φ(q) χ mod q
+36                        YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+                                                                 √
+where τ (χ) = a mod q χ(a)eq (a) is the Gauss sum, and |τ (χ)| ≤ q for every character modulo q
+               P
+
+[17, Lemma 3.1]. For fixed u, q, χ, λ, we write
+                       1         X
+          Sλ (ξ) =                     η(c/Y )αm βn χ(cmn)eq (−uc)e(−λc/Y )e(ξcmn/Y ).
+                   Y M N V(P) c∈A(P)
+                                  m,n
+
+We apply Cauchy’s inequality to the character sum. After summation over the major arcs, we
+obtain
+          |QY (M)|      X      q     X       X Z 2LA0 Z
+                   ≪x                                      |ψ(ξ)|
+                                                            b     |Sλ (ξ + λ)|2 dξ dλ. (7.3)
+            xY             A0
+                              φ(q) u mod q χ mod q −2L
+                                                      A0 R
+                          q≤L
+                                        (u,q)=1
+  We next reduce the inner integral in (7.3) to a mean square of the Dirichlet polynomial
+Aλ (t) = Bλ (t)Mα (t)Nβ (t), where
+                                  1     X
+                    Bλ (t) =                 η(c/Y )eq (−uc)e(−λc/Y )χ(c)cit ,
+                               Y V(P) c∈A(P)
+                               1 X                                1 X
+                    Mα (t) =       αm χ(m)mit ,        Nβ (t) =       βn χ(n)nit .
+                               M m                                N n
+Since c∈A(P) c−1 = V(P) and c ≤ 4Y on the support of η(c/Y ), the sum of the absolute values
+      P
+
+of the coefficients of Bλ is O(1), and that of Aλ is ≪ LC .
+   We split the ξ-integral at |ξ| = LA0 +1 . The coefficients of Mα Nβ , supported on ℓ = mn ≍ x,
+have modulus ≪ LC d(ℓ)/x. By the definition of Sλ , Cauchy’s inequality in c and direct integration,
+we have
+                                                                         2
+                                                                             L2C+3
+                 Z j+1
+                                             1    X X
+                       |Sλ (ξ + λ)|2 dξ ≪                  α m β n χ(mn)   ≪       ,
+                  j                       (M N )2 ℓ≍x mn=ℓ                     x
+for any j ∈ Z, where the last bound follows from (6.14). Thus, we use the rapid decay of ψb to
+obtain
+                                                   L2C+3
+               Z                                          X
+                                             2
+                           |ψ(ξ)||S
+                            b
+                                   λ (ξ + λ)| dξ ≪                 sup |ψ(ξ)|
+                                                                           b
+                     A
+                |ξ|>L 0 +1                           x    j∈Z    ξ∈[j,j+1]
+                                                           A0 +1
+                                                                                         (7.4)
+                                                           |j|>L      −1
+
+                                                  ≪ x−1 L−R−4A0 −1
+for any R > 0.
+   We apply Lemma 7.4 with T = 2M N LA0 +1 to Sλ (ξ ′ /(M N )), since 1 ≤ cmn/(Y M N ) ≤ 16 on
+the support of the sum. The function F in that lemma is (Y M N )−it Aλ (t). Since ψb is bounded,
+we obtain                                                      Z T
+                                                            1
+               Z
+                             |ψ(ξ)||S
+                              b
+                                      λ (ξ + λ)| 2
+                                                   dξ ≪              |Sλ (ξ ′ /(M N ))|2 dξ ′
+                |ξ|≤L A 0 +1                              M  N   −T
+                                                                                                (7.5)
+                                                                                          L2C
+                                                               Z 200T
+                                                            1                    2
+                                                      ≪                 |Aλ (t)| dt +         .
+                                                          M N −200T                      MN T
+For large x, the t-interval in (7.5) is contained in T = [−xLA0 +2 , xLA0 +2 ]. Combining (7.4) with
+(7.5), we get
+                                                      1
+                   Z                                    Z
+                      |ψ(ξ)|
+                        b      |Sλ (ξ + λ)|2 dξ ≪          |Aλ (t)|2 dt + x−1 L−R−4A0 −1 .
+                    R                                 x T
+We insert this bound into (7.3) and obtain
+                        |QY (M)|
+                                                  Z
+                                 ≪ L4A0 sup      |Aλ (t)|2 dt + O(L−R−1 ),                      (7.6)
+                          xY           u,q,χ,λ T
+                                         PRIMES OF THE FORM u2 + v 2 + 1                                      37
+
+where the supremum is over the ranges of u, q, χ, λ in that sum.
+  We reduce the mean square in (7.6) to a sum over primes as in Lemma 7.3,
+                                    1 X
+                            D(t) =              vp pit ,   |vp | ≤ 1.
+                                    P P ≤p<2P
+
+We write c = pc′ , with p ∈ P1 . For fixed c′ , only Y /c′ ≤ p < 4Y /c′ contributes. We split the p-sum
+at 2Y /c′ . After multiplication by c′ /Y , the first part is a polynomial from Lemma 7.3 and the second
+is twice another such polynomial. The required coefficient bound follows from 0 ≤ η ≤ 1, and (4.1)
+ensures that each nonzero polynomial has the required scale. Since V(P)−1 c′ c′−1 = V1−1 ≪ 1,
+                                                                                    P
+
+we have by Cauchy’s inequality
+                              Z                          Z
+                                  |Aλ (t)|2 dt ≪ sup          |D(t)Mα (t)Nβ (t)|2 dt,                       (7.7)
+                              T                      D    T
+where D ranges over the finitely many polynomials just obtained.
+  For a fixed A > 0, to be chosen at the end, we split the integral according as |D(t)| ≤ L−A
+or |D(t)| > L−A . For the first part, by the mean value theorem for Dirichlet polynomials [23,
+Theorem 6.1] and the coefficient bound for Mα Nβ above, we have
+                                     Z
+                                          |Mα (t)Nβ (t)|2 dt ≪ L2C+A0 +5 .
+                                      T
+  For the second part, we use Lemmas 7.2 and 7.3. For large x, we have 2M ≤ x and |t + v| ≤ x2
+on T . Lemma 7.2 yields
+                                   sup |Mα (t)| ≪A L−A .
+                                               t∈T
+Let I be the interval family in Lemma 7.3 for this D and A. Every t ∈ T with |D(t)| > L−A lies
+in an interval I0 ∈ I, since T ⊂ [−x2 , x2 ] for large x. Applying the second bound in the lemma to
+βn χ(n), we obtain
+                          X                    L X
+                              sup |Nβ (t)|2 ≪             |βn χ(n)|2 ≪ L2C+1 .
+                         I ∈I t∈I0
+                                               N  N ≤n≤2N
+                          0
+
+The estimates for the two parts, together with |D| ≪ 1, imply
+          Z                                          Z
+               |D(t)Mα (t)Nβ (t)|2 dt ≪ L−2A             |Mα (t)Nβ (t)|2 dt + L−2A
+                                                                                        X
+                                                                                            sup |Nβ (t)|2
+           T                                         T                               I0 ∈I t∈I0             (7.8)
+                                                2C+A0 +5−2A
+                                          ≪L                   .
+Combining (7.7) and (7.8), we obtain
+                                           Z
+                                    sup        |Aλ (t)|2 dt ≪ L2C+A0 +5−2A .
+                                   u,q,χ,λ T
+
+Inserting this into (7.6) and choosing 2A > R + 2C + 5A0 + 5, we obtain the required bound.
+                                                                                                              □
+7.3. Proof of Theorem 4.1.
+Proof. We may replace δ by min(δ, 1/4). Choose A0 and K0 from Proposition 5.1 with the desired
+R. Proposition 7.1 applies to the same major arcs and the same prime sets at the given scale x.
+Since QY is nonnegative,
+                              QY ≤ |QY − QY (M)| + |QY (M)| ≪ XY L−R .
+Both propositions are uniform in the exponents and prime sets under (4.1), with the stated
+dependence on the fixed parameters. This proves Theorem 4.1.                             □
+38                          YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+                                8. Removal of the auxiliary weights
+   We combine the Type I asymptotic with the estimate for T3 to obtain a weighted asymptotic
+formula, and then remove the auxiliary weights. Throughout this section K is fixed, J lies in (2.1),
+and the prime sets are defined by (2.2) and (2.4). All estimates below are uniform in J.
+
+8.1. A weighted asymptotic formula.
+Proposition 8.1. For sufficiently large fixed K and every Φ ∈ Cc∞ ((0, ∞)) supported in [1/2, 1],
+we have
+                                           Z ∞
+                                  x
+                                                                            
+                                                Φ(t) dt + OK N8 (Φ)L−1/2 .
+                                                                           
+                   Θb,W (x, Φ) = √ κS
+                                   L        0
+The formula holds for all such Φ once x is sufficiently large in terms of K alone.
+Proof. Combine (2.7), Proposition 3.3 and Corollary 4.3 with A = 1. The combined error is
+OK N8 (Φ)xL−1 .                                                                         □
+
+8.2. Averaging the weights. Following [30, Section 6] and [22, Proposition 2.3 and Section 5.3],
+we average the weights Wj over the J families of Section 2. To bound the squared difference
+between this average and 1 over primes x/2 < p ≤ x with b(p − 1) = 1, we use a Selberg upper-
+bound sieve of dimension 3/2 [9, Section 7.1]. Cauchy’s inequality will then remove the averaged
+weight.
+   Put PE = p∈E p. For a function F (n) depending only on the indicators (1q|n )q∈E , define its
+             Q
+
+average over residue classes by
+                                                  1
+                                   Eb,E F =                              F (a).
+                                                             X
+                                                φ(PE )     a mod PE
+                                                          (a+1,PE )=1
+
+For each q ∈ E, the Chinese remainder theorem shows that     the q − 1 classes modulo q other
+than −1 occur equally often in this sum. Thus Eb,E 1q|a = 1/(q − 1). Since the bands are
+pairwise disjoint, the corresponding counts ωj,ν are independent under Eb,E . For each band, write
+µj,ν = p∈Pj,ν 1/(p − 1). Then
+       P
+
+
+                                         2
+                                                          X        1      1 
+           Eb,E ωj,ν = µj,ν ,      Eb,E ωj,ν = µ2j,ν +                 1−      ≤ µ2j,ν + µj,ν .
+                                                         p∈Pj,ν
+                                                                  p−1     p−1
+
+Since µj,ν ≍ 1, uniformly in j, ν, we deduce from (3.11) that
+                                 K
+                                 Y µj,ν
+                                          = 1 + OK exp(−L0.1 ) ,              Eb,E Wj2 ≪K 1.
+                                                                     
+                  Eb,E Wj =
+                                   V
+                                ν=1 j,ν
+
+Define
+                                                       J             2
+                                                    1X
+                                                                         
+                                      (b)
+                                     ZJ (n) =             Wj (n) − 1 .                            (8.1)
+                                                    J j=1
+
+For i ̸= j, independence implies Eb,E ((Wi − 1)(Wj − 1)) = OK (exp(−2L0.1 )). Consequently,
+                            J
+                 (b)     1 X                                     1
+                              Eb,E (Wj − 1)2 + OK exp(−2L0.1 ) ≪K + exp(−2L0.1 ),
+                                                              
+           Eb,E ZJ =      2
+                                                                                                  (8.2)
+                        J j=1                                    J
+
+with an implied constant independent of J.
+                                        PRIMES OF THE FORM u2 + v 2 + 1                                       39
+
+8.3. An upper bound for the weighted sum over primes.
+Lemma 8.2. We have
+                                                  (b)                 x
+                                                                           + OK (xL−10 ).
+                             X
+                                   b(p − 1)ZJ (p − 1) ≤ CK
+                         x/2<p≤x
+                                                                     JL3/2
+
+  Let z0 = x1/100 and D0 = z05 = x1/20 , so that E ⊂ [3, z0 ] for large x. If n + 1 ∈ (x/2, x] is
+prime, then p ∤ n + 1 for every prime p ≤ z0 . The condition b(n) = 1 also excludes p ∥ n when
+p ≡ 3 (mod 4). The corresponding excluded residue classes are
+                 (
+                     {a mod p2 : p | a + 1},                                   if p = 2 or p ≡ 1 (mod 4),
+          Ωp =
+                     {a mod p2 : p | a + 1} ∪ {a mod p2 : p ∥ a},              if p ≡ 3 (mod 4).
+The two sets in the second case are disjoint and contain p and p − 1 classes, respectively. Define
+the multiplicative function gb on the divisors of P (z0 ) by
+                                              (
+                                 |Ωp |            1/p,        p = 2 or p ≡ 1 (mod 4),
+                         gb (p) = 2 =                      2
+                                                                                                            (8.3)
+                                  p               2/p − 1/p , p ≡ 3 (mod 4).
+For r | P (z0 ), we define
+                             Ωr = {a mod r2 : a mod p2 ∈ Ωp for every p | r}.
+By the Chinese remainder theorem, |Ωr | = r2 gb (r). We write n ∈ Ωr for n mod r2 ∈ Ωr .
+                                                                                         (b)
+  The next lemma provides the remainder estimate needed for Selberg’s sieve applied to ZJ .
+Lemma 8.3. For r | P (z0 ), we have
+                                   X            (b)         x             (b) 
+                                             ZJ (n) =         gb (r)Eb,E ZJ + R(r),
+                              x/2<n+1≤x
+                                                            2
+                                 n∈Ωr
+
+where, for every fixed B > 0,
+                                                     R([d1 , d2 ]) = OB,K (xL−B ).
+                                       X
+
+                                    d1 ,d2 ≤D0
+                                   d1 ,d2 |P (z0 )
+
+Proof. Expanding the square in (8.1) and then the products of prime sums in (2.5), we obtain the
+exact identity
+                                     (b)       X
+                                   ZJ (n) =          cQ 1Q|n .                              (8.4)
+                                                             Q|PE
+                                                           ω(Q)≤2K
+In a squared weight the two selected primes in one band may coincide; their divisibility conditions
+combine by taking the least common multiple. Thus every Q is squarefree and
+                                                             X
+                             Q ≤ exp(4KL0.2 ),                   |cQ | ≤ exp(OK (L0.2 )).
+                                                             Q
+
+Indeed, the expansion of the square contains a constant, an average of single weights and an
+average of products of two weights. Before collecting terms, these scalar coefficients have total
+absolute sum 1 + 2 + 1 = 4, and each weight contains K prime selections. Since Vj,ν ≍ 1 and
+                 −1 ≍ 1, the coefficients in this expansion satisfy
+  p∈Pj,ν (p − 1)
+P
+
+                             X |cQ |                       X |cQ |         1
+                                          ≪K 1,                       ≪K         (q ∈ E).                   (8.5)
+                              Q
+                                φ(Q)                        Q
+                                                              φ(Q)         q
+                                                           q|Q
+40                                YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+For the first estimate, apply the second moment calculation above to 1, Wj and Wi Wj before
+collecting coefficients. For the second, prescribe a selected prime to be q. In a repeated band Pj,ν ,
+the total contribution containing q is
+                                                1            1                            1
+                                                       X                            
+                                                   1+2                                   ≪ .
+                                               q−1     p∈P
+                                                           p − 1                          q
+                                                                       j,ν
+                                                                   p̸=q
+
+The reciprocal sums over the other bands are bounded. Averaging the scalar coefficients preserves
+these bounds independently of J. By the Chinese remainder theorem,
+                                           (b)  X cQ
+                                     Eb,E ZJ =          .
+                                                 Q
+                                                   φ(Q)
+
+For q ∈ E, the condition n ∈ Ωq means q | n + 1. Hence Q | n is incompatible with n ∈ Ωr when
+(Q, r) > 1. Otherwise the two conditions specify |Ωr | classes modulo Qr2 . Therefore
+                                       X                       x        1(Q,r)=1
+                                                    1Q|n =       gb (r)          + O(|Ωr |).
+                                   x/2<n+1≤x
+                                                               2           Q
+                                      n∈Ωr
+
+Using
+                                   1(Q,r)=1     1      1                                          X 1
+                                                                               X
+                                            −      ≤                                        1+                 ,
+                                      Q       φ(Q)   φ(Q)                         q|(Q,r)         q|Q
+                                                                                                           q
+we sum over Q in (8.4) and apply (8.5). The stated identity follows, with
+                                                          1     X1
+                                                    X                        
+                        R(r) ≪K xgb (r)                     2
+                                                              +                   + |Ωr | exp(OK (L0.2 )).         (8.6)
+                                                      q∈E
+                                                          q     q|r
+                                                                    q
+                                                                      q∈E
+
+We sum (8.6) over d1 , d2 ≤ D0 . Each squarefree r = [d1 , d2 ] ≤ D02 = x1/10 arises from at most
+3ω(r) pairs. By Mertens’ theorem [25, Theorem 2.7(e) and Corollary 4.12(d)],
+                                     X                             Y
+                                               3ω(r) gb (r) =             (1 + 3gb (p)) ≪ L9/2 .
+                                   r|P (z0 )                    p≤z0
+
+Moreover, gb (q) = 1/q for q ∈ E, so
+                                          X                        X1                       X 1
+                                                    3ω(r) gb (r)              ≪ L9/2                   .
+                                        r|P (z0 )                   q|r
+                                                                          q                 q∈E
+                                                                                                  q2
+                                                                   q∈E
+
+Since every q ∈ E exceeds exp(L0.1 ), the latter prime sum is O(exp(−L0.1 )). For squarefree r, we
+have 3ω(r) = m|r d(m), whence r≤y µ2 (r)3ω(r) ≤ y m≤y d(m)/m ≪ y(log y)2 . Together with
+                P                P                     P
+
+|Ωr | ≤ r2 , this implies
+                   X
+                                 |R([d1 , d2 ])| ≪K xL9/2 exp(−L0.1 ) + x3/10 L2 exp(CK L0.2 ).
+                d1 ,d2 ≤D0
+               d1 ,d2 |P (z0 )
+
+Both terms are OB,K (xL−B ) for every fixed B > 0. The coefficient bounds above are preserved by
+the normalized averages over the J families, so the estimate is uniform throughout (2.1).     □
+Proof of Lemma 8.2. Let
+                                                            X Y             gb (p)
+                                                    G=                                .
+                                                           d≤D0       p|d
+                                                                          1 −  gb (p)
+                                                          d|P (z0 )
+                                          PRIMES OF THE FORM u2 + v 2 + 1                                                     41
+
+By the Selberg sieve [17, Section 6.5], there are real weights ξd , supported on d ≤ D0 with d | P (z0 ),
+such that ξ1 = 1, |ξd | ≤ 1, and
+
+                                                          ξd1 ξd2 gb ([d1 , d2 ]) = G−1 .
+                                             X
+                                                                                                                            (8.7)
+                                         d1 ,d2 ≤D0
+                                        d1 ,d2 |P (z0 )
+
+  For each prime counted on the left below, n = p − 1 avoids every Ωq with q ≤ z0 , so the inner
+                                  (b)
+sum on the right equals 1. Since ZJ ≥ 0, we have
+                                                                                       X                      2
+                  X                 (b)                             X       (b)
+                           b(p − 1)ZJ (p − 1) ≤                            ZJ (n)                   ξd 1n∈Ωd        .
+                x/2<p≤x                                       x/2<n+1≤x                  d≤D0
+                                                                                        d|P (z0 )
+
+The conditions n ∈ Ωd1 and n ∈ Ωd2 are together equivalent to n ∈ Ω[d1 ,d2 ] . We expand the square
+and apply Lemma 8.3 with B = 10, together with (8.7). Since |ξd | ≤ 1, we obtain
+                                                (b)                  x       (b) 
+                                                                       Eb,E ZJ + OK (xL−10 ).
+                       X
+                                 b(p − 1)ZJ (p − 1) ≤                                                                       (8.8)
+                     x/2<p≤x
+                                                                    2G
+
+  To bound G from below, we use 1 − log d/ log D0 ≤ 1d≤D0 and obtain
+                              X              log d  Y gb (p)
+                    G≥                  1−
+                            d|P (z0 )
+                                             log D0 p|d 1 − gb (p)
+                                                                    1
+                                                                                            
+                                   (1 − gb (p))−1 1 −
+                             Y                                           X
+                       =                                                    gb (p) log p ≫ L3/2 .
+                            p≤z0
+                                                                 log D0 p≤z
+                                                                                0
+
+
+Here log D0 = 5 log z0 . By (8.3) and Mertens’ theorem, we have
+                     X                         3               
+                           gb (p) log p =             + o(1) log z0 ,
+                    p≤z0
+                                                  2
+
+                                                      (1 − p−1 )                    (1 − p−1 ) ≍ L−3/2 .
+                    Y                           Y                        Y
+                           (1 − gb (p)) =
+                    p≤z0                       p≤z0                     p≤z0
+                                                                     p≡3 (mod 4)
+
+
+Thus G−1 ≪ L−3/2 with an absolute implied constant. The lemma follows from (8.8) and (8.2). □
+
+8.4. Proof of Theorem 1.1.
+
+Proof. Fix K sufficiently large for Proposition 8.1. Let J satisfy (2.1), and let Φ ∈ Cc∞ ((0, ∞))
+be nonnegative and supported in [1/2, 1]. Apply Proposition 8.1 to every family P (j) . The prime
+powers n = pr with r ≥ 2 contribute OK (∥Φ∥∞ x3/5 ), since W(n) ≪K d(n) ≪K n1/20 . On the
+support of Φ(p/x), we have log p = L + O(1) and log p ≥ L/2. By positivity, the weighted
+prime sum is at most 2Θb,Wj (x, Φ)/L. Thus, after division by L, replacing log p/L by 1 costs
+OK (xL−5/2 (∥Φ∥∞ + N8 (Φ)L−1/2 )). Averaging over j, we obtain
+           J X                                      ∞
+        1X                                 x
+                                                                           Z                                           
+                                                      Φ(t) dt + OK N8 (Φ)L−1/2 .
+                                                                              
+                b(p − 1)Wj (p − 1)Φ(p/x) = 3/2 κS
+        J j=1 p                           L       0
+42                            YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+By Cauchy’s inequality, (1.2) and Lemma 8.2,
+                                        J
+                                     1X
+                   X                                                   
+                      b(p − 1)Φ(p/x)       Wj (p − 1) − 1
+                    p                J j=1
+                                                        1/2                                   1/2
+                                      X                             X                (b)
+                      ≤ ∥Φ∥∞                  b(p − 1)                      b(p − 1)ZJ (p − 1)
+                                    x/2<p≤x                       x/2<p≤x
+                              x
+                  ≪K ∥Φ∥∞ 3/2 J −1/2 + L−17/4 .
+                                             
+                                                                                                              (8.9)
+                             L
+Consequently, uniformly for J in (2.1),
+             L3/2 X                       ∞         Z
+                    b(p − 1)Φ(p/x) − κS     Φ(t) dt ≪K ∥Φ∥∞ J −1/2 + N8 (Φ)L−1/2 .
+              x p                       0
+
+For sufficiently large x, choose J = ⌊log L/(20K log 2)⌋. Then
+                             x        ∞        Z
+                                                     ∥Φ∥∞
+                                                                                                   
+                                                             + N8 (Φ)L−1/2
+        X
+            b(p − 1)Φ(p/x) = 3/2 κS     Φ(t) dt + OK √                                                   .   (8.10)
+          p                 L       0                  log L
+In particular, for fixed Φ the error in parentheses is OK,Φ ((log L)−1/2 ).
+   The estimate (8.10) extends to nonnegative smooth Φ supported in [1/3, 4/3]. Indeed, use a
+fixed nonnegative smooth partition of unity whose pieces are supported in intervals (c/2, c), with
+c > 0 fixed, and apply (8.10) to each rescaled piece at the scale cx. At each scale the prime sets
+and J are chosen anew. The number of pieces is fixed, their seminorms are bounded by a constant
+times N8 (Φ), and log(cx) = L + O(1), so the resulting bound has the same form.
+   Put δ = (log L)−1/2 . Choose smooth functions Φ−        +
+                                                      δ , Φδ , supported in [1/3, 4/3], such that
+                                       0 ≤ Φ−                +
+                                             δ ≤ 1(1/2,1] ≤ Φδ ≤ 1,
+                              Z ∞
+                                              1
+                                  Φ±
+                                   δ (t) dt =   + O(δ),      N8 (Φ±    −8
+                                                                  δ )≪δ .
+                               0              2
+Since δ −8 L−1/2 ≪ δ, the upper and lower bounds from (8.10) imply
+                                                        κSx             x
+                                X                                                     
+                                        b(p − 1) =        3/2
+                                                              + OK  3/2
+                                                                        √       .                            (8.11)
+                              x/2<p≤x
+                                                        2L         L      log L
+                                     √
+Sum (8.11) over the scales y = x2−h ≥ x. The errors total OK (xL−3/2 (log L)−1/2 ). The main
+                                      √
+terms sum to κSxL−3/2 + O(xL−5/2 + x), since h≥0 2−h−1 = 1 and h≥0 h2−h ≪ 1. The
+                                                  P                     P
+                               √
+remaining primes contribute O( x), which is negligible. This proves Theorem 1.1.          □
+AI use. This manuscript presents results obtained through an interactive collaboration between
+AI and human researchers. Convinced by the mathematical substance of the work, we share this
+paper to express our excitement about this methodology and its broader potential.
+
+                                                    References
+ [1] W. D. Banks, On the OpenAI proof that Landau–Siegel zeros do not exist, arXiv:2610.15483v1, 2026.
+ [2] F. P. Boca, Distribution of angles between geodesic rays associated with hyperbolic lattice points, Q. J. Math.
+     58 (2007), 281–295.
+ [3] F. P. Boca and A. Zaharescu, On the correlations of directions in the Euclidean plane, Trans. Amer. Math. Soc.
+     358 (2006), 1797–1825.
+ [4] B. M. Bredikhin, Binary additive problems of indeterminate type. II. Analogue of the problem of Hardy and
+     Littlewood, Izv. Akad. Nauk SSSR Ser. Mat. 27 (1963), 577–612.
+ [5] R. de la Bretèche and G. Tenenbaum, Remarks on the Selberg–Delange method, Acta Arith. 200 no. 4 (2021),
+     349–369, corrected version arXiv:2010.12929v8, 24 June 2025.
+                                       PRIMES OF THE FORM u2 + v 2 + 1                                           43
+
+ [6] A. E. Brouwer and W. H. Haemers, Spectra of Graphs, Universitext, Springer, New York, 2012.
+ [7] É. Fouvry and G. Tenenbaum, Multiplicative functions in large arithmetic progressions and applications, Trans.
+     Amer. Math. Soc. 375 no. 1 (2022), 245–299.
+ [8] J. Friedlander and H. Iwaniec, The polynomial X 2 + Y 4 captures its primes, Ann. of Math. (2) 148 (1998),
+     945–1040.
+ [9] J. Friedlander and H. Iwaniec, Opera de Cribro, Amer. Math. Soc. Colloq. Publ. 57, American Mathematical
+     Society, Providence, RI, 2010.
+[10] T. Furuta, J. Mićić Hot, J. Pečarić, and Y. Seo, Mond–Pečarić Method in Operator Inequalities, Monographs in
+     Inequalities 1, Element, Zagreb, 2005.
+[11] B. Green, On Landau–Siegel zeros, Hexagon:2610.00311v2, October 17, 2026.
+[12] D. R. Heath-Brown, The density of rational points on curves and surfaces, with an appendix by J.-L. Colliot-
+     Thélène, Ann. of Math. (2) 155 (2002), 553–598.
+[13] D. R. Heath-Brown, Square-free values of n2 + 1, Acta Arith. 155 (2012), 1–13.
+[14] H. A. Helfgott, Expansion, divisibility and parity: an explanation, in Combinatorial and Additive Number
+     Theory V, Springer Proc. Math. Stat. 395, Springer, Cham, 2022, pp. 199–237.
+[15] H. Iwaniec, Primes of the type φ(x, y) + A, where φ is a quadratic form, Acta Arith. 21 (1972), 203–234.
+[16] H. Iwaniec, The half dimensional sieve, Acta Arith. 29 (1976), 69–95.
+[17] H. Iwaniec and E. Kowalski, Analytic Number Theory, Amer. Math. Soc. Colloq. Publ. 53, American Mathe-
+     matical Society, Providence, RI, 2004.
+[18] O. Klurman, A. P. Mangerel, and J. Teräväinen, Multiplicative functions in short arithmetic progressions, Proc.
+     Lond. Math. Soc. (3) 127 no. 2 (2023), 366–446.
+[19] D. Koukoulopoulos, The Distribution of Prime Numbers, Grad. Stud. Math. 203, American Mathematical
+     Society, Providence, RI, 2019.
+[20] E. Landau, Über die Einteilung der positiven ganzen Zahlen in vier Klassen nach der Mindestzahl der zu ihrer
+     additiven Zusammensetzung erforderlichen Quadrate, Arch. Math. Phys. (3) 13 (1908), 305–312.
+[21] Yu. V. Linnik, The Dispersion Method in Binary Additive Problems, Transl. Math. Monogr. 4, American
+     Mathematical Society, Providence, RI, 1963.
+[22] G. Lü, Z. Wang, and J. Wu, On the Hardy–Littlewood–Chowla conjecture, arXiv:2610.20242v1, 2026.
+[23] H. L. Montgomery, Topics in Multiplicative Number Theory, Lecture Notes in Math. 227, Springer-Verlag,
+     Berlin–New York, 1971.
+[24] H. L. Montgomery and R. C. Vaughan, The large sieve, Mathematika 20 (1973), 119–134.
+[25] H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory I. Classical Theory, Cambridge Stud.
+     Adv. Math. 97, Cambridge University Press, Cambridge, 2007.
+[26] H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory II. Primes and Sieves, Cambridge Stud.
+     Adv. Math. 218, Cambridge University Press, Cambridge, 2026.
+[27] H. L. Montgomery and R. C. Vaughan, Multiplicative Number Theory III, manuscript in preparation, https:
+     //personal.science.psu.edu/rcv4/Vol3/Vol3.pdf.
+[28] Y. Motohashi, On the distribution of prime numbers which are of the form x2 + y 2 + 1, Acta Arith. 16 (1970),
+     351–363.
+[29] Y. Motohashi, On the distribution of prime numbers which are of the form x2 + y 2 + 1. II, Acta Math. Acad.
+     Sci. Hungar. 22 (1971/72), 207–210.
+[30] OpenAI, The Poisson–Dirichlet law for prime predecessors, preprint, September 24, 2026, 74 pp.,
+     https://github.com/openai/math/blob/main/preprints/The-Poisson-Dirichlet-Law-for-Prime-
+     Predecessors-September-24-2026/paper.pdf.
+[31] A. Pascadi, Non-abelian amplification and bilinear forms with Kloosterman sums, Geom. Funct. Anal. 36
+     (2026), 1174–1243.
+[32] C. Pilatte, Improved bounds for the two-point logarithmic Chowla conjecture, J. Amer. Math. Soc. (2026),
+     published electronically September 10, 2026.
+[33] Z. Rudnick, A metric theory of minimal gaps, Mathematika 64 (2018), 628–636.
+[34] I. Schur, Bemerkungen zur Theorie der beschränkten Bilinearformen mit unendlich vielen Veränderlichen, J.
+     Reine Angew. Math. 140 (1911), 1–28.
+[35] P. Shiu, A Brun–Titchmarsh theorem for multiplicative functions, J. Reine Angew. Math. 313 (1980), 161–170.
+[36] R. Wongkew, Volumes of tubular neighbourhoods of real algebraic varieties, Pacific J. Math. 159 (1993),
+     177–184.
+44                         YUJIAO JIANG, YUK-KAM LAU, AND GUANGSHI LÜ
+
+  Yujiao Jiang, School of Mathematics and Statistics, Shandong University, Weihai, Shandong
+264209, China
+  Email address: yujiaoj@sdu.edu.cn
+
+  Yuk-Kam Lau, Department of Mathematics, The University of Hong Kong, Pokfulam Road, Hong
+Kong, China
+  Email address: yklau@maths.hku.hk
+
+     Guangshi Lü, School of Mathematics, Shandong University, Jinan, Shandong 250100, China
+     Email address: gslv@sdu.edu.cn
+
