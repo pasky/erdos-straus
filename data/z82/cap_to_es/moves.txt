@@ -1,0 +1,22 @@
+cube orbit n M s m (a,b,min,words) 17 4 173 22127 (1, 2, 1, 46)
+cube orbit n M s m (a,b,min,words) 409 4 12281 441707 (1, 2, 1, 46)
+scaled square cube orbit 167281 (1, 2, 1, 22)
+cube orbit n M s m (a,b,min,words) 2521 4 17 63 (1, 2, 1, 46)
+cube orbit n M s m (a,b,min,words) 3361 4 22877 362671 (1, 2, 1, 46)
+cube orbit n M s m (a,b,min,words) 8813281 4 31 19 (1, 2, 1, 46)
+cube orbit n M s m (a,b,min,words) 3189177846574333650961 4 19 1715 (1, 2, 1, 46)
+cube orbit n M s m (a,b,min,words) 131 8 20117 321741 (1, 2, 1, 46)
+cube orbit n M s m (a,b,min,words) 241 8 11 111 (1, 2, 1, 46)
+9p+4 seed 2521 633 (1, 2, 1, 22)
+9p+4 seed 3189177846574333650961 797296593515992469436 (1, 2, 1, 22)
+unlinked jump 409 8219 (0, 1, 1, 46)
+half orbit 8 131 5 (1, 1, 0, 22)
+half orbit 8 17161 5 (1, 1, 0, 22)
+all divisible-pair charts 409 [[(13, 7), (21, 11), (104, 7), (117, 59)], [(59, 15)]]
+all divisible-pair charts 2521 [[], [(29, 15)]]
+all divisible-pair charts 3361 [[(29, 3)], [(34, 7), (1130, 39)]]
+all divisible-pair charts 21841 [[(134, 135), (326, 327)], [(134, 135), (326, 327)]]
+excluded integral pair powers 2521 [1, 17, 289]
+excluded integral pair powers 21841 [1, 7, 49, 343, 2401, 16807]
+quartic prime packet n s A B Z, Lucas witnesses 234361 68562823404007655447 13731269583 68562823390276385864 4017112963946659534553592 [5, 2, 2, 2]
+quartic fixed primes and factor tests OK

@@ -1,0 +1,5 @@
+full orbit n seed #ES #signature #actual steps 409 hybrid 15 0 0 3
+full orbit n seed #ES #signature #actual steps 2521 hybrid 9 0 0 3
+full orbit n seed #ES #signature #actual steps 3361 hybrid 15 2 0 3
+full orbit n seed #ES #signature #actual steps 3361 quartic 15 0 0 9
+full orbit n seed #ES #signature #actual steps 21841 hybrid 26 0 0 10
