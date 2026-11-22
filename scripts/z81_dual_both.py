@@ -47,9 +47,11 @@ if __name__=='__main__':
         for n in sorted(set(f4+[2521,3361,113035442521,183783601,1590284203561,6955940568721,25,49,121,105,1465,3865,4545,10305,12145,39361,67425,17401609])):row(4,n)
         for n in (11,17,131,241,1590284203561,6955940568721):row(8,n)
     else:
-        H=int(sys.argv[1]);freq=Counter();bad=[]
+        H=int(sys.argv[1]);freq=Counter();boundary=Counter();bad=[]
         for p in range(841,H+1,840):
             if isprime(p):
                 W,ok=row(4,p,False);best=min((w[0] for w in W if w[0]>=0),default=-1);freq[ok,best]+=1
-                if best==-1:bad.append(p)
+                if best==-1:
+                    bad.append(p); boundary[ok,any(w[4] for w in W)]+=1
         print('H',H,'counts',sorted(freq.items()),'misses',bad)
+        print('misses by (literal seed?, boundary nonempty?)',sorted(boundary.items()))

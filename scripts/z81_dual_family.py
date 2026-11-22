@@ -40,6 +40,11 @@ def audit(n,B=100):
     N=4+s*(n*n-1); H=(s*n*n+4)*(s*n**4+16)
     rank2=(isqrt(N)**2!=N and isqrt(H)**2!=H and s>2 and n%s!=0)
     ES=N**2+(2*s-4)*N+s*s+4*s; EB=-16*s*N
+    for triple in (P,Q):
+        x,y=(F(triple[i],triple[2]) for i in (0,1)); xy=x+y
+        X=4*s*((N+s)/xy-1);Y=X*(N+s)*(x-y)/xy
+        assert xy==(N+s)/(1+X/(4*s)) and Y*Y==X*(X**2+ES*X+EB)
+        if triple==P: assert (X,Y)==(-s*n*n*N,s*n*N*(N+s))
     assert ES*ES-4*EB==s*(s*n*n+4)**2*(s*n**4+16)
     assert F(32,n*n)+ES-F(8*(N+s),n*n)==s*n*n*(s*n*n+4)
     assert F(32,n*n)+ES+F(8*(N+s),n*n)==F(H,n*n)
