@@ -1,0 +1,13 @@
+columns [138, 229, 68, 205, 19, 231, 40, 40, 232, 125, 64, 94, 105, 30, 92, 66] R^2 3 4S^2 3
+type 2 atoms 30 mean 7361/44352 variance 419805503/1967099904
+type 1 atoms 60 mean 27199/88704 variance 3812148863/7868399616
+sample r, primitive class, 4-only planted ratio 100799 17 100798
+paired full hits (8,4) 1 [False, False]
+paired full hits (8,4) 3 [False, True]
+paired maximum check 17 13 {'I': 7, 'II': 7}
+paired maximum check 73 13 {'I': 15, 'II': 11}
+paired maximum check 193 13 {'I': 39, 'II': 15}
+paired maximum check 241 13 {'I': 11, 'II': 35}
+paired maximum check 409 13 {'I': 75, 'II': 11}
+paired maximum check 577 13 {'I': 231, 'II': 39}
+paired maximum check 1009 13 {'I': 11, 'II': 11}
