@@ -18,7 +18,7 @@ def weighted_test(p):
     X=-p*p*N;Y=p*N*(N+1);A=N*N-2*N+5; B=-16*N
     assert Y*Y==X*(X*X+A*X+B)
     lam=F(3*X*X+2*A*X+B,2*Y); assert lam**2-A-2*X==F((p**4-p*p+4)**2,4*p*p)
-    # At odd primes outside 2p, the fitted directional character formula applies
+    # At odd primes outside 2p, the derived directional character formula applies
     # to *all* positive rational points, in particular Q.
     k=lcm(*(z.denominator for z in Q))
     for ell,d in factorint(k).items():
@@ -32,6 +32,7 @@ def weighted_test(p):
 def screen(p):
     S=points(4,p); pos={s for P in S if min(P)>0 for s in permutations(P)};neg={s for P in S if min(P)<0 for s in permutations(P)}
     weights=[w for w in combinations_with_replacement(range(1,6),3) if gcd(*w)==1 and prod(w)%p and all(pow(w[0]*a,(p-1)//2,p)==1 for a in w[1:])]
+    weights=[(1,1,-1)]+weights
     nlocal=nmatch=0;example=None
     for w in weights:
         signs=[sum(x*y for x,y in zip(w,P))%p for P in pos]

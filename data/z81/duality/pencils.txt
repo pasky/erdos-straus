@@ -1,9 +1,9 @@
-pencil 13 jump denominator 168 #weights 10 signed sums zero mod p 119 weights with an exact cross-sign common sum 0 example None
-pencil 17 jump denominator 288 #weights 8 signed sums zero mod p 120 weights with an exact cross-sign common sum 2 example ((1, 4, 4), 482)
-pencil 241 jump denominator 58080 #weights 29 signed sums zero mod p 344 weights with an exact cross-sign common sum 0 example None
-pencil 409 jump denominator 167280 #weights 29 signed sums zero mod p 198 weights with an exact cross-sign common sum 0 example None
-pencil 577 jump denominator 332928 #weights 15 signed sums zero mod p 188 weights with an exact cross-sign common sum 0 example None
-pencil 2521 jump denominator 6355440 #weights 29 signed sums zero mod p 296 weights with an exact cross-sign common sum 0 example None
-pencil 3361 jump denominator 11296320 #weights 29 signed sums zero mod p 330 weights with an exact cross-sign common sum 0 example None
-pencil 5569 jump denominator 31013760 #weights 29 signed sums zero mod p 233 weights with an exact cross-sign common sum 0 example None
-pencil 9601 jump denominator 92179200 #weights 29 signed sums zero mod p 320 weights with an exact cross-sign common sum 0 example None
+pencil 13 jump denominator 168 #weights 11 signed sums zero mod p 133 weights with an exact cross-sign common sum 0 example None
+pencil 17 jump denominator 288 #weights 9 signed sums zero mod p 130 weights with an exact cross-sign common sum 2 example ((1, 4, 4), 482)
+pencil 241 jump denominator 58080 #weights 30 signed sums zero mod p 358 weights with an exact cross-sign common sum 0 example None
+pencil 409 jump denominator 167280 #weights 30 signed sums zero mod p 208 weights with an exact cross-sign common sum 0 example None
+pencil 577 jump denominator 332928 #weights 16 signed sums zero mod p 198 weights with an exact cross-sign common sum 0 example None
+pencil 2521 jump denominator 6355440 #weights 30 signed sums zero mod p 308 weights with an exact cross-sign common sum 0 example None
+pencil 3361 jump denominator 11296320 #weights 30 signed sums zero mod p 340 weights with an exact cross-sign common sum 0 example None
+pencil 5569 jump denominator 31013760 #weights 30 signed sums zero mod p 243 weights with an exact cross-sign common sum 0 example None
+pencil 9601 jump denominator 92179200 #weights 30 signed sums zero mod p 330 weights with an exact cross-sign common sum 0 example None
