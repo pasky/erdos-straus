@@ -1,0 +1,1723 @@
+                                                   ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO
+                                                                   SQUARES PLUS 1
+
+                                                                            KUNJAKANAN NATH AND LIKUN XIE
+
+                                                   Abstract. In this paper, we obtain a lower bound for the number of primes p ≤ x such
+                                                   that p − 1 is a sum of two squares and p + 2 has a bounded number of prime factors. The
+                                                   proof uses the vector sieve framework, involving a semi-linear sieve and a linear sieve.
+
+
+
+                                                                                         1. Introduction
+                                              One of the famous unsolved problems in number theory is the twin prime conjecture,
+arXiv:2501.16723v3 [math.NT] 17 Aug 2026
+
+
+
+
+                                           which states that there are infinitely many primes p such that p + 2 is also a prime. In fact,
+                                           Hardy and Littlewood made a more general conjecture. To state it, we need the notion of
+                                           an admissible k-tuple.
+                                              We say a set H = {h1 , h2 , . . . , hk } is admissible if it avoids at least one residue class modulo
+                                           p for each prime p.
+                                           Hardy-Littlewood k-tuple conjecture. Let H = {h1 , . . . , hk } be an admissible set. Then
+                                           there are infinitely many integers n such that n+h1 , . . . , n+hk are all primes. More precisely,
+                                                                                                           Z x
+                                                                                                                 dt
+                                                     #{n ≤ x : n + h1 , . . . , n + hk are primes} ∼ S(k)                as x → ∞,
+                                                                                                            2 (log t)k
+
+                                           where
+                                                                                                               !          !−k
+                                                                                 Y           #(H (mod p))             1
+                                                                     S(k) :=              1−                       1−           .
+                                                                               p prime            p                   p
+                                             Although the above conjecture is far from being solved, there has been spectacular progress
+                                           recently. Using sieve methods (for example, see [6, Theorem 5.8]), one can show that
+                                                                                                                     x
+                                                            #{n ≤ x : n + h1 , . . . , n + hk are primes} ≪k S(k)          .
+                                                                                                                  (log x)k
+                                           For the lower bound, if H = {0, 2}, the celebrated work of Chen [2] implies that
+                                                                                                                         x
+                                                    #{p ≤ x : p is prime and p + 2 has at most two prime factors} ≫            .
+                                                                                                                      (log x)2
+                                           In a different direction, assuming the Elliot-Halberstam conjecture, Goldston, Pintz, and
+                                           Yıldırım [5] showed the bounded gaps between primes. However, the recent works of Zhang
+                                           [25], Maynard [16], and Polymath [21] imply the existence of bounded gaps between primes
+                                           unconditionally.
+                                              More recently, Heath-Brown and Li [8] considered the generalization of Chen’s theorem
+                                           for prime triples. They showed that there are infinitely many primes p such that p + 2 has at
+                                           Date: August 18, 2026.
+                                           2020 Mathematics Subject Classification. 11N05, 11N35, 11N36.
+                                           Key words and phrases. linear sieve, semi-linear sieve, vector sieve.
+                                                                                                 1
+2                              KUNJAKANAN NATH AND LIKUN XIE
+
+most two prime factors and p + 6 has at most 76 prime factors. More precisely, they showed
+that
+                                                                     x
+              #{p ≤ x : p prime, Ω(p + 2) ≤ 2, Ω(p + 6) ≤ 76} ≫            ,
+                                                                  (log x)3
+where Ω(n) counts the number of prime factors of n counted with multiplicity. The bound
+76 has been reduced to 14 by Cai [1], and Zhu [26] further improved it to 11.
+  We also take this opportunity to mention Friedlander and Iwaniec’s [3] work towards the
+Hyperbolic Prime Number Theorem. Assuming the Elliott-Halberstam Conjecture, they1
+showed that                     X
+                           x≪       Λ(n)r(n − 2)r(n + 2) ≪ x,
+                                    n≤x
+where Λ is the von-Mangoldt function and r(n) counts the number of representation of n as
+the sum of two squares. The above result reflects the correlation between primes p and the
+sums of two squares of the form p − 2 and p + 2.
+   For more general sieve-theoretic results towards prime k-tuple conjecture, we invite the
+readers to see [4, 6]. There has also been some progress on the twin prime conjecture on
+average using analytic methods; see recent work of Matomäki, Radziwill, and Tao [15].
+   An interesting subset of primes is the primes of the form p = m2 + n2 + 1, where m and n
+are some non-zero integers. It is one of the simplest non-trivial examples of a “sparse subset
+of the primes” consisting of the values of a multivariate polynomial. Indeed, an application
+of the upper bound sieve (see [10] or [18]) shows that
+                                                                    x
+                      #{p ≤ x : p = m2 + n2 + 1, p prime} ≪               .
+                                                               (log x)3/2
+It is also known that there are infinitely many primes of the form p = m2 + n2 + 1, a result
+due to Linnik [12], who established it by using the dispersion method. For the lower bound,
+Motohashi [17] showed that
+                                                                  x
+                      #{p ≤ x : p = m2 + n2 + 1, p prime} ≫             .
+                                                               (log x)2
+Finally, in his celebrated work [10], Iwaniec used the semi-linear sieve to establish the match-
+ing lower bound
+                                                                     x
+                      #{p ≤ x : p = m2 + n2 + 1, p prime} ≫                .
+                                                                (log x)3/2
+We still do not have an asymptotic formula for the number of primes of the form p =
+m2 + n2 + 1 up to any positive real number x unconditionally. See [11, Corollary 2] for a
+conditional asymptotic formula. There have also been several generalizations of Iwaniec’s
+result to other subsets of integers; for example, see Huxley-Iwaniec [9], Wu [24], Matomäki
+[14], Teräväinen [23], Nath [19].
+1.1. Main result. It is reasonable to expect that there are infinitely many primes of the
+form p = m2 + n2 + 1 such that p + 2 is also a prime. In fact, it is expected that as x → ∞,
+                                                                              x
+         {p ≤ x : p prime, p = 1 + m2 + n2 , m, n ∈ N, p + 2 prime} ∼ C
+                                                                          (log x)5/2
+for some constant C > 0.
+1The upper bound is established without any assumption.
+             ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                                    3
+
+  Motivated by the above expectation, we will investigate the correlation between primes of
+the form p = m2 + n2 + 1 and almost primes2 of the form p + 2. We will show that there
+are infinitely many primes of the form p = m2 + n2 + 1 such that p + 2 has at most 9 prime
+factors.
+
+Theorem 1.1. We have
+             n                                                                  o          x
+           # p ≤ x : p prime, p = m2 + n2 + 1, m, n ∈ N, Ω(p + 2) ≤ 9 ≫                           .
+                                                                                       (log x)5/2
+
+Remark 1.1. Assuming a version of the Elliot-Halberstam conjecture3 and then establishing
+a variant of Propositions 4.1 and 4.3, it is possible to show that
+             n                                                                  o          x
+           # p ≤ x : p prime, p = m2 + n2 + 1, m, n ∈ N, Ω(p + 2) ≤ 3 ≫                           .
+                                                                                       (log x)5/2
+Remark 1.2. One of the key components in the proof of Theorem 1.1 is the application of
+vector sieves of mixed dimensions (see Proposition 3.10). First, we apply the vector sieve
+with a semi-linear sieve and a linear sieve in conjunction with Iwaniec’s argument to detect
+primes of the form p = m2 + n2 + 1. Secondly, we incorporate weighted sieves to optimize
+the prime factors of p + 2. For more details, we would invite the readers to see Section 2.
+
+Remark 1.3. Beyond the case of almost primes of the form p + 2,Qour approach could also
+be extended to study primes of the form p = m2 + n2 + 1 such that ki=1 (p + ai ) is an almost
+prime. For instance, the vector sieve described in Proposition 3.10 can be employed for this
+generalization, combining a semi-linear sieve with a higher-dimensional sieve. The strategy
+closely parallels the proof of Theorem 1.1. While we highlight this potential application, we
+do not pursue further details here. For example, the proof of Theorem 1.1 can be followed
+verbatim to yield a result of the form
+       n                                                                             o            x
+    # p ≤ x : p prime, p = m2 + n2 + 1, m, n ∈ N, Ω((p + 2)(p + 6)) ≤ r ≫                                ,
+                                                                                              (log x)5/2
+
+for some positive integer r which can be optimized through numerical computation.
+
+Remark 1.4. It would also be of interest to extend the vector sieves to multiple variables
+in Proposition 3.10. This would enable the study of primes p = m2 + n2 + 1 such that
+p + a1 , p + a2 , . . . , p + ak are almost primes. Such an extension could lead to results of the
+form:
+   n                                                                                      o           x
+# p ≤ x : p : prime, p = m2 + n2 + 1, m, n ∈ N, Ω(p + 2) ≤ r, Ω(p + 6) ≤ s ≫                                 ,
+                                                                                                  (log x)7/2
+
+for some positive integers r, s that can be optimized through numerical computations. While
+we do not pursue the details of these directions here, we highlight the potential for further
+extensions of vector sieves.
+
+2Given any integer k ≥ 1, we say a positive integer n is k-almost prime if n has at most k prime factors.
+3By a version of the Elliot-Halberstam conjecture, we mean that for any ε > 0, the relation (3.3) in Lemma
+3.2 holds for q ≤ x1−ε .
+4                             KUNJAKANAN NATH AND LIKUN XIE
+
+1.2. Notation. We will use standard notation throughout the paper. The set N = {1, 2, . . . }
+denotes the set of natural numbers unless specified otherwise, and m, n always denote natural
+numbers. We reserve the letters p, p1 , p2 , p3 , . . . , pr to denote primes.
+   Given functions f, g : R → C, the expressions of the form f (x) = O(g(x)), f (x) ≪ g(x),
+and g(x) ≫ f (x) signify that |f (x)| ≤ c|g(x)| for all sufficiently large x, where c > 0 is an
+absolute constant. A subscript of the form ≪A means the implied constant may depend
+on the parameter A. The notation f (x) ≍ g(x) indicates that f (x) ≪ g(x) ≪ f (x). We
+also let o(1) denote a quantity that tends to zero as x → ∞. Finally, f (x) ∼ g(x) means
+f (x) and g(x) are asymptotatically equivalent, that is, limx→∞ f (x)/g(x) = 1. All the above
+asymptotic notation should be interpreted as referring to the limit x → ∞.
+   For any set S, #S denotes the cardinality of the set S. We let 1S be the characteristic
+function of the set S (so 1S (x) = 1 if x ∈ S and 0, otherwise).
+   We write φ to denote the Euler totient function. We let Ω(n) and ω(n) to denote the
+number of prime factors of n counted with multiplicity and without multiplicity, respectively.
+   On the other hand, τk (n) will represent the number of representations of n as a product
+of k factors. When k = 2, we will write τ = τ2 to denote the divisor function.
+   For any two arithmetic functions f, g : N → C, we write (f ∗ g)(n) := ab=n f (a)g(b) for
+                                                                               P
+
+their Dirichlet convolution.
+   Finally, we set (a, b) to be the greatest common divisor of integers a and b.
+
+1.3. Organization of the paper. The remaining sections of the paper are organized as
+follows. In Section 2, we give an outline of the proof of the theorem. We use Section 3 to
+gather several preliminary results on the Bombieri-Vinogradov type theorems, beta sieves,
+and vector sieves. In Section 4, we will use ingredients from Section 3 to establish the key
+sieve estimates, namely, Propositions 4.1, 4.2, and 4.3. Finally, we will give the proof of
+Theorem 1.1 by combining sieve estimates with the numerical calculations in Section 5.
+
+Acknowledgements. The authors would like to thank Bruce Berndt and Cécile Dartyge
+for their helpful comments and corrections on an earlier version of the paper. KN would like
+to thank Kevin Ford, Dimitris Koukoulopoulos, and Youness Lamzouri for their guidance
+and encouragement.
+
+                        2. Outline of the proof and the setup
+    Let θ2 ∈ (0, 1/2) be a parameter to be chosen appropriately. Consider the following setup
+      (                                                       )
+                                                         θ2
+A = p − 1 : p ≤ x − 2, p ≡ 3 (mod 8), (p + 2, P (x )) = 1         and Q = {p ≡ 3 (mod 4)},
+
+                  p<w p for any w ≥ 2. For any z > 3, set
+                Q
+where P (w) =
+                                                   Y
+                                        Q(z) :=          p
+                                                  p<z
+                                                  p∈Q
+
+and for d|Q(z), set
+                                                 X
+                                         Ad :=          1.
+                                                 n∈A
+                                                  d|n
+             ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                                             5
+
+Define the sifting function as
+(2.1)                            S(A, Q, z) = #{n ∈ A : (n, Q(z)) = 1}.
+Then, by Buchstab’s identity, we have
+                      S(A, Q, x1/2 ) = S(A, Q, xθ1 ) −
+                                                                        X
+(2.2)                                                                             S(Ap1 , Q, p1 ),
+                                                                              √
+                                                                    xθ1 <p1 ≤ x
+                                                                        p1 ∈Q
+
+where 0 < θ2 < θ1 < 1/2 and θ1 ≍ θ2 is a parameter to be chosen appropriately. Note that
+                                            S(A, Q, x1/2 ) = #A(0) ,
+where A(0) := {n ∈ A : n has no prime factor congruent to 3 (mod 4)}. This implies that if
+n ∈ A(0) , then n = p − 1, with p ≡ 3 (mod 8), n can be written as the sum of two squares
+and n + 3 has at most r := ⌊θ2−1 ⌋ prime factors. This will establish our theorem with p + 2
+having at most r prime factors. However, we will use the weighted sieve to improve the value
+of r. To apply the weighted sieve, we begin by defining the sets
+                             B := {p + 2 : p − 1 ∈ A(0) } and Bp =
+                                                                                          X
+(2.3)                                                                                            1.
+                                                                                          b∈B
+                                                                                           p|b
+
+Next, we introduce a weight function4
+                                                                  log p
+                                                     wp = 1 −           ,
+                                                                  log y
+where y = xθ with θ2 < θ < 1. Note that any element of B is coprime to P (xθ2 ) and wp < 0
+for p > y. So, we have
+                        X                        X
+                                 wp #Bp ≥                wp #Bp
+                     xθ2 ≤p≤y                  3≤p≤x
+                                                                                      !
+                                               X                  1 X
+                                          =              ω(b) −           log p
+                                               b∈B              log y p|b
+                                                                        !
+                                                                log x           X                    
+                                                                                      ω(b) − θ−1 ,
+                                               X
+                                          ≥              ω(b) −             =
+                                               b∈B              log y           b∈B
+
+where we have used the fact that y = x in the last line. Define z2 = xθ2 . Therefore, for any
+                                                     θ
+
+λ > 0, we have
+        S(A, Q, x1/2 ) − λ
+                                 X
+                                       wp #Bp
+                             z2 ≤p≤y
+                                        X
+                       = #B − λ                  wp #Bp
+                                       z2 ≤p≤y
+                           X
+                       ≤         (1 + λ/θ − λω(b))
+                           b∈B
+                                           n                                      o
+                       ≤ (1 + λ/θ) # b ∈ B : ω(b) < 1/λ + 1/θ
+                                                                                 x
+                                           n                                                              o      
+(2.4)                  ≤ (1 + λ/θ) # b ∈ B : ω(b) < 1/λ + 1/θ, b square-free + O    ,
+                                                                                 z2
+4This type of weight function is often referred to as Richert’s weight in the literature.
+6                                KUNJAKANAN NATH AND LIKUN XIE
+
+where the last inequality comes from the fact that the number of elements of B which are
+not square-free is ≪ x1−θ2 as any element in B is coprime to P (xθ2 ) by our assumption. So,
+our task reduces to showing that there exists a positive constant c such that
+                                                                       x
+                   S(A, Q, x1/2 ) − λ
+                                         X
+(2.5)                                          wp #Bp ≥ (c + o(1))            .
+                                      xθ2 ≤p≤y
+                                                                   (log x)5/2
+
+This will imply that
+                      n                                              o        x
+                    # b ∈ B : ω(b) < 1/λ + 1/θ, b square-free ≫                      .
+                                                                          (log x)5/2
+By the definition of B, the left-hand side of the above expression counts the number of primes
+p ≤ x − 2 such that p ≡ 3 (mod 8), p − 1 is the sum of two squares, (p + 2, P (xθ2 )) = 1 and
+ω(p + 2) ≤ 1/λ + 1/θ, which gives our desired result. So, the goal is to optimize the values
+of λ and θ.
+   One of the key difficulties in establishing (2.5) is that we have to take care of two si-
+multaneous sieving conditions (p − 1, Q(xθ1 )) = (p + 2, P (xθ2 )) = 1, where θ1 ≍ θ2 . It
+would have been much easier to deal with if we knew that primes p ≤ x satisfying either
+(p − 1, Q(xθ1 )) = 1 or (p + 2, P (xθ2 )) = 1 are well-distributed in arithmetic progressions. So,
+to circumvent this issue, we apply the vector sieve, which consists of a semi-linear sieve and a
+linear sieve. In particular, we will obtain a fundamental lemma for vector sieves comprising
+two beta sieves in Proposition 3.10, which is similar to [8, Section 3.3]. Moreover, to estimate
+the sum
+                                          X
+                                                 S(Ap1 , Q, p1 ),
+                                                 √
+                                       xθ1 <p1 ≤ x
+                                           p1 ∈Q
+
+we will use a “switching principle” due to Iwaniec [10] before applying the upper bound sieve.
+
+                                         3. Preliminaries
+3.1. Bombieri–Vinogradov type theorems. We will require a generalized version of the
+Bombieri-Vinogradov theorem established by Pan [20].
+Theorem 3.1 ([20], Theorem 3). Let x ≥ 2. For integers m, q ≥ 1 and a, define
+                                                          X
+(3.1)                              π(x; m, q, a) :=                  1.
+                                                          mp≤x
+                                                         p prime
+                                                      mp≡a (mod q)
+
+Let f : N → R be such that f (m) = O(1) for all m ∈ N. Then, for any given A > 0 and for
+any ε > 0, we have
+                                                                                  !
+             X                      X                             π(y; m, 1, 1)              x
+                         max max            f (m) π(y; m, q, a) −                     ≪            ,
+        q≤x1/2 (log x)−B
+                         y≤x (a,q)=1
+                                     m≤x1−ε
+                                                                     φ(q)                 (log x)A
+                                  (m, q)=1
+
+where B = 3A/2 + 17. Here, the implied constant may depend only on A and ε.
+ Next, we will use the following version of the Bombieri–Vinogradov theorem in our esti-
+mates.
+            ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                                         7
+
+Lemma 3.2. [8, Lemma 2] Let x ≥ 2. For z1 , z2 , . . . , zr ≥ 2, define the set with multiplicities,
+         P (z1 , . . . , zr , y1 , . . . , yr ) = {p(r) = p1 · · · pr : y1 ≥ p1 ≥ z1 , . . . , yr ≥ pr ≥ zr }.
+Let πr (x; q, a) be the number of p(r) ∈ P (z1 , . . . , zr ) such that p(r) ≡ a (mod q) and p(r) ≤ x.
+For each q ≥ 1, let
+                                                                           1
+(3.2)                          Rq (x) = max πr (x; q, a) −                     πr (x; q) .
+                                           (a,q)=1                        ϕ(q)
+Then for any A > 0 and k ≥ 1, there exists B = B(A, k) > 0 such that
+                                                             x
+                                          τ (q)k Rq (x) ≪
+                              X
+(3.3)                                                              ,
+                         q<x1/2 (log x)−B
+                                                          (log x)A
+
+where the implied constant depends only on r, k, and A.
+3.2. The beta sieve. For the convenience of the readers, we begin with the definitions of
+an upper bound sieve and a lower bound sieve.
+  Given a set of primes P and a parameter z ≥ 2, let
+                                                              Y
+                                                  P(z) :=            p.
+                                                              p<z
+                                                              p∈P
+
+Definition 3.3 (Upper bound sieve). An arithmetic function λ+ : N → R that is supported
+on the set {d|P(z) : d ≤ D} and satisfies the relation
+                                          (λ+ ∗ 1)(n) ≥ 1(n, P(z))=1 ,
+is called an upper bound sieve of level D for the set of primes P.
+Definition 3.4 (Lower bound sieve). An arithmetic function λ− : N → R that is supported
+on the set {d|P(z) : d ≤ D} and satisfies the relation
+                                          1(n, P(z))=1 ≥ (λ− ∗ 1)(n),
+is called a lower bound sieve of level D for the set of primes P.
+Notation 3.5. We will refer to Λ± = (λ± ) as the sieve weights or sifting weights in this
+paper.
+   A beta sieve is a combinatorial sieve where the sieve weights are given by the Möbius
+function, restricted to certain specific subsets of positive integers (see [4, (11.17)–(11.18)]).
+For more details on the beta sieve, we invite the readers to see Chapter 11 of Friedlander
+and Iwaniec [4].
+   For D1 , D2 ≥ 1, let Λ±              ±
+                           i (Di ) = (λi (d))d≤Di be two beta sieve weights of level D1 , D2 ,
+respectively, and of dimensions κ1 , κ2 > 0, respectively. In the following, we define the cor-
+responding parameters, sieving sets, and functions for these two sieves, where the subscript
+i denotes the objects associated with the sieve Λ± i (Di ).
+   Let P1 and P2 be two given sets of primes. For z1 , z2 ≥ 2, define
+                                                              Y
+                                                 Pi (zi ) =          p.
+                                                              p<zi
+                                                              p∈Pi
+8                                   KUNJAKANAN NATH AND LIKUN XIE
+
+    Next, for i ∈ {1, 2}, we define
+                                           X                            Y
+                             Vi (z) =                µ(d)hi (d) =               (1 − hi (p)),
+                                          d|Pi (z)                      p<z
+                                                                        p∈Pi
+
+and
+                           Vi± (D, z) =                   λ±
+                                               X
+                                                           i (d)hi (d) for i ∈ {1, 2},
+                                              d|Pi (z)
+
+where hi : N → R is a multiplicative function such that
+                               0 ≤ hi (p) < 1 for all primes p ∈ Pi .
+We also assume throughout that for every 2 ≤ w < z, there exist constants Li ≥ 1 such that
+                                                              !κi                    !
+                                    Vi (w)            log z              Li
+(3.4)                                      ≤                        1+       .
+                                    Vi (z)            log w            log w
+   With the above preparations, we can now state the following result on the beta sieve from
+[4, Theorem 11.12].
+Lemma 3.6. Let P1 and P2 be given sets of primes and let D1 , D2 ≥ 1, z1 , z2 ≥ 2. Suppose
+L1 , L2 ≥ 1, κ1 , κ2 > 0 are such that the relation (3.4) holds. Let Λ±           ±
+                                                                      1 (D1 ) = {λ1 (d)}d≤D1 and
+ ±             ±
+Λ2 (D2 ) = {λ2 (d)}d≤D2 be two beta sieve weights. Then for i ∈ {1, 2}, we have
+                                                                        1
+                                                                           
+(3.5)              Vi+ (Di , zi ) ≤ Fi (si ) + O(log Di )− 6 ) Vi (zi ) if si ≥ βi − 1,
+                                                                    1
+                                                                           
+(3.6)              Vi− (Di , zi ) ≥ fi (si ) + O(log Di )− 6 ) Vi (zi ) if si ≥ βi ,
+
+where
+                                                              log Di
+                                                      si =
+                                                               log zi
+and Fi , fi are continuous functions in si satisfying system of differential-difference equations
+                             
+                             sκi F (s ) = A               if βi − 1 ≤ si ≤ βi + 1,
+                                i     i   i           i
+                             sκi fi (si ) = Bi            at si = βi ,
+                                i
+
+
+                      
+                        d κi
+                      
+                        (si Fi (si )) = κi sκi i −1 fi (si − 1)                  if si > βi − 1,
+                        dsi
+                      
+                         d κi
+                            (si fi (si )) = κi sκi i −1 Fi (si − 1)               if si > βi ,
+                      
+                      
+                      
+                        dsi
+and βi = βi (κi ), Ai = Ai (κi ) and Bi = Bi (κi ) are explicit constants defined in [4, (11.55)–
+(11.63)].
+Remark 3.7. We will apply the above lemma with κi ∈ {1/2, 1}. In particular, by [4, p.
+225] if κi = 1/2, then βi (1/2) = 1 and if κi = 1, then βi (1) = 2.
+Remark 3.8. If κi = 1/2, we call the associated beta sieve weights the semi-linear sieve
+weights. On the other hand, if κi = 1, the beta sieve weights are called linear sieve weights.
+            ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                                        9
+
+3.3. The vector sieves for two beta sieves. Our aim is to combine two beta sieves within
+the framework of a vector sieve. Our approach is similar to [8, Section 3.3], but it involves a
+different preliminary sieving procedure, as the two sifting sets of primes are not necessarily
+identical.
+   We begin with the following setup. Let W be a finite subset of N2 . Suppose z1 , z2 ≥ 2
+with
+                                       log z1 ≍ log z2 ,
+and write z = (z1 , z2 ). Given any two sets of primes P1 and P2 , our goal is to estimate the
+following quantity
+                    S(W; z) = #{(m, n) ∈ W : (m, P1 (z1 )) = (n, P2 (z2 )) = 1},
+where
+                                                 Y                         Y
+                                   P1 (z1 ) =           p and P2 (z2 ) =          p.
+                                                p<z1                       p<z2
+                                                p∈P1                       p∈P2
+
+To be precise, we wish to derive both upper and lower bounds for S(W; z) using the bounds
+for the two beta sieves described in Subsection 3.2.
+   In order to proceed further, if d = (d1 , d2 ) and n = (n1 , n2 ), we write d|n to denote d1 |n1
+and d2 |n2 . Define
+(3.7)                                          Wd = {n ∈ W : d|n}.
+We impose the following axioms:
+ (A1) There exists a multiplicative function h : N2 → (0, 1] such that
+                                               #Wd = h(d)X + r(d),
+      where X can be interpreted as an approximation to #W and r(d) is a real number,
+      which we think of as an error term.
+ (A2) For all primes p, we have
+                            h(p, 1) + h(1, p) − 1 < h(p, p) ≤ h(p, 1) + h(1, p),
+        with bounds
+                                                          C1                      C1
+(3.8)                             h(p, 1), h(1, p) ≤           and h(p, p) ≤
+                                                          p                       p2
+      for some constant C1 ≥ 2.
+ (A3) For any integer d ≥ 1, let
+                                  h1 (d) := h(d, 1) and h2 (d) := h(1, d),
+        where the functions h1 , h2 : N → (0, 1] satisfy the relation (3.4) for some positive
+        constants κ1 , L1 and κ2 , L2 , respectively.
+  Finally, for real numbers z0 < z1 , z2 , we define
+                                                                                          Y 
+                                                         (i = 1, 2) and V (z0 , h∗ ) :=          1 − h∗ (p)),
+                              Y
+(3.9)    Vi (zi , z0 ) :=              (1 − hi (p)) ,
+                            z0 ≤p<zi                                                      p<z0
+                              p∈Pi
+10                                 KUNJAKANAN NATH AND LIKUN XIE
+
+where h∗ is a multiplicative function given by
+                                  h∗ (d) =
+                                                 X
+(3.10)                                                         h(e1 e3 , e2 e3 )µ(e3 ).
+                                              e1 e2 e3 =d
+                                             e1 e3 |P1 (z0 )
+                                             e2 e3 |P2 (z0 )
+
+Remark 3.9. Note that given any prime p, h∗ (p) is non-zero if and only if p ∈ P1 ∪ P2 and
+p < z0 .
+  With the above preparation, we are now ready to state the fundamental lemma for the
+vector sieve.
+Proposition 3.10. Let P1 and P2 be two sets of primes. Let W be a finite subset of N2
+satisfying axioms (A1), (A2), and (A3). Assume that there exist β1 , β2 ≥ 1 as in Lemma 3.6.
+                                                                                                      1/3
+Let D = z1s1 z2s2 , where βi − 1 ≤ si ≪ 1 for i ∈ {1, 2}, log z1 ≍ log z2 , and z0 = e(log z1 z2 ) .
+Furthermore, we define
+                                              log D
+                                       σi =           , i ∈ {1, 2}.
+                                              log zi
+Then, if z = (z1 , z2 ), we have
+(3.11)
+                                                                                1
+                                                                                
+   S(W; z) ≤ XV (z0 , h∗ )V1 (z1 , z0 )V2 (z2 , z0 )F (σ1 , σ2 ) 1 + O (log D)− 6 + R+ (z0 , z1 , z2 ),
+and
+(3.12)
+                                                                                1
+                                                                                
+   S(W; z) ≥ XV (z0 , h∗ )V1 (z1 , z0 )V2 (z2 , z0 )f (σ1 , σ2 ) 1 + O (log D)− 6 + R− (z0 , z1 , z2 ).
+Here V (z0 , h∗ ), V1 (z1 , z0 ), and V2 (z2 , z0 ) are given by (3.9),
+                                                            s1   s2
+                                                                                    
+(3.13)              F (σ1 , σ2 ) = inf F1 (s1 )F2 (s2 ) :      +     = 1, si ≥ βi − 1 ,
+                                                            σ1 σ2
+(3.14)
+                                                                               s1   s2
+                                                                                                              
+   f (σ1 , σ2 ) = sup f1 (s1 )F2 (s2 ) + f2 (s2 )F1 (s1 ) − F1 (s1 )F2 (s2 ) :    +    = 1, si ≥ βi ,
+                                                                               σ1 σ2
+where f1 , f2 , F1 , F2 as in Lemma 3.6, and for any ε > 0,
+                   R+ (z0 , z1 , z2 ), R− (z0 , z1 , z2 ) ≪ε                      τ (d1 d2 )4 |r(d1 , d2 )|.
+                                                                      X
+
+                                                                  d1 d2 ≤D1+ε
+                                                                   d1 |P1 (z1 )
+                                                                   d2 |P2 (z2 )
+
+Proof. Our proof will resemble Heath-Brown and Li [8, Section 3.3]. So, we will only give the
+key changes in the preliminary sieving procedure. We will apply the beta sieves to establish
+the result. Before that, we perform pre-sieving to handle the small prime factors less than
+z0 . We proceed by writing                       Y
+                                      P (z0 ) :=   p.
+                                                                 p<z0
+Throughout the proof, we let d = (d1 , d2 ). We begin with the pre-sieving step.
+   Suppose that it is given that (d1 d2 , P (z0 )) = 1. For (m, n) ∈ Wd , let U(d) denote the set
+of products m′ n′ , where m′ and n′ are the largest divisors of m and n such that all prime
+factors of m′ and n′ belong to P1 and P2 , respectively. The elements of Wd are counted
+according to their multiplicity.
+          ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                                      11
+
+  First, we wish to estimate the sum
+                                                                      X
+                                    S(U(d), z0 ) :=                              1.
+                                                                  k∈U (d)
+                                                               (k, P (z0 ))=1
+
+We will use the Fundamental Lemma of the sieve methods to estimate the above sum. To
+apply it, first, we verify the sieve axioms.
+  Note that if d | P (z0 ), by axiom (A1), we have
+
+                                  #U(d) = h∗ (d)h(d)X + r(d),
+
+where
+                               h∗ (d) =
+                                                X
+                                                             h(e1 e3 , e2 e3 )µ(e3 )
+                                            d=e1 e2 e3
+                                           e1 e3 |P1 (z0 )
+                                           e2 e3 |P2 (z0 )
+
+and
+                                           X
+                             r(d) =                     r(d1 e1 e3 , d2 e2 e3 )µ(e3 ).
+                                       d=e1 e2 e3
+                                      e1 e3 |P1 (z0 )
+                                      e2 e3 |P2 (z0 )
+
+In particular, by axiom (A2), we have
+                           
+                           
+                           
+                           h(p, 1) + h(1, p) − h(p, p) ≤ 2Cp 1 ,                     if p ∈ P1 ∩ P2 ,
+                           
+                           
+                           
+                           h(p, 1) ≤ C1 ,                                            if p ∈ P1 \ P2 ,
+                           
+                           
+                                          p
+(3.15)          h∗ (p) =
+                           
+                           
+                           
+                            h(1, p) ≤ Cp1 ,                                          if p ∈ P2 \ P1 ,
+                           
+                           
+                           
+                           0,
+                           
+                                                                                      otherwise.
+
+  We can now apply the Fundamental Lemma of the sieve of level xs [4, Theorem 6.9] to
+U(d), with s to be chosen later to optimize the error terms to obtain
+
+                 S(U(d), z0 ) = h(d)XV (z0 , h∗ ) + OC1 (h(d)Xe−s )
+                                                                                                    
+                                                          X
+(3.16)                            + O                                        |r(d1 e1 e3 , d2 e2 e3 )|.
+                                                   e1 e2 e3 <z0s
+                                                  e1 e2 e3 |P (z0 )
+                                           e1 e3 |P1 (z0 ), e2 e3 |P2 (z0 )
+
+  Next, we define
+                                                   Y
+                               Pi (z0 , z) :=                p for i ∈ {1, 2}.
+                                                z0 ≤p<z
+                                                 p∈Pi
+
+Let
+                    W ∗ := {(m, n) ∈ W : (m, P1 (z0 )) = (n, P2 (z0 )) = 1}.
+  Now, we are in a position to introduce the beta sieves. For i ∈ {1, 2}, let (λ±
+                                                                                i (d))d≤Di be
+                                                         si
+upper and lower bound beta sieve weights of level Di = zi , where βi − 1 ≤ si ≪ 1.
+12                                       KUNJAKANAN NATH AND LIKUN XIE
+
+     We begin with the upper bound. By the definition of upper bound sieve, we have
+                                      X
+                  S(W; z) =                      1(m,P1 (z0 ,z1 ))=1 1(n,P2 (z0 ,z2 ))=1
+                                  (m,n)∈W ∗
+                                                                                      !                                        !
+                                                                             λ+                                     λ+
+                                      X                      X                                      X
+                              ≤                                               1 (d1 )                                2 (d2 )
+                                  (m,n)∈W ∗           d1 |(m,P1 (z0 ,z1 ))                   d2 |(n,P2 (z0 ,z2 ))
+                                                                                        ∗
+                                                                      λ+       +
+                                       X                 X
+                              =                                        1 (d1 )λ2 (d2 )#Wd .
+                                  d1 |P1 (z0 ,z1 ) d2 |P2 (z0 ,z2 )
+
+Note that
+                                                      #Wd∗ = S(U(d), z0 ).
+Therefore, we may apply the estimate from (3.16) to obtain
+                                  S(W; z) ≤ XV (z0 , h∗ )Σ + O(E1 ) + O(E2 ),
+where
+                                                                              λ+       +
+                                                X                X
+                                  Σ=                                           1 (d1 )λ2 (d2 )h(d),
+                                          d1 |P1 (z0 ,z1 ) d2 |P2 (z0 ,z2 )
+
+and the error terms are given by
+                                           E1 = Xe−s
+                                                                      X          X
+                                                                                            h(d),
+                                                                 d1 <D1 d2 <D2
+                                                                d1 |P1 (z1 ) d2 |P2 (z2 )
+
+and
+                                                                        τ 2 (f1 )τ 2 (f2 )|r(f1 , f2 )|.
+                                               X             X
+                                  E2 =
+                                            f1 ≤D1 z0s f2 ≤D2 z0s
+                                            f1 |P1 (z1 ) f2 |P2 (z2 )
+
+One can apply axiom (A3) and proceed to estimate the sum Σ and the error terms E1 and
+E2 as in [8, Section 3.3] by choosing
+                                                          s = (log z1 z2 )1/3 .
+  For the lower bound, we cannot directly multiply the lower bound sieve weights for
+1(m, P1 (z0 ,z1 ))=1 and 1(n, P2 (z0 ,z2 ))=1 since for some m and n, both lower bounds might be neg-
+ative. To circumvent this issue, we employ the usual idea in the vector sieve; for example,
+see [7, Lemma 10.1]. For brevity, we write
+                δ1± (m) :=                            λ±            ±
+                                                                                                                        λ±
+                                      X                                                                 X
+                                                       1 (d1 ) and δ2 (n) :=                                             2 (d2 ).
+                              d1 |(m, P1 (z0 ,z1 ))                                             d2 |(n, P2 (z0 ,z2 ))
+
+Then, by definition of sieves, we have
+            δ1− (m) ≤ 1(m, P1 (z0 ,z1 ))=1 ≤ δ1+ (m) and δ2− (n) ≤ 1(n, P2 (z0 ,z2 ))=1 ≤ δ2+ (n).
+Applying the above inequalities, we have
+                                                                                                                                   
+1(m, P1 (z0 ,z1 ))=1 1(n, P2 (z0 ,z2 ))=1 = 1(m, P1 (z0 ,z1 ))=1 δ2+ (n) − 1(m, P1 (z0 ,z1 ))=1 δ2+ (n) − 1(n, P2 (z0 ,z2 ))=1
+                                                                                                                          
+                                        ≥ δ1− (m)δ2+ (n) − δ1+ (m) δ2+ (n) − 1(n, P2 (z0 ,z2 ))=1
+                                        ≥ δ1− (m)δ2+ (n) + δ1+ (m)δ2− (n) − δ1+ (m)δ2+ (n).
+            ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                                                                       13
+
+Therefore, we have
+                   X
+ S(W; z) =                    1(m, P1 (z0 ,z1 ))=1 1(n, P2 (z0 ,z2 ))=1
+               (m,n)∈W ∗
+
+                                                   λ−       +        ∗
+                                                                                                                          λ+       −        ∗
+                    X                  X                                                   X                  X
+           ≥                                        1 (d1 )λ2 (d2 )#Wd +                                                   1 (d1 )λ2 (d2 )#Wd
+               d1 |P1 (z0 ,z1 ) d2 |P2 (z0 ,z2 )                                      d1 |P1 (z0 ,z1 ) d2 |P2 (z0 ,z2 )
+                                                                         ∗
+                                                       λ+       +
+                        X                X
+               −                                        1 (d1 )λ2 (d2 )#Wd .
+                   d1 |P1 (z0 ,z1 ) d2 |P2 (z0 ,z2 )
+
+One can now proceed similarly to [8, Section 3.3] to get the desired lower bound. This
+completes the proof of the proposition.                                             □
+
+                                                        4. Sieve estimates
+  Recall from (2.2) and (2.5) that if θ1 , θ2 , θ, λ are such that
+                                            1
+                  λ > 0, 0 < θ2 < θ1 < , θ2 < θ < 1, and θ1 ≍ θ2 ,
+                                            2
+then we wish to show that there exists a positive constant c such that
+                                                                                                                                    x
+      S(A, Q, xθ1 ) −
+                                   X                                              X
+                                                S(Ap1 , Q, p1 ) − λ                         wp #Bp ≥ (c + o(1))                            ,
+                            xθ1 <p1 ≤x1/2                                       xθ2 ≤p≤xθ
+                                                                                                                                (log x)5/2
+                            p1 ≡3 (mod 4)
+
+where S(A, Q, z) is given by (2.1), Bp is given by (2.3), and
+                                                                             log p
+                                                            wp = 1 −                .
+                                                                            θ log x
+For the convenience of the readers, we also recall that
+                                  P = {p prime} and Q = {p ≡ 3 (mod 4)},
+and for any z ≥ 3,
+                                                            Y                                  Y
+                                            P (z) =               p and Q(z) =                       p.
+                                                           p<z                                p<z
+                                                           p∈P                                p∈Q
+
+  First, we apply the lower bound vector sieve estimate (3.12) from Proposition 3.10 to
+obtain the following result.
+Proposition 4.1. If 0 < θ2 < θ1 < 1/2, we have
+                                               Cκe−3γ/2        f ((2θ1 )−1 , (2θ2 )−1 )
+                                                                            !
+                                  θ1                                                        x
+                S(A, Q, x ) ≥                           + o(1)          1/2
+                                                                                                   ,
+                                                  4                   θ1 θ2             (log x)5/2
+where the function f is given as in Proposition 3.10, γ is the Euler-Mascheroni constant,
+                                                                            !                                               !
+                       9               Y                    3p − 1                    Y                    1
+                    C=                                  1−                                           1−          .
+                       4               p>3                 (p − 1)3             p≡1    (mod 4)
+                                                                                                        (p − 1)2
+                                p≡3     (mod 4)
+
+and                                                        !1/2                                  !1/2
+                                                       π                Y                1
+                                          κ=                                          1− 2                .
+                                                       2          p≡3   (mod 4)
+                                                                                        p
+14                                    KUNJAKANAN NATH AND LIKUN XIE
+
+Proof. We will apply the lower-bound vector sieve to the set
+                               n                                                                  o
+(4.1)                  W = (p − 1, p + 2) : 3 ≤ p ≤ x − 2, p ≡ 3 (mod 8)
+by choosing P1 = Q, P2 = P, z = (xθ1 , xθ2 ) in Proposition 3.10. First, we note that
+                                                                                      
+(4.2)                                  S(A, Q, xθ1 ) ≥ S W; (xθ1 , xθ2 ) .
+For brevity, we set
+                                      z1 = xθ1 and z2 = xθ2 .
+     First, we define h : N2 → (0, 1] as follows
+                                    
+                                         1
+                                    
+                                    
+                                     φ(d1 d2 )
+                                                ,          if (d1 , d2 ) = (d1 , 2) = (d2 , 2) = 1,
+                                    
+                                    
+                                            2
+(4.3)              h(d1 , d2 ) =      φ(d1 )φ(d2 )
+                                                     , if (d1 , d2 ) = 3, (d1 , 2) = (d2 , 2) = 1,
+                                    
+                                    
+                                    
+                                    
+                                    
+                                      0,                   otherwise.
+Then, if d = (d1 , d2 ), we have
+                                                  π(x)
+                                            #Wd = h(d) + r(d),
+                                                  φ(8)
+where r(d) is an error term. Indeed, by Lemma 3.2, for any ε > 0 and A ≥ 3, we have
+                                                              x
+                                     τ (d1 d2 )4 |r(d)| ≪
+                               X
+                                                                    .
+                               d
+                                                           (log x)A
+                                    d1 d2 <x1/2−ε
+
+Therefore, we choose D = x1/2−2ε in Proposition 3.10 to obtain
+(4.4)
+                 π(x)                                                                                x
+ S W; (z1 , z2 ) ≥      V (z0 , h∗ )V1 (z1 , z0 )V2 (z2 , z0 )f ((2θ1 )−1 , (2θ2 )−1 )(1 + o(1)) +           ,
+                    4                                                                              (log x)10
+                         1/3
+where z0 = e(log z1 z2 ) . Next, we wish to simplify the above expression. We begin by
+examining the asymptotics of the factor V (z0 , h∗ )V1 (z1 , z0 )V2 (z2 , z0 ). Recall that by (3.10),
+we have
+                            h∗ (d) =
+                                       X
+                                             h(e1 e3 , e2 e3 )µ(e3 ).
+                                                     e1 e2 e3 =d
+                                                    e1 e3 |P1 (z0 )
+                                                    e2 e3 |P2 (z0 )
+So, by (4.3), we have
+                                            
+                                             2 ,
+                                                                         if p ̸= 3,
+               h(p, 1) + h(1, p) − h(p, p) = φ(p)
+               
+               
+                                                                                       if p ≡ 3 (mod 4),
+               
+      h∗ (p) =                               1,
+                                             
+                                                                          if p = 3,
+               
+                                              2
+                           1
+               
+               
+                h(p, 1) = φ(p) ,                                                      if p ≡ 1 (mod 4) or p = 2.
+Moreover, by (3.9) and (4.3), we have
+                                                                                                       !
+                                           Y                                     Y               1
+                  V1 (z1 , z0 ) =                    (1 − h(p, 1)) =                         1−      ,
+                                      z0 ≤p<z1                                z0 ≤p<z1          φ(p)
+                                    p≡3 (mod 4)                             p≡3 (mod 4)
+                                                                                                 !
+                                            Y                                  Y               1
+                      V2 (z2 , z0 ) =                (1 − h(1, p)) =                       1−      .
+                                         z0 ≤p<z2                           z0 ≤p<z2          φ(p)
+              ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                                        15
+
+Therefore, the Euler factors in V (z0 , h∗ )V1 (z1 , z0 )V2 (z2 , z0 ) are given as follows
+                         
+                         1
+          
+          
+          1  = 2   1 −  2
+                             ,                                          if p = 2,
+          
+          
+          
+                         2
+            1   9        1
+          
+          
+          
+          
+           2
+              = 8
+                    1 −  3
+                               ,                                        if p = 3,
+          
+          
+          
+                                            2
+                 2               3p−1
+                                          1 − p1 ,
+          
+          
+          
+          
+          1 − p−1    = 1 − (p−1)    3                                  if 3 < p < z0 and p ≡ 3 (mod 4),
+          
+          
+                                            
+                     1                  1
+          
+            1−  p−1
+                          = 1−(p−1)2
+                                               1− 1 ,
+                                                p
+                                                                        if 3 ≤ p < z0 and p ≡ 1 (mod 4),
+          
+          
+                       2                    2         2
+          
+                                         
+                   1                 1              1
+             1 −         =   1 −                1 −      ,              if z0 ≤ p < z2 and p ≡ 3 (mod 4),
+          
+          
+          
+                p−1              (p−1) 2           p
+          
+          
+          
+                                              
+                 1              1
+           1 − p−1   = 1 − (p−1)         1 − p1 ,                       if z0 ≤ p < z2 and p ≡ 1 (mod 4),
+          
+          
+          
+                                  2
+          
+          
+          
+                                              
+          1 − 1 = 1 − 1 2               1− 1 ,
+          
+                                                                        if z2 ≤ p < z1 and p ≡ 3 (mod 4).
+          
+                    p−1            (p−1)               p
+
+Thus, we have
+(4.5)                        V (z0 , h∗ )V1 (z1 , z0 )V2 (z2 , z0 ) ∼ CV1 (z1 )V2 (z2 ),
+where
+                                                                    !                                   !
+                        9          Y               3p − 1                   Y                 1
+(4.6)                C=                        1−                                       1−          ,
+                        4        p>3              (p − 1)3              p≡1 (mod 4)
+                                                                                           (p − 1)2
+                             p≡3 (mod 4)
+
+and
+                                                                                !1/2
+                                                                    e−γ                        κe−γ/2
+                                                            !
+                                        Y             1
+(4.7)               V1 (z1 ) =                     1−           ∼κ                      =    1/2
+                                                                                                            ,
+                                    p<z1              p            log z1                   θ1 (log x)1/2
+                                 p≡3 (mod 4)
+
+                                                            e−γ       e−γ
+                                                   !
+                                 Y             1
+(4.8)               V2 (z2 ) =              1−         ∼          =          ,
+                                 p<z2          p           log z2   θ2 log x
+using the Mertens estimate and recalling that z1 = xθ1 and z2 = xθ2 . Finally, we combine
+(4.2), (4.4), (4.5), (4.7), and (4.8) to obtain
+                                                       π(x)                                              
+                   S(A, Q, xθ1 ) ≥ C + o(1)                     V1 (z1 )V2 (z2 )f (2θ1 )−1 , (2θ2 )−1
+                                                            4
+                                               −3γ/2
+                                                                        f ((2θ1 )−1 , (2θ2 )−1 )
+                                                                    !
+                                            Cκe                                                        x
+(4.9)                              ∼                       + o(1)                1/2
+                                                                                                              ,
+                                               4                                θ1 θ2              (log x)5/2
+as desired.                                                                                                       □
+  We now incorporate the sieve ingredients differently by using a “switching principle” due
+to Iwaniec [10] to give an upper bound in the following proposition.
+Proposition 4.2. Let 1/4 < θ1 ≤ 1/2 and 0 < θ2 < θ1 . Then, for sufficiently large x, we
+have
+                                                                          x
+                S(Ap1 , Q, p1 ) ≤ 2c1 c22 c3 C(θ1 ) + o(1)
+         X
+                                                                                              ,
+             √
+     xθ1 <p ≤ x
+                                                             θ2 min(θ1 , 1/2 − θ2 )(log x)5/2
+               1
+        p1 ≡3 (mod 4)
+16                                       KUNJAKANAN NATH AND LIKUN XIE
+
+where                                                      !                                        !
+                                   Y           1                            Y           1
+                        c1 :=            1+          ,              c2 :=         1−          ,
+                                   p>3      (p − 2)2                        p>2      (p − 1)2
+                                                       !1/2                       !                          !1/2
+                     2      Y          1                             p2                   Y            1
+              c3 := √               1−                         1+                                   1−               ,
+                      π p≡1 (mod 4)    p                          (p − 1)3            p≡3 (mod 4)
+                                                                                                       p
+and                                                                                           !
+                                            Z 1−2θ1
+                                                            1        1 − β − θ1
+                           C(θ1 ) :=                             log            dβ.
+                                             0         β (1 − β)
+                                                        1/2              θ1
+Proof. For brevity, let us write
+                                                          X
+                                          T :=                      S(Ap1 , Q, p1 ).
+                                                              √
+                                                     xθ1 <p1 ≤ x
+                                                    p1 ≡3 (mod 4)
+
+Since θ1 > 1/4, it follows that any number counted in the sum T must have exactly one
+prime factor congruent to 3 (mod 4) in addition to p1 , and exactly one factor of 2. This is
+because the number of prime factors ≡ 3 (mod 4) in p − 1 is even, and there cannot be four
+of them. Hence, the numbers counted in T take the form
+(4.10)                             p − 1 = 2mp1 p2            and (p + 2, P (z2 )) = 1,
+where
+                                                                                √
+           p′ | m =⇒ p′ ≡ 1              (mod 4),         z1 < p1 < p2 ≤         x,       p1 ≡ p2 ≡ 3 (mod 4).
+These conditions imply that
+                                   m < x/(2z12 ) and z1 < p1 < (x/2m)1/2 ,
+where we will denote z1 = xθ1 throughout the proof.
+   Before proceeding, we introduce a notation. Given any positive integer n, we write b∗ (n) =
+1 to denote that all the prime factors of n are congruent to 1 (mod 4), and b∗ (n) = 0 otherwise.
+   Let (λ+                  +
+         1 (d))d≤D1 and (λ2 (d))d≤D2 be two linear upper bound sieves and of levels D1 ≤ z1
+and D2 ≤ z2 , respectively, to be chosen later. Then, we have
+                                                 λ+                                                                λ+
+                                    X                                                                   X
+         12mp1 p2 +1 prime ≤                      1 (d1 ) and 1(2mp1 p2 +3, P (z2 ))=1 ≤                            2 (d2 ).
+                               d1 |2mp1 p2 +1                                                     d2 |2mp1 p2 +3
+
+This implies that
+                                   b∗ (m)                                                   λ+                            λ+
+                        X                          X              X               X                          X
+ T ≤ (1 + o(1))                                                                              1 (d1 )                       2 (d2 )
+                     m≤x/(2z12 )
+                                                      √x            x
+                                                           3<p2 ≤ 2mp   d1 |(2mp1 p2 +1)               d2 |(2mp1 p2 +3)
+                                            z1 <p1 ≤ 2m               1
+                                            p1 ≡3 (mod 4) p2 ≡3 (mod 4)
+
+(4.11)
+                                   b∗ (m)                         λ+       +
+                        X                            X                                     X                       X
+    = (1 + o(1))                                                   1 (d1 )λ2 (d2 )                                              1,
+                     m≤x/(2z12 )                   d1 ≤D1
+                                                                                              √   x                  x
+                                                                                                            3<p2 ≤ 2mp
+                                                                                       z1 <p1 ≤ 2m                        1
+                                                   d2 ≤D2
+                                                                                       p1 ≡3 (mod 4)      p2 ≡3 (mod 4)
+                                            (d1 ,2m)=(d2 ,6m)=1
+                                                                                                       2mp1 p2 +1≡0 (mod d1 )
+                                                  (d1 ,d2 )=1
+                                                                                                       2mp1 p2 +3≡0 (mod d2 )
+
+where we have used the fact that d1 |2mp1 p2 + 1 and d2 |2mp1 p2 + 3, so we have (d1 , 2) =
+(d2 , 2) = 1 and (d1 , d2 ) = 1 or 2. Since both d1 and d2 are odd, we can conclude that
+(d1 , d2 ) = 1. Moreover, (d2 , 3) = 1 since d2 |2mp1 p2 + 3.
+          ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                                                       17
+
+  We now want to estimate the inner sum over p2 in the above expression. To do that, for
+any y ≥ 2, we define
+
+                                                                                π(y; m, 1, 1)
+                              E(y; m, q, a) := π(y; m, q, a) −                                ,
+                                                                                   φ(q)
+
+where π(y; m, q, a) is given by (3.1). Then, we rewrite (4.11) as
+
+                          b∗ (m)                           λ+       +
+                  X                          X                                        X
+T ≤ (1 + o(1))                                              1 (d1 )λ2 (d2 )                      π (x; 2mp1 , 4d1 d2 , r)
+                 m≤ x2                     d1 ≤D1
+                                                                                         √x
+                   2z                                                            z1 <p1 ≤ 2m
+                     1                     d2 ≤D2
+                                    (d1 ,2m)=(d2 ,6m)=1                          p1 ≡3 (mod 4)
+                                          (d1 ,d2 )=1
+
+(4.12)
+                                                                                            π (x; 2mp1 , 1, 1)
+                          b∗ (m)                           λ+       +
+                  X                          X                                        X
+  = (1 + o(1))                                              1 (d1 )λ2 (d2 )                                    + O(E(x)),
+                 m≤ x2                     d1 ≤D1
+                                                                                         √x     φ(4d1 d2 )
+                   2z                                                            z1 <p1 ≤ 2m
+                     1                     d2 ≤D2
+                                    (d1 ,2m)=(d2 ,6m)=1                          p1 ≡3 (mod 4)
+                                          (d1 ,d2 )=1
+
+
+for some reduced residue class r modulo 4d1 d2 , where
+
+
+                        b∗ (m)                            λ+       +
+                 X                          X                                        X
+    E(x) ≪                                                 1 (d1 )λ2 (d2 )                      E (x; 2mp1 , 4d1 d2 , r) .
+              m≤ x2                     d1 ≤D1
+                                                                                       √   x
+                  2z                                                            z1 <p1 ≤ 2m
+                    1                   d2 ≤D2
+                                 (d1 ,2m)=(d2 ,6m)=1                            p1 ≡3 (mod 4)
+                                       (d1 ,d2 )=1
+
+
+First, we show that the contributions from E(x) is negligible. By the Cauchy-Schwarz
+inequality, we have
+
+
+                                                            b∗ (m)
+                          X                   X                           X
+          E(x) ≪                                                                      E (x; 2mp1 , 4d1 d2 , r)
+                       d1 ≤D1               m≤ x2
+                                                                                √x
+                                               2z                     z1 <p1 ≤ 2m
+                       d2 ≤D2                    1
+                      (d1 ,d2 )=1    (d1 ,2m)=(d2 ,6m)=1              p1 ≡3 (mod 4)
+
+
+                                                        b∗ (m)
+                          X                   X                       X
+                  ≪                 τ (q)                                        E (x; 2mp1 , q, r)
+                      q≤4D1 D2               m≤ x2
+                                                                        √   x
+                                                 2z              z1 <p1 ≤ 2m
+                                                   1
+                                            (q,6m)=1             p1 ≡3 (mod 4)
+                                                         1/2                            1/2
+
+                                      τ (q)2 |E(x, q)|
+                            X                                          X
+(4.13)            ≪                                                            |E(x, q)|        ,
+                         q≤4D1 D2                                    q≤4D1 D2
+
+
+where
+
+                                                       b∗ (m)
+                                             X                      X
+                        E(x, q) :=                                              E (x; 2mp1 , q, r) .
+                                            m≤ x2
+                                                                       √x
+                                              2z                z1 <p1 ≤ 2m
+                                                1
+                                        (6m,q)=1                p1 ≡3 (mod 4)
+18                                 KUNJAKANAN NATH AND LIKUN XIE
+
+                                                  x
+First, we use the trivial bound E(x; n, q, r) ≪ nφ(q) and the fact that φ(n) ≫ n/ log log n
+together with q≤x τ (q)2 /q ≪ (log x)4 to note that
+              P
+
+                                                  1                                                 1
+                                                      2                                                 2
+                                       2                                        2
+                       X                                          XX
+                              τ (q) |E(x, q)|           ≪                τ (q) |E(x; n, q, a)|
+                    q≤4D1 D2                                      n≤x q≤x
+                                                                                                1
+                                                                                                   2
+                                                                           x log log q 
+                                                                    τ (q)2
+                                                                  XX
+                                                          ≪
+                                                            n≤x q≤x            nq
+                                                                            1/2
+(4.14)                                                    ≪ x(log x)6               .
+Next, for the second sum in (4.13), for any A > 0, suppose
+                                              (x/2)1/2                    3(2A + 6)
+(4.15)                     4D1 D2 ≤                     ,         B=                + 17.
+                                            (log(x/2))B                       2
+Now, we write
+L = {ℓ : ℓ = 2mp1 , b∗ (m) = 1, m ≤ x/z12 , (6m, q) = 1, z1 < p1 ≤ (x/2m)1/2 , p1 ≡ 3 (mod 4)}.
+Then by noting that
+                                                    2mp1 ≤ x1−θ1
+so that we have #L ≪ x1−θ1 . Therefore, we apply Theorem 3.1 with f = 1L to obtain
+                               X                       x
+(4.16)                                |E(x, q)| ≪             .
+                             q≤4D1 D2             (log x)2A+6
+Therefore, from (4.13), (4.14), and (4.16), we have
+                                                  x
+                                      E(x) ≪            ,
+                                               (log x)A
+which is an acceptable error term. Hence, from (4.12), we have
+                                                                                                  π (x; 2mp1 , 1, 1)
+                                  b∗ (m)                           λ+       +
+                           X                        X                                       X
+         T ≤ (1 + o(1))                                             1 (d1 )λ2 (d2 )
+                          m≤ x2                    d1 ≤D1
+                                                                                               √x     φ(4d1 d2 )
+                            2z                                                          z1 <p1 ≤ 2m
+                              1                    d2 ≤D2
+                                            (d1 ,2m)=(d2 ,6m)=1                         p1 ≡3 (mod 4)
+                                                  (d1 ,d2 )=1
+
+                                                                   λ+       +
+                                                                                                             !
+                                   ∗                                1 (d1 )λ2 (d2 )                  x
+                           X                        X                                        X
+(4.17)     = (1 + o(1))           b (m)                                                           π      ,
+                          m≤ x2                    d1 ≤D1          2φ(d1 )φ(d2 )               √x   2mp1
+                            2z                                                          z1 <p1 ≤ 2m
+                              1                    d2 ≤D2
+                                            (d1 ,2m)=(d2 ,6m)=1                         p1 ≡3 (mod 4)
+                                                  (d1 ,d2 )=1
+
+where π(t) counts the number of primes not exceeding t for any t ≥ 2.
+  Now, we wish to estimate the sum over the sieve weights. Since λ+      +
+                                                                  1 and λ2 are the upper
+bound linear sieve weights, we may apply [4, Theorem 5.9] to obtain
+                                                                              
+                           X               λ+       +
+                                            1 (d1 )λ2 (d2 )
+                                                                       4 + o(1) C1 H1 (m)H2 (m)
+                                                              ≤                                         ,
+                         d1 ≤D1             φ(d1 )φ(d2 )                  (log D1 )(log D2 )
+                         d2 ≤D2
+                  (d1 ,2m)=(d2 ,6m)=1
+                        (d1 ,d2 )=1
+          ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                                             19
+
+where                                                     !                                    !
+                                  Y               1                 Y            1
+                     C1 =                   1+                  ≤          1+          ,
+                                (p,6m)=1
+                                               (p − 2)2             p>3       (p − 2)2
+                                                                !                                         !
+                     2m      Y           1                             2m Y           1
+           H1 (m) =                1−                               ≤           1−          ,
+                    φ(2m) (p,2m)=1    (p − 1)2                        φ(2m) p>2    (p − 1)2
+                                                                !                                         !
+                     6m      Y           1                             6m Y           1
+           H2 (m) =                1−                               ≤           1−          .
+                    φ(6m) (p,6m)=1    (p − 1)2                        φ(6m) p>3    (p − 1)2
+For brevity, we denote
+                                                 !                                                 !
+                          Y            1                                  Y           1
+                c1 :=            1+                  and c2 :=                  1−          .
+                          p>3       (p − 2)2                              p>2      (p − 1)2
+Then, if (m, 6) = 1, we have
+                           X               λ+       +
+                                            1 (d1 )λ2 (d2 )    (32 + o(1))c1 c22 m2
+                                                            ≤ 2                      .
+                         d1 ≤D1             φ(d1 )φ(d2 )     φ (m)(log D1 )(log D2 )
+                         d2 ≤D2
+                  (d1 ,2m)=(d2 ,6m)=1
+                        (d1 ,d2 )=1
+
+Combining the above estimate together with (4.17), we have
+                                              X b∗ (m)m2
+                                                                                           !
+                                c1 c22                      x
+          T ≤ (16 + o(1))                           2
+                                                         π
+                          (log D1 )(log D2 ) m≤ x φ (m)    2mp1
+                                                         2z 2
+                                                           1
+
+                                      c1 c22 x      X b∗ (m)m                   X                  1
+(4.18)       = (8 + o(1))                                                                                    ,
+                                (log D1 )(log D2 ) m≤ x φ2 (m)                      √ x p1 log          x
+                                                       2z 2                z1 <p1 ≤ 2m                 2mp1
+                                                         1
+                                                                           p1 ≡3 (mod 4)
+
+where we have used the Prime Number Theorem in the last line.
+  To estimate the inner sum, we define the functions: for any t, u ≥ 2,
+                                              Z √ x
+                             1                    2m     1
+                 h(t) :=    
+                               x
+                                  , H(u) :=               d(log log t).
+                                                           x
+                         log 2mt               z1    log 2ut
+Recall that by Mertens’ Theorem, for any t ≥ 4, there exists a constant C0 > 0 such that
+                                                                                               !
+                                      X         1  1                     1
+                    S1 (t) :=                     = log log t + C0 + O       .
+                                      p<t       p  2                   log t
+                                  p≡3 (mod 4)
+
+Applying integration by parts to the inner sum, we obtain
+                                        √x                              q x  
+              X            1          Z
+                                          2m
+                                                    
+                                                      1
+                                                                        h     2m
+                                 =         h(t) d     log log t  + O           
+                √ x p1 log     x       z1             2                    log z1
+           z1 <p1 ≤ 2m              2mp1
+          p1 ≡3 (mod 4)
+                                                                                !
+                                              1            1
+                                             = H(m) + O          .
+                                              2         (log x)2
+20                                    KUNJAKANAN NATH AND LIKUN XIE
+
+Therefore, we have
+(4.19)
+ X b∗ (m)m                                     1 X b∗ (m)m                   X b∗ (m)m
+                                                                                       !
+                    X               1                                 1
+                                           =              H(m)+O                      .
+m≤ 2x  φ 2 (m)          √ x p 1 log    x       2    x
+                                                 m≤ 2
+                                                      φ(m)2        (log x)2
+                                                                               x
+                                                                            m≤ 2
+                                                                                 φ(m)2
+     2z        z1 <p1 ≤       2m
+                                      2mp1                          2z                                               2z
+       1                                                              1                                                1
+                   p1 ≡3   (mod 4)
+
+For t ≥ 2, we let
+                                                               X b∗ (m)m
+                                                 S2 (t) :=
+                                                               m≤t    φ(m)2
+
+and for any integer n ≥ 1, we let
+
+                                                                     b∗ (n)n2
+                                                        g(n) :=               .
+                                                                      φ(n)2
+First, we note that since φ(n) ≫ n/(log log n), we have
+                                                  g(n) ≪ (log log n)2 .
+Next, by Mertens’ theorem, for any w ≥ 2, we have
+                      X g(p) log p                  X          p log p
+                                         =
+                      p≤w       p                 p≤w         (p − 1)2
+                                               p≡1 (mod 4)
+                                                    X         log p           X          (2p − 1) log p
+                                         =                          +
+                                                  p≤w           p            p≤w           p(p − 1)2
+                                               p≡1 (mod 4)                p≡1 (mod 4)
+                                               1
+                                         =       log w + O(1).
+                                               2
+Therefore, the conditions in [13, Proposition A.3.] are satisfied, and so, we have5
+                                                                                               !
+                                         X g(n)
+                                                                      1/2          1
+(4.20)                       S2 (t) =                = c3 (log t)           +O            ,
+                                         n≤t    n                              (log t)1/2
+
+where
+                                                    !1/2                        !                         !1/2
+                   2      Y          1                              p2                   Y            1
+             c3 = √               1−                          1+                                   1−            .
+                    π p≡1 (mod 4)    p                           (p − 1)3            p≡3 (mod 4)
+                                                                                                      p
+
+Therefore, using (4.20) in (4.19), we have
+            b∗ (m)m                                                    1 X b∗ (m)m
+                                                                                                                           !
+           X                         X                1                                          1
+(4.21)                                                             =              H(m) + O            .
+       m≤ x
+             φ2 (m)                   √ x p1 log             x         2 m≤ x φ(m)2          (log x)3/2
+            2z 2             z1 <p1 ≤    2m
+                                                            2mp1              2z 2
+              1                                                                 1
+                             p1 ≡3   (mod 4)
+
+
+5We could have applied a variant of Wirsing’s theorem [22].                 However, for convenience, we have chosen to
+use [13, Proposition A.3.]
+              ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                                                   21
+
+Next, we evaluate the main term in the above expression. Indeed, using (4.20), we have
+         1 X b∗ (m)m
+                                             x
+                             1 Z 2z12
+                      H(m) ≤          H(u) dS2 (u)
+         2 m≤ x φ(m)2        2 1
+              2z 2
+                1
+                                                                                                                    
+                                                                                                                x
+                                    c3   Z    x
+                                             2z 2
+                                                                                     max H(1), H               2z12
+                                =              1
+                                                    H(u) d(log u)1/2 + O                                              
+                                    2                                                         (log 2zx2 )1/2
+                                                                                                                        
+                                         1
+                                                                                                      1
+                                              x
+                                                                                                   !
+                                  c3 Z 2z12                       log log x
+(4.22)                          =           H(u) d(log u)1/2 + O            .
+                                  2 1                            (log x)3/2
+  Let
+                                                            log z1
+                                                    ε1 =           .
+                                                            log x2
+Note that ε1 ∼ θ1 as z1 = xθ1 by our assumption. To evaluate the integral, we make the
+change of variables t = (x/2)α , u = (x/2)β to obtain
+       Z x                       Z x Z √x
+          2z 2              1/2     2z 2    2u    1
+            1
+               H(u) d(log u) =        1             d(log log t) d(log u)1/2
+                                                    x
+        1                         1      z1    log 2ut
+                                                                           1−β
+                                             1             Z 1−2ε1
+                                                                       1 Z 2                1
+                                =                   1/2                                            dα dβ
+                                                                     β 1/2             α(1 − α − β)
+                                     
+                                    2 log x2                0                ε1
+                                                                                                               !
+                                             1             Z 1−2ε1
+                                                                          1        1 − β − ε1
+(4.23)                          =                   1/2                       log                                    dβ.
+                                                                     β (1 − β)
+                                                                      1/2              ε1
+                                     
+                                    2 log x2                0
+
+
+We write                                                                                  !
+                                 Z 1−2ε1
+                                             1             1 − β − ε1
+                     C(ε1 ) :=                       log                 dβ.
+                                0       β (1 − β)
+                                         1/2                   ε1
+Therefore, we can infer from (4.18), (4.21), (4.22), (4.23) that
+                                                             x
+                  T ≤ 2c1 c22 c3 C(ε1 ) + o(1)                            1/2 .
+                                                 (log D1 )(log D2 ) log x2
+Finally, to minimize (log D1 log D2 )−1 under the condition (4.15), we choose
+                                 (x/2)min(θ1 ,1/2−θ2 )
+                                                                                   θ2
+                                                                                   x
+                            D1 =                       ,               D2 =               ,
+                                   4(log(x/2))B2                                   2
+which gives
+                                1                           1
+                                           ∼                                .
+                        (log D1 )(log D2 )   θ2 min(θ1 , 1/2 − θ2 )(log x)2
+Since C(ε1 ) ∼ C(θ1 ), it follows that
+                                                             x
+(4.24)           T ≤ 2c1 c22 c3 C(θ1 ) + o(1)                                    ,
+                                                θ2 min(θ1 , 1/2 − θ2 )(log x)5/2
+as desired.                                                                                                                  □
+  For the weighted terms in (2.5), we will apply Proposition 3.10 to obtain the following
+upper bound.
+22                                   KUNJAKANAN NATH AND LIKUN XIE
+
+Proposition 4.3. Let z2 = xθ2 , y = xθ , and 0 < θ2 < θ < 1. Then, for sufficiently large x,
+we have
+                                                 Cκe−3γ/2
+                                                                           !
+                      X                                                                            x
+                              wp #Bp ≤              1/2
+                                                              + o(1) I(θ, θ1 , θ2 )                       ,
+                    z2 ≤p≤y                       4θ1 θ2                                       (log x)5/2
+where γ is the Euler-Mascheroni constant,
+                                                                  !                                      !
+                     9            Y              3p − 1                    Y               1
+                  C=                         1−                                      1−          ,
+                     4          p>3             (p − 1)3              p≡1 (mod 4)
+                                                                                        (p − 2)2
+                            p≡3 (mod 4)
+
+                                                 !1/2                               !1/2
+                                             π                Y               1
+                                   κ=                                      1− 2            ,
+                                             2          p≡3   (mod 4)
+                                                                             p
+and
+                                             Z θ
+                                                         α                1 − 2α 1 − 2α dα
+                                                                                              
+                         I(θ, θ1 , θ2 ) :=            1−   F                    ,          ,
+                                                 θ2      θ                  2θ1    2θ2   α
+where the function F is given by (3.13).
+Proof. We now apply the upper bound vector sieve to the set W as defined in (4.1) by
+choosing P1 = Q, P2 = P in Proposition 3.10. Let d1 | P1 (z1 ) = Q(z1 ), d2 | P2 (z2 ) = P (z2 ),
+and z2 ≤ p ≤ y, where z1 = xθ1 and z2 = xθ2 . If (p, d1 ) = 1, then
+                                                               1
+                                          h(d1 , pd2 ) =           h(d1 , d2 ).
+                                                              φ(p)
+Additionally, note that if p | d1 , then #W(d1 ,pd2 ) = 0. Also, recall that in (4.5), we have
+calculated the asymptotic
+                              V (z0 , h∗ )V1 (z1 , z0 )V2 (z2 , z0 ) ∼ CV1 (z1 )V2 (z2 ),
+where C is given by (4.6), and V1 (z1 ) and V2 (z2 ) are given by (4.7) and (4.8), respectively.
+   We choose D = x1/2−2ε /p in Proposition 3.10. Then, we apply the upper bound vector
+sieve (3.11) and Lemma 3.2 to obtain
+                                                                                                              !
+                                π(x)                                             x/p
+             #Bp ≤ (C + o(1))          V1 (z1 )V2 (z2 )F (s1 (p), s2 (p)) + O           ,
+                              4(p − 1)                                        (log x)10
+where
+                                             log(x1/2−2ε /p)
+                                  si (p) =                                for i ∈ {1, 2}.
+                                                 log zi
+Therefore, by Mertens’ estimate,
+(4.25)
+                                                                                                                  !
+      X              
+                      C
+                                                     X wp F (s1 (p), s2 (p))        x
+             wp #Bp ≤   + o(1) π(x)V1 (z1 )V2 (z2 )                           +O           .
+     z2 ≤p≤y          4                             z2 ≤p≤y    p−1               (log x)10
+Next, we write
+                                                   √
+                                              log( x/t)
+                                     σi (t) =                         for i ∈ {1, 2}.
+                                                 log zi
+          ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                               23
+
+Then, by the Prime Number Theorem and by a change of variable t = xα , we have
+                                                                 !
+             X      wp F (s1 (p), s2 (p)) Z y    log t
+                                         ≤    1−       F (σ1 (t), σ2 (t))d(log log t)
+            z2 ≤p≤y        p−1             z2    log y
+                                                 Z θ
+                                                           α             1 − 2α 1 − 2α dα
+                                                                                       
+                                             =          1−      F              ,
+                                                θ2         θ               2θ1    2θ2  α
+                                             := I(θ, θ1 , θ2 ),
+say. Hence, by (4.25) together with (4.7) and (4.8), we conclude that
+                                             Cκe−3γ/2
+                                                                 !
+                   X                                                                  x
+(4.26)                      wp #Bp ≤           1/2
+                                                         + o(1) I(θ, θ1 , θ2 )               .
+                  z2 ≤p≤y                    4θ1 θ2                               (log x)5/2
+                                                                                                     □
+
+                                    5. Proof of Theorem 1.1
+   First, we will apply Lemma 3.6 with κ1 = 1/2 and κ2 = 1. Indeed, by [4, p. 225], we have
+β1 (1/2) = 1 and β2 (1) = 2. So, we can explicitly compute the functions Fi , fi in Lemma 3.6
+and Proposition 3.10.
+   Indeed, if β1 = 1 in Proposition 3.10, by Lemma 3.6 and [4, (14.2)–(14.3)], we have
+                           γ 1/2
+                           e
+             F1 (s) = 2              ,                                                0 < s ≤ 2,
+                            πs
+                          γ 1/2
+                          e
+                                                                q           
+              f1 (s) =         log 1 + 2(s − 1) + 2 s(s − 1) ,                        1 ≤ s ≤ 3,
+                       πs
+and continues with the differential equations
+                   d             f1 (s − 1) − F1 (s)
+                      (F1 (s)) =                     ,                                s > 2,
+                   ds                    2s
+                   d             F1 (s − 1) − f1 (s)
+                      (f1 (s)) =                     ,            s > 1.
+                   ds                    2s
+  Next, if β2 = 2 in Proposition 3.10, by Lemma 3.6 and [4, (12.1)–(12.2)], we have
+                           2eγ
+                   F2 (s) =    ,                                                 1 ≤ s ≤ 3,
+                            s
+                           2eγ log(s − 1)
+                  f2 (s) =                ,                                      2 ≤ s ≤ 4,
+                                  s
+and continues with the differential equations
+                   d
+                      (F2 (s)) = f2 (s − 1) − F2 (s),                                s > 3,
+                   ds
+                    d
+                      (f2 (s)) = F2 (s − 1) − f2 (s),              s > 2.
+                   ds
+Moreover, recall from (3.13) and (3.14), we can express the functions F and f as
+                                    (                                                            )
+                                                      s1   s2
+               F (σ1 , σ2 ) := inf F1 (s1 )F2 (s2 ) :    +    = 1, s1 > 0, s2 ≥ 1 .
+                                                      σ1 σ2
+24                                  KUNJAKANAN NATH AND LIKUN XIE
+
+and
+(5.1)             (                                                                                                        )
+                                                                             s1   s2
+f (σ1 , σ2 ) := sup f1 (s1 )F2 (s2 ) + f2 (s2 )F1 (s1 ) − F1 (s1 )F2 (s2 ) :    +    = 1, s1 ≥ 1, s2 ≥ 2 .
+                                                                             σ1 σ2
+  After recollecting the above information, we are now ready to complete the proof of The-
+orem 1.1. To avoid confusion, we mention that we will use notations from Section 2 without
+further comment.
+Proof of Theorem 1.1. Let
+                                   1         1
+(5.2)              0 < θ2 < θ1 < , θ1 > , θ2 < θ < 1,                                           λ > 0.
+                                   2         4
+We apply Propositions 4.1, 4.2, and 4.3 to deduce that
+                                                                                                     x
+                  S(A, Q, x1/2 ) − λ
+                                                 X
+                                                         wp #Bp ≥ H(λ, θ, θ1 , θ2 )                         ,
+                                             xθ2 ≤p≤xθ
+                                                                                                 (log x)5/2
+
+where H(λ, θ, θ1 , θ2 ) is given by
+                                                              
+                                      −1       −1
+                     Cκe−3γ/2 f (2θ1 ) , (2θ2 )         2c1 c22 c3 C(θ1 )     Cκe−3γ/2
+H(λ, θ, θ1 , θ2 ) :=         ·        1/2
+                                                  −                        −λ    1/2
+                                                                                       I(θ, θ1 , θ2 ).
+                        4            θ1 θ2          θ2 min(θ1 , 1/2 − θ2 )     4θ1 θ2
+Here, f is given by (5.1), γ is the Euler-Mascheroni constant, the constant terms are given
+by                                              !                         !
+                      9     Y            3p − 1      Y               1
+                C :=                1−                       1−             ,
+                      4    p>3          (p − 1)3 p≡1 (mod 4)     (p − 1)2
+                          p≡3 (mod 4)
+                                                         !                                            !
+                              Y           1                                Y           1
+                      c1 :=         1+          ,                  c2 :=         1−          ,
+                              p>3      (p − 2)2                            p>2      (p − 1)2
+                                                   !1/2                          !                              !1/2
+                   2      Y          1                              p2                   Y               1
+            c3 := √               1−                          1+                                      1−               ,
+                    π p≡1 (mod 4)    p                           (p − 1)3            p≡3 (mod 4)
+                                                                                                         p
+                                                 !1/2                                !1/2
+                                             π                Y               1
+                                    κ=                                     1− 2             ,
+                                             2          p≡3   (mod 4)
+                                                                             p
+and the integral terms are given by
+                                                                                                !
+                                        Z 1−2θ1
+                                                        1        1 − β − θ1
+                        C(θ1 ) :=                            log            dβ,
+                                         0         β (1 − β)
+                                                    1/2              θ1
+                                            αZ θ
+                                                     1 − 2α 1 − 2α dα
+                                                                                               
+                       I(θ, θ1 , θ2 ) :=        F   1−     ,            .
+                                    θ2      θ          2θ1    2θ2     α
+Recall from (2.4), the prime divisors of p + 2 satisfies
+                                                  1 1
+                                      ω(p + 2) ≤ + .
+                                                  λ θ
+So, given (5.2), we aim to find the smallest possible value of 1/λ + 1/θ such that
+                                                  H(λ, θ, θ1 , θ2 ) > 0.
+              ALMOST PRIMES AND PRIMES THAT ARE SUMS OF TWO SQUARES PLUS 1                               25
+
+Additionally, to compare the improvement in the number of divisors of p + 2 by including
+the weighted term, we define the function G(θ1 , θ2 ) by considering only the first two terms
+in H(λ, θ, θ1 , θ2 ):
+                                                              
+                                               −1        −1
+                              Cκe−3γ/2 f (2θ1 ) , (2θ2 )          2c1 c22 c3 C(θ1 )
+               G(θ1 , θ2 ) :=         ·        1/2
+                                                            −                        .
+                                 4            θ1 θ2           θ2 min(θ1 , 1/2 − θ2 )
+   First, we use Matlab6 to perform a stepwise iterative search for the values θ1 and θ2 such
+that G(θ1 , θ2 ) > 0 and θ2 is as large as possible, we find that the largest possible θ2 , with a
+step size of 0.0001, is θ2 = 0.0249. Taking θ1 = 0.4230, we obtain
+                                         G(θ1 , θ2 ) ≈ 0.001378.
+This
+  P
+     corresponds to the result that ω(p + 2) < 1/θ2 < 40.16 without the weighted term
+λ xθ2 ≤p≤y wp #Bp .
+                                        P
+  Next, including the weighted term λ xθ2 ≤p≤y wp #Bp , we perform a rough search near the
+estimated values of the parameters θ, λ, θ1 , and θ2 . We obtain
+                                                                 1      1
+       H(0.17, 0.25, 0.449, 0.011) = 1.2690 and ω(p + 2) <           +     = 9.8824.
+                                                                0.17 0.25
+Therefore, we conclude that
+             n                                                     o       x
+           # p : p ≤ x, p = 1 + m2 + n2 , m, n ∈ N, Ω(p + 2) ≤ 9 ≫                ,
+                                                                       (log x)5/2
+as desired.                                                                                              □
+
+                                                References
+ [1] Y. Cai, Almost prime triples and Chen’s theorem. Acta Arith. 179 (2017), no. 3, 233–250.
+ [2] J. R. Chen, On the representation of a larger even integer as the sum of a prime and the product of at
+     most two primes. Sci. Sinica 16 (1973), 157–176.
+ [3] J. B. Friedlander and H. Iwaniec, Hyperbolic prime number theorem. Acta Math. 202 (2009), no. 1, 1–19.
+ [4] J. Friedlander and H. Iwaniec, Opera de cribro. Amer. Math. Soc. Colloq. Publ., 57 American Mathe-
+     matical Society, Providence, RI, 2010.
+ [5] D. A. Goldston, J. Pintz, and C. Y. Yıldırım, Primes in tuples I, Ann. of Math. (2) 170 (2009), no. 2,
+     819–862.
+ [6] H. Halberstam and H.-E. Richert, Sieve methods. London Mathematical Society Monographs, No. 4.
+     Academic Press [Harcourt Brace Jovanovich, Publishers], London-New York, 1974.
+ [7] G. Harman, Prime-detecting sieves. London Math. Soc. Monogr. Ser., 33 Princeton University Press,
+     Princeton, NJ, 2007.
+ [8] R. Heath-Brown and X. Li, Almost prime triples and Chen’s theorem. J. Number Theory 169 (2016),
+     265–294.
+ [9] M. N. Huxley and H. Iwaniec, Bombieri’s theorem in short intervals. Mathematika 22 (1975), no. 2,
+     188–194.
+[10] H. Iwaniec, Primes of the type ϕ(x, y) + a where ϕ is a quadratic form. Acta Arith. 21 (1972), 203–234.
+[11] H. Iwaniec, The half dimensional sieve. Acta Arith. 29 (1976), 69–95.
+[12] Ju. V. Linnik, An asymptotic formula in an additive problem of Hardy-Littlewood. Izv. Akad. Nauk
+     SSSR Ser. Mat. 24 (1960), 629–706.
+[13] G. Martin, An asymptotic formula for the number of smooth values of a polynomial. J. Number Theory
+     93 (2002), no. 2, 108–182.
+[14] K. Matomäki, Prime numbers of the form p = m2 + n2 + 1 in short intervals. Acta Arith. 128 (2007),
+     no. 2, 193–200.
+6Matlab files with computation are included with this work on arxiv.org.
+26                                KUNJAKANAN NATH AND LIKUN XIE
+
+[15] K. Matomäki, M. Radziwill, and T. Tao, Correlations of the von Mangoldt and higher divisor functions
+     I. Long shift ranges. Proc. Lond. Math. Soc. (3) 118 (2019), no. 2, 284–350.
+[16] J. Maynard, Small gaps between primes, Ann. of Math. (2) 181 (2015), no. 1, 383–413.
+[17] Y. Motohashi, On the distribution of prime numbers which are of the form x2 + y 2 + 1. Acta Arith. 16
+     (1969/70), 351–363.
+[18] Y. Motohashi, On the distribution of prime numbers which are of the form “x2 + y 2 + 1”. II. Acta Math.
+     Acad. Sci. Hungar 22 (1971/72), 207–210.
+[19] K. Nath, Primes with a missing digit: distribution in arithmetic progressions and an application in sieve
+     theory. J. Lond. Math. Soc. (2) 109 (2024), no. 1, Paper No. e12837, 59 pp.
+[20] C. D. Pan, A new mean value theorem and its applications. Recent progress in analytic number theory,
+     Vol. 1 (Durham, 1979), pp. 275–287. Academic Press, Inc. [Harcourt Brace Jovanovich, Publishers],
+     London-New York, 1981.
+[21] D. H. J. Polymath, Variants of the Selberg sieve, and bounded intervals containing many primes. Res.
+     Math. Sci. 1 (2014), Art. 12, 83 pp.
+[22] E. Wirsing, Das asymptotische Verhalten von Summen über multiplikative Funktionen. Math. Ann. 143
+     (1961), 75–102.
+[23] J. Teräväinen, The Goldbach problem for primes that are sums of two squares plus one. Mathematika
+     64 (2018), no. 1, 20–70.
+[24] J. Wu, Primes of the form p = 1 + m2 + n2 in short intervals. Proc. Amer. Math. Soc. 126 (1998), no.
+     1, 1–8.
+[25] Y. Zhang, Bounded gaps between primes. Ann. of Math. (2) 179 (2014), no. 3, 1121–1174.
+[26] L. Zhu, Almost prime triples and Chen’s theorem. Int. J. Number Theory 21 (2025), no. 1, 133-151.
+
+     Institut Élie Cartan de Lorraine, Université de Lorraine, CNRS, F-54000 Nancy, France
+     Email address: kunjakanan@gmail.com
+
+  Department of Mathematics, University of Illinois Urbana–Champaign, 1409 W. Green
+Street, Urbana, IL 61801, USA
+  Current address: Max-Planck-Institut für Mathematik, Vivatsgasse 7, 53111 Bonn, Germany
+  Email address: xie@mpim-bonn.mpg.de
+

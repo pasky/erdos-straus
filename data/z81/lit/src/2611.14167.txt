@@ -1,0 +1,2302 @@
+                                           THE EXPONENT 3/4 FOR THE EXCEPTIONAL SETS OF THE EQUATIONS
+                                                                 K/n = 1/x + 1/y + 1/z
+
+                                                                                        DMYTRO TRYBUSHNYI
+
+
+                                                   Abstract. For K ≥ 4 let EK (N ) be the number of integers 2 ≤ n ≤ N for which K/n =
+                                                   1/x + 1/y + 1/z has no solution in positive integers; K = 4 is the Erdős–Straus equation. We prove
+                                                   that
+arXiv:2611.14167v1 [math.NT] 10 Nov 2026
+
+
+
+
+                                                                                                          (log N )3 1/4 
+                                                                                     EK (N ) ≤ N exp −c
+                                                                                                                 K
+                                                   with absolute constants c, B > 0, uniformly for 4 ≤ K ≤ (log N )3 /B. This improves the exponent
+                                                   2/3 of Vaughan’s bound of 1970. The bound is non-trivial for K up to a constant times (log N )3 ,
+                                                   which is, up to a factor (log log N )2+o(1) , the scale at which, by work of Pomerance and Weingartner,
+                                                   exceptional primes become common. The sieve is combinatorial: a truncated inclusion–exclusion
+                                                   over the classes of parametric solutions, whose second moment is the partition function of a two-copy
+                                                   polymer gas, bounded by a real form of the Kotecký–Preiss criterion. Averaging over the residue
+                                                   classes of the small primes gives the family its full mass, and summing each cluster in a random
+                                                   order bounds the cluster sums. Since a divisor of an exception is an exception, nothing about
+                                                   the small primes themselves is needed, and the sieve can use the classes of the whole family of
+                                                   parametric solutions, one triple per class. All constants are explicit, and the whole proof has been
+                                                   checked in the proof assistant Lean 4.
+
+
+
+
+                                                                                          1. Introduction
+                                             Fix an integer K ≥ 1 and consider
+                                                                                K  1 1 1
+                                           (1.1)                                  = + + ,                  x, y, z ∈ Z>0 .
+                                                                                n  x y z
+                                           For K ≤ 3 it is solvable for every n, so the question starts at K = 4. The Erdős–Straus conjecture
+                                           [8] asserts solvability for K = 4 and every n ≥ 2. Sierpiński [24] conjectured the same for K = 5,
+                                           and Schinzel for every fixed K and all large n (see [25]). For K = 4 the conjecture has been verified
+                                           up to 1018 [20, 15], and polynomial identities settle every class modulo 840 except six [16]. The
+                                           problem is one of density. Call n representable if (1.1) is solvable, and put
+                                                                       EK (N ) = #{2 ≤ n ≤ N : n is not representable}.
+                                             Density-zero results appeared around 1970 [26, 25], and for more than fifty years the strongest
+                                           bound was Vaughan’s [25],
+                                                                                EK (N ) ≪K N exp −cK (log N )2/3 ,
+                                                                                                                          
+                                           (1.2)
+                                           made uniform in K ≤ (log N )2 by Pomerance and Weingartner [18, Theorem 1.3], in the form
+                                           EK (N ) ≤ N exp(−C((log N )2 /φ(K))1/3 ). Dahan [4, Proposition 4.32] shows that the large-sieve
+                                           scheme cannot pass the exponent 2/3 for witness systems of Vaughan’s kind. In concurrent
+                                           work, Dahan [5] announces E4 (N ) ≪ N exp(−c(log N )5/7 (log log N )2/7 ), by a sieve with composite
+                                           witnesses. Elsholtz and Tao [7] count solutions rather than exceptions.
+
+                                              2020 Mathematics Subject Classification. Primary 11D68; Secondary 11N35, 11N36, 82B20, 68V20.
+                                              Key words and phrases. Erdős–Straus conjecture, Egyptian fractions, exceptional set, combinatorial sieve, polymer
+                                           gas, Kotecký–Preiss criterion, formal verification, Lean.
+                                                                                                     1
+2                                         DMYTRO TRYBUSHNYI
+
+
+1.1. The result.
+Theorem 1.1. Let K ≥ 4 and N ≥ 2, and suppose that h = ⌊log2 N ⌋ ≥ 4096.
+(a) If Kh ≥ 266 and 285 K ≤ h3 , then
+                                                         (log N )3/4 
+                                   EK (N ) ≤ N exp −                   .
+                                                         24 (232 K)1/4
+(b) If Kh ≥ 261 and 290 K ≤ h3 , the same holds with 237 K in place of 232 K.
+  Thus EK (N ) ≤ N exp(−c((log N )3 /K)1/4 ) with c = 1/(24 · 28 ) = 1/6144, for every K with
+4 ≤ K ≤ h3 /285 as soon as h ≥ max(212 , 266 /K). Neither part contains the other: (a) has the
+better constant, and (b) the smaller threshold for small K. For the Erdős–Straus equation the
+conditions reduce to h ≥ 264 in (a) and h ≥ 259 in (b).
+                            64                                                          59
+Corollary 1.2. If N ≥ 22 , then E4 (N ) ≤ N exp −(log N )3/4 /8689 . If N ≥ 22 , then E4 (N ) ≤
+                                                                           
+
+N exp −(log N )3/4 /20666 .
+                         
+
+   Part (b) uses only the triples with a, c ≤ d in the parametric solutions below. Part (a) sieves
+with the classes of the whole family, one triple per class, and counts the mass on a larger core (§10).
+This gains a factor 13  4 in the mass; together with sharper numerical constants, M drops by 2 .
+                                                                                                          5
+
+Since φ(K) ≫ K/ log log K, the exponent ((log N ) /K)    3    1/4 of Theorem 1.1 exceeds the exponent
+         2
+((log N ) /φ(K))   1/3 of [18, Theorem 1.3] by a factor ≫ (K log N )1/12 (log log K)−1/3 , so the new
+bound is stronger in K as well as in N , apart from the constants.
+   The bound is non-trivial up to K ≍ (log N )3 , and this is the natural limit. By [18, Theo-
+rem 3.1 and its proof], a positive proportion of the primes in (N/2, N ] are exceptional once K ≥
+(log N )3 (log log N )2+o(1) , so that EK (N ) ≫ N/ log N ; Theorem 1.1 gives EK (N ) ≤ N/(log N )2 =
+o(N/ log N ) for K ≤ (c/2)4 (log N )3 /(log log N )4 . In the heuristic of [18, §1] a prime p is exceptional
+with probability exp(−(log p)3 /K); Theorem 1.1 replaces the exponent (log p)3 /K of this heuristic,
+at p ≈ N , by a constant times its fourth root. In an independent model of the classes used here,
+the exponent 34 and the power K −1/4 are also the limit of square-sieve weights (Proposition 11.1).
+
+1.2. The strategy. Everything rests on one family of identities (Lemma 2.1): if a, c, d ≥ 1,
+u = Kacd − 1 and u | nc + a, then, with b = (nc + a)/u,
+                                      K      1       1      1
+                                         =      +       +       .
+                                      n     abd acdn bcdn
+So for each triple t = (a, c, d) the class Et = {n : ut | nc + a}, of density 1/ut , consists of
+representable numbers, and a non-representable n avoids all of them. We      sieve by these classes.
+   The balance. Let F be a family of triples with ut ≤ 2L and mass µ = t 1/ut . If the classes were
+                                                                         P
+
+independent, a proportion ≈ e−µ of the integers would avoid them all. To make this rigorous on
+[1, N ] we use a truncated inclusion–exclusion of depth k ≍ µ, which costs an error (#F)2k = 2O(µL) .
+So we need
+                               log N ≫ µL,        and we gain     e−cµ .
+The triples with ut ≤ 2L have mass of order L3 /K, one logarithm for each of the free scales of a, c
+and d. If a mass µ ≍ L3 /K were usable, then L4 ≍ K log N , and the gain is exp(−c((log N )3 /K)1/4 ).
+This is the whole source of the exponent, and also its limit (§11).
+   The obstruction. Inclusion–exclusion over correlated classes is controlled by a cluster expansion,
+and its convergence criterion needs the moduli to be Q-rough, that is, free of prime factors ≤ Q.
+Roughness keeps only the fraction ≍ 1/ log Q of the mass, and the cluster sums must be bounded
+with log Q small. A step-by-step bound does not allow this: it loses a power of log log N . Three
+ideas resolve the difficulty.
+                               EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                             3
+
+
+   (i) A real Kotecký–Preiss bound (§3). For real activities, Dobrushin’s induction gives the upper
+       bound we need in a few lines, without convergence of any expansion.
+  (ii) Averaging over the small primes (§§5–6). We split [1, N ] into the unit classes modulo the
+       product P0 of the small primes not dividing K, and condition each class Et on the small part
+       of its modulus. The roughness loss 1/ log Q is recovered, up to a constant factor, by a divisor
+       sum of order log y0 , and the mass becomes ≍ L3 /K.
+ (iii) Clusters in a random order (§7). The weight of a cluster factors over its graph of shared
+       primes. When its vertices are summed in an order chosen for its shape, a vertex is cheap if it
+       has many earlier neighbours or many later ones. In a random order the number of earlier
+       neighbours is uniformly distributed, so on average every vertex is cheap.
+   The averaging counts only the n prime to P0 ; the others are reduced to these by divisors. A
+representation of K/m scales to one of K/(sm), so every divisor of an exceptional number is
+exceptional, and EK (N ) is bounded by a sum,
+                                            P
+                                                  over the P0 -part s of n, of counts in unit classes
+(Lemma 5.2). The densities match exactly: s 1/s = P0 /φ(P0 ) against the proportion φ(P0 )/P0 of
+unit classes. So nothing about which small primes are representable is needed, and K enters only
+through the mass. Figure 1 shows the structure of the proof.
+
+        Sieve weight Fk , transfer         Two-copy polymer gas,          One level: 2−A per
+          cost (#E + 1)2k (§2)            real Kotecký–Preiss (§3)       class, A ≍ L3 /M (§8)
+
+
+          Key lemma, cofactor              Clusters in a random       Level L4 ≍ M log N ,
+            exponent j (§4)                     order (§7)           M = 237 K or 232 K (§8)
+
+
+         Averaging over classes               Mass ≥ L3 /M
+                                                                     P Divisors n = sm:
+             mod P0 (§5)                          (§6)                s 1/s = P0 /φ(P0 ) (§9)
+
+
+
+                                     Figure 1. Structure of the proof.
+
+
+1.3. Organization and conventions. Section 2 sets up the sieve and the polymer gas, §3 proves
+the real Kotecký–Preiss bound, §4 the key lemma on the classes Et , and §§5–6 construct the
+conditional family and bound its mass from below. Section 7 bounds the cluster sums, §8 combines
+everything at one level, and §9 proves Theorem 1.1(b). Section 10 extends the argument to the
+whole family of parametric solutions and proves Theorem 1.1(a). Section 11 explains the exponent
+and proves that it is the limit of square-sieve weights in an independent model. Appendices A and B
+contain the elementary prime estimates and the numerics of the cluster bound, and Appendix C
+the correspondence with the formal proof.
+   Throughout, K ≥ 4 is fixed; it is unrelated to the cutoff K0 of §5. We write ω(m) for the
+number of distinct prime factors of m, τ (m) for the number of divisors, φ for Euler’s function and
+# for cardinality; p and q denote primes unless stated otherwise. All logarithms are natural unless
+written log2 . We put ℓ = ℓ(L) = ⌊log2 L⌋ + 1, so that 2ℓ−1 ≤ L < 2ℓ . For a set C of events, lc(C) is
+the least common multiple of their moduli. In §7 the letters s, j, d, p, m are reused locally for the
+parameters of a cluster shape, with the meanings defined there; r always denotes a residue class
+modulo P0 .
+   The fixed parameters are collected in Table 1; all are functions of ℓ, except M , which depends
+on K, and T , A, k, which depend on K and L.
+1.4. Formal verification. The proof in this paper is complete and does not depend on a computer.
+Independently, we formalized every lemma, proposition, corollary and theorem of this paper in
+4                                           DMYTRO TRYBUSHNYI
+
+       Symbol           Value                                Role (where defined)
+       Q                2128ℓ                                roughness of the moduli vt (§5)
+       E0               25ℓ                                  bound for the small part st of ut (§5)
+                           3
+       Y                2ℓ                                   lower bound for a, c (§5)
+       K0               3ℓ                                   bound for ω(vt ) (§5)
+                        2ℓ , p≤y0 , p∤K p
+                             Q
+       y0 , P0                                               small primes and their product (§5)
+       rB , J0♭         2⌊ℓ/2⌋ + 43, 30 + ℓ + (128ℓ + 1)rB   Brun’s sieve: depth and length (§6.1)
+       G0 , H 0 , J 1   16ℓ, 3ℓ + 4, J0♭ + 5ℓ + 1            margins of the scales (Proposition 6.7)
+       Γ                ℓ3 − 2ℓ − 7                          cap of the step costs (§7.4, Appendix B)
+       T0 , H           J0♭ + 10ℓ + 64, 3ℓ + 4               margins of the wide scales (§10)
+       M                237 K or 232 K                       mass ≥ L3 /M (§§6, 10)
+       T , A, k         ⌊L3 /M ⌋, ⌊ 32 max(T − 1, 0)⌋, 15T   mass used, gain, depth (Proposition 8.1)
+                                         Table 1. The parameters.
+
+
+Lean 4 [17] with Mathlib [13], with all explicit constants; in a few places the formal statement
+differs slightly from the text, in ways listed in Appendix C that change no conclusion. The kernel
+checks every proof, with no axioms beyond propext, Classical.choice and Quot.sound, and
+the numerical inequalities are proved in the kernel from rational bounds on log 2 and e, without
+floating-point evaluation. The headline statements, Theorem 1.1, Corollary 1.2 and Proposition 11.1,
+are restated in a separate audit file from Mathlib definitions only, so that a reader can check that
+the formal statements say what the paper claims. Appendix C describes the package, states where
+it is deposited, and maps each statement to its declarations.
+
+1.5. AI Declaration. The author used Claude (Anthropic; Claude Opus 5.0 and Claude Opus
+5.5) for searching the literature, code generation (the Lean 4 formalization and the programs for
+the numerical experiments), testing hypotheses, ruling out other approaches, devising proof and
+computational strategies, drafting proofs of individual lemmas, checking the results, and drafting,
+revising and proofreading the text. The author posed the problem, directed the work, reviewed the
+arguments, and takes full responsibility for the content. The final results were verified without the
+use of AI: every step of the proofs of Theorem 1.1, with all constants, and of Proposition 11.1 is
+checked by Lean’s kernel, and the author checked that the statements of the audit file, which use
+only Mathlib definitions, are those of Theorem 1.1, Corollary 1.2 and Proposition 11.1 (§1.4).
+
+                        2. Events, the sieve weight and the two-copy gas
+Lemma 2.1 (Type II solutions). Let t = (a, c, d) with a, c, d ≥ 1 and u = Kacd − 1. Suppose n ≥ 1
+and u | nc + a. Then n is representable.
+Proof. Put b = (nc+a)/u, a positive integer. Then b(Kacd−1) = nc+a, that is Kabcd = a+b+cn,
+and dividing by abcdn gives
+                                   K       1      1     1
+                                       =      +      +    .                              □
+                                    n    abd acdn bcdn
+   Events. An event is a triple ε = ⟨m, c, a⟩ of integers with m ≥ 1 and gcd(m, c) = 1. It holds at
+j ∈ Z if m | jc + a, which is a single residue class of j modulo m; m = mε is its modulus. For a
+triple t = (a, c, d), Et = ⟨ut , c, a⟩ is an event, since ut = Kacd − 1 is prime to c, and by Lemma 2.1
+a non-representable n ≥ 1 lies in no Et . If R is a finite set of events, then by the Chinese remainder
+theorem the set of j at which every event of R holds is either empty or a single class modulo
+lc(R) = lcmε∈R mε .
+                             EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                                    5
+
+
+   The sieve weight. Let E be a finite family of events, and put S(j) = {ε ∈ E : ε holds at j}. A
+set T ⊆ E is independent if its moduli are pairwise coprime. Let Ii (j) be the number of independent
+i-subsets of S(j), and
+                                                          k
+                                                          X
+                                            Fk (j) =              (−1)i Ii (j).
+                                                          i=0
+If no event of E holds at j, then S(j) = ∅ and Fk (j) = I0 (j) = 1. The square Fk2 is a Selberg-type
+[11] weight: it is nonnegative, equal to 1 where no event holds, and its average is an alternating
+sum over pairs of independent sets.
+Lemma 2.2 (Transfer). Let M = lc(E). Then for every N ≥ 0,
+                            X                             X
+                       M           Fk (j)2 ≤ N                      Fk (j)2 + M(#E + 1)2k .
+                           0≤j≤N                      0≤j<M
+
+Proof. Expanding the square,
+                                                      ′
+                                         (−1)|T |+|T | 1[every ε ∈ T ∪ T ′ holds at j],
+                                 X
+                     Fk (j)2 =
+                                 T,T ′
+
+where T, T ′ run over independent subsets of E of size ≤ k. The set of j at which all events of
+R = T ∪ T ′ hold is empty or a single class modulo lc(R), and lc(R) | M. For a single class, the
+count in [0, N ] differs from N/ lc(R) by at most 1, and the count in [0, M) is exactly M/ lc(R).
+Multiply by M and sum. The number of pairs (T, T ′ ) is at most ( i≤k #E
+                                                                             2          2k
+                                                                          i ) ≤ (#E + 1) .
+                                                                  P
+                                                                                               □
+  Expanding the square once more gives the square expansion
+                     X                   X                ′                        X
+                          Fk (j)2 =             (−1)i+i Cii′ ,            Cii′ =         Ii (j)Ii′ (j).
+                    j<M               i,i′ ≤k                                      j<M
+
+   The gas. We now encode the square expansion as a polymer gas, so that the tail beyond degree
+k is controlled by the same gas at positive activities. In the rest of this section every modulus
+mε , ε ∈ E, is assumed to be at least 2; for the families used below this holds by (E2) of §5. Let
+U = {1, 2} × E. Two vertices v, w ∈ U are adjacent, v ∼ w, if gcd(mv , mw ) ̸= 1; this includes
+(1, ε) ∼ (2, ε). For S ⊆ U write S = ({1} × T ) ∪ ({2} × T ′ ) and
+  Wy,z (S) = 1[T, T ′ independent] 1[every component of S has ≤ 2k vertices]
+                                               #{0 ≤ j < M : every ε ∈ T ∪ T ′ holds at j}
+                                                              ′
+                                            × y |T | z |T |                                   .
+                                                                     M
+             P
+Put Z(y, z) = S⊆U Wy,z (S). Two sets are separated if no vertex of one is adjacent to a vertex of
+the other.
+Lemma 2.3.
+  (a) If S1 , S2 ⊆ U are separated, then W (S1 ∪ S2 ) = W (S1 )W (S2 ).
+  (b) Consequently Z(y, z) = G C∈G Wy,z (C). The sum runs over families G of pairwise
+                                 P Q
+
+      separated connected subsets of U ( polymers). Thus Z is the partition function of a hard-core
+      polymer gas in which two polymers are incompatible unless separated. Incompatibility is
+      symmetric, and it is reflexive because every vertex is adjacent to itself, as gcd(mv , mv ) =
+      mv ≥ 2.
+                                        ′
+  (c) Write MZ(y, z) = i,i′ cii′ y i z i . Then every cii′ ≥ 0, and cii′ = Cii′ for i, i′ ≤ k.
+                          P
+
+Proof. (a) The moduli of S1 and of S2 are coprime across, so by the Chinese remainder theorem
+the density of common solutions is multiplicative. Independence within a copy holds for S1 ∪ S2 if
+and only if it holds for S1 and S2 . The components of S1 ∪ S2 are those of S1 and of S2 .
+  (b) Decompose S into its connected components, which are pairwise separated, and apply (a).
+6                                        DMYTRO TRYBUSHNYI
+
+
+ (c) cii′ sums nonnegative counts. If |T | = i ≤ k and |T ′ | = i′ ≤ k, every component of S has at
+most 2k vertices, so the size condition is automatic and the sum is Cii′ .                       □
+Lemma 2.4 (Truncation by positivity). With Sk =
+                                                         P                i+i′ c ′ ,
+                                                              i,i′ ≤k (−1)      ii
+
+                                 2k+1 Sk − MZ(−1, −1) ≤ MZ(2, 2).
+                                                          
+
+Proof. Sk − MZ(−1, −1) is a sum of terms ±cii′ with max(i, i′ ) > k. Each satisfies ±cii′ ≤ cii′ ≤
+    ′
+2i+i −k−1 cii′ , since i + i′ ≥ k + 1 and cii′ ≥ 0.                                              □
+Proposition 2.5. Let A, B ≥ 0 be integers with 2A Z(−1, −1) ≤ 1, Z(2, 2) ≤ 2B and A + B ≤ k + 1.
+Then for every N ′ ≥ 0,
+               2A #{0 ≤ j ≤ N ′ : no event of E holds at j} ≤ 2N ′ + 2A (#E + 1)2k .
+Proof. By Lemma 2.3(c) and Lemma 2.4,
+              X
+         2A         Fk (j)2 = 2A Sk ≤ 2A MZ(−1, −1) + 2A−k−1 MZ(2, 2) ≤ M + M = 2M.
+              j<M
+
+Insert this into Lemma 2.2 with N = N ′ , and use Fk (j) = 1 at every j where no event holds.                □
+
+                                 3. A real Kotecký–Preiss bound
+  Let P be a finite set of polymers with a reflexive, symmetric incompatibility relation ̸∼, and let
+w : P → R be activities of arbitrary sign. For Λ ⊆ P put
+                                                   X          Y
+                                    Z(Λ) =                         w(γ),
+                                             S⊆Λ compatible γ∈S
+
+and let N (γ) = {γ ′ ̸= γ : γ ′ ̸∼ γ}. Splitting according to whether γ ∈ S gives, for γ ∈
+                                                                                         / Λ,
+(3.1)                         Z(Λ ∪ {γ}) = Z(Λ) + w(γ) Z(Λ \ N (γ)).
+Proposition 3.1 (Dobrushin’s criterion). Let c : P → [0, ∞) and S(γ) =
+                                                                                       P             ′
+                                                                                       γ ′ ∈N (γ) c(γ ). Suppose
+
+                                 |w(γ)| eS(γ) ≤ 1 − e−c(γ)        for all γ.
+Then Z(Λ) > 0 for all Λ, and
+                                           X
+                                                 w(γ) + |w(γ)|(eS(γ) − 1) .
+                                                                               
+                             Z(P) ≤ exp
+                                             γ
+
+Proof. We prove by strong induction on Λ that
+(3.2)          Z(Λ) > 0    and    |Z(Λ) − Z(Λ \ γ)| ≤ (1 − e−c(γ) ) Z(Λ \ γ)           (γ ∈ Λ).
+   Consequences of (3.2). It gives e−c(γ) Z(Λ \ γ) ≤ Z(Λ) ≤ (2 − e−c(γ) )Z(Λ \ γ). Since 2 − e−x ≤ ex ,
+removing one polymer changes Z by a factor in [e−c , ec ]. If (3.2) holds for all
+                                                                               P subsets
+                                                                                               ′
+                                                                                        P of Λ , then
+                                                 ′                           − Dc          c
+iterating shows that removing a set D from Λ changes Z by a factor in [e             , e D ].
+                                    ′
+   Inductive step. Let γ ∈ Λ and Λ = Λ \ γ. By (3.1),
+          |Z(Λ) − Z(Λ′ )| = |w(γ)| Z(Λ′ \ N (γ)) ≤ |w(γ)|eS(γ) Z(Λ′ ) ≤ (1 − e−c(γ) )Z(Λ′ ).
+Positivity then follows from Z(Λ) ≥ e−c(γ) Z(Λ′ ) > 0, with Z(∅) = 1.
+  The bound. Insert polymers one at a time. By (3.1), Z(Λ ∪ γ) = Z(Λ)(1 + w(γ)ρ) with
+ρ ∈ [e−S(γ) , eS(γ) ]. For either sign of w we have wρ ≤ w + |w|(eS − 1); for w < 0 this uses
+e−S ≥ 2 − eS . Finally 1 + x ≤ ex .                                                        □
+                               EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                                   7
+
+
+Corollary 3.2 (Kotecký–Preiss, real form). Let a : P → [0, ∞) satisfy
+                                                      ′
+                                           |w(γ ′ )|ea(γ ) ≤ a(γ)
+                                  X
+                                                                      for all γ,
+                                 γ ′ ̸∼γ
+
+where the sum includes γ ′ = γ. Then Z(P) ≤ exp                                          a(γ) − 1) .
+                                                                                                  
+                                                                            γ |w(γ)|(e
+                                                             P              P
+                                                                 γ w(γ) +
+
+Proof. Take c = |w|ea . The hypothesis gives S(γ) ≤ a(γ) − c(γ). Hence
+                                   |w|eS ≤ |w|ea−c = ce−c ≤ 1 − e−c ,
+using c ≤ ec − 1. Also eS − 1 ≤ ea − 1. Apply Proposition 3.1.                                            □
+
+   Kotecký and Preiss [12] prove convergence of the full cluster expansion, for complex activities,
+under the hypothesis of Corollary 3.2. For real activities the bound of the corollary is all we
+need, and its proof follows Dobrushin [6]; see also [9]. The induction is the one behind the Lovász
+local lemma; for the hard-core gas with negative activities, the local lemma in its Shearer and
+cluster-expansion  forms is treated in [22, 21, 1]. Applied to the gas of §2, the first-order term
+   W−1,−1 is −2µ + µ = −µ, from the singletons and the double sites (§7), so the whole problem is
+P
+
+to show that the larger polymers are small.
+
+                                               4. The key lemma
+  In this section L ≥ 1 and Y ≥ 1 are arbitrary integers. A triple t = (a, c, d) is admissible if
+Y ≤ min(a, c), max(a, c) ≤ d, gcd(a, c) = 1 and ut ≤ 2L . Put
+                                               L + 1 224 + 8(L + 1)2
+                                      cY =            +               .
+                                                4Y 2           Y
+A triple is determined by its modulus and its class. Indeed, let (a, c, d) and (a′ , c′ , d′ ) have
+gcd(a, c) = gcd(a′ , c′ ) = 1, a, c ≤ d, a′ , c′ ≤ d′ and the same modulus u = Kacd − 1 = Ka′ c′ d′ − 1,
+and suppose their classes meet, so that u | ac′ − a′ c. From a2 ≤ acd and the like we get
+|ac′ − a′ c| < 2acd < u, so ac′ = a′ c, and coprimality gives (a, c, d) = (a′ , c′ , d′ ). The proof uses the
+quantitative versions of this rigidity: the key lemma below, and Lemma 5.6 for the conditional
+family. The key lemma drives all the cluster bounds of §7.
+Lemma 4.1. Let D ≥ 1, ρ ∈ Z, and Λ = {(x, y) ∈ Z2 : D | x + ρy}. Let w be a nonzero vector of
+Λ with minimal sup-norm λ1 = |w|∞ . Then:
+     (a) λ21 ≤ D;
+    (b) every p ∈ Λ with det(p, w) = 0 is an integer multiple of w;
+     (c) every p ∈ Λ with det(p, w) ̸= 0 satisfies D ≤ 2|p|∞ λ1 ;
+    (d) for A, B ≥ 1, # Λ ∩ [A, 2A) × [B, 2B) ≤ 2AB/D + 3 max(A, B)/λ1 + 1.
+                         √                                   √
+Proof. (a) Among the (⌊ D⌋ + 1)2 > D pairs (x, y) ∈ [0, √D]2 , two have equal x + ρy modulo D.
+Their difference is a nonzero point of Λ with sup-norm ≤ D.
+   (b) Write w = gw0 with w0 primitive. A point p with det(p, w) = 0 is a multiple sw0 . If g ∤ s,
+choose an integer m with |s − mg| < g. Then p − mw = (s − mg)w0 is a nonzero point of Λ shorter
+than w, which contradicts minimality. So g | s.
+   (c) Λ has index D in Z2 , so det(p, w) ∈ DZ. Also | det(p, w)| ≤ 2|p|∞ |w|∞ .
+   (d) Group the points by the value det(·, w). Each fibre is a translate of a subset of Zw, so
+it has at most min(A/|wx |, B/|wy |) + 1 points. The values of det(·, w) on the box are multiples
+of D in an interval of length at most A|wy | + B|wx |. Multiplying the number of values by the
+fibre bound gives 2AB/D, plus min(A/|wx |, B/|wy |) ≤ max(A, B)/λ1 , plus (A|wy | + B|wx |)/D ≤
+2 max(A, B)λ1 /D ≤ 2 max(A, B)/λ1 by (a), plus 1.                                              □
+8                                           DMYTRO TRYBUSHNYI
+
+
+Lemma 4.2 (Key lemma). Let Q ≥ 1, j ≥ 1, D ≥ 2 and ρ ∈ Z. Then
+                          XD               2             16(L + 1) (L + 1)3
+                                    ≤            + c Y +    √     +         ,
+                           t
+                               ut       (Q + 1)j              D      2D
+
+the sum running over admissible t with D | ut , D | a + ρc and ut ≥ (Q + 1)j D.
+  The idea is as follows. The pairs (a, c) lie in the lattice {D | x + ρy} of index D. For fixed (a, c)
+the moduli form one progression modulo KacD, so only the smallest one matters. On the ray of
+the shortest lattice vector there is at most one coprime pair, and its smallest modulus is at least
+(Q + 1)j D; this gives the ray term 2(Q + 1)−j , the reciprocal of the guaranteed cofactor ut /D. Off
+the ray the smallest modulus is at least 2ac max(a, c), and a dyadic count of lattice points gives
+the rest.
+
+Proof. Put Q′ = (Q + 1)j − 1 ≥ 1, so ut ≥ (Q′ + 1)D and in particular ut =
+                                                                         ̸ D. The pairs (a, c) of
+the sum lie in the lattice Λ of Lemma 4.1. Let w and λ1 be as there.
+  Fibres. Fix (a, c). Then D | Kacd − 1 fixes d modulo D, so the moduli u lie in one class modulo
+KacD. They lie in [u0 , 2L ], where u0 is the smallest. Hence, as K ≥ 4,
+                    X
+                        D/u ≤ D/u0 + (L + 1)/(Kac) ≤ D/u0 + (L + 1)/(4ac),
+
+      m≤2L 1/(u0 + gm) ≤ 1/u0 + (L + 1)/g.
+     P
+by
+   The ray. At most one coprime positive pair lies on Rw: by Lemma 4.1(b) such a pair is sw with
+s ∈ Z, and primitivity forces s = ±1. For it D/u0 ≤ 1/Q′ ≤ 2/(Q + 1)j , so it contributes at most
+2/(Q + 1)j + (L + 1)/(4Y 2 ).
+   Off the ray. For an off-ray pair the smallest modulus satisfies u0 ≥ 2ac max(a, c) (as max(a, c) ≤
+d), so by the fibre bound the pair contributes at most D/(2ac max(a, c)) + (L + 1)/(4ac). Split the
+pairs into dyadic boxes [A, 2A) × [B, 2B) with A, B ∈ {2i : 0 ≤ i ≤ L}, and write M1 = max(A, B),
+m1 = min(A, B). A pair in the box contributes at most D/(2ABM1 ) + (L + 1)/(4AB). A
+box containing an off-ray point satisfies M1 > X := D/(4λ1 ), since D ≤ 2|p|∞ λ1 < 4M1 λ1
+by Lemma 4.1(c), and m1 > Y /2, since a, c ≥ Y . By Lemma 4.1(d) the box has at most
+2AB/D + 3M1 /λ1 + 1 points, so it contributes at most
+ 2AB        3M1       D     L + 1   1    L+1     3D     3(L + 1)     D     L+1
+         +       +1          +        =    +     +        +          +       +     .
+     D        λ1       2ABM1   4AB      M1    2D   2λ1 AB    4λ1 m1    2ABM1   4AB
+Summing the six terms over the boxes with M1 > X and m1 > Y /2 (at most 2(L          + 1) boxes have
+a given value of M1 or of m1 , and there are at most (L + 1)2 boxes), with 2i ≥X 2−i ≤ 2/X,
+                                                                                   P
+P            −i ≤ 4/Y and P         −i ≤ 4 X −2 , the off-ray points contribute at most the following;
+  2i >Y /2 2                2i ≥X 4      3
+the fourth and sixth terms of the box bound give 6(L + 1)2 /Y and 2(L + 1)2 /Y , which are combined
+in the last term:
+                        4(L + 1) (L + 1)3           24D       8D     8(L + 1)2
+                                   +           +          + 2 +                .
+                           X            2D         λ1 XY     X Y        Y
+                                           √                                                      √
+With X = D/(4λ1 ) and 1 ≤ λ1 ≤ D (Lemma 4.1(a)): 4(L + 1)/X ≤ 16(L + 1)/ D,
+24D/(λ1 XY ) = 96/Y and 8D/(X 2 Y ) = 128λ21 /(DY ) ≤ 128/Y . Together with the ray this
+                                                    2
+gives the bound, with cY = L+14Y 2
+                                   + 96+128+8(L+1)
+                                            Y         .                                             □
+
+   If every ut in the sum has no divisor in [2, Q], the condition ut ≥ (Q + 1)D follows from ut ̸= D,
+                         ̸ 1 divides ut ; so the case j = 1 applies. For j = 1 the proof gives the ray
+since the cofactor ut /D =
+           ′
+term 1/Q = 1/Q, slightly better than 2/(Q + 1); the formal proof uses this form. The exponent j
+is what §7 feeds in: a vertex of a cluster with j later neighbours or private primes has cofactor at
+least (Q + 1)j .
+                               EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                                         9
+
+
+                              5. Averaging over the small primes
+  From now on L ≥ 223 , so that ℓ = ℓ(L) ≥ 24, and K ≤ 23ℓ . The parameters are
+                                                  3                                               Y
+       Q = 2128ℓ ,     E0 = 25ℓ ,         Y = 2ℓ ,       K0 = 3ℓ,           y0 = 2ℓ ,   P0 =                p.
+                                                                                               p≤y0 , p∤K
+
+Every prime factor of P0 is at most y0 ≤ Q and does not divide K. Nothing is assumed about its
+representability. For a triple t let
+                                       st = gcd(ut , P0 ),      vt = ut /st .
+Call a positive integer good if it is squarefree, has no prime factor ≤ Q, and has at most K0 prime
+factors.
+Definition 5.1. For r ∈ Z, the conditional family Fr is the set of triples t = (a, c, d) with
+• Y ≤ min(a, c), max(a, c) ≤ d, gcd(a, c) = 1 and ut ≤ 2L ;
+• st ≤ E0 and st | a + rc;
+• vt has no divisor in [2, Q].
+For F ⊆ Fr its mass is µ(F) = t∈F 1/vt .
+                               P
+
+  So the Q-smooth part of ut is st : a squarefree divisor of P0 of size at most E0 , compatible
+with the class r. Since vt is Q-rough, gcd(vt , P0 ) = 1. By Lemmas 5.3 and 5.6 below, the mass is
+  1/(modulus) for the events of F on the progression r + P0 j, not 1/ut : the small part of the
+P                                                                    P
+
+modulus is paid once, as a congruence on (a, c), and then disappears.
+Lemma 5.2 (Divisor reduction). For X ≥ 0 put
+                            X           
+               R(X) =                  # 0 ≤ j ≤ ⌊X/P0 ⌋ : r + P0 j is not representable .
+                          0≤r<P0
+                        gcd(r,P0 )=1
+
+Then                                                   X                
+                                         EK (N ) ≤             R ⌊N/s⌋ ,
+                                                      1≤s≤N
+                                                       s|P0∞
+where s | P0∞ means that every prime factor of s divides P0 .
+Proof. If n = sm and K/m = 1/x+1/y+1/z, then K/n = 1/(sx)+1/(sy)+1/(sz). So every divisor
+m of a non-representable n is non-representable. This includes m = 1, since 1/x+1/y+1/z ≤ 3 < K.
+Let 2 ≤ n ≤ N be non-representable, s the largest divisor of n with s | P0∞ , and m = n/s. Then
+gcd(m, P0 ) = 1, m ≤ ⌊N/s⌋ and m is not representable. Write m = r + P0 j with r = m mod P0 ,
+so gcd(r, P0 ) = 1 and j ≤ ⌊⌊N/s⌋/P0 ⌋. The map n 7→ (s, r, j) is injective, as n = s(r + P0 j). □
+  If every prime of P0 were representable only s = 1 would occur. In general the s are paid in §9,
+where their reciprocals add up to P0 /φ(P0 ) and cancel the density φ(P0 )/P0 of the unit classes.
+Lemma 5.3. Let t ∈ Fr , r ≥ 0, and êt = ⟨vt , P0 ct , rct + at ⟩. Then êt is an event, and for every
+j ≥ 0, r + P0 j ∈ Et if and only if êt holds at j.
+Proof. (r + P0 j)c + a = jP0 c + (rc + a). Here ut = st vt with gcd(st , vt ) = 1, and st divides both P0
+and rc + a, so it divides the right side for every j; hence ut divides it if and only if vt does. Finally
+gcd(vt , c) = 1 because vt | Kacd − 1, and gcd(vt , P0 ) = 1.                                          □
+   Why conditioning loses nothing. For a prime q | P0 and a unit class r, the weight q 1[q ∥ u] 1[q |
+a + rc] + 1[q ∤ u] has average exactly 1 over the triples (a, c, d) modulo q 2 with (a, c) ̸≡ (0, 0), by a
+direct count, while the roughness condition q ∤ u alone keeps only the fraction 1 − 1/q. At a prime
+q | K the conditioning is impossible, but q never divides a modulus, and roughness costs nothing
+10                                          DMYTRO TRYBUSHNYI
+
+
+there either. The proof uses a simpler lower bound: for each e | P0 with e ≤ E0 it keeps the triples
+with st = e and vt rough. The resulting weights are φ(e)/e2 , because for p | e and e | a + rc, p | c
+forces p | a (§6).
+5.1. The conditional key lemma. For D ≥ 1 and j ≥ 1 put
+                                                        s
+                            2                             E0 (L + 1)3 (1 + log E0 )
+       ε′D (j) = E0                + c Y + 32(L + 1)          +                       ,   ε′D = ε′D (1).
+                          (Q + 1)j                          D           2D
+Lemma 5.4 (Conditional key lemma). Let r, ρ ∈ Z, j ≥ 1 and D ≥ 2 with gcd(D, P0 ) = 1.
+Summing over t ∈ Fr with D | vt , D | a + ρc and vt ≥ (Q + 1)j D,
+                                               XD
+                                                            ≤ ε′D (j).
+                                                   t
+                                                       vt
+For j = 1 the condition vt ≥ (Q + 1)D may be replaced by vt ̸= D.
+Proof. Group the triples by e = st , a divisor of P0 with e ≤ E0 . Since gcd(D, e) = 1, there is a
+class ρe with De | a + ρe c whenever D | a + ρc and e | a + rc. For these triples D/vt = De/ut ,
+De | ut and ut /(De) = vt /D ≥ (Q + 1)j , so Lemma 4.2 at the modulus De bounds the group
+by 2(Q + 1)−j +√cY + 16(L + 1)(De)−1/2 + (L + 1)3 /(2De). Sum over e with #{e ≤ E0 } ≤ E0 ,
+         −1/2 ≤ 2 E and P
+                             e≤E0 1/e ≤ 1 + log E0 . For the last claim: vt /D =
+                                                                               ̸ 1 divides vt , which
+P
+  e≤E0 e              0
+has no divisor in [2, Q].                                                                          □
+5.2. Duplicates and pruning.
+Lemma 5.5 (One ray). Let ϑ, D ≥ 1 with 2ϑ < KY , and let (a, c, d), (a′ , c′ , d′ ) satisfy Y ≤
+min(a, c), max(a, c) ≤ d, Y ≤ min(a′ , c′ ), max(a′ , c′ ) ≤ d′ , Kacd − 1 ≤ ϑD and Ka′ c′ d′ − 1 ≤ ϑD.
+If D | ac′ − a′ c, then ac′ = a′ c.
+Proof.pKY a2 ≤ Kacd (as Y ≤ c and a ≤ d), and likewise for c, a′ , c′ . So all four are at
+most (ϑD + 1)/(KY ), and 0 < ac′ , a′ c ≤ (ϑD + 1)/(KY ) < D, using 2ϑ < KY . Hence
+|ac′ − a′ c| < D.                                                                       □
+                                               3
+     At our parameters 2E0 = 25ℓ+1 < 4 · 2ℓ ≤ KY and E0 < KY 2 .
+Lemma 5.6 (No duplicates). If t, t′ ∈ Fr have vt = vt′ = v and v | ac′ − a′ c, then t = t′ .
+Equivalently, by Lemma 5.3, two members of Fr with the same v whose events êt , êt′ have a
+common point are equal.
+Proof. Since ut = st v ≤ E0 v, Lemma 5.5 with D = v, ϑ = E0 gives ac′ = a′ c, and coprimality gives
+(a, c) = (a′ , c′ ). If d =
+                          ̸ d′ , then v | Kac(d − d′ ) and gcd(v, Kac) = 1, so v ≤ |d − d′ |; say d ≥ v + 1.
+Then st v = Kacd − 1 ≥ Kac v + Kac − 1, so st ≥ Kac ≥ KY 2 > E0 , a contradiction. For the
+equivalence: the class of êt is j ≡ −(rc + a)(P0 c)−1 (mod v), and two such classes agree if and only
+if v | ac′ − a′ c.                                                                                       □
+  Pruning. A triple t′ ∈ Fr is a nested partner of t ∈ Fr if vt′ | vt , vt′ =
+                                                                            ̸ vt and vt′ | at ct′ − at′ ct ; by
+Lemma 5.3 this says that the events êt , êt′ meet and the modulus of êt′ properly divides that of êt .
+For finite F ⊆ Fr let F ∗ be the set of members of F without a nested partner in F .
+Lemma 5.7 (Pruning). If all members of F ⊆ Fr have vt ≥ 2, then µ(F ∗ ) ≥ (1 − ε′Q )µ(F), and
+ε′Q ≤ 2−(ℓ+8) .
+
+Proof. Fix t′ ∈ F. The triples of which t′ is a nested partner satisfy vt′ | a + ρc with ρ ≡ −at′ c−1
+                                                                                                   t′
+(mod vt′ ), and vt′ > Q is prime to P0 . By Lemma 5.4 with j = 1 and D = vt′ they weigh at most
+ε′vt′ /vt′ ≤ ε′Q /vt′ , since ε′D decreases in D. Summing over t′ bounds the removed mass by ε′Q µ(F).
+                                EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                              11
+
+
+   For the numerical bound, L + 1 ≤ 2ℓ gives cY ≤ 22ℓ+10 /Y . So 2E0 /(Q + 1) ≤ 21−123ℓ ,
+                 3
+E0 cY ≤ 27ℓ+10−ℓ , 32(L + 1) E0 /Q ≤ 25+ℓ−60ℓ and (L + 1)3 (1 + log E0 )/(2Q) ≤ 28ℓ−128ℓ , using
+                             p
+
+1 + log E0 ≤ E0 . Each of these four is at most 2−(ℓ+11) for ℓ ≥ 24, and 4 · 2−(ℓ+11) ≤ 2−(ℓ+8) . □
+
+5.3. The events of the conditional family. The sieve of §§2–3 and the cluster estimates of §7
+use a family of events only through the following properties, for constants c0 , cr , c1 , c2 , δ ≥ 0:
+  (E1) every member ⟨m, c, a⟩ is an event: m ≥ 1, gcd(m, c) = 1;
+  (E2) every modulus is squarefree, ≥ 2, with all prime factors > Q and ω(m) ≤ K0 ;
+                                                      ̸ mε , the events ε, ε′ hold at no common j;
+  (E3) there are no nested pairs: if mε′ | mε and mε′ =
+  (E4) for every D ≥ 2, every n0 and every j ≥ 1, D/mε ≤ c0 + 2cr (Q + 1)−j + c1 D−1/2 + c2 D−1 ,
+                                                  P
+
+       the sum running over the events with D | mε , D | aε + n0 cε and mε ≥ (Q + 1)j D;
+       two events with equal moduli that hold at a common j are equal;
+  (E5) P
+  (E6) mε =q 1/mε ≤ δ for every q.
+The condition D | aε + n0 cε says that ε holds at n0 modulo D; it is used with n0 a common point
+of a cluster. By (E2), mε ̸= D already gives mε ≥ (Q + 1)D, so the case j = 1 of (E4) covers all
+events with D | mε , mε ̸= D.
+Proposition 5.8 (Conditional events). Let r ≥ 0 be coprime to P0 , and let F ⊆ Fr be finite, with
+vt ≥ 2 good for t ∈ F and no nested pairs in F. Then t 7→ êt is injective on F, and {êt : t ∈ F }
+satisfies (E1)–(E6) with
+                                                                            p
+                          c0 = E0 cY ,       cr = E0 ,       c1 = 32(L + 1) E0 ,
+                                  (L + 1)3 (1 + log E0 )            E0 (E0 + 1)
+                          c2 =                           ,     δ=               ,
+                                            2                           4Y
+so that the bound in (E4) is ε′D (j).
+Proof. (E1) is Lemma 5.3, (E2) holds as vt is good, (E3) by assumption and Lemma 5.3, and (E5)
+and injectivity are Lemma 5.6. For (E4),
+                     D | (rc + a) + n0 (P0 c) ⇐⇒ D | a + ρc,            ρ = r + P 0 n0 ,
+so the class n0 of êt in the variable j is the class ρ of the triple, and Lemma 5.4 applies at the class
+ρ (if gcd(D, P0 ) > 1 the sum is empty, since gcd(vt , P0 ) = 1). For (E6), let vt = q. Then ut = sq
+with s ≤ E0 , and a2 Y ≤ acd = (sq + 1)/K ≤ (sq + 1)/4, likewise for c, so for each s there are at
+most (sq + 1)/(4Y ) ≤ sq/(2Y ) such triples, each of weight 1/q; sum over s ≤ E0 .                     □
+                           3
+  The floor c0 ≤ 27ℓ+10−ℓ is tiny. This matters in §7, where a vertex with s earlier neighbours is
+charged the floor up to 2K0 s times.
+
+                               6. The mass of the conditional family
+  We now show that the conditional family has mass of the full order L3 /K. The argument has
+three steps. Along one progression in d, Brun’s pure sieve shows that a proportion ≫ λK /ℓ of
+the cofactors (Kacd − 1)/e are good (§6.1). The coprime pairs (a, c) in a class modulo e carry
+weight φ(e)/e2 (Lemma 6.6). Summed over e, these weights give a factor ≍ ℓ/λK , which cancels
+the roughness loss exactly (Lemma 6.8). The elementary prime estimates with explicit constants
+used below (Lemmas A.1 and A.2), in the form of Mertens [14], are collected in Appendix A.
+
+6.1. Brun’s pure sieve along affine forms. We use the pure sieve of Brun [2, 3] along affine
+forms. Put
+                     rB = 2⌊ℓ/2⌋ + 43,  J0♭ = 30 + ℓ + (128ℓ + 1) rB .
+12                                             DMYTRO TRYBUSHNYI
+
+                                                                                                                     ♭
+Throughout this subsection a1 , b1 ≥ 1 are coprime integers with K | a1 , and I is a set of X ≥ 2J0
+consecutive integers ν ≥ 0. Put
+                                           Y        1 −1
+                                  λK =           1−         ≥ 1.
+                                        p|K, p≤y
+                                                     p
+                                                         0
+
+Lemma 6.1 (Rough values: Brun’s pure sieve). At least 0.0034 λK X/ℓ of the numbers a1 ν + b1 ,
+ν ∈ I, have no prime factor ≤ Q.
+Proof. Setup. Let P be the set of primes ≤ Q. Put g(p) = 1/p for p ∤ a1 , and g(p) = 0 for
+p | a ; in the latter case p ∤ b1 , so p ∤ a1 ν + b1 . For S ⊆ P let
+Q 1                                                               Q S
+                                                                     A be the number ofQν ∈ I with
+   S | a1 ν + b1 . QThis condition is one residue class modulo S, or no class if gcd( S, a1 ) > 1.
+Hence |AS − X S g| ≤ 1.
+   Bonferroni. For odd r and any finite set T , the identity m≤r (−1)m n+1         = (−1)r nr gives
+                                                                  P                         
+                                                                               m
+P                  |S| ≤ 1[T = ∅]. Apply this with T the set of primes of P dividing a ν + b , and
+  S⊆T, |S|≤r (−1)                                                                      1      1
+sum over ν:
+                                             (−1)|S| AS ≥ X            (−1)|S|
+                                   X                            X                Y
+         #{rough values} ≥                                                            g − #{S ⊆ P : |S| ≤ r}.
+                               S⊆P, |S|≤r                      |S|≤r             S
+
+     Main term. We have
+                           P          |S| Q g = V := Q (1 − g). By Rankin’s trick [19],
+                              S⊆P (−1)     S          P
+
+                                         g ≤ 2−r             (2g) = 2−r
+                               X Y                  XY                    Y
+                                                                               (1 + 2g).
+                               |S|>r S               S   S                 P
+
+  Estimates. The primes p | K, p ≤ y0 ≤ Q, divide a1 , so g(p) = 0 there, and g(p) ≤ 1/p elsewhere.
+Since Q ≥ 101 and log Q = 128ℓ log 2 ≥ 139, Lemma A.1(c) gives
+                         Y        1      λK        λK                   Y
+              V ≥ λK          1−      ≥           ≥       ,                    (1 + 2g) ≤ 412 (128ℓ)2 .
+                        p≤Q
+                                   p    3.3 log Q   293 ℓ                 P
+
+The primes of K never divide a value: Brun’s density is 0 there, and λK records the gain.
+   Choice of r. The odd number r = rB ≥ ℓ + 42 gives 2r ≥ 241 ℓ3 , since ℓ3 ≤ 2ℓ for ℓ ≥ 10. As
+2 · 293 · 412 · 1282 ≤ 241 , the tail is at most 2−10 /(293ℓ), which is at most 2−10 times the lower
+ 10
+
+bound for V , as λK ≥ 1.
+   Remainder. It is at most (r + 1)Qr ≤ (2Q)r = 2(128ℓ+1)r , which is at most X/(230 ℓ) because
+       ♭
+X ≥ 2J0 and ℓ ≤ 2ℓ .
+   Conclusion. X λK (1 − 2−10 )/(293ℓ) − 2−30 /ℓ ≥ 0.0034 λK X/ℓ.
+                                                   
+                                                                                                  □
+Lemma 6.2 (Non-squarefree values). If a1 ν + b1 ≤ U for ν ∈ I, then the number√ of ν ∈ I for
+which a1 ν + b1 has no prime factor ≤ Q and is not squarefree is at most X/Q + U .
+           2
+    √ If q | a1 ν + b1 with q ≥ 2, then q > Q, because a prime factor of q divides a1 ν + b1 . 2Also
+Proof.
+q ≤ U , and gcd(q, a1 ) = 1. For each q the Padmissible ν form at most one class modulo q , so
+there are at most X/q 2 + 1 of them. Finally q>Q X/q 2 ≤ X/Q.                                     □
+Lemma 6.3 (Many prime factors). If a1 ν + b1 ≤ X 2 for ν ∈ I and X ≤ 2t , then
+                           2K0 +1 #{ν ∈ I : ω(a1 ν + b1 ) > K0 } ≤ 2X(t + 2).
+Proof. Since 2ω(n) ≤ τ (n), the left side is at most
+                                                                P
+                                                                   ν∈I τ (a1 ν + b1 ).        Pairing e with n/e gives
+τ (n) ≤ 2#{e | n : e2 ≤ n}, and n ≤ X 2 . Hence
+             X                         X                                  X X            
+                  τ (a1 ν + b1 ) ≤ 2         #{ν : e | a1 ν + b1 } ≤ 2                + 1 ≤ 2X(t + 2),
+              ν                        e≤X                                e≤X
+                                                                                  e
+since e | a1 ν + b1 is one class of ν modulo e, or none, and               e≤X 1/e ≤ 1 + t.
+                                                                         P
+                                                                                                                    □
+                               EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                           13
+
+
+  The average of τ over the progression replaces Shiu’s Brun–Titchmarsh theorem for multiplicative
+functions [23] here; this suffices because 2K0 = 23ℓ beats the logarithmic loss.
+Corollary 6.4 (Good values). Suppose a1 ν + b1 ≤ U for ν ∈ I, U (225 ℓ2 )2 ≤ X 2 , and X ≤ 2t with
+t + 2 ≤ 2ℓ . Then at least λK X/(300ℓ) of the numbers a1 ν + b1 , ν ∈ I, are good. The same holds
+for the numbers (Kacd − 1)/e with d running over X consecutive terms of a progression d ≡ d0
+(mod e) with e | Kacd0 − 1, where U bounds these numbers.
+                                                              √
+Proof. We have 225 ℓ2 ≤ 225+2ℓ ≤ Q, so X/Q ≤ X/(225 ℓ2 ), and U ≤ X/(225 ℓ2 ). By Lemma 6.2 at
+most 2X/(225 ℓ2 ) rough values are not squarefree. Since U ≤ X 2 , Lemma 6.3 and 234 ℓ2 (t + 2) ≤
+22ℓ 2ℓ (as ℓ ≥ 24) show that at most X/(234 ℓ2 ) values have ω > K0 = 3ℓ. With Lemma 6.1,
+0.0034λK − 2 · 2−25 − 2−34 ≥ λK /300 for λK ≥ 1.
+   For the progression write d = d0 + eν. Then (Kacd − 1)/e = Kac ν + b1 with b1 = (Kacd0 − 1)/e,
+and gcd(Kac, b1 ) = 1 because gcd(Kac, Kacd0 − 1) = 1; and K | Kac.                             □
+Lemma 6.5 (Mass along one progression). Let a, c, e ≥ 1 with gcd(Kac, e) = 1, let X ≥ 4e,
+                    ♭
+X ′ = ⌊X/e⌋ − 1 ≥ 2J0 , ⌊2KacX/e⌋(225 ℓ2 )2 ≤ X ′2 , and X ≤ 2t with t + 2 ≤ 2ℓ . Then
+                                    X       e          λK
+                                                  ≥            ,
+                                     d
+                                         Kacd − 1   1200 Kac ℓ
+
+the sum running over d ∈ [X, 2X) with e | Kacd − 1 and (Kacd − 1)/e good.
+Proof. Since Kac is invertible modulo e, the d with e | Kacd − 1 form one class modulo e, and
+[X, 2X) contains X ′ consecutive terms of it. The values (Kacd − 1)/e there are at most 2KacX/e.
+By Corollary 6.4 at least λK X ′ /(300ℓ) of them are good, and each term of the sum is at least
+e/(2KacX). Finally eX ′ ≥ X − 2e ≥ X/2.                                                       □
+
+6.2. Weighted coprime pairs in a class.
+Lemma 6.6. Let A, B, e ≥ 1 and r ∈ Z. Then
+                 X           1    φ(e)  1 e(A + B) e(3A + B)(1 + log 2A) 3e2 
+                                ≥         −        −                     −      .
+         (a,c)∈[A,2A)×[B,2B)
+                             ac    e2 8      4AB            4AB            2B
+          gcd(a,c)=1, e|a+rc
+
+In particular the sum is at least φ(e)/(16e2 ) if 64e(2 + log 2A) ≤ min(A, B) and 96e2 ≤ B.
+Proof. Pairs with gcd(e, c) = 1. There are at least φ(e)⌊B/e⌋ integers c ∈ [B, 2B) prime to e, and
+for each of them e | a + rc is one class of a modulo e, with at least ⌊A/e⌋ members in [A, 2A). So
+these pairs number at least φ(e)⌊A/e⌋⌊B/e⌋.
+    Non-coprime pairs. Such a pair has a common prime p ≤ 2A, and p ∤ e since gcd(e, c) =
+1. Writing a = pa′ , c = pc′ , the c′ lie in an interval of length B/p + 2 and are prime to e,
+and for each of them a′ lies in one class modulo e (as gcd(p, e) = 1). So there P       are at most
+φ(e)(⌊(⌊B/p⌋ + 2)/e⌋ + 1)(⌊A/(pe)⌋ + 1) of them. Summing over p ≤ 2A with p p−2 ≤ 12
+(Lemma A.1(d)), p≤2A 1/p ≤ 1 + log 2A and at most 2A primes, the coprime pairs of the class
+                   P
+
+number at least φ(e) AB  ( 1 − 4δ), where δ is the sum of the three error terms in the statement.
+                       e2 2
+    Weights. Each pair has 1/(ac) > 1/(4AB). Under the conditions of the simple form, δ ≤
+  1   1     1    1
+ 64 + 64 + 256 < 16 .                                                                             □
+
+  Every pair counted here has gcd(ac, e) = 1 when gcd(r, e) = 1, since a prime of e dividing c
+divides a. The factor   φ(e)/e Q
+                               is intrinsic, not a loss of the method: the coprime pairs of the class
+               −1           1            1
+                   p|e (1 − p ) p∤e (1 − p2 ).
+                  Q
+have density e
+14                                            DMYTRO TRYBUSHNYI
+
+
+6.3. The mass before pruning.
+Proposition 6.7. Let r be an integer coprime to P0 . There is a finite set Fr♭ ⊆ Fr , all of whose
+members have vt ≥ 2 good, with
+                                                     λ K L3      X     φ(e)
+                                      µ(Fr♭ ) ≥                             .
+                                                  1382400 Kℓ e|P , e≤E e2
+                                                                0     0
+
+
+Proof. Scales. Put G0 = 16ℓ, H0 = 3ℓ + 4, J1 = J0♭ + 5ℓ + 1, ∆ = L − H0 − J1 − G0 − 4ℓ3 and
+w = ⌊∆/4⌋. Take
+
+           i, i′ ∈ [ℓ3 , ℓ3 + w),        j ∈ [J0♭ + G0 + 5ℓ + 1 + s, L − H0 − s),        s = i + i′ .
+                      ′
+Put A = 2i , B = 2i , X = 2j . For e | P0 with e ≤ E0 let T (i, i′ , j, e) be the set of triples (a, c, d)
+with (a, c) ∈ [A, 2A) × [B, 2B), gcd(a, c) = 1, e | a + rc, d ∈ [X, 2X), e | Kacd − 1 and (Kacd − 1)/e
+good. Let Fr♭ be the union of all these sets.
+                                                                                                 3
+   Membership. A triple of T (i, i′ , j, e) lies in Fr with st = e and vt = ut /e: a, c ≥ 2ℓ = Y ;
+a, c < 2j ≤ d as i, i′ < j; Kacd < 23ℓ+s+j+3 ≤ 2L as K ≤ 23ℓ and j + s < L − H0 ; ut /e is Q-rough,
+hence prime to P0 , so gcd(ut , P0 ) = e (as e | P0 is squarefree); and e | a + rc, e ≤ E0 . Also vt ≥ 2,
+since ut ≥ KY 3 − 1 > 2E0 .
+   Size conditions. For 1 ≤ e ≤ E0 = 25ℓ the hypotheses of Lemmas 6.5 and 6.6 hold on these scales,
+                                 ♭
+with t = j: X/e ≥ 2j−5ℓ ≥ 2J0 +1 ; the condition on 2KacX/e follows from j ≥ s + G0 + 5ℓ + 1 + J0♭ ,
+                                                                                                         3
+since 2KacX/e · (225 ℓ2 )2 · (2e)2 /X 2 ≤ 28ℓ+s+55+4 log2 ℓ /X ≤ 1; j + 2 ≤ L < 2ℓ ; and A, B ≥ Y = 2ℓ
+is much larger than 96E02 and 64E0 (2 + log 2A).
+   One scale and one e. Since gcd(r, P0 ) = 1, every pair P       of the class has gcd(ac, e) = 1, and
+gcd(K, e) = 1 as e | P0 . By Lemma 6.5 each pair contributes d 1/vt = d e/ut ≥ λK /(1200Kacℓ),
+                                                                             P
+
+and by Lemma 6.6
+                                X           1   φ(e)    λK          λK φ(e)
+                                              ≥      ·
+                                                   2 1200Kℓ
+                                                               =             .
+                                           v
+                            t∈T (i,i′ ,j,e) t
+                                                16e               19200 Kℓe2
+
+   Counting scales. The sets T (i, i′ , j, e) are pairwise disjoint: e = st , and the dyadic blocks of
+a, c, d determine i, i′ , j. The j-range above is the interval [J1 + G0 + s, L − H0 − s). With i = ℓ3 + x,
+i′ = ℓ3 + x′ , this interval has ∆ − 2x − 2x′ elements, and
+                                                                          (∆ − 3)2 ∆
+                                    (∆ − 2x − 2x′ ) = w2 (∆ − 2w + 2) ≥
+                           X
+                                                                                     .
+                          x,x′ <w
+                                                                             32
+
+For ℓ ≥ 24 one has 100(H0 + J1 + G0 + 4ℓ3 ) ≤ 23 · 2ℓ−1 ≤ 23L, so ∆ ≥ 0.77L and, as ∆ ≥ 6 · 106 ,
+this is at least L3 /71 ≥ L3 /72. Multiply, with 72 · 19200 = 1382400.                        □
+
+6.4. The divisor sum.
+Lemma 6.8 (The gain). Let y ≥ 3 and ϑ > 0 be real with log ϑ ≥ 5 log y, let K be a finite set of
+primes, and let P be the product of the primes p ≤ y not in K. Then
+                                          X      φ(e)      e−7 log y
+                                                      ≥                 .
+                                                  e2
+                                                         Q
+                                        e|P, e≤ϑ
+                                                        6 p∈K (1 + 1/p)
+                                                                                P                    Q   p−1
+Proof. Let S be the set of primes of P . By multiplicativity the sum is             R⊆S,
+                                                                                           Q
+                                                                                               R≤ϑ   p∈R p2 .
+                        p−1            1          1       37 Q        1
+                                S (1 + p )(1 − p(p+1) ) ≥ 72                    (1 − ti ) ≥ 1 − ti and
+               Q               Q                                              Q                P
+ Full sum.       S (1 + p2 ) =                                 S (1 + p ), by
+P −2
+ pp   ≤ 35
+        72 .
+                               EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                                  15
+
+
+  Tail (Rankin). Let σ = 1/ log y. Since p−1 ≤ p1 , the terms with
+                                                                                Q
+                                          p2
+                                                                                    R > ϑ weigh at most
+                                                      σ
+ϑ−σ Q
+      S (1 + p
+               σ−1 ). Here 1 + pσ−1 ≤ (1 + p1 ) exp( p p−1 ), and pσ − 1 ≤ (e − 1)σ log p for p ≤ y by
+convexity of ex on [0, 1]. With Lemma A.1(a), the tail is at most
+       Y       1                log 4  log ϑ           Y    1         Y   1
+           1+       exp (e − 1) 1 +        −        ≤ e3.9−5    1+    ≤ 0.335    1+ ,
+        S
+                p                   log y    log y           S
+                                                                   p          S
+                                                                                   p
+since (e − 1)(1 + log 4/ log 3) ≤ 3.9.
+   Conclusion. The truncated sum is at least ( 37               1     1Q
+                                               72 −0.335) S (1+ p ) ≥ 6
+                                                                              1               1
+                                                                                        S (1+ p ) ≥
+                                                         Q                             Q
+                                                                        S (1+ p ), and
+e−7 log y/ K (1 + p1 ) by Lemma A.2(c).
+          Q
+                                                                                                  □
+  The sum is ≍ log y: the upper bound          p≤y (1 + 1/p) ≪ log y follows from Lemma A.1(b).
+                                             Q
+
+6.5. The mass.
+Proposition 6.9 (Mass). Let r be coprime to P0 . Then the pruned family (Fr♭ )∗ satisfies
+                                                              L3
+                                        µ (Fr♭ )∗ ≥ Xm :=
+                                                 
+                                                                   .
+                                                             237 K
+Proof. By Lemma 5.7, µ((Fr♭ )∗ ) ≥ (1 − 2−(ℓ+8) )µ(Fr♭ ) ≥ 12 µ(Fr♭ ). By Lemma 6.8 with y = y0 = 2ℓ ,
+ϑ = E0 and K = {p ≤Qy0 : p | K}, for which log E0 = 5 log y0 , the divisorQsum in Proposition 6.7 is
+at least e−7 ℓ log 2/(6 p|K, p≤y0 (1 + p1 )). Since (1 − p1 )(1 + p1 ) ≤ 1, λK ≥ p|K, p≤y0 (1 + p1 ), and the
+factor ℓ cancels:
+                                          1      λK L3        e−7 ℓ log 2     L3
+                          µ (Fr♭ )∗ ≥ ·
+                                    
+                                                            ·             ≥ 37 ,
+                                          2 1382400 Kℓ          6λK          2 K
+        7                      1
+using e ≤ 4096 and log 2 ≥ 2 .                                                                             □
+  The roughness at Q = 2128ℓ keeps the fraction ≍ 1/ℓ of each scale (Lemma 6.1), and the averaging
+                           2ℓ recovers the factor ℓ (Lemma 6.8). The primes of K are not in P0 ,
+over the primes up to y0 = Q
+which costs the divisor sum p|K (1 + p1 ); but they never divide a modulus, which Brun’s sieve pays
+back as λK . The mass is therefore of the order of the number ≍ L3 of scales, divided by K, with
+no other loss.
+
+                                        7. Cluster estimates
+   In this sectionPE is a finite family of events satisfying (E1)–(E6) of §5 with nonnegative constants,
+k ≥ 1, and µ ≥ ε∈E 1/mε . The gas is that of §2, on U = {1, 2} × E, and M = lcmε mε . For v ∈ U
+we write mv , av , cv for the data of its event. Everything reduces to a multi-site bound (defined
+below): the sum of the weights of the connected sets through a vertex, with at least two elements,
+is a small multiple of the weight of the vertex.
+7.1. Polymers. For C ⊆ U let cnt(C) be the number of 0 ≤ j < M at which every event of C
+holds; C is solvable if cnt(C) > 0. A polymer C has Wy,z (C) ̸= 0 only if it is independent in each
+copy and has at most 2k vertices. The only connected such set containing both copies of an event
+ε is the double site {(1, ε), (2, ε)}. Indeed, a vertex adjacent to either copy shares a prime with
+mε , and hence with the copy of ε in its own half, which contradicts independence. The double site
+has W = yz/mε , and singletons have W = y/mε or z/mε , since cnt = M/mε . Call C good if it
+is independent in each copy, contains no double site, and has ≤ 2k vertices. In a good set every
+prime divides at most two vertices, one in each copy.
+   Link factor. Let C be solvable, let x ∈ U, and put D = gcd(mx , lc C).
+     (i) By the Chinese remainder theorem, mx cnt(C ∪ x) = D cnt(C) if C ∪ x is solvable, and
+         cnt(C ∪ x) = 0 otherwise.
+    (ii) If n0 is any common point of C and C ∪ x is solvable, then D | ax + n0 cx .
+16                                               DMYTRO TRYBUSHNYI
+
+
+     Weights. For η > 0 and θ ≥ 1 put
+                                                                               cnt(C)
+                              g(C) = gη,θ (C) = 1[C good] η |C| θω(lc C)              .
+                                                                                 M
+If |y|, |z| ≤ η and C is good, then |Wy,z (C)|θω(lc C) ≤ g(C), and g({v}) = ηθω(mv ) /mv ≤ ηθK0 /mv .
+We say that (η, θ, α) is a multi-site bound if for every v ∈ U
+                                    X                     α
+                                              gη,θ (C) ≤     gη,θ ({v}).
+                                C∋v connected
+                                                         1−α
+                                         |C|≥2
+
+Corollary 7.1 (Per-site polymer sums). Let (η, θ, α) be a multi-site bound with 0 ≤ α < 1, and
+|y|, |z| ≤ η. Then for every v ∈ U,
+                          X                                                 α  1
+                                   |Wy,z (C)| θω(lc C) ≤ θK0 η + η 2 + η            ,
+                          C∋v
+                                                                           1 − α mv
+the sum running over polymers C.
+Proof. The polymers through v with W =  ̸ 0 are {v}, the double site of v, and good connected sets
+with at least two vertices. The first two contribute at most θK0 (η + η 2 )/mv . For the last kind
+|W |θω ≤ g, and the multi-site bound together with g({v}) ≤ ηθK0 /mv gives the third term.       □
+     For an integer q ≥ 2, let µq =
+                                        P
+                                          ε∈E, q|mε 1/mε be the mass through q.
+
+Lemma 7.2. For every q ≥ 2, µq ≤ c0 + 2cr (Q + 1)−1 + c1 q −1/2 + c2 q −1 + δ.
+Proof. Events with mε ̸= q. If q | mε , then cε is invertible modulo q and q | aε P   + ρcε with
+ρ ≡ −aε c−1ε  . For   each  of the  q classes ρ, (E4) with D  = q and  j =  1 bounds    q/mε by
+                −1
+c0 + 2cr (Q + 1) + c1 q   −1/2       −1
+                               + c2 q (by (E2), mε ̸= q gives mε ≥ (Q + 1)q). Summing over the q
+classes gives the first four terms. Events with mε = q. By (E6) they weigh at most δ.         □
+Proposition 7.3. Let τ ≥ 0, θ = eτ and a(C) = τ ω(lc C). Suppose that (1, θ, α) and (2, 1, α2 ) are
+multi-site bounds with 0 ≤ α, α2 < 1.
+                                      α
+   (a) (KP condition.) If 2θK0 2 + 1−α
+                                         
+                                           mP ≤ τ with mP ≥ supq>Q µq , then the activities W−1,−1
+        satisfy the hypothesis of Corollary
+                                   P
+                                            3.2 with weight a.
+   (b) (First order.) With µE = ε∈E 1/mε ,
+          X                   X
+               W−1,−1 (C) +         |W−1,−1 (C)|(ea(C) − 1) ≤ −µE + 3(θK0 − 1)µE + 4θK0 1−α
+                                                                                         α
+                                                                                            µE .
+           C                   C
+                                                                                            α2  
+      (c) (Positive activities.) We have log Z(2, 2) ≤         C W2,2 (C) ≤ 2µE
+                                                           P
+                                                                                     4 + 2 1−α 2
+                                                                                                 .
+Proof. (a) If D ̸∼ C, some vertex of D has modulus divisible by a prime q | lc C, and q > Q by
+(E2). Summing Corollary 7.1 (with η = 1) over the ≤ ω(lc C) such primes, over the events ε with
+q | mε , and over both copies, gives
+                        X
+                              |W (D)|ea(D) ≤ ω(lc C) · 2θK0 2 + 1−α
+                                                                 α
+                                                                           
+                                                                    mP ≤ a(C).
+                       D̸∼C
+
+   (b) The singletons contribute −2µE and the double sites contribute +µE to W . Their terms
+                                                                                              P
+
+|W  |(ea − 1) add at most 3(θK0 − 1)µE , since ω(mP ε
+                                                      ) ≤ K0 . Larger polymers contribute at most
+                                                          α 1             α
+2 |W |ea , which by Corollary 7.1 is at most 2 v θK0 1−α          = 4θK0 1−α
+  P
+                                                              m v
+                                                                             µE .
+   (c) For nonnegative activities, Z ≤ C (1 + W (C)) ≤ exp C W (C). Singletons and double sites
+                                      Q                        P
+                                                         α2
+give 4µE + 4µE . Larger polymers give at most 2 · 2µE 1−α   2
+                                                              , by distributing each polymer over its
+sites and using the multi-site bound (2, 1, α2 ).                                                  □
+                               EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                                   17
+
+
+   It remains to produce multi-site bounds. A step-by-step bound, which attaches one vertex
+at a time to a connected cluster, has to handle forced vertices: a vertex x attached through
+D = gcd(mx , lc C) contributes D/mx , and when mx = D this is 1, with no decay. Prepaying such
+attachments by a potential in the open primes of the cluster multiplies all other terms by a factor
+     2
+2Θ(ℓ ) , which the ray term 1/Q of the key lemma can absorb only if log2 Q ≫ ℓ2 ; with log Q ≍ ℓ2
+the roughness would keep only the fraction ≍ ℓ−2 of the mass, and the averaging of §5 would
+recover just one factor ℓ. Below there is no potential and no prepayment. Each vertex is charged
+only its own factor D/mx , the vertices of a cluster are summed in an order chosen for its shape,
+and a vertex that is forced in one order has later neighbours in others, which make its cofactor
+large; (E4) turns a large cofactor into decay.
+7.2. Shapes and the free-order Fubini. The prime graph. For a good set C join x, z ∈ C when
+Dxz = gcd(mx , mz ) > 1. Every prime divides at most two vertices of a good
+                                                                          Q
+                                                                            set, soQthe Dxz at a
+fixed x are pairwise coprime. As the moduli are squarefree by (E2), lc C = x mx / xz Dxz . If C
+is solvable its common points form one class modulo lc C, hence
+                                    cnt(C)    Y 1 Y
+(7.1)                                      =            Dxz .
+                                      M       x∈C
+                                                  mx xz
+
+Fix an order of C with the root v first, and attribute
+                                                    Q
+                                                       each Dxz to the later endpoint. For x ∈ C let
+C<x be the set of vertices before x and D< (x) = z∈C<x , z∼x Dxz = gcd(mx , lc C<x ). Then (7.1)
+becomes cnt(C)/M = x D< (x)/mx , and, since ω(lc C) ≤ ω(mv ) + K0 (|C| − 1),
+                      Q
+
+                                                      Y            D< (x)
+(7.2)                               g(C) ≤ g({v})           ηθK0          .
+                                                    x∈C\v
+                                                                    mx
+
+A vertex costs D< (x)/mx , the reciprocal of its cofactor mx /D< (x). The prefixes C<x need not be
+connected. Formally (7.2) is obtained by applying the link factor (i) along the order; every prefix
+of a good solvable set is good and solvable.
+   Shapes. A shape H on m non-root vertices is a graph on {0, 1, . . . , m}, where 0 is the root,
+together with a bit p(i) ∈ {0, 1} for each i ≥ 1 (and p(0) = 0). A tuple x = (x1 , . . . , xm ) of elements
+of U realizes H with root v = x0 if x0 , . . . , xm are distinct, C = {x0 , . . . , xm } is good and solvable,
+i ∼H i′ exactly when gcd(mxi , mxi′ ) > 1, and p(i) = 1 exactly when mxi has a prime factor dividing
+no other modulus of C (a private prime). For i ≥ 1 let te (i) and tl (i) be the numbers of neighbours
+of i in H with smaller and with larger index, so the root counts as an earlier neighbour, and put
+j(i) = tl (i) + p(i), the cofactor exponent.
+Lemma 7.4 (Cofactors). Let x realize H, 1 ≤ i ≤ m, P = {x0 , . . . , xi−1 } and D = gcd(mxi , lc P ).
+Then D ≥ (Q + 1)te (i) and (Q + 1)j(i) D ≤ mxi , and mxi = D if j(i) = 0.
+Proof. Each neighbour of xi shares a prime with it, and distinct neighbours share distinct primes,
+since no prime divides three vertices. The primes shared with earlier neighbours divide D. A
+prime shared with a later neighbour divides no third vertex, so it does not divide lc P ; nor does a
+private prime. So mxi /D is divisible by at least j(i) distinct primes, and D by at least te (i), all
+greater than Q. If j(i) = 0, every prime of mxi divides another vertex, necessarily an earlier one,
+so mxi | lc P and mxi = D.                                                                         □
+   So a vertex is cheap in two ways: through a large D< , when it has many earlier neighbours (the
+c1 D−1/2 and c2 D−1 terms of (E4)), or through a large cofactor, when it has many later ones (the
+ray term (Q + 1)−j ). It is expensive only when it is free (te = 0; it costs the whole mass) or exact
+(j = 0; it is determined by its predecessors and costs 1).
+Lemma 7.5 (Slot bound). Let P ⊆ U, E ⊆ P , s = |E| and j ≥ 0. Call y ∈ U a candidate if
+y∈/ P , P ∪ {y} is good and solvable, gcd(my , mz ) > 1 exactly for the z ∈ P that lie in E, and
+18                                              DMYTRO TRYBUSHNYI
+
+
+Dy = gcd(my , lc P ) satisfies (Q + 1)j Dy ≤ my , with my = Dy if j = 0. Then                         y Dy /my ≤ Σs,j ,
+                                                                                                      P
+
+the sum running over candidates, where
+                                                                          2cr          c1        c2    
+     Σ0,j = 2µ,       Σs,0 = 2 · 2K0 s ,        Σs,j = 2 · 2K0 s c0 +             +           +
+                                                                         (Q + 1)j   (Q + 1)s/2 (Q + 1)s
+for s, j ≥ 1. No assumption on P is made.
+Proof. If there is no candidate there is nothing to prove. Otherwise P is solvable; fix a common
+point n0 of its events. For every candidate y the link factor (ii) gives Dy | ay + n0 cy .
+  Free vertex, s = 0. No prime of my divides a vertex of P , so Dy = 1, and the sum is at most
+  y 1/my ≤ 2µ over both copies.
+P
+
+  s ≥ 1. A prime of Dy divides some w ∈ P with gcd(my , mw ) > 1, so w ∈ E. Hence Dy is
+the product of a subset of the at most K0 s primes of the moduli of E, and takes at most 2K0 s
+values. Fix one, D. As in Lemma 7.4, D ≥ (Q + 1)s ≥ 2. If j = 0, the candidates with Dy = D
+have modulus D and class n0 modulo D; by (E5) they are the two copies of one event, and each
+contributes 1. If j ≥ 1, they have my ≠ D, (Q + 1)j D ≤ my and D | ay + n0 cy , so (E4), summed
+over the two copies, bounds their contribution by 2(c0 + 2cr (Q + 1)−j + c1 D−1/2 + c2 D−1 ), and
+D ≥ (Q + 1)s .                                                                                  □
+   The bound is uniform in the earlier vertices, whether or not they are connected to y. So the
+cluster sum can be done as an iterated sum.
+Proposition 7.6 (Free-order Fubini). For every shape H on m non-root vertices and every v ∈ U,
+                             X                                           m
+                                                                         Y
+                                        g({x0 , . . . , xm }) ≤ g({v})         ηθK0 Σte (i), j(i) .
+                         x realizes H                                    i=1
+
+Proof. For 1 ≤ i ≤ m put Pi = {x0 , . . . , xi−1 } and let Ei be the set of xi′ , i′ < i, with i′ ∼H i. Let
+fi (x1 , . . . , xi ) = ηθK0 gcd(mxi , lc Pi )/mxi if |Ei | = te (i) and xi is a candidate for (Pi , Ei , j(i)), and
+fi = 0 otherwise. If x realizes H, then |Ei | = te (i), every xi is a candidate   Q
+                                                                                            by Lemma 7.4, and
+(7.2), for the order of the indices, bounds the summand by g({v}) i fi . The fi are nonnegative
+and fi depends only on x1 , . . . , xi . Drop the realization condition, sum over all of U m , and sum
+over xm first, then over xm−1 , and so on. By Lemma 7.5 each inner sum is at most ηθK0 Σte (i),j(i) ,
+uniformly in the outer variables.                                                                                  □
+   Nothing here uses an attachment sequence: a vertex is bounded given all earlier vertices, whether
+or not they are connected to it, and a vertex without earlier neighbours costs the whole mass 2µ.
+The price is that the order is fixed by the indexing of H; the next subsection chooses it.
+
+7.3. Averaging over orders.
+Lemma 7.7 (Admissible shapes). Let v ∈ U and let C ∋ v be connected, good and solvable, with
+m + 1 ≥ 2 elements. Then every enumeration x of C \ {v} realizes its shape, the shape H defined
+by the moduli of x. Moreover H is admissible: every non-root vertex has degree between 1 and K0 ,
+and a non-root vertex of degree 1 has p = 1. Hence the sum of g(C) over such C is at most the sum
+over admissible H of the left side of Proposition 7.6. This passage to tuples counts each C once for
+each of its m! enumerations; we keep the upper bound and discard the factor 1/m!, which is slack.
+Proof. Degrees are positive by connectivity. Distinct neighbours of y share distinct primes of my ,
+so the degree is at most ω(my ) ≤ K0 . Suppose y has a single neighbour z and no private prime.
+Then every prime of my divides mz , so my | mz , and the events of y and z meet. If my = mz , then
+by (E5) y and z are the two copies of one event, a double site, which a good set does not contain.
+Otherwise y and z form a nested pair, which (E3) excludes.                                      □
+                                EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                                                 19
+
+
+   An order is a permutation o of {1, . . . , m}; it puts the non-root vertex i of H at position o(i).
+Let Ho be the shape in which the vertex i of H gets the index o(i), with its bit p(i), the root staying
+at 0. Then x 7→ x ◦ o−1 is a bijection from the realizations of H onto those of Ho that preserves
+{x0 , . . . , xm }. So Proposition 7.6, applied to Ho , bounds the realization sum of H, for every o: the
+order of summation may be chosen separately for every shape. For a non-root vertex i of H let
+di be its degree, ϱi = 1[i ∼H 0] its root adjacency and Ni its set of non-root neighbours, and let
+rko (N, i) = #{b ∈ N : o(b) < o(i)}. In Ho the vertex i has te = ϱi + rko (Ni , i) and tl = di − te .
+Lemma 7.8 (Uniform rank). Let N ⊆ {1, . . . , m} and i ∈  / N . For every s ∈ {0, . . . , |N |} exactly
+m!/(|N | + 1) permutations o have rko (N, i) = s. Consequently, in a uniformly random order, te of
+a non-root vertex of degree d and root adjacency ϱ is uniform on {ϱ, . . . , d}.
+Proof. Let S = N ∪{i}. For a ∈ S, composing with the transposition of i and a gives rko◦(i a) (N, i) =
+rko (S, a), and o 7→ o ◦ (i a) is a bijection. So for any function G,
+                                                                                        |N |
+                                X                      XX                               X
+                   (|N | + 1)       G(rko (N, i)) =              G(rko (S, a)) = m!            G(s),
+                                o                       o a∈S                           s=0
+
+because the ranks of the elements of S in a fixed order are 0, . . . , |S| − 1, each once. Take G an
+indicator.                                                                                         □
+Lemma 7.9. Let N1 , . . . , Nm ⊆ {1, . . . , m} with i ∈
+                                                       / Ni , and G1 , . . . , Gm : N → R. Some o satisfies
+                                m                           m            |N |
+                                                                            i
+                                X                           X       1     X
+                                      Gi (rko (Ni , i)) ≤                     Gi (s).
+                                i=1                         i=1
+                                                                |Ni | + 1 s=0
+
+Proof. By Lemma 7.8 the right side is the average of the left side over all o.                                            □
+
+  This is where the step-by-step method fails and the random order succeeds: a vertex that is
+exact in one order has later neighbours, and hence a large cofactor, in most others, so no vertex
+has to be prepaid.
+                                                                                           P
+                                                                                                     deg(i)
+Lemma 7.10 (Counting shapes). If 0 ≤ λ and λ(m + 1) ≤ 1, then                                                 ≤ 4m , the sum
+                                                                                  P
+                                                                                      Hλ
+                                                                                               i≥1
+
+running over all shapes on m non-root vertices.
+                                                            P
+Proof. Every edge has a non-root endpoint, so i≥1 deg(i) is at least the number of edges, and
+λ ≤ 1. A shape is determined by its edge set and its m bits, so the sum is at most 2m (1+λ)m(m+1)/2 ,
+and (1 + λ)m(m+1)/2 ≤ eλ(m+1)m/2 ≤ em/2 ≤ 2m .                                                   □
+Proposition 7.11 (Multi-site bounds from shapes). Let A∗ > 0 and 0 < λ ≤ 1/(2k), and suppose
+that for all integers 1 ≤ d ≤ K0 and p, ϱ ∈ {0, 1} with ϱ ≤ d, and p = 1 if d = 1,
+                                    d
+                             1     X
+                                       log ηθK0 Σs, d−s+p ≤ log A∗ + d log λ.
+                                                         
+(7.3)
+                         d + 1 − ϱ s=ϱ
+
+Then for every v ∈ U and m ≥ 1 the connected sets C ∋ v with m + 1 elements satisfy                                C g(C) ≤
+                                                                                                                 P
+
+(4A∗ )m g({v}). If α = 4A∗ < 1, then (η, θ, α) is a multi-site bound.
+Proof. Only good solvable C contribute, and a good set has at most 2k vertices, so λ(m + 1) ≤
+    P Lemma 7.7 it suffices to bound, for each admissible H, the realization sum of H by
+1. By
+  m      deg(i)
+A∗ λ i≥1        g({v}), and then to apply Lemma 7.10. For a non-root vertex i of H let di , ϱi , pi , Ni
+be as above, so |Ni | = di − ϱi , and Gi (s) = log(ηθK0 Σϱi +s, di −ϱi −s+pi ). Admissibility says that
+20                                                 DMYTRO TRYBUSHNYI
+
+
+(di , pi , ϱi ) is one of the types in (7.3). Take o from Lemma 7.9, and bound the realization sum of H
+by Proposition 7.6 for Ho :
+                                                                     d
+                                                                     i
+              Y                                    X        1      X                                 Y
+                  eGi (rko (Ni ,i)) ≤ g({v}) exp                        log ηθK0 Σs,di −s+pi ≤ g({v}) A∗ λdi .
+                                                                                            
+     g({v})
+              i                                    i
+                                                       di + 1 − ϱi s=ϱi                              i
+
+(All costs ηθK0 Σs,j are positive when µ > 0, since cr > 0; if µ = 0 the family is empty and there
+is nothing to prove.) The order o depends only on the shape H, through the degrees, bits and
+neighbourhoods of its vertices, and not on the realization x; this is what allows Proposition 7.6,
+whose order is fixed in advance, to be applied with it. Summing (4A∗ )m over m ≥ 1 gives
+  α
+1−α g({v}).                                                                                     □
+
+7.4. The numerics. From here on the constants are those of Proposition 5.8, and ℓ ≥ 24. By (E4)
+and Lemma 7.5, the cost of a vertex with s earlier neighbours and cofactor exponent j decays like
+2−64ℓ min(2j,s) : through the ray term when j is small and through D ≥ (Q + 1)s otherwise. The
+                                3
+decay is capped at about 2−ℓ by the floor c0 , and it is absent when s = 0 (free vertex) or j = 0
+(exact vertex). Summed over the d + 1 − ϱ positions of a vertex of degree d, the decay ≳ 32      3 ℓd
+                                                                                                     2
+
+beats the cost 32 ℓd2 of the factors 2K0 te , with room to pay (2k)d for the edges and the factor 4 of
+Lemma 7.10. Appendix B turns this into the following statement.
+Lemma 7.12 (The averaged step cost). Let 0 < η ≤ 2, θ ≥ 1, θK0 ≤ 98 , 0 ≤ µ ≤ 23ℓ and
+2k ≤ 23ℓ+6 . Then (7.3) holds with A∗ = 2−7 and λ = 1/(2k).
+Proof. This is Lemma B.2 in Appendix B.                                                                          □
+
+7.5. The gas.
+Proposition 7.13 (The gas). Let r ≥ 0 be coprime to P0 , let F ⊆ Fr be as in Proposition 5.8,
+µ = µ(F) ≤ 23ℓ , and let k ≥ 1 with 2k ≤ 23ℓ+6 . For the two-copy gas of §2 built on the events êt ,
+t ∈ F,                                                         X
+                  log Z(−1, −1) ≤ −0.47 µ,       log Z(2, 2) ≤   W2,2 (C) ≤ 9µ.
+                                                                              C
+
+Proof. The events satisfy (E1)–(E6) by Proposition 5.8, and µ = µE by injectivity. Take τ =
+1/(16K0 ) = 1/(48ℓ) and θ = eτ , so θK0 = e1/16 ≤ 89 . By Lemma 7.12 and Proposition 7.11,
+         1
+(1, eτ , 32              1
+            ) and (2, 1, 32 ) are multi-site bounds, as 4 · 2−7 = 321
+                                                                      .
+   Prime masses. For primes q > Q, Lemma 7.2 and the monotonicity in q give µq ≤ ε′Q+1 +
+E0 (E0 + 1)/(4Y ). Each of the five pieces, 2E0 /(Q + 1), E0 cY , c1 (Q + 1)−1/2 , c2 (Q + 1)−1 and
+E0 (E0 + 1)/(4Y ), is at most 2−(ℓ+11) for ℓ ≥ 24, so mP = 2−(ℓ+8) is admissible in Proposition 7.3(a).
+   The three bounds. 2θK0 (2+ 31    1
+                                      )mP ≤ 5·2−(ℓ+8) ≤ 48ℓ 1
+                                                               = τ , so Proposition 7.3(a) and Corollary 3.2
+apply, and by Proposition 7.3(b)Plog Z(−1, −1) ≤ (−1 + 3(θK0 − 1) + 4θK0 /31)µ ≤ −0.47µ. By
+                                                                2
+Proposition 7.3(c), log Z(2, 2) ≤ C W2,2 (C) ≤ 2µ(4 + 31          ) ≤ 9µ.                                 □
+
+                                8. One level and the choice of the level
+  The parameters are those of §5: L ≥ 223 , ℓ ≥ 24, K ≤ 23ℓ . In this section and the next we prove
+Theorem 1.1(b), with M = 237 K; §10 explains the changes for (a).
+
+8.1. One class and one level.
+Proposition 8.1 (One class). Let r be coprime to P0 , and put
+                   L3                                       j 2 max(T − 1, 0) k
+        Xm =            ,       T = ⌊Xm ⌋,             A=                         ,   B = 14T,   k = 15T.
+                  237 K                                             3
+                               EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                                 21
+
+
+Then for every N ′ ≥ 0,
+                                                                                           2k
+             2A #{0 ≤ j ≤ N ′ : r + P0 j not representable} ≤ 2N ′ + 2A 2L (L + 1)2              .
+Proof. If T = 0 then A = k = 0 and the bound is trivial. Otherwise choose F ⊆ (Fr♭ )∗ with
+T − 1 ≤ µ(F) ≤ T , adding members one at a time, which is possible by Proposition 6.9 as T ≤ Xm
+and each 1/vt ≤ 12 . F satisfies the hypotheses of Proposition 5.8: its members have vt ≥ 2 good, and
+it has no nested pairs, being a subset of a pruned family. Since Xm ≤ L3 < 23ℓ , we have µ ≤ T ≤ 23ℓ
+and 2k = 30T ≤ 23ℓ+6 , so Proposition 7.13 applies: log Z(−1, −1) ≤ −0.47(T − 1) ≤ −A log 2, as
+3A ≤ 2(T − 1) and log 2 ≤ 0.7, and log Z(2, 2) ≤ 9T ≤ 14T log 2 = B log 2, as log 2 ≥ 0.69. Also
+A + B ≤ k + 1.
+   Let E = {êt : t ∈ F}, so #E = #F. Proposition 2.5 bounds 2A times the number of 0 ≤ j ≤ N ′
+at which no event of E holds by 2N ′ + 2A (#F + 1)2k . If r + P0 j is not representable, then it lies in no
+Et by Lemma 2.1, so no êt holds at j by Lemma 5.3. Finally #F + 1 ≤ 2L (L + 1)2 . Indeed, a triple
+with ut ≤ 2L has a, c P≤ 2L , and for fixed (a, c) there are at most (2L +1)/(Kac) values of d; summing
+over a, c ≤ 2L with a≤2L 1/a ≤ 1 + L log 2 and K ≥ 4 gives #F ≤ 14 (2L + 1)(1 + L log 2)2 ≤
+2L (L + 1)2 − 1.                                                                                         □
+Proposition 8.2 (One level). Let K ≤ L3 , form A, k as in Proposition 8.1, put Eth = A + 6L +
+3 + 2k(L + 2ℓ), and let R be as in Lemma 5.2. For every integer X ≥ 0:
+    (a) 2A R(X) ≤ 2X φ(P0 )/P0 + 2Eth ;
+   (b) R(X) ≤ X + P0 .
+Proof. (a) K ≤ L3 < 23ℓ . Proposition 8.1 with N ′ = ⌊X/P0 ⌋, summed over the φ(P0 ) unit
+classes (in the formal version each class carries the extra term 2A 22L+2 , from the size condition of
+Lemma 2.1; see Appendix C), gives
+                                                                                2k
+             2A R(X) ≤ 2φ(P0 )⌊X/P0 ⌋ + 2A φ(P0 ) Ξ,          Ξ = 2L (L + 1)2         + 22L+2 .
+Here φ(P0 )⌊X/P0 ⌋ ≤ Xφ(P0 )/P0 . Also P0 ≤ p≤y0 p ≤ 4y0 ≤ 24L , as y0 = 2ℓ ≤ 2L, and
+                                                      Q
+
+(L + 1)2 ≤ 22ℓ , so Ξ ≤ 22k(L+2ℓ)+2L+3 and 2A P0 Ξ ≤ 2Eth . (b) Each of the φ(P0 ) ≤ P0 classes
+contributes at most ⌊X/P0 ⌋ + 1.                                                             □
+  The proposition is used only at levels L ≥ L0 with 29 M ≤ L30 (Lemma 8.3).
+8.2. The choice of the level. The transfer forces L4 ≍ M log N , and the sieve gains A ≍ L3 /M ;
+so the constant in the exponent depends on M as M −1/4 . For an integer M ≥ 1 put c(M ) =
+1/(22M 1/4 ).
+Lemma 8.3. Let M = 237 K, and let L0 ≥ 223 be an integer with 29 M ≤ L30 . Let h be an integer
+with 121L40 ≤ 4M h, and put
+                                         L = ⌊4M h/121⌋1/4 .
+                                                          
+
+Then L ≥ L0 , K ≤ L3 , 121L4 ≤ 4M h < 121(L + 1)4 , 2L ≤ h and h ≥ 1024. If T, A, k are formed
+at the level L as in Proposition 8.1, then 2L3 ≤ M (3A + 6), 3M A ≤ 2L3 , M k ≤ 15L3 and Eth ≤ h.
+Proof. From L40 ≤ ⌊4M h/121⌋ we get L ≥ L0 , and the two bounds on 121L4 are the definition of
+L. Also K ≤ M ≤ 29 M ≤ L30 ≤ L3 . As 121 · 29 L · L3 ≤ 121L4 · 29 ≤ 4h · 29 M ≤ 4hL3 , we get
+121 · 29 L ≤ 4h; this gives 2L ≤ h and h ≥ 1024.
+   With T = ⌊L3 /M ⌋ we have M T ≤ L3 < M (T + 1). Since A = ⌊2(T − 1)/3⌋, 2T ≤ 3A + 4 and
+3A ≤ 2T , which give the first two inequalities, and k = 15T gives the third. For Eth we use these,
+29 M ≤ L3 , L ≥ 223 and 1024ℓ ≤ L:
+                4M Eth = 4M A + 24M L + 12M + 8(L + 2ℓ)M k
+                          ≤ 3L3 + 512
+                                  24 4    12 4
+                                      L + 512 L + 120L4 + 1024
+                                                          240 4
+                                                               L < 121L4 ≤ 4M h.                         □
+22                                           DMYTRO TRYBUSHNYI
+
+
+Lemma 8.4 (The exponent). In Lemma 8.3, A log 2 ≥ c(M )(h log 2)3/4 + log 3.
+Proof. Put λ = h log 2. As h ≥ 1024, λ < (h + 1) log 2 ≤ 1025                     4   4     3
+                                                         1024 h log 2, and (L + 1) ≤ L + 15L ≤
+122 4         23                 4
+121 L as L ≥ 2 , so 4M h < 122L and
+                                 M λ ≤ 1025
+                                       1024 ·
+                                              0.6931471808
+                                                    4      · 122 L4 ≤ 21.17 L4 .
+Put ν = λ3/4 and m = M 1/4 . Then (νm3 )4 = (M λ)3 ≤ 21.173 L12 ≤ 104 L12 , so νm3 ≤ 10L3 and
+                               L3                                                      2 L3
+c(M )ν = νm3 /(22M ) ≤ 10                              3
+                          22 · M . On the other hand 2L ≤ M (3A + 6) gives A log 2 ≥ ( 3 M − 2) log 2.
+Since 23 log 2 − 22
+                 10
+                    ≥ 0.0075 and L3 /M ≥ 29 ,
+                          A log 2 − c(M )ν ≥ 0.0075 · 29 − 2 log 2 ≥ 2.45 ≥ log 3.                     □
+
+                        9. Divisors of exceptions: proof of Theorem 1.1(b)
+   Lemma 5.2 bounds EK (N ) by a sum over the P0 -part s of n. For s ≤ N 1/16 we use Proposi-
+tion 8.2(a) at the level chosen for 15
+                                    16 log2 N ; the main terms add up to exactly 2N . The larger s
+are few.
+Lemma 9.1 (Euler products). Let P be a product of distinct primes and F a finite set of integers
+s ≥ 1 with s | P ∞ . Then
+                          X1      Y p          P      X 1
+                                ≤           =       ,     √ ≤ 4ω(P ) .
+                          s∈F
+                              s   p|P
+                                      p − 1   φ(P )   s∈F
+                                                            s
+
+Proof. For a completely multiplicative f ≥ 0 with k f (pk ) < ∞, s|P ∞ f (s) = p|P k≥0 f (pk )
+                                                           P                P              Q     P
+
+(Euler’s product over a finite set of primes). With f (s) = 1/s the factors are p/(p − 1), and
+φ(P ) = (p − 1). With f (s) = s−1/2 they are (1 − p−1/2 )−1 ≤ (1 − 2−1/2 )−1 < 4.
+        Q
+                                                                                             □
+Proposition 9.2 (Sum over s). In Proposition 8.2, let N , h, w be integers with 2h ≤ N ,
+                           w + 4L + Eth + 1 ≤ h          and      A + 8L + 2 ≤ w.
+Then 2A EK (N ) ≤ 3N .
+Proof. Let Z = 4w and split the sum of Lemma 5.2 at s ≤ Z. Note ω(P0 ) ≤ y0 ≤ 2L, so
+4ω(P0 ) ≤ 24L , and P0 ≤ 24L .
+  s ≤ Z. By Proposition 8.2(a) with X = ⌊N/s⌋ ≤ N/s and Lemma 9.1,
+                  X                       φ(P0 ) X 1
+             2A         R(⌊N/s⌋) ≤ 2N                + #{s ≤ Z} 2Eth ≤ 2N + 2w+4L+Eth ,
+                  s≤Z
+                                           P0 s≤Z s
+
+since #{s ≤ Z} ≤ s≤Z Z/s ≤ 2w 4ω(P0 ) . The last term is at most 2h−1 ≤ N/2.
+                      P      p
+
+   Z < s ≤ N . By Proposition 8.2(b) and ⌊N/s⌋ ≥ 1, R(⌊N/s⌋) ≤ (1+P0 )N/s, and 1/s ≤ 2−w s−1/2 .
+So
+                      R(⌊N/s⌋) ≤ 2A (1 + P0 )N 2−w 4ω(P0 ) ≤ 2A+8L+1−w N ≤ N/2.
+                  X
+              2A                                                                            □
+                   Z<s≤N
+
+Lemma 9.3 (The base level). Let L∗ be the least integer with 246 K ≤ L3∗ , and L0 = max(223 , L∗ ).
+If h′ ≥ 1 satisfies 121 · 253 ≤ Kh′ and 289 K ≤ h′3 , then L0 satisfies the hypotheses of Lemma 8.3
+for h′ and M = 237 K: L0 ≥ 223 , 29 M ≤ L30 and 121L40 ≤ 4M h′ .
+Proof. 29 M = 246 K ≤ L3∗ ≤ L30 . If L∗ ≤ 223 , then 121 · 292 = 4 · 237 · 121 · 253 ≤ 4M h′ . Otherwise
+L0 = L∗ = m + 1 with m ≥ 223 and m3 < 246 K. From 24(m + 1) ≤ 25m and 2512 ≤ 2 · 2412 ,
+(m + 1)12 ≤ 2m12 , so
+         (121L40 )3 ≤ 1213 · 2 · (246 K)4 = 2117 K 3 · 1213 · 268 K ≤ 2117 K 3 · 289 K ≤ (4M h′ )3 ,
+as 1213 ≤ 221 .                                                                                        □
+                              EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                              23
+
+
+Proof of Theorem 1.1(b). Let M = 237 K, h = ⌊log2 N ⌋, h′ = ⌊15h/16⌋ and w = ⌊h/32⌋. As
+h ≥ 4096, 100h′ ≥ 93(h + 1), so Kh ≥ 261 gives Kh′ ≥ 121 · 253 and 290 K ≤ h3 gives 289 K ≤ h′3 .
+Take L0 from Lemma 9.3 and L from Lemma 8.3 for h′ . Then Eth ≤ h′ .
+  The level is small. From 121L4 ≤ 4M h and 228 M ≤ 265 K ≤ h3 we get 121 · 228 (265L)4 ≤
+2654 · 4 h4 ≤ 121 · 228 h4 , so 265L ≤ h. From 3M A ≤ 2L3 and 121L4 ≤ 4M h′ , 363AL ≤ 8h′ , and
+L ≥ 223 gives A ≤ h/228 . With h ≥ 4096 these give w + 4L + Eth + 1 ≤ h and A + 8L + 2 ≤ w,
+and Proposition 9.2 gives 2A EK (N ) ≤ 3N .
+  The exponent. By Lemma 8.4 at h′ , A log 2 ≥ c(M )(h′ log 2)3/4 + log 3. Since log N < (h + 1) log 2
+and 100h′ ≥ 93(h + 1), h′ log 2 ≥ 0.93 log N ; and 0.933/4 ≥ 0.94 (as 0.944 ≤ 0.933 ), with 0.94/22 ≥
+1/24. Hence
+                                                           (log N )3/4 
+                             EK (N ) ≤ 3N 2−A ≤ N exp −                     .                        □
+                                                              24M 1/4
+
+  The splitting at Z = N 1/16 costs the factor (15/16)3/4 in the exponent, which 22 → 24 absorbs.
+Nothing in the proof depends on which small primes are representable, and K enters only through the
+mass L3 /(237 K) and the condition K ≤ L3 ; this is why the constant is absolute in ((log N )3 /K)1/4
+and the range reaches K ≍ (log N )3 .
+
+
+                 10. The whole Type II family: proof of Theorem 1.1(a)
+   The family of §§4–6 keeps only the triples with a, c ≤ d. This is used in the uniqueness of a triple
+given its modulus and class (Lemmas 5.5 and 5.6), in the diagonal bound (E6) of Proposition 5.8,
+and in the off-ray step of Lemma 4.2, where u0 ≥ 2ac max(a, c) needs d ≥ max(a, c). This section
+replaces all three. Lemma 10.1 bounds the cells of the whole family Y ≤ a, c, d by a slope separation
+inside dyadic strips. Duplicates do occur without a, c ≤ d: for K = 4, the triples (65, 528, 2) and
+(528, 65, 2) have c2 −a2 = u, so they give the same class. So the sieve keeps one triple per event, with
+priority to a core F0 ∪ Wa ∪ Wc that has no duplicates (Lemmas 10.7 and 10.9). The wide regions
+Wa , Wc each carry at least 1.144 times the lower bound for the mass of F0 (Proposition 10.12),
+and the diagonal is Lemma 10.4. The parameters are those of §5: L ≥ 223 , ℓ ≥ 24, K ≤ 23ℓ . The
+triples outside the core may enter the sieve as events, but no mass is counted for them.
+
+10.1. The key lemma for the full family. A triple t = (a, c, d) is fully admissible if Y ≤ a,
+Y ≤ c, Y ≤ d, gcd(a, c) = 1 and ut ≤ 2L ; no order among a, c, d is assumed. For D ≥ 1 and B ≥ 0
+put
+                                         2(2L + 3) L + 2  1        4(2L + 3) 
+                εfull
+                 D    (B) = (L + 1)   B +           +             +              .
+                                             Y         2     Y2         D
+Lemma 10.1 (Key lemma, full family). Let D ≥ 1, ρ ∈ Z and B ≥ 0. Let C be a set of
+fully admissible triples with D | ut , ut ̸= D, D | a + ρc and D/ut ≤ B for every t ∈ C. Then
+               full
+  t∈C D/ut ≤ εD (B).
+P
+
+  For fixed (a, c) only the least d matters, as before; it costs min(B, D/(2acY )) since d ≥ Y . Two
+points satisfy D | ac′ − a′ c, so inside a dyadic strip c ∈ [C, 2C) the slopes a/c are D/(4C 2 ) apart.
+Summing over a strip costs the logarithm of the range, and there are L + 1 strips.
+
+Proof. (0) Since K ≥ 4, ut ≥ 2acd, so a, c, d ≤ 2L . Two members have D | ac′ − a′ c, because
+ac′ − a′ c = c′ (a + ρc) − c(a′ + ρc′ ).
+   (1) Fibres. Fix a point p = (a, c) and let Gp be the members with these a, c. Since D | Kacd − 1,
+Kac is a unit modulo D, so the d of Gp lie in one class modulo D and are distinct. Let d∗ ≥ Y
+be the least. Its term is at most B and at most D/(2acd∗ ) ≤ D/(2acY ). The other members
+24                                         DMYTRO TRYBUSHNYI
+
+
+have d > D in one class, d ≤ 2L , so               1/d ≤ (L + 2)/D and their terms add up to at most
+                                               P
+ D P
+2ac  1/d ≤ (L + 2)/(2ac). Hence
+                          XD                   L+2                          D 
+                                    ≤ w(p) +        ,      w(p) = min B,         .
+                          Gp
+                               ut               2ac                         2acY
+
+    (2) Strips. Group the points with c ∈ [C, 2C), C = 2i , 0 ≤ i ≤ L, and put β(p) = ⌊4C 2 a/(cD)⌋.
+If β(p) = β(p′ ) = b, write 4C 2 a = cDb + r and 4C 2 a′ = c′ Db + r′ with 0 ≤ r < cD, 0 ≤ r′ < c′ D.
+Then 4C 2 (ac′ − a′ c) = rc′ − r′ c and |rc′ − r′ c| < cc′ D < 4C 2 D, so |ac′ − a′ c| < D. By (0) ac′ = a′ c,
+and coprimality gives p = p′ . So β is injective on a strip. If β(p) ≥ 1, then cDβ(p) ≤ 4C 2 a ≤ 4c2 a,
+so ac P ≥ Dβ(p)/4. Hence a weight with w ≤ B ′ and w ≤ κ/(ac) sums over a strip to at most
+B + 1≤b≤22L+2 4κ/(Db) ≤ B ′ + 4κ(2L + 3)/D. For w(p) take B ′ = B, κ = D/(2Y ). For 1/(ac)
+  ′
+
+take B ′ = 1/Y 2 , κ = 1.
+    (3) There are L + 1 strips. Summing (1) over the points and (2) over the strips gives (L + 1) B +
+2(2L + 3)/Y + L+2                    2
+                                                       
+                    2 (L + 1) 1/Y + 4(2L + 3)/D .                                                         □
+                                                    √
+  Compared with Lemma 4.2, the term 16(L + 1)/ D disappears and the others are larger by
+powers of L: (L + 1)B against one ray term, and about 4L3 /D against (L + 1)3 /(2D). No condition
+on D is needed.
+
+Definition 10.2. For r ∈ Z, the full conditional family Frfull is the set of fully admissible triples
+with st ≤ E0 , st | a + rc and vt ≥ 2 good. Let Frall be the finite set of its members with a, c, d ≤ 2L ;
+by step (0) above this is all of Frfull .
+
+Lemma 10.3 (Conditional key lemma, full family). Let r, ρ ∈ Z, j ≥ 1 and D ≥ 1 with
+gcd(D, P0 ) = 1, and let F ⊆ Frfull . Summing over t ∈ F with D | vt , vt ̸= D, D | a + ρc and
+vt ≥ (Q + 1)j D,
+                                   XD
+                                                          −j 
+                                          ≤ E0 εfull
+                                                D (Q + 1)      .
+                                     t
+                                       vt
+
+Proof. Group by e = st ≤ E0 . As in Lemma 5.4, the group lies in a cell at modulus De with a class
+given by the Chinese remainder theorem, and De/ut = D/vt ≤ (Q + 1)−j . Lemma 10.1 bounds the
+group by εfull        −j     full      −j
+           De ((Q + 1) ) ≤ εD ((Q + 1) ), and there are at most E0 values of e.                 □
+
+10.2. The events of a duplicate-free full family.
+
+Lemma 10.4 (Diagonal). Let q ≥ 1 and F ⊆ Frfull . Then                    t∈F , vt =q 1/vt ≤ E0 (E0 + 1)(L +
+                                                                      P
+
+1)/(KY ).
+
+Proof. For these t, Kacd = qst + 1, so t is determined by (st , c, d), and KY cdP≤ Kacd ≤ qE0 + 1.
+The pairs (c, d) ∈ [1, 2L ]2 with cd ≤ X = (qE0 + 1)/(KY ) number at most c≤2L X/c ≤ X(1 +
+log 2L ) ≤ X(L + 1). So there are at most E0 X(L + 1) such triples, each of weight 1/q, and
+(qE0 + 1)/q ≤ E0 + 1.                                                                          □
+
+     For F ⊆ Frfull let F ∗ be the members without a nested partner in F, as in §5.
+
+Lemma 10.5 (Pruning, full family). µ(F ∗ ) ≥ (1 − εF )µ(F) with εF = E0 εfull       −1 ≤
+                                                                                                         
+                                                                         Q+1 (Q + 1)
+2−(ℓ+6) .
+
+Proof. As in Lemma 5.7, with Lemma 10.3 at D = vt′ ≥ Q + 1, j = 1, and the monotonicity of εfull
+                                                                                            D
+in D. The numerical bound is part of Lemma 10.13.                                            □
+                                EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                                  25
+
+
+Proposition 10.6 (Events of the full family). Let r ≥ 0 be coprime to P0 and let F ⊆ Frfull be
+finite, without nested pairs, and with no two members t =   ̸ t′ such that vt = vt′ = v and v | ac′ − a′ c.
+Then t 7→ êt is injective on F, and {êt : t ∈ F } satisfies (E1)–(E6) of §5 with
+                                   2(2L + 3)       L + 2
+                c0 = E0 (L + 1)                 +          ,   cr = E0 (L + 1),       c1 = 0,
+                                       Y            2Y 2
+                                                          E0 (E0 + 1)(L + 1)
+                    c2 = 2E0 (L + 1)(L + 2)(2L + 3),           δ=            .
+                                                                  KY
+Proof. (E1) and (E2) as in Proposition 5.8; (E3) by assumption. (E5) and injectivity: two events
+with equal moduli and a common point come from triples with vt = vt′ and v | ac′ − a′ c, which
+the hypothesis excludes. (E4): by Lemma 10.3, with E0 (L + 1)(Q + 1)−j ≤ 2cr (Q + 1)−j and
+                4(2L+3)
+E0 (L + 1) L+2
+            2 ·    D    = c2 /D. (E6) is Lemma 10.4.                                          □
+10.3. One triple per event.
+Lemma 10.7 (One triple per event). Let S be a finite set of triples, P ⊆ S, and κ an injective map
+from triples to N. Write t ≈ t′ if vt = vt′ = v and v | ac′ − a′ c. Let Ded(S, P ) consist of the t ∈ S
+with t ∈ P , or with t′ ∈
+                        / P and κ(t) < κ(t′ ) for every t′ ∈ S, t′ ̸= t, t′ ≈ t. Then P ⊆ Ded(S, P ),
+and if no two distinct members of P satisfy ≈, then no two distinct members of Ded(S, P ) do.
+Proof. Let t ̸= t′ be kept with t ≈ t′ ; the relation is symmetric. If both are in P , this contradicts
+the hypothesis. If t ∈ P and t′ ∈/ P , then t′ was kept although t ≈ t′ lies in P . If neither is in P ,
+                ′
+then κ(t) < κ(t ) < κ(t).                                                                            □
+   For members of Frfull , t ≈ t′ holds exactly when êt = êt′ as sets of j: by Lemma 5.3 each is
+one class modulo vt , the class j ≡ −(rc + a)(P0 c)−1 , and two such classes agree if and only if
+v | ac′ − a′ c. So ≈ is an equivalence relation and Ded(S, P ) keeps one member of each class. Only
+Lemma 10.7 itself is used below.
+10.4. The core.
+Definition 10.8. Let F0 = Fr♭ be the family of Proposition 6.7. Let Wa be the set of t ∈ Frall with
+E03 c2 ≤ a and d < a, and Wc the set of t ∈ Frall with E03 a2 ≤ c and d < c. The core is F0 ∪ Wa ∪ Wc .
+   The three parts are disjoint: F0 has a, c ≤ d, and E03 c2 ≤ a, E03 a2 ≤ c with a, c ≥ 2 would give
+a ≥ c2 > c ≥ a2 > a. And F0 ⊆ Frall , since its members are admissible, hence fully admissible, with
+vt ≥ 2 good.
+Lemma 10.9 (The core has no duplicates). Let t, t′ be in the core with vt = vt′ = v and v | ac′ − a′ c.
+Then t = t′ . More precisely, let t, t′ be fully admissible with ut = st v, ut′ = st′ v, v ≥ 1, v | ac′ − a′ c
+and 1 ≤ st , st′ ≤ E0 , and assume only K ≥ 4, Y ≥ 2, E0 ≥ 2, E0 < KY and E0 < KY 2 . Then:
+   (a) if E0 c ≤ a and E0 c′ ≤ a′ , then t = t′ ;
+   (b) the case E03 c2 ≤ a, d < a, a′ ≤ d′ , c′ ≤ d′ cannot occur;
+   (c) the case E03 c2 ≤ a, E03 a′2 ≤ c′ cannot occur.
+Proof. Write ac′ − a′ c = qv, u = sv = Kacd − 1, u′ = s′ v = Ka′ c′ d′ − 1, 1 ≤ s, s′ ≤ E0 .
+   (a) If v ≤ c2 d, then Kacd − 1 = sv ≤ E0 c2 d, while Kacd ≥ 4E0 c2 d; so c2 d < v, and likewise
+c d′ < v. Now
+ ′2
+
+                     K(c′2 d′ − c2 d) = Kcd Kc′ d′ (ac′ − a′ c) − Kv (sc′2 d′ − s′ c2 d),
+and gcd(v, K) = 1, so v | c′2 d′ − c2 d, and with both terms in [0, v) we get c2 d = c′2 d′ =: n1 . Then
+Kan1 = c(sv + 1) and Ka′ n1 = c′ (s′ v + 1) give Kn1 q = cc′ (s − s′ ). If q =
+                                                                             ̸ 0, then Kn1 ≤ cc′ (E0 − 1),
+while n1 = c d c d ≥ (cc Y ) gives Kn1 ≥ Kcc Y > cc E0 . So q = 0, ac′ = a′ c, coprimality gives
+        2       2     ′2 ′    ′   2                ′      ′
+
+(a, c) = (a′ , c′ ), and n1 gives d = d′ .
+26                                         DMYTRO TRYBUSHNYI
+
+
+   (b) Note a ≥ E03 c2 ≥ c. If q = 0, then (a, c) = (a′ , c′ ) and v | Kac(d − d′ ); as gcd(v, Kac) = 1,
+d ≠ d′ would give |s − s′ |v = Kac|d − d′ | ≥ Kacv and E0 > |s − s′ | ≥ KY 2 ; and d = d′
+contradicts d < a = a′ ≤ d′ . If q ≥ 1, then v < ac′ . From s′ v ≥ KY 2 c′ − 1 > E0 c′ we get
+c′ ≤ v, so q < a. From Ka′2 c′ − 1 ≤ Ka′ c′ d′ − 1 = s′ v ≤ E0 v < E0 ac′ we get Ka′2 ≤ E0 a, hence
+K(sa′ c)2 ≤ E02 c2 · E0 a ≤ a2 < Ka2 and 0 < sa′ c < a. The identity
+                                         sa′ c − q = a (sc′ − qKcd)
+(from s · qv = sac′ − sa′ c and q · sv = qKacd − q) and |sa′ c − q| < a give sa′ c = q and sc′ = qKcd,
+so c′ = Ka′ c2 d and a′ | gcd(a′ , c′ ) = 1, against a′ ≥ Y . If q ≤ −1, then v < a′ c, so Kacd ≤ E0 a′ c
+and Ka′ c′ d′ ≤ E0 a′ c, that is Kad ≤ E0 a′ and KY a′ ≤ Kc′ d′ ≤ E0 c. Hence K 2 Y 2 a ≤ KY Kad ≤
+E0 KY a′ ≤ E02 c ≤ E02 a, against E0 < KY .
+   (c) Here a ≥ 2c and c′ ≥ 2a′ , so ac′ > cc′ > ca′ and q ≥ 1. As in (b), c′ ≤ v and q < a.
+Symmetrically, sv ≥ KY 2 a − 1 ≥ (E0 + 1)a − 1 ≥ E0 a gives a ≤ v, and qv < ac′ ≤ vc′ gives
+q < c′ . If sa′ c < a, the identity of (b) gives c′ = Ka′ c2 d, a contradiction. If s′ a′ c < c′ , the
+identity s′ a′ c − q = c′ (s′ a − qKa′ d′ ) gives a = Ka′2 cd′ and c | gcd(a, c), a contradiction. Otherwise
+E0 a′ c ≥ sa′ c ≥ a ≥ E03 c2 and E0 a′ c ≥ c′ ≥ E03 a′2 , so a′ ≥ E02 c and c ≥ E02 a′ , which is impossible
+for E0 ≥ 2.
+   The core. Two members of Wa satisfy (a), as E0 c ≤ E03 c2 . A member of Wa and one of F0
+satisfy (b). A member of Wa and one of Wc satisfy (c). The cases with Wc follow by the swap
+(a, c, d) 7→ (c, a, d), which keeps u, s, v and changes only the sign of ac′ − a′ c. Two members of F0
+are equal by Lemma 5.6. At our parameters E0 = 25ℓ ≥ 2, 2E0 < KY and E0 < KY 2 .                          □
+
+   The quadratic condition is needed for the arithmetic of (c). For K = 4, Y = 2 and E0 = 3, the
+triples (11, 2, 4) and (2, 11, 4) have u = 351 = 3 · 117 and 117 | 112 − 22 . With s = s′ = 3 and
+v = 117 they satisfy the hypotheses of the arithmetic in (c) with E0 c ≤ a, E0 a′ ≤ c′ in place of the
+quadratic conditions. (v = 117 is not good, so they are not members of the family.)
+
+10.5. The mass of the wide regions. Let T0 = J0♭ + 10ℓ + 64, with J0♭ as in §6.1, and H = 3ℓ + 4.
+A wide scale is a triple (i′ , j, i) with
+                    ℓ3 ≤ i′ < L,    ℓ3 ≤ j < L,        3i′ + j + T0 ≤ i < L − H − i′ − j.
+                                                              ′   ′
+Its box consists of the triples with a ∈ [2i , 2i+1 ), c ∈ [2i , 2i +1 ), d ∈ [2j , 2j+1 ). The lower edge of i
+is what a sieve in a needs: along a progression a = a0 + ecm the cofactor (Kacd − 1)/e is an affine
+form in m with leading coefficient Kc2 d, and the range of m must be long compared with it.
+Lemma 10.10 (Count of wide scales). There are at least L3 /60 wide scales.
+
+Proof. Put V1 = L − H − T0 and U1 = V1 − 6ℓ3 . Since 2ℓ−1 ≤ L and J0♭ ≤ 128ℓ2 + 5506ℓ + 73, we
+have 40(H + T0 ) ≤ 40(128ℓ2 + 5519ℓ + 141) ≤ 2ℓ−1 ≤ L and 512ℓ3 ≤ 2ℓ−1 ≤ L for ℓ ≥ 24 (at ℓ = 24:
+40(H + T0 ) = 8,253,000 ≤ 223 ); these give U1 ≥ 0.9632L. For fixed i′ , j the number of i is at least
+V1 − 4i′ − 2j. Restrict to i′ = ℓ3 + k, 0 ≤ k < n1 = ⌊(U1 − 1)/4⌋, and j = ℓ3 + m, 0 ≤ m < ⌊x/2⌋,
+where x = U1 − 4k ≥ 1. The inner sum over j is at least ⌊x/2⌋ x − ⌊x/2⌋ ≥ (x2 − x)/4.
+With f (y) = y 3 /12 − y 2 /8 we have f (y) − f (y − 4) = y 2 − 5y + 22       2               11
+                                                                       3 ≤ y − y for y ≥ 6 , and
+x ≥ U1 − 4(n1 − 1) ≥ 5 on the range, so the outer sum telescopes:
+              X (U1 − 4k)2 − (U1 − 4k)           f (U1 ) − f (U1 − 4n1 )   1  U13 U12 16 
+                                             ≥                           ≥        −   −     ,
+             k<n1
+                               4                            4              4 12     8   3
+
+as 1 ≤ U1 − 4n1 ≤ 4. With U1 ≥ 0.9632L and L ≥ 223 this is at least L3 /60.                                 □
+
+     The exact number of wide scales is 1.125 · L3 /60 at L = 223 and tends to L3 /48.
+                              EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                              27
+
+
+Lemma 10.11 (Coprime pairs in a box). Let B, e ≥ 1 be integers with 64e(5 + 3 log 2B) ≤ B.
+Then
+                                X         1      31 φ(e)
+                                           2
+                                             ≥       ·     .
+                          1≤x<B, B≤c<2B
+                                          c     256     e
+                                 gcd(x,c)=gcd(c,e)=1
+
+Proof. Pairs with gcd(c, e) = 1. Any B consecutive integers contain at least φ(e)⌊B/e⌋ integers
+prime to e. So there are at least (B − 1)φ(e)⌊B/e⌋ ≥ φ(e)(B − 1)(B/e − 1) pairs (x, c) with
+1 ≤ x < B, B ≤ c < 2B and gcd(c, e) = 1.
+   Non-coprime pairs. If gcd(x, c) > 1, some prime g ≤ 2B divides x and c. For fixed g there
+are at most B/g such x. The c = gy with B ≤ c < 2B and gcd(c, e) = 1 have y prime to
+e in an interval of length at most B/g + 2, so there are at most φ(e)(⌊(⌊B/g⌋ + 2)/e⌋ + 1) ≤
+φ(e)(B/(ge) + 3) of them. Hence  at most φ(e)(B 2 /(g 2 e) + 3B/g) P
+                              P −2
+                                                                   pairs have g | gcd(x, c). Summing
+over the primes g ≤ 2B, with g g ≤ 12 (Lemma A.1(d)) and g≤2B 1/g ≤ 1 + log 2B, at most
+φ(e)(B 2 /(2e) + 3B(1 + log 2B)) pairs are not coprime.
+   Conclusion. The coprime pairs number at least φ(e) times
+                 B          B2                    B2                     31 B 2
+         (B − 1)       −1 −      − 3B(1 + log 2B) ≥    − B(5 + 3 log 2B) ≥   ·    ,
+                   e          2e                    2e                     64 e
+using (B − 1)(B/e − 1) ≥ B 2 /e − 2B and the hypothesis. Each term of the sum is at least
+1/(4B 2 ).                                                                             □
+Proposition 10.12 (Mass of the core). Let r be coprime to P0 , and let
+                                           λK L3      X      φ(e)
+                                   Φ=
+                                         1382400Kℓ e|P , e≤E e2
+                                                       0       0
+
+be the lower bound of Proposition 6.7. Then
+               µ(Wa ) ≥ 1.144 Φ,      µ(Wc ) ≥ 1.144 Φ,            µ(F0 ∪ Wa ∪ Wc ) ≥ 13
+                                                                                      4 Φ.
+                                                           ′
+Proof. One scale, one e. Fix a wide scale, write B = 2i , D = 2j , X = 2i , and fix e | P0 , e ≤ E0 .
+Take the triples (x, c, d) with 1 ≤ x < B, c ∈ [B, 2B), gcd(x, c) = gcd(c, e) = 1, d ∈ [D, 2D) and
+e | Krc2 d + 1; and for each, the a ∈ [X, 2X) with a ≡ x (mod c), e | Kacd − 1 and (Kacd − 1)/e
+good. These a form one progression a = a0 + ecm, whose cofactor is Kc2 d m + (Kcda0 − 1)/e, affine
+with coprime    coefficients. Brun’s sieve (Corollary 6.4), with the conditions on X of a wide scale,
+gives e/(Kacd − 1) ≥ λK /(1200Kc2 dℓ) over the good a. Then e | Kacd − 1 and e | Krc2 d + 1
+       P
+
+give e | a + rc (as gcd(K, e) = gcd(c, e) = 1, and e | Krc2 d + 1 forces gcd(d, e) = 1), gcd(a, c) = 1
+by the class of x, st = e by goodness, and t ∈ Wa , since a ≥ X ≥ E03 (2B)2 and a ≥ X > 2D
+follow from i ≥ 3i′ + j + T0 . For fixed c prime to e, the d ∈ [D, 2D) with e | Krc2 d + 1 form
+one class modulo e, so there are at least D/e − 1 of them, each with 1/d > 1/(2D); as 128e ≤ D,
+             1      1      63   1
+   d 1/d ≥ 2e − 2D ≥ 128 · e . The pairs (x, c) have          1/c2 ≥ 25631
+                                                                           · φ(e)
+P                                                          P
+                                                                              e   by Lemma 10.11, as
+                                  ′    3           5ℓ
+64e(5 + 3 log 2B) ≤ B (since i ≥ ℓ and e ≤ 2 ). Together, one scale and one e carry at least
+  λK      1953   φ(e)
+1200Kℓ · 32768 · e2 .
+   All scales. Different scales and different e give disjoint sets, so by Lemma 10.10
+                         L3   λK    1953 X φ(e)    1382400 · 1953
+              µ(Wa ) ≥      ·     ·             =                   Φ ≥ 1.144 Φ.
+                         60 1200Kℓ 32768 e e2     60 · 1200 · 32768
+The mirror. The swap (a, c, d) 7→ (c, a, d) of the same construction, run with the class re∗ inverse to
+r modulo e for each e, lands in Wc : e | a + re∗ c becomes e | c + ra after the swap, and u, s, v are
+unchanged. The three parts are disjoint, and 1 + 2 · 1.144 = 3.288 ≥ 13  4 .                         □
+28                                       DMYTRO TRYBUSHNYI
+
+
+10.6. The numerics with per-step exponent 11ℓ. The constants of Proposition 10.6 are larger
+than those of Proposition 5.8: c2 is about 28ℓ . Lemmas B.1 and B.2 hold with 5ℓ replaced by 11ℓ.
+(About 8ℓ would suffice; the formal proof uses 11ℓ.)
+Lemma 10.13 (Numerics, full family). Let ℓ ≥ 24 and take the constants of Proposition 10.6.
+     (a) c0 2Γ ≤ 25ℓ ≤ 211ℓ+3 and 2cr + c1 + c2 ≤ 211ℓ+3 .
+     (b) If 0 < ηθK0 ≤ 4 and 0 ≤ µ ≤ 23ℓ , then for 0 ≤ s ≤ d ≤ K0 , p ∈ {0, 1}, j = d − s + p,
+                      log2 ηθK0 Σs,j ≤ 3ℓs + 11ℓ + 7 − min 64ℓ min(2j, s), Γ .
+                                                                              
+
+     (c) The average of the right side of (b) over ϱ ≤ s ≤ d is at most −7 − d(3ℓ + 6), for 1 ≤ d ≤ 3ℓ,
+         ϱ ≤ min(1, d) and p = 1 if d = 1. Hence (7.3) holds with A∗ = 2−7 , λ = 1/(2k) under the
+         hypotheses of Lemma 7.12.
+     (d) The prime masses satisfy µq ≤ 2−(ℓ+6) for q > Q, and εF ≤ 2−(ℓ+6) .
+Here Γ = ℓ3 − 2ℓ − 7, as in Appendix B.
+Proof. Let x = 2ℓ ≥ L+1. (a) c0 ≤ E0 x(6x/Y +x/Y ) = 7x7 /Y and Y = 2Γ x2 27 , so c0 2Γ ≤ 7x5 /128.
+Also cr ≤ x6 and c2 ≤ x5 · x · 12x2 = 12x8 , and 2x6 + 12x8 ≤ 8x11 .
+   (b) As Lemma B.1, with 25ℓ+3 replaced by 211ℓ+3 in the two floors.
+   (c) As in Lemma B.2 it suffices that 3ℓ d(d+1)
+                                                                                
+                                              2   + (d + 1) 11ℓ + 14 + d(3ℓ + 6) ≤ S. For d = 1, 2 the
+term s = 1 gives S ≥ 64ℓ, against 31ℓ + 40 and 60ℓ + 78. For d = 3 the terms s = 1, 2 give S ≥ 192ℓ
+                                                                    2
+(as 128ℓ ≤ Γ), against 98ℓ + 128. For d ≥ 4, the bound S ≥ 64ℓ(d6 −1) − 35d
+                                                                              3
+                                                                             ℓ of Lemma B.2 reduces
+the claim to
+                        37 2 2  31 2    65 2     2                  3
+                        6 ℓ d − 2 ℓ d − 3 ℓ − 6ℓd − 20ℓd − 14ℓ − 35d ≥ 0.
+For 4 ≤ d ≤ 11 this is checked for each d (it is a quadratic in ℓ, positiveat ℓ ≥ 24). For d ≥ 12, use
+d3 ≤ 3ℓd2 : the left side is at least ℓ 24( 37 2 31   65       2                    2
+                                            6 d − 2 d− 3 )−111d −20d−14 = ℓ(37d −392d−534) > 0.
+  (d) By Lemma 7.2, µq ≤ c0 + 2cr (Q + 1)−1 + c2 (Q + 1)−1 + δ for q ≥ Q + 1. Each of
+2cr /(Q + 1) ≤ 2x6 /2128ℓ , c0 ≤ 7x7 /Y , c2 /(Q + 1) ≤ 12x8 /2128ℓ and δ ≤ x11 /Y is at most
+12x11 /x14 ≤ 1/(256x) = 2−(ℓ+8) , as Y, Q + 1 ≥ x14 , so µq ≤ 2−(ℓ+6) . Likewise εF = c0 + E0 (L +
+1)/(Q + 1) + c2 /(Q + 1) ≤ 2−(ℓ+6) .                                                                 □
+
+  With these, Proposition 7.13 holds for every finite F as in Proposition 10.6 with µ(F) ≤ 23ℓ ,
+with the same proof: mP = 2−(ℓ+6) satisfies 2θK0 (2 + 31
+                                                      1
+                                                         )mP ≤ 5 · 2−(ℓ+6) ≤ 48ℓ
+                                                                              1
+                                                                                 .
+
+10.7. Proof of Theorem 1.1(a).
+Proposition 10.14 (Mass, full family). Let r be coprime to P0 , let D = Ded(Frall , F0 ∪Wa ∪Wc ) with
+an injective key κ, and let D∗ be its pruning. Then D∗ satisfies the hypotheses of Proposition 10.6,
+and
+                                                    L3
+                                           µ(D∗ ) ≥ 32 .
+                                                   2 K
+Proof. By Lemmas 10.7 and 10.9, D has no two members with t ≈ t′ , and neither has D∗ ⊆ D; it
+has no nested pairs by construction. The core lies in D, so by Lemma 10.5, Proposition 10.12 and
+Lemma 6.8 (as in Proposition 6.9),
+                                               13   L3       e−7 log 2   L3
+                      µ(D∗ ) ≥ (1 − 2−30 ) ·      ·        ·           ≥ 32 ,
+                                               4 1382400 K      6       2 K
+using εF ≤ 2−(ℓ+6) ≤ 2−30 , e7 ≤ 1097 (from e < 2.7182818286) and log 2 ≥ 0.6931471803:
+(1 − 2−30 ) 13  0.6931471803
+            4 · 1097·8294400 ≥ 2.475 · 10
+                                          −10 ≥ 2−32 .                               □
+                             EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                              29
+
+
+   One level. Propositions 8.1 and 8.2 hold with Xm = L3 /(232 K), with the same proofs: choose
+F ⊆ D∗ with T − 1 ≤ µ(F) ≤ T , which satisfies the hypotheses of Proposition 10.6 as a subset,
+and apply the gas bounds of Lemma 10.13. The count #F + 1 ≤ 2L (L + 1)2 holds as before, since
+a, c, d ≤ 2L and ut ≤ 2L . Lemmas 8.3 and 8.4 and Proposition 9.2 hold for M = 232 K with the
+same proofs, which use only K ≤ M , 29 M ≤ L30 and L ≥ 223 .
+Lemma 10.15 (The base level, M = 232 K). Let L∗ be the least integer with 241 K ≤ L3∗ , and
+L0 = max(223 , L∗ ). If h′ ≥ 1 satisfies 121 · 258 ≤ Kh′ and 284 K ≤ h′3 , then L0 ≥ 223 , 29 M ≤ L30
+and 121L40 ≤ 4M h′ for M = 232 K.
+Proof. As Lemma 9.3: if L∗ ≤ 223 , then 121·292 = 4·232 ·121·258 ≤ 4M h′ . Otherwise L0 = m+1 with
+m ≥ 223 and m3 < 241 K, so (m + 1)12 ≤ 2m12 , and, as 1213 ≤ 221 , (121L40 )3 ≤ 1213 · 2 · (241 K)4 =
+2102 K 3 · 1213 · 263 K ≤ 2102 K 3 · 284 K ≤ (4M h′ )3 .                                            □
+Proof of Theorem 1.1(a). As the proof of Theorem 1.1(b) in §9, with M = 232 K and Lemma 10.15
+in place of Lemma 9.3. As 100h′ ≥ 93(h + 1), Kh ≥ 266 gives Kh′ ≥ 121 · 258 and 285 K ≤ h3 gives
+284 K ≤ h′3 ; and 228 M = 260 K ≤ h3 .                                                        □
+  Dividing M by 32 multiplies the linear threshold by 32 (261 → 266 ), through 121L40 ≤ 4M h′ at
+L0 = 223 ; this is why Theorem 1.1(a) does not contain (b).
+
+                                          11. Discussion
+   Where 34 comes from. The following heuristic explains the exponent. Two rates fix it. The
+mass of the Type II classes with moduli up to 2L grows like L3 /K, one logarithm for each free
+scale a, c, d, and Proposition 6.9 attains this order. Elsholtz and Tao [7, Theorem 1.1] show that
+the average number of solutions per prime lies between (log p)3 and (log p)3 log log p (for K = 4),
+so no system of Type I or II classes grows much faster. (In the terminology of [7], these are
+the solutions in which n divides exactly one, respectively exactly two, of x, y, z.) The transfer
+(Lemma 2.2) evaluates intersections of up to 2k ≍ µ events, and an event of modulus near 2j
+uses about j of the log2 N available bits. Scale j therefore brings mass ≍ j 2 /K per unit of j at
+a cost of j bits per event. The bits are best spent on all scales j ≤ L with 0L j 3 dj ≍ K log N ,
+                                                                                 R
+
+giving A ≍ µ ≍ L3 /K ≍ ((log N )3 /K)1/4 . In general, mass Lβ at a cost of Lγ bits per event
+gives the exponent β/(β + γ), with β = 3 and γ = 1 here. Heuristically, Selberg’s sieve and the
+large sieve follow the same law with γ = 1, since (log N )β/(β+1) is the Tauberian exponent of
+          −s                 −β ). Vaughan’s system has β = 2, whence the large-sieve ceiling 2 of [4].
+  t (1 + ut ) ≈ exp(c(s − 1)
+Q
+                                                                                              3
+The large sieve sifts by classes modulo primes, and the Type II classes with prime modulus carry
+mass only ≍ L2 /K (for K = 4, see [4, Proposition 4.32]). Those with squarefree rough composite
+moduli carry, after averaging over the small primes, ≍ L3 /K, but using them requires control of
+the correlations between classes that share prime factors; this is the role of the polymer gas (§§3
+and 7). The exponent 57 announced in [5] also comes from composite witnesses.
+   A barrier. In a model with independent events, square-sieve weights of the kind used here cannot
+improve the exponent.
+Proposition 11.1. Let (Et ) be independent events, one for each Type II triple t = (a, c, d), with
+             , ut = Kacd − 1, where K ≥ 4, and
+P(Et ) = 1/utQ                                 let K log ξ ≥ 48. If Ψ is a linear combination of
+the products t∈T 1Et over finite sets T with t∈T ut ≤ ξ, and Ψ = 1 where no event occurs, then
+                                            Q
+                                                      1/4            
+                                E[Ψ2 ] ≥ exp − 43 48
+                                                  K           (log ξ)3/4 .
+
+Proof. Only thepfinitely many t with ut ≤ ξ enter Ψ. With pt = 1/ut , the functions ϕT =
+  t∈T (1Et − pt )/ pt (1 − pt ) are orthonormal and span the same space
+Q
+                                                                        as the products, since the
+family of sets T is closed under subsets. Where no event occurs, ϕ2T = t∈T gt with gt = 1/(ut − 1),
+                                                                      Q
+30                                           DMYTRO TRYBUSHNYI
+
+
+so Cauchy–Schwarz gives 1 ≤ E[Ψ2 ] G with G = T t∈T gt . For σ ≥ 0, G ≤ ξ σ t (1 + gt u−σ
+                                                                                       t )≤
+                                                        P Q                               Q
+                    −σ                       −σ  2      −1−σ             −1−σ
+exp(σ log ξ + t gt ut ). Since Kacd ≥ 4, gt ut ≤ K (acd)                       ≤ 1 + σ ≤ σ2
+                                                                                       1
+             P                                                    P
+                                                             , and n≥1 n
+                            −σ
+for 0 < σ ≤ 1; hence t gt ut ≤ 16/(Kσ 3 ). Take σ = (48/(K log ξ))1/4 ≤ 1; then 16/(Kσ 3 ) =
+                      P
+1
+3 σ log ξ.                                                                                 □
+Remark 11.2. As ξ → ∞ the constant 43 (48/K)1/4 improves to ( 43 + o(1))(3/K)1/4 : in the proof,
+         −σ
+            = (1 + o(1))K −1 ζ(1 + σ)3 = (1 + o(1))K −1 σ −3 as σ → 0, and we take σ = (3/(K log ξ))1/4 .
+P
+   t gt ut
+(This asymptotic statement is not part of the formal proof.)
+                                                                    √
+   The weight Fk2 of the proof has this form with ξ = 2kL ≤ N (the choice of the level gives
+2kL ≤ Eth ≤ log2 N ), and so do Selberg’s Λ2 weights; heuristically, by duality, so does the large
+sieve. For such weights the main term is E[Ψ2 ] even when the events are exactly independent. So in
+the independent model of the Type II classes, no such weight proves Theorem 1.1 with a constant
+larger than 43 ( 48  1/4 2−3/4 ≈ 2.09 K −1/4 (asymptotically ( 4 + o(1))( 3 )1/4 2−3/4 ≈ 1.04 K −1/4 ), or
+                 K)                                             3         K
+with an exponent above 34 . With all Type I and II classes one expects, by the count of [7], the same
+up to (log N )o(1) . This suggests that a larger exponent needs information about the exceptional set
+beyond the distribution of n in residue classes of modulus at most N . In the heuristic of [18, §1] a
+prime p is exceptional with probability exp(−(log p)3 /K). Our exponent is a constant times the
+fourth root of the exponent (log N )3 /K of this heuristic, because the sieve works at the level L
+rather than at log2 N .
+   What is avoided. The sieve is combinatorial, and we never show that the expansion converges:
+Dobrushin’s induction gives the real upper bound directly. The mass needs only Brun’s pure sieve
+and Mertens-type bounds [14], because log Q ≍ log L against scales ≍ L. The proof uses neither
+the fundamental lemma of sieve theory [11, 10] nor Shiu’s theorem [23], and everything is effective.
+The random order keeps log Q ≍ ℓ, so that roughness and averaging cancel up to a constant factor;
+a step-by-step cluster bound would lose a power of log log N .
+   Constants. The 22 in c(M ) comes from the gas bounds 0.47µ and 9µ through A ≈ 32 T , k = 15T ,
+and the divisor reduction turns it into 24. The 232 in M collects pruning, the count of scales,
+coprime pairs, the sieve fraction and the divisor sum. Against the 237 of (b), the whole family
+gains a factor 13                               7
+                  4 , and sharper values of e , log 2 and the pruning loss a factor 10.35. None is
+optimized. Theorem 1.1(a)√has 1/cK = 24 · 28 K 1/4 = 6144K 1/4 , against the limit 1/c ≈ K 1/4 /2.09
+of Proposition 11.1 at ξ = N . The power of K is the right one, but the absolute constant is not.
+   Questions. Which arithmetic information beyond residue classes of modulus at most N could
+pass the exponent 34 ? Theorem 1.1 is non-trivial for K up to a constant times (log N )3 , while
+EK (N ) ≫ N/ log N for K ≥ (log N )3 (log log N )2+o(1) [18]. What happens in between? Can the
+thresholds be brought to a computationally relevant size?
+
+                           Appendix A. Elementary prime estimates
+Lemma A.1. For integers n, z ≥ 2:
+  (a) p≤n log p ≤ n log 4 and p≤n logp p ≤ log n + log 4;
+     P                       P
+
+              1                               log 4
+          p≤z p ≤ log log z − log log 2 + 3 + log z ;
+           P
+     (b)
+                                               1                                                  log z 2
+   (c) if z ≥ 101, then p≤z (1 − 1/p) ≥ 3.3 log    z ; if log z ≥ 139, then   p≤z (1 + 2/p) ≤ 412 log 2 ;
+                         Q                                                  Q
+
+   (d) p̸=2 p−2 ≤ 91 + 18 , so p p−2 ≤ 14 + 19 + 18 .
+        P                       P
+
+Proof. (a) The first bound is p≤n p ≤ 4n . For the second,
+                               Q
+
+                                       Xj n k                X log p       X
+                            log n! ≥             log p ≥ n             −         log p,
+                                       p≤n
+                                             p               p≤n
+                                                                   p       p≤n
+and log n! ≤ n log n.
+                                     EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                                     31
+
+
+  Abel summation. For integers 2 ≤ m ≤ z, reals an , A(n) =
+                                                                                 P
+                                                                                     m≤k≤n ak and f      positive and
+non-increasing,
+                               X                             z−1
+                                                             X                               
+(A.1)                               an f (n) = A(z)f (z) +         A(n) f (n) − f (n + 1) ,
+                           m≤n≤z                             n=m
+
+and the coefficients f (n) − f (n + 1) are nonnegative, so an upper (lower) bound for every A(n)
+gives an upper (lower) bound for the sum. We use it with f (n) = 1/ log n and an = log n/n at
+primes n, an = 0 otherwise. Put δn = log log(n + 1) − log log n; with t = log(n + 1)/ log n, the
+inequalities log t − 12 (log t)2 ≤ 1 − 1/t ≤ log t give
+                                                                         z−1
+                                                 log n                   X                 log z
+(A.2)                     δn − 12 δn2 ≤ 1 −              ≤ δn ,                δn = log          .
+                                              log(n + 1)                n=m               log m
+  (b) Take m = 2 in (A.1), and A(n) ≤ log n + log 4 from (a). Then
+          X1              log 4 z−1
+                                 X       log n          1      1            log z
+                    ≤1+        +    1−            + log 4      −      ≤ 1 + log       + 2,
+          p≤z
+                p         log z n=2    log(n + 1)         log 2 log z           log 2
+by (A.2) and log 4 = 2 log 2; this implies (b).
+   (c) We treat the primes up to 100 exactly. By direct computation over the 25 primes, P0′ =
+             1                               log p                                  s
+  p≤100 (1 − p ) ≥ 0.1203 and S0 =     p≤100 p ≥ 3.36; for the latter, each log p ≥ r log 2 follows
+Q                                    P
+
+from an integer inequality 2s ≤ pr with r ≤ 12. For the primes in (100, z] take m = 101 in (A.1),
+with A(n) = 100<p≤n logp p ≤ log n + c∗ by (a), where c∗ = log 4 − S0 ≤ −1.9737. As in (b),
+              P
+
+  X     1        c∗        log z       1        1         log z         c∗          log z
+          ≤ 1+       +log         +c∗         −      = log         +1+         ≤ log         +0.573,
+100<p≤z
+        p      log z      log 101      log 101 log z       log 101     log 101       log 101
+                                                                                                     2       3
+since c∗ < 0 and log 101 ≤ 20
+                            3 log 2. The Taylor remainder | log(1 − x) + x + x2 | ≤ 1−x
+                                                                                     x
+                                                                                        gives
+                   2             1             −2    1
+log(1 − x) ≥ −x − x for 0 ≤ x ≤ 3 , and p>100 p ≤ 100 , so
+                                       P
+
+                         Y         1       log 101 −0.583 0.1203 · 4.5999       1
+                               1−      ≥ P0′        e      ≥                ≥           ,
+                         p≤z
+                                    p         log z           1.826 log z     3.3 log z
+                73
+using log 101 ≥ 11 log 2 ≥ 4.5999 and e0.583 ≤ 1.826.            (The true constant is eγE ≈ 1.78.) For the
+                                                                  1       log z                       2x and
+second claim, (b) with log 4/ log z ≤ 0.01 gives              p≤z p ≤ log log 2 + 3.01; use 1 + 2x ≤ e
+                                                 P
+
+e6.02 ≤P412.
+   (d) k≥1 (2k + 1)−2 ≤ 19 + k≥2 4k(k+1)
+                                      1
+                                           = 91 + 18 .
+                             P
+                                                                                                                   □
+Lemma A.2 (Mertens from below).
+  (a) p≤n logp p ≥ log n − 3 for integers n ≥ 1;
+     P
+
+  (b) p≤x p1 ≥ log log x − 6.5 for real x ≥ 2;
+     P
+
+  (c) p≤x (1 + p1 ) ≥ e−7 log x for real x ≥ 2.
+     Q
+
+Proof. (a) By nn /n! ≤ en and Legendre’s formula with vp (n!) ≤ n/(p − 1),
+                                        X n log p    X log p       X log p
+                 n log n − n ≤ log n! ≤           =n           +n               ,
+                                        p≤n
+                                            p−1      p≤n
+                                                            p      p≤n
+                                                                       p(p − 1)
+and the last sum is at most m≥2 log m/(m(m − 1)) ≤ 2. (b) Let z = ⌊x⌋. In (A.1) with m = 2
+                                      P
+
+use A(n) ≥ log n − 3 from (a), and then (A.2):
+                           z−1
+X1                    3    X      δ2     1      1                                  3    1X 2
+          ≥1−            +     δn − n − 3       −      ≥ log log z − log log 2 + 1 −      −     δ .
+p≤z
+      p             log z n=2       2      log 2 log z                               log 2 2 n≥2 n
+32                                         DMYTRO TRYBUSHNYI
+
+
+Here δn ≤ log(n + 1)/ log n − 1 ≤ 1/(n log n), and n≥2 (n log n)−2 ≤ 0.75, so the right side is
+                                                         P
+
+at least log log z − P
+                     3.35. Finally log log x − log log z ≤ log(log 3/ log 2) ≤ 0.47, since log x/ log z ≤
+log(z +1)/ log z, so p≤x 1/p ≥ log log x−3.82. (c) log(1+t) ≥ t−t2 for t ≥ 0, (b), and p p−2 ≤ 35
+                                                                                            P
+                                                                                                        72
+(Lemma A.1(d)).                                                                                         □
+
+                        Appendix B. The numerics of the cluster bound
+     The constants are those of Proposition 5.8, and ℓ ≥ 24. Put
+                                             Γ = ℓ3 − 2ℓ − 7.
+Lemma B.1 (Step costs). Suppose 0 < ηθK0 ≤ 4 and 0 ≤ µ ≤ 23ℓ . Then for 0 ≤ s ≤ d ≤ K0 and
+p ∈ {0, 1}, with j = d − s + p,
+                        log2 ηθK0 Σs, j ≤ 3ℓs + 5ℓ + 7 − min 64ℓ min(2j, s), Γ .
+                                                                                   
+
+                                                                                            3
+Proof. Constants. From √ L + 1 ≤ 2ℓ we get cY ≤ 22ℓ+10 /Y , so c0 2Γ ≤ 25ℓ+2ℓ+10+Γ−ℓ = 25ℓ+3 . Also
+cr = 2 , c1 = 32(L + 1) E0 ≤ 24ℓ+5 ≤ 25ℓ and c2 = (L + 1)3 (1 + log E0 )/2 ≤ 23ℓ · 3 · 2ℓ ≤ 25ℓ , so
+      5ℓ
+
+2cr + c1 + c2 ≤ 25ℓ+3 .
+   Cases. Recall K0 = 3ℓ. If s = 0, then the minimum is 0 and ηθK0 Σ0,j ≤ 8µ ≤ 23ℓ+3 ≤ 25ℓ+7 .
+If s ≥ 1 and j = 0, the minimum is again 0 and ηθK0 Σs,0 ≤ 23ℓs+3 . If s, j ≥ 1, put N∗ =
+min(64ℓ min(2j, s), Γ). From N∗ ≤ 128ℓj, N∗ ≤ 64ℓs and Q + 1 ≥ 2128ℓ we get 2N∗ ≤ (Q + 1)j and
+2N∗ ≤ (Q + 1)s/2 ≤ (Q + 1)s , and N∗ ≤ Γ gives c0 2N∗ ≤ 25ℓ+3 . So 2N∗ times the bracket in Σs,j is
+at most c0 2N∗ + 2cr + c1 + c2 ≤ 25ℓ+4 , and ηθK0 Σs,j ≤ 4 · 2 · 23ℓs · 25ℓ+4 · 2−N∗ .            □
+   The step cost decays like 2−64ℓ min(2j,s) : through the ray term when the cofactor exponent j is
+                                                                                          3
+small, through D ≥ (Q + 1)s otherwise. The decay is capped at 2−Γ by the floor c0 ≈ 2−ℓ , and it
+is absent when s = 0 (free) or j = 0 (exact); the averaging has to pay for these.
+Lemma B.2 (Average over te ). Let ℓ ≥ 24, 1 ≤ d ≤ 3ℓ, p, ϱ ∈ {0, 1}, ϱ ≤ d, and p = 1 if d = 1.
+Then
+         d
+         X                                                                                       
+               3ℓs + 5ℓ + 7 − min(64ℓ min(2(d − s + p), s), Γ) ≤ (d + 1 − ϱ) −7 − d(3ℓ + 6) .
+         s=ϱ
+
+Consequently (7.3) holds with A∗ = 2−7 and λ = 1/(2k) whenever 0 < η ≤ 2, θ ≥ 1, θK0 ≤ 98 ,
+0 ≤ µ ≤ 23ℓ and 2k ≤ 23ℓ+6 .
+Proof. Let S = ds=ϱ min(64ℓ min(2(d − s + p), s), Γ). Since
+                                                                      Pd
+                                                                       s=ϱ s ≤ d(d + 1)/2, d + 1 − ϱ ≤ d + 1
+                   P
+
+and −7 − d(3ℓ + 6) < 0, it suffices to show
+                                 d(d + 1)                              
+(B.1)                       3ℓ            + (d + 1) 5ℓ + 14 + d(3ℓ + 6) ≤ S.
+                                    2
+Note 64ℓ ≤ Γ.
+   d ≤ 2. The term s = 1 has min(2(d − 1 + p), 1) = 1 (for d = 1 as p = 1), so S ≥ 64ℓ. The left
+side of (B.1) is 19ℓ + 40 for d = 1 and 42ℓ + 78 for d = 2, both at most 64ℓ.
+   d ≥ 3. For 1 ≤ s ≤ d put xs = 64ℓ  d s(d − s). Since s(d − s) ≤ d min(2(d − s + p), s), we have
+xs ≤ 64ℓ min(2(d − s + p), s), and min(x, Γ) ≥ x − x2 /(4Γ) for x ≥ 0 (if x > Γ the difference is
+−(x − 2Γ)2 /(4Γ)). With ds=0 s(d − s) = (d3 − d)/6 and ds=0 (s(d − s))2 = (d5 − d)/30,
+                           P                               P
+
+                       64ℓ d3 − d  64ℓ 2 d5 − d   64ℓ(d2 − 1) (64ℓ)2 d3
+                       S≥   ·       −             ≥            −          .
+                         d      6     d    120 Γ         6        120 Γ
+Since 104ℓ3 ≥ 8400ℓ + 29400, we have 4096ℓ3 ≤ 4200Γ, so the last term is at most 35d3 /ℓ.
+Multiplying by ℓ, (B.1) follows from
+                                                                
+                  ℓ 32 ℓd(d + 1) + (d + 1) 5ℓ + 14 + d(3ℓ + 6)        + 35d3 ≤ 32 2 2
+                                                                               3 ℓ (d − 1).
+                              EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                                33
+
+
+The left side is 92 ℓ2 d2 + 6ℓd2 + 19  2             2           3
+                                    2 ℓ d + 20ℓd + 5ℓ + 14ℓ + 35d . From d(d − 3)(3ℓ − d) ≥ 0 we get
+d3 ≤ (3 + 3ℓ)d2 − 9ℓd, so the difference of the two sides is at least
+                        d2 37 2                 19 2         47 2
+                                                                
+                           6 ℓ − 111ℓ − 105 − d 2 ℓ − 295ℓ − 3 ℓ − 14ℓ.
+
+For ℓ ≥ 24 the first bracket is positive, so with d2 ≥ 3d this is at least d(9ℓ2 − 38ℓ − 315) − 47 2
+                                                                                                3 ℓ − 14ℓ,
+                          34 2
+and with d ≥ 3 at least 3 ℓ − 128ℓ − 945 > 0.
+  For the consequence: ηθK0 ≤ 94 ≤ 4, so Lemma B.1 applies to every term, and dividing by
+d + 1 − ϱ gives the average ≤ −7 − d(3ℓ + 6) in log2 . This is at most log2 2−7 + d log2 (1/(2k)), as
+2k ≤ 23ℓ+6 .                                                                                            □
+
+   Summed over the positions of a vertex of each type, the decay ≳ 32         2                3 2
+                                                                         3 ℓd beats the cost 2 ℓd
+of the factors 2 K 0 te                              −d        d
+                        , with enough margin to pay λ = (2k) for the edges and the factor 4 per
+vertex of Lemma 7.10. A vertex without a private prime is exact only in the orders that put all
+its neighbours before it, and only its average cost over the d + 1 − ϱ positions enters. The cap at
+Γ ≈ ℓ3 costs a term of order ℓd3 /ℓ3 , which the margin absorbs for d ≤ 3ℓ.
+
+                                 Appendix C. The formal proof
+    Every lemma, proposition, corollary and theorem of this paper has been formalized in Lean 4 [17]
+(version 4.22.0) with Mathlib [13] (tag v4.22.0, commit 79e94a093aff4a60fb1b1f92d9681e407124c2ca)
+and checked by Lean’s kernel. The formalization is the package erdos-straus-34-supplement-lean,
+version 2: 114 modules with 25,504 lines. Of these, 68 build the sieve, the polymer gas and the
+mass of §§2–6; 9 (Uniform/) the divisor reduction, the factor λK and the proof of Theorem 1.1(b);
+36 (BoxA/) §10 and the proof of Theorem 1.1(a); and one (Barrier) Proposition 11.1. A root audit
+file ImprovedStatementAudit.lean of 122 lines restates the headline statements. The package is
+archived on Zenodo, doi: 10.5281/zenodo.24017156 (all versions: doi: 10.5281/zenodo.23188521).
+The script compile.sh installs the toolchain, fetches Mathlib, builds the package and runs
+every check below (about 30–40 minutes on two cores; –lean4checker adds the replay of every
+module). Lean names below omit the namespace prefixes ErdosStraus, ErdosStraus.Annealed,
+ErdosStraus.Free, ErdosStraus.FreeBoot, ErdosStraus.Uniform and ErdosStraus.BoxA.
+    Headline and audit. Theorem 1.1(a) is erdos_straus_EK_uniformZ (BoxA/StageZ.lean) and
+Theorem 1.1(b) is erdos_straus_EK_uniform (Uniform/Stage2.lean), for the count EKu of the
+2 ≤ n ≤ N for which no positive integers x, y, z satisfy K/n = 1/x + 1/y + 1/z in Q. The audit file
+restates the objects of the statements from Mathlib definitions only (MyRep, MyEK, MycU, each equal
+to the development’s object by rfl), and derives main_bound_full (Theorem 1.1(a)), main_bound
+(Theorem 1.1(b)), main_bound_full_ES and main_bound_ES (Corollary 1.2), and barrier_bound
+(Proposition 11.1, with the events, the family of sets T and Ψ restated as MyU, MyFam, MyQ, and
+E[Ψ2 ] written out as a sum over configurations). The asymptotic improvement of the constant in
+Proposition 11.1 is not formalized.
+    Checks. All declarations (3171) depend only on propext, Classical.choice and Quot.sound,
+and the source contains no sorry, admit, native_decide, axiom, implemented_by, unsafe or
+extern. Every module is replayed by lean4checker; the whole environment of version 1, with
+its import closure in Lean’s core library and Mathlib, was replayed by lean4checker –fresh.
+The numerical inequalities are proved in the kernel from rational bounds on log 2 and e, without
+floating-point evaluation.
+    Differences from the text. In a few places the formal statements differ from the text; none changes
+a conclusion.
+• Lemma 2.1 carries the redundant hypothesis n ≥ (a + 1)ut , so the formal sieve excludes from Et
+  only the n ≥ (a + 1)ut , and Proposition 8.1 has an extra term 2A (2L + 1)2L .
+34                                     DMYTRO TRYBUSHNYI
+
+
+• For j = 1 the formal key lemmas use the ray term 1/Q instead of 2/(Q + 1) (the remark after
+  Lemma 4.2), and state (E4) twice: without the cofactor condition, with the ray term E0 /Q
+  absorbed in c0 (used for µq in Lemma 7.2, which is formally slightly sharper), and for j ≥ 1 with
+  ray term 2E0 /(Q + 1)j (used in Lemma 7.5).
+• Propositions 8.2 and 9.2 are formally stated for L ≥ L0 with 29 M ≤ L30 , the only case used,
+  rather than for K ≤ L3 .
+• The proposition of §11 is formalized with K ≥ 4 and with an arbitrary finite set of positive
+  triples in place of the Type II triples.
+• The formal proof of Proposition 6.7 counts a smaller interval of scales; events and triples range
+  over N rather than Z.
+• In §10 the formal proof uses an injective key κ built with Nat.pair. The package also contains
+  intermediate versions of the argument, with two boxes Ba , Bc in place of Wa , Wc ; the mass of
+  one wide scale (Proposition 10.12) is the box computation scale_massBa, which does not use
+  the box.
+  Statements and declarations.
+     Theorem 1.1(a)    erdos_straus_EK_uniformZ, erdos_straus_uniformZ,
+                       erdos_straus_uniform_L0Z, main_bound_full
+     Theorem 1.1(b)    erdos_straus_EK_uniform, erdos_straus_uniform, final_atU, L_small,
+                       c093, cU_le_cF, cU, main_bound
+     Corollary 1.2     main_bound_full_ES, main_bound_ES
+     Lemma 2.1         representable_of_event
+     Lemma 2.2         transferE, sumF2E_coeff, count_class, rsum_mul_rsum
+     Lemma 2.3         Polymer.decomposition, EvGasPolymer.WtEv_mul,
+                       EvGasPolymer.polymer_rep, EvGasPolymer.genfun, cTrE_nonneg,
+                       cTrE_agree
+     Lemma 2.4         tail_bound, truncated_bound
+     Proposition 2.5   sumF2E_bound, FkE_of_noEvent, EvReduction.gasBoundCE_of_KP,
+                       EvCond.cond_prop_E_all
+     Proposition 3.1   KP.dobrushin
+     Corollary 3.2     KP.kp_real
+     Lemma 4.1         Lattice.thue, Lattice.collinear, Lattice.offRay, Lattice.box_count,
+                       Lattice.lemma_73_1
+     Lemma 4.2         key_lemma_cof, key_lemma_cofJ, KeyLemmaB.ray_unique
+     Definition 5.1    CondFam, coprime_vPart
+     Lemma 5.2         decompS, E_le_reduce, card_coprime_le_Rcls, Rcls, L8_rep_mul, P0u
+     Lemma 5.3         condEv_holds_iff, condEv_valid
+     Lemma 5.4         A2_conditional, A2_explicit, A2_cofJ
+     Lemma 5.5         L14_one_ray_triples, E0F_small
+     Lemma 5.6         A1_no_dup
+     Lemma 5.7         A1_prune, mass_prunedC, epsPrime_F
+     Proposition 5.8   EvSite.FamOKE, KeyJE, FamOKJD, famOKE_cond, keyJE_famE, diag_cond
+     Lemma 6.1         rough_affineFU, V_geK, lamK, lamK_ge_one, Sieve5.rB, J0F
+     Lemma 6.2         AffineBrun.nsq_affine
+     Lemma 6.3         AffineBrun.omega_affine, AffineBrun.tau_sum_affine
+     Corollary 6.4     good_affineFU, good_progressionFU, AffineBrun.progression_to_affine
+     Lemma 6.5         mass_progressionFU
+     Lemma 6.6         W_weighted, W_simple, coprime_ac_of_class
+     Proposition 6.7   mass_fullFU, scale_massFU, scale_mass_eFU, FamFullF, condFam_of_goodF,
+                       vPart_ge_twoF, scaleOK_blocksF, condOK_fullF, count4F, J0F_le
+     Lemma 6.8         DivSumPhi.divsum_phi_gain_divisors, DivSumGain.trunc_divsum
+     Proposition 6.9   mass_full_prunedFU, mass_ge_XFK, eset_gainFU, prodKpU_le_lamK,
+                       gain_aux
+                       EXCEPTIONAL SETS OF K/n = 1/x + 1/y + 1/z                           35
+
+
+Corollary 7.1     MultiB, site_absF
+Lemma 7.2         EvSums.Mq_le, EvSums.Mq_uniform
+Proposition 7.3   kp_condF, firstOrder_boundF, r2_boundF, EvReduction.famZ_le_exp
+Lemma 7.4         cof_of_real, pow_le_DD
+Lemma 7.5         slot_boundD
+Proposition 7.6   fubini_shapeD, fubini_abs, gC_le_prod, Shape, Realizes, te, tl
+Lemma 7.7         conn_sum_le_shapes, sum_reals_relabel
+Lemma 7.8         sum_rk, rk_swap
+Lemma 7.9         exists_perm_le
+Lemma 7.10        sum_shape_le, card_edges_le, one_add_pow_pairs_le
+Proposition 7.11  site_sum_pow_freeD, site_sum_multi_freeD, shape_boundD
+Lemma 7.12        hW_free24, GF
+Proposition 7.13  multiB_cond24, epsF_le24, kp_free_cond24, r2_free_cond24, KP.kp_real
+Proposition 8.1   class_boundF24K, window_FK, condOK_fullF_P0u, ClassBound.greedy,
+                  ClassBound.card_le_base
+Proposition 8.2   rcls_bound, rcls_le, card_units_eq, P0u_le_pow, K_le_of
+Lemma 8.3         final_atU (the choice of L), EthU_le, TcF_bounds, hypUK, clsK, ell1024
+Lemma 8.4         core_realM, lN_le_real, cF
+Lemma 9.1         sum_le_euler, sum_inv_le_euler, sum_isqrt_le, totient_prod_primes,
+                  phi_mul_euler
+Proposition 9.2   levelU, num_T3, four_pow_SPU_le, card_SPU_le
+Lemma 9.3         cubeK, cubeK_spec, cubeK_min, L0K, L0K_props
+Lemma 10.1        key_lemma_fullB, strip_sum, fibre_full, AdmFull
+Definition 10.2   CondFamFull, FullAll
+Lemma 10.3        A2Full_condB, A2Full_explicit, A2Full_cofJ
+Lemma 10.4        diag_Full, hyperbola_card, diag_condF
+Lemma 10.5        prunedC_byF, mass_prunedCF, epsFP, epsFP_F
+Proposition 10.6  CondOKF, famOKE_condF, keyJE_famEF, condEv_injF, c0FJ, c2FE, BoxA.crF,
+                  deltaF
+Lemma 10.7        Dedup, dedup_inj, prio_sub_dedup, keyT, EqvT
+Definition 10.8   WaF, WcF, CoreZ, FamFullF, disj_F0_Wa, disj_F0Wa_Wc
+Lemma 10.9        inj_WW, nW_lt_v, noDup_WF0, noDup_WF0_arith, noDup_WWc,
+                  noDup_WWc_arith, inj_BaBa_arith, coreZ_inj, A1_no_dupX
+Lemma 10.10       count_W, blockW_card_ge, sum_sq_teleW, blocksCW, blocksAW
+Lemma 10.11       pairsXC_inv_sq, pairsXC_card_ge, pairsC_card_ge, pairsC_split,
+                  badXC_card_le
+Proposition 10.12 mass_FamWaS, scaleOK_W, scale_massBa, mass_progBa, dclass_sum_ge,
+                  FamWaS_subW, FamWcS_subW, class_swap, mass_coreZ_raw, union_algZ
+Lemma 10.13       c0FJ_small24, CstarF_le24, costF_log_le2X, arith_main24X, poly24X,
+                  hW_gen, hW_free24F, epsF_le24F, kp_free_cond24F, r2_free_cond24F
+Proposition 10.14 DedZ, condOK_dedZ, mass_dedZ, mass_algZ, mass_ge_XFKZ, exp_neg7_ge
+§10.7, one level  class_bound_genF, window_genF, class_boundF24KZ, TcF_le32,
+                  TcF_boundsZ, hypUKZ
+Lemma 10.15       cubeZ, L0Z, L0Z_props
+Proposition 11.1  Barrier.barrier, Barrier.christoffel, Barrier.E_Q_sq, Barrier.rankin,
+                  Barrier.typeII_sum_le, Barrier.harmonic_sigma_le, barrier_bound
+Lemma A.1         Mertens.theta_le, Mertens.mertens1_upper, Mertens2.recip_sum_le,
+                  Mertens2.recip_sum_le’, Mertens5.V_lower5, Sieve5.V_ge5,
+                  MassB.prod_two_le2
+Lemma A.2         MertensUpper.mertens1_lower, DivSumGain.recip_sum_ge,
+                  DivSumGain.prod_one_add_all
+Lemma B.1         costF_log_le2, c0F_small24, c12_le24, Cstar2_le24
+Lemma B.2         arith_main24, poly24, hW_free24
+36                                           DMYTRO TRYBUSHNYI
+
+
+Data availability. The Lean 4 formalization of every statement of this paper (version 2
+of the package) is the file erdos-straus-34-supplement-lean-v2.zip, SHA-256 checksum
+5c49ec66c021f0923c4a20611405b2d5ef6e9e6e6f2d1ecf018abcf603f1b7bf, archived on Zenodo,
+doi: 10.5281/zenodo.24017156. Version 1, for Theorem 1.1(b), is doi: 10.5281/zenodo.23188522; all
+versions are cited as doi: 10.5281/zenodo.23188521. The script compile.sh installs the toolchain,
+builds the package and runs the axiom audits and the kernel replays.
+Funding and competing interests. This research received no specific funding. The author
+declares no competing interests.
+
+                                                  References
+ [1] R. Bissacot, R. Fernández, A. Procacci and B. Scoppola, An improvement of the Lovász local lemma via cluster
+     expansion, Combin. Probab. Comput. 20 (2011), 709–719.
+ [2] V. Brun, Über das Goldbachsche Gesetz und die Anzahl der Primzahlpaare, Arch. Math. Naturvid. 34 (1915),
+     no. 8, 19 pp.
+ [3] V. Brun, Le crible d’Eratosthène et le théorème de Goldbach, Vid. Selsk. Skr. I. Mat.-Naturv. Kl. Kristiania
+     (1920), no. 3, 36 pp.
+ [4] B. Dahan, Sieve dimension and search depth for the Erdős–Straus conjecture, n ≡ 1 (mod 24), preprint (2026),
+     arXiv:2608.24035v1.
+ [5] B. Dahan, Composite witness sieves, Kneser–Plancherel containers, and the exponent 5/7 for the Erdős–Straus
+     conjecture, preprint (2026), arXiv:2611.08717v1.
+ [6] R. L. Dobrushin, Estimates of semi-invariants for the Ising model at low temperatures, in: Topics in Statistical
+     and Theoretical Physics, Amer. Math. Soc. Transl. Ser. 2, 177 (1996), 59–81.
+ [7] C. Elsholtz and T. Tao, Counting the number of solutions to the Erdős–Straus equation on unit fractions, J.
+     Aust. Math. Soc. 94 (2013), 50–105.
+ [8] P. Erdős, Az 1/x1 + 1/x2 + · · · + 1/xn = a/b egyenlet egész számú megoldásairól, Mat. Lapok 1 (1950), 192–210.
+ [9] R. Fernández and A. Procacci, Cluster expansion for abstract polymer models. New bounds from an old approach,
+     Comm. Math. Phys. 274 (2007), 123–140.
+[10] J. Friedlander and H. Iwaniec, Opera de Cribro, Amer. Math. Soc. Colloq. Publ. 57, Amer. Math. Soc., Providence,
+     RI, 2010.
+[11] H. Halberstam and H.-E. Richert, Sieve Methods, London Math. Soc. Monogr. 4, Academic Press, London, 1974.
+[12] R. Kotecký and D. Preiss, Cluster expansion for abstract polymer models, Comm. Math. Phys. 103 (1986),
+     491–498.
+[13] The mathlib Community, The Lean mathematical library, in: Proc. 9th ACM SIGPLAN Int. Conf. on Certified
+     Programs and Proofs (CPP 2020), 367–381.
+[14] F. Mertens, Ein Beitrag zur analytischen Zahlentheorie, J. Reine Angew. Math. 78 (1874), 46–62.
+[15] S. Mihnea and B. C. Dumitru, Further verification and empirical evidence for the Erdős–Straus conjecture,
+     preprint (2025), arXiv:2509.00128v1.
+[16] L. J. Mordell, Diophantine Equations, Pure and Applied Mathematics 30, Academic Press, London, 1969.
+[17] L. de Moura and S. Ullrich, The Lean 4 theorem prover and programming language, in: Automated Deduction –
+     CADE 28, Lecture Notes in Comput. Sci. 12699, Springer, 2021, 625–635.
+[18] C. Pomerance and A. Weingartner, Exceptions to the Erdős–Straus–Schinzel conjecture, preprint (2025),
+     arXiv:2511.16817v2.
+[19] R. A. Rankin, The difference between consecutive prime numbers, J. London Math. Soc. 13 (1938), 242–247.
+[20] S. E. Salez, The Erdős–Straus conjecture: new modular equations and checking up to N = 1017 , preprint (2014),
+     arXiv:1406.6307v1.
+[21] A. D. Scott and A. D. Sokal, The repulsive lattice gas, the independent-set polynomial, and the Lovász local
+     lemma, J. Stat. Phys. (2005), doi:10.1007/s10955-004-2055-4.
+[22] J. B. Shearer, On a problem of Spencer, Combinatorica 5 (1985), 241–245.
+[23] P. Shiu, A Brun–Titchmarsh theorem for multiplicative functions, J. Reine Angew. Math. 313 (1980), 161–170.
+[24] W. Sierpiński, Sur les décompositions de nombres rationnels en fractions primaires, Mathesis 65 (1956), 16–32.
+[25] R. C. Vaughan, On a problem of Erdős, Straus and Schinzel, Mathematika 17 (1970), 193–198.
+[26] W. A. Webb, On 4/n = 1/x + 1/y + 1/z, Proc. Amer. Math. Soc. 25 (1970), 578–584.
+
+     Karlsruhe Institute of Technology, Karlsruhe, Germany
+     Email address: Dmytro.Trybushnyi@kit.edu
+

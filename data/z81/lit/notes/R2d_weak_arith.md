@@ -1,0 +1,25 @@
+# z81-farey-proof — weak arithmetic literature sweep
+
+**Scope/result:** arXiv API sweep could not be completed: `export.arxiv.org` returned HTTP 429 on the first category query and again on the combined author query (six retries each); script therefore yielded no complete query results. Do not treat this as an exhaustive negative search. Search window requested: 2024-01-01–2026-11-22; intended categories math.LO, math.NT, cs.LO. Web search and available source-text checks below identify relevant hits.
+
+## Relevant opened papers
+
+- **arXiv:2404.06888, Emil Jeřábek, “On the theory of exponential integer parts” (2024).** Theorem 4.7: “The first-order theory of EIP of RCEF in LOR, with or without GA, is TEIP.” (opened `src/2404.06888.txt`, lines 785–788; proof not audited). Abstract/introduction also says IE₂ proves TEIP with the powers-of-2 predicate (lines 73–83). **Verdict/relevance:** genuine IOpen/integer-parts result and one requested author; concerns exponential integer parts and a game axiomatization, not IE₁⁻ divisibility, Farey sequences, or binary-form reduction. No direct lemma for this lane. Repo novelty grep: arXiv ID/title absent from Markdown matches.
+
+- **arXiv:2508.14758, Enayat–Łełyk–Visser, “Completions of Restricted Complexity I: Weak Arithmetical Theories” (2025).** Theorem B.2: “IE1 + Coll ⊢ PA.” (opened `src/2508.14758.txt`, lines 2329–2338; proof not audited). Their introduction reports a restricted-complexity completion for IOpen using Shepherdson’s Puiseux-series model (lines 70–86); see also Theorem 5.2 at line 1048. **Verdict/relevance:** directly relevant to IE₁/model-construction boundaries, but the PA conclusion needs full Collection, much stronger than parameter-free bounded-existential induction IE₁⁻; it does not yield Farey/divisibility results at the lane’s target strength. Repo novelty: ID already appears in `LOGIC_BEZOUT_COLLECTION.md`, `data/z66/ie1/lit_ie1.md`, and reviews.
+
+- **arXiv:2509.05653v2, Hetzl–Weiser, “Subsystems of Open Induction” (2025/2026).** Theorem 4.4: “For i ∈ {0,1} we have: Tᵢ ⊊ Tᵢ + IAtom ⊊ Tᵢ + ILiteral ⊊ Tᵢ + IDClause ≡ Tᵢ + IClause ≡ Tᵢ + IOpen ≡ Tᵢ + {Bₙ,ₘ : n,m∈N, n≤m}.” (opened `src/2509.05653.txt`, lines 319–330; proof not audited). **Verdict/relevance:** exact structural result about restricted fragments of open induction, motivated by automated induction proving; no arithmetic divisibility, Farey, Gauss reduction, or IE₁ result. No concrete usable lemma for ES. Repo novelty grep found no match.
+
+## Non-arXiv / web leads
+
+- Web search found **Athipat Thamrongthanyalak, “Quadratic forms in normal open induction,” MLQ 70(2) (2024), 197–204** (search result citation snippet). This is potentially the closest topical item: exact title matches binary forms/IOpen, but theorem text was not obtained/opened, so no theorem claim is made and it needs primary-source follow-up. Also surfaced Otero’s *Quadratic forms in normal open induction*, JSL 58 (1993), outside the date window.
+- Jeřábek homepage/publications search surfaced the 2024 exponential-integer-parts paper above; no other in-window relevant Jeřábek result located in web results. Searches for Boughattas 2024–26 returned no relevant paper beyond the 2005 “New Models of Bounded Induction Axioms.” This is search evidence, not an exhaustive journal audit.
+
+## Search log / hit counts
+
+- arXiv API `cat:math.LO`, date-windowed: **incomplete**, retrieved 1,200 of reported 3,763, then HTTP 429 through six retries; no TSV produced.
+- Combined `au:` query for Jerabek/Jeřábek, Boughattas, Shepherdson, Smith, Otero, Wilkie, Macintyre, D’Aquino, Berarducci, Kołodziejczyk, Thapen, Adamowicz, Zdanowski, Kaye, Krajewski, Mohsenipour, Krajíček, Pudlák, Atserias, Moniri, Glivický, Šaloun, Pich, Buss: **request failed HTTP 429 before results; hit count unavailable**.
+- Intended but **not run** after API throttle (therefore hit count unavailable, not zero): `cat:math.NT`; `cat:cs.LO`; `abs:"open induction"`; `abs:"bounded existential induction" OR abs:IE_1 OR abs:IE1`; `abs:IΔ_0 OR abs:"I Delta_0" OR abs:"discretely ordered ring"`; `abs:"integer part" OR abs:"Shepherdson model" OR abs:"normal models of open induction"`; `abs:"Farey fractions" OR abs:"continued fractions" OR abs:"Euclidean algorithm"`; `abs:"Gauss reduction" OR abs:"binary quadratic forms" OR abs:Pell`; `abs:"Bezout domain" OR abs:Bezout`.
+- Web searches (titles/results, not defensible exhaustive hit counts): Jeřábek homepage/publications; open induction/IE₁ journals; “Shepherdson model” / “normal models of open induction”; Boughattas induction; Hetzl–Weiser subsystem title; quadratic forms in normal open induction. Relevant distinct arXiv hits opened: **3** (2404.06888, 2508.14758, 2509.05653).
+
+**Bottom line:** no new theorem located establishing IE₁⁻/IE₁/IΔ₀ Farey, prime-short-vector, factorial-splitting, or Gauss-reduction strength. Most important follow-up is obtain the 2024 MLQ article and rerun the full API sweep after arXiv restores service. Proofs in opened papers were not audited.

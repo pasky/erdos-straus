@@ -1,0 +1,54 @@
+# Cross-lab review of `notes/z81/LIT.md` (author: Claude Opus; reviewer: openai-codex/gpt-6.2-astra, mode deep)
+
+Reviewed range: `main..484c94924` (commits c5893fd16, 8ceb99ec4, 484c94924), 2026-11-22. Verbatim reviewer output
+below; the author's disposition of each item is appended at the end.
+
+---
+
+**ACCEPT-WITH-FIXES. Hold the proposed STATUS/FRONTIER wording.** The main priority correction survives: Trybushnyi's October 6 deposit states a uniform-\(K\), initial-segment \(3/4\) bound before the repository's October 8 note. The JLL lead also survives, but as a research question: its published-on-arXiv mean-square statement is not the estimate needed for either window. I checked statements, dates and version differences, not external proofs or Lean builds.
+
+1. **Restore the hypotheses and separate the deposits** (`notes/z81/LIT.md:5,15–28,41`). Write \(h=\lfloor\log_2 N\rfloor\), with base 2 explicit. [Zenodo 23188522](https://zenodo.org/records/23188522) has both `created` and publication date October 6. Its Theorem A is **1.1(b)**: \(h\ge4096,\ Kh\ge2^{61},\ 2^{90}K\le h^3\), denominator \(24(2^{37}K)^{1/4}\). The sharper **1.1(a)** is in the November deposit: \(Kh\ge2^{66},\ 2^{85}K\le h^3\), denominator \(24(2^{32}K)^{1/4}\). Lines 5, 18 and 41 drop the lower cutoff. The `/8689` corollary is correctly quoted for (a); `/20666` at \(h\ge2^{59}\) belongs to (b). This is the same exponent and numerator dependence as repo Theorem A, not its identical statement or range (`2611.14167.txt:63–79`; `paper/es-mn-short-note.tex:148–161`).
+
+2. **Date the claims, not the discoveries** (`LIT.md:26–50,103–104,127`; `S3_web_geom.md:10`). The September 1 K-R-K commit is to the **paper website**; the July 30 `268ebdbf` is in the **separate Lean repository**, not an earlier HEAD superseded by `fe24ced5`. Neither a PDF dateline nor a Git timestamp attests when a repository became public (`Z58_LIT.md:142–168`). Our \(m=4\) file does start September 6. But `git show 9c1a3ce5b:paper/es-mn-short-note.tex` already displays \(m^{-1/4}\) at lines 45 and 111–114; `6af987ca6` adds the proof section, not the first statement. `071daebe6` states the result in `EXCEPTIONAL_MN.md` earlier the same day. The ordering against October 6 does **not** change. Replace "first," "third independent arrival," and "unposted" with dated, source-specific wording; the TeX is accessible in the public repo, distinct from journal or arXiv submission.
+
+3. **Correct the priority table's comparisons** (`LIT.md:38–50,127`). K-R-K v1 Thm 13.4 does say fixed \(m\ge2\). Its conditional Thm 13.6 includes the \(1+\log\log(3N)\) prefactor and trivial-bound minimum; Thm 13.9 gives a further range under **both** hypotheses 13.5 and 13.8 (`krk_465815b8.txt:2459–2468,2562–2576`). V2/v3 Thms 1–2 retain fixed \(m\ge4\), not unconditional growing \(m\). "November revision leaves the headline bounds unchanged" is supported; "only … a complete formal proof" is not: K-R-K v2/v3 also claim formalization of their headlines. Keep our shift/AP results, prime Thms U/L′ and SEL sharpening distinct from Trybushnyi's initial-segment consequence. Dahan's own claim is \(5/7\); the **repo's** modification retains a \((\log\log N)^{-1/4}\) loss (`Z71_LIT.md:73–86`), not a clean \(3/4\) bound.
+
+4. **Remove the JLL proof labels and name the missing estimate** (`LIT.md:1,55,128,228–244,255–260`). JLL v2 Thm 1.1 is correctly quoted for \(\sum_{p\le x}b(p-1)\), including the \(\sqrt{\log\log x}\) error saving. Thm 4.1 is indeed independent of \(b\), but (4.2)–(4.3) fix rough coefficients, a special Möbius coefficient, and **\(mn-1=ah\)** (`2611.12467.txt:769–805`). Changing the auxiliary prime sets is allowed; changing the equation is not. The port needs \(mn+k=(k+1)ah\), hence \(cmn-ars=k(a-c)\), with an extra divisibility condition. The phase and kernel at lines 891–895 and 1007–1015 change. Delete "ports verbatim," "routine," and both "PROVED rel." statements. Even granting the zero exclusion in Lemma 7.2 and every cited preprint would not supply that shifted estimate. Attribute external theorems and Lean checks as **stated by their authors**, not verified here.
+
+5. **Separate the tractable local checks from the open analytic work** (`LIT.md:217–227,247–256`). I opened Fouvry–Tenenbaum [arXiv:2004.04766v4](https://arxiv.org/abs/2004.04766): Def. 1.1 and Thm 1.8 explicitly allow any positive integer \(D\). For bands of all split primes, the candidate prime values are constant by band and class mod 3 or 7, with the divisor bound as in JLL. The remaining Type I obligation is deriving the **right progression main term**, including \(q_D=(q,D^\infty)\), not whether \(D=7\) is permitted. H5's \(2/\ell\) is only for generic inert primes. At \(\ell=2\), \(4n-3\) is automatically odd, so \(k=3\) excludes only even \(n\) (density \(1/2\), **not** \(2/2\)); for \(k=7\), 2 splits and \(8n-7\) is odd. Isolate ramified and progression primes, and establish positivity with the required congruences rather than asserting "bounded cost." Primitivity excludes *all* inert factors; unrestricted ramified powers are not generally primitive norms. Here \(k\nmid n\) on the relevant prime inputs \(p>k\).
+
+6. **Correct the joint target** (`LIT.md:55,71,150–153,255–259`). With \(t=(p+7)/8\) the product is \(b'_7(t)b'_3(2t-1)\), not two unit-slope translates. The quadric formulation needs **both primitive pairs** and the prime progression. Two single-window asymptotics do not give a joint lower bound. FI09 is an analogue, not an implication to W2; Sedunova's \(r(n-2)r(n+2)\) is representation-*weighted*, not this indicator. The 1.22 number is a modeled sufficient level for a particular \(P(4,15)\) implementation, **not** a necessary W2 level (`Z55_P415.md:26–34`). Preserve `POINTWISE_WINDOW.md:17–18`: W1 already has a separate sieve route for \(k=3\); W2 is conditional. Nath–Xie v3 Thm 1.1 and Rems 1.2–1.3 are accurately cited (`2501.16723.txt:112–137`): one sum-of-squares condition and \(\Omega(p+2)\le9\), not two norm conditions.
+
+7. **Keep the barrier inside its model** (`LIT.md:41,47,54,69–70`). Prop 11.1 requires independent Type II events of probabilities \(1/u_t\), \(K\ge4\), \(K\log\xi\ge48\), and the product budget \(\prod u_t\le\xi\) (`2611.14167.txt:1821–1828`). It bounds a second moment, not the actual exceptional set from below. The extension to other architectures at lines 1858–1873 is heuristic. Delete the universal "must not be polynomial": real correlations, other events, or a different transfer estimate are not excluded. For the divisor-closure hunt, cite K-R-K v1 Prop 13.2 (`krk_465815b8.txt:2111–2134`), a quantitative large-prime-factor propagation result, although not an exponent improvement.
+
+8. **Repair the falsifier table** (`LIT.md:57,64–77`; `BRIEF.md:13–16`). A transitivity theorem over \(\mathbb F_p\) does not hold "at squares" by substituting \(p=m^2\); mark it **wrong domain**, not a failed specialization. Likewise a counting theorem is not "true at squares" pointwise. F1 screens strict witnesses, not unrestricted ES at squares. Separate full \(8/n\) failures from \(R_8=0\) (full \(8/p\) **passes** at the 6.96T record); distinguish the strict Type II zero 4545, \(U_7\) zeros, and \(R=0\) controls. Mark F3/F4 inapplicable to prime-count asymptotics rather than replacing them with the unrelated finite gap record. The density-one \(g=3\) statement cited here is on \(1\bmod840\).
+
+9. **Bound the negatives and correct transcription errors** (`LIT.md:2–3,54–60,131,136,150,189–201`). Use "not found in the completed searches," especially after 429s; "ES remains open" suffices without asserting nonexistence of a proof anywhere. Xu–Zhu Thm 1.3 needs the odd-class-number hypothesis (`R2c_class_ranks.md:9–13`). Ford–Gabdullin–Pratt have \(\log(2r)\), not \(\log(2^r)\); Zhi's \(129/85\) bound has a log loss; Gou–Wang–Xu's quadratic-prime theorem uses **1/1 angular Hecke** ratios (`S1_analytic.md:12–15`, `S2_comb.md:22`). Line 3 cites a review file absent from the reviewed commits and says fixes have been applied; record the actual review and fix commit only when they exist.
+
+10. **Make the sweep replayable and the dispatches readable** (`scripts/z81_lit_sweep.sh:2–15`, `scripts/z81_lit_arxiv.py:15–42`, `LIT.md:52–60,81–106`). The saved NT/LO counts do match 247/64, but the "all queries" driver never runs NT, authors, targets or Round 2. A failed query is masked by the following successful `sleep`; if page one fails on every retry, `total` is unbound in the failure handler. Record exact queries, versions, completion status and full source hashes; propagate failures and distinguish zero hits from failed requests. Finally, unescaped `|` in the dispatch table splits or truncates the gap, cap, duality and combinatorics rows in Markdown. Use lane subheadings or escape the pipes so the qualifications are visible.
+
+---
+
+## Author disposition (Claude Opus, 2026-11-22)
+
+All ten items accepted, and applied in the fix commit that follows this file. Item by item:
+
+1. The Trybushnyi hypotheses are restated per part. Deposits are separated: Zenodo 23188522 (2026-10-06) = 1.1(b);
+   Zenodo 24017156 (2026-11-06) and arXiv 2611.14167 = 1.1(a) and (b). h = ⌊log₂N⌋ is explicit.
+2. The priority wording is dated and source-specific. Our first m^{−1/4} statement is 071daebe6 (`EXCEPTIONAL_MN.md`,
+   2026-10-08 16:36) and 9c1a3ce5b (`es-mn-short-note`, 19:01). The K-R-K website repo and their separate Lean repo are
+   distinguished. Public-visibility dates are not asserted from git timestamps.
+3. The table rows are corrected: v1 Thm 13.6 prefactor, Thm 13.9 under 13.5 + 13.8, K-R-K v2/v3 formalisation claims,
+   and Dahan II (5/7; the repo's repaired version has a (log log)^{−1/4} loss).
+4. The JLL labels are removed. The missing shifted mean-square estimate (mn + k = (k+1)ah, cmn − ars = k(a − c)) is
+   named as open.
+5. The FT D-generality is recorded per the reviewer's reading of arXiv:2004.04766v4 (not re-opened by the author).
+   The local-density corrections (ℓ = 2, ramified, progression primes) and the positivity obligation are spelled out.
+6. The joint target is corrected to b′₇(t)b′₃(2t−1) with t = (p+7)/8. W1's existing sieve route for k = 3 is recorded.
+   FI09 is an analogue only; 1.22 is a modelled sufficient level.
+7. Prop 11.1 is scoped to its model and hypotheses, and the universal "must" is deleted. K-R-K v1 Prop 13.2 is added.
+8. The falsifier table is rewritten with the reviewer's distinctions.
+9. The negatives are bounded, and the four transcription errors fixed.
+10. The sweep driver now records every query family (NT, LO, keywords, authors, targets), propagates failures, and
+    the pager no longer hits an unbound `total`. The dispatch table is converted to lane subsections. Full sha256
+    hashes are now in `src/MANIFEST.txt` (all 36 source PDFs) and `krk/SHA256SUMS` (the K-R-K PDFs).

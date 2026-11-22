@@ -1,0 +1,1472 @@
+                    An improved bound for the exceptional set
+                         of the Erdős–Straus equation
+                 Sushaan Kandukoori               Shrikrishna Ramesh                Pranava Kumar
+
+                                                   July 29, 2026
+
+
+                                                       Abstract
+         Let E(N ) be the number of integers 2 ≤ n ≤ N for which
+                                                   4  1 1 1
+                                                     = + +
+                                                   n  x y z
+
+      has no solution in positive integers. Vaughan proved E(N ) ≪ N exp{−c(log N )2/3 }. We prove
+
+                                          E(N ) ≪ N exp{−c(log N )3/4 }.
+
+      For each a ≥ 1, the divisors of a2 supply congruence classes modulo 4a − 1 on which such representations
+      exist. For a large parameter X, we select a family whose reciprocal moduli sum to order (log X)3 . Averaging
+      over small divisors retains this weight while controlling shared prime factors. A finite counting argument
+      gives the stated bound at the scale log X ≍ (log N )1/4 . The same argument gives this exponent for every
+      fixed numerator m ≥ 4.
+
+2020 Mathematics Subject Classification. Primary 11D68; Secondary 11N36, 11N37.
+Keywords. Erdős–Straus conjecture, Egyptian fractions, exceptional sets, sieve methods, Bombieri–Vinogradov
+theorem.
+
+
+1   Introduction and main theorem
+The Erdős–Straus conjecture asserts that for every integer n ≥ 2 the equation
+                                                  4  1 1 1
+                                                    = + +                                                            (1)
+                                                  n  x y z
+has a solution in positive integers. Let E(N ) count the exceptions 2 ≤ n ≤ N . Vaughan proved the classical
+estimate
+                                        E(N ) ≪ N exp{−c(log N )2/3 }
+for some absolute c > 0 [15, p. 193, (2)]. Our main result improves the exponent.
+
+Theorem 1 (main theorem). There is an absolute constant c > 0 such that, for all N ≥ 3,
+                                         E(N ) ≪ N exp{−c(log N )3/4 }.
+
+   The same saving holds relative to the primes: the number of exceptional primes up to N is ≪ π(N )
+exp{−c(log N )3/4 } after decreasing c.
+   For m ≥ 4, let Em (N ) count the positive integers n ≤ N for which m/n is not a sum of three unit fractions.
+
+
+
+
+                                                           1
+Theorem 2 (Erdős–Straus–Schinzel exceptional sets for a fixed numerator). For each fixed integer m ≥ 4, there
+are constants cm , Cm > 0 such that, for all N ≥ 3,
+                                     Em (N ) ≤ Cm N exp{−cm (log N )3/4 }.
+   The cases m = 2, 3 have no exceptions, since
+                               2    1     1     1    3     1   1   1
+                                 = +         +    ,    = + + .
+                               n    n 2n 2n          n     n n n
+Pomerance–Weingartner [14, Thm. 1.3] prove Em (N ) ≤ N exp{−C(log N )2/3 /φ(m)1/3 } uniformly for
+4 ≤ m ≤ (log N )2 . For each fixed m, Theorem 2 improves the exponent from 2/3 to 3/4, with constants
+depending on m.
+Example 1.1. For n = 2521, take a = 12 and h = 16. Then h | a2 and
+                                  4a − 1 = 47,        n + 4h = 2585 = 47 · 55.
+Lemma 2.3 gives
+                                         4     1    1      1
+                                            =    +     +        .
+                                       2521   644 30252 1217643
+    We use the Type II congruences
+                                           4a − 1 | n + 4h,       h | a2 .
+The choices h = 1, a, a2 give the shifts −4, −1, −a modulo 4a − 1, respectively. Classical congruence criteria
+appear in Yamamoto [18, Lemmas 1–2]. The sum over the remaining divisors has cubic logarithmic order; see
+Proposition 4.2.
+    In the selected family, compatible congruences with the same large prime coincide. We bound the remaining
+overlaps by sums over common small factors. Two divisor sums give weight (log X)2 ; averaging over small
+divisors supplies log z, which combines with the rough cofactor sum log X/ log z to give the third logarithm.
+    Vaughan’s sieve estimates [16, Cor. 3.1.1] and Elsholtz’s treatment of sums of k unit fractions [5, Thm. 1.3 and
+Sec. 5] provide earlier approaches to exceptional sets; the latter explicitly controls distinctness of the eliminated
+residue classes. Elsholtz and Tao proved bounds for the average number of representations over primes [7], and
+Elsholtz–Planitzer give further results on the number of representations [6]; Bloom–Elsholtz survey Egyptian
+fractions [2]. Bright and Loughran studied the associated surfaces through the Brauer–Manin obstruction [4].
+    Bello-Hernández, Benito, and Fernández [1] study a divisor parametrization with prescribed common
+divisibility and compare it with Type I/II descriptions.
+Remark 1.2 (the exponent 3/4). For a family of congruences with total weight µ ≍ (log X)k and the overlap
+estimates below, the level condition of Theorem 5.4 has the form log P (z) + O(µ log X) ≤ log N . When
+log P (z) = O((log X)k+1 ), choosing log X of order (log N )1/(k+1) gives a saving exp{−c(log N )k/(k+1) }.
+The family with prime moduli used in the Vaughan method has quadratic mass; see Pomerance–Weingartner [14,
+Lemma 4.1]. Here the cubic mass gives 3/4.
+
+Formalization. The companion Lean 4 development [12] proves Theorems 1 and 2, the bound for exceptional
+primes, Example 1.1, and every numbered result of Sections 2–6, using only Mathlib and Lean’s standard axioms.
+Its proof of Theorem 3.7 adapts an existing open source formalization of the Bombieri–Vinogradov theorem,
+credited in the repository.
+
+
+2    Congruences
+Fix m ≥ 4. A Type II representation for a prime denominator is one in which exactly two denominators
+are divisible by the prime. The following is a reformulation of the criteria of Elsholtz–Tao [7, Sec. 2] and
+Pomerance–Weingartner [14, Prop. 2.3 and Cor. 2.4]. The proof of Theorem 1 uses only Lemma 2.3.
+
+
+                                                         2
+Theorem 2.1 (Type II representations). Let p be a prime. Suppose that positive integers d, f, A, B satisfy
+                                          (mdf A − 1)B = Ap + d.                                             (2)
+Then
+                                        m       1          1         1
+                                           =         +          +       .
+                                         p    pdf A pf AB df B
+Conversely, every Type II representation can be put in this form after permuting the two denominators divisible
+by p.
+Proof. Putting the three displayed fractions over the common denominator pdf AB gives numerator B +d+Ap =
+mdf AB by (2). The third denominator cannot also be divisible by p, since then the three fractions would sum to
+at most 3/p. Conversely, write a Type II solution as
+                                         m      1      1   1
+                                            =       +    + ,      p ∤ w.
+                                          p    pu pv w
+Let g = (u, v) and write u = gd, v = gB, where (d, B) = 1. Clearing denominators and dividing by g gives
+                                       mgdBw = w(d + B) + pgdB.
+Modulo d, this gives wB ≡ 0 (mod d), so d | w because (d, B) = 1. Modulo B, the same argument gives
+B | w. Thus dB | w; write w = df B with f ≥ 1. Substitution and division by dB yield
+                                          mgdf B = f (d + B) + pg.
+Thus f | pg. Since p ∤ w, we have (f, p) = 1, so f | g; write g = f A. Dividing the last identity by f now gives
+                                           mdf AB = d + B + pA,
+which is (2). The formulas u = df A, v = f AB, and w = df B follow from the definitions. For m = 4 this is
+equivalent to the Elsholtz–Tao Type II normal form [7, Prop. 2.6, (2.18), (2.20), (2.22)].
+
+    Put a = df A, h = d2 f , and qa = ma − 1. Then h | a2 .
+Theorem 2.2 (Type II congruences). Let p be a prime and a ≥ 1. There is a Type II solution with first
+denominator pa if and only if there exists a divisor h | a2 such that
+                                              ma − 1 | p + mh.                                               (3)
+When (3) holds, write h = d2 f and a = df A. Then
+                                                       Ap + d
+                                               B=
+                                                     mdf A − 1
+is integral, and Theorem 2.1 gives a Type II representation.
+Proof. For a representation in Theorem 2.1, the identity
+                                  A(p + md2 f ) = Ap + d + d(mdf A − 1)
+shows that ma − 1 divides A(p + mh). Since (A, ma − 1) = 1, it divides p + mh.
+   Conversely, for h | a2 put
+                                g = (a, h),    d = h/g,      A = a/g.
+Then (d, A) = 1, and h | a2 gives d | gA2 . Hence d | g; set f = g/d = g 2 /h. Now g = df , so a = df A and
+h = d2 f . Conversely, any such decomposition with (d, A) = 1 has (a, h) = df , which recovers d, f, A from
+these formulas and proves uniqueness.
+    Finally,
+                                   Ap + d = A(p + mh) − d(ma − 1).
+The congruence (3) therefore makes B = (Ap + d)/(ma − 1) integral. Both numerator and denominator are
+positive, so Theorem 2.1 applies.
+
+                                                       3
+      For arbitrary positive denominators we use the following sufficient condition.
+
+Lemma 2.3 (a sufficient condition). Let n ≥ 1, let a ≥ 1, let q = ma − 1, and let e be a positive divisor of a2 . If
+                                                 n ≡ −me           (mod q),
+then m/n is a sum of three positive unit fractions.
+
+Proof. Put A = an. Since ma ≡ 1 (mod q), the congruence on n gives A ≡ −e (mod q). Since e | a2 and
+(a, q) = 1, also (e, q) = 1. Define
+                                                       A+e                    A + A2 /e
+                                   x = A,         y=       ,           z=               .
+                                                        q                        q
+Since e | a2 , the quantity A2 /e = (a2 /e)n2 is an integer. The congruence A ≡ −e (mod q) makes y integral;
+squaring and multiplying by the inverse of e modulo q gives A2 /e ≡ e (mod q), so z is integral too. Both are
+positive. Moreover
+                                        qy − A = e,       qz − A = A2 /e,
+and hence (qy − A)(qz − A) = A2 . Expanding and cancelling A2 gives
+                                                 q 2 yz − qA(y + z) = 0.
+Dividing by qyz yields q = A(1/y + 1/z). Therefore
+                                              1 1 1  1+q  m
+                                               + + =     = .
+                                              x y z   an  n
+
+3      Preliminary estimates
+Fix                                                                                     
+                                                               1 1 1 3 2 8
+                                   (η, σ, λ, θ, β, ν) =          , , , , ,                   .                   (4)
+                                                              100 20 10 10 3 25
+Thus 3η < λ, η + σ < λ, λ + η < θ, and θ < ν < β/2 < β < 1 − σ. Put
+                                                                                         Y
+                              z = (log X)4 ,         U = (log X)8 ,            P (z) =           ℓ.
+                                                                                         ℓ≤z
+
+The product is over primes. Implied constants and thresholds depend at most on the fixed numerator m and on
+parameters declared fixed. Uniformity is with respect to all other variables in the stated ranges.
+    The family in Section 6 is constructed as follows. Choose e = rs2 with r, s squarefree and coprime, a
+small divisor d− | P (z), a squarefree cofactor d+ with (d+ , P (z)) = 1, and a prime p. Require d− d+ p ≡ −1
+(mod m rad(e)). Then a = (d− d+ p + 1)/m satisfies e | a2 , and Lemma 2.3 supplies the class n ≡ −me
+(mod d− d+ p). After fixing n ≡ b (mod P (z)), require b ≡ −me (mod d− ); the remaining modulus is d+ p.
+Section 5 gives the counting argument for these classes.            P
+    We use Abel summation in the following finite form. If A(t) = n≤t an and f is continuously differentiable
+on [u, v], then
+                           X                                          Z v
+                                an f (n) = A(v)f (v) − A(u)f (u) −        A(t)f ′ (t) dt.
+                           u<n≤v                                                u
+                                            Rv
+This follows by writing f (n) = f (v) − n f ′ (t) dt and interchanging the finite sum and integral.
+
+
+
+
+                                                               4
+Lemma 3.1 (prime sums). For x ≥ 2,
+       X                  X log p                                        X1
+           log p ≪ x,              = log x + O(1),                                 = log log x + B + O(1/ log x).
+                               p                                               p
+          p≤x                   p≤x                                      p≤x
+
+Moreover,
+                    Y                                     Y                         log x
+                          (1 − p−1 )−1 ≍ log x,                     (1 + p−1 ) ≍            (2 ≤ z ≤ x).
+                                                                                    log z
+                    p≤x                                 z<p≤x
+In particular, for fixed 0 < a < b,
+                                        X          1
+                                                     = log(b/a) + Oa,b (1/ log X).
+                                                   p
+                                      X a <p≤X   b
+
+                                                                             Q
+Proof. We recall the argument; see also [13, Chaps. 2–3]. Put P∗ (n) = p≤n p. Strong induction gives
+P∗ (n) ≤ 4n . For even n > 2, P∗ (n) = P∗ (n − 1). For n = 2k + 1, each prime k + 1 < p ≤ 2k + 1 divides
+ 2k+1
+   k   , and the two equal central coefficients give 2k+1
+                                                       k    ≤ 4k . Hence P∗ (2k + 1) ≤ P∗ (k + 1)4k ≤ 42k+1 .
+Taking logarithms proves the first estimate.
+    Let Λ(pj ) = log p and let Λ(n) = 0 otherwise. With ψ(x) = n≤x Λ(n), the first estimate gives
+                                                                   P
+                                         X        X                 √
+                            ψ(x) =                     log p ≪ x + x log x ≪ x.
+                                        j≤log x/ log 2 p≤x1/j
+
+Counting prime factors in n! gives Legendre’s identity and therefore
+                             X                           X Λ(d)
+                 log(n!) =       Λ(d)⌊n/d⌋,        0≤n             − log(n!) ≤ ψ(n) ≪ n.
+                                                               d
+                             d≤n                         d≤n
+                        P
+The integral bounds for j≤n log j give log(n!) = n log n + O(n). The proper prime powers contribute a
+bounded amount, since
+                            X X log p X log p                 X log n
+                                         =                 ≤               < ∞.
+                             p j≥2
+                                     pj       p
+                                                  p(p − 1)        n(n − 1)
+                                                              n≥2
+               P
+Thus B1 (x) := p≤x (log p)/p = log x + O(1), first for integer and then for real x. Abel summation gives
+                                     X1                 Z x
+                                              B1 (x)          B1 (t)
+                                           =          +              2
+                                                                       dt.
+                                        p       log x     2 t(log t)
+                                         p≤x
+
+The error integral converges, with tail O(1/ log x), proving the third estimate and the formula on a fixed prime
+window.
+    Finally, − log(1 − p−1 ) = p−1 + O(p−2 ) and p p−2 < ∞ give the first product estimate. The identity
+                                                      P
+
+1 + p−1 = (1 − p−2 )/(1 − p−1 ) gives the second: the product of the factors 1 − p−2 is bounded away from
+zero, and the quotient of the first product estimates is ≍ log x/ log z.
+    For the lower bound on the prime counting function used in the introduction, Legendre’s formula also gives
+                                               4n
+                                                        
+                                                         2n
+                                                    ≤         ≤ eψ(2n) .
+                                            2n + 1        n
+Indeed, each exponent in the binomial
+                                 P coefficient is at most the number of powers of that prime not exceeding 2n.
+                                               √
+Hence ψ(x) ≫ x. Since ψ(x) − p≤x log p ≪ x log x = o(x), it follows that π(x) ≫ x/ log x.
+                 2 (k)/φ(k) and C =
+                                      P                 Q
+P   Put γ(k) =  µ                 γ    k≥1  γ(k)/k    =    p (1 + 1/(p(p − 1))) < ∞. The identity n/φ(n) =
+  k|n γ(k) and positive summation give
+         X       n             X     1                          X                           X γ(k)         log(2T )
+                     ≪ T,                ≪ log(2T ),                 γ(k) ≪ log(2T ),                 ≪             .   (5)
+                φ(n)                φ(n)                                                          k           T
+         n≤T                  n≤T                           k≤T                             k>T
+
+
+                                                                5
+In particular M/φ(M ) ≪ log(2M ).
+
+Lemma 3.2 (ordinary squarefree reciprocal sums). Let 0 < a0 < b0 and c0 > 0 be fixed. Uniformly for
+X a0 ≤ U0 < U1 ≤ X b0 with U1 /U0 ≥ X c0 , one has
+                                        X       1                  U1
+                                                   ≍a0 ,b0 ,c0 log    .
+                                                n                  U0
+                                           U0 <n≤U1
+                                          n squarefree
+
+If M is squarefree and M ≤ X C0 for a fixed C0 , then
+                                    X       1                  φ(M )     U1
+                                               ≍a0 ,b0 ,c0 ,C0       log    .                                  (6)
+                                            n                   M        U0
+                                     U0 <n≤U1
+                                    n squarefree
+                                     (n,M )=1
+
+For every positive integer D, every class b (mod D), and every 1 ≤ U0 < U1 ,
+                                           X     1     1      U1    1
+                                                   ≪      log    +    .                                        (7)
+                                                 n     D      U0 U0
+                                        U0 <n≤U1
+                                      n≡b (mod D)
+
+
+ 2
+        Ppositive integers M, d with M squarefree and (M, d) 2= (b, d) = 1, and for x ≥ 1, expand
+Proof. For
+µ (n) = k2 |n µ(k). Only (k, M d) = 1 contributes. Writing n = k u, inclusion–exclusion over the divisors
+of M gives
+                                                                  φ(M ) x
+                #{u ≤ x/k 2 : u ≡ bk −2       (mod d), (u, M ) = 1} =     + O(τ (M )),
+                                                                   M d k2
+                                                                        √
+because each divisor t | M imposes one class modulo dt. Summing over k ≤ x and completing the series of
+reciprocal squares yields, with an absolute implied constant,
+                                                                          φ(M )             √
+       #{n ≤ x : n ≡ b      (mod d), (n, M ) = 1, n squarefree} = κ(M, d)       x + O(τ (M ) x),
+                                              Y                            Md
+                                                       −2
+                                  κ(M, d) =      (1 − p ) ∈ [1/ζ(2), 1].
+                                                   p∤M d
+
+The omitted series tail is O(x−1/2 ), with an absolute constant. For 1 ≤ A < B, partial summation therefore
+gives, with an absolute implied constant,
+                            X         µ2 (n)           φ(M )    B           √
+                                             = κ(M, d)       log + O(τ (M )/ A).
+                                        n               Md      A
+                          A<n≤B
+                        n≡b (mod d)
+                          (n,M )=1
+
+For squarefree M , τ (M ) = p|M 2 ≪ε M ε : the primes below 21/ε contribute a bounded product, and each
+                              Q
+
+remaining factor satisfies 2 ≤ pε . Choosing ε sufficiently small gives τ (M ) ≪a0 ,C0 X a0 /4 for M ≤ X C0 . Take
+d = 1, A = U0 , and B = U1 . The error is O(X −a0 /4 ), whereas φ(M ) log(U1 /U0 )/M ≫c0 ,C0 1 by (5). This
+proves (6); setting M = 1 gives the first assertion.
+                                                 R n For an arithmetic progression of spacing D, charge its first
+term to 1/U0 and each subsequent 1/n to D     −1
+                                                  n−D dt/t. This proves (7).
+
+Lemma 3.3 (squarefree weighted sums). For every fixed positive integer M , as T → ∞,
+                           X      φ(s)                      X       1
+                                    2
+                                       ≍ M  log T,                    ≍M log T.
+                                   s                                s
+                               s≤T                                 s≤T
+                           s squarefree                        s squarefree
+                             (s,M )=1                            (s,M )=1
+
+
+
+
+                                                           6
+                                              √
+Proof. Replace M by rad(M ). Lemma 3.2 on ( T , T ] gives the second lower bound, and the harmonic sum
+gives its upper bound. Cauchy–Schwarz and (5) give
+                           2                    
+                                                                  
+                  X           1         X           φ(s)  
+                                                               X  1                         X          φ(s)
+                                 ≤                                     ≪ log T                              .
+                                 
+                               s                       s2       φ(s)                                    s2
+                                                           
+                                  
+                   s≤T                 s≤T                s≤T                             s≤T
+                s squarefree          s squarefree                                        s squarefree
+                  (s,M )=1              (s,M )=1                                            (s,M )=1
+
+This proves the first lower bound; its upper bound follows from φ(s) ≤ s.
+
+Lemma 3.4 (rough reciprocal sums over an initial segment). Let 0 < a0 ≤ b0 and C0 > 0 be fixed. Uniformly
+for X a0 ≤ x ≤ X b0 and 1 ≤ M ≤ X C0 ,
+                                        X        1              log X
+                                                    ≍a0 ,b0 ,C0        .
+                                                 n               log z
+                                              n≤x
+                                          n squarefree
+                                          (n,P (z))=1
+                                           (n,M )=1
+
+Proof. Put
+                                                                    X        1
+                                                HB (x) =                       .
+                                                                             n
+                                                                  n≤x
+                                                              n squarefree
+                                                                (n,B)=1
+
+The unique decomposition n = ab2 , with a squarefree, gives n≤x n−1 ≤ H1 (x) b≥1 b−2 ≤ 2H1 (x). For
+                                                            P               P
+squarefree B, the decomposition n = gt, where g = (n, B), gives
+                                      X1                        Y
+                             H1 (x) =       HB (x/g) ≤ HB (x) (1 + p−1 ).
+                                          g
+                                          g|B                                  p|B
+
+                                                                   (1 + p−1 ) ≪ log z, and the remaining factors satisfy
+                                                         Q
+Take B = rad(P (z)M ). Mertens’ theorem gives                p≤z
+                                                                       
+                                   Y
+                                                  −1            log M
+                                         (1 + p        ) ≤ exp            = O(1).
+                                                                z log z
+                                   p|M
+                                   p>z
+
+Thus HB (x) ≫ log x/ log z. For the upper bound, discard (n, M ) = 1 and use the finite Euler product:
+                                  X       1    Y                    log X
+                                            ≤        (1 + p−1 ) ≪b0        .
+                                          n                          log z
+                                     n≤x                z<p≤x
+                                 n squarefree
+                                 (n,P (z))=1
+
+Lemma 3.5 (prime counts in progressions). Uniformly for (a, q) = 1 and y ≥ 216 q,
+                                                          y
+                                      π(y; q, a) ≪                .                                                    (8)
+                                                   φ(q) log(y/q)
+Proof. We use the block upper bound of Hooley’s almost pure sieve [9], in the form of Ford–Halberstam [8,
+                                                  −j
+(2)–(3), (18)–(20)]. Put w = (y/q)1/16 and wj = w2 . For w > 2, stop at the first J with wJ ≤ 2, and partition
+the primes p < w, p ∤ q, into the blocks
+                         Pj = {p : max{2, wj+1 } ≤ p < wj , p ∤ q},    0 ≤ j < J.
+                                            Q
+For w = 2 the partition is empty. Write Pj = p∈Pj p, tj = 2(j + 1), and
+                                                     X
+                                           Sj (n) =       µ(d).
+                                                              d|(n,Pj )
+                                                              ω(d)≤tj
+
+
+                                                               7
+An
+Pt even inclusion–exclusion truncation is nonnegative and at least the indicator of (n, Pj ) = 1: for r > 0,
+          k r = r−1 when t is even, with zero binomial coefficients beyond their range. Thus
+                     
+  k=0 (−1)   k      t
+                                                        Y
+                                        1(n,Qj Pj )=1 ≤   Sj (n).
+                                                                j
+                                                                        Q
+    Expand the product. Each term has a squarefree divisor d = j dj , with dj | Pj and ω(dj ) ≤ tj . The
+disjoint blocks recover dj = (d, Pj ), so every coefficient is 0 or µ(d). Also
+                                           Y tj                      −j
+                                                        P
+                                     d≤       wj ≤ w j≥0 2(j+1)2 = w8 .
+                                              j
+
+Every d is coprime to q, and its multiples in the progression contribute y/(qd) + O(1). Primes at most w
+contribute at most w. Consequently
+                                     yY                                  X µ(d)
+                        π(y; q, a) ≤      Uj + O(w8 + w),        Uj =             .
+                                     q                                         d
+                                          j                                 d|Pj
+                                                                           ω(d)≤tj
+
+Put Hj = p∈Pj p−1 and Wj = p∈Pj (1 − p−1 ). Lemma 3.1 bounds Hj by an absolute B0 : each complete
+           P                       Q
+
+block lies between v and v 2 , and the last block contains only primes below 4. Moreover Wj−1 ≤ e2Hj ≤ e2B0 .
+Bonferroni’s inequality for the finite product gives
+                                                                                      
+                                        t +1
+                                     Hj j           Y Uj                 X B 2j+3
+                 0 ≤ Uj − Wj ≤                ,             ≤ expe2B0          0       ≪ 1.
+                                    (tj + 1)!           Wj                   (2j + 3)!
+                                                        j                 j≥0
+
+Hence, again by Lemma 3.1,
+                  yY        y Y                 y Y                        y
+                       Uj ≪       (1 − p−1 ) ≤          (1 − p−1 ) ≪               .
+                  q         q p<w              φ(q) p<w              φ(q) log(y/q)
+                      j
+                                    p∤q
+
+The strict cutoff changes the Mertens product by at most one factor, bounded by 2. Finally w8 + w ≪
+(y/q)/ log(y/q) for y/q ≥ 216 , which is absorbed into the same bound since φ(q) ≤ q.
+
+Lemma 3.6 (reciprocal prime bound). Uniformly for q ≤ X ν with ν < β, and for reduced residue classes a
+(mod q),
+                                        X        1          1
+                                                   ≪ν,β,σ      .
+                                      β     1−σ
+                                                 p        φ(q)
+                                          X <p≤X
+                                          p≡a (mod q)
+
+Proof. Cover the prime window by O(log X) complete dyadic intervals T < p ≤ 2T with T ≥ X β /2. Since
+q ≤ X ν and ν < β, we have 2T /q ≥ 216 for all sufficiently large X, uniformly in q. The bound (8) gives
+                #{T < p ≤ 2T : p ≡ a              (mod q)} ≤ #{p ≤ 2T : p ≡ a (mod q)}
+                                                                    T                 T
+                                                           ≪                 ≪ν,β            .
+                                                             φ(q) log(2T /q)      φ(q) log X
+Multiplying by 1/T and summing proves the claim.
+
+Theorem 3.7 (Bombieri–Vinogradov). For every fixed A > 0 and 0 < ϑ < 1/2, uniformly for x ≥ 3,
+                           X                        π(x)            x
+                                 max π(x; q, a) −         ≪A,ϑ           .
+                              ϑ
+                                (a,q)=1             φ(q)        (log x)A
+                              q≤x
+
+    This is the classical theorem of Bombieri and Vinogradov [3, 17], in the π(x)/φ(q) centering recorded
+                                    √
+in [10, Thm. 1.1]. The usual range x/(log x)B contains xϑ for sufficiently large x. In the li(x)/φ(q) form
+
+                                                            8
+                                                                                   P
+of [13, Thm. 18.9, (18.11)], recentering follows from its q = 1 case and               q≤Q 1/φ(q) ≪ log(2Q), increasing
+the logarithmic saving first.
+Lemma 3.8 (reciprocal primes in progressions). Put
+                                  X       1                                  X        1   PX
+                       PX =                 ,    Gq (a) =                               −    .
+                                β     1−σ
+                                          p                                           p φ(q)
+                                  X <p≤X                                 X β <p≤X 1−σ
+                                                                         p≡a (mod q)
+
+For the exponents in (4),
+                                      X
+                                              τ (q) max |Gq (a)| ≪ (log X)−7 .
+                                                     (a,q)=1
+                                      q≤X ν
+
+Proof. Write T0 = X β , T1 = X 1−σ , and E(t; q, a) = π(t; q, a) − π(t)/φ(q). Since X ν ≤ tν/β for t ≥ T0 and
+ν/β = 12/25 < 1/2, Theorem 3.7 with saving 20 gives
+                                        X
+                              S(t) :=         max |E(t; q, a)| ≪ t(log t)−20 .
+                                                     (a,q)=1
+                                             q≤X ν
+Abel summation, taking the maximum inside the integral, gives
+                                       Z T1
+           X          S(T1 ) S(T0 )          S(t)
+                gq ≤         +       +           2
+                                                   dt ≪ (log X)−19 ,                     gq = max |Gq (a)|.
+              ν
+                        T 1     T0       T0    t                                              (a,q)=1
+            q≤X
+
+Dropping primality and applying (7) gives gq ≪ (log X)/φ(q), since q < X β and PX ≪ 1.
+   For Q ≥ 2, expansion of the positive Euler product gives
+                                               
+          X τ (q)2      Y         X (j + 1)2         Y 1 + 3p−2 − 3p−3 + p−4
+                     ≤      1 +                =                              ≪ (log(2Q))4
+               φ(q)                     φ(pj )                 (1 − p−1 )4
+           q≤Q              p≤Q        j≥1                        p≤Q
+
+by Lemma 3.1; the numerator product converges absolutely. Cauchy–Schwarz therefore yields
+         X               X 1/2 X                1/2
+               τ (q)gq ≤      gq         τ (q)2 gq      ≪ (log X)−19/2 (log X)5/2 = (log X)−7 .
+           q≤X ν
+
+
+4    Cubic divisor sums and pairwise coprimality
+This section concerns the numerator 4. The proof of Theorem 1 uses Sections 2, 3, 5, and 6. For a ≥ 1, set
+                 Λint (a) = {h : h | a2 , h ∈
+                                            / {1, a, a2 }},             Λ< (a) = {h : h | a2 , 1 < h < a}.
+Lemma 4.1 (a divisor identity). Writing τ3 (n) for the number of ordered triples of factors of n, we have
+                                                  X
+                                        τ (n2 ) =      µ(k)τ3 (n/k 2 ).
+                                                          k2 |n
+
+Consequently,
+                                   X τ (n2 )            1
+                                                 =          (log L)3 + O((log L)2 ).
+                                             n        6ζ(2)
+                                   n≤L
+
+Proof. Both sides of the identity are multiplicative. At n = pj , it reads j+2  − 2j = 2j + 1, with the second
+                                                                                    
+                                                                            2
+term omitted for j < 2.
+    For later use, fix M . Counting a residue class gives #{n ≤ t : n ≡ r (mod M )} = t/M + O(1), with an
+absolute error independent of r. Partial summation therefore gives, for j = 0, 1, 2,
+                             X        {log(T /n)}j      (log T )j+1
+                                                     =               + OM ((1 + log T )j ).
+                                            n           (j + 1)M
+                              n≤T
+                        n≡r    (mod M )
+
+
+                                                                  9
+For j = 0 the numerator is interpreted as 1. In the triple sum below, first summing in z gives M −1 log(T /(xy)) +
+OM (1). The total contribution of this error is OM ((1 + log T ) ), since xy≤T (xy)−1 ≪ (1 + log T )2 . Apply
+                                                                  2
+                                                                             P
+the displayed formula with j = 1 to the sum over y and then with j = 2 to the sum over x. This gives, uniformly
+over all residue triples,
+                                      X                    1    (log T )3
+                                                              =           + OM ((1 + log T )2 ).              (9)
+                                                          xyz     6M 3
+                                    xyz≤T
+                         x≡r1 , y≡r2 , z≡r3    (mod M )
+
+With M = 1, the divisor identity now yields
+                          X τ (n2 )           1 X µ(k)
+                                        =              {log(L/k 2 )}3 + O((1 + log L)2 ).
+                                  n           6 √ k2
+                          n≤L                  k≤ L
+          √
+For k ≤       L, the mean value theorem gives
+                                      {log(L/k 2 )}3 − (log L)3 ≤ 6(log L)2 log k.
+Thus replacing the cubic logarithm costs
+                                                     X
+                                      O((log L)2      (log k)/k 2 ) = O((log L)2 ).
+                                                      k
+
+Completing the sum over k costs
+                                                     X                            √
+                                      O((log L)3             k −2 ) = O((log L)3 / L).
+                                                      √
+                                                    k> L
+                                       2 = 1/ζ(2).
+                         P
+The completed sum is       k µ(k)/k
+
+Proposition 4.2 (cubic divisor sum). As L → ∞,
+                                     X |Λint (a)|                   1
+                                                              ∼          (log L)3 .
+                                                    4a − 1        24ζ(2)
+                                              a≤L
+
+Moreover,
+                                              X |Λ< (a)|            1
+                                                              ∼          (log L)3 .
+                                                    4a − 1        48ζ(2)
+                                              a≤L
+
+Proof. The involution h 7→ a2 /h pairs divisors below and above a. P
+                                                                   The excluded divisors 1, a, a2 contribute only
+O(log L) to the weighted sum. The preceding lemma also gives a≥1 τ (a2 )/a2 < ∞ by partial summation.
+Since
+                                              1        1
+                                                    =    + O(a−2 ),
+                                            4a − 1    4a
+Lemma 4.1 gives the first asymptotic, and the asymptotic over the lower half is half of it.
+
+
+
+
+                                                               10
+Proposition 4.3 (divisor sums with local restrictions). Let M be a fixed odd modulus and let c ∈ (Z/M Z)× . Put
+                            aM ≡ 4−1       (mod M ),             uc ≡ −c4−1       (mod M ),
+and define
+                                      X            1
+                  MM,c (L) =                            #{h ∈ Λint (a) : h ≡ uc              (mod M )}.
+                                                 4a − 1
+                                    a≤L
+                                a≡aM (mod M )
+
+Then, as L → ∞,
+                                               S(M )
+                               MM,c (L) =              (log L)3 + OM ((log L)2 ),                              (10)
+                                              24φ(M )2
+where
+                                                   1 Y (1 − ℓ−1 )3
+                                       S(M ) =                     > 0.
+                                                  ζ(2)  1 − ℓ−2
+                                                           ℓ|M
+
+Coincident congruence classes are counted with their divisor multiplicities. For fixed M , the error term is uniform
+in the reduced class c. In particular, for each fixed odd prime ℓ, each fixed k ≥ 1, and every c ∈ (Z/ℓk Z)× , the
+sum over the specified divisors compatible with the denominator class n ≡ c (mod ℓk ) has positive cubic order.
+At the prime 2 there is a separate Chinese Remainder Theorem observation: because every modulus 4a − 1 is
+odd, an odd residue class n ≡ c (mod 2k ) can be imposed simultaneously with a congruence modulo 4a − 1.
+The 2-adic assertion concerns the denominator n.
+
+Proof. If a ≡ aM (mod M ), then M | 4a − 1 and every divisor h | a2 is coprime to 4a − 1. Thus h ≡ uc
+(mod M ) makes the class n ≡ −4h (mod 4a − 1) a reduced class contained in n ≡ c (mod M ).
+   Fix M throughout the proof and put
+                                      X     1
+                    HM,c (L) =                #{h : h | a2 , h ≡ uc (mod M )}.
+                                            a
+                                           a≤L
+                                    a≡aM    (mod M )
+
+Thus all divisors are retained at this stage. The canonical decomposition in the proof of Theorem 2.2 gives
+a = df A, h = d2 f , (d, A) = 1, with each pair (a, h) counted exactly once. Expanding the last condition by
+Möbius inversion and writing d = kx, A = ky, we obtain
+                                        X µ(k)                 X                 1
+                         HM,c (L) =              2
+                                                                                    .
+                                          √    k                    2
+                                                                               xyf
+                                       k≤ L                        xyf ≤L/k
+                                      (k,M )=1         k2 xyf ≡aM , k2 x2 f ≡uc   (mod M )
+
+The first congruence forces k, x, y, f to be units modulo M . Dividing the second congruence by the first gives
+                                       xy −1 ≡ uc a−1
+                                                   M ≡ −c           (mod M ).
+Conversely, for each of the φ(M ) unit classes of y, the choices x ≡ −cy and f ≡ aM (k 2 xy)−1 satisfy both
+congruences. Hence there are exactly φ(M ) residue triples, for every admissible k and every reduced c. By (9),
+                                φ(M ) X µ(k)
+                    HM,c (L) =                        {log(L/k 2 )}3 + OM ((1 + log L)2 ).
+                                6M 3       √     k 2
+                                            k≤ L
+                                           (k,M )=1
+
+The error just displayed is bounded by
+                                      X (1 + log(L/k 2 ))2
+                                CM                                 ≪M (1 + log L)2 ,
+                                       √              k2
+                                     k≤ L
+
+
+
+
+                                                            11
+with the same CM for every reduced c and every k. The bounds for replacing the logarithm and truncating the
+tail in Lemma 4.1 remain valid after restricting to (k, M ) = 1. Since
+                                      X µ(k)            1 Y
+                                                 2
+                                                    =          (1 − ℓ−2 )−1 ,
+                                               k       ζ(2)
+                                        (k,M )=1               ℓ|M
+
+the coefficient of (log L)3 is
+                     φ(M ) Y                    1       Y (1 − ℓ−1 )3    S(M )
+                                    −2 −1
+                       3
+                             (1 − ℓ   )   =       2             −2
+                                                                      =         .
+                    6M ζ(2)                 6φ(M ) ζ(2)    1−ℓ          6φ(M )2
+                                 ℓ|M                                 ℓ|M
+
+Finally, replacing 1/a by 4/(4a − 1) costs O(1), because a τ (a2 )/a2 < ∞, and removing the divisors 1, a, a2
+                                                               P
+costs OM (log L). Restoring the factor 1/4 proves (10), uniformly over the finitely many reduced classes.
+
+Lemma 4.4 (divisor sum over primes). For L ≥ 3,
+                                        X      τ (a2 )
+                                                               ≪ (log L)2 .
+                                                          a
+                                                a≤L
+                                             4a−1 prime
+
+Proof. Prime by prime, τ (n2 ) ≤ τ3 (n), and every such triple has a factor at least n1/3 , so
+                                                        X
+                                            τ3 (n) ≤ 3        τ (d).
+                                                            d|n
+                                                          d≤n2/3
+
+This hyperbola inequality is also used in [14, Lem. 4.1]; see [13, Ex. 20.2(a)]. The bound (8), applied with
+y = 4x, q = 4d and the reduced class −1 (mod 4d), therefore gives
+                           X                  X                  x           x    X τ (d)
+              T (x) :=             τ (a2 ) ≪        τ (d)                ≪                   .
+                                                          φ(4d) log(x/d)   log x        φ(d)
+                             a≤x                2/3d≤x                              2/3
+                                                                                      d≤x
+                          4a−1 prime
+
+For sufficiently large x, its range condition holds because x/d ≥ x1/3 ;P
+                                                                        the bounded remaining range is absorbed
+                                               1
+in the implied constant. Here log(x/d) ≥ 3 log x. Using n/φ(n) = k|n µ2 (k)/φ(k) and τ (kt) ≤ τ (k)τ (t),
+we have
+         X τ (n)                     X µ2 (k)τ (k)                  Y           2
+                                                                                      
+                                   2                              2
+                    ≤ (1 + log y)                    = (1 + log y)       1+             ≪ (1 + log y)2 .
+             φ(n)                           kφ(k)                   p
+                                                                             p(p − 1)
+        n≤y                            k≥1
+                                                           RL
+Thus T (x) ≪ x log x, and partial summation gives T (L)/L + 1 T (t)t−2 dt ≪ (log L)2 , as required.
+
+Proposition 4.5 (pairwise coprime moduli). Let B ⊂ {a ≤ L} be such that the integers 4a − 1 with a ∈ B are
+pairwise coprime. Then
+                                       X |Λint (a)|
+                                                     ≪ (log L)2 .
+                                             4a − 1
+                                              a∈B
+Thus no subfamily of these congruences with pairwise coprime moduli can carry the cubic mass in Proposition 4.2.
+Proof. Split according as 4a − 1 is prime or composite. The prime part is bounded by Lemma 4.4, because
+|Λint (a)| ≤ τ (a2 ) and (4a − 1)−1 ≪ a−1 .
+    For the composite part, put r = P − (4a − 1). Pairwise coprimality makes these least prime factors distinct.
+Since 4a − 1 is composite, 4a − 1 ≥ r2 . For every fixed η0 > 0, |Λint (a)| ≤ τ (a2 ) ≪η0 aη0 [13, Ex. 2.9(f)],
+and hence
+                                            |Λint (a)|
+                                                       ≪η0 r−2+2η0 .
+                                             4a − 1
+Choosing η0 < 1/4 and summing over distinct r gives a bounded composite contribution.
+
+                                                          12
+5    Counting compatible congruences
+
+                                                                            P with squarefree moduli qi ≤ X,
+For each reduced class b (mod P (z)), let Ib be a finite family of congruences
+coprime to P (z), and residues ci (mod qi ). Write wi = 1/qi and µb = i wi . Two indices are compatible
+when their residues agree modulo (qi , qj ); a set is compatible when every pair is. Put
+                                                                           X
+                LS = lcm(qi : i ∈ S),          L∅ = 1,       A(S) =                   wi (qi , LS ),
+                                                                                           i∈S
+                                                                                            /
+                                                                                     S∪{i} compatible
+                                                    X                 1
+                                        Fr =                            ,         F0 = 1.
+                                                                     LS
+                                                    S⊂Ib
+                                                   |S|=r
+                                                S compatible
+
+Let Ωb be the finite product probability space over all primes appearing in the moduli qi . Explicitly,
+                                                       Y
+                                             Ωb =            Z/ℓZ,
+                                                               Q
+                                                          ℓ|       i∈Ib qi
+
+with independent uniform coordinates. The Chinese Remainder Theorem identifies each coordinate assignment
+                                                                (b)
+at the primes dividing qi with a residue modulo qi . The event Ai is defined by the residue ci (mod qi ). Thus
+                                                        (b)          1     (b)
+                                                P(Ai ) =                = wi .
+                                                                     qi
+If two events are compatible, the Chinese Remainder Theorem gives
+                                          (b)     (b)              1           (qi , qj )
+                                      P(Ai ∩ Aj ) =                          =            ;
+                                                               lcm(qi , qj )    qi qj
+if they are incompatible, the intersection is empty. Two disjoint groups whose moduli are coprime across the
+groups depend on disjoint coordinates and are independent as families.
+     Put                                              X
+                                                Wb =      1A(b) .
+                                                                             i
+                                                               i∈Ib
+
+The Chinese Remainder Theorem gives Fr = E Wrb : an intersection of r compatible events has probability
+                                                     
+
+1/LS , and an incompatible one is empty. For distinct events i ̸= j, let i ∼ j denote (qi , qj ) > 1, and define
+                                           (b)                             (b)    (b)
+                                   X                            X
+                         δb = sup      P(Aj ),        ∆b =            P(Ai ∩ Aj ).
+                                  i    j∼i                                   {i,j}:i∼j
+                                       j̸=i                                     i̸=j
+
+    Fix K ≥ 13. In this section assume, uniformly in b, that µb → ∞ as X → ∞ and
+                                                                                             1
+                 A(S) ≤ 2µb     (|S| ≤ 2Kµb , S compatible),                             δb ≤ ,    ∆b = o(µb ).
+                                                                                             4
+Lemma 5.1 (binomial moments). Uniformly for 0 ≤ r ≤ 2Kµb ,
+                                                                   (2µb )r
+                                                     Fr ≤                  .
+                                                                     r!
+Proof. The Chinese Remainder Theorem gives 1/ lcm(LS , qi ) = wi (qi , LS )/LS . Counting the r choices of an
+element to delete from a compatible set of size r gives
+                                                X       A(S)
+                                    rFr =                    ≤ 2µb Fr−1 .
+                                                         LS
+                                                S compatible
+                                                  |S|=r−1
+
+Induct from F0 = 1.
+
+                                                                   13
+Theorem 5.2 (probability of no event). Uniformly in b,
+                                          P(Wb = 0) ≤ exp{−(1 − o(1))µb }.
+Proof. We give a conditioning proof related to Spencer’s argument in [11, Lemmas 1–2 and proof of Thm. 7,
+                                           (b)
+preprint version]. Fix b and abbreviate Ai , µb , δb , ∆b by Ai , µ, δ, ∆. Incompatible neighbours have zero
+intersection probability and remain adjacent.
+    Put BS = j∈S Acj . If P(BIb ) = 0, there is nothing to prove; otherwise every conditioning event BS has
+               T
+positive probability. We first show by induction on |S| that
+                                            P(Ai | BS ) ≤ 2wi      (i ∈
+                                                                      / S).
+Write Γ = {j ∈ S : j ∼ i} and T = S \ Γ. If Γ is empty, independence gives equality with wi . Otherwise
+|T | < |S|, so induction and the union bound give
+                                                   X
+                                 P(BΓ | BT ) ≥ 1 −   P(Aj | BT ) ≥ 1 − 2δ.
+                                                        j∈Γ
+
+Since Ai is independent of BT , division by this lower bound proves P(Ai | BS ) ≤ wi /(1 − 2δ) ≤ 2wi .
+   For a lower bound, the same partition gives
+                                                                 X
+                      P(Ai | BS ) ≥ P(Ai ∩ BΓ | BT ) ≥ wi −          P(Ai ∩ Aj | BT ).
+                                                                     j∈Γ
+
+Fix j ∈ Γ, put E = {k ∈ T : k ∼ j}, and write T0 = T \ E. No vertex of T0 is adjacent to either i or j, so the
+pair (Ai , Aj ) is independent of BT0 . The bound just proved gives P(BE | BT0 ) ≥ 1 − 2δ, and hence
+                                                 P(Ai ∩ Aj | BT0 )     P(Ai ∩ Aj )
+                            P(Ai ∩ Aj | BT ) ≤                      ≤               .
+                                                   P(BE | BT0 )          1 − 2δ
+Order the vertices and apply the lower bound with S equal to the preceding vertices, so that each unordered edge
+contributes once. The chain rule, 1 − t ≤ e−t , and these uniform bounds give
+                                                 
+                                             ∆
+               P(Wb = 0) ≤ exp −µ +                  ≤ exp{−µ + 2∆} = exp{−(1 − o(1))µb },
+                                          1 − 2δ
+uniformly in b.
+
+    For r ≥ 0, let
+                                                                                (b)
+                                X
+                 Cr(b) (N ) =           #{n ≤ N : n ≡ b     (mod P (z)), n ∈ Ai for all i ∈ S}.
+                                S⊂Ib
+                                |S|=r
+
+Lemma 5.3 (approximation on a finite interval in one residue class). For every r ≥ 0,
+                                                   N
+                                    Cr(b) (N ) =       Fr + O(X r Fr ).
+                                                 P (z)
+Proof. If S is compatible, the residual intersection is one class modulo LS = lcm(qi : i ∈ S). Since
+(LS , P (z)) = 1, the condition n ≡ b (mod P (z)) gives one class modulo P (z)LS , contributing
+                                                 N
+                                                       + O(1).
+                                              P (z)LS
+Incompatible intersections are empty. The number of compatible sets is at most X r Fr , because LS ≤ X r for
+every set of size r. Summing proves the claim.
+
+Theorem 5.4 (finite counting estimate). Fix K ≥ 13 and put Rb = ⌊Kµb ⌋. Suppose that
+                                        P (z)X 2Rb exp{2µb } ≤ N exp{−4µb }.                               (11)
+Then, uniformly in b,
+                                                      (b)                      N
+      #{n ≤ N : n ≡ b       (mod P (z)),        n∈
+                                                 / Ai for every i ∈ Ib } ≤          exp{−(1 − o(1))µb }.
+                                                                              P (z)
+
+                                                            14
+Proof. Write Mb (N ) for the count
+                               Pr in the sconclusion  and putr = 2Rb . Lemma 5.1 gives Fs ≤ (2µb )s /s! for
+s ≤ r. For even r, the identity s=0 (−1) s = (−1)r w−1
+                                            w
+                                              
+                                                           r   for w ≥ 1 gives
+                                            r                       
+                                           X           w               w
+                                 1w=0 ≤        (−1)s      ≤ 1w=0 +         .
+                                                       s                r
+                                              s=0
+
+Apply the first inequality to integers in the class b (mod P (z)) and the second in the Chinese Remainder
+Theorem model. Each compatible intersection has a counting error of absolute value at most 1, as in Lemma 5.3.
+Thus
+                                                                     r
+                                         N                         X
+                             Mb (N ) ≤        {P(Wb = 0) + Fr } +      X s Fs
+                                        P (z)
+                                                                   s=0
+                                                             (2µb )r
+                                                                    
+                                         N
+                                     ≤          P(Wb = 0) +            + X r e2µb .
+                                        P (z)                  r!
+                                                           Rr
+For large X, µb ≥ 2 and r ≥ 25µb . The estimate log(r!) ≥ 1 log t dt ≥ r log r − r implies
+                               (2µb )r
+                                       ≤ (2eµb /r)r ≤ (2e/25)r < 2−r ≤ e−4µb .
+                                 r!
+Condition (11) bounds X r e2µb by (N/P (z))e−4µb . Theorem 5.2 estimates the remaining term and proves the
+result.
+
+                  √ Let E be a set of positive integers closed under taking divisors. Suppose 2 ≤ y ≪ log N
+Lemma 5.5 (lifting).
+and, uniformly for N ≤ T ≤ N ,
+                                #{u ≤ T : u ∈ E, (u, P (y)) = 1} ≤ AT e−F
+for A > 0 and F ≥ 0. Then
+                               #(E ∩ [1, N ]) ≪ AN log(2y)e−F + N 3/4+o(1) .
+The error is uniform for a fixed constant in y ≪ log N .
+                                                                                                         √
+Proof. Write n = su with s supported on primes at most y and (u, P (y)) = 1. The contribution with s >       N,
+even without requiring n ∈ E, is at most
+                                 X 1             Y
+                           N             ≤ N 3/4   (1 − p−1/2 )−1 = N 3/4+o(1) .
+                                  √    s
+                                s> N                 p≤y
+                               P + (s)≤y
+                                                             √          √
+Indeed, the logarithm of the product is O( 2≤n≤y n−1/2 ) = O( y) = O( log N ), uniformly under the stated
+                                          P
+                      √                      √
+bound on y. For s ≤ N , put T = N/s ∈ [ N , N ]. Q  Since u | n, divisor closure gives u ∈ E. Summing the
+hypothesis over s bounds this contribution by AN e−F p≤y (1 − p−1 )−1 ≪ AN e−F log(2y).
+
+
+6    The selected family
+Fix m ≥ 4 for the rest of the proof; all thresholds may depend on m. We take X large enough that z > m and put
+                            S0 = X η ,        Y0 = X λ ,        Y = Xσ,       H = Xθ.
+Define F to be the set of integers
+                                             e = rs2 ,      rad(e) = rs,
+where r and s are squarefree, (r, s) = 1, (rs, m) = 1, and
+                                                                Y0      H
+                                           1 ≤ s ≤ S0 ,            < r ≤ 2.                               (12)
+                                                                s       s
+
+                                                           15
+Here rad(e) is the product of the distinct prime factors of e. The squarefree, coprime coordinates r, s are uniquely
+determined by e = rs2 . In the application e is a divisor of a2 , as in Section 2. The ranges give e ≤ H and
+                                               rad(e) = rs > Y0 > Y.                                           (13)
+      We first fix a reduced residue class modulo P (z):
+                                                  b ∈ (Z/P (z)Z)× .
+For e ∈ F, choose a small squarefree odd divisor d− and a rough squarefree cofactor d+ such that
+                               d− ≤ U,        d− | P (z),          b ≡ −me      (mod d− ),                     (14)
+                            d− d+ ≤ Y,       (d+ , P (z)) = 1,       (d− d+ , m rad(e)) = 1.                   (15)
+Finally choose a prime p satisfying
+                              X β < p ≤ X 1−σ ,       d− d+ p ≡ −1       (mod m rad(e)).                       (16)
+For every quadruple i = (e, d− , d+ , p) satisfying these conditions, define
+                                            Qi = d− d+ p,          qi = d+ p,
+and
+                          Qi + 1         (b)                                     (b)   1
+                     ai =        ,     Ai = {n : n ≡ −me (mod qi )},            wi = .
+                            m                                                         qi
+The full modulus is Qi ; after conditioning on n ≡ b (mod P (z)), only the residual modulus qi contributes to
+                                                                                         (b)
+the density. Indeed, d− | P (z) and (14) give n ≡ −me (mod d− ). Combining this with Ai gives
+                                               n ≡ −me        (mod Qi ).
+The congruence (16) implies that ai is an integer and rad(e) | ai . Because e = rs2 and rad(e) = rs, this gives
+e | a2i ; also Qi = mai − 1. Lemma 2.3 therefore gives a representation. Let Ib be the set of all quadruples above
+and set                                               X (b)
+                                                µb =       wi .                                               (17)
+                                                            i∈Ib
+
+Since d− d+ ≤ X σ and p ≤ X 1−σ , both qi and Qi are at most X.
+    We record a bound for reciprocal sums used in Lemma 6.1 and Theorem 6.3. For any 0 < u < v, the count
+on (u, t] in a class modulo q is (t − u)/q + O(1). Partial summation therefore gives the reciprocal sum in that
+class as q −1 log(v/u) + O(1/u), whether or not the class is reduced. If M is squarefree and (M, d) = 1, finite
+inclusion–exclusion over the divisors of M consequently gives
+                                                                            
+                                      X      1    φ(M )       v       τ (M )
+                                               =          log + O              .
+                                             n     Md         u          u
+                                     u<n≤v
+                                  n≡a (mod d)
+                                    (n,M )=1
+
+This formula is uniform in the modulus and residue, including when u < 1.
+     For arbitrary positive integers d, M , with
+                                            P M squarefree and (M, d) = 1, every reduced class a (mod d),
+and 1 ≤ A < B, expand 1/φ(r) = r−1 k|r γ(k) with nonnegative coefficients γ(k) = µ2 (k)/φ(k). Only
+(k, dM ) = 1 occurs. Writing r = kn and applying the preceding formula with endpoints A/k, B/k gives
+                                                                                      
+                       X          1      φ(M )       B X     γ(k)       τ (M ) X
+                                      =          log              + O            γ(k)
+                                φ(r)       Md        A         k           A
+                     A<r≤B                                  k≤B                          k≤B
+                   r≡a (mod d)                           (k,dM )=1
+                     (r,M )=1
+                                                                            
+                                              φ(M )    B      τ (M ) log(2B)
+                                         ≤ Cγ       log + O                    .                               (18)
+                                               Md      A             A
+
+
+                                                            16
+The error in the inner sum is O(τ (M )k/A). Multiplication by γ(k)/k and (5) give the displayed error bound.
+
+Lemma 6.1 (average of 1/φ in progressions). Let d ≤ U be squarefree and odd, let (a, d) = 1, and let s ≤ S0
+be squarefree with (s, m) = (sm, d) = 1. Put U0 = Y0 /s and U1 = H/s2 . Uniformly in all these parameters,
+                                      X         1        1 φ(s)     U1
+                                                    ≍m          log    .
+                                               φ(r)      d s        U0
+                                         U0 <r≤U1
+                                        r squarefree
+                                         (r,sm)=1
+                                       r≡a (mod d)
+
+Proof. Now take A = Y0 /s, B = H/s2 , Ls = log(B/A), and M = s rad(m). The restrictions on s, d make
+M squarefree and (M, d) = 1. For the lower bound, 1/φ(r) ≥ 1/r, and the Möbius calculation in the proof of
+Lemma 3.2 gives
+                   X        µ2 (r)           φ(M )                √                 φ(M )    φ(s)
+                                   = κ(M, d)       Ls + Om (τ (s)/ A),                    ≍m      .
+                              r               Md                                     M        s
+                 A<r≤B
+              r≡a (mod d)
+                (r,sm)=1
+
+For the upper bound, discard squarefreeness and apply (18) with this M . Since s is squarefree,
+                                           τ (s) Y 2
+                                                =            ≤ 2.
+                                           φ(s)        p−1
+                                                       p|s
+
+As Ls ≍ log X, the two errors divided by φ(s)Ls /(sd) are
+                                                 !
+                                     dX (3η−λ)/2                             
+                                Om                   and            Om dX 2η−λ .
+                                        log X
+
+Both tend uniformly to zero for d ≤ U = (log X)8 , since 3η < λ. The constants and threshold are independent
+of a, d, s.
+
+Proposition 6.2 (quadratic divisor sums). The selected divisor family, before any sieving at small primes, satisfies
+                        X 1                                      X         1
+                 M1 :=               ≍m (log X)2 ,       Mφ :=                    ≍m (log X)2 .
+                             rad(e)                                    φ(rad(e))
+                         e∈F                                          e∈F
+
+Proof. Write e = rs2 and put Ls = log(H/(Y0 s)). For all s ≤ S0 ,
+                                   (θ − λ − η) log X ≤ Ls ≤ (θ − λ) log X.
+Lemma 3.2 and Lemma 6.1 with d = 1 give, respectively, the sums over r of 1/r and 1/φ(r) as order (φ(s)/s)Ls ,
+uniformly in s, with coprimality modulus s rad(m). Since (r, s) = 1 on the family, φ(rs) = φ(r)φ(s). Hence
+                                        X µ2 (s)φ(s)                              X µ2 (s)
+                     M1 ≍m log X                     ,             Mφ ≍m log X             .
+                                              s2                                      s
+                                         s≤S0                                      s≤S0
+                                       (s,m)=1                                   (s,m)=1
+
+Lemma 3.3 completes both estimates.
+
+Theorem 6.3 (divisor sums in residue classes). Let D ≤ Y U be squarefree and let (c, D) = 1. Then
+                        X           1        M1           X            1          Mφ
+                                         ≪      ,                            ≪        .
+                                  rad(e)      D                   φ(rad(e))       D
+                            e∈F                                    e∈F
+                      e≡c    (mod D)                         e≡c    (mod D)
+
+
+
+
+                                                        17
+Proof. Write e = rs2 . Terms with (s, D) > 1 vanish, and otherwise e ≡ c (mod D) is the reduced progression
+r ≡ cs−2 (mod D). Since (r, s) = 1 on the family, φ(rad(e)) = φ(r)φ(s). Discard the squarefree and
+coprimality restrictions on r for an upper bound, and use (18) with M = 1, d = D, A = Y0 /s, and B = H/s2 .
+Then
+              X             1          log X X 1          log X X s           (log X)2 S0 log X
+                                   ≪                   +                  ≪           +           .
+                       φ(rad(e))         D        φ(s)      Y0       φ(s)        D          Y0
+                e∈F                              s≤S0                      s≤S0
+          e≡c    (mod D)
+
+The last step is (5). Relative to the first term, the endpoint error is at most
+                                           DS0
+                                                  ≤ X η+σ−λ (log X)7 = o(1),
+                                         Y0 log X
+uniformly for D ≤ Y U . Proposition 6.2 proves the second assertion. The first follows from 1/ rad(e) ≤
+1/φ(rad(e)) and Mφ ≍ M1 .
+
+Lemma 6.4 (averaged sum over divisors with small prime factors). For
+                                                    X 1
+                                            As :=
+                                                           d
+                                                                d≤U
+                                                               d|P (z)
+                                                               d odd
+                                                             (d,sm)=1
+
+one has
+                                               X           As
+                                                              ≍m log S0 log z.
+                                                           s
+                                                s≤S0
+                                            s squarefree
+                                              (s,m)=1
+
+Proof. Since U = z 2 , the upper bound follows from As ≤                      −1 ≤ 1 + 2 log z and Lemma 3.3.
+                                                                   P
+                                                                         d≤U d
+   For the lower bound, put
+                                                     X                 µ2 (s)
+                                           Jd (T ) =                          .
+                                                                         s
+                                                               s≤T
+                                                            (s,dm)=1
+
+For squarefree d coprime to m, each squarefree s coprime to m has a unique decomposition s = gt, where
+g = (s, d) | d and (t, d) = 1. Consequently
+                                   X1                       Y              d
+                        J1 (S0 ) =     Jd (S0 /g) ≤ Jd (S0 ) (1 + p−1 ) ≤      Jd (S0 ).
+                                     g                                    φ(d)
+                                   g|d                             p|d
+
+Thus Jd (S0 ) ≥ (φ(d)/d)J1 (S0 ) for every squarefree d coprime to m. Retain odd squarefree d ≤ z with
+(d, m) = 1, which divide P (z) and satisfy d ≤ U . Interchanging the positive sums gives
+        X µ2 (s)As               X          µ2 (d)                                X        µ2 (d)φ(d)
+                   ≥                               Jd (S0 ) ≥ J1 (S0 )                                ≫ log S0 log z.
+              s                               d                                                d2
+        s≤S0                    d≤z                                            d≤z
+      (s,m)=1              d odd, (d,m)=1                                 d odd, (d,m)=1
+
+The last bounds are the ordinary squarefree reciprocal sum and the odd weighted sum proved in Lemma 3.3,
+applied with the fixed restrictions (s, m) = 1 and (d, 2m) = 1.
+
+Lemma 6.5 (average over small divisors). Uniformly for every b ∈ (Z/P (z)Z)× ,
+                            X            X                1
+                    Σb :=                                         ≍m (log X)2 log z.
+                                                    φ(m rad(e))
+                                d− ≤U         e∈F
+                               d− |P (z) b≡−me (mod d− )
+                               d− odd
+
+
+                                                              18
+Proof. Write e = rs2 . For fixed s, observe that a divisor d− contributes only when (d− , sm) = 1, in which case
+the congruence is the reduced linear progression r ≡ −b(ms2 )−1 (mod d− ). Since (rs, m) = 1 and (r, s) = 1,
+φ(mrs) = φ(m)φ(r)φ(s). By Lemma 6.1,
+                                        X                1           1       H
+                                                               ≍m       log      .
+                                                2
+                                                      φ(mrs)        sd−      Y0s
+                                    Y0 /s<r≤H/s
+                                r squarefree, (r,sm)=1
+                                b≡−mrs2 (mod d− )
+
+Since log(H/(Y0 s)) ≍ log X for all s ≤ S0 , summing over d− and using Lemma 6.4 we obtain
+                                     X       As
+                     Σb ≍ log X                 ≍ log X log S0 log z ≍ (log X)2 log z.
+                                              s
+                                        s≤S0
+                                    s squarefree
+                                      (s,m)=1
+
+Every comparison has a threshold independent of b, because b enters only through a reduced residue class modulo
+d− .
+
+Proposition 6.6 (total event weight). Uniformly in b ∈ (Z/P (z)Z)× ,
+                                                   µb ≍m (log X)3 .
+Proof. Use PX and Gq (a) from Lemma 3.8. Lemma 3.1 gives
+                                                         1−σ
+                                           PX = log          + o(1) > 0.                                      (19)
+                                                          β
+For every admissible (e, d− , d+ ) the prime condition is the reduced class a = −(d− d+ )−1 (mod m rad(e)).
+This class is reduced by (15).
+    Define
+                                                           X              1
+                                    V (e, d− ) =                            .
+                                                                         d+
+                                                              d+ ≤Y /d−
+                                                            d+ squarefree
+                                                    (d+ ,P (z))=(d+ ,m rad(e))=1
+Substituting the discrepancy into (17) gives
+                                                   µb = PX Mb + Gb ,                                          (20)
+where
+                                            X               X             V (e, d− )
+                                 Mb =                                                                         (21)
+                                                                         φ(m rad(e))
+                                           d− ≤U         e∈F
+                                          d− |P (z) b≡−me (mod d− )
+                                          d− odd
+
+and Gb = (e,d− ,d+ ) d−1
+           P
+                        + Gm rad(e) (a), summed over the admissible triples.
+    For large X, X σ/2 ≤ Y /d− ≤ X σ for every d− ≤ U . Lemma 3.4, applied with endpoint Y /d− and auxiliary
+modulus m rad(e) ≤ X θ+1 , gives V (e, d− ) ≍ log X/ log z uniformly in e, d− and b. Lemma 6.5 now gives
+Mb ≍ (log X/ log z)Σb ≍ (log X)3 .
+    The exponents satisfy θ < ν < β/2. Since m is fixed, mX θ ≤ X ν beyond a threshold depending on m.
+Thus every modulus m rad(e) is in the range of Lemma 3.8, with a fixed margin at the lower prime endpoint X β .
+    For a fixed radical t = rad(e) = rs, the divisor s | t determines e = ts, so there are at most τ (t) choices of
+e. For each such e there are at most U choices of d− , and, by enlarging the range to d+ ≤ Y and discarding the
+extra coprimality restrictions, Lemma 3.4 gives
+                                      X       1          X        1     log X
+                                                 ≤                   ≪         .
+                                             d+                  d+      log z
+                                  admissible d+             d+ ≤Y
+                                                         d+ squarefree
+                                                         (d+ ,P (z))=1
+
+
+                                                            19
+Taking the maximum discrepancy over reduced residues before summing these multiplicities, and then using
+τ (t) ≤ τ (mt) and q = mt, gives
+                           U log X X                          (log X)2
+                   |Gb | ≪            τ (q) max |Gq (a)| ≪m            = o((log X)3 ).              (22)
+                            log z   ν
+                                           (a,q)=1              log z
+                                         q≤X
+
+The second bound is Lemma 3.8, since U = (log X)8 . The maximum over reduced residues makes this error
+bound independent of b.
+   Uniformly in b, (22) gives
+                                       |Gb |         1
+                                             ≪m             = om (1).
+                                       Mb       log X log z
+Equations (19) and (20) therefore imply
+                                             µb       1−σ
+                                                = log     + om (1) > 0.
+                                             Mb        β
+Together with Mb ≍m (log X)3 , this proves the proposition.
+
+Proposition 6.7 (event weights in residue classes). Let b ∈ (Z/P (z)Z)× . Let D ≤ Y be squarefree with
+(D, P (z)) = 1, and let (c, D) = 1. Define
+                                           (b)                 (b)
+                                                     X
+                                         BD,c =               wi .
+                                                         i=(e,d− ,d+ ,p)∈Ib
+                                                               D|d+
+                                                          e≡c (mod D)
+
+Then, uniformly in b, D, c in these ranges,
+                                                         (b)             µb
+                                                       BD,c ≪m              .
+                                                                         D2
+Moreover,                                            X               (b)        µb
+                                                                    wi     ≪m      .
+                                                                                D
+                                               i=(e,d− ,d+ ,p)∈Ib
+                                                     D|d+
+
+Proof. Since m rad(e) ≤ mX θ ≤ X ν for large X, Lemma 3.6 applies uniformly and, for fixed e, d− , d+ , gives
+P (b)
+   p wi ≪m 1/(d+ φ(m rad(e))), where the sum is over the admissible primes. Since z > m, also (D, m) = 1.
+If D | d+ , write d+ = Dt; the coprimality conditions then require (D, rad(e)) = 1. Dropping restrictions on t
+except squarefreeness and roughness, Lemma 3.4 gives
+                                   X        1      1    X      1        log X
+                                               ≤                  ≪m           .
+                                           d+     D             t      D log z
+                                     d+ ≤Y /d−                     t≤Y
+                                        D|d+                   t squarefree
+                                    d+ admissible              (t,P (z))=1
+
+Contributing d− satisfy (d− , m) = 1 by (14), since b is reduced modulo P (z). As (D, d− ) = 1, the conditions
+e ≡ c (mod D) and e ≡ −bm−1 (mod d− ) combine into a reduced class modulo Dd− ≤ Y U . Theorem 6.3
+and φ(m rad(e)) = φ(m)φ(rad(e)) therefore give
+                                        X                  1          Mφ
+                                                                  ≪m       .
+                                                   φ(m rad(e))        Dd−
+                                             e∈F
+                                         e≡c (mod D)
+                                       b≡−me (mod d− )
+                      P
+Consequently, since       d≤U 1/d ≪m log U ≤ 2 log z, Proposition 6.6 gives
+
+                              (b)         Mφ log X       X          1    Mφ log X   µb
+                            BD,c ≪m                                   ≪m          ≪m 2 .
+                                          D2 log z                 d−      D  2     D
+                                                        d− ≤U
+                                                       d− |P (z)
+
+
+                                                                20
+For the second assertion, omit the congruence modulo D and use Theorem 6.3 only modulo d− . The first factor
+D−1 remains, whereas the divisor sum is now O(Mφ /d− ); the same calculation gives O(µb /D).
+
+Lemma 6.8 (uniqueness when the large prime is shared). Two distinct compatible events in Ib cannot share
+the same large prime p. For any prime p > X β , the total weight of events having this large prime is at most
+H/p ≤ X θ−β = o(1).
+Proof. Suppose (e, d− , d+ , p) and (f, d′− , d′+ , p) are compatible. Compatibility at p gives me ≡ mf (mod p).
+For large X we have p > m, so e ≡ f (mod p). Since e, f ≤ H = X θ < X β < p, we have e = f . The
+defining congruences then give
+                                  d− d+ p ≡ d′− d′+ p ≡ −1            (mod m rad(e)).
+Because p > X β > X θ ≥ rad(e), we have (p, m rad(e)) = 1, so
+                                         d− d+ ≡ d′− d′+       (mod m rad(e)).
+The products d− d+ and d′− d′+ are at most Y < Y0 < rad(e), so they are equal. Since d− = (d− d+ , P (z)), their
+factorizations agree and the two events are identical.
+    For the direct count, events with the same e, p are compatible, hence identical by what was just proved. There
+are at most ⌊H⌋ possible positive e, and each event has weight at most 1/p. Summing gives the stated bound.
+
+Lemma 6.9 (overlap bounds). Uniformly in b,
+                                           δb = om (1),             ∆b = om (µb ).
+For every fixed K > 0 and every compatible S with |S| ≤ Kµb ,
+                                             A(S) ≤ µb (1 + om,K (1)).
+Proof. The mass of neighbours sharing a medium prime is, by Proposition 6.7, at most
+                                X 1            log Y             1
+                         Cm µb         ≤ Cm µb         ≪m             = om (1).
+                                     ℓ         z log z      log log X
+                                  ℓ|d+,i
+
+Together with the direct count in Lemma 6.8, this proves the bound for δb .
+    For a distinct compatible dependentP   pair, the common primes are all medium primes, by uniqueness and
+        β
+Y < X . If g = (qi , qj ) > 1, use g ≤ 2 D|g, D>1 φ(D). Since every prime in D exceeds z > m, compatibility
+forces ei , ej into the same reduced class modulo D. Thus
+                                X           X (b)                X           µ2
+                      ∆b ≪             φ(D)      (BD,c )2 ≪m µ2b     n−2 ≪m b = om (µb ).
+                                              c                  n>z
+                                                                              z
+                           1<D≤Y
+                          D squarefree
+                          (D,P (z))=1
+                                (b)                   P (b)
+The middle step uses maxc BD,c ≪m µb /D2 and c BD,c Q          ≪m µb /D.
+     For a compatible set S, let J(S) be the primes dividing j∈S d+,j . A compatible extension shares no large
+prime with S, so (qi , LS ) | d+,i . For each ℓ ∈ J(S), compatibility makes the ej with ℓ | d+,j congruent modulo
+ℓ; their common class is reduced because (d+,j ,P   rad(ej )) = 1. Thus every divisor D of this gcd prescribes one
+reduced class of ei modulo D. Expanding g = D|g φ(D), applying Proposition 6.7, and extending a positive
+divisor sum beyond D ≤ Y give
+                                                           X       φ(D)
+                                 A(S) ≤ µb + Cm µb
+                                                         Q          D2
+                                                          D|    ℓ∈J(S) ℓ
+                                                               D>1
+                                                                                   
+                                                           Y                        
+                                         ≤ µb 1 + Cm                  (1 + ℓ−1 ) − 1  .
+                                                                                    
+                                                               ℓ∈J(S)
+
+
+                                                               21
+But
+                       X 1   |S| log Y   Kµb log Y           1
+                           ≤           ≤           ≪m,K           = om,K (1).
+                         ℓ    z log z     z log z       log log X
+                      ℓ∈J(S)
+
+The product is consequently 1 + om,K (1), uniformly in b and S.
+
+6.1   Completion of the proof
+Proof of Theorem 2. Fix m ≥ 4 and K = 13. Proposition 6.6 and Lemma 6.9, using the latter with parameter
+2K, verify the hypotheses of Section 5 for all sufficiently large X, uniformly in b. In particular cm (log X)3 ≤
+µb ≤ Cm (log X)3 . Choose
+                                           log X = αm (log N )1/4 ,                                          (23)
+with αm > 0 sufficiently small. Lemma 3.1 gives log P (z) ≪ z = (log X)4 . For Rb = ⌊Kµb ⌋,
+                                   log P (z) + 2Rb log X + 6µb ≪m (log X)4 .
+                                                                           √
+Taking αm small makes this at most 12 log N . Since log T ≥ 12 log N for N ≤ T ≤ N , this choice of X,
+cutoff, and family satisfies (11) throughout that range. Theorem 5.4, summed over the reduced classes modulo
+P (z), gives
+            #{n ≤ T : (n, P (z)) = 1, m/n has no representation} ≪m T exp{−c′m (log N )3/4 }.
+   The exceptional set is closed under taking divisors: a representation for a divisor of n scales to one for
+n. Apply Lemma 5.5 at the common cutoff z = αm     4 log N . The factor log(2z) and the error N 3/4+om (1) are
+                        ′
+absorbed by decreasing cm . Enlarging the implied constant covers the finite remaining range of N .
+
+Proof of Theorem 1. Take m = 4 in Theorem 2 and use E(N ) ≤ E4 (N ). The assertion for prime denominators
+follows as well, since π(N ) ≫ N/ log N and the factor log N is absorbed by decreasing the constant in the
+exponential.
+
+
+7     Further remarks
+Remark 7.1 (geometry). For numerator 4, the surface Un : 4xyz = n(xy + xz + yz) is an affine part of a Cayley
+cubic; see [4]. In projective coordinates (x0 : x1 : x2 : x3 ), its closure is
+                                    4x1 x2 x3 = nx0 (x1 x2 + x1 x3 + x2 x3 ).
+Fixing x = an gives (4a − 1)yz = an(y + z), so the projective closures of these curves are the conic components
+of explicit plane sections. On the plane x1 = anx0 , the cubic factors as
+                                                                        
+                                  nx0 (4a − 1)x2 x3 − anx0 (x2 + x3 ) = 0.
+The factor x0 gives the boundary line x0 = x1 = 0.
+Remark 7.2 (effectivity). The thresholds obtained here inherit the ineffectivity of the usual Bombieri–Vinogradov
+theorem. Johnston [10] gives effective variants for sifting problems; applying them to this family requires a
+separate analysis.
+Use of artificial intelligence. MIT CSAIL Mantis was used for Lean 4 autoformalization.
+Data and code availability. The Lean source is available in the accompanying repository [12].
+
+
+
+
+                                                       22
+References
+ [1] M. Bello-Hernández, M. Benito, and E. Fernández, A divisor parametrization for the Erdős–Straus
+     conjecture, arXiv:2606.10922 (2026).
+ [2] T. F. Bloom and C. Elsholtz, Egyptian fractions, Nieuw Arch. Wiskd. (5) 23 (2022), no. 4, 237–245.
+ [3] E. Bombieri, On the large sieve, Mathematika 12 (1965), no. 2, 201–225,
+     doi:10.1112/S0025579300005313.
+ [4] M. Bright and D. Loughran, Brauer–Manin obstruction for Erdős–Straus surfaces, Bull. Lond. Math. Soc.
+     52 (2020), no. 4, 746–761, doi:10.1112/blms.12374.
+ [5] C. Elsholtz, Sums of k unit fractions, Trans. Amer. Math. Soc. 353 (2001), no. 8, 3209–3227,
+     doi:10.1090/S0002-9947-01-02782-9.
+ [6] C. Elsholtz and S. Planitzer, The number of solutions of the Erdős–Straus equation and sums of k unit
+     fractions, Proc. Roy. Soc. Edinburgh Sect. A 150 (2020), no. 3, 1401–1427, doi:10.1017/prm.2018.137.
+ [7] C. Elsholtz and T. Tao, Counting the number of solutions to the Erdős–Straus equation on unit fractions, J.
+     Aust. Math. Soc. 94 (2013), no. 1, 50–105, doi:10.1017/S1446788712000468.
+ [8] K. Ford and H. Halberstam, The Brun–Hooley sieve, J. Number Theory 81 (2000), no. 2, 335–350,
+     doi:10.1006/jnth.1999.2479.
+ [9] C. Hooley, On an almost pure sieve, Acta Arith. 66 (1994), no. 4, 359–368, doi:10.4064/aa-66-4-359-368.
+[10] D. R. Johnston, An effective Bombieri–Vinogradov error term for sifting problems, arXiv:2510.10853
+     (2025).
+[11] S. Janson, New versions of Suen’s correlation inequality, Random Structures & Algorithms 13 (1998),
+     no. 3–4, 467–483, doi:10.1002/(SICI)1098-2418(199810/12)13:3/4<467::AID-RSA15>3.0.CO;2-W.
+     Lemma and theorem numbers refer to the author’s preprint of 23 September 1997,
+     https://www2.math.uu.se/~svantejs/papers/sj121.pdf.
+[12] S. Kandukoori, Erdős–Straus Lean formalization, GitHub repository, release v3.0, 2026,
+     https://github.com/sushaan-k/erdos-straus-lean/releases/tag/v3.0.
+[13] D. Koukoulopoulos, The Distribution of Prime Numbers, Graduate Studies in Mathematics, vol. 203,
+     American Mathematical Society, Providence, RI, 2019. Theorem locators refer to the author’s preliminary
+     version, https://dms.umontreal.ca/~koukoulo/documents/publications/primes.pdf.
+[14] C. Pomerance and A. Weingartner, Exceptions to the Erdős–Straus–Schinzel conjecture, Ramanujan J. 69
+     (2026), no. 2, article 31, doi:10.1007/s11139-025-01312-2; arXiv:2511.16817.
+[15] R. C. Vaughan, On a problem of Erdős, Straus and Schinzel, Mathematika 17 (1970), no. 2, 193–198,
+     doi:10.1112/S0025579300002886.
+[16] R. C. Vaughan, Some applications of Montgomery’s sieve, J. Number Theory 5 (1973), no. 1, 64–79,
+     doi:10.1016/0022-314X(73)90059-0.
+[17] A. I. Vinogradov, The density hypothesis for Dirichlet L-series, Izv. Akad. Nauk SSSR Ser. Mat. 29 (1965),
+     no. 4, 903–934; correction 30 (1966), 719–720.
+[18] K. Yamamoto, On the Diophantine equation 4/n = 1/x + 1/y + 1/z, Mem. Fac. Sci. Kyushu Univ. Ser. A
+     Math. 19 (1965), no. 1, 37–47, doi:10.2206/kyushumfs.19.37.
+
+
+                                                      23
+
