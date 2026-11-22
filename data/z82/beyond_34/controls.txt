@@ -1,0 +1,2 @@
+independent lower, exact interval void, independent upper: 1974016/2457945 79826/96577 131113010688/158560987793 period 96577
+complementary-phase checks: rows, recovered hits, new vs band alone: 11338 2808 2149
