@@ -73,6 +73,48 @@ def selected_lists():
     print('unique-list controls: any match, unique, ambiguous:',hits,accepted,ambiguous)
 
 
+def seed_grid():
+    # Bound^2 < e, including non-squarefree e and non-squarefree seed labels.
+    bound = 11
+    windows = labels_checked = pins_checked = repaired_hits = power_cases = 0
+    for e in range(123, 200, 4):
+        labels = [(u,v) for u in range(3,bound+1,2) for v in range(1,u,2)
+                  if gcd(u,v)==gcd(u*v,e)==1]
+        targets = {(-v*pow(u,-1,e)) % e for u,v in labels}
+        inverses = {pow(t,-1,e) for t in targets}
+        assert len(targets | inverses) == 2*len(labels)
+        windows += 1; labels_checked += len(labels)
+        for u,v in labels:
+            mod = 4*u*v
+            factors = []
+            for r in (3,5,7,11):
+                power, rem = 1, u*v
+                while rem % r == 0:
+                    power *= r; rem //= r
+                if power > 1:
+                    factors.append((r,power))
+                    power_cases += power > r
+            assert prod(power for _,power in factors)==u*v
+            for n in range(1,mod,4):
+                # Construct the repaired pin by CRT projectors, independently
+                # compare with the disjoint preimages of the activation class.
+                z = n
+                choices = 1
+                for r,power in factors:
+                    if n % r == 0:
+                        cofactor = mod//power
+                        z += (1-n)*cofactor*pow(cofactor,-1,power)
+                    choices *= int((n+e) % power == 0) + int(n%r == 0 and (1+e)%power == 0)
+                active = (z+e) % mod == 0
+                assert choices == int(active)
+                if gcd(n,u*v)==1: assert active == ((n+e)%mod==0)
+                pins_checked += 1
+                repaired_hits += active and (n+e)%mod != 0
+    assert repaired_hits and power_cases
+    print('seed grid: windows, labels, pins, repair-only hits:',
+          windows, labels_checked, pins_checked, repaired_hits)
+
+
 def envelopes():
     ct = 0
     for s in (2,4,6):
@@ -86,4 +128,4 @@ def envelopes():
 
 if __name__ == '__main__':
     print('Engine: scripts/z82_b34_gaps.py | deterministic integer and Fraction checks')
-    old_chart(); new_chart(); selected_lists(); envelopes()
+    old_chart(); new_chart(); selected_lists(); envelopes(); seed_grid()
