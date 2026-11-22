@@ -1,0 +1,38 @@
+4 25 {'integral': 19, 'prime': 19, 'cap': 29}
+4 49 {'prime': 19, 'integral': 29, 'cap': 43}
+4 105 {'integral': 37, 'prime': 23, 'cap': 29}
+4 121 {'integral': 23, 'prime': 19, 'cap': 31}
+4 409 {'prime': 17, 'integral': 29, 'cap': 19}
+4 577 {'integral': 19, 'prime': 23, 'cap': 23}
+4 1465 {'integral': 19, 'prime': 29, 'cap': 19}
+4 2521 {'prime': 23, 'cap': 23, 'integral': 29}
+4 3361 {'integral': 37, 'prime': 19, 'cap': 19}
+4 3865 {'integral': 19, 'prime': 19, 'cap': 23}
+4 4545 {'integral': 17, 'prime': 19, 'cap': 19}
+4 5569 {'prime': 23, 'integral': 29, 'cap': 29}
+4 9601 {'prime': 17, 'integral': 53, 'cap': 31}
+4 10305 {'integral': 29, 'prime': 23, 'cap': 19}
+4 12145 {'integral': 23, 'prime': 29, 'cap': 19}
+4 23929 {'prime': 23, 'integral': 29, 'cap': 19}
+4 39361 {'prime': 31, 'integral': 29, 'cap': 17}
+4 67425 {'integral': 37, 'prime': 43}
+4 83449 {'prime': 19, 'integral': 17, 'cap': 19}
+4 102001 {'prime': 29, 'integral': 37, 'cap': 23}
+4 329617 {'integral': 19, 'prime': 23, 'cap': 37}
+4 712321 {'prime': 41, 'integral': 29, 'cap': 19}
+4 1134241 {'integral': 23, 'prime': 41, 'cap': 29}
+4 1724209 {'prime': 31, 'integral': 29, 'cap': 29}
+4 1726201 {'prime': 19, 'cap': 31, 'integral': 29}
+4 5212561 {'prime': 19, 'integral': 31, 'cap': 23}
+4 8813281 {'integral': 31, 'prime': 23, 'cap': 31}
+4 17401609 {'integral': 29, 'prime': 17, 'cap': 29}
+4 183783601 {'prime': 29, 'cap': 43, 'integral': 37}
+4 113035442521 {'prime': 29, 'integral': 29, 'cap': 29}
+4 1590284203561 {'prime': 29, 'integral': 29}
+4 6955940568721 {'prime': 23, 'integral': 19, 'cap': 23}
+8 11 {'prime': 23}
+8 17 {'cap': 19, 'prime': 23}
+8 131 {'prime': 29, 'cap': 19}
+8 241 {'cap': 29, 'prime': 29}
+8 1590284203561 {'integral': 23, 'prime': 31}
+8 6955940568721 {'integral': 19, 'prime': 19, 'cap': 31}

@@ -1,0 +1,2 @@
+small independent check passed
+seed bound 24 counts/maxima (multiplicity over seed,word pairs) [(6148, (27369516339, 21, 24, 11, 3025, 822525)), (1588, (1509583133, 19, 22, 10, 2307, 65435)), (62, (6148969, 11, 20, 7, 13544, 65)), (28, (2555569, 7, 19, 5, 426, 1200))]

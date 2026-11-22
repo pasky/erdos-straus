@@ -1,0 +1,16 @@
+4 5 positive 2 signed-sorted 5 chords [] example None
+4 13 positive 4 signed-sorted 17 chords [] example None
+4 17 positive 4 signed-sorted 24 chords [] example None
+4 25 positive 10 signed-sorted 70 chords [] example None
+4 49 positive 18 signed-sorted 120 chords [] example None
+8 11 positive 0 signed-sorted 2 chords [] example None
+8 17 positive 0 signed-sorted 12 chords [] example None
+8 131 positive 0 signed-sorted 22 chords [] example None
+8 241 positive 0 signed-sorted 116 chords [] example None
+4 409 positive 15 signed-sorted 174 chords [] example None
+4 577 positive 18 signed-sorted 246 chords [] example None
+4 2521 positive 9 signed-sorted 684 chords [] example None
+4 3361 positive 15 signed-sorted 908 chords [] example None
+4 4545 positive 2127 signed-sorted 7268 chords [((2, 1), 169)] example ((1144, 168480, 37436256), (1092, -28080, -19852560), (1110, 39960, -21816))
+4 5569 positive 27 signed-sorted 544 chords [] example None
+4 9601 positive 23 signed-sorted 929 chords [] example None
