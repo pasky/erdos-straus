@@ -265,6 +265,8 @@ c₀d₀ | A suffices: ≥ ½ log Q·Σ_{D≤√Q} 1/(c₀d₀) ≫ (log Q)^{e+3
 R237 repair D2; Converse after Prop 5.1) every ES^{(y,e)} certificate at every modulus is a class of 𝒟_e(M), whose total supply has dimension exactly e + 3 (upper
 bound above). Several overflow parameters are reparametrisations of D. (ii) Exponent table (prime-modulus large
 sieve / composite multipliers à la 3/4 note / mass-driven CRT ceiling):
+> **Erratum (z82):** The multiplier and KARY3-type ceiling rows below, and their Assessment in the §7 checkpoint, are historical. For each fixed integer `e≥1`, `notes/z82/CAP_CONST.md` H gives the `(e+3)/(e+4)` log-saving exponent on all integers; C matches it for polynomial-budget whole-avoider majorants of the single-`f` dictionary with selectors. This is not a lower bound on actual exceptions. U/UB/UP give the separate growing-cap comparison; UB's matching ceiling is for a light single band.
+
 `  e:                  0      1      2      e`
 `  prime-modulus LS:   2/3    3/4    4/5    (e+2)/(e+3)    PROVED (CAP_GROWING Thm 1.4; Thm 2.1 uniform)`
 `  3/4-note multipliers: 3/4  4/5    5/6    (e+3)/(e+4)    Assessment: only the class supply changes (Cor 5.2)`
