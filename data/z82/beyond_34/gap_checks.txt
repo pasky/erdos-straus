@@ -1,0 +1,5 @@
+Engine: scripts/z82_b34_gaps.py | deterministic integer and Fraction checks
+old multiplier: exact denominators and gap 686
+reciprocal: exact denominators, minimum and gap 2496
+unique-list controls: any match, unique, ambiguous: 182 89 93
+relative block sieve pointwise envelopes: 1536
