@@ -1,0 +1,27 @@
+step=8 base=1 first=125000000 count=125000000 sieveF=500000 survivors=20513 primeSurvivors=80 no135=0 maxReturnedF=2590272791
+NO135 2238327841
+step=8 base=1 first=250000000 count=125000000 sieveF=500000 survivors=18708 primeSurvivors=68 no135=1 maxReturnedF=3751221783
+step=8 base=1 first=375000000 count=125000000 sieveF=500000 survivors=17881 primeSurvivors=64 no135=0 maxReturnedF=5124696151
+NO135 4367159449
+step=8 base=1 first=500000000 count=125000000 sieveF=500000 survivors=17254 primeSurvivors=45 no135=1 maxReturnedF=6303244951
+step=8 base=1 first=625000000 count=125000000 sieveF=500000 survivors=16831 primeSurvivors=67 no135=0 maxReturnedF=7994530391
+step=8 base=1 first=750000000 count=125000000 sieveF=500000 survivors=16337 primeSurvivors=41 no135=0 maxReturnedF=8360676503
+step=8 base=1 first=875000000 count=125000000 sieveF=500000 survivors=15952 primeSurvivors=51 no135=0 maxReturnedF=10392054583
+step=8 base=1 first=1000000000 count=125000000 sieveF=500000 survivors=15908 primeSurvivors=45 no135=0 maxReturnedF=11619995223
+step=8 base=1 first=1125000000 count=125000000 sieveF=500000 survivors=15838 primeSurvivors=51 no135=0 maxReturnedF=12511128823
+step=8 base=1 first=1250000000 count=125000000 sieveF=500000 survivors=15760 primeSurvivors=55 no135=0 maxReturnedF=14601348343
+step=8 base=1 first=1375000000 count=125000000 sieveF=500000 survivors=15382 primeSurvivors=51 no135=0 maxReturnedF=15749416343
+step=8 base=1 first=1500000000 count=125000000 sieveF=500000 survivors=15335 primeSurvivors=56 no135=0 maxReturnedF=16515746391
+step=8 base=1 first=1625000000 count=125000000 sieveF=500000 survivors=15117 primeSurvivors=45 no135=0 maxReturnedF=17553244983
+step=8 base=1 first=1750000000 count=125000000 sieveF=500000 survivors=15111 primeSurvivors=50 no135=0 maxReturnedF=19696120823
+step=8 base=1 first=1875000000 count=125000000 sieveF=500000 survivors=15056 primeSurvivors=52 no135=0 maxReturnedF=21059324471
+step=8 base=1 first=2000000000 count=125000000 sieveF=500000 survivors=14953 primeSurvivors=42 no135=0 maxReturnedF=22587097303
+step=8 base=1 first=2125000000 count=125000000 sieveF=500000 survivors=15026 primeSurvivors=50 no135=0 maxReturnedF=23716776023
+step=8 base=1 first=2250000000 count=125000000 sieveF=500000 survivors=15077 primeSurvivors=53 no135=0 maxReturnedF=25281996503
+step=8 base=1 first=2375000000 count=125000000 sieveF=500000 survivors=14797 primeSurvivors=43 no135=0 maxReturnedF=26159614583
+step=8 base=1 first=2500000000 count=125000000 sieveF=500000 survivors=14540 primeSurvivors=48 no135=0 maxReturnedF=27210357623
+step=8 base=1 first=2625000000 count=125000000 sieveF=500000 survivors=14497 primeSurvivors=34 no135=0 maxReturnedF=29043615863
+step=8 base=1 first=2750000000 count=125000000 sieveF=500000 survivors=14495 primeSurvivors=56 no135=0 maxReturnedF=30541615703
+step=8 base=1 first=2875000000 count=125000000 sieveF=500000 survivors=14482 primeSurvivors=38 no135=0 maxReturnedF=31693570903
+step=8 base=1 first=3000000000 count=125000000 sieveF=500000 survivors=14593 primeSurvivors=53 no135=0 maxReturnedF=33303677271
+step=8 base=1 first=3125000000 count=125000000 sieveF=500000 survivors=14497 primeSurvivors=40 no135=0 maxReturnedF=33537784183
