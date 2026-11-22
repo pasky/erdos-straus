@@ -1,0 +1,23 @@
+thin level, zeta, switched level: 40625/83844 10000/20961 4999/10000
+certified rational lower margin: 501046207140973527051260679173283467/172451961104876622678351975000000000000 > 1/350
+rounded margin lower: 0.0029054248147184734
+asymmetric sieve a,b,s3,s7,dp: 89/200 1/100 473/445 13/5 40411/89000
+J2 rigorous upper (display rounded): 0.10140414885524138 margin/A certified > 1/250
+k, Euler cutoff, C, A, A/32, A/192 (float): 3 1000000 0.3012165595841079 2.21323290428427 0.06916352825888344 0.011527254709813908
+certified interval for A: 2213229584429/1000000000000 442646580857/200000000000
+fibre k,r,s,Q,b1: 3 1 1 210 1
+fibre k,r,s,Q,b1: 3 121 1 210 31
+fibre k,r,s,Q,b1: 3 169 1 210 43
+fibre k,r,s,Q,b1: 3 289 1 210 73
+fibre k,r,s,Q,b1: 3 361 7 30 13
+fibre k,r,s,Q,b1: 3 529 7 30 19
+k, Euler cutoff, C, A, A/32, A/192 (float): 7 1000000 0.5215320799541463 2.240506062469017 0.07001581445215678 0.011669302408692796
+certified interval for A: 2240502701703/1000000000000 224050606247/100000000000
+fibre k,r,s,Q,b1: 7 1 1 105 1
+fibre k,r,s,Q,b1: 7 121 1 105 16
+fibre k,r,s,Q,b1: 7 169 1 105 22
+fibre k,r,s,Q,b1: 7 289 1 105 37
+fibre k,r,s,Q,b1: 7 361 1 105 46
+fibre k,r,s,Q,b1: 7 529 1 105 67
+toy H2: k, quotient-square=determinant sum, disjoint edges, spurious unrestricted pairs: 3 2776 10 41430
+toy H2: k, quotient-square=determinant sum, disjoint edges, spurious unrestricted pairs: 7 1596 2 41261
