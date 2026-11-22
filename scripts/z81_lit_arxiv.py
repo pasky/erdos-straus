@@ -8,7 +8,7 @@ import sys, time, urllib.parse, urllib.request, xml.etree.ElementTree as ET
 out, d0, d1, q = sys.argv[1:5]
 NS = {'a': 'http://www.w3.org/2005/Atom', 'x': 'http://arxiv.org/schemas/atom'}
 query = f'({q}) AND submittedDate:[{d0}0000 TO {d1}2359]'
-start, page, rows = 0, 200, []
+start, page, rows, total = 0, 200, [], None
 while True:
     url = 'https://export.arxiv.org/api/query?' + urllib.parse.urlencode(dict(
         search_query=query, sortBy='submittedDate', sortOrder='descending', start=start, max_results=page))
@@ -20,11 +20,13 @@ while True:
             total = int(root.find('{http://a9.com/-/spec/opensearch/1.1/}totalResults').text)
             if ents or start >= total:
                 break
+            total = None  # empty page below reported total: retry
         except Exception as e:
             print('retry', attempt, e, file=sys.stderr)
         time.sleep(5 + 5 * attempt)
     else:
-        print(f'FAILED at start={start} (total={total})', file=sys.stderr); sys.exit(1)
+        print(f'FAILED at start={start} (total={total})', file=sys.stderr)
+        sys.exit(2)  # non-zero: caller must record the query as FAILED, not as zero hits
     for e in ents:
         g = lambda t: ' '.join((e.find(t, NS).text or '').split())
         rows.append('\t'.join([
