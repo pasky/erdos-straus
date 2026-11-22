@@ -1,0 +1,2 @@
+exact integer inputs from congruence and coprimality check: {'mixed_nonunit_and_overflow': 14402, 'nonunit_at_D': 31375, 'triples': 69120, 'two_carriers': 2385}
+examples (n,f,u,v,w,root): {'mixed_nonunit_and_overflow': (156, 59, 1, 3, 5, 5), 'two_carriers': (1042, 419, 1, 5, 21, 21)}
