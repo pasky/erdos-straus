@@ -94,7 +94,7 @@ approximation always exists, and BM does not explain all failures of strong appr
     forms, uniformity in m, Cor D, Thms U, L′, relative to K-R-K's *stated* theorems; the K-R-K analytic proof is still
     not audited.)*
   * **What may still be campaign-new** (Assessment, to be compared): short-interval, progression, exceptional-prime-in-short-interval, and `m/p`-transition variants (`paper/es-mn-short-note`); Count-note Theorems A–D are not superseded.
-  * *(z81 priority note, `notes/z81/LIT.md` §§0.3–0.4; Astra cross-reviewed.)* **Trybushnyi**, `arXiv:2611.14167v1` (2026-11-10; Zenodo Lean deposit `23188522` dated **2026-10-06**, before our `2026-10-08` `m^{−1/4}` commit), states explicit uniform-`K` bounds `E_K(N) ≤ N exp(−c((log N)³/K)^{1/4})` (`4 ≤ K ≤ h³/2⁹⁰`, `h = ⌊log₂N⌋ ≥ 4096`; `E₄(N) ≤ N exp(−(log N)^{3/4}/8689)` for `N ≥ 2^{2^{64}}`, Lean 4.22 formalised as stated; proofs/Lean not audited here) and an independent-model square-sieve 3/4 barrier (Prop 11.1). K-R-K v3 (2026-11-06) is editorial. Do not claim the initial-segment `m^{−1/4}` form as first.
+  * *(z81 priority note, `notes/z81/LIT.md` §§0.3–0.4; Astra cross-reviewed.)* **Trybushnyi**, `arXiv:2611.14167v1` (2026-11-10; Zenodo Lean deposit `23188522` dated **2026-10-06**, before our `2026-10-08` `m^{−1/4}` commit), states explicit uniform-`K` bounds `E_K(N) ≤ N exp(−c((log N)³/K)^{1/4})` (part (b): `4 ≤ K ≤ h³/2⁹⁰`, `Kh ≥ 2⁶¹`, `h = ⌊log₂N⌋ ≥ 4096` (base 2); Cor. 1.2 from (a), in the later deposit: `E₄(N) ≤ N exp(−(log N)^{3/4}/8689)` for `N ≥ 2^{2^{64}}`, Lean 4.22 formalised as stated; proofs/Lean not audited here) and an independent-model square-sieve 3/4 barrier (Prop 11.1). K-R-K v3 (2026-11-06) is editorial. Do not claim the initial-segment `m^{−1/4}` form as first.
   * Akaka Zenodo v0.8 (22905042, 2026-09-22) claims, as an author claim with a *claimed* Lean certificate and specialist
     review outstanding: there are absolute constants c, C, X₀ > 0 such that for every real X ≥ X₀ and each integer
     4 ≤ m ≤ (log X)³, at most CmX/(log X)⁴ primes in (X, 2X] have R_II,m(p) < c(log X)³/m. This concerns the full
@@ -833,7 +833,7 @@ the z58/z59 blocks: theorems about specified classes, none a necessity theorem f
   the real-character shadow, a "visible layer" GV_C (additional information on the particular divisor set of a fixed β is
   not excluded), and Prop 3.2: every odd non-square has a level with GV_C, including all known zeros. Prop 5.1:
   class numbers are T1-blind (squares have large ring class numbers); Siegel is ineffective. Prop 4.1: data of two orders in
-  two fields *can* carry information beyond the per-field quadratic shadow — **(z81, BARRIER-BROAD; PROVED rel. CFT, Dirichlet unit theorem and Chebotarev, `notes/z81/S_U7_FORCE.md` §§4, 6):** the z60 mod-17 quartic identification (up to inversion and `χ_{−4}`) is now PROVED beyond its sample, and a `(★)`-internal `p=341041` pair contains `ℚ(ζ₅)`. However, for **any finite compositum `L`** of ordinary/narrow real or imaginary quadratic ring class fields of base rank `r`, `exp(Gal(L/ℚ)^{ab}) | 2^r` (SHARP via real-only menus; CERTIFIED octic at `ℚ(√2,√3,√5), ℓ=264529`; full `-1 mod 4C` detection needs `λ(4C) | 2^r`, so odd part of `C` is a squarefree product of Fermat primes). With a simultaneous inverting reflection — in particular **all mixed real/imaginary bases `ℚ(√±dp)` sharing an odd ramified prime `p`** (or imaginary-only menus) — the sharp ceiling is **4** (`C | 60`); for mixed **Hilbert-only** menus (ordinary/narrow) it is **2** (`C | 6`), including on primes forced to split in `ℚ(√−Cp)`. Reading a character still does not force a divisor to occur. Prop 4.2 proves Artin
+  two fields *can* carry information beyond the per-field quadratic shadow — **(z81, BARRIER-BROAD; PROVED rel. CFT, Dirichlet unit theorem and Chebotarev, `notes/z81/S_U7_FORCE.md` §§4, 6):** the z60 mod-17 quartic identification (up to inversion and `χ_{−4}`) is now PROVED beyond its sample, and a `(★)`-internal `p=341041` pair contains `ℚ(ζ₅)`. However, for **any finite compositum `L`** of ordinary/narrow real or imaginary quadratic ring class fields of base rank `r`, `exp(Gal(L/ℚ)^{ab}) | 2^r` (SHARP via real-only menus; CERTIFIED octic at `ℚ(√2,√3,√5), ℓ=264529`; full `-1 mod 4C` detection needs `λ(4C) | 2^r`, so odd part of `C` is a squarefree product of Fermat primes). With a simultaneous inverting reflection — in particular **all mixed real/imaginary bases `ℚ(√±dp)` sharing an odd ramified prime `p`** (or imaginary-only menus) — the sharp ceiling is **4** (`C | 60`); for mixed **Hilbert-only** menus (ordinary/narrow) it is **2** (`C | 6`), also for detection restricted to primes splitting in `ℚ(√−Cp)` when `p∤4C`. Reading a character still does not force a divisor to occur. Prop 4.2 proves Artin
   total-product identities for abelian extensions whose conductor is coprime to (β); on the odd-r a = 1 branch with even Nβ
   the odd-part formula is an elementary norm identity, not Art((β)). No additional forcing relation was found (Assessment);
   this is not a theorem excluding other relations among individual factors. Not excluded: non-CFT relations between individual factors across levels (E1), twist averaging
@@ -1032,7 +1032,7 @@ has passed all lines.
    can be class-determined in some order only if C ∈ {1, 2, 3, 6}, and even then not necessarily; the residue information is
    at most the real-character shadow GV_C, which holds at some level for every odd non-square, including all known zeros
    (`Z60_RAYCLASS.md` Props 3.1–3.2; e.g. at 64–90 levels C ≤ 300 at each (★)-zero prime). This does not exclude additional
-   information on the particular divisor set of a fixed β. *(z81, PROVED, `notes/z81/S_U7_FORCE.md` §§4, 6:)* In arbitrary ordinary/narrow real or imaginary quadratic ring class composita of base rank `r`, the sharp abelian exponent ceiling is `2^r` (attained by cyclotomic subfields in real-only menus; odd part of `C` must be a squarefree product of Fermat primes); Hilbert-only still gives `2` (`C | 6`), and one simultaneous inverting sign — including all mixed real/imaginary bases ramified at the same odd `p` (or imaginary-only menus) — still gives `4` (`C | 60`). The z60 mod-17 identification is now proved, and `p=341041` gives a `(★)`-internal `ℚ(ζ₅)` pair; these bounds concern information, not divisor occurrence.
+   information on the particular divisor set of a fixed β. *(z81, PROVED, `notes/z81/S_U7_FORCE.md` §§4, 6:)* In arbitrary ordinary/narrow real or imaginary quadratic ring class composita of base rank `r`, the sharp abelian exponent ceiling is `2^r` (attained by cyclotomic subfields in real-only menus; for full `−1 mod 4C` detection the odd part of `C` must be a squarefree product of Fermat primes); Hilbert-only still gives `2` (`C | 6`), and one simultaneous inverting sign — including all mixed real/imaginary bases ramified at the same odd `p` (or imaginary-only menus) — still gives `4` (`C | 60`). The z60 mod-17 identification is now proved, and `p=341041` gives a `(★)`-internal `ℚ(ζ₅)` pair; these bounds concern information, not divisor occurrence.
 10. **No pooling of large primes across shifts** (privacy, SS8 Lemma 2.3): a collision across jp + 1 or p + 4d involves only
     primes ≤ the shift range, i.e. congruence data.
 11. **No signed detour by reflection** ((J)52, (J)89 Lemma 4.1, Cor 4.2): signed Type I slices have the wrong Legendre
@@ -1120,7 +1120,7 @@ has passed all lines.
     furthermore, every `IE₁⁻` model is Bézout with every nonzero prime ideal in a unique maximal ideal (Gelfand nonzero principal quotients),
     unital domain landings with `0 ≠ ker e ⊆ 2R ∩ 3R` and finite shared BCM axes are impossible, prime-primary extraction for `p | h` (`h > 0`) is isolation in `X_h`,
     and a nonstandard PA subring forces continuum-many minimal primes over some `hR` (`h ∈ B`). *(z80, `notes/z80/IE1_SPLIT.md` §§1,9–10,16–19; PROVED:)*
-    Bézout + global `(Sep)` + `IW₂` + Lagrange + internal Dirichlet with least QNR 2 at `P` cannot be the whole proof (the §9 normal Model 2 has all of them and `¬ES(P)`). *(z81, `notes/z81/FAREY_PROOF.md` §§2–15; PROVED:)* Even supplying **all** supplied-unit Pell windows and passing the consecutive-factorial tests at **every** non-initial PA subring together with Bézout, `(Sep)`, Lag, Dirichlet, disc −4 reduction and standard norm/elliptic windows does not suffice (`T*`, plus Boolean affine-divisibility least search incl. fixed-level `(★)` in `T_g`; power cuts about infinite generators never carry BCM). Check Dirichlet/Thue approximation `Th(n)` for in-model ratios of size `≈ 1` (e.g. `P/H` with scalar `H` comparable to `P`) at denominators `≤ √P` (`Th(n)` holds iff `n ∈ C` in the Dirichlet-line power-cut models), variable-discriminant reduction, and divisibility-minimal / numerically least failure.
+    Bézout + global `(Sep)` + `IW₂` + Lagrange + internal Dirichlet with least QNR 2 at `P` cannot be the whole proof (the §9 normal Model 2 has all of them and `¬ES(P)`). *(z81, `notes/z81/FAREY_PROOF.md` §§2–15; PROVED:)* Even supplying **all** supplied-unit Pell windows and passing the consecutive-factorial tests at **every** non-initial PA subring together with Bézout, `(Sep)`, Lag, Dirichlet, disc −4 reduction and standard norm/elliptic windows does not suffice (`T*`, failing `L(Div)`; separate `T_g` has unary Boolean affine-divisibility least search incl. fixed-level `(★)`, full `L(Div)` unknown; the §15 Bézout power cuts cannot carry BCM). Check Dirichlet/Thue approximation `Th(n)` for in-model ratios of size `≈ 1` (e.g. `P/H` with scalar `H` comparable to `P`) at denominators `≤ √P` (for `n≥0`, `Th(n)` iff `n ∈ C` in the Dirichlet-line power-cut models), variable-discriminant reduction, and divisibility-minimal / numerically least failure.
 19. **No fixed-`(m, M)` open-surface étale-Brauer obstruction (z77, `DISPROOF_KUMMER.md`).** On `S_n°, X_n°, U_n°`
     (`s ≠ 1` / `s ∉ {1, 2}`, outer-integral positive adeles), a `q^{mM}` repair lifts to some twist of every finite ℚ-group
     torsor of geometric monodromy exponent dividing `m` orthogonal to `Br(W)[M]` (`mM | E` sharp for the specified repair on
@@ -1147,7 +1147,7 @@ no single-prime lower-tail mechanism is known.
   and in progressions n ≡ b (mod q) for q ≤ exp(c′(log(H/q))^{3/4}) or q with all prime factors large ((D)30; large smooth q
   open), uniform in the numerator m ((D)31); 3/4 sharp for the audited CRT architectures ((D)24, (D)27, (D)28).
   **Polynomial pullbacks (z80; PROVED rel. Paredes–Sasyk 1.3, TZ 1.4, Stark, Landau–Page and internal z79 TQ/AP2; `notes/z80/BEYOND_34.md` P/PP, §§1–4,14).** For fixed d≥1 and every nonconstant integral F of degree ≤d, ‖F‖∞≤exp(b_d(log H)^{1/4}), at most O_d(H exp(−c_d(log H)^{3/4})) arguments per H consecutive integers have F(j)>0 failing ES. Same exponent relatively among prime arguments if their population is ≥H/(log H)^C for fixed C>0, not relative to prime values; no effective onset. Both word tails off rational scalars times squares; z79's separate ramified-pencil and primorial-fibre clauses stand (`notes/z79/WILD_ES.md` §§5,7).
-* **Actual additive windows (z80 `notes/z80/EXTREME.md` §§6–7,10; z81 `notes/z81/GAP_ES.md` §§1,8,10–11).** PROVED (Selberg upper sieve and fixed-modulus Mertens): for fixed distinct positive shifts `K=(k₁,…,k_J)`, each `k_j≡3 (4)`, joint failure occurs at `O_K(X/log^{1+J/2}X)` primes `p≡1 (4)` in `(X,2X]`; `g=3` on relative density one in `1 mod 840`. For each fixed such k the full single-window failure count on 𝔐-primes up to X is `≍_k X/log^{3/2}X` (PROVED rel. FHRSS preprint Thm 1.1(2)); thus `g≥7` infinitely often. **(z81, PROVED rel. BV, SW, CRT transfer, `GAP_ES.md` §8):** for `L=log X`, `δ₀=1−1/(e log 3)≈0.6651`, `#{p≤X : g(p)>L} ≪ X exp(−c L^{δ₀}/(log L)^{3/2})` (not a bound on g at prescribed p). Effective pointwise thresholds (§10): `K_gen(p) ≪ p^{0.187}`, `K_sub(p) ≪ p^{0.198}`. CONDITIONAL on prime AP level `0.9908` (EH suffices, §11): `≍ X/log²X` primes in `(X,2X]`, `p≡1 (840)`, have `g(p)=11`; unbounded finite g CONDITIONAL on Dickson. Separately (`notes/z81/SPECIFIC_CLASS.md` §§2,6–7): fixed `k` prime windows `q_i ≍ log X` have joint `-1` miss proportion `(log X)^{-k I_*+o_k(1)}` (`I_*=0.00415475…`, upper bound also on primes); growing-`k` hits give `exp(−L^{.582})`; CONDITIONAL on ES-free `(M)` gives `E(N) ≪ N exp(−c L^{.751})`, on `(DR)` gives `N^{1−δ}`. CERTIFIED comparison: max g = 127 for 𝔐-primes ≤ 5·10¹², first at 3,153,419,441,929 (two censuses; first genus break at `k=27`, 4 budget misses).
+* **Actual additive windows (z80 `notes/z80/EXTREME.md` §§6–7,10; z81 `notes/z81/GAP_ES.md` §§1,8,10–11).** PROVED (Selberg upper sieve and fixed-modulus Mertens): for fixed distinct positive shifts `K=(k₁,…,k_J)`, each `k_j≡3 (4)`, joint failure occurs at `O_K(X/log^{1+J/2}X)` primes `p≡1 (4)` in `(X,2X]`; `g=3` on relative density one in `1 mod 840`. For each fixed such k the full single-window failure count on 𝔐-primes up to X is `≍_k X/log^{3/2}X` (PROVED rel. FHRSS preprint Thm 1.1(2)); thus `g≥7` infinitely often. **(z81, PROVED rel. BV, SW, CRT transfer, `GAP_ES.md` §8):** for `L=log X`, `δ₀=1−1/(e log 3)≈0.6651`, `#{p≤X : g(p)>L} ≪ X exp(−c L^{δ₀}/(log L)^{3/2})` (not a bound on g at prescribed p). Effective pointwise thresholds (§10): `K_gen(p) ≪ p^{0.187}`, `K_sub(p) ≪ p^{0.198}`. CONDITIONAL on prime AP level `0.9908` (EH suffices, §11): `≍ X/log²X` primes in `(X,2X]`, `p≡1 (840)`, have `g(p)=11`; unbounded finite g CONDITIONAL on Dickson. Separately (`notes/z81/SPECIFIC_CLASS.md` §§2,6–7): for fixed `k` distinct primes `q_i≡3 (4)` in `[L,2L]`, the joint `−1` miss proportion on `X≤t<2X` is `(log X)^{-k I_*+o_k(1)}` (`I_*=0.00415475…`, upper bound also relative to primes `4t+1`); the full band at `β=.635` has `O(X exp(−L^{.582}))` all-miss rows; CONDITIONAL on ES-free `(M)` gives `E(N) ≪ N exp(−c(log N)^{.751})`, on `(DR)` gives `N^{1−δ}`. CERTIFIED comparison: max g = 127 for 𝔐-primes ≤ 5·10¹², first at 3,153,419,441,929 (two censuses; first genus break at `k=27`, 4 budget misses).
 * *(z50, `BREADTH_Z45.md` §15.)* ES₅ and U: E_ES₅(N) ≤ E_U(N) ≪ N exp(−c(log N)^{2/3}(log log N)^{−1/3}) over n ≡ 1 (4)
   (`EXSET_I3.md` §7.3), and #{p ≤ N : U(p) fails} ≪ N exp(−c(log N)^{2/3}) at primes (`EXSET_BEYOND_CRT.md` Thm 3.1;
   `EXSET_SIEVE_MASS.md` 3.5). INTERNALLY PROVED, Vaughan-type. **2/3 is sharp for the audited whole-avoider CRT
@@ -1162,7 +1162,7 @@ no single-prime lower-tail mechanism is known.
 * Moving windows (board #2 slate, (J)105; PROVED rel. Henriot's erratum, Siegel–Walfisz, Mertens): for 0 < α < 1/6, all but
   O(X/L^{4/3−2α−ε}) primes p ≡ 1 (8) in [X, 2X] have a Type II solution at *every* forced prime window q ≡ 3 (8) in
   [L^α, 2L^α] (L = log X). Witness-location information; says nothing about hard primes.
-* Almost-all caps: **(z81, PROVED rel. BV, BT, Shiu, Vaughan, z79/TQ transfer; twice independently Opus-reviewed incl. `REVIEW_CAP_RECORDS_OPUS2.md`, upgrading `CAP_INTERPOLATION` §5 Assessment on all integers):** `#{2≤n≤N : e*(n)>1} ≪ N exp(−c(log N)^{4/5})` (`notes/z81/CAP_ZERO.md` Thm V & `notes/z81/SPECIFIC_CLASS.md` Thm C1, two packet/supply derivations sharing z79/TQ transfer), and `≪ N exp(−c(log N)^{3/4}(log₂N)^{1/4})` with root restricted to `1` or prime (V). At growing cap (`EXSET_LINNIK_CAPS.md` Thms 4.2, 4.5): `#{n ≤ X : e*(n) > ⌈(log log X)^{1+ε}⌉} ≪_ε X^{1−c_ε}` (primes and odd `n ≡ 1 (8)`), and `X^{1/A+o(1)}` at cap `(log X)^A/4` (`A > 1`); earlier `X^{2/A+o(1)}` and `(log X)^{⌈4/ε⌉}` at `p^ε` (`CAP_BOUNDED.md`). These concern the cap relaxation only; cap 0 (ES) lacks the power-dense class supply that drives them.
+* Almost-all caps: **(z81, ineffective, PROVED rel. BV, BT, Shiu, Vaughan, z79/TQ transfer; twice independently Opus-reviewed incl. `REVIEW_CAP_RECORDS_OPUS2.md`, upgrading only the §5 multiplier Assessment in `CAP_INTERPOLATION` to a theorem on all integers, not optimality (KARY3 ceiling still Assessment)):** `#{2≤n≤N : e*(n)>1} ≪ N exp(−c(log N)^{4/5})` (`notes/z81/CAP_ZERO.md` Thm V & `notes/z81/SPECIFIC_CLASS.md` Thm C1, two packet/supply derivations sharing z79/TQ transfer), and `≪ N exp(−c(log N)^{3/4}(log₂N)^{1/4})` with root restricted to `1` or prime (V). At growing cap (`EXSET_LINNIK_CAPS.md` Thms 4.2, 4.5): `#{n ≤ X : e*(n) > ⌈(log log X)^{1+ε}⌉} ≪_ε X^{1−c_ε}` (primes and odd `n ≡ 1 (8)`), and `X^{1/A+o(1)}` at cap `(log X)^A/4` (`A > 1`); earlier `X^{2/A+o(1)}` and `(log X)^{⌈4/ε⌉}` at `p^ε` (`CAP_BOUNDED.md`). These concern the cap relaxation only; cap 0 (ES) lacks the power-dense class supply that drives them.
 * *(z53, superseded in z79: `notes/z79/LOWER_TAIL.md`, 5 Opus reviews; originally `Z53_PZ.md` Thm A / `paper/es-count-note` Thm C.)*
   PROVED (z80, `notes/z80/R_BELOW_619.md` §§4–5, 6 Opus reviews; rel. z79 Haar moments, upper sieve, Bettin–Chandee Thm 1, BV/BT):
   `R(p) ≥ (C−ε)M₀(p)`, `C = 238447111/317627388 ≈ 0.7507` (each `d`-parity `≥ (C/2−ε)M₀`; also with `M_BM`) outside
@@ -1250,7 +1250,7 @@ no single-prime lower-tail mechanism is known.
   `notes/z75/ANALYTIC_BREAK.md`): for every integer n > 1, R = rad(n), **e*(n) ≤ exp(C√(log R · log log(3R)))** unconditionally
   with an effective absolute C (PROVED rel. Gallagher, Linnik, Minkowski II; supersedes effective rad(n)^5, (p−5)/8 and
   ineffective n₀^{1/4+ε}), via planted carriers, disjoint-alphabet Gallagher and quotient-index correction; also explicit
-  **4e*(p) + 3 ≤ √(4p/3)** at primes p ≡ 1 (8) (Gauss reduction/genus theory). **(z80–z81, `notes/z80/BEYOND_34.md` §§10–12, `notes/z81/CAP_ZERO.md` §1: twice independently Opus-reviewed incl. `REVIEW_CAP_RECORDS_OPUS2.md`).** PROVED, ineffective as R=rad(n)→∞ (rel. Maynard Thm 1.1, multiplicative large sieve, Linnik, TZ/Stark in degree two, Dickman/Mertens/PNT and the z75 packet inputs): **log(1 + e*(n)) ≤ exp(o(log U·log₃U/log₂U))**, U = log R; CONDITIONAL on Dirichlet GRH the same with U = log₂R, still ineffective (superseding z78's `(2√2+o(1))√(log₂R·log₃R)`); CONDITIONAL on Montgomery's uniform primes-in-progressions conjecture `log(1 + e*) ≪_ε (log₃R)^{2+ε}` — **all three rates with prime-power root or root 1** (`CAP_ZERO` Thm I, inverse packet choosing the overflow prime first, no imposed height limit). CONDITIONAL on GRH + HC (`CAP_ZERO` §6): prime-root cap 1 at all large hard primes and `e*(n) = O(1)` for all `n` (HC nonstandard/unproved). PROVED for QB's synchronized squarefree subset products (`r−1|L`) at the §11 group size: at most `2^{τ(L)}` classes, so full support forces `log L ≫ log U·log₂U`; not a lower bound on e*. For §15's prescribed large-slot menus with `L≤U^C` and z81 `CAP_ZERO` Thm T's support/height ceilings, even arbitrary cofactor factorizations and small deterministic slots cannot uniformly pay unbounded mean exponents on large support primes on thin profiles (a single positive carrier obeys H, and prescribing `s` can force cap `≫ log₂s`). Bounded cap unconditionally is open.
+  **4e*(p) + 3 ≤ √(4p/3)** at primes p ≡ 1 (8) (Gauss reduction/genus theory). **(z80–z81, `notes/z80/BEYOND_34.md` §§10–12, `notes/z81/CAP_ZERO.md` §1: twice independently Opus-reviewed incl. `REVIEW_CAP_RECORDS_OPUS2.md`).** PROVED, ineffective as R=rad(n)→∞ (rel. Maynard Thm 1.1, multiplicative large sieve, Linnik, TZ/Stark in degree two, Dickman/Mertens/PNT and the z75 packet inputs): one packet has **log(1 + e) ≤ exp(o(log U·log₃U/log₂U))**, U = log R; CONDITIONAL on Dirichlet GRH the same with U = log₂R, still ineffective (superseding z78's `(2√2+o(1))√(log₂R·log₃R)`); CONDITIONAL on Montgomery's uniform primes-in-progressions conjecture `log(1 + e) ≪_ε (log₃R)^{2+ε}` — **all three rates with prime-power root or root 1** (`CAP_ZERO` Thm I, inverse packet choosing the overflow prime first, no imposed height limit). CONDITIONAL on GRH + HC (`CAP_ZERO` §6): prime-root cap 1 at all large primes `p≡1 (8)` and `e*(n) = O(1)` for all `n` (HC nonstandard/unproved). PROVED for QB's synchronized squarefree subset products (`r−1|L`) at the §11 group size: at most `2^{τ(L)}` classes, so full support forces `log L ≫ log U·log₂U`; not a lower bound on e*. For §15's prescribed large-slot menus with `L≤U^C` and z81 `CAP_ZERO` Thm T's support/height ceilings, even arbitrary cofactor factorizations and small deterministic slots cannot uniformly pay unbounded mean exponents on large support primes on thin profiles (a single positive carrier obeys H, and prescribing `s` in H can force cap `≫ log₂s`). Bounded cap unconditionally is open.
   Priority unverified. ES ⟺ e* = 0;
   at a fixed window, the δ_p = 0 branch of cap 0 is the B2 event (`CAP_DOWN.md`).
 * Provable T1-bearing cousins: ES^{(S)} (|S| ≥ 4, unconditional), ES^□ (elementary), V_φ (GRH; unconditional with a
@@ -1384,115 +1384,47 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Weil / Selberg–Hooley / bilinear fixed-modulus savings → tied modulus; need p^{1−o(1)} saving → `PARITY_AUDIT` §2.
 * H-B, parity-breaking (Friedlander–Iwaniec) at fixed p → collapses into H-A → `PARITY_FIXED_P.md` (J)6, (J)87.
 * Fixed-p variance / Janson / level-Poisson second-moment → critical, far tail fatter than Poisson → (J)103 §3.
-* Exceptional set via the audited CRT architectures (caps 3/4 ES, 2/3 U/ES₅, native-only for I3), exactly-covered forcing,
-  divisor switching or CRT-certified Janson chains → capped; constant-loss whole-shift products → θ ≤ log 2; marginal-only
-  transfers → scoped blindness → `BREADTH_Z45.md` §15 (z50).
-* Exact identities: no linear relation between 56 ES counts and 54 classical functions (CERTIFIED, that finite dictionary); no
-  finite fixed-level Eisenstein-type identity certifies Type I/II counts (PROVED via T1) → (I)5, (J)7 Thm 9.1. Growing-level
-  identities remain open ((J)10: the T1-respecting W(n) identity exists, positivity is the spin event).
+* Exceptional set via the audited CRT architectures (caps 3/4 ES, 2/3 U/ES₅, native-only for I3), exactly-covered forcing, divisor switching or CRT-certified Janson chains → capped; constant-loss whole-shift products → θ ≤ log 2; marginal-only transfers → scoped blindness → `BREADTH_Z45.md` §15 (z50).
+* Exact identities: no linear relation between 56 ES counts and 54 classical functions (CERTIFIED, that finite dictionary); no finite fixed-level Eisenstein-type identity certifies Type I/II counts (PROVED via T1) → (I)5, (J)7 Thm 9.1. Growing-level identities remain open ((J)10: the T1-respecting W(n) identity exists, positivity is the spin event).
 * Automorphic normal form (theta quotient, weight ½, Serre–Stark) → Eisenstein-only, exact, but does not decide one integer → (J)101.
 * Dirichlet series / moments / Euler-product hardness laws → averages (B6) → `BRAINSTORM/anal_*`.
 * Spectral/interlacing, faithful Euler systems, single-character Siegel dichotomy, ultraproduct transfer → displayed mechanisms fail, not universal no-go theorems (Assessment) → `BREADTH_Z45.md` §§1–4 (board #4 addendum, 2026-10-19).
 * (z53) Summing the hyperbola dual over conductors or frequencies at fixed p → `Z53_HYPKLOOST.md` (scoped):
-  * Fejér-weighted frequency sums are window-smoothed counts; the full unweighted projection onto conductors dividing M
-    is a class average. Arbitrary weighted cross-conductor sums are not covered (Thms B, C).
-  * Kloosterman fractions: DFI Theorem 2 and Bettin–Chandee require, respectively, C̄ ≲ p^{1/37} and C̄ ≲ p^{1/21} for
-    their displayed bounds to save (necessary conditions only, ignoring ε-losses). DFI Theorem 1 does save on skew KF
-    sums, e.g. U ≍ p^{1/5}, V ≍ p^{3/5}, bounded b; no saving for the tied block count follows here (K(c)).
-* (z53) λ-uniform box majorants and shift-uniform class-blind fibre majorants → floored at the trivial block bound →
-  `Z53_HYPSUMPROD.md` Props B, C (other uses of the tools are not excluded).
-* (z53) Square sieve toward positivity → `Z53_SQSIEVE.md` Lemma C3: under (H) and ν(a) ≤ P₀−1 on the support of
-  nonnegative weights, quadratic σ-minorants have no positive diagonal main term. (H) is checked on finite strips only,
-  not proved for general application weights. Signed auxiliary-sum inputs remain open.
-* (z53) One prescribed class modulus (fixed-modulus multiplicative representation) → `Z53_NONCRTSMOOTH.md` Cor B1: for
-  fixed η > 0 and one q = q(X) ∈ 4ℕ with q ≤ X^{1/2}, prescribed independently of p, all but o(π(X)) primes p ≤ X have no
-  E(q,κ) with κ ≤ q/(log X)^{2+η}. This limits an almost-all guarantee at that q, not simultaneously over q; for fixed q
-  the threshold eventually falls below 1. Aggregation over q is the remaining Type II route (Assessment), not a necessity
-  for every ES proof: ES is Type I or Type II.
-* (z54) Norm-only character-side inputs to the balanced-block square sieve → `Z54_BILINJAC.md` Prop M, Cor M′: used
-  directly, Heath-Brown's real-character large sieve (square-class ℓ²-mass D(w)) returns ≥ √D(w) ≥ M_s(w) (the square
-  mass), adding nothing to its input, and sup-norm/support/range bilinear Jacobi bounds (HB Cor 4) return ≥ (1 − 1/P₀) × the trivial bound.
-  Inputs using more than these norms are not excluded.
-* (z54) Balanced block via divisor/geometry tools, specified implementations only → `Z54_BILINDIV.md` Props 4.3, 5.1,
-  5.3, 5.4 (see §7 item 1); joint (ν, k) cancellation, actual auxiliary-curve counts, Salberger/p-adic variants and AP
-  methods with p-dependent moduli remain open.
-* (z54) Exact layer R_𝔉 − G_𝔉 bounded block by block → `Z54_EXACTSUM.md` Theorem N: on a fixed window
-  0 < α₀ < α₁ ≤ β < γ with 8U₁X ≤ P, U₁ > 3U₀, X ≥ 12Y, n-uniform bounds (over n ≡ 1 (24) in [P, 2P]) on the conductor blocks D_f or frequency sums W(a,q), summed by the
-  triangle inequality, total ≥ P^{α₁−o(1)} (from prime f ≡ 1 (4) in (U₁/3, U₁]). Prime-sensitive, one-sided and
-  grouped-block (cross-u) methods are not excluded.
-* (z55) TD via one-variable exponent pairs after the θ-expansion → `Z55_TDF.md` §3.2: for every exponent pair,
-  (1/2 − 2κ)/λ ≤ 1 (PROVED). The heuristic bound expression therefore gives TD only for n < U³, outside the range
-  16U³ ≤ n (Assessment for the route). Joint (ν, k) methods are not covered.
-* (z55) Per-frequency benchmark class for the strip count and TD (triangle inequality over ν, majorants
-  ≥ c‖c(ν)‖₂) → `Z55_TDCAL.md` Prop C:
-  * for nonzero nonnegative test functions φ, Φ, the nonzero-frequency benchmark is ≍ U, so every bound for the
-    smoothed count minus its main term in this class is at least ≫ U (PROVED);
-  * the TD top piece is bounded only by ≫ h^{1/2}U^{3/2} (via BILINDIV Prop 4.3). This uses BILINDIV's smoothed
-    level-parametrized weights and 1 ≤ h ≤ U, not the sharp sum T(h);
-  * not excluded: joint (ν, m) estimates below the benchmark, spectral methods on other transforms, arithmetic NC
-    bounds.
-* (z55) Pointwise genus-character minorants of the exact class count → `Z55_CROSSF.md` §2.4(a): no pointwise Fourier
-  minorant of a class indicator with Fourier support in a proper subgroup of characters has positive mean (PROVED).
-  Other positivity routes are not covered.
-* (z55) Averaging the exact R_𝔉 over u, w or C at fixed p → `Z55_CROSSF.md` Lemma 1.3: every one-variable section is a
-  single-integer divisor-in-progression event (PROVED identities). "No free average" is Assessment; transformed and
-  dispersion forms are not excluded.
-* (z55) "R_𝔉(p) ≥ 1 for all p ≥ p₀" on the standard-window Thm U family with p₀ ≤ 1.000005·10¹⁵ →
-  `Z55_CROSSF.md` §3: false.
+  * Fejér-weighted frequency sums are window-smoothed counts; the full unweighted projection onto conductors dividing M is a class average. Arbitrary weighted cross-conductor sums are not covered (Thms B, C).
+  * Kloosterman fractions: DFI Theorem 2 and Bettin–Chandee require, respectively, C̄ ≲ p^{1/37} and C̄ ≲ p^{1/21} for their displayed bounds to save (necessary conditions only, ignoring ε-losses). DFI Theorem 1 does save on skew KF sums, e.g. U ≍ p^{1/5}, V ≍ p^{3/5}, bounded b; no saving for the tied block count follows here (K(c)).
+* (z53) λ-uniform box majorants and shift-uniform class-blind fibre majorants → floored at the trivial block bound → `Z53_HYPSUMPROD.md` Props B, C (other uses of the tools are not excluded).
+* (z53) Square sieve toward positivity → `Z53_SQSIEVE.md` Lemma C3: under (H) and ν(a) ≤ P₀−1 on the support of nonnegative weights, quadratic σ-minorants have no positive diagonal main term. (H) is checked on finite strips only, not proved for general application weights. Signed auxiliary-sum inputs remain open.
+* (z53) One prescribed class modulus (fixed-modulus multiplicative representation) → `Z53_NONCRTSMOOTH.md` Cor B1: for fixed η > 0 and one q = q(X) ∈ 4ℕ with q ≤ X^{1/2}, prescribed independently of p, all but o(π(X)) primes p ≤ X have no E(q,κ) with κ ≤ q/(log X)^{2+η}. This limits an almost-all guarantee at that q, not simultaneously over q; for fixed q the threshold eventually falls below 1. Aggregation over q is the remaining Type II route (Assessment), not a necessity for every ES proof: ES is Type I or Type II.
+* (z54) Norm-only character-side inputs to the balanced-block square sieve → `Z54_BILINJAC.md` Prop M, Cor M′: used directly, Heath-Brown's real-character large sieve (square-class ℓ²-mass D(w)) returns ≥ √D(w) ≥ M_s(w) (the square mass), adding nothing to its input, and sup-norm/support/range bilinear Jacobi bounds (HB Cor 4) return ≥ (1 − 1/P₀) × the trivial bound. Inputs using more than these norms are not excluded.
+* (z54) Balanced block via divisor/geometry tools, specified implementations only → `Z54_BILINDIV.md` Props 4.3, 5.1, 5.3, 5.4 (see §7 item 1); joint (ν, k) cancellation, actual auxiliary-curve counts, Salberger/p-adic variants and AP methods with p-dependent moduli remain open.
+* (z54) Exact layer R_𝔉 − G_𝔉 bounded block by block → `Z54_EXACTSUM.md` Theorem N: on a fixed window 0 < α₀ < α₁ ≤ β < γ with 8U₁X ≤ P, U₁ > 3U₀, X ≥ 12Y, n-uniform bounds (over n ≡ 1 (24) in [P, 2P]) on the conductor blocks D_f or frequency sums W(a,q), summed by the triangle inequality, total ≥ P^{α₁−o(1)} (from prime f ≡ 1 (4) in (U₁/3, U₁]). Prime-sensitive, one-sided and grouped-block (cross-u) methods are not excluded.
+* (z55) TD via one-variable exponent pairs after the θ-expansion → `Z55_TDF.md` §3.2: for every exponent pair, (1/2 − 2κ)/λ ≤ 1 (PROVED). The heuristic bound expression therefore gives TD only for n < U³, outside the range 16U³ ≤ n (Assessment for the route). Joint (ν, k) methods are not covered.
+* (z55) Per-frequency benchmark class for the strip count and TD (triangle inequality over ν, majorants ≥ c‖c(ν)‖₂) → `Z55_TDCAL.md` Prop C:
+  * for nonzero nonnegative test functions φ, Φ, the nonzero-frequency benchmark is ≍ U, so every bound for the smoothed count minus its main term in this class is at least ≫ U (PROVED);
+  * the TD top piece is bounded only by ≫ h^{1/2}U^{3/2} (via BILINDIV Prop 4.3). This uses BILINDIV's smoothed level-parametrized weights and 1 ≤ h ≤ U, not the sharp sum T(h);
+  * not excluded: joint (ν, m) estimates below the benchmark, spectral methods on other transforms, arithmetic NC bounds.
+* (z55) Pointwise genus-character minorants of the exact class count → `Z55_CROSSF.md` §2.4(a): no pointwise Fourier minorant of a class indicator with Fourier support in a proper subgroup of characters has positive mean (PROVED). Other positivity routes are not covered.
+* (z55) Averaging the exact R_𝔉 over u, w or C at fixed p → `Z55_CROSSF.md` Lemma 1.3: every one-variable section is a single-integer divisor-in-progression event (PROVED identities). "No free average" is Assessment; transformed and dispersion forms are not excluded.
+* (z55) "R_𝔉(p) ≥ 1 for all p ≥ p₀" on the standard-window Thm U family with p₀ ≤ 1.000005·10¹⁵ → `Z55_CROSSF.md` §3: false.
   * CERTIFIED zeros up to 1 000 005 280 000 049, e.g. 5.4 % of a 10¹³ sample;
-  * (H⁻_𝔉) fails at every zero with M_𝔉 > 0; positivity of M_𝔉 was certified at all 192 469 recorded exhaustive-scan
-    zeros, not asserted here for every sampled zero;
+  * (H⁻_𝔉) fails at every zero with M_𝔉 > 0; positivity of M_𝔉 was certified at all 192 469 recorded exhaustive-scan zeros, not asserted here for every sampled zero;
   * larger p₀ is open. Assessment: the model's expected-count crossover is ≈ 10¹²⁴.
-* (z56) Union over size windows of the (★) count, via the exact links of Lemma L or a pointwise variance across windows →
-  `Z56_FAMATTACK.md` Lemma L, Prop V, F1 (method-scoped, not a theorem killing union or variance routes): the analysed links
-  are positive (the switch maps a hit at u to one at u′ = B), size-only, quadratic or congruence-level; a pointwise variance
-  criterion implies a weighted first-moment lower bound (PROVED); EVIDENCE: some negative window pairs, but net positive
-  residual covariance and excess joint emptiness. Not covered: non-size windows, signed cross-level identities, other links.
-* (z56) A transfer X ≥ −(1 − ε)M_gen asserted uniformly for all non-square n ≡ 1 (4) → false: 285 non-square composites
-  n ≤ 7 999 801 have R(n) = 0 (CERTIFIED counts); floating-point genus evaluation gives M_gen ≈ 24.3 at
-  810 001 = 241·3361 (EVIDENCE; `Z56_FAMATTACK.md` §3.5). Eventual statements are not refuted; the known prime zeros
-  separately refute an all-primes version without a lower cutoff.
-* (z56) Bounds on the whole-integer avoider set of (★) → `Z56_FAMTRY.md` §3.5(i), §4.4: it contains (1/2 + o(1))√X odd
-  squares up to X, so such bounds stop at √X (PROVED); log L(Q) ≍ √log Q is optimal for that specific large-sieve
-  denominator only. Sieves counting primes, prime weights and off-square refinements are not covered.
-* (z56) Central-slice asymptotics (CNT-type) as a route to gap 1 → `Z56_CENTRAL.md` Thm L, Cor L1 (CONDITIONAL on EPC): a
-  uniform, length-decoupled CNT_unif would give SID, a pointwise power-saving asymptotic for Σ_{x<n≤x+x^{1/4}} d(n), not
-  established in the checked sources (Assessment). The fixed tied/prime CNT is not shown equivalent to SID.
-* (z56) One-component data-only semi-linear sieve for S-membership → `Z56_K4LIT.md` Lemma P / Prop P′ (PROVED, P′
-  relative to Iwaniec 1976 Thm 1): for nonnegative parity-forced sequences with admissible density
-  g(q) = (1 + c_q)/(q + c_q), 0 ≤ c_q ≤ C/q, counterexamples with the prescribed local density and stated remainder bounds
-  exist at every fixed level < 1/2; above 1/2, the stated support and remainder hypotheses force S-mass. Endpoint open.
-  Not covered: joint two-component data, switching, primality of p.
-* (z56) Multiplicative comparison model for Type II on a\*_n = r\*(n + 4)r\*(4n + 1)·1[n ≡ 97 (120)] → `Z56_K4BILIN.md` Lemma N (PROVED):
-  fails every Type II hypothesis with logarithmic saving (inert-prime shift classes). W-tricked or other comparison models
-  are not ruled out.
-* (z57) Statistical complementarity of certificate families ((★), b = 1, Type I a = 1, c = 2, 3 lines, 𝔊*, its corner) →
-  `Z57_COMPLEMENT.md` (scoped negative, over primes; first draft REJECTED by the cross-review, corrected): no robustly
-  negative full-pair count association after local controls (EVIDENCE, 10⁸–10¹³ plus rough semiprimes); same-integer
-  slices with nonempty admissible unit-class sets positively coupled (Thm C(i), PROVED for bounded shifts, M-coprime divisors ≤ x^θ, θ < 1/4); positive covariance
-  does not forbid pointwise coverage. Pointwise complementarity at primes is not excluded for five pairs (§7 item 3).
-* (z57) Split-and-complement of (★) by the parity of C → `Z57_SYNTH.md` §3.II: on a domain it is full-family positivity
-  ((MS) itself), the halves are positively associated (corr ≈ +0.29 at 10⁷–10⁸, EVIDENCE), no disjointness mechanism
-  found. Not excluded.
-* (z57) Additive-character expansion of the 𝔊* hit count over moduli d → `Z57_BFF.md` §2 (Assessment for this
-  implementation): no estimate for the weighted error supplied for d ≤ p^{1/3}; uniform positivity H(p; D) ≥ 1 for all
-  large primes is impossible when D ≤ c·log p (Linnik example, PROVED); for d ≥ p^{1/3} it is B2 in tied form. Larger-d routes are not excluded.
-* (z58) Character-layer expansion of the (★) hit indicator (L₀ + L₂ + L_r + L_n) → `Z58_TRYF.md`. Burgess bounds only the
-  Jacobi layer L₂ (Thm 2.1, PROVED). No bound is proved for L_r or L_n, and HCE is stronger than the target. An L_r bound
-  via Shiu + Pólya–Vinogradov looks feasible; it is not excluded.
-* (z58) Surrogate main term M₂ plus exponential sums on boxes (van der Corput, Weil/Salié/Karatsuba, Erdős–Turán) →
-  `Z58_TRYF2.md` §4 (Assessment for these attempts): the errors are too large for the polylog per-box main term. Thm A
-  (M₂ ≥ c₀ log²p) stands; E₂ > −M₂ is open. Other analytic arguments are not excluded.
-* (z58) Fixed-character / least-non-residue covering of 𝔐 by a fixed prime q with (p/q) = −1, no threshold →
-  `Z58_TRYO.md` §3.3 (CERTIFIED by the screen zeros, for each q ∈ [11, 47]). Thresholded or eventual variants are not
-  excluded. TRYO Thm 2 and `Z58_CONVF.md` Thm 3.1 (almost-all, PROVED) are already covered in substance by the earlier, stronger `Z56_FAMTRY.md` Thm A.
-* (z58) Designed counterexample search for (MS) (square-class, near-square, avoidance and CRT designs) →
-  `Z58_DISPROOF.md`.
+* (z56) Union over size windows of the (★) count, via the exact links of Lemma L or a pointwise variance across windows → `Z56_FAMATTACK.md` Lemma L, Prop V, F1 (method-scoped, not a theorem killing union or variance routes): the analysed links are positive (the switch maps a hit at u to one at u′ = B), size-only, quadratic or congruence-level; a pointwise variance criterion implies a weighted first-moment lower bound (PROVED); EVIDENCE: some negative window pairs, but net positive residual covariance and excess joint emptiness. Not covered: non-size windows, signed cross-level identities, other links.
+* (z56) A transfer X ≥ −(1 − ε)M_gen asserted uniformly for all non-square n ≡ 1 (4) → false: 285 non-square composites n ≤ 7 999 801 have R(n) = 0 (CERTIFIED counts); floating-point genus evaluation gives M_gen ≈ 24.3 at 810 001 = 241·3361 (EVIDENCE; `Z56_FAMATTACK.md` §3.5). Eventual statements are not refuted; the known prime zeros separately refute an all-primes version without a lower cutoff.
+* (z56) Bounds on the whole-integer avoider set of (★) → `Z56_FAMTRY.md` §3.5(i), §4.4: it contains (1/2 + o(1))√X odd squares up to X, so such bounds stop at √X (PROVED); log L(Q) ≍ √log Q is optimal for that specific large-sieve denominator only. Sieves counting primes, prime weights and off-square refinements are not covered.
+* (z56) Central-slice asymptotics (CNT-type) as a route to gap 1 → `Z56_CENTRAL.md` Thm L, Cor L1 (CONDITIONAL on EPC): a uniform, length-decoupled CNT_unif would give SID, a pointwise power-saving asymptotic for Σ_{x<n≤x+x^{1/4}} d(n), not established in the checked sources (Assessment). The fixed tied/prime CNT is not shown equivalent to SID.
+* (z56) One-component data-only semi-linear sieve for S-membership → `Z56_K4LIT.md` Lemma P / Prop P′ (PROVED, P′ relative to Iwaniec 1976 Thm 1): for nonnegative parity-forced sequences with admissible density g(q) = (1 + c_q)/(q + c_q), 0 ≤ c_q ≤ C/q, counterexamples with the prescribed local density and stated remainder bounds exist at every fixed level < 1/2; above 1/2, the stated support and remainder hypotheses force S-mass. Endpoint open. Not covered: joint two-component data, switching, primality of p.
+* (z56) Multiplicative comparison model for Type II on a\*_n = r\*(n + 4)r\*(4n + 1)·1[n ≡ 97 (120)] → `Z56_K4BILIN.md` Lemma N (PROVED): fails every Type II hypothesis with logarithmic saving (inert-prime shift classes). W-tricked or other comparison models are not ruled out.
+* (z57) Statistical complementarity of certificate families ((★), b = 1, Type I a = 1, c = 2, 3 lines, 𝔊*, its corner) → `Z57_COMPLEMENT.md` (scoped negative, over primes; first draft REJECTED by the cross-review, corrected): no robustly negative full-pair count association after local controls (EVIDENCE, 10⁸–10¹³ plus rough semiprimes); same-integer slices with nonempty admissible unit-class sets positively coupled (Thm C(i), PROVED for bounded shifts, M-coprime divisors ≤ x^θ, θ < 1/4); positive covariance does not forbid pointwise coverage. Pointwise complementarity at primes is not excluded for five pairs (§7 item 3).
+* (z57) Split-and-complement of (★) by the parity of C → `Z57_SYNTH.md` §3.II: on a domain it is full-family positivity ((MS) itself), the halves are positively associated (corr ≈ +0.29 at 10⁷–10⁸, EVIDENCE), no disjointness mechanism found. Not excluded.
+* (z57) Additive-character expansion of the 𝔊* hit count over moduli d → `Z57_BFF.md` §2 (Assessment for this implementation): no estimate for the weighted error supplied for d ≤ p^{1/3}; uniform positivity H(p; D) ≥ 1 for all large primes is impossible when D ≤ c·log p (Linnik example, PROVED); for d ≥ p^{1/3} it is B2 in tied form. Larger-d routes are not excluded.
+* (z58) Character-layer expansion of the (★) hit indicator (L₀ + L₂ + L_r + L_n) → `Z58_TRYF.md`. Burgess bounds only the Jacobi layer L₂ (Thm 2.1, PROVED). No bound is proved for L_r or L_n, and HCE is stronger than the target. An L_r bound via Shiu + Pólya–Vinogradov looks feasible; it is not excluded.
+* (z58) Surrogate main term M₂ plus exponential sums on boxes (van der Corput, Weil/Salié/Karatsuba, Erdős–Turán) → `Z58_TRYF2.md` §4 (Assessment for these attempts): the errors are too large for the polylog per-box main term. Thm A (M₂ ≥ c₀ log²p) stands; E₂ > −M₂ is open. Other analytic arguments are not excluded.
+* (z58) Fixed-character / least-non-residue covering of 𝔐 by a fixed prime q with (p/q) = −1, no threshold → `Z58_TRYO.md` §3.3 (CERTIFIED by the screen zeros, for each q ∈ [11, 47]). Thresholded or eventual variants are not excluded. TRYO Thm 2 and `Z58_CONVF.md` Thm 3.1 (almost-all, PROVED) are already covered in substance by the earlier, stronger `Z56_FAMTRY.md` Thm A.
+* (z58) Designed counterexample search for (MS) (square-class, near-square, avoidance and CRT designs) → `Z58_DISPROOF.md`.
   * Result: no R- or 𝔊*-zero among 868 562 sampled primes ≤ 7.31·10¹⁵ (CERTIFIED decisions).
-  * Fixed-y square-class kills fade with p (model, Assessment). Fixed-offset line kills remove only O_k(L) mass, assuming
-    line mass ≍ L/u.
-  * The zero-law tail is a scenario, not a bound. Slowly decaying mixtures, growing offsets, other polynomial families
-    and a non-local "prime T1" are not excluded.
+  * Fixed-y square-class kills fade with p (model, Assessment). Fixed-offset line kills remove only O_k(L) mass, assuming line mass ≍ L/u.
+  * The zero-law tail is a scenario, not a bound. Slowly decaying mixtures, growing offsets, other polynomial families and a non-local "prime T1" are not excluded.
 
 *Algebraic / forcing*
 * Congruence coverings, identity families, bounded search, seed-component (signed graph) line → B1; seed component sterile under H / Dickson → `POINTWISE_SIZE`, `FORMAL_CLOSURE.md`, STATUS_HISTORY "line 2: CLOSED".
@@ -1503,99 +1435,51 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Polynomial auxiliary budgets at a general prime; near-square / CF-norm / A² − pB² windows (coprime cases); p − 1 divisibility data → irreducibility / never Jacobi-forced / sterile point → (J)84 (Props 4.2–4.3).
 * Class-group composition / slice-lattice walks (Astra bridge) → add reachability, never existence (3361) → (J)82.
 * Fixed roots, least-non-residue roots in the forest F_n → fail i.o. under Dickson → (J)106.
-* Witness windows bounding *both* forest endpoints, or the covering modulus A, by (log p)^C → false i.o., unconditionally
-  (`H4_NOT_POLYLOG.md`, z49). Only one-coordinate windows (u_min, HC, the least López vertex) remain open.
+* Witness windows bounding *both* forest endpoints, or the covering modulus A, by (log p)^C → false i.o., unconditionally (`H4_NOT_POLYLOG.md`, z49). Only one-coordinate windows (u_min, HC, the least López vertex) remain open.
 * Bounded windows; balanced-lattice caps; GRH cap routes → bounded/slow cap is not ES; cap 0 is B2 → (J)83, (J)85, (J)91.
 * Menu ladder from thin families to primes → positive-density rungs collapse to B1/B2 → (J)76, (J)78, (J)79.
 * 2-adic / Fano pigeonhole beyond 4/p → used up (forcing only M ∈ {2,3,4}) → (J)57; no global Fano law on the 2-isogeny graph → (J)65.
-* Windmills / involutions with finite affine menus → barred (CONDITIONAL) → (J)2 Thm 6.1. Finite-group actions on X by a
-  fixed common finite affine menu: the fixed-point rule with K ⊆ Γ^{(2)} (ℤ/3, odd order, A₃ ⊂ S₃) and the Wielandt orbit
-  rule with m ≥ 3 fail on a positive-density set of p ≡ 1 (24) **unconditionally** (generic orbits have size ≤ 2); the parity
-  rules are (J)2 verbatim, barred given a BH-order lower bound; 2-power class-group data (8-, 16-rank, h mod 16) show no
-  association with certificate parities to 2·10⁸ (EVIDENCE) → `Z52D_PARITY.md` Thms C, D (z52d, cross-model reviewed).
-* Signed bounded-order Fourier/character inverse for window obstructions (Z3003 route) → false for B ≤ 952, all B under
-  Dickson; no tested non-BM character (conductor ≤ 200) covers more than ~16 % of a prime's forced obstructions (EVIDENCE)
-  → `Z52D_FOURIER.md` Thm B, §4 (z52d).
-* Principal-cycle (Pell) root menu R3 ∪ U in F_p → frozen to a polynomial recipe at near-square primes; fails i.o. under H →
-  `Z52D_PELLCYCLE.md` Thm 1.1 (z52d).
+* Windmills / involutions with finite affine menus → barred (CONDITIONAL) → (J)2 Thm 6.1. Finite-group actions on X by a fixed common finite affine menu: the fixed-point rule with K ⊆ Γ^{(2)} (ℤ/3, odd order, A₃ ⊂ S₃) and the Wielandt orbit rule with m ≥ 3 fail on a positive-density set of p ≡ 1 (24) **unconditionally** (generic orbits have size ≤ 2); the parity rules are (J)2 verbatim, barred given a BH-order lower bound; 2-power class-group data (8-, 16-rank, h mod 16) show no association with certificate parities to 2·10⁸ (EVIDENCE) → `Z52D_PARITY.md` Thms C, D (z52d, cross-model reviewed).
+* Signed bounded-order Fourier/character inverse for window obstructions (Z3003 route) → false for B ≤ 952, all B under Dickson; no tested non-BM character (conductor ≤ 200) covers more than ~16 % of a prime's forced obstructions (EVIDENCE) → `Z52D_FOURIER.md` Thm B, §4 (z52d).
+* Principal-cycle (Pell) root menu R3 ∪ U in F_p → frozen to a polynomial recipe at near-square primes; fails i.o. under H → `Z52D_PELLCYCLE.md` Thm 1.1 (z52d).
 * Fermat / binary-form certificates p = Q(u,v) → miss infinitely many primes of every square class → (J)3.
-* (z53) Witness procedures with arbitrary finite-valued oracles of p (Frobenius, power residues, h(p) mod m, bounded
-  CF/Pell data) → `Z53_NONCRTLOGIC.md` Thms A, T: for each correct witness-producing procedure in the stated formal
-  language, with a defined finite formal tree at the specified trap point, failure at every sufficiently large admissible
-  input (PROVED); infinitely many prime failures are CONDITIONAL on H for the augmented finite polynomial family.
-  Boolean/counting certificates and growing searches are not excluded.
-* (z53) Joint Rédei / factor-multiset forcing → `Z53_GENUSREDEI.md`: for a fixed finite family of lines satisfying §1
-  and an admissible datum Π in a fixed finite Galois field, five necessary pointwise laws are PROVED; completeness for
-  complete decorated configurations with squarefree rough parts is CONDITIONAL on BHC (JRT); under BHC, bounded-level
-  forcing from Π alone is exactly B1 (F), while prescribed factor decorations can additionally force events.
-* (z53) Class-group roots in F_p → `Z53_FORESTCLASS.md` Cor 1.1: the bounded menus enumerated there fail infinitely often
-  under Dickson (CONDITIONAL), even with unrestricted component exploration. Arbitrary bounded class-group functions,
-  other p-dependent split classes and individual real-cycle prefixes are not covered.
-* (z53) Identities → `Z53_WILDCARD.md` Prop 2.4: for a ℚ-irreducible binary quadratic form Q, identities
-  Q(x,y) = 4CuB−u−B with nonzero C, u, B ∈ ℚ[x,y] taking positive integer values on a full-rank coset give only fixed
-  congruence menus. Rational functions, thin loci and nonpolynomial choices are not covered.
-* (z53) Convex lattice schemes → `Z53_LATTICE.md` Thm A: for odd n ≥ 6.8·10¹⁷, no Def. 1.1 full-rank convex Thue scheme
-  in (u, B, C), with its exactness/size conditions and positive-octant covering or Minkowski hypothesis, exists.
-* (z54) Quadratic-family confinement of growing HC windows → `Z54_HCKILL.md` Props F4–F6: a two-variable quadratic F
-  (nondegenerate quadratic part, full-rank lattice coset) confines at most one window integer (F6); one-variable families
-  p = (y² + δ)/(4a), with integers a, δ ≥ 1, admit only finitely many formal ratios (a : δ) confining all of 𝒞 ∩ [4, X], X ≥ 8 (F4, Faltings),
-  and none confines a prime line q ≡ 7 (8) with q ∤ δ (F5). Higher-degree (x² + y⁴-type) constructions are not covered.
-* (z54) Spin theorems / direct complete-fibre averaging on the exact class layer → `Z54_EXACTSPIN.md` Lemma 4.5,
-  Cor 5.1, Prop 5.2 (scoped): fixed-modulus fibres on the (★) support have ≤ 6τ(u) points; FIMR/Koymans–Milovic
-  hypotheses are not met (Assessment); the smooth Fourier majorant for the cubic layer needs better-than-square-root (W).
-  Transformed sums, signed or non-Fourier methods are not excluded.
+* (z53) Witness procedures with arbitrary finite-valued oracles of p (Frobenius, power residues, h(p) mod m, bounded CF/Pell data) → `Z53_NONCRTLOGIC.md` Thms A, T: for each correct witness-producing procedure in the stated formal language, with a defined finite formal tree at the specified trap point, failure at every sufficiently large admissible input (PROVED); infinitely many prime failures are CONDITIONAL on H for the augmented finite polynomial family. Boolean/counting certificates and growing searches are not excluded.
+* (z53) Joint Rédei / factor-multiset forcing → `Z53_GENUSREDEI.md`: for a fixed finite family of lines satisfying §1 and an admissible datum Π in a fixed finite Galois field, five necessary pointwise laws are PROVED; completeness for complete decorated configurations with squarefree rough parts is CONDITIONAL on BHC (JRT); under BHC, bounded-level forcing from Π alone is exactly B1 (F), while prescribed factor decorations can additionally force events.
+* (z53) Class-group roots in F_p → `Z53_FORESTCLASS.md` Cor 1.1: the bounded menus enumerated there fail infinitely often under Dickson (CONDITIONAL), even with unrestricted component exploration. Arbitrary bounded class-group functions, other p-dependent split classes and individual real-cycle prefixes are not covered.
+* (z53) Identities → `Z53_WILDCARD.md` Prop 2.4: for a ℚ-irreducible binary quadratic form Q, identities Q(x,y) = 4CuB−u−B with nonzero C, u, B ∈ ℚ[x,y] taking positive integer values on a full-rank coset give only fixed congruence menus. Rational functions, thin loci and nonpolynomial choices are not covered.
+* (z53) Convex lattice schemes → `Z53_LATTICE.md` Thm A: for odd n ≥ 6.8·10¹⁷, no Def. 1.1 full-rank convex Thue scheme in (u, B, C), with its exactness/size conditions and positive-octant covering or Minkowski hypothesis, exists.
+* (z54) Quadratic-family confinement of growing HC windows → `Z54_HCKILL.md` Props F4–F6: a two-variable quadratic F (nondegenerate quadratic part, full-rank lattice coset) confines at most one window integer (F6); one-variable families p = (y² + δ)/(4a), with integers a, δ ≥ 1, admit only finitely many formal ratios (a : δ) confining all of 𝒞 ∩ [4, X], X ≥ 8 (F4, Faltings), and none confines a prime line q ≡ 7 (8) with q ∤ δ (F5). Higher-degree (x² + y⁴-type) constructions are not covered.
+* (z54) Spin theorems / direct complete-fibre averaging on the exact class layer → `Z54_EXACTSPIN.md` Lemma 4.5, Cor 5.1, Prop 5.2 (scoped): fixed-modulus fibres on the (★) support have ≤ 6τ(u) points; FIMR/Koymans–Milovic hypotheses are not met (Assessment); the smooth Fourier majorant for the cubic layer needs better-than-square-root (W). Transformed sums, signed or non-Fourier methods are not excluded.
 * (z55) Exact cancellation of a hit by a bounded group of genus non-hits on the exact layer → `Z55_CROSSU.md` §4.1:
   * excluded on moving windows for large p, since q_u ≥ (2/√15)√u (PROVED);
   * no one-coordinate Vieta involution exists on xyz = x + y + p (§4.3);
   * not covered: large groups, approximate cancellation, positivity maps, multi-coordinate moves.
-* (z55) Full-family confinement identities for P(4,15) on known prime-value families → `Z55_P415.md` Lemmas A1, A2
-  (PROVED):
+* (z55) Full-family confinement identities for P(4,15) on known prime-value families → `Z55_P415.md` Lemmas A1, A2 (PROVED):
   * a fully free square variable forces finitely many g;
   * a nonconstant, absolutely irreducible F + 4 (or 4F + 1) on a full-rank coset in ≥ 2 variables is not confined;
   * not covered: rank-one quadratics (Theorem Q), thin restrictions, other uses of those theorems.
-* (z55) Fixed finite certificate coverings for HC, including classes containing no squares → `Z55_HCF.md` Thm 3.1,
-  Cor 3.2 (PROVED):
-  * no finite family of certificate congruences covers {p ≡ 1 (840), p ≡ R (ℓ)}, for prime ℓ ≥ 11 and a non-residue
-    R < (ℓ − 1)/3;
+* (z55) Fixed finite certificate coverings for HC, including classes containing no squares → `Z55_HCF.md` Thm 3.1, Cor 3.2 (PROVED):
+  * no finite family of certificate congruences covers {p ≡ 1 (840), p ≡ R (ℓ)}, for prime ℓ ≥ 11 and a non-residue R < (ℓ − 1)/3;
   * so HC ≤ F(ℓ_p) cannot be proved by a finite family for each value of ℓ_p;
   * not excluded: growing moduli, unbounded certificate families.
-* (z55) Small-modulus HC certificates → `Z55_HCO.md` Cor 2.3 (PROVED rel. Linnik): infinitely many p ≡ 1 (8) have no
-  certificate with modulus μ ≤ log p/(1.02L₀) − O(1).
+* (z55) Small-modulus HC certificates → `Z55_HCO.md` Cor 2.3 (PROVED rel. Linnik): infinitely many p ≡ 1 (8) have no certificate with modulus μ ≤ log p/(1.02L₀) − O(1).
   * This is logarithmic only; polylogarithmic moduli are not excluded.
   * EVIDENCE: 101 of the 126 hard primes below 10¹² have a certificate with c, μ ≤ ⌊log²p⌋.
-* (z56) Fixed finite coverings of the primes ≡ 1 (8) by solvable (★) classes, or finite polynomial menus → `Z56_FAMTRY.md`
-  Prop 2.2 (PROVED): every such finite menu (polynomial menus: with eventual positive integral validity on the stated
-  classes) misses all primes ≡ 1 (mod 8·lcm q_i). Growing/infinite congruence families and
-  prime-sensitive arguments are not excluded.
-* (z56) The tried algebraic families for P(4,15) → `Z56_K4TRY.md` §4.1–4.2: p(m, n) = (n² − m² + 4)² + m² − 4 has both
-  shifts sums of two squares; its parameter-count heuristic suggests a thinner family than a² + b⁴, and no applicable
-  prime-value theorem was located (Assessment); fixing (u, s) gives lattice lines
-  (Theorem Q is one); "automatic confinement" of SL₂(ℤ)-norms is false (PROVED counterexample). Scoped to these
-  parametrisations; other algebraic families and methods are not excluded.
-* (z57) Covering rigidity plus explicit least non-residue with finitely many moduli → `Z57_SYNTH.md` Prop A.3 (PROVED, a
-  corollary of `Z55_HCF.md` T3.1): SMCR(D, g) (every unit avoider of all (★) hit classes with modulus ≤ D is a QR mod
-  every odd prime ≤ g) is false for every finite D ≥ 3 and every g ≥ 11. Size-controlled variants are not excluded.
-* (z57) Bounded-order character data and finite witness menus → `Z57_BFO.md` Lemma 2.3 (PROVED: characters of orders
-  dividing k recover a unit residue class exactly only modulo divisors of an explicit Λ(k); the methodological reading is
-  Assessment); `Z57_BFII.md` Prop 3.2 (PROVED: no finite set of Type II witness moduli covers all primes). Growing or
-  p-dependent witness families are not excluded.
-* (z58) Witness selectors for (MS) (least d, q, m3, u, C, s; congruence, n_p-rooting, CF(√p), two-square data) →
-  `Z58_WITNESS.md`.
+* (z56) Fixed finite coverings of the primes ≡ 1 (8) by solvable (★) classes, or finite polynomial menus → `Z56_FAMTRY.md` Prop 2.2 (PROVED): every such finite menu (polynomial menus: with eventual positive integral validity on the stated classes) misses all primes ≡ 1 (mod 8·lcm q_i). Growing/infinite congruence families and prime-sensitive arguments are not excluded.
+* (z56) The tried algebraic families for P(4,15) → `Z56_K4TRY.md` §4.1–4.2: p(m, n) = (n² − m² + 4)² + m² − 4 has both shifts sums of two squares; its parameter-count heuristic suggests a thinner family than a² + b⁴, and no applicable prime-value theorem was located (Assessment); fixing (u, s) gives lattice lines (Theorem Q is one); "automatic confinement" of SL₂(ℤ)-norms is false (PROVED counterexample). Scoped to these parametrisations; other algebraic families and methods are not excluded.
+* (z57) Covering rigidity plus explicit least non-residue with finitely many moduli → `Z57_SYNTH.md` Prop A.3 (PROVED, a corollary of `Z55_HCF.md` T3.1): SMCR(D, g) (every unit avoider of all (★) hit classes with modulus ≤ D is a QR mod every odd prime ≤ g) is false for every finite D ≥ 3 and every g ≥ 11. Size-controlled variants are not excluded.
+* (z57) Bounded-order character data and finite witness menus → `Z57_BFO.md` Lemma 2.3 (PROVED: characters of orders dividing k recover a unit residue class exactly only modulo divisors of an explicit Λ(k); the methodological reading is Assessment); `Z57_BFII.md` Prop 3.2 (PROVED: no finite set of Type II witness moduli covers all primes). Growing or p-dependent witness families are not excluded.
+* (z58) Witness selectors for (MS) (least d, q, m3, u, C, s; congruence, n_p-rooting, CF(√p), two-square data) → `Z58_WITNESS.md`.
   * Fixed-congruence selectors fail on 𝔐 (PROVED), and bounded-coordinate menus fail i.o. (CONDITIONAL on Dickson).
   * The CF, two-square, parity and n_p-rooting predictors are null (EVIDENCE).
   * Structural selectors only, not arbitrary algorithms. Growing-coordinate rules (CONJECTURE W) are open.
-* (z58) Finite (★) case splits on Mordell class 1, and global polynomial certificates in p = x² + 840y² →
-  `Z58_MORDELL.md` Cor S2, Prop C1 (PROVED; §3 z58). The other five classes and non-polynomial uses of (x, y) are open.
+* (z58) Finite (★) case splits on Mordell class 1, and global polynomial certificates in p = x² + 840y² → `Z58_MORDELL.md` Cor S2, Prop C1 (PROVED; §3 z58). The other five classes and non-polynomial uses of (x, y) are open.
 * (z58) Rigid modulus-4 slices and inheritance for Type II → `Z58_WILDCARD.md` §§2, 4–5.
   * Inheritance to multiples needs divisibility (PROVED; 4545).
   * r-spectrum multiplicativity is false (4 ∉ ℛ(409)).
   * The slices only give Z(N_II) ∩ odd ⊂ S₃, a pointwise sieve event that reciprocity does not resolve.
-* (z58) Constructions for CONV-II at primes → `Z58_CONVF.md` §4(A–H) (Assessment: failed attempts, *not* barriers).
-  These were non-residue witnesses, Pell numerators, CRT cofactors, norm forms, character correlations across shifts,
-  descent, re-encoding and divisor-pair distribution. Lemma 1.4 (PROVED) kills only finite fixed (a, c, d) sets.
-* (z58) Size-controlled symmetric covering with bounded D, and threshold-free exact mechanisms on 𝔐 →
-  `Z58_LADDER.md` Cor 1.3 (PROVED) and the CERTIFIED zero lists. Covering scales p^{0.15}–p^{2/3} and thresholded
-  counting are not excluded.
+* (z58) Constructions for CONV-II at primes → `Z58_CONVF.md` §4(A–H) (Assessment: failed attempts, *not* barriers). These were non-residue witnesses, Pell numerators, CRT cofactors, norm forms, character correlations across shifts, descent, re-encoding and divisor-pair distribution. Lemma 1.4 (PROVED) kills only finite fixed (a, c, d) sets.
+* (z58) Size-controlled symmetric covering with bounded D, and threshold-free exact mechanisms on 𝔐 → `Z58_LADDER.md` Cor 1.3 (PROVED) and the CERTIFIED zero lists. Covering scales p^{0.15}–p^{2/3} and thresholded counting are not excluded.
 
 *Geometry / relaxations / transfers*
 * Brauer–Manin, fibrations, descent, strong approximation → no BM obstruction; "BM only obstruction" = ES(n) → (I)7, `GEOMETRY_ES.md`.
@@ -1611,94 +1495,37 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * Cross-field net (13 fields) → no sharp transfer; pattern M1a–M5 → (J)94.
 * Boards: Davenport forcing, √−2 norm shifts, clean-side norm towers, one-child lemma, W_binom, HJ grammars (trap at 193), CEGAR, Λ-damped counts, iso-modulus packets, Fermat splitting, consecutive blocks, mod-8 escape → each refuted or a restatement → `~/.pi/boards/20261018-es-routes/memo.md` §dead, `…-es-lowertail/memo.md` §dead.
 * 51 brainstorm memos (logic, LLL/Janson, Markoff/Ghosh–Sarnak, tropical, p-adic, motivic, Maynard–Tao, entropy decrement, Kahn–Kalai, …) → none LIVE as an ES route (the one LIVE tag is an obstruction-side function-field result; R290 repair), promise ≤ 2/5 → `BRAINSTORM/README.md`.
-* (z58) Positive-integral BM / étale descent / coordinate fibrations as a sufficient criterion for (★) or Type II points →
-  `Z58_STRUCT.md` Cor A′, `Z58_STRUCT2.md` §5.2 (PROVED + CERTIFIED). BM detects exactly T1, and BM-nonempty does not imply
-  a point. Not excluded: further hypotheses, the open S°, equidistribution on fibres, an eventual IHP_BM.
-* (z58) Fixed-level automorphic and ternary-theta support proxies → `Z58_AUTOMORPH.md` Cor A1, `Z58_TERNARY.md` Thm F
-  (PROVED in scope; §3 z58). Escapes E1/E2/E3 and E1′, the cusp route and off-𝒞₁ classes remain.
-* (z58) Fixed-degree, large-q function-field positivity → `Z58_FFIELD.md` Cor 3.2 (PROVED rel. Chebotarev). The residue-blind
-  local route is dead (Prop 3.1). Fixed-q methods remain.
+* (z58) Positive-integral BM / étale descent / coordinate fibrations as a sufficient criterion for (★) or Type II points → `Z58_STRUCT.md` Cor A′, `Z58_STRUCT2.md` §5.2 (PROVED + CERTIFIED). BM detects exactly T1, and BM-nonempty does not imply a point. Not excluded: further hypotheses, the open S°, equidistribution on fibres, an eventual IHP_BM.
+* (z58) Fixed-level automorphic and ternary-theta support proxies → `Z58_AUTOMORPH.md` Cor A1, `Z58_TERNARY.md` Thm F (PROVED in scope; §3 z58). Escapes E1/E2/E3 and E1′, the cusp route and off-𝒞₁ classes remain.
+* (z58) Fixed-degree, large-q function-field positivity → `Z58_FFIELD.md` Cor 3.2 (PROVED rel. Chebotarev). The residue-blind local route is dead (Prop 3.1). Fixed-q methods remain.
 * (z58) Logic shortcuts → `Z58_LOGIC.md`.
   * IOpen plus residues cannot prove MS⁺★(P) (Thm 6.2, PROVED).
-  * No natural-proofs barrier was established. An ineffective eventual Σ₂ theorem would not finish the (★) route
-    (Assessment).
-* (z59) Single-eigensystem cusp/Waldspurger positivity for ternary-theta proxies on 𝔐, and termwise recipe lattices on the
-  square class → `Z59_WALDS.md` Thm W1, Lemma W0, §6.1 (PROVED in scope; §3 z59). For p ∈ 𝒞₁(2N), a non-zero
-  single-eigensystem restriction has g(p) ≠ 0 iff L(G_φ ⊗ χ_p, ½) ≠ 0 (under W1′'s anchor with non-zero restriction, or
-  (H2) with K_φ(g) ≠ 0); only for valid g does this force R(p) > 0. The "every p" version is false at 13 explicit
-  𝒞₁-primes (six in 𝔐) for the tested conductor-84 twist; eventual failure only CONJECTURE (rational G_φ, residue-class
-  CKRS refinement with a positive constant, not stated in CKRS). Escapes (E-a)–(E-e) remain.
-* (z59) Local means / dead moduli as a proof device for (MS⁺) → `Z59_MSPLUS.md` Thm 1, Remark 2.3 (the fixed-Q leading
-  coefficient is Jacobi-blind; R₈ has the same odd local factors and half the coefficient; Assessment that these leading
-  means alone are no route; square-sensitive main terms and other density inputs are not excluded). Unconditional closure-based reductions between (MS) and
-  (MS⁺) (products, divisors, q²-scaling) fail (CERTIFIED examples); witness-shape-conditioned reductions are not excluded.
-* (z59) Inheritance / numerator ladder / ET dilation as a source of Type II solutions at primes → `Z59_CONV2.md` Prop 4.1
-  (PROVED: no descent into a prime within equation-scaling transports). Non-monomial or adaptive maps are not excluded.
-* (z59) "Some prime factor of N_ρ = (p + ρ)/4 escapes the quadratic kernel ⟹ ρ works" → `Z59_CONVO.md` §4 (refuted by
-  4545 and at p = 8 803 369; CERTIFIED). Other bounded-order character arguments are not excluded.
-* (z59) Tryhard routes for pointwise (★) / Type II (least non-residue, near-squares, Pell / norm forms, Vieta, prime
-  witnesses, Zagier-type involutions, fixed small C, short-interval divisor sums) → `Z59_MSPF.md` §3, `Z59_CONVO.md` §7
-  (Assessment: failed attempts, *not* barriers). MSPF's (★) attempts stop at "some n + k has a divisor ≡ −1 (mod 4k)".
-  CONVO's full Type II attempts stop at the ratio criterion: for some j ≥ 0, (p + 3)/4 + j has positive divisors a, b with
-  ab dividing it and a + b ≡ 0 (mod 4j + 3). These are related tied-divisor problems, not the same positivity statement.
-* (z60) Fixed-level theta-class signed minorants (finite real combinations of positive-lattice theta series plus cusp
-  forms) in weight 3/2 (one or finitely many quadratic ψ) and weight ≥ 5/2 (one ψ) as an escape from T1 → `Z60_SIGNED.md`
-  S1–S3 (PROVED rel. cited inputs; §3 z60): either the proxy is eventually negative at all 𝒞₁-primes, or only
-  Gauss-exceptional components survive on squarefree 𝒞₁. Non-genus Eisenstein / general polynomial-growth objects are not
-  classified. Mixed ψ in weight ≥ 5/2 is *not* closed (counterexample, off 𝔐); multi-eigensystem
-  support proxies are not dead (S5: cancellation is avoidable; missing are non-degeneracy and a validity mechanism).
-* (z60) A p-independent "branch A fails up to X ⟹ branch B fires by g(X)" law for U_II → `Z60_LOPEZ.md` Prop D (PROVED in
-  the modulus coordinate, CONDITIONAL on Dickson in the shift / middle-letter coordinates). Adaptive links not excluded.
-* (z60) Bounded congruence covers / fixed witness menus for (MS⁺₁₀₅)-type or López statements → `Z60_MS105T.md` §§3–4,
-  `Z60_LOPEZT.md` Lemma 1.2 (PROVED; prior `Z55_HCF` Thm 3.1). Unconditional good × good closure and scaling ascent → refuted
-  (2929 = 29·101; 12 538 801; `Z60_MS105.md` §5, CERTIFIED); conditional gluing / descent not excluded.
-* (z60) Positive-density algebraic zero families along non-square univariate polynomials (as a disproof route for
-  (MS⁺₁₀₅)) → `Z60_MS105.md` Thm 3 (PROVED: density 0). Density-zero and sporadic zero families remain possible.
-* (z60) Ring-class / class-number / small-prime-splitting information in one field ℚ(√(−Cp)) → `Z60_RAYCLASS.md` Props
-  3.1–3.2, 5.1 (PROVED; for p ∤ 4C, on all ideals coprime to modulus and conductor, ring classes give only the visible
-  layer GV_C, which every non-square has). Not all class-group methods; information on the divisor set of a fixed β and
-  cross-field data are not excluded.
-* (z60) Weil-completion (Fourier-ℓ¹) or modular-surface minorants for the single-orbit encoding → `Z60_DYNAMICS.md` Prop 3 /
-  Cor 3, Prop 4′ (PROVED); rate-based margins CONDITIONAL-constrained (Prop 4). Target-specific cancellation not excluded.
-* (z60) Worst-case Deligne certificates in the Γ(4C) trace identity → `Z60_TRACE.md` Cor 4.3 (necessary alignment
-  condition, CONDITIONAL on Lemma 3; finite non-firing evidence at C = 2, 3). Not a theorem that spectral positivity is
-  impossible.
-* (z60) Tryhard re-derivations (López union via Type I/II parametrisations, coverings, explicit / prime / composite
-  witnesses, counting; MS105 via character expansion, small shifts, quadratic fields, factoring n) → `Z60_LOPEZT.md` §3,
-  `Z60_MS105T.md` §5 (Assessments: failed attempts, *not* barriers, beyond the fixed-menu lemmas).
+  * No natural-proofs barrier was established. An ineffective eventual Σ₂ theorem would not finish the (★) route (Assessment).
+* (z59) Single-eigensystem cusp/Waldspurger positivity for ternary-theta proxies on 𝔐, and termwise recipe lattices on the square class → `Z59_WALDS.md` Thm W1, Lemma W0, §6.1 (PROVED in scope; §3 z59). For p ∈ 𝒞₁(2N), a non-zero single-eigensystem restriction has g(p) ≠ 0 iff L(G_φ ⊗ χ_p, ½) ≠ 0 (under W1′'s anchor with non-zero restriction, or (H2) with K_φ(g) ≠ 0); only for valid g does this force R(p) > 0. The "every p" version is false at 13 explicit 𝒞₁-primes (six in 𝔐) for the tested conductor-84 twist; eventual failure only CONJECTURE (rational G_φ, residue-class CKRS refinement with a positive constant, not stated in CKRS). Escapes (E-a)–(E-e) remain.
+* (z59) Local means / dead moduli as a proof device for (MS⁺) → `Z59_MSPLUS.md` Thm 1, Remark 2.3 (the fixed-Q leading coefficient is Jacobi-blind; R₈ has the same odd local factors and half the coefficient; Assessment that these leading means alone are no route; square-sensitive main terms and other density inputs are not excluded). Unconditional closure-based reductions between (MS) and (MS⁺) (products, divisors, q²-scaling) fail (CERTIFIED examples); witness-shape-conditioned reductions are not excluded.
+* (z59) Inheritance / numerator ladder / ET dilation as a source of Type II solutions at primes → `Z59_CONV2.md` Prop 4.1 (PROVED: no descent into a prime within equation-scaling transports). Non-monomial or adaptive maps are not excluded.
+* (z59) "Some prime factor of N_ρ = (p + ρ)/4 escapes the quadratic kernel ⟹ ρ works" → `Z59_CONVO.md` §4 (refuted by 4545 and at p = 8 803 369; CERTIFIED). Other bounded-order character arguments are not excluded.
+* (z59) Tryhard routes for pointwise (★) / Type II (least non-residue, near-squares, Pell / norm forms, Vieta, prime witnesses, Zagier-type involutions, fixed small C, short-interval divisor sums) → `Z59_MSPF.md` §3, `Z59_CONVO.md` §7 (Assessment: failed attempts, *not* barriers). MSPF's (★) attempts stop at "some n + k has a divisor ≡ −1 (mod 4k)". CONVO's full Type II attempts stop at the ratio criterion: for some j ≥ 0, (p + 3)/4 + j has positive divisors a, b with ab dividing it and a + b ≡ 0 (mod 4j + 3). These are related tied-divisor problems, not the same positivity statement.
+* (z60) Fixed-level theta-class signed minorants (finite real combinations of positive-lattice theta series plus cusp forms) in weight 3/2 (one or finitely many quadratic ψ) and weight ≥ 5/2 (one ψ) as an escape from T1 → `Z60_SIGNED.md` S1–S3 (PROVED rel. cited inputs; §3 z60): either the proxy is eventually negative at all 𝒞₁-primes, or only Gauss-exceptional components survive on squarefree 𝒞₁. Non-genus Eisenstein / general polynomial-growth objects are not classified. Mixed ψ in weight ≥ 5/2 is *not* closed (counterexample, off 𝔐); multi-eigensystem support proxies are not dead (S5: cancellation is avoidable; missing are non-degeneracy and a validity mechanism).
+* (z60) A p-independent "branch A fails up to X ⟹ branch B fires by g(X)" law for U_II → `Z60_LOPEZ.md` Prop D (PROVED in the modulus coordinate, CONDITIONAL on Dickson in the shift / middle-letter coordinates). Adaptive links not excluded.
+* (z60) Bounded congruence covers / fixed witness menus for (MS⁺₁₀₅)-type or López statements → `Z60_MS105T.md` §§3–4, `Z60_LOPEZT.md` Lemma 1.2 (PROVED; prior `Z55_HCF` Thm 3.1). Unconditional good × good closure and scaling ascent → refuted (2929 = 29·101; 12 538 801; `Z60_MS105.md` §5, CERTIFIED); conditional gluing / descent not excluded.
+* (z60) Positive-density algebraic zero families along non-square univariate polynomials (as a disproof route for (MS⁺₁₀₅)) → `Z60_MS105.md` Thm 3 (PROVED: density 0). Density-zero and sporadic zero families remain possible.
+* (z60) Ring-class / class-number / small-prime-splitting information in one field ℚ(√(−Cp)) → `Z60_RAYCLASS.md` Props 3.1–3.2, 5.1 (PROVED; for p ∤ 4C, on all ideals coprime to modulus and conductor, ring classes give only the visible layer GV_C, which every non-square has). Not all class-group methods; information on the divisor set of a fixed β and cross-field data are not excluded.
+* (z60) Weil-completion (Fourier-ℓ¹) or modular-surface minorants for the single-orbit encoding → `Z60_DYNAMICS.md` Prop 3 / Cor 3, Prop 4′ (PROVED); rate-based margins CONDITIONAL-constrained (Prop 4). Target-specific cancellation not excluded.
+* (z60) Worst-case Deligne certificates in the Γ(4C) trace identity → `Z60_TRACE.md` Cor 4.3 (necessary alignment condition, CONDITIONAL on Lemma 3; finite non-firing evidence at C = 2, 3). Not a theorem that spectral positivity is impossible.
+* (z60) Tryhard re-derivations (López union via Type I/II parametrisations, coverings, explicit / prime / composite witnesses, counting; MS105 via character expansion, small shifts, quadratic fields, factoring n) → `Z60_LOPEZT.md` §3, `Z60_MS105T.md` §5 (Assessments: failed attempts, *not* barriers, beyond the fixed-menu lemmas).
 * (z72–z74) Fixed-shift denominator windows and slot transfers → explicit certified misses:
   * root-eligible shifts: 9565921 misses at 11 and 23 but hits at 47; 6206649121 misses at all three (`SIGNED_ROOT_TRANSFER.md`);
   * one-slot repairs of a scaled donor (`Z74_ONE_SLOT.md`);
-  * divisor shifts 4D−1, D | (p−1)/4: 214729 (`DIVISOR_SHIFT_CERTIFICATE.md`), infinitely many under Dickson
-    (`DIVISOR_SHIFT_DOUBLE_MISS.md`);
-  * CF-selected and factor-of-Q menus (`CF_SHIFT_SLOTS.md`, `SIGNED_FACTOR_TRANSFER.md`, e.g. 1711921); also `SIGNED_TWO_SHIFTS.md`.
-
-  The positive successes are ET classes.
-* (z74) Fixed finite polynomial formula menus.
-  * With Pell data alone, every prime of a computable unit-square class misses (`PELL_ES_MENU_NOGO.md`;
-    multiple integral witnesses: `PELL_ES_MULTI_MENU.md`).
-  * With Gaussian + integral Pell data, relative density one of the primes on a progression misses
-    (`GAUSSIAN_PELL_MENU.md`).
-  * For rational menus with one integral witness, density-one prime misses are only CONDITIONAL on Hooley Conj. 1
-    (`PELL_RATIONAL_MENU_AUDIT.md`).
-
-  Not excluded: remainders (`PELL_REMAINDER_SELECTOR.md`), divisor choice and growing menus.
-* (z73–z74, updated z75) Logic constructions and boundaries → iterating an *unmodified* Noetherian four-square Lagrange end
-  extension fails because Lagrange forces the dyadic kernel J = ⋂ 2ⁿD to be idempotent (`J² = J`), so U⁻¹D cannot be
-  Noetherian once BCM adds a common multiple (`notes/z75/BCM4_QR.md` §1; bypassed in `notes/z75/BCM4_PUSH2.md` via twisted
-  dyadic-axis end extensions). On the TS circle `x²+y² = s`, the explicit nonconstant unramified 2-torsion Brauer class
-  `(s, x)` blocks the constant-lifting hypothesis of the QR extension lemma (`BCM4_PUSH2.md` §5). Parameter-free
-  Pell-window induction W₂ fails in the z74 PID, 5-square BCM and collection models (`IE1_ES.md`), and a full-QR PID with
-  L(D) still fails least search for v² ≡ ct (mod P) (`IE1_PUSH2.md`). Earlier z73–z74 notes (hulls, Puiseux, signed Pell⁻
-  fibres) in `LOGIC_BCM_HULL_AND_ODD.md`, `LOGIC_COLLECTION.md`, `LOGIC_SIGNED_PELL_FIBER.md`.
-* (z75) Scoped proof-paradigm barriers (`notes/z75/PROOF_WILD.md`, `PROOF_WILD2.md`) → single-pivot continuant folds form
-  only a matching on length-3 words (rational overlaps still fail at 2521); signed divisor-cycle forcing fails at every
-  r ≤ 2p for 193, 2521, 3361, 5569, 9601; signed two-endpoint switches from t+1 | p−1 miss 1,269,241; power-sparse
-  core catalogues (e.g. a^m ± b^m with a > b ≥ 1, m ≥ 3; α ≤ 2/3) yield growing-core (S) certificates on relative density 0
-  of primes even with arbitrary multipliers and polynomial borrowing; flat Stepanov character-jet masks on XY = 1 for
-  1 ≤ m < p require exact linear degree D_m = ((p−1)/2)(2⌈m/2⌉ − 1).
-* (z75) Three frozen generative class-map tests (`data/z70/xreview/REVIEW_GEN.md`) → closed non-universal (`notes/z75/CONJS_GEN.md`
-  §2; mixed's 208 vs 152.75 fresh-window excess is explained by Prop 3's explicit c = 1 form certificate |β| = α − 1, α ≡ −1 mod 4d).
+  * divisor shifts 4D−1, D | (p−1)/4: 214729 (`DIVISOR_SHIFT_CERTIFICATE.md`), infinitely many under Dickson (`DIVISOR_SHIFT_DOUBLE_MISS.md`);
+  * CF-selected and factor-of-Q menus (`CF_SHIFT_SLOTS.md`, `SIGNED_FACTOR_TRANSFER.md`, e.g. 1711921); also `SIGNED_TWO_SHIFTS.md`. The positive successes are ET classes.
+* (z74) Fixed finite polynomial formula menus. Not excluded: remainders (`PELL_REMAINDER_SELECTOR.md`), divisor choice and growing menus.
+  * With Pell data alone, every prime of a computable unit-square class misses (`PELL_ES_MENU_NOGO.md`; multiple integral witnesses: `PELL_ES_MULTI_MENU.md`).
+  * With Gaussian + integral Pell data, relative density one of the primes on a progression misses (`GAUSSIAN_PELL_MENU.md`).
+  * For rational menus with one integral witness, density-one prime misses are only CONDITIONAL on Hooley Conj. 1 (`PELL_RATIONAL_MENU_AUDIT.md`).
+* (z73–z74, updated z75) Logic constructions and boundaries → iterating an *unmodified* Noetherian four-square Lagrange end extension fails because Lagrange forces the dyadic kernel J = ⋂ 2ⁿD to be idempotent (`J² = J`), so U⁻¹D cannot be Noetherian once BCM adds a common multiple (`notes/z75/BCM4_QR.md` §1; bypassed in `notes/z75/BCM4_PUSH2.md` via twisted dyadic-axis end extensions). On the TS circle `x²+y² = s`, the explicit nonconstant unramified 2-torsion Brauer class `(s, x)` blocks the constant-lifting hypothesis of the QR extension lemma (`BCM4_PUSH2.md` §5). Parameter-free Pell-window induction W₂ fails in the z74 PID, 5-square BCM and collection models (`IE1_ES.md`), and a full-QR PID with L(D) still fails least search for v² ≡ ct (mod P) (`IE1_PUSH2.md`). Earlier z73–z74 notes (hulls, Puiseux, signed Pell⁻ fibres) in `LOGIC_BCM_HULL_AND_ODD.md`, `LOGIC_COLLECTION.md`, `LOGIC_SIGNED_PELL_FIBER.md`.
+* (z75) Scoped proof-paradigm barriers (`notes/z75/PROOF_WILD.md`, `PROOF_WILD2.md`) → single-pivot continuant folds form only a matching on length-3 words (rational overlaps still fail at 2521); signed divisor-cycle forcing fails at every r ≤ 2p for 193, 2521, 3361, 5569, 9601; signed two-endpoint switches from t+1 | p−1 miss 1,269,241; power-sparse core catalogues (e.g. a^m ± b^m with a > b ≥ 1, m ≥ 3; α ≤ 2/3) yield growing-core (S) certificates on relative density 0 of primes even with arbitrary multipliers and polynomial borrowing; flat Stepanov character-jet masks on XY = 1 for 1 ≤ m < p require exact linear degree D_m = ((p−1)/2)(2⌈m/2⌉ − 1).
+* (z75) Three frozen generative class-map tests (`data/z70/xreview/REVIEW_GEN.md`) → closed non-universal (`notes/z75/CONJS_GEN.md` §2; mixed's 208 vs 152.75 fresh-window excess is explained by Prop 3's explicit c = 1 form certificate |β| = α − 1, α ≡ −1 mod 4d).
 * (z75–z76) Bounded-exponent open descent & square Kummer covers (`DISPROOF_OBSTRUCT.md`, `DISPROOF_DEEP.md` §3, Opus-reviewed) → moving-denominator patch defeats all `Br(V)[m]` / exponent-`m` geometric covers on `S°, X°, U°` (`s ≠ 1` for `k=4`, `s ∉ {1,2}` for `k=8`); unrestricted BM upstairs inherits downstairs 2-power-conductor reconstruction.
 * (z75–z76) Fixed-`c` Type II fibres `Y_{n,c}` (`DISPROOF_PUSH2.md`, `DISPROOF_DEEP.md` §§1–2, Opus-reviewed) → non-BM sterile at `c ≈ p^{2/3}` (`M(j)`), at all even `c ≥ 2` for `n = c² + 1` (Vieta descent), at some `c ≍ n^{1/3+ε}` for every large odd nonsquare, and at prescribed `⌊(log n)^A⌋` (`A > 3`) for density-1 primes (none implies a Type II zero).
 * (z76) `alpo.ge/remark.pdf` transfer limits (`ALPO_TRANSFER.md`, Opus-reviewed) → path-quadric norm sharp at `t = 1` (odd `k ≥ 3`), `tr(A^{2j}) = 2N₂`, missing-frequency Gram lemma, and stable-range (`rank L_i ≥ s_i + 3`) common-square transport renders T1-respecting positive representation determinants sterile on `n ≡ 1 (8M)` (signed/coupled theta towers not closed).
@@ -1716,9 +1543,21 @@ U ((J)58); b = 1 line has exactly the three failures 193, 2521, 66529 (López; [
 * (z80, PROVED; `notes/z80/R_BELOW_619.md` §§1.3–1.4,5.1,5.3–5.6) At `n=4P¹⁹`, after signed D-pooling the **absolute** common-integer cost is `≍W/P` vs budget `W/P²`; after four-prime completion the near-zero primitive-frequency **absolute** cost is `≍W` over the plateau, not a lower bound on the signed sum. Switching two-letter charts still costs period exponent 2/3 at the equilateral point. The unconditional BC tiles cover only a patch of the central triangle (§5.5).
 * (z80, `notes/z80/ES_JUGULAR.md` §§1,3,6,10; `notes/z80/EXTREME.md` §§1,8,12) PROVED: at a prime 1 mod 8 every odd nonresidue reaches the least nonresidue, not necessarily reciprocally; negative-prime-factor recursion can freeze at an isolated neutral word (CERTIFIED example 113,035,442,521; infinitude CONDITIONAL on Dickson). CERTIFIED: no nontrivial affine-linear relation mod 24 among the §6 columns after forced factors, not a general parity no-go. PROVED: modular word reductions alone test congruence, not entry equality; the all-even coordinate 2-power tower on the specified open detects signed solutions, all six mixed signs occur at 8/131 and 8/241; restricting smallest denominators to factors below the §1 smoothness threshold misses almost all primes. EVIDENCE: the unfitted fixed-window model underpredicts the observed gap records.
 * (z80, PROVED; `notes/z80/IE1_SPLIT.md` §§10–14,16–17; `notes/z80/PROTH_CORE.md` §§6,10) The scalar-content pullback obstructs IE₁⁻ over a non-initial PA subring; separately IOpen+Bézout+BCM+L(Div) requires pure-divisor windows at each prime. In the true-arithmetic geometric towers there is a smaller failing prime below each positive nonscalar (no numerical least failure CONDITIONAL on ES in ℕ); external finite cofactor paths to the least QNR fail from the §14 seed at the second modulus, not a coded-path separation. Scalar-factor-conservative elementary-coefficient unions with a persistent positive nonscalar below a scalar fail the limit factorial test. For fixed m the gcd rule misses positive multiples of lcm(2m+1,P₉); for m>11 with m≡11 mod τ of §6 the residual class is not contained in the unshifted core.
-* (z81, PROVED; `notes/z81/CAP_ZERO.md` §§2–3,7; `notes/z81/SPECIFIC_CLASS.md` §4) At fixed cap and Thm T's support/height ceilings on thin profiles, even unrestricted cofactor factorizations and small deterministic slots cannot uniformly pay unbounded mean exponents on large support primes; prescribing carrier `s` can force cap `≫ log₂s`; even `r=3` at `p=2521, x=633` allows no integral rewrite preserving `x` (and for any fixed `J`, no completion at `x+3j`, `|j|≤J`, CONDITIONAL on Dickson). Charging `rad(lcm_q d_q) ≤ X^C` has sharp phase boundary `b_* = log 3/(1+log 3)`: above `b_*`, almost no input certifies a positive fraction of prime windows `q ≍ (log X)^b` even for `-1`.
-* (z81, PROVED; `notes/z81/GAP_ES.md` §§1,10,12; `notes/z81/GEOM_COMB.md` §§2,7,9–10) Odd-character confinement ends effectively at `K_gen ≪ p^{0.187}`, `K_sub ≪ p^{0.198}`, yet arbitrarily many fixed windows can fail together at soluble Mordell primes despite every window containing a QNR generating `−1` (requiring exponent `> B`); smooth gaps `k ≥ X^δ` with `P⁺(k) ≤ (log X)^α` cover at most `X^{1−η+o(1)}` primes, and the largest `(log X)^α`-smooth actual gap has `log K · log₃X/(log₂X)² → 2α` in prime probability; target-specific Euclidean transference has optimal linear order in dimension; fixed-`h` slices of the 3-variable `k=3,7` quadric are absolutely irreducible quartics.
-* (z81, PROVED; `notes/z81/B2_DUALITY.md` §§1–4,7–11; `notes/z81/FAREY_PROOF.md` §§8,14–15; `notes/z81/S_U7_FORCE.md` §§4,6) On `S_p`, one-negative lines stay one-negative (`d(P₁)d(P₂)d(P₃)=1, α(P₁)+α(P₂)+α(P₃)=α(V)`); `x+y−z=p(p²+3)/4` is positive-rank yet sterile (odd den(z) ≡ 3 mod 4), and rank-≥2 deformed planes passing inherited BM still have 1-prime denominator; Lyness fibres with seed `≤ H` are rigid for `p > 3·10⁷ H⁹`; composite alternating walks can freeze at both starts `X_q, Y_q` (`183,783,601`, infinitely many CONDITIONAL on Dickson). No power cut about an infinite generator in a discretely ordered Bézout ring with division carries BCM; in Dirichlet-line power-cut models `Th(n)` holds iff `n ∈ C`. Real-only quadratic ring-class menus attain abelian exponent `2^r` (disproving a uniform 4-bound without a common reflection; common odd ramified `p` still caps at 4).
+* (z81, PROVED; `notes/z81/CAP_ZERO.md` §2) On Thm T's thin profiles and under its support/height ceilings, a fixed cap cannot uniformly pay unbounded mean exponents on large support primes, even with unrestricted cofactor factorizations and small deterministic slots.
+* (z81, PROVED; `notes/z81/CAP_ZERO.md` §2) Prescribing carrier `s` in the single-target construction can force cap `≫ log₂s`.
+* (z81, PROVED fixed-`x` example; `notes/z81/CAP_ZERO.md` §§3,7) At `p=2521, x=633`, `r=3` admits no integral completion preserving `x`; separately, for every fixed `J`, infinitely many primes admit root-3 packets with no integral completion at any `x+3j`, `|j|≤J`, CONDITIONAL on Dickson.
+* (z81, PROVED; `notes/z81/SPECIFIC_CLASS.md` §4) With certificate budget `rad(lcm_q d_q) ≤ X^C`, fixed `C>0`, the certifiable fraction for `−1` tends to zero in integer probability for `b_*<b<log 3`, `b_*=log 3/(1+log 3)`, at `3 mod 4` prime windows in `[(log X)^b,2(log X)^b]`; equality unresolved.
+* (z81, PROVED; `notes/z81/GAP_ES.md` §10) Effective `K_gen ≪ p^{0.187}`, `K_sub ≪ p^{0.198}` break genus and subgroup confinement at primes `p≡1 (4)`, not necessarily the exponent budget.
+* (z81, PROVED; `notes/z81/GEOM_COMB.md` §2) For any `J,B` there exist `J` fixed, nonprescribed shifts simultaneously missing at infinitely many soluble primes `1 mod 840`, each with a QNR letter generating `−1` but requiring `|u+v|>B` in the theorem's notation; not a failed prefix.
+* (z81, PROVED; `notes/z81/GEOM_COMB.md` §§7–8) For fixed `α>0`, `0<δ≤1`, gaps `k≥X^δ` with `P⁺(k)≤(log X)^α` occur on at most `X^{1−η+o(1)}` primes in `(X,2X]`; on primes `1 mod 4` there the largest smooth actual gap has `log K · log₃X/(log₂X)² → 2α` in probability.
+* (z81, PROVED; `notes/z81/GEOM_COMB.md` §10) Target-specific Euclidean transference in Type II divisor groups has optimal linear order in dimension, not a universal dimension-free constant.
+* (z81, PROVED; `notes/z81/GAP_ES.md` §12) For each fixed nonzero rational `h`, the resulting `k=3,7` slice polynomial is an absolutely irreducible quartic.
+* (z81, PROVED; `notes/z81/B2_DUALITY.md` §2) One-negative seeds stay one-negative under proper chords/tangents with finite nonzero residual intersections on `S_p`; Law C's quaternion identity requires three distinct intersections.
+* (z81, PROVED; `notes/z81/B2_DUALITY.md` §§3,7) At primes `p≡1 (4)`, the positive-rank plane section `x+y−z=p(p²+3)/4` has no positive integral point (`den z≡3 mod 4` at positive points of odd joint denominator); the rank-≥2 deformation passes inherited BM and has a positive point of prime joint denominator (not a capped square).
+* (z81, PROVED; `notes/z81/B2_DUALITY.md` §4) For positive integral outer seed letters `≤H` and `p>3·10⁷H⁹`, integral positive words on the Lyness fibre are the seed or its immediate neighbours up to reversal.
+* (z81, CERTIFIED; `notes/z81/B2_DUALITY.md` §9) At `183,783,601` the alternating walk freezes at both least-QNR starts even with composite divisors; infinitely many such primes CONDITIONAL on Dickson.
+* (z81, PROVED; `notes/z81/FAREY_PROOF.md` §§14–15) No power cut about an infinite generator in a discretely ordered Bézout ring with integer division carries BCM; in Dirichlet-line power cuts, `Th(n)` iff `n∈C` for `n≥0`.
+* (z81, PROVED; `notes/z81/S_U7_FORCE.md` §6) Real-only ring-class menus attain abelian exponent `2^r`, ruling out a uniform 4-bound for arbitrary menus; a common odd ramified prime still caps it at 4.
 
 ## 7. Open sub-problems that are well-posed and plausibly tractable
 
@@ -2656,7 +2495,7 @@ Ordered roughly by (relevance to the lower tail) × (tractability), an Assessmen
       argument is heuristic.
     * **Encodings from RAYCLASS / DYNAMICS / TRACE** (none supplies positivity): (E1) a non-CFT relation linking individual
       prime factors of 1 + r√(−t₀p) across levels C (shared primes q | C − C′), twist averaging via the Prop 5.2 box identity,
-      cross-field characters as sieve input (Prop 4.1's quartic identification sample-certified only); target-specific
+      cross-field characters as sieve input (z60 Prop 4.1's mod-17 identification now proved up to inversion and `χ_{−4}`, `notes/z81/S_U7_FORCE.md` §4); target-specific
       cancellation on the QNR half-orbit (n ≡ 1 (4)) and orbit holes;
       single-N trace bounds (odd k) sharper than Deligne with slack ≪ (ε∞/2)·ES at Mordell-hard primes. **Prove `Z60_TRACE.md`
       Lemma 3** (local f-sum / embedding identity; CERTIFIED on 21 044 cases) to make the Γ(4C) trace identity a theorem.
@@ -2950,12 +2789,12 @@ no HOT LEAD.**
 * **Solution complexity and censuses** (`notes/z80/ES_JUGULAR.md` D/F/G, `EXTREME.md`, `JUGULAR_COVER.md` H–J): PROVED (G, §9 rel. `EXTREME.md` §1 at `62fefacf8`): for each fixed A>0, off `O_A(X/log^A X)` primes in `(X,2X]` every sorted solution's smallest denominator x has `v_ℓ(x)=1` for some `ℓ>X^{c_A log₃X/log₂X}`. Separately (D/F, §§5,8), for fixed `0<β<1/15` and every sufficiently large fixed prime q, a positive-density set of `p≡1 (840)` with least QNR q and an actual (★) word has odd-valuation factors in uv of every interior good word, in each Type II modulus, and in the canonical Type I product ab, above `exp(c q^{1/4}), exp(q^{1/15}), exp(q^β)` respectively. These factors need not carry the nonresidue sign. PROVED window estimates (joint upper for distinct fixed positive 3 mod 4 shifts; matching single-window order on 𝔐 rel. FHRSS preprint Thm 1.1(2)): see §5.1. PROVED packet bounds and one-way descent at primes 1 mod 8; CERTIFIED finite parity/rank tests: §4 anatomy. CERTIFIED R₈ prime zero 6,955,940,568,721, (MS⁺₁₀₅) to 3·10¹¹ and max g=127 on 𝔐-primes to 5·10¹² (engines and check ranges: §§4,5.1 above; `EXTREME.md` §§2,7,9,13). EVIDENCE: the unfitted model underpredicts the measured tail (`EXTREME.md` §12).
 
 **z81 update (2026-11-22, 7 GPT-6.2 Astra ES-assault lanes + Claude Opus lit scout, 2 rounds each; 26 cross-lab reviews in `data/z81/xreview/`, incl. independent second Opus review `REVIEW_CAP_RECORDS_OPUS2.md` of `CAP_ZERO` I, V & `SPECIFIC_CLASS` C1, and Astra review of `LIT.md`. ES in ℕ remains open.)**
-* **Capped relaxation & cap-1 exceptional set (`notes/z81/CAP_ZERO.md` §§1–7, `notes/z81/SPECIFIC_CLASS.md` §8):** PROVED (Thm I, ineffective, twice Opus-reviewed): all three z80 QR pointwise valuation bounds (unconditional, GRH, Montgomery) hold with **prime-power root or root 1** (`log s = O(U)`) via an inverse packet choosing the overflow prime first (`m | s^h + 1`, `Φ₆(s)` lift). PROVED (Thm V & Thm C1, two packet/supply derivations sharing z79/TQ transfer; twice Opus-reviewed, upgrading `CAP_INTERPOLATION` §5 on all integers): `#{2≤n≤N : e*(n)>1} ≪ N exp(−c(log N)^{4/5})`, and `≪ N exp(−c(log N)^{3/4}(log₂N)^{1/4})` for root `1` or prime (V). CONDITIONAL on GRH + HC (`CAP_ZERO` §6): prime-root cap 1 at large hard primes and `e*(n) = O(1)`. Scoped planting/neighbor-`x` obstructions (`T`, `r=3` at `2521`, Dickson `N`).
-* **Additive gap `g(p)` (`notes/z81/GAP_ES.md` §§1–12):** PROVED (§8, rel. BV, SW, CRT transfer): for `L = log X`, `δ₀ = 1 − 1/(e log 3) ≈ 0.6651`, `#{p ≤ X : g(p) > L} ≪ X exp(−c L^{δ₀}/(log L)^{3/2})`. PROVED (§10, effective): `K_gen(p) ≪ p^{0.187}`, `K_sub(p) ≪ p^{0.198}`. PROVED (§3): once `k=3` misses, `k=7` misses iff quadratic confinement holds. CONDITIONAL on prime AP level `0.9908` (EH suffices, §11): `≍ X/log²X` primes in `(X,2X]`, `p≡1 (840)`, have `g(p)=11`; `g=19` CONDITIONAL on Bunyakovsky (§4). CERTIFIED at `3,153,419,441,929` (`g=127`): first genus break `k=27`, 4 pure budget misses; zero-fit composite-control bulk `10.05` vs `10` observed at `g≥47` (deep tail and finite-`ω` control still off).
-* **Divisor-ratio diagonal (`notes/z81/SPECIFIC_CLASS.md` §§1–7):** PROVED (Thms W, J, rel. Henriot, Shiu, SW, Mertens, Sathe–Selberg): for fixed `k` prime windows `q_i ≍ log X`, integer specific `-1` miss proportion is `(log X)^{-k I_*+o_k(1)}` (`I_* = 0.00415475…`, upper bound also on primes); growing-`k` hits give `exp(−L^{.582})`; CONDITIONAL on ES-free `(M)` gives `E(N) ≪ N exp(−c L^{.751})`, on `(DR)` gives `N^{1−δ}`. PROVED (Thm P): sharp radical-lcm phase boundary `b_* = log 3/(1+log 3)`.
-* **Logic (`notes/z81/FAREY_PROOF.md` §§1–16):** PROVED (4 Opus reviews): countable normal `T*` combines `IOpen + Bézout + global (Sep) + Lag + internal Dirichlet + full supplied-unit PW + z80 factorial strings over every non-initial PA subring + disc −4 reduction + root-conditional two squares + z79 §3 norm/elliptic windows` with `¬ES(P)`, `P≡1` on a nonstandard PA cut (no cofinal PA ring; `Th(n)` holds iff `n ∈ C`; full Farey, variable reduction, TS, BCM, `L(Div)`, `IE₁⁻` fail); separate `T_g` adds Boolean affine-divisibility least search incl. fixed-level `(★)`. PROVED (§15): no power cut about an infinite generator in a discretely ordered Bézout ring with division carries BCM. Positive `IE₁⁻`: parameter-free positive→negative Pell descent at primes `1 mod 4` (§1) and `√−5` form criterion (§16).
-* **U₇, `(S)` and cross-field CFT (`notes/z81/S_U7_FORCE.md` §§1–9):** CERTIFIED REFUTATION (§1): three-exception clause of z68 U₇ Conjecture C fails at **`2,238,327,841`** and **`4,367,159,449`** (independent Opus enumeration); B, U₇ and six-cofactor C CERTIFIED to **`111·10⁹`** on primes `p ≡ 1 (8)`. PROVED (**BARRIER-BROAD**, §§4, 6): sharp abelian exponent `2^r` for mixed real/imaginary quadratic ring class composita of base rank `r` (attained via real-only menus, CERTIFIED octic at `ℚ(√2,√3,√5), ℓ=264529`; odd part of `C` must be squarefree Fermat-prime product), `4` (`C | 60`) with a simultaneous reflection / common odd ramified `p`, `2` (`C | 6`) Hilbert-only; proves z60's mod-17 quartic identification beyond sample. Depth-0 reciprocal BFS hit at `q` on relative density 1 of `p ≡ 1 (840)`; composite walks hit ≤4 steps on all 3,426 primes `≤ 10⁷`, escape `113,035,442,521` in 2 steps, and hit all 5 extreme controls; `70x²−38x+1` hits all 24 `(S)` classes mod 840 with `ω(f) ≤ 2`.
-* **Duality, smooth gaps & literature (`notes/z81/B2_DUALITY.md`, `notes/z81/GEOM_COMB.md`, `notes/z81/LIT.md`):** PROVED (`B2_DUALITY`): Law C (`d(P₁)d(P₂)d(P₃)=1, α(P₁)+α(P₂)+α(P₃)=α(V)`) & nodal contact parity; sterile rank-≥1 plane `x+y−z=p(p²+3)/4` vs rank-≥2 deformed planes passing inherited BM with 1-prime denominator; Lyness rigidity `p > 3·10⁷ H⁹`; double-start composite traps (`183,783,601`). PROVED (`GEOM_COMB`): largest `(log X)^α`-smooth actual ES gap has `log K · log₃X/(log₂X)² → 2α` in prime probability; polynomial-size smooth gap power saving; simultaneous multi-window QNR budget failures; infinitely many `p ≡ 1 (840)` with a `p^{.39}`-smooth window succeeding at 4 and failing at 8 via the extra factor `2`; optimal linear dimension order for target-specific Euclidean transference. Literature (`LIT.md`, 2026-11-10…19 arXiv + targeted 2024–2026): no new pointwise mechanism; dated Trybushnyi `arXiv:2611.14167` priority correction (§1); Gao et al. `2611.24775` Davenport trap; Jiang–Lau–Lü `2611.12467` porting obligations `(H1)–(H7)`.
+* **Capped relaxation & cap-1 exceptional set (`notes/z81/CAP_ZERO.md` §§1–7, `notes/z81/SPECIFIC_CLASS.md` §8):** PROVED (Thm I, ineffective, twice Opus-reviewed): all three z80 QR pointwise valuation bounds (unconditional; CONDITIONAL on Dirichlet GRH or on z80 §12's uniform Montgomery hypothesis for the smaller scales) hold with **prime-power root or root 1** (`log s = O(U)`) via an inverse packet choosing the overflow prime first (`m | s^h + 1`, `Φ₆(s)` lift). PROVED (ineffective, rel. BV, BT, Shiu, Vaughan and internal unrefereed transfer; Thm V & Thm C1, two packet/supply derivations sharing z79/TQ transfer; twice Opus-reviewed, upgrading its §5 multiplier Assessment (`CAP_INTERPOLATION`) on all integers, no optimality or integral ES improvement): `#{2≤n≤N : e*(n)>1} ≪ N exp(−c(log N)^{4/5})`, and `≪ N exp(−c(log N)^{3/4}(log₂N)^{1/4})` for root `1` or prime (V). CONDITIONAL on GRH + HC (`CAP_ZERO` §6): prime-root cap 1 at large hard primes and `e*(n) = O(1)`. Scoped planting/neighbor-`x` obstructions (`T`, `r=3` at `2521`, Dickson `N`).
+* **Additive gap `g(p)` (`notes/z81/GAP_ES.md` §§1–12):** PROVED (§8, rel. BV, SW, CRT transfer): for `L = log X`, `δ₀ = 1 − 1/(e log 3) ≈ 0.6651`, `#{p ≤ X : g(p) > L} ≪ X exp(−c L^{δ₀}/(log L)^{3/2})`. PROVED (§10, effective): `K_gen(p) ≪ p^{0.187}`, `K_sub(p) ≪ p^{0.198}`. PROVED (§3): at primes `p≡1 (4)`, `p>7` missing `k=3`, `k=7` misses iff all prime factors of `(p+7)/4` are squares mod 7. CONDITIONAL on prime AP level `0.9908` (EH suffices, §11): `≍ X/log²X` primes in `(X,2X]`, `p≡1 (840)`, have `g(p)=11`; `g=19` infinitely often CONDITIONAL on Bunyakovsky for the §4 quadratic. CERTIFIED at `3,153,419,441,929` (`g=127`): first genus break `k=27`, 4 pure budget misses. EVIDENCE: zero-fit composite-control bulk `10.05` vs `10` observed at `g≥47` (deep tail and finite-`ω` control still off).
+* **Divisor-ratio diagonal (`notes/z81/SPECIFIC_CLASS.md` §§1–7):** PROVED (Thms W, J, rel. Henriot, Shiu, SW, Mertens, Sathe–Selberg): for fixed `k` distinct primes `q_i≡3 (4)` in `[L,2L]`, `L=log X`, joint `−1` miss proportion on `X≤t<2X` is `(log X)^{-k I_*+o_k(1)}` (`I_* = 0.00415475…`, upper bound also relative to primes `4t+1`); the full band at `β=.635` has `O(X exp(−L^{.582}))` all-miss rows; CONDITIONAL on ES-free `(M)` gives `E(N) ≪ N exp(−c(log N)^{.751})`, on `(DR)` gives `N^{1−δ}`. PROVED (Thm P): sharp radical-lcm phase boundary `b_* = log 3/(1+log 3)`.
+* **Logic (`notes/z81/FAREY_PROOF.md` §§1–16):** PROVED (4 Opus reviews): countable normal `T*` combines `IOpen + Bézout + global (Sep) + Lag + internal Dirichlet + full supplied-unit PW + z80 factorial strings over every non-initial PA subring + disc −4 reduction + root-conditional two squares + z79 §3 norm/elliptic windows` with `¬ES(P)`, `P≡1 (d)` for every positive `d` in a nonstandard PA cut (no cofinal PA ring; for `n≥0`, `Th(n)` iff `n ∈ C`; full Farey, variable reduction, TS, BCM, `L(Div)`, `IE₁⁻` fail); separate `T_g` has unary Boolean affine-divisibility least search incl. fixed-level `(★)`; full `L(Div)` unknown there. PROVED (§15): no power cut about an infinite generator in a discretely ordered Bézout ring with division carries BCM. Positive `IE₁⁻`: parameter-free positive→negative Pell descent at primes `1 mod 4` (§1) and `√−5` form criterion (§16).
+* **U₇, `(S)` and cross-field CFT (`notes/z81/S_U7_FORCE.md` §§1–9):** CERTIFIED REFUTATION (§1): three-exception clause of z68 U₇ Conjecture C fails at **`2,238,327,841`** and **`4,367,159,449`** (independent Opus enumeration); B, U₇ and six-cofactor C CERTIFIED to **`111·10⁹`** on primes `p ≡ 1 (8)`. PROVED (**BARRIER-BROAD**, §§4, 6): sharp abelian exponent `2^r` for mixed real/imaginary quadratic ring class composita of base rank `r` (attained via real-only menus, CERTIFIED octic at `ℚ(√2,√3,√5), ℓ=264529`; for full `−1 mod 4C` detection the odd part of `C` must be squarefree Fermat-prime product), `4` (`C | 60`) with a simultaneous reflection / common odd ramified `p`, `2` (`C | 6`) Hilbert-only; proves z60's mod-17 quartic identification beyond sample. Information only, not divisor occurrence. PROVED: depth-0 reciprocal BFS hit at the least nonresidue `q` on relative density 1 of `p ≡ 1 (840)`. CERTIFIED: composite walks hit within 4 steps on all 3,426 primes `1 mod 840` up to `10⁷`, escape `113,035,442,521` in 2 steps, and hit all 5 extreme controls. PROVED: for positive `x≡0 (4)`, `70x²−38x+1` has `(S)` with `Ω(f) ≤ 2`; this thin family meets all 24 odd-square classes mod 840.
+* **Duality, smooth gaps & literature (`notes/z81/B2_DUALITY.md`, `notes/z81/GEOM_COMB.md`, `notes/z81/LIT.md`):** PROVED (`B2_DUALITY`): Law C on proper lines with three finite rational intersections off the axes (`d(P₁)d(P₂)d(P₃)=1`; for distinct intersections `α(P₁)+α(P₂)+α(P₃)=α(V)`) & nodal contact parity; sterile rank-≥1 plane `x+y−z=p(p²+3)/4` vs rank-≥2 deformed planes passing inherited BM with 1-prime denominator; Lyness rigidity `p > 3·10⁷ H⁹`; CERTIFIED double-start composite trap (`183,783,601`). PROVED (`GEOM_COMB`): largest `(log X)^α`-smooth actual ES gap has `log K · log₃X/(log₂X)² → 2α` in probability on primes `p≡1 (4)` in `(X,2X]` for fixed `α>0`; polynomial-size smooth gap power saving; simultaneous multi-window QNR budget failures; infinitely many `p ≡ 1 (840)` with a `p^{.39}`-smooth window succeeding at 4 and failing at 8 via the extra factor `2`; optimal linear dimension order for target-specific Euclidean transference. Literature (`LIT.md`, 2026-11-10…19 arXiv + targeted 2024–2026): Assessment: no new pointwise mechanism found in completed searches; dated Trybushnyi `arXiv:2611.14167` priority correction (§1); Gao et al. `2611.24775` Davenport trap; Jiang–Lau–Lü `2611.12467` porting obligations `(H1)–(H7)`.
 
 ## 8. Pointers into the repository
 
