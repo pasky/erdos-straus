@@ -3,6 +3,7 @@ for every ordinary residue mod 176400, independently for each q and q digit.
 Rows can be discarded for smaller E; never needs to factor the large windows.
 """
 import gzip
+import re
 from functools import lru_cache
 from itertools import groupby
 from math import gcd, isqrt
@@ -74,6 +75,15 @@ def run(q,E,records):
 if __name__=='__main__':
     rows=[list(map(int,l.split())) for l in (ROOT/'atlas.txt').read_text().splitlines()]
     assert [q for q,e,unused,size,n,top in rows]==P[4:]
+    # Check the published table against the machine ledger, including row order.
+    note=Path('notes/z83/CAP_POINTWISE.md').read_text()
+    table=note.split('|q|cap bounds in the same order|\n|---|---|\n',1)[1].split('\n\n',1)[0]
+    reported=[]
+    for line in table.splitlines():
+        m=re.fullmatch(r'\|([0-9,]+)\|([0-9,]+)\|',line); assert m
+        qs,es=([int(j) for j in g.split(',')] for g in m.groups()); assert len(qs)==len(es)
+        reported.extend(zip(qs,es))
+    assert reported==[(q,e) for q,e,*_ in rows]
     total=0
     with gzip.open(ROOT/'witnesses.txt.gz','rt') as fh:
         def parse(l):
