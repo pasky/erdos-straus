@@ -47,20 +47,24 @@ def norm_checks(limit=3500):
 
 
 def local_checks():
-    # Finite field count gives the primitive local density independently of Euler algebra.
+    # Finite planes sample lattice pairs, not integers weighted by Euler factors.
     for l in (11, 13, 17, 19, 23, 31, 37, 43, 47):
-        tot = hit = 0
+        tot = hit = all_tot = all_hit = 0
         for i in range(l):
             for j in range(l):
                 u = (i*i+i*j+j*j) % l
-                if (i or j) and (4*u-3) % l:
-                    tot += 1
-                    hit += (u+1) % l == 0
+                if (4*u-3) % l:
+                    all_tot += 1
+                    all_hit += (u+1) % l == 0
+                    if i or j:
+                        tot += 1
+                        hit += (u+1) % l == 0
         assert F(hit, tot) == F(1, l-1+chi(l))
         fall = 1 + F(chi(l)*l, (l-1)*(l-chi(l)))
+        assert F(all_hit, all_tot) == 1 / ((l-1)*fall)
         fp = fall - F(1, (l-1)*(l-chi(l)))
         assert (l-1)*fp == l-1+chi(l)
-    print('primitive local law: 9 complete F_l^2 enumerations')
+    print('primitive and all local laws: 9 complete F_l^2 enumerations')
 
 
 def crt_checks():
