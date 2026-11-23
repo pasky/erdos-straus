@@ -63,14 +63,13 @@ def example():
     print('primitive norms but composite hits 3:', n,l,r,'sorted triple',x,min(Y,Z),max(Y,Z))
 
 def complete():
-    # Good-prime peel: explicit second logarithmic mesh nested in each cell.
-    # All indices have exponent units 1/G. R=max(1,remaining capacity),
-    # C=residual level. V table rounds down, making charge an upper bound.
+    # Exponent mesh 1/G: C = remaining level, R = remaining log-size,
+    # W = upper exponent of largest remaining good prime. V rounds down.
     G=100000;N=1000;cap=300; V=array('q',[S])*(cap*N+1)
     for i in range(N,cap*N):V[i+1]=V[i]+V[i-N]*(i-N)//(2*(i+1)**2)
-    def charge(C,R):
-        assert C>0 and R>0
-        j=min(cap*N,C*N//(2*R))
+    def charge(C,W):
+        assert C>0 and W>0
+        j=min(cap*N,C*N//(2*W))
         return z.ceildiv(2*G*S*S,C*V[j])
     # At a first bad t >= .35, C/2 < t for all descendants. Test candidate
     # w (remaining good-prime cutoff) fractions of the capacity; terms
@@ -78,14 +77,14 @@ def complete():
     # at each endpoint is conservative. No floating quadrature in signs.
     from functools import lru_cache
     @lru_cache(150000)
-    def peel(C,R,W,h):
+    def peel(C,R,W,depth):
         W=min(R,W)
         U=charge(C,W)
-        if h==0 or W<20:return U
+        if depth==0 or W<20:return U
         d=max(1,W//40);cost=0; hi=W
         while hi>d:
             lo=hi-d
-            cost+=z.ceildiv((hi-lo)*peel(C-hi,R-lo,hi,h-1),2*lo)
+            cost+=z.ceildiv((hi-lo)*peel(C-hi,R-lo,hi,depth-1),2*lo)
             U=min(U,charge(C,lo)+cost);hi=lo
         return U
     tau=95430;st=35000;cost=0;ordinary=0
