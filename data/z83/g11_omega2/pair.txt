@@ -1,0 +1,1 @@
+pair: tau, lower, C3, C7>=4, net (floors in scaled units) 579/1000 485675054559 275745738564 207666209946 2263106048
