@@ -63,13 +63,14 @@ def screens():
             cnt = 0
             for A,ff,d in labels:
                 if (n+4*d)%ff or gcd(n,d*ff)>1: continue
+                assert j != 1, 'even integral unit-chart hits are impossible at squares'
                 V=(n+4*d)//ff; x=(n+V)//4; y=n*A; z=F(n*x*A,d); r=isqrt(z.denominator)
                 assert F(4,n)==F(1,x)+F(1,y)+1/z and r*r==z.denominator
                 assert gcd(2*n,r)==1 and y%r==0 and all(v==1 for v in factors(r).values())
                 cnt+= r>1
             hits.append(cnt)
         if j==1: assert not any(hits)
-        print('F'+str(j), 'nonintegral root hits',sum(bool(c) for c in hits),'/',len(panel),'per-input',hits)
+        print('F'+str(j), '(numerator 4 only; not an 8-test)' if j==2 else '', 'nonintegral root hits',sum(bool(c) for c in hits),'/',len(panel),'per-input',hits)
 
 
 def signed():
