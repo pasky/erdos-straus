@@ -1,0 +1,6 @@
+two clauses (00,01,10,11): 1658 506 195 841
+fresh top tests / multiple labels same digit: 672 611
+toy pair cylinder census (compatible, supported, interval incidences): 413 47 47
+toy Haar miss-support fraction (rounded): 0.886982
+explicit empty coprime pairs: 4 exact dyads
+repaired center fourth moments: 45 fibres; 9 different centers
