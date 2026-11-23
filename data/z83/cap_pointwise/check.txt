@@ -1,0 +1,6 @@
+W: degree bound 8 base 19/30 repaired 1
+S: exact signed packets 644 mixed 146 reoriented 128
+F1  nonintegral root hits 0 / 30 per-input [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+F2 (numerator 4 only; not an 8-test) nonintegral root hits 6 / 6 per-input [4, 8, 10, 11, 10, 3]
+F3  nonintegral root hits 6 / 8 per-input [0, 3, 4, 1, 1, 3, 7, 0]
+F4  nonintegral root hits 21 / 21 per-input [11, 5, 7, 10, 11, 7, 6, 12, 8, 12, 8, 11, 8, 8, 4, 8, 7, 18, 7, 5, 10]
