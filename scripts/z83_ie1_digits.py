@@ -58,7 +58,7 @@ def check_remainders():
         assert 4 * (2*u)*(3*u)*(6*u) == t*((2*u)*(3*u)+(2*u)*(6*u)+(3*u)*(6*u))
         if p in {17,225,241,409,3153419441929}:
             print(f'p={p} = {r}² + {h}·{t}; t=0 (4), 0<t<2√p')
-    print(f'{len(controls)} distinct supplied screen inputs with positive smaller remainders: PASS')
+    print(f'{len(controls)} distinct controls (including example square 225) with positive smaller remainders: PASS')
 
 
 def check_seed():

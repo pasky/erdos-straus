@@ -4,5 +4,5 @@ p=225 = 1² + 8·28; t=0 (4), 0<t<2√p
 p=241 = 7² + 8·24; t=0 (4), 0<t<2√p
 p=409 = 5² + 16·24; t=0 (4), 0<t<2√p
 p=3153419441929 = 347779² + 1048576·2891988; t=0 (4), 0<t<2√p
-37 distinct supplied screen inputs with positive smaller remainders: PASS
+37 distinct controls (including example square 225) with positive smaller remainders: PASS
 3 masked targets: Newton and bit lifts agree through 512 bits: PASS
