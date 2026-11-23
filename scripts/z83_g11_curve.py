@@ -6,7 +6,7 @@ floor=lambda x:x//(z.S//S)
 ceil=lambda x:-floor(-x)
 table=''.join(' '.join(map(str,(floor(z.half(i,z.N)[0]),ceil(z.half(i,z.N)[1]),floor(z.lin(i,z.N)[0]),ceil(z.lin(i,z.N)[1]),ceil(z.Hhi[2][i]),ceil(sum(v[i] for j,v in z.Hhi.items() if j>=int(os.environ.get('G11_H','4')))))))+'\n' for i in range(1,z.T+1))+f'{ceil(z.Au)} {ceil(z.Eu)}\n'
 def run(G,J,B,c3,c7,lo):
-    s=subprocess.run(['data/z83/g11_omega2/curve.bin',*map(str,(G,J,B,c3,c7,lo))],text=True,input=table,capture_output=True,check=True).stdout
+    s=subprocess.run([os.environ['G11_CURVE_BIN'],*map(str,(G,J,B,c3,c7,lo))],text=True,input=table,capture_output=True,check=True).stdout
     return [list(map(int,l.split())) for l in s.splitlines()]
 if __name__=='__main__':
     if sys.argv[1:]==['shapes']:

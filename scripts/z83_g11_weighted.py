@@ -41,6 +41,7 @@ def total(b):
     # No terminal without first pin. Least bad <= X^(1/4).
     return sum(z.ceildiv(step*node(1,j,j),2*j) for j in range(i,G//4+1,step))
 if __name__=='__main__':
+    print('t b lower_floor upper_ceil margin_floor (scale 10^12)')
     cs=[(Q(i,1000),total(Q(i,1000))) for i in range(90,205,2)]
     for ti in range(130,206,5):
         t=Q(ti,1000); m,b,c=max((lower(t,b)-c,b,c) for b,c in cs if b<t)
