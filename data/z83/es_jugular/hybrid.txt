@@ -1,0 +1,15 @@
+p 680401 x31_factors {2: 2, 23: 1, 43: 2} halfprime_factors {340201: 1} A,C 92 1
+bridge CRT 7 11 4671
+ s,t valuations of ratios 0 0 ; 1 0
+ s,t valuations of ratios 1 0 ; 0 1
+ s,t valuations of ratios 0 1 ; 0 0
+terminal denominator chain [31, 1]
+p 31059039896040814550874265201 x31_factors {2: 2, 13: 1, 43: 15, 47: 1} halfprime_factors {15529519948020407275437132601: 1} A,C 3177070365797955661914307 1
+bridge CRT 5 17 3177070365797955661914937
+ s,t valuations of ratios 0 0 ; 1 0
+ s,t valuations of ratios 1 0 ; 0 1
+ s,t valuations of ratios 0 1 ; 0 0
+terminal denominator chain [3177070365797955661914307, 31, 1]
+28-mark sharpness 18267357156045523058379629767412377255842216987482417478675945603880561 factors of odd K 43 571 each x14, plus 39454073 odd-C at outer 31: none
+k=31 full box: M 4 x 170108 hits True
+k=31 full box: M 8 x 85054 hits False

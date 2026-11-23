@@ -1,0 +1,3 @@
+p 178481 m 5 negative orbits 2 order 23 minima (up to 8): 76601 83313
+p 164511353 m 9 negative orbits 2873 order 41 minima (up to 8): 37147755 37148155 37148157 37148233 37148297 37148893 37148939 37149051
+inputs 410 sealed primes 2 negative orbits 2875
