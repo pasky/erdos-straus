@@ -1,0 +1,14 @@
+primes 3 11
+00 least 1089 greatest-root 1
+01 least 9 greatest-root 11
+10 least 121 greatest-root 3
+11 least 2 greatest-root 11
+primes 3 11 1091
+000 least 1296216009 greatest-root 1
+001 least 1089 greatest-root 1091
+010 least 32137587 greatest-root 11
+011 least 1089 greatest-root 1091
+100 least 144024001 greatest-root 3
+101 least 1089 greatest-root 1091
+110 least 5951405 greatest-root 11
+111 least 2 greatest-root 1091
