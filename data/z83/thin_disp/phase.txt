@@ -1,0 +1,2 @@
+two-colour phase: 329 CRT triples, including 236 off-diagonal; colour clash checked
+complete-product means: 54 finite squares; 12 nonzero shared-high components
