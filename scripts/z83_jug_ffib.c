@@ -47,7 +47,7 @@ int main(int ac,char**av){if(ac!=4&&ac!=5)return 2;int q=atoi(av[1]),n=atoi(av[2
         int ab1=K==2?gadd[gadd[gmul[b][b]][gmul[Apoly.c[1]][b]]][gadd[Apoly.c[0]][1]]:0;
         int special=(!h&&(b==gneg[1]||b==gneg[2])) || (K==2 && h==gneg[1] && !ab1);
         if(special){ex++;assert(ok[R]==irr[R]);ab+=irr[R];}
-        else {if(n==K+1)assert(ok[R]<=8);if(ok[R]>amax){amax=ok[R];id=R;}
+        else {if(n==K+1)assert(ok[R]<=6);if(ok[R]>amax){amax=ok[R];id=R;}
             if(irr[R] && ok[R]==irr[R])covered++;}
         hit+=ok[R];all+=irr[R];}
     if(aix)printf("Aidx=%d ",aix);
