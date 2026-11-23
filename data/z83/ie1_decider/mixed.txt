@@ -1,0 +1,2 @@
+Mixed cubic: 9564 lifts, 114186 coprime divisor escapes; maximum 6 enlargements.
+Disc minimum ≤ degree·v(d) for 8640 translations of primitive coefficient lists.
