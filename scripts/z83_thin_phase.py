@@ -23,9 +23,15 @@ def crt_phase():
                 assert (F(mixed-mono,q*r*s) + F(4*pow(n*r*s,-1,q),q)).denominator==1
                 count+=1;off+=n!=n2
     # Cross-colour shared factors: compatibility is not n1 == n2.
-    clash=crt(-3,11,-7*pow(6,-1,11),11)
-    assert clash is not None and 1!=6 and (-3*6+7)%11==0
-    print(f'two-colour phase: {count} CRT triples, including {off} off-diagonal; colour clash checked')
+    clashes = compatible = 0
+    for v,w in ((11*13,11*17),(13*11,13*19),(11,11)):
+        for n1,n2 in product(range(1,12), repeat=2):
+            if gcd(n1,v)*gcd(n2,w)!=1:continue
+            actual=sum((m*n1+3)%v==0 and (m*n2+7)%w==0 for m in range(lcm(v,w)))
+            assert actual==int((-3*n2+7*n1)%gcd(v,w)==0)
+            clashes+=1;compatible+=actual
+    print(f'two-colour phase: {count} CRT triples, including {off} off-diagonal')
+    print(f'cross-colour shared factor: {clashes} pairs, {compatible} compatible (full periods)')
 
 
 def phi(q): return sum(gcd(k,q)==1 for k in range(1,q+1))
@@ -48,10 +54,16 @@ def zero_mode():
     for v,w,n1,n2 in product((15,21,33),(15,21,35),(1,2,3),(1,2)):
         a,b=2,4;Y=4;k=lcm(v,w)
         x=sum(kernel(m*n1,a,v,Y)*kernel(m*n2,b,w,Y) for m in range(k))/k
-        if gcd(v,w)<=Y:assert x==0
+        # Shared primitive characters: on units the argument is (n1*b)/(n2*a).
+        # Sum the primitive projectors by Moebius, with no m-period summation.
+        num=n1*b;den=n2*a
+        shared=sum(sum(mu(k//s)*phi(s) for s in divs(k) if (num-den)%s==0)
+                   for k in divs(gcd(v,w)) if k>Y)
+        expected=F(phi(lcm(v,w))*shared,lcm(v,w)*phi(v)*phi(w)) if gcd(n1,v)*gcd(n2,w)==1 else F(0)
+        assert x==expected
         count+=1;nonzero+=bool(x)
     assert nonzero>0
-    print(f'complete-product means: {count} finite squares; {nonzero} nonzero shared-high components')
+    print(f'complete-product means vs shared-primitive formula: {count} finite squares; {nonzero} nonzero shared-high components')
 
 if __name__=='__main__':
     crt_phase();zero_mode()

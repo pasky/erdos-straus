@@ -1,2 +1,3 @@
-two-colour phase: 329 CRT triples, including 236 off-diagonal; colour clash checked
-complete-product means: 54 finite squares; 12 nonzero shared-high components
+two-colour phase: 329 CRT triples, including 236 off-diagonal
+cross-colour shared factor: 310 pairs, 29 compatible (full periods)
+complete-product means vs shared-primitive formula: 54 finite squares; 12 nonzero shared-high components
