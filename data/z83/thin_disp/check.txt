@@ -1,0 +1,3 @@
+norm & square-Moebius: every n through 3500 (including ramification)
+primitive and all local laws: 9 complete F_l^2 enumerations
+joint-modulus full-period CRT: 324 tuples, 83 compatible
