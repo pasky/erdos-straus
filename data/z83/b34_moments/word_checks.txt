@@ -1,3 +1,3 @@
 interior words (4|t negative, 4∤t negative, 4∤t positive): 1339 3509 2746
 binary windows (live, uniquely live, singleton inactive): 238 79 157
-true bit-pattern rows, patterns, square-centre mass units: 2400 26 924
+true bit-pattern rows, patterns, constructed square, full fibre units: 5500 66 29929 1812

@@ -1,5 +1,6 @@
 """Small exact controls for z83 R2: signs, binary endpoint tests, bit-table law."""
 from collections import Counter
+from fractions import Fraction as F
 from itertools import product
 from math import gcd, isqrt, prod
 
@@ -67,19 +68,23 @@ def audit_seed():
                 f=a*d; g=(t*p+1)//f
                 assert f*g==t*p+1 and f%t==g%t==t-1
                 x=(f+1)//t; v=(g+1)//t
-                assert p==t*x*v-x-v and chi(f,p)==-1
+                assert x>=2 and p==t*x*v-x-v and chi(f,p)==-1
             count[bool(live),len(matched)==1]+=1
     print('binary windows (live, uniquely live, singleton inactive):',sum(c for (live,_),c in count.items() if live),count[True,True],count[False,True])
 
 
 def audit_table():
-    X=2400
-    sh=[0,1,2,4,6,9,14]
+    X=5500
+    qset=[3,7,11,23,31,47]
+    sh=sorted({0,9,14}|{(q+1)//4 for q in qset})
     primes={j for j in range(X,2*X+max(sh)) if len(divs(j))==2}
     bits=lambda n: tuple(n+h in primes for h in sh)
     population=range(X,2*X); law=Counter(bits(n) for n in population)
-    t=next(n for n in population if isqrt(4*n+1)**2==4*n+1 and not any(bits(n)))
-    qset=[3,7,11,19,23,31,43,47]
+    # Prescribe the root rather than searching for a prime-bit pattern.
+    witnesses=[min(divs(h+6)[1:]) for h in sh]
+    s=5+8*prod(set(witnesses)-{2}); t=(s*s-1)//4
+    assert t in population and all((t+h)%r==0 for h,r in zip(sh,witnesses))
+    assert not any(bits(t))
     for q in qset:
         ds=[d for d in divs(t+(q+1)//4) if gcd(d,q)==1]
         assert all((d+e)%q for d in ds for e in ds)
@@ -88,7 +93,15 @@ def audit_table():
     table=Counter()
     for n,c in weights.items():table[bits(n)]+=c
     assert law==table and sum(weights.values())==X
-    print('true bit-pattern rows, patterns, square-centre mass units:',X,len(law),weights[t])
+    # Transfer just a small fraction of the zero-fibre mass as well.
+    thinned=Counter({n:F(1) for n in population}); delta=F(1,100)
+    for n in population:
+        if not any(bits(n)):
+            thinned[n]-=delta; thinned[t]+=delta
+    thintable=Counter()
+    for n,c in thinned.items(): thintable[bits(n)]+=c
+    assert thintable==law and sum(thinned.values())==X
+    print('true bit-pattern rows, patterns, constructed square, full fibre units:',X,len(law),4*t+1,weights[t])
 
 
 if __name__=='__main__':
