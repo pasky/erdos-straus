@@ -1,0 +1,1 @@
+[5,100000000] primes 179468 one-anchor 179468 max finite k 703 at 56901121 full-only 0 all-even misses 0
